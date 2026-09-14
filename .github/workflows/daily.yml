@@ -1,0 +1,75 @@
+name: 덱 데이터 갱신
+
+on:
+  schedule:
+    # 매일 UTC 20:00 = KST 05:00. 한국 새벽에 갱신해 아침에는 최신이 되도록.
+    - cron: "0 20 * * *"
+  workflow_dispatch:        # 수동 실행 (패치 직후 등)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deck-data
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 수집기는 표준 라이브러리만 쓴다. 설치할 의존성이 없다.
+      - name: 수집 실행
+        run: python collector/fetch_decks.py
+
+      - name: 결과 검증
+        run: python collector/verify.py
+
+      - name: 변경분 커밋
+        run: |
+          if git diff --quiet -- data/; then
+            echo "변경 없음 — 커밋 생략"
+            exit 0
+          fi
+          git config user.name  "tft-deck-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          PATCH=$(python -c "import json;print(json.load(open('data/version.json'))['patch'])")
+          COUNT=$(python -c "import json;print(json.load(open('data/version.json'))['deckCount'])")
+          git commit -m "덱 데이터 갱신: 패치 ${PATCH}, ${COUNT}개 덱"
+          git push
+
+      # 원본 스키마가 바뀌면 조용히 낡은 데이터를 쓰게 되므로 실패를 드러낸다.
+      - name: 실패 시 이슈 등록
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "덱 수집 실패";
+            const body = [
+              "매일 수집이 실패했습니다. 앱은 직전 데이터를 계속 사용합니다.",
+              "",
+              `실행 로그: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              "",
+              "흔한 원인:",
+              "- 시즌 전환으로 lol.qq의 lineupJson 경로가 바뀜",
+              "- metatft 스키마 변경 (`cluster_info.cluster_details.clusters`)",
+              "- CommunityDragon 최신 반영 지연",
+            ].join("\n");
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "collector",
+            });
+            if (open.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ["collector"],
+              });
+            }

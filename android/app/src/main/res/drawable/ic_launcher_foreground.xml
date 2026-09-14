@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TFT 보드의 육각 칸을 본뜬 런처 아이콘. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#4FC2A3"
+        android:pathData="M54,28L70.5,37.5v19L54,66 37.5,56.5v-19L54,28z M54,33.6l-11.6,6.7v13.4L54,60.4l11.6,-6.7V40.3L54,33.6z" />
+    <path
+        android:fillColor="#17705C"
+        android:pathData="M54,42l7.3,4.2v8.4L54,58.8 46.7,54.6v-8.4L54,42z" />
+    <path
+        android:fillColor="#4FC2A3"
+        android:pathData="M35,62.5l6.4,3.7v7.4L35,77.3 28.6,73.6v-7.4L35,62.5z M73,62.5l6.4,3.7v7.4L73,77.3l-6.4,-3.7v-7.4L73,62.5z" />
+</vector>

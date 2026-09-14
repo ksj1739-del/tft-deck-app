@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">협곡 덱 리더</string>
+
+    <string name="overlay_channel_name">오버레이</string>
+    <string name="overlay_channel_desc">게임 위에 덱이 떠 있는 동안 표시됩니다</string>
+    <string name="overlay_running">덱을 게임 위에 띄우는 중</string>
+    <string name="overlay_deck_list">전체 덱 목록</string>
+    <string name="overlay_stop">중지</string>
+</resources>
