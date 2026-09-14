@@ -21,7 +21,7 @@ android {
         buildConfigField(
             "String",
             "FEED_BASE_URL",
-            "\"https://raw.githubusercontent.com/CHANGE-ME/tft-deck-app/main/data/\"",
+            "\"https://raw.githubusercontent.com/ksj1739-del/tft-deck-app/main/data/\"",
         )
     }
 
