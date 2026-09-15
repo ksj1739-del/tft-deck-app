@@ -206,6 +206,11 @@ def main():
     # lol.qq 에 매칭되지 않은 metatft 클러스터. 보드 유닛이 catalog 챔피언으로 풀리고 덱 코드와 글로벌 등급이 있어야
     # 앱이 '글로벌' 표시로 그린다. 등급은 실린 기준(globalGradeCuts)으로 다시 매겨 맞춰 본다.
     global_decks = [d for d in decks if d.get("kind") == "global"]
+    # 전용 덱은 lol.qq 에 없는 덱이다. 캐리·시너지 구성(이름)이 이미 있는 덱과 같으면 목록에 두 번 보인다.
+    deck_names = [d.get("name") for d in decks]
+    for deck in global_decks:
+        if deck_names.count(deck.get("name")) > 1:
+            problems.append("metatft 전용 덱 %s 이름이 다른 덱과 겹친다: %s" % (deck.get("id"), deck.get("name")))
     if (version.get("globalOnlyCount") or 0) != len(global_decks):
         problems.append("globalOnlyCount %s 와 실제 metatft 전용 덱 %d개가 다르다"
                         % (version.get("globalOnlyCount"), len(global_decks)))

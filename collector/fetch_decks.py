@@ -1741,6 +1741,9 @@ def main(argv=None):
                 warn("metatft comp_details %s 실패: %s" % (cid, exc))
 
     # 전용 덱은 lol.qq 덱 뒤에 글로벌 등급·평균 등수 순으로 붙는다(대상 순서 그대로, 앱 정렬과 같다).
+    # 유닛 자카드로는 안 맞았어도 캐리·시너지 구성(= 덱 이름)이 이미 있는 덱과 같으면 같은 덱으로 보고 싣지 않는다.
+    # 같은 이름이 lol.qq 등급과 '글로벌' 표시로 두 번 보이면 'lol.qq 에 없는 덱' 이라는 뜻과 어긋난다(2026-09-16 트리스타나).
+    taken_names = {d["name"] for d in decks}
     for target in global_targets:
         cid = target["cluster"]["id"]
         deck, work = build_global_deck(target, comps_info.get(cid) or {}, comp_results.get(cid), ctx, patch_global,
@@ -1748,6 +1751,10 @@ def main(argv=None):
         if deck is None:
             warn("metatft 전용 덱 %s: 사전으로 풀리는 대표 유닛이 없어 뺀다" % cid)
             continue
+        if deck["name"] in taken_names:
+            log("metatft 전용 덱 %s: 이름이 이미 있는 덱과 같아 뺀다(%s)" % (cid, deck["name"]))
+            continue
+        taken_names.add(deck["name"])
         decks.append(deck)
         works[deck["id"]] = work
         matched[deck["id"]] = (target["cluster"], 1.0)
