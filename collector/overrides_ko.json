@@ -1,0 +1,16 @@
+{
+  "_설명": "CommunityDragon ko_kr 세트 챔피언 목록에 없는 소환물·변신체의 한글 이름. 게임 표기로 확인한 이름만 적는다(근거: CommunityDragon ko_kr DA_18_Elderwood 특성 설명, metatft TFTSet18_latest_ko_kr.json). 공식 이름을 찾지 못한 것은 '누구의 무엇' 식 설명형 이름이며 note 에 표시한다. icon 은 선택(절대 URL 또는 CommunityDragon 상대 경로).",
+  "units": {
+    "DA_18_IronbarkTree": {"name": "돌껍질 나무", "note": "lol.qq 石皮树, CDragon 나무정령 설명"},
+    "DA_Elderwood18_StonebarkTree": {"name": "돌껍질 나무", "note": "metatft extraAbilities.unitName"},
+    "DA_18_LifeRoot": {"name": "생명꽃", "note": "lol.qq 生命花, CDragon 나무정령 설명"},
+    "DA_Elderwood18_Lifeblossom": {"name": "생명꽃", "note": "metatft ko 사전"},
+    "DA_18_ElderwoodGuardian": {"name": "깊은숲 수호자", "note": "lol.qq 深林守卫, CDragon 나무정령 설명"},
+    "DA_Elderwood18_Protector": {"name": "깊은숲 수호자", "note": "metatft ko 사전"},
+    "DA_18_CrimsonRaptor_Mini": {"name": "꼬마 부리", "note": "metatft ko 사전"},
+    "DA_Krug18_MiniKrug": {"name": "꼬마 돌거북", "note": "metatft ko 사전"},
+    "DA_18_NunuWillump": {"name": "누누와 윌럼프", "note": "metatft ko 사전"},
+    "DA_18_Willump": {"name": "윌럼프", "note": "lol.qq 威朗普, metatft ko 사전 '누누와 윌럼프'의 윌럼프"},
+    "DA_18_Yorick_Spirit": {"name": "정령 주술사", "note": "metatft ko 사전"}
+  }
+}
