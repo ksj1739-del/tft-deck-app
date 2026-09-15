@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import kotlinx.serialization.json.Json
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -18,16 +17,10 @@ import java.util.zip.GZIPInputStream
 /**
  * 덱 데이터의 단일 진실 공급원.
  *
- * 데이터가 26개 덱 / 280 KB로 작아서 DB에 정규화하지 않는다.
+ * 통합 덱 v2도 1 MB 안팎이라 DB에 정규화하지 않는다.
  * 파일로 캐시하고 메모리에 인덱스를 얹는 편이 코드도 적고 검색도 즉시 끝난다.
  */
 class DeckRepository private constructor(private val context: Context) {
-
-    private val json = Json {
-        ignoreUnknownKeys = true   // 수집기가 필드를 더해도 앱이 깨지지 않도록
-        isLenient = true
-        coerceInputValues = true
-    }
 
     private val cacheFile: File get() = File(context.filesDir, CACHE_NAME)
     private val prefs get() = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -58,12 +51,12 @@ class DeckRepository private constructor(private val context: Context) {
 
     private fun readCache(): DeckFeed? = runCatching {
         if (!cacheFile.exists()) return null
-        json.decodeFromString<DeckFeed>(cacheFile.readText())
+        FeedJson.decodeFeed(cacheFile.readText())
     }.getOrNull()?.takeIf { it.decks.isNotEmpty() }
 
     private fun readBundled(): DeckFeed? = runCatching {
         context.assets.open(CACHE_NAME).bufferedReader().use { reader ->
-            json.decodeFromString<DeckFeed>(reader.readText())
+            FeedJson.decodeFeed(reader.readText())
         }
     }.getOrNull()?.takeIf { it.decks.isNotEmpty() }
 
@@ -74,11 +67,14 @@ class DeckRepository private constructor(private val context: Context) {
      *
      * 먼저 version.json(수백 바이트)만 받아 해시를 비교하고, 바뀐 경우에만
      * 본체를 내려받는다. 평상시 통신량은 사실상 0이다.
+     *
+     * schemaVersion 은 보지 않는다. 수집기가 v1으로 되돌아가도(장애 복구 등) 모델이 두 버전을
+     * 모두 읽으므로, 버전으로 거르면 오히려 새 데이터를 못 받는 날이 생긴다.
      */
     suspend fun sync(force: Boolean = false): SyncResult = syncLock.withLock {
         withContext(Dispatchers.IO) {
             try {
-                val remote = json.decodeFromString<FeedVersion>(httpGet(BuildConfig.FEED_BASE_URL + VERSION_NAME))
+                val remote = FeedJson.decodeVersion(httpGet(BuildConfig.FEED_BASE_URL + VERSION_NAME))
                 val current = currentVersion()
 
                 if (!force && current != null && remote.contentHash.isNotEmpty() &&
@@ -91,7 +87,7 @@ class DeckRepository private constructor(private val context: Context) {
                 }
 
                 val body = httpGet(BuildConfig.FEED_BASE_URL + CACHE_NAME)
-                val feed = json.decodeFromString<DeckFeed>(body)
+                val feed = FeedJson.decodeFeed(body)
                 if (feed.decks.isEmpty()) {
                     // 빈 응답으로 멀쩡한 캐시를 덮어쓰지 않는다.
                     return@withContext SyncResult.Failed("받은 데이터에 덱이 없습니다")

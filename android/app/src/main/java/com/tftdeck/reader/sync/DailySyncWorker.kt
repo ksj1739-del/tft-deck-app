@@ -30,7 +30,13 @@ class DailySyncWorker(
         // 해시 비교가 의미를 갖는다.
         repository.load()
 
-        return when (val outcome = repository.sync()) {
+        val outcome = repository.sync()
+
+        // 통합: StatsRepository.get(applicationContext).sync(); IconPack.get(applicationContext).sync()
+        // 도감 통계와 아이콘 팩도 여기서 함께 갱신한다. 덱 갱신 결과와 무관하게 각자 실패를 삼키고
+        // 기존 파일을 유지하므로, 아래 재시도 판단은 덱 결과만 본다.
+
+        return when (outcome) {
             is SyncResult.Updated, SyncResult.UpToDate -> Result.success()
             is SyncResult.Failed -> {
                 android.util.Log.w(TAG, "덱 갱신 실패, 기존 데이터 유지: ${outcome.reason}")

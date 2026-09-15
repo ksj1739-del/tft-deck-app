@@ -1,22 +1,37 @@
 package com.tftdeck.reader
 
+import com.tftdeck.reader.data.BuildupOrigin
+import com.tftdeck.reader.data.BuildupPlanner
+import com.tftdeck.reader.data.CatalogIndex
+import com.tftdeck.reader.data.Deck
 import com.tftdeck.reader.data.DeckFeed
 import com.tftdeck.reader.data.DeckSearch
+import com.tftdeck.reader.data.DeckSortMode
+import com.tftdeck.reader.data.FeedJson
+import com.tftdeck.reader.data.IdIndex
 import com.tftdeck.reader.data.SearchAxis
-import kotlinx.serialization.json.Json
+import com.tftdeck.reader.ui.components.formatPick
+import com.tftdeck.reader.ui.components.sampleText
+import com.tftdeck.reader.ui.formatAvg
+import com.tftdeck.reader.ui.formatCount
+import com.tftdeck.reader.ui.formatPct
+import com.tftdeck.reader.ui.formatShortDate
+import com.tftdeck.reader.ui.iconUrl
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import java.io.File
+import kotlin.math.roundToInt
 
 /**
- * 수집기가 실제로 만든 decks.json으로 검색을 검증한다.
+ * (a) 수집기가 실제로 만든 decks.json(앱 동봉 스냅샷)으로 검색을 검증한다.
  *
  * 모형 데이터가 아니라 배포되는 파일을 그대로 읽기 때문에, 수집기 스키마가 바뀌면
- * 여기서 먼저 깨진다.
+ * 여기서 먼저 깨진다. v1 파일이든 v2 파일이든 같은 모델로 통과해야 한다.
  */
 class DeckSearchTest {
 
@@ -28,8 +43,7 @@ class DeckSearchTest {
         // 단위 테스트의 작업 디렉터리는 모듈 폴더(android/app)다.
         val file = File("src/main/assets/decks.json")
         assertTrue("decks.json이 assets에 없다: ${file.absolutePath}", file.exists())
-        feed = Json { ignoreUnknownKeys = true; isLenient = true; coerceInputValues = true }
-            .decodeFromString(file.readText())
+        feed = FeedJson.decodeFeed(file.readText())
         search = DeckSearch(feed)
     }
 
@@ -55,14 +69,17 @@ class DeckSearchTest {
     }
 
     @Test
-    fun `레벨별 배치의 챔피언은 catalog에서 찾을 수 있다`() {
-        val known = feed.catalog.champions.map { it.id }.toSet()
+    fun `단계·변형 배치의 유닛은 catalog 챔피언이나 소환물에서 찾을 수 있다`() {
+        // v1 파일은 편집 단계가 없어 stages 가 대표 보드 하나뿐이다. 그래도 같은 규칙으로 통과해야 한다.
+        val known = (feed.catalog.champions + feed.catalog.pets).map { it.id }.toSet()
         val missing = feed.decks
-            .flatMap { it.boards.values.flatten() + it.early + it.mid }
-            .map { it.id }
+            .flatMap { deck ->
+                deck.stages.flatMap { stage -> stage.units.map { it.id } } +
+                    deck.variants.flatMap { variant -> variant.units.map { it.id } }
+            }
             .filterNot { it in known }
             .distinct()
-        assertTrue("catalog에 없는 챔피언 참조: $missing", missing.isEmpty())
+        assertTrue("catalog에 없는 유닛 참조: $missing", missing.isEmpty())
     }
 
     // -- 덱 코드 -------------------------------------------------------------
@@ -106,7 +123,7 @@ class DeckSearchTest {
 
     @Test
     fun `한글 이름 일부로 찾는다`() {
-        val champion = feed.catalog.champions.first { it.name.length >= 2 }
+        val champion = feed.catalog.champions.first { it.name.length >= 2 && it.name in feed.index.champion }
         val results = search.suggest(champion.name.take(2))
         assertTrue(
             "'${champion.name.take(2)}'로 ${champion.name}을 못 찾았다",
@@ -136,9 +153,15 @@ class DeckSearchTest {
 
     @Test
     fun `영문명으로 찾는다`() {
-        val withEn = feed.catalog.champions.first { !it.nameEn.isNullOrBlank() }
+        val withEn = feed.catalog.champions.first { !it.nameEn.isNullOrBlank() && it.name in feed.index.champion }
         val results = search.suggest(withEn.nameEn!!)
         assertTrue("영문명 '${withEn.nameEn}'로 못 찾았다", results.any { it.name == withEn.name })
+    }
+
+    @Test
+    fun `검색 후보에 catalog id가 붙는다`() {
+        val suggestion = search.suggest("무한의 대검").first { it.name == "무한의 대검" }
+        assertEquals(feed.catalog.items.first { it.name == "무한의 대검" }.id, suggestion.id)
     }
 
     @Test
@@ -164,8 +187,8 @@ class DeckSearchTest {
 
     @Test
     fun `중국 한정 필터는 metatft에 없는 덱만 남긴다`() {
-        val onlyChina = search.filter(onlyInChinaOnly = true)
-        assertTrue("대조된 덱이 섞였다", onlyChina.all { it.metatft.onlyInChina })
+        val onlyChina = search.filter(onlyChina = true)
+        assertTrue("대조된 덱이 섞였다", onlyChina.all { it.isOnlyInChina })
         assertEquals(
             "version의 집계와 실제 덱 수가 다르다",
             feed.version.onlyInChinaCount,
@@ -183,10 +206,13 @@ class DeckSearchTest {
     @Test
     fun `검색 인덱스가 실제 덱을 가리킨다`() {
         val ids = feed.decks.map { it.id }.toSet()
+        val byId = feed.index.byId
         val dangling = buildList {
             feed.index.item.values.flatten().forEach { if (it.deck !in ids) add(it.deck) }
-            listOf(feed.index.champion, feed.index.trait, feed.index.component, feed.index.augment)
-                .forEach { axis -> axis.values.flatten().forEach { if (it !in ids) add(it) } }
+            listOf(
+                feed.index.champion, feed.index.trait, feed.index.component, feed.index.augment,
+                byId.champion, byId.item, byId.trait, byId.augment,
+            ).forEach { axis -> axis.values.flatten().forEach { if (it !in ids) add(it) } }
         }.distinct()
         assertTrue("없는 덱을 가리키는 인덱스: $dangling", dangling.isEmpty())
     }
@@ -203,5 +229,370 @@ class DeckSearchTest {
             }
             assertFalse("${axis.label} 인덱스가 비었다", count == 0)
         }
+    }
+}
+
+/**
+ * (b) 설계 계약(§5.2·§13.2)을 확장한 v2 픽스처로 모델·필터·정렬·빌드업 규칙을 검증한다.
+ *
+ * 그룹 3개(장로 드래곤: 편집 덱·pet·단계·실측 배치·증강·변형 2개·빌드업 / 아펠리오스: 좌표 없는 대표 보드
+ * / 요릭: 중국 한정·표본 부족)와 편집 독립 덱 1개로 이루어져 있다.
+ */
+class DeckFeedV2Test {
+
+    private lateinit var feed: DeckFeed
+    private lateinit var search: DeckSearch
+
+    @Before
+    fun load() {
+        val resource = javaClass.classLoader?.getResource("decks_v2_sample.json")
+        assertNotNull("테스트 리소스 decks_v2_sample.json 이 없다", resource)
+        feed = FeedJson.decodeFeed(resource!!.readText())
+        search = DeckSearch(feed)
+    }
+
+    private fun deck(id: String): Deck = feed.decks.first { it.id == id }
+
+    private fun ids(decks: List<Deck>): List<String> = decks.map { it.id }
+
+    // -- 파싱 ---------------------------------------------------------------
+
+    @Test
+    fun `v2 최상위 메타가 파싱된다`() {
+        assertEquals(2, feed.version.schemaVersion)
+        assertEquals("18.2", feed.version.patchGlobal)
+        assertEquals("2026-09-15", feed.version.statDate)
+        assertEquals(5, feed.buckets.size)
+        assertEquals("goldem", feed.defaultBucket)
+        assertEquals("20260914", feed.buckets.getValue("goldem").detailDate)
+        assertEquals(3, feed.scopes.size)
+        assertEquals(6_799_416L, feed.scopes.getValue("glob_plat").boards)
+        assertEquals(3.90, feed.gradeCuts.s, 1e-9)
+        assertEquals(300, feed.gradeCuts.minSample)
+        assertEquals(1, feed.catalog.pets.size)
+        assertEquals("pet", feed.catalog.pets.single().kind)
+    }
+
+    @Test
+    fun `statsFor와 gradeFor는 구간 등급을 주고 없으면 편집 등급으로 대신한다`() {
+        val elder = deck(ELDER)
+        assertEquals(17059, elder.statsFor("goldem")!!.n)
+        assertEquals("S", elder.gradeFor("goldem"))
+        assertFalse(elder.showsEditorialGrade("goldem"))
+
+        // 마스터+ 는 표본 부족(grade null) → 편집 등급 SS 로 대신한다. trend 가 null 로 와도 기본값.
+        assertNull(elder.statsFor("master")!!.grade)
+        assertEquals("SS", elder.gradeFor("master"))
+        assertTrue(elder.showsEditorialGrade("master"))
+        assertEquals("flat", elder.statsFor("master")!!.trend)
+
+        // 편집 등급도 없는 소표본 그룹은 null(화면에서 '표본 부족')
+        assertNull(deck(YORICK).gradeFor("goldem"))
+
+        // 편집 독립 덱은 통계가 없어 편집 등급
+        assertNull(deck(EDITORIAL).statsFor("goldem"))
+        assertEquals("S", deck(EDITORIAL).gradeFor("goldem"))
+
+        // v1 덱은 editorialTier 가 없고 tier 자체가 편집 등급이다.
+        val v1 = Deck(id = "14266", tier = "SS")
+        assertEquals("SS", v1.gradeFor("goldem"))
+        assertTrue(v1.isEditorialDeck)
+        assertEquals(1, v1.stages.size)
+    }
+
+    @Test
+    fun `단계 보드가 pet 표시와 함께 파싱된다`() {
+        val elder = deck(ELDER)
+        assertEquals(listOf("early", "mid", "final"), elder.stages.map { it.key })
+        val early = elder.stages.first()
+        assertEquals(5, early.level)
+        assertEquals("2-3", early.round)
+        assertTrue(early.units.first { it.id == PET }.isPet)
+        assertFalse(early.units.first { it.id == "DA_18_Yorick" }.isPet)
+        assertNull(elder.stages.last().round)
+        assertTrue(elder.units.first { it.id == PET }.isPet)
+
+        // 편집 덱이 없는 그룹은 대표 보드 하나짜리 단계. 좌표가 없다.
+        val aphelios = deck(APHELIOS)
+        assertEquals(1, aphelios.stages.size)
+        assertEquals(aphelios.units.map { it.id }, aphelios.stages.single().units.map { it.id })
+        assertNull(aphelios.units.first().row)
+
+        // 캐리 3명은 carryRank 순
+        assertEquals(listOf("DA_18_ElderDragon", "DA_Draven18", "DA_Taric18"), elder.carries.map { it.id })
+    }
+
+    @Test
+    fun `그룹 부가 수치가 파싱된다`() {
+        val elder = deck(ELDER)
+        assertEquals("v-1a2b3c4d5e", elder.representativeVariant?.id)
+        assertEquals(listOf("v-9f8e7d6c5b"), elder.otherVariants.map { it.id })
+        assertEquals(0.21, elder.positions.getValue("DA_Draven18").first().use, 1e-9)
+        assertEquals(listOf(3.23, 2.68, 4.33), elder.augmentStats.first().stage)
+        assertNull(elder.augmentStats[1].stage[0])
+        assertEquals(listOf(true, false, false), elder.augmentStats[1].stageLowSample)
+        assertEquals("DA_Taric18", elder.itemWearers.first().wearers.first().id)
+        assertEquals("g-1c2d3e4f5a", elder.global?.counters?.first()?.deck)
+        assertEquals(423009L, elder.global?.cluster)
+        assertEquals(8, elder.global!!.stats.getValue("glob_plat").places.size)
+        assertEquals(0.668, elder.keyUnits.first().star2!!, 1e-9)
+        assertEquals(9, elder.statsFor("goldem")!!.precise?.finalLevel)
+
+        // 출처 배지 판정
+        assertTrue(elder.hasEditorial)
+        assertTrue(elder.isEditorialStale)
+        assertTrue(elder.hasKrSample)
+        assertFalse(deck(APHELIOS).hasEditorial)
+        assertTrue(deck(YORICK).isOnlyInChina)
+        assertEquals(
+            "n=17,059 · 골드~에메랄드 · 9/15 · KR 플래+ 4.20등 n=9,849",
+            sampleText(elder, "goldem", feed.buckets),
+        )
+    }
+
+    // -- 필터·정렬 -------------------------------------------------------------
+
+    @Test
+    fun `구간별 네 가지 정렬`() {
+        val goldem = "goldem"
+        val all = search.filter(bucket = goldem)
+        assertEquals(ids(feed.decks), ids(all))
+
+        // 등급 S→D→없음, 같은 무리에서는 보정 평균(없으면 뒤)
+        assertEquals(listOf(ELDER, APHELIOS, YORICK, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.GRADE, goldem)))
+        // 픽률 내림차순
+        assertEquals(listOf(APHELIOS, ELDER, YORICK, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.PICK, goldem)))
+        // 상승: trend up 먼저, 그다음 평균 등수 변화가 작은 순
+        assertEquals(listOf(APHELIOS, YORICK, ELDER, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.RISING, goldem)))
+        // 표본 내림차순
+        assertEquals(listOf(ELDER, APHELIOS, YORICK, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.SAMPLE, goldem)))
+
+        // 마스터+: 등급이 보정 평균보다 먼저다(장로 드래곤은 보정 평균이 더 좋지만 표본 부족이라 뒤).
+        assertEquals(listOf(APHELIOS, ELDER, EDITORIAL, YORICK), ids(DeckSearch.sort(all, DeckSortMode.GRADE, "master")))
+
+        assertEquals(DeckSortMode.RISING, DeckSortMode.fromKey("rising"))
+        assertEquals(DeckSortMode.GRADE, DeckSortMode.fromKey(null))
+    }
+
+    @Test
+    fun `구간 등급·편집 덱·중국 한정·주 특성·레벨 필터`() {
+        // 티어 필터는 그 구간의 등급(없으면 편집 등급)으로 본다.
+        assertEquals(setOf(ELDER, EDITORIAL), ids(search.filter(tiers = setOf("S"), bucket = "goldem")).toSet())
+        assertEquals(setOf(ELDER), ids(search.filter(tiers = setOf("SS"), bucket = "master")).toSet())
+
+        assertEquals(setOf(ELDER, EDITORIAL), ids(search.filter(editorialOnly = true)).toSet())
+        assertEquals(listOf(YORICK), ids(search.filter(onlyChina = true)))
+        assertEquals(feed.version.onlyInChinaCount, search.filter(onlyChina = true).size)
+        assertEquals(listOf(APHELIOS), ids(search.filter(mainTrait = "DA_18_Vanguard")))
+        assertEquals(setOf(YORICK, EDITORIAL), ids(search.filter(levels = setOf(9))).toSet())
+    }
+
+    @Test
+    fun `고정 덱은 맨 위로, 숨긴 덱은 보기를 켤 때만`() {
+        val sorted = DeckSearch.sort(feed.decks, DeckSortMode.GRADE, "goldem")
+        assertEquals(listOf(YORICK, ELDER, APHELIOS, EDITORIAL), ids(DeckSearch.pinFirst(sorted, setOf(YORICK))))
+        assertEquals(listOf(YORICK, EDITORIAL, ELDER, APHELIOS), ids(DeckSearch.pinFirst(sorted, setOf(EDITORIAL, YORICK))))
+        assertEquals(ids(sorted), ids(DeckSearch.pinFirst(sorted, emptySet())))
+
+        val hiddenOff = search.filter(hidden = setOf(APHELIOS))
+        assertFalse(hiddenOff.any { it.id == APHELIOS })
+        assertEquals(feed.decks.size - 1, hiddenOff.size)
+        val hiddenOn = search.filter(hidden = setOf(APHELIOS), showHidden = true)
+        assertTrue(hiddenOn.any { it.id == APHELIOS })
+    }
+
+    @Test
+    fun `오버레이 구간 순환`() {
+        val keys = feed.buckets.keys
+        assertEquals("master", DeckSearch.nextBucket("all", keys))
+        assertEquals("low", DeckSearch.nextBucket("goldem", keys))
+        assertEquals("all", DeckSearch.nextBucket("low", keys))
+        assertEquals("all", DeckSearch.nextBucket("unknown", keys))
+        assertEquals("goldem", DeckSearch.nextBucket("goldem", emptyList()))
+    }
+
+    // -- 검색 ---------------------------------------------------------------
+
+    @Test
+    fun `byId 로 덱을 찾고, 없는 축은 이름 인덱스로 떨어진다`() {
+        assertEquals(setOf(ELDER, APHELIOS), ids(search.decksForId(SearchAxis.TRAIT, "DA_18_Vanguard")).toSet())
+        assertEquals(setOf(ELDER, EDITORIAL), ids(search.decksForId(SearchAxis.CHAMPION, "DA_18_ElderDragon")).toSet())
+        assertEquals(listOf(ELDER), ids(search.decksForId(SearchAxis.AUGMENT, "DA_Ascension")))
+        // 조합 재료 축은 byId 가 없어 catalog 이름("B.F. 대검")으로 찾는다.
+        assertEquals(listOf(ELDER), ids(search.decksForId(SearchAxis.COMPONENT, "DA_Component_BFSword")))
+        assertTrue(search.decksForId(SearchAxis.ITEM, "DA_NoSuchItem").isEmpty())
+
+        // byId 가 없는 옛 피드도 이름 인덱스로 찾는다.
+        val legacy = DeckSearch(feed.copy(index = feed.index.copy(byId = IdIndex())))
+        assertEquals(setOf(ELDER, EDITORIAL), ids(legacy.decksForId(SearchAxis.CHAMPION, "DA_18_ElderDragon")).toSet())
+    }
+
+    @Test
+    fun `검색 후보에 id가 붙고 증강 설명으로도 찾되 이름으로 맞은 후보가 먼저다`() {
+        val elder = search.suggest("장로").first { it.axis == SearchAxis.CHAMPION }
+        assertEquals("DA_18_ElderDragon", elder.id)
+
+        val results = search.suggest("대검")
+        val augment = results.indexOfFirst { it.axis == SearchAxis.AUGMENT && it.name == "검 제작자" }
+        assertTrue("설명문 검색이 동작하지 않는다: $results", augment >= 0)
+        val item = results.indexOfFirst { it.name == "무한의 대검" }
+        assertTrue("이름으로 맞은 후보가 설명으로 맞은 후보보다 앞서야 한다", item in 0 until augment)
+        assertEquals(listOf("라운드마다", "조합", "재료", "대검을", "하나", "얻습니다"), DeckSearch.descWords("라운드마다 조합 재료 B.F. 대검을 하나 얻습니다."))
+    }
+
+    @Test
+    fun `catalog 지도는 챔피언에 없으면 소환물에서 찾는다`() {
+        val catalog = CatalogIndex(feed.catalog)
+        assertEquals("철갑 나무", catalog.unit(PET)?.name)
+        assertTrue(catalog.isPet(PET))
+        assertFalse(catalog.isPet("DA_18_ElderDragon"))
+        assertEquals(5, catalog.champions["DA_18_ElderDragon"]?.cost)
+        assertNull(catalog.unit("DA_Unknown"))
+    }
+
+    // -- 표시 도우미 ------------------------------------------------------------
+
+    @Test
+    fun `iconUrl은 절대 URL을 그대로 쓰고 상대 경로에만 접두사를 붙인다`() {
+        val base = feed.version.assetBase
+        val pet = feed.catalog.pets.single()
+        assertEquals(pet.icon, iconUrl(base, pet.icon))
+        assertEquals("https://raw.communitydragon.org/latest/game/assets/x.png", iconUrl(base, "assets/x.png"))
+        assertEquals("https://raw.communitydragon.org/latest/game/assets/x.png", iconUrl(base, "/assets/x.png"))
+        assertNull(iconUrl(base, ""))
+        assertNull(iconUrl(base, null))
+    }
+
+    @Test
+    fun `숫자와 날짜 표기`() {
+        assertEquals("17,059", formatCount(17059))
+        assertEquals("-", formatCount(null))
+        assertEquals("3.61", formatAvg(3.61))
+        assertEquals("4.00", formatAvg(4.0))
+        assertEquals("-", formatAvg(null))
+        assertEquals("68.8%", formatPct(0.688))
+        assertEquals("-", formatPct(null))
+        assertEquals("0.21%", formatPick(0.0021))
+        assertEquals("1.2%", formatPick(0.012))
+        assertEquals("9/15", formatShortDate("20260915"))
+        assertEquals("9/15", formatShortDate("2026-09-15T13:14:40Z"))
+        assertEquals("", formatShortDate(null))
+    }
+
+    // -- 빌드업(§13) -------------------------------------------------------------
+
+    @Test
+    fun `빌드업이 계약 이름 그대로 파싱된다`() {
+        val buildup = deck(ELDER).buildup!!
+        val global = buildup.global!!
+        assertEquals("glob_plat", global.scope)
+        assertEquals(423009L, global.cluster)
+        assertEquals(9, global.rollLevel)
+        assertEquals(listOf(4, 5, 6, 7, 8, 9, 10), global.levels.map { it.level })
+        assertNull(global.levels.first().reachRound)
+        assertEquals(0.98, global.levels.first { it.level == 5 }.reachShare!!, 1e-9)
+        assertEquals(31.9, global.levels.first { it.level == 9 }.rollsPerGame!!, 1e-9)
+        assertTrue(global.levels.first { it.level == 7 }.options.isEmpty())
+        assertEquals("DA_18_Inferno", global.levels.first { it.level == 9 }.options.single().traits.single().id)
+        assertEquals(1, global.levels.first { it.level == 9 }.options.single().traits.single().count)
+
+        val cn = buildup.cn!!
+        assertEquals("goldem", cn.bucket)
+        assertNull(cn.rollLevel)
+        assertEquals("DA_18_ElderDragon", cn.levels.first().options.single().carryId)
+        assertEquals(0.755, cn.levels.first().options.single().top4!!, 1e-9)
+        assertTrue(cn.levels.first { it.level == 9 }.options.isEmpty())
+
+        assertEquals("前期连胜为主，血量低于50就卖血", deck(ELDER).buildupNotes.early)
+        assertEquals("4-2上8，4-5搜卡", deck(ELDER).editorial!!.notesCn.levelUp)
+        assertNull(deck(APHELIOS).buildupNotes.early)
+
+        // 빌드업이 없는 덱과, 필드가 없거나 null 인 옛 캐시
+        assertNull(deck(EDITORIAL).buildup)
+        val legacy = FeedJson.decodeFeed("""{"decks":[{"id":"a","buildup":null,"notesCn":{"items":"x"}},{"id":"b","buildup":{"global":{"levels":[{"level":8}]}}}]}""")
+        assertNull(legacy.decks[0].buildup)
+        assertNull(legacy.decks[0].notesCn.levelUp)
+        assertTrue(legacy.decks[1].buildup!!.global!!.levels.single().options.isEmpty())
+    }
+
+    @Test
+    fun `레벨 칩 목록과 기본 선택 레벨`() {
+        // 글로벌 옵션이 있는 레벨(4,5,6,8,9,10) ∪ 중국(8) ∪ 편집 단계(5,8). 옵션이 빈 7렙은 칩이 없다.
+        assertEquals(listOf(4, 5, 6, 8, 9, 10), BuildupPlanner.levels(deck(ELDER)))
+        // 편집 덱 최종 레벨(8)이 먼저
+        assertEquals(8, BuildupPlanner.defaultLevel(deck(ELDER)))
+        // 편집 최종 레벨이 칩에 없으면 주 리롤 레벨로 넘어간다
+        assertEquals(9, BuildupPlanner.defaultLevel(deck(ELDER), levels = listOf(4, 9, 10)))
+
+        // 편집 덱이 없으면 주 리롤 레벨
+        assertEquals(listOf(6, 7, 8), BuildupPlanner.levels(deck(APHELIOS)))
+        assertEquals(7, BuildupPlanner.defaultLevel(deck(APHELIOS)))
+
+        // 주 리롤 레벨도 없으면 가장 큰 레벨
+        assertEquals(listOf(8, 9), BuildupPlanner.levels(deck(YORICK)))
+        assertEquals(9, BuildupPlanner.defaultLevel(deck(YORICK)))
+
+        // 편집 독립 덱은 단계 레벨만
+        assertEquals(listOf(9), BuildupPlanner.levels(deck(EDITORIAL)))
+        assertEquals(9, BuildupPlanner.defaultLevel(deck(EDITORIAL)))
+
+        // 자료가 전혀 없으면 섹션을 숨긴다
+        assertNull(BuildupPlanner.defaultLevel(Deck(id = "empty")))
+        assertFalse(BuildupPlanner.hasData(Deck(id = "empty")))
+        assertTrue(BuildupPlanner.hasData(deck(ELDER)))
+    }
+
+    @Test
+    fun `레벨 1순위 구성은 글로벌 → 중국 → 작가 순이다`() {
+        val elder = deck(ELDER)
+        val top8 = BuildupPlanner.topPick(elder, 8)!!
+        assertEquals(BuildupOrigin.GLOBAL, top8.origin)
+        assertEquals(20000, top8.option!!.n)
+        // 8렙 행: 글로벌 2 + 중국 1 + 작가 2(중반·최종)
+        assertEquals(
+            listOf(BuildupOrigin.GLOBAL, BuildupOrigin.GLOBAL, BuildupOrigin.CN, BuildupOrigin.AUTHOR, BuildupOrigin.AUTHOR),
+            BuildupPlanner.picks(elder, 8).map { it.origin },
+        )
+        // 옵션이 빈 레벨은 1순위가 없다
+        assertNull(BuildupPlanner.topPick(elder, 7))
+        // 중국만 있는 덱
+        assertEquals(BuildupOrigin.CN, BuildupPlanner.topPick(deck(YORICK), 9)!!.origin)
+        // 작가만 있는 덱은 그 레벨의 마지막 단계
+        val author = BuildupPlanner.topPick(deck(EDITORIAL), 9)!!
+        assertEquals(BuildupOrigin.AUTHOR, author.origin)
+        assertEquals("final", author.stage!!.key)
+
+        // 새로 들어온 유닛: 같은 출처 바로 아래 레벨의 1순위와 비교
+        assertEquals(setOf("DA_18_Alistar"), BuildupPlanner.newUnits(elder, BuildupPlanner.globalPicks(elder, 5).first()))
+        assertTrue(BuildupPlanner.newUnits(elder, BuildupPlanner.globalPicks(elder, 4).first()).isEmpty())
+        val mid = BuildupPlanner.authorPicks(elder, 8).first()
+        assertEquals("mid", mid.stage!!.key)
+        assertTrue("DA_Draven18" in BuildupPlanner.newUnits(elder, mid))
+        assertFalse("DA_18_Yorick" in BuildupPlanner.newUnits(elder, mid))
+
+        // 오버레이 칩 아래 작은 글자
+        assertEquals("8렙 4-2 · 주 리롤 9렙", BuildupPlanner.caption(elder, 8))
+        assertEquals("4렙 · 주 리롤 9렙", BuildupPlanner.caption(elder, 4))
+        assertEquals("9렙", BuildupPlanner.caption(deck(YORICK), 9))
+
+        // 표본 부족 레벨은 흐리게
+        assertTrue(BuildupPlanner.isLowSample(elder, 10))
+        assertFalse(BuildupPlanner.isLowSample(elder, 9))
+        assertTrue(BuildupPlanner.isLowSample(deck(YORICK), 8))
+
+        // 타이밍 줄과 주 리롤
+        assertEquals(
+            listOf(5 to "2-5", 6 to "3-2", 7 to "3-5", 8 to "4-2", 9 to "4-6", 10 to "6-5"),
+            BuildupPlanner.timings(elder),
+        )
+        assertEquals(32, BuildupPlanner.rollsAtRollLevel(elder)!!.roundToInt())
+    }
+
+    private companion object {
+        const val ELDER = "g-7f3a9c1b2d"
+        const val APHELIOS = "g-1c2d3e4f5a"
+        const val YORICK = "g-2b3c4d5e6f"
+        const val EDITORIAL = "14301"
+        const val PET = "DA_18_IronbarkTree"
     }
 }
