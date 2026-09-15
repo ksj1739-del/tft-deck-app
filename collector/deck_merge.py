@@ -39,21 +39,31 @@ PRECISE_SCOPE_FOR_BUCKET = {"goldem": "cn_plat", "all": "cn_plat", "diamond": "c
 
 # 등급: 구간마다 그 구간 그룹 분포로 기준을 잡는다(bucket_grade_cuts). 조정은 여기 상수 한 곳에서 한다.
 # 구간마다 표본 규모가 수십 배 다르다(2026-09-15 수집분 그룹 n 중앙값: 전체 4613 · 골드~에메랄드 3100 ·
-# 골드 이하 1065 · 다이아+ 250 · 마스터+ 104). 전 구간에 문턱 300 · 보정 K 200 을 쓰면 다이아+ 는 16/28,
-# 마스터+ 는 9/9 그룹이 표본 부족이었고, 등급이 붙어도 K 가 표본만 해서 평균이 4.5 쪽으로 끌려가 D 로 눌렸다.
+# 골드 이하 1065 · 다이아+ 250 · 마스터+ 104). 그래서 표본 문턱을 구간 중앙값에 비례시킨다.
 #   minSample = clamp(사사오입(n 중앙값 × 0.1), 30, 300)  — 미만이면 grade null(표본 부족)
-#   shrinkK   = clamp(사사오입(n 중앙값 × 0.2), 20, 200)  — adjAvg = (n·avg + K·4.5) / (n + K)
-#   컷        = minSample 이상 그룹 adjAvg 의 10/25/50/75% 분위수 → S/A/B/C, 그 밖 D
-# minSample 이상 그룹이 5개 미만이면 분위수가 뜻이 없어 절대 컷 GRADE_CUTS 를 쓴다.
+# 보정 평균(adjAvg)은 경험적 베이즈 수축이다. 문턱을 넘은 그룹(eligible)이 5개 이상이면
+#   shrinkTo  = eligible 원평균의 n 가중 평균 μ(소수 셋째 자리)
+#   τ²        = pvariance(eligible 원평균) − mean(PLACEMENT_VAR / n)   — 표본 잡음을 뺀 그룹 간 참 차이
+#   shrinkK   = clamp(사사오입(PLACEMENT_VAR / τ²), 20, 200), τ² ≤ 0 이면 200
+#   adjAvg    = (n·avg + K·shrinkTo) / (n + K)   — 문턱 미만 그룹도 같은 K·shrinkTo
+#   컷        = eligible adjAvg 의 10/25/50/75% 분위수 → S/A/B/C, 그 밖 D
+# 예전에는 K = clamp(n 중앙값 × 0.2, 20, 200) 로 4.5 쪽으로 끌었는데, 胜率阵容 그룹 평균은 3.0등 근처라
+# 4.5 는 너무 멀고 K 도 커서 판수가 적은 좋은 덱이 역전됐다. 2026-09-15 골드~에메랄드: 알룬 n=358 avg 2.58 →
+# adj 3.27 C, 아펠리오스 n=300 avg 2.90 → 3.54 D, 반면 자이라 n=13650 avg 3.24 → C. '원평균이 0.3등 이상 좋은데
+# 등급이 더 낮은 쌍' 이 골드~에메 17 · 골드 이하 37 · 다이아+ 5 · 전체 2 였다.
+# eligible 이 5개 미만이면 분산·분위수가 뜻이 없어 예전 방식(4.5 로 수축, K = clamp(n 중앙값 × 0.2, 20, 200),
+# 절대 컷 GRADE_CUTS)을 쓴다.
 # 절대 컷: 胜率阵容은 평균 4.0 이하 조합만 노출해 그룹 평균이 2.4~3.8 에 몰린다. 설계 초기값
 # (S 3.90 / A 4.15 / B 4.40 / C 4.70)으로는 전부 S 가 돼 2026-09-15 골드~에메랄드 분포
 # (10/25/50/75/90% = 2.70/2.96/3.09/3.27/3.50)에 맞춰 다시 잡았다.
 GRADE_CUTS = (("S", 2.70), ("A", 3.00), ("B", 3.25), ("C", 3.50))
 GRADE_PERCENTILES = (("S", 0.10), ("A", 0.25), ("B", 0.50), ("C", 0.75))
 PERCENTILE_MIN_GROUPS = 5
-SHRINK_TO = 4.5
+SHRINK_TO = 4.5                 # eligible 이 적은 구간의 수축 목표
+# 한 판 등수의 분산. 1~8등이 고르게 나오면 5.25 이고, 실제로는 조금 작아 5.0 으로 둔다.
+PLACEMENT_VAR = 5.0
 MIN_SAMPLE_RATIO, MIN_SAMPLE_FLOOR, MIN_SAMPLE = 0.1, 30, 300   # MIN_SAMPLE 은 문턱 상한
-SHRINK_K_RATIO, SHRINK_K_FLOOR, SHRINK_K = 0.2, 20, 200         # SHRINK_K 는 보정 강도 상한
+SHRINK_K_RATIO, SHRINK_K_FLOOR, SHRINK_K = 0.2, 20, 200         # SHRINK_K 는 보정 강도 상한(비율은 적은 구간용)
 TREND_AVG_DELTA = 0.05
 GRADE_ORDER = {"S": 0, "A": 1, "B": 2, "C": 3, "D": 4}
 # 편집 덱 등급(v1 과 같은 순서). 통계 등급이 없는 덱의 정렬에만 쓴다.
@@ -274,10 +284,10 @@ def trend_for(avg_diff, pick_diff):
     return "flat"
 
 
-def adjusted_avg(agg, shrink_k):
+def adjusted_avg(agg, shrink_k, shrink_to=SHRINK_TO):
     """표본 보정 평균. 표시되는 반올림 값이라 등급·분위수도 이 값으로 매겨 화면과 어긋나지 않게 한다."""
     n = agg["n"]
-    return round((n * agg["avg"] + shrink_k * SHRINK_TO) / float(n + shrink_k), 2)
+    return round((n * agg["avg"] + shrink_k * shrink_to) / float(n + shrink_k), 2)
 
 
 def percentile(values, q):
@@ -289,15 +299,38 @@ def percentile(values, q):
     return ordered[low] + (ordered[high] - ordered[low]) * (pos - low)
 
 
+def percentile_cuts(values):
+    """낮을수록 좋은 값들 -> {"S": p10, "A": p25, "B": p50, "C": p75}. 표시 자리수(2)로 반올림해 등급과 화면을 맞춘다."""
+    return dict((grade, round(percentile(values, q), 2)) for grade, q in GRADE_PERCENTILES)
+
+
 def _half_up(value):
     # 파이썬 round 는 .5 를 짝수 쪽으로 보낸다. 문턱은 사사오입으로 잡는다.
     return int(math.floor(value + 0.5))
 
 
+def empirical_bayes(eligible):
+    """
+    표본 문턱을 넘은 그룹 집계들 -> (수축 목표 shrinkTo, 보정 강도 K).
+    shrinkTo 는 그룹 원평균의 n 가중 평균 μ. τ² = 원평균의 분산 − 평균(등수 분산/n) 은 표본 잡음을 뺀
+    그룹 간 참 평균 차이의 분산이고, K = 등수 분산/τ² 는 '그룹 하나가 μ 쪽으로 끌려가는 판수 무게'다.
+    그룹 간 차이가 표본 잡음보다 작으면(τ² ≤ 0) 차이를 믿을 수 없으니 K 상한으로 가장 세게 끈다.
+    """
+    total = float(sum(agg["n"] for agg in eligible))
+    shrink_to = round(sum(agg["n"] * agg["avg"] for agg in eligible) / total, 3)
+    tau2 = (statistics.pvariance([agg["avg"] for agg in eligible])
+            - statistics.mean([PLACEMENT_VAR / agg["n"] for agg in eligible]))
+    if tau2 <= 0:
+        return shrink_to, SHRINK_K
+    return shrink_to, max(SHRINK_K_FLOOR, min(SHRINK_K, _half_up(PLACEMENT_VAR / tau2)))
+
+
 def bucket_grade_cuts(aggs):
     """
     한 구간 그룹 집계들 -> 그 구간 등급 기준. decks.json buckets[b].gradeCuts 에 그대로 싣는다.
-    표본 문턱·보정 강도는 n 중앙값에 비례(상·하한 안), 컷은 문턱을 넘은 그룹 adjAvg 의 분위수.
+    표본 문턱은 n 중앙값에 비례(상·하한 안). 문턱을 넘은 그룹이 5개 이상이면 경험적 베이즈(empirical_bayes)로
+    shrinkTo·K 를 잡고 그 adjAvg 의 분위수로 컷을 낸다. 5개 미만이면 예전 방식(4.5 로 수축, K 는 n 중앙값 비례,
+    절대 컷)이다. 문턱 미만 그룹도 같은 K·shrinkTo 로 adjAvg 를 낸다(등급만 없다).
     """
     if aggs:
         med = statistics.median([agg["n"] for agg in aggs])
@@ -305,13 +338,15 @@ def bucket_grade_cuts(aggs):
         shrink_k = max(SHRINK_K_FLOOR, min(SHRINK_K, _half_up(med * SHRINK_K_RATIO)))
     else:
         min_sample, shrink_k = MIN_SAMPLE, SHRINK_K
-    eligible = [adjusted_avg(agg, shrink_k) for agg in aggs if agg["n"] >= min_sample]
+    eligible = [agg for agg in aggs if agg["n"] >= min_sample]
     if len(eligible) >= PERCENTILE_MIN_GROUPS:
-        cuts = dict((grade, round(percentile(eligible, q), 2)) for grade, q in GRADE_PERCENTILES)
+        shrink_to, shrink_k = empirical_bayes(eligible)
+        cuts = percentile_cuts([adjusted_avg(agg, shrink_k, shrink_to) for agg in eligible])
         method = "percentile"
     else:
+        shrink_to = SHRINK_TO
         cuts, method = dict(GRADE_CUTS), "absolute"
-    cuts.update(minSample=min_sample, shrinkK=shrink_k, method=method)
+    cuts.update(minSample=min_sample, shrinkK=shrink_k, shrinkTo=shrink_to, method=method)
     return cuts
 
 
@@ -324,7 +359,7 @@ def grade_cuts(aggregates):
 def finish_stats(agg, cuts):
     """집계 -> 카드 수치. cuts: 그 구간 등급 기준(bucket_grade_cuts)."""
     n = agg["n"]
-    adj = adjusted_avg(agg, cuts["shrinkK"])
+    adj = adjusted_avg(agg, cuts["shrinkK"], cuts["shrinkTo"])
     return {
         "n": n,
         "avg": round(agg["avg"], 2),

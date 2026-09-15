@@ -57,7 +57,11 @@ WINRATE_TOLERANCE = 0.06
 PRECISE_TOLERANCE = 0.01
 # 胜率阵容 구간(앱 칩 순서)과 구간별 등급 기준(buckets[b].gradeCuts).
 BUCKET_ORDER = ("all", "master", "diamond", "goldem", "low")
-GRADE_CUT_KEYS = ("S", "A", "B", "C", "minSample", "shrinkK")
+GRADE_CUT_KEYS = ("S", "A", "B", "C", "minSample", "shrinkK", "shrinkTo")
+# adjAvg 를 실린 shrinkK·shrinkTo 로 다시 계산했을 때 허용 차이(avg 가 소수 둘째 자리로 반올림돼 실린다).
+ADJ_AVG_TOLERANCE = 0.02
+# 둘 다 등급이 있는데 원평균이 이만큼 이상 좋은 그룹의 등급이 더 낮으면 역전으로 센다.
+INVERSION_AVG_GAP = 0.3
 GRADE_METHODS = ("percentile", "absolute")
 # 통계가 있는 그룹 중 등급이 붙은 비율이 이보다 낮으면 경고한다(앱에 표본 부족 카드가 많아진다).
 MIN_GRADED_SHARE = 0.70
@@ -198,6 +202,42 @@ def main():
         if known / float(len(variant_units)) < MIN_CHAMPION_JOIN:
             problems.append("변형 유닛 중 catalog 챔피언으로 풀린 비율 %.0f%%" % (100.0 * known / len(variant_units)))
 
+    # --- metatft 전용 덱(kind=global) ---------------------------------------------
+    # lol.qq 에 매칭되지 않은 metatft 클러스터. 보드 유닛이 catalog 챔피언으로 풀리고 덱 코드와 글로벌 등급이 있어야
+    # 앱이 '글로벌' 표시로 그린다. 등급은 실린 기준(globalGradeCuts)으로 다시 매겨 맞춰 본다.
+    global_decks = [d for d in decks if d.get("kind") == "global"]
+    if (version.get("globalOnlyCount") or 0) != len(global_decks):
+        problems.append("globalOnlyCount %s 와 실제 metatft 전용 덱 %d개가 다르다"
+                        % (version.get("globalOnlyCount"), len(global_decks)))
+    global_cuts = data.get("globalGradeCuts") or {}
+    if global_decks and any(not isinstance(global_cuts.get(k), (int, float)) for k in ("S", "A", "B", "C", "minSample")):
+        problems.append("metatft 전용 덱이 있는데 globalGradeCuts 가 없거나 깨졌다: %s" % global_cuts)
+        global_cuts = {}
+    for deck in global_decks:
+        label = deck.get("id")
+        grade = deck.get("globalGrade")
+        stat = ((deck.get("global") or {}).get("stats") or {}).get("glob_plat") or {}
+        if grade not in ("S", "A", "B", "C", "D"):
+            problems.append("metatft 전용 덱 %s 에 globalGrade 가 없다(%s)" % (label, grade))
+        elif deck.get("tier") != grade:
+            problems.append("metatft 전용 덱 %s tier %s 가 globalGrade %s 와 다르다" % (label, deck.get("tier"), grade))
+        elif global_cuts:
+            if (stat.get("n") or 0) < global_cuts["minSample"] or stat.get("avg") is None:
+                problems.append("metatft 전용 덱 %s glob_plat 표본 %s 가 문턱 %s 미만이다"
+                                % (label, stat.get("n"), global_cuts["minSample"]))
+            elif grade != next((g for g in "SABC" if stat["avg"] <= global_cuts[g]), "D"):
+                problems.append("metatft 전용 덱 %s globalGrade %s 가 기준으로 다시 매긴 등급과 다르다(avg %s)"
+                                % (label, grade, stat["avg"]))
+        units = deck.get("units") or []
+        unknown = sorted({str(u.get("id")) for u in units if u.get("id") not in champion_ids})
+        if not units or unknown:
+            problems.append("metatft 전용 덱 %s 보드가 비었거나 catalog 챔피언에 없는 유닛: %s" % (label, unknown))
+        if not (deck.get("teamCode") or {}).get("code"):
+            problems.append("metatft 전용 덱 %s 에 덱 코드가 없다" % label)
+    if global_decks:
+        print("metatft 전용 덱 %d개 · 글로벌 등급 %s"
+              % (len(global_decks), {g: sum(1 for d in global_decks if d.get("globalGrade") == g) for g in "SABCD"}))
+
     # --- metatft 비교 수치 ---------------------------------------------------
     for deck in decks:
         for scope, stat in ((deck.get("global") or {}).get("stats") or {}).items():
@@ -265,6 +305,23 @@ def main():
         mismatched = sum(1 for s in stats if s.get("grade") != expected_grade(s, cuts))
         if mismatched:
             problems.append("구간 %s 등급 %d건이 실린 기준(gradeCuts)으로 다시 매긴 등급과 다르다" % (key, mismatched))
+        # adjAvg 는 실린 shrinkK·shrinkTo 로 다시 계산한 값과 맞아야 한다(avg 반올림 몫만큼 허용).
+        off = [s for s in stats if s.get("avg") is not None and s.get("adjAvg") is not None and abs(
+            s["adjAvg"] - (s["n"] * s["avg"] + cuts["shrinkK"] * cuts["shrinkTo"]) / float(s["n"] + cuts["shrinkK"]))
+            > ADJ_AVG_TOLERANCE]
+        if off:
+            problems.append("구간 %s adjAvg %d건이 실린 shrinkK %s · shrinkTo %s 로 다시 계산한 값과 %.2f 넘게 다르다"
+                            % (key, len(off), cuts["shrinkK"], cuts["shrinkTo"], ADJ_AVG_TOLERANCE))
+        # 원평균이 0.3등 이상 좋은데 등급이 더 낮은 쌍(보정이 판수 적은 좋은 덱을 뒤집는 신호).
+        ranked = [s for s in stats if s.get("grade") and s.get("avg") is not None]
+        inverted = sum(1 for x in ranked for y in ranked
+                       if x["avg"] <= y["avg"] - INVERSION_AVG_GAP and "SABCD".index(x["grade"]) > "SABCD".index(y["grade"]))
+        if inverted:
+            text = "구간 %s 원평균이 %.1f등 이상 좋은데 등급이 더 낮은 쌍 %d개" % (key, INVERSION_AVG_GAP, inverted)
+            if key == "goldem":
+                problems.append(text)
+            else:
+                warnings.append(text)
         if with_grade:
             s_share = with_grade.count("S") / float(len(with_grade))
             if s_share > MAX_S_SHARE:
@@ -435,9 +492,9 @@ def main():
         print("\n검증 실패: %d건" % len(problems), file=sys.stderr)
         return 1
 
-    print("검증 통과 — 덱 %d개(그룹 %d · 편집 독립 %d), 패치 %s, 아이템 인덱스 %d개, 덱 코드 %d개, %.0f KB"
+    print("검증 통과 — 덱 %d개(그룹 %d · 편집 독립 %d · metatft 전용 %d), 패치 %s, 아이템 인덱스 %d개, 덱 코드 %d개, %.0f KB"
           % (len(decks), sum(1 for d in decks if d.get("kind") == "group"),
-             sum(1 for d in decks if d.get("kind") == "editorial"), version.get("patch"),
+             sum(1 for d in decks if d.get("kind") == "editorial"), len(global_decks), version.get("patch"),
              len(index.get("item") or {}), version.get("teamCodeCount", 0), size / 1024.0))
     return 0
 
