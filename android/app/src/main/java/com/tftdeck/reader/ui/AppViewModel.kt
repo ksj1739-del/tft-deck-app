@@ -12,13 +12,18 @@ import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.DeckSearch
 import com.tftdeck.reader.data.DeckSortMode
 import com.tftdeck.reader.data.FeedState
+import com.tftdeck.reader.data.IconPack
+import com.tftdeck.reader.data.IconSyncResult
 import com.tftdeck.reader.data.ItemHit
 import com.tftdeck.reader.data.ProfileRepository
 import com.tftdeck.reader.data.ProfileState
 import com.tftdeck.reader.data.SearchAxis
+import com.tftdeck.reader.data.StatsRepository
+import com.tftdeck.reader.data.StatsSyncResult
 import com.tftdeck.reader.data.SyncResult
 import com.tftdeck.reader.data.Suggestion
 import com.tftdeck.reader.data.TraitRef
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -317,13 +322,41 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         if (_syncing.value) return
         viewModelScope.launch {
             _syncing.value = true
-            _syncMessage.value = when (val outcome = repository.sync(force = true)) {
+            val deckMessage = when (val outcome = repository.sync(force = true)) {
                 is SyncResult.Updated -> "패치 ${outcome.patch} · 덱 ${outcome.deckCount}개로 갱신했습니다"
                 SyncResult.UpToDate -> "이미 최신입니다"
                 is SyncResult.Failed -> "갱신 실패: ${outcome.reason}"
             }
+            // 같은 버튼으로 도감 통계와 아이콘 팩도 받는다(하루 한 번 도는 워커와 같은 범위).
+            // 둘은 실패해도 기존 파일을 그대로 쓰므로, 새로 받은 것만 덧붙여 알린다.
+            val extras = buildList {
+                if (syncStatsQuietly()) add("도감")
+                if (syncIconsQuietly()) add("아이콘")
+            }
+            _syncMessage.value =
+                if (extras.isEmpty()) deckMessage else "$deckMessage · ${extras.joinToString("·")} 새로 받음"
             _syncing.value = false
         }
+    }
+
+    /** 도감 통계를 받는다. 새 파일을 받았으면 true. 실패하면 기존 데이터를 유지하므로 조용히 넘긴다. */
+    private suspend fun syncStatsQuietly(): Boolean = try {
+        val stats = StatsRepository.get(getApplication())
+        stats.load()
+        stats.sync() is StatsSyncResult.Updated
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        false
+    }
+
+    /** 아이콘 팩을 받는다. 새 팩으로 바꿨으면 true. */
+    private suspend fun syncIconsQuietly(): Boolean = try {
+        IconPack.get(getApplication()).sync() is IconSyncResult.Updated
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        false
     }
 
     fun consumeSyncMessage() {

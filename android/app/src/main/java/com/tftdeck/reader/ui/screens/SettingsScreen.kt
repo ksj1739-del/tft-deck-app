@@ -40,8 +40,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.tftdeck.reader.data.FeedState
+import com.tftdeck.reader.data.IconPack
+import com.tftdeck.reader.data.IconPackState
 import com.tftdeck.reader.data.ProfileRepository
 import com.tftdeck.reader.data.ProfileState
+import com.tftdeck.reader.data.StatsRepository
+import com.tftdeck.reader.data.StatsState
 import com.tftdeck.reader.ingame.sameRiotId
 import com.tftdeck.reader.overlay.OverlayService
 import com.tftdeck.reader.ui.AppViewModel
@@ -250,7 +254,11 @@ fun SettingsScreen(
                 InfoRow("덱 코드", "${version.teamCodeCount}개")
                 version.metatftSet?.let { InfoRow("metatft", it) }
             }
-            // 통합: 도감·아이콘 팩 상태 행 (StatsRepository.state, IconPack.state)
+            // 도감 통계와 아이콘 팩은 덱과 따로 받는다. 어느 쪽이 낡았는지 여기서 구분해 보여 준다.
+            val statsState by StatsRepository.get(context).state.collectAsState()
+            val iconState by IconPack.get(context).state.collectAsState()
+            InfoRow("도감 데이터", statsStatusText(statsState))
+            InfoRow("아이콘 팩", iconPackStatusText(iconState))
 
             Spacer(Modifier.size(10.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -310,6 +318,25 @@ fun SettingsScreen(
 
         Spacer(Modifier.size(20.dp))
     }
+}
+
+/** 도감 데이터 상태 한 줄. 예: "패치 18.2 · 2026-09-14 기준 · 3시간 전". */
+private fun statsStatusText(state: StatsState): String = when (state) {
+    StatsState.Loading -> "불러오는 중"
+    StatsState.Missing -> "없음 (지금 갱신으로 받습니다)"
+    is StatsState.Ready -> buildList {
+        state.version.patchGlobal.takeIf { it.isNotBlank() }?.let { add("패치 $it") }
+        state.version.statDate.takeIf { it.isNotBlank() }?.let { add("$it 기준") }
+        add(if (state.fromBundle || state.lastSyncedAt == null) "앱 동봉본" else relativeTime(state.lastSyncedAt))
+    }.joinToString(" · ")
+}
+
+/** 아이콘 팩 상태 한 줄. 예: "222개 · 0.5MB · 앱 동봉본". 팩이 없으면 아이콘을 원격에서 받는다. */
+private fun iconPackStatusText(state: IconPackState): String {
+    if (!state.isReady) return "없음 (아이콘을 원격에서 받습니다)"
+    val size = String.format(java.util.Locale.US, "%.1fMB", state.bytes / (1024.0 * 1024.0))
+    val synced = if (state.fromBundle || state.lastSyncedAt == null) "앱 동봉본" else relativeTime(state.lastSyncedAt)
+    return "${state.count}개 · $size · $synced"
 }
 
 /** 1등 금색, 톱4 강조색, 그 아래는 차분하게. 전적 카드·지난 게임 로비·오버레이 카드가 같은 규칙을 쓴다. */

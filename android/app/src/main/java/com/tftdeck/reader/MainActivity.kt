@@ -48,10 +48,17 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.tftdeck.reader.data.SearchAxis
+import com.tftdeck.reader.ingame.IngamePrefs
+import com.tftdeck.reader.ingame.hasUsageStatsPermission
 import com.tftdeck.reader.overlay.OverlayService
 import com.tftdeck.reader.overlay.OverlayState
 import com.tftdeck.reader.ui.AppViewModel
-import com.tftdeck.reader.ui.screens.CodexPlaceholder
+import com.tftdeck.reader.ui.codex.AugmentDetailScreen
+import com.tftdeck.reader.ui.codex.ChampionDetailScreen
+import com.tftdeck.reader.ui.codex.CodexScreen
+import com.tftdeck.reader.ui.codex.CodexViewModel
+import com.tftdeck.reader.ui.codex.ItemDetailScreen
+import com.tftdeck.reader.ui.codex.TraitDetailScreen
 import com.tftdeck.reader.ui.screens.DeckDetailScreen
 import com.tftdeck.reader.ui.screens.DeckListScreen
 import com.tftdeck.reader.ui.screens.SearchScreen
@@ -78,6 +85,12 @@ class MainActivity : ComponentActivity() {
     override fun onStart() {
         super.onStart()
         OverlayState.appVisible.value = true
+        // 게임 연동을 켜 두었는데 기기 재시작·프로세스 종료로 감지가 멈췄으면 다시 켠다.
+        // 포그라운드 서비스는 앱 화면이 보일 때만 시작할 수 있어 TftApp.onCreate 가 아니라 여기서 한다.
+        val ingame = IngamePrefs.get(this)
+        if (ingame.detectEnabled.value && hasUsageStatsPermission(this) && !OverlayService.detecting.value) {
+            OverlayService.startWatch(this)
+        }
     }
 
     override fun onStop() {
@@ -132,6 +145,8 @@ private fun codexRouteFor(axis: SearchAxis, id: String): String? {
 @Composable
 private fun AppRoot(pendingDeck: MutableState<String?>) {
     val viewModel: AppViewModel = viewModel()
+    // 도감 목록·상세 라우트가 함께 쓴다. 액티비티 범위라 탭을 오가도 필터·검색어가 유지된다.
+    val codexViewModel: CodexViewModel = viewModel()
     val navController = rememberNavController()
     val backStack by navController.currentBackStackEntryAsState()
     val route = backStack?.destination?.route
@@ -179,7 +194,12 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
         }
         OverlayService.start(context, deckId)
         // 앱이 열려 있는 동안은 숨어 있으므로, 눌렀는데 아무 일도 없는 것처럼 보이지 않게 알려 준다.
-        android.widget.Toast.makeText(context, "앱을 나가면 게임 위에 나타납니다", android.widget.Toast.LENGTH_SHORT).show()
+        // 게임 연동의 자동 표시를 켜 두었으면 TFT가 앞에 있을 때만 보이므로 안내도 그에 맞춘다.
+        val ingame = IngamePrefs.get(context)
+        val onlyInTft = ingame.detectEnabled.value && hasUsageStatsPermission(context) &&
+            ingame.autoOverlay.value && !ingame.showOutsideTft.value
+        val hint = if (onlyInTft) "TFT가 앞에 오면 게임 위에 나타납니다" else "앱을 나가면 게임 위에 나타납니다"
+        android.widget.Toast.makeText(context, hint, android.widget.Toast.LENGTH_SHORT).show()
     }
 
     val openDeck: (String) -> Unit = { id -> navController.navigate("deck/$id") }
@@ -245,50 +265,64 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
                     )
                 }
 
-                // -- 도감: 통합 단계에서 WP-4 화면으로 교체 ---------------------------
+                // -- 도감 ------------------------------------------------------------
+                // 목록과 상세 네 종류가 codexViewModel 하나를 함께 쓴다. 상세에서 돌아와도 필터·검색어가 남도록.
 
                 composable(Tab.Codex.route) {
-                    // 통합: CodexScreen(viewModel = codexViewModel,
-                    //     onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") },
-                    //     onOpenTrait = { navController.navigate("codex/trait/${Uri.encode(it)}") },
-                    //     onOpenItem = { navController.navigate("codex/item/${Uri.encode(it)}") },
-                    //     onOpenAugment = { navController.navigate("codex/augment/${Uri.encode(it)}") })
-                    CodexPlaceholder(kind = "codex", id = null)
+                    CodexScreen(
+                        viewModel = codexViewModel,
+                        onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") },
+                        onOpenTrait = { navController.navigate("codex/trait/${Uri.encode(it)}") },
+                        onOpenItem = { navController.navigate("codex/item/${Uri.encode(it)}") },
+                        onOpenAugment = { navController.navigate("codex/augment/${Uri.encode(it)}") },
+                    )
                 }
 
                 composable(
                     route = CODEX_CHAMPION_ROUTE,
                     arguments = listOf(navArgument("id") { type = NavType.StringType }),
                 ) { entry ->
-                    // 통합: ChampionDetailScreen(id, viewModel = codexViewModel, onOpenDeck = openDeck,
-                    //     onOpenItem = { navController.navigate("codex/item/${Uri.encode(it)}") })
-                    CodexPlaceholder(kind = "champion", id = entry.arguments?.getString("id"))
+                    ChampionDetailScreen(
+                        id = entry.arguments?.getString("id").orEmpty(),
+                        viewModel = codexViewModel,
+                        onOpenDeck = openDeck,
+                        onOpenItem = { navController.navigate("codex/item/${Uri.encode(it)}") },
+                    )
                 }
 
                 composable(
                     route = CODEX_TRAIT_ROUTE,
                     arguments = listOf(navArgument("id") { type = NavType.StringType }),
                 ) { entry ->
-                    // 통합: TraitDetailScreen(id, viewModel = codexViewModel, onOpenDeck = openDeck,
-                    //     onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") })
-                    CodexPlaceholder(kind = "trait", id = entry.arguments?.getString("id"))
+                    TraitDetailScreen(
+                        id = entry.arguments?.getString("id").orEmpty(),
+                        viewModel = codexViewModel,
+                        onOpenDeck = openDeck,
+                        onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") },
+                    )
                 }
 
                 composable(
                     route = CODEX_ITEM_ROUTE,
                     arguments = listOf(navArgument("id") { type = NavType.StringType }),
                 ) { entry ->
-                    // 통합: ItemDetailScreen(id, viewModel = codexViewModel, onOpenDeck = openDeck,
-                    //     onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") })
-                    CodexPlaceholder(kind = "item", id = entry.arguments?.getString("id"))
+                    ItemDetailScreen(
+                        id = entry.arguments?.getString("id").orEmpty(),
+                        viewModel = codexViewModel,
+                        onOpenDeck = openDeck,
+                        onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") },
+                    )
                 }
 
                 composable(
                     route = CODEX_AUGMENT_ROUTE,
                     arguments = listOf(navArgument("id") { type = NavType.StringType }),
                 ) { entry ->
-                    // 통합: AugmentDetailScreen(id, viewModel = codexViewModel, onOpenDeck = openDeck)
-                    CodexPlaceholder(kind = "augment", id = entry.arguments?.getString("id"))
+                    AugmentDetailScreen(
+                        id = entry.arguments?.getString("id").orEmpty(),
+                        viewModel = codexViewModel,
+                        onOpenDeck = openDeck,
+                    )
                 }
 
                 composable(Tab.Search.route) {

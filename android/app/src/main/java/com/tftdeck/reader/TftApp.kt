@@ -8,6 +8,7 @@ import coil.memory.MemoryCache
 import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.IconInterceptor
 import com.tftdeck.reader.data.IconPack
+import com.tftdeck.reader.data.StatsRepository
 import com.tftdeck.reader.sync.DailySyncWorker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +29,10 @@ class TftApp : Application(), ImageLoaderFactory {
         appScope.launch {
             DeckRepository.get(this@TftApp).load()
         }
-        // 통합: StatsRepository.get(this).load()
+        // 도감 통계도 캐시(없으면 동봉 스냅샷)를 먼저 올린다. 도감 탭을 처음 열 때 비지 않도록.
+        appScope.launch {
+            StatsRepository.get(this@TftApp).load()
+        }
 
         // 아이콘 팩을 올리고(첫 실행이면 동봉 팩을 푼다), 피드가 준비되면 아이콘을 미리 디코드해 둔다.
         appScope.launch {

@@ -9,8 +9,13 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.tftdeck.reader.data.DeckRepository
+import com.tftdeck.reader.data.IconPack
+import com.tftdeck.reader.data.IconSyncResult
+import com.tftdeck.reader.data.StatsRepository
+import com.tftdeck.reader.data.StatsSyncResult
 import com.tftdeck.reader.data.SyncResult
 import java.util.concurrent.TimeUnit
+import kotlin.coroutines.cancellation.CancellationException
 
 /**
  * 하루 한 번 덱 데이터를 갱신한다.
@@ -32,9 +37,10 @@ class DailySyncWorker(
 
         val outcome = repository.sync()
 
-        // 통합: StatsRepository.get(applicationContext).sync(); IconPack.get(applicationContext).sync()
         // 도감 통계와 아이콘 팩도 여기서 함께 갱신한다. 덱 갱신 결과와 무관하게 각자 실패를 삼키고
         // 기존 파일을 유지하므로, 아래 재시도 판단은 덱 결과만 본다.
+        syncStats()
+        syncIcons()
 
         return when (outcome) {
             is SyncResult.Updated, SyncResult.UpToDate -> Result.success()
@@ -44,6 +50,37 @@ class DailySyncWorker(
                 // 실패를 Result.failure로 두면 주기 작업이 취소되므로 success로 끝낸다.
                 if (runAttemptCount < MAX_ATTEMPTS) Result.retry() else Result.success()
             }
+        }
+    }
+
+    /** 도감 통계. 해시가 바뀐 파일만 받는다. 실패해도 기존 파일(없으면 동봉 스냅샷)을 그대로 쓴다. */
+    private suspend fun syncStats() {
+        try {
+            val stats = StatsRepository.get(applicationContext)
+            // 빈 프로세스에서 깨어났으면 캐시를 먼저 올려야 해시 비교가 맞다.
+            stats.load()
+            val result = stats.sync()
+            if (result is StatsSyncResult.Failed) {
+                android.util.Log.w(TAG, "도감 갱신 실패, 기존 데이터 유지: ${result.reason}")
+            }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            android.util.Log.w(TAG, "도감 갱신 중 오류, 기존 데이터 유지", e)
+        }
+    }
+
+    /** 아이콘 팩. sync() 가 load() 를 먼저 부른다. 실패해도 기존 팩이 남아 원격 아이콘으로 떨어질 뿐이다. */
+    private suspend fun syncIcons() {
+        try {
+            val result = IconPack.get(applicationContext).sync()
+            if (result is IconSyncResult.Failed) {
+                android.util.Log.w(TAG, "아이콘 팩 갱신 실패, 기존 팩 유지: ${result.reason}")
+            }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            android.util.Log.w(TAG, "아이콘 팩 갱신 중 오류, 기존 팩 유지", e)
         }
     }
 

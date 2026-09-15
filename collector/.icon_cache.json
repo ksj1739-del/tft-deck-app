@@ -296,6 +296,15 @@
   "sha1": "ceb7d3cc7550310f91556585a5898cfeae39fd8b",
   "srcSha1": "4e834e179d330bbe533f626638c73dbf0e3fe316"
  },
+ "assets/characters/tft18_lux/tft18_lux_blackthorn_square.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc2-607d\"",
+  "file": "0c130d2dda0b.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:42 GMT",
+  "px": 128,
+  "sha1": "a1a051c5a10f633128f8437fc1d27cd7c9a54972",
+  "srcSha1": "dff1d230ad3b3087491d548bfa7b390b499c8ac5"
+ },
  "assets/characters/tft18_lux/tft18_lux_blossom_square.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a824dbc-5da8\"",
@@ -305,6 +314,15 @@
   "sha1": "151450f66c31d60ee0292e556e2b71f1fdf83421",
   "srcSha1": "567989f43e32eab94e2c0f6d90a41aa6f31d745a"
  },
+ "assets/characters/tft18_lux/tft18_lux_coven_square.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dca-5db5\"",
+  "file": "e38e389e46d7.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:50 GMT",
+  "px": 128,
+  "sha1": "b9a1f2449b39ae6917acdd9bd9bf01e041d94c72",
+  "srcSha1": "4153480d56a9272cc2e0010847474b9cac1f4d2c"
+ },
  "assets/characters/tft18_lux/tft18_lux_elderwood_square.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a824dc4-6074\"",
@@ -313,6 +331,60 @@
   "px": 128,
   "sha1": "15a2f753a43af7aae67f4dd2def211f878d5b6eb",
   "srcSha1": "464aba41ec98edc09c428743494f0efc9dd3e3dd"
+ },
+ "assets/characters/tft18_lux/tft18_lux_fae_square.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc2-5f19\"",
+  "file": "10d5f43fb9a8.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:42 GMT",
+  "px": 128,
+  "sha1": "58e1dbe82b5bf177e615e22ef862ac70dd12f246",
+  "srcSha1": "a52bdedc97da660f4a3600db76767bd1564a4a74"
+ },
+ "assets/characters/tft18_lux/tft18_lux_inferno_square.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc6-5e4e\"",
+  "file": "5532327f7af6.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:46 GMT",
+  "px": 128,
+  "sha1": "bb0c1ad01306bc994f15fb3a1856a7c152e78d0b",
+  "srcSha1": "680a7b0017cede6f25d52333e0a3c0f437f4448d"
+ },
+ "assets/characters/tft18_lux/tft18_lux_moonbeam_square.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dba-58bd\"",
+  "file": "1a0cebe7df5a.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:34 GMT",
+  "px": 128,
+  "sha1": "85b942e08c028f58d5658da438ed806d21e1ae42",
+  "srcSha1": "2b2f532d796e1cd6c6ddf022c82e830dd88cf0c2"
+ },
+ "assets/characters/tft18_lux/tft18_lux_primal_square.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc7-6290\"",
+  "file": "382af833b6c2.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:47 GMT",
+  "px": 128,
+  "sha1": "44f6861f764cca9759a55ed6185c12e96c4d5200",
+  "srcSha1": "a55498e51f2b13a6c98720c974497ef8cdd73a8c"
+ },
+ "assets/characters/tft18_lux/tft18_lux_square.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbf-602b\"",
+  "file": "95742ab9566f.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:39 GMT",
+  "px": 128,
+  "sha1": "e5be04354021c9cd698653d2e7024706c7bfad7f",
+  "srcSha1": "106004d082affe8be64dfc50591ba8f251e7390b"
+ },
+ "assets/characters/tft18_lux/tft18_lux_sunbeam_square.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbf-5c03\"",
+  "file": "67bef1ae6d0f.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:39 GMT",
+  "px": 128,
+  "sha1": "900e16e4285809f49ec59c5fd4dbd0e2d4d3eaf2",
+  "srcSha1": "ece571909009031e1f85f4cb8d6202f71b801dc8"
  },
  "assets/characters/tft18_malphite/tft18_malphite_square.png": {
   "enc": "webp-q80-m6",
@@ -593,6 +665,69 @@
   "sha1": "6182e2d54aa09b9ff312d3eda85389f7c0c99fac",
   "srcSha1": "01f458c08cf650e381640d3bd01f8d5a8cc11c23"
  },
+ "assets/maps/particles/tft/item_icons/ornn_items/tft_item_artifact_lichbane.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cbd-184b\"",
+  "file": "32e0b98079c9.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:33 GMT",
+  "px": 64,
+  "sha1": "64921a5f7c707ea76ea157ad9ebf9cfec2b9e833",
+  "srcSha1": "4d0e587360cafb55b4741d8365d254b46d3040da"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_blackthorn.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbf-3fd8\"",
+  "file": "b04ea9acd82f.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:39 GMT",
+  "px": 64,
+  "sha1": "8e7c457043cdf4ba58efa4ec26cce90e2f6a61b6",
+  "srcSha1": "41c414698c36a894b9dcef645ef07c028fe14ca7"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_blossom.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dcb-489c\"",
+  "file": "1e6b74be7b75.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:51 GMT",
+  "px": 64,
+  "sha1": "cd06ebdb77e198781cc309915ee87eb6261f4182",
+  "srcSha1": "1af8130dfc98c622afd6628d04eda680020afa26"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_brawler.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbe-4b41\"",
+  "file": "35ff4e616fb6.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:38 GMT",
+  "px": 64,
+  "sha1": "9258fbe35966e7d7daacaf5dbf40df9cb3e1097d",
+  "srcSha1": "abb1fd60edd47914e684e7c931e4a80de83d36ae"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_coven.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbb-4f37\"",
+  "file": "e0e04b15e6a3.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:35 GMT",
+  "px": 64,
+  "sha1": "fec85f92b668f2a1954d22a5782b900b0b0acb2e",
+  "srcSha1": "baa0533241a0c8a7d4f68ca7b682d9a9cc080d77"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_defender.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbe-4782\"",
+  "file": "6970c7f8b1ab.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:38 GMT",
+  "px": 64,
+  "sha1": "0bb9ee9fe5667fea58083844fa13f6c9cf651178",
+  "srcSha1": "a4b9d5afdb0179b4023f532d792b212e7f75e42a"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_elderwood.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbd-436e\"",
+  "file": "03136374a7ef.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:37 GMT",
+  "px": 64,
+  "sha1": "35bff073847780293a9de2eae1e716cfa16ecb78",
+  "srcSha1": "ebf88511bad8ceb5707d969c4ae26d8514bcae80"
+ },
  "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_executioner.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a824dcb-53ac\"",
@@ -601,6 +736,15 @@
   "px": 64,
   "sha1": "732a69bf0108ce006f7e0b53ef1e2ff9c65019f7",
   "srcSha1": "8332d4f6b09ae3e43fddba5a37958f4d264603ea"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_fae.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dcb-4d28\"",
+  "file": "d6561107152c.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:51 GMT",
+  "px": 64,
+  "sha1": "fa5b5dc1a900203189b83347cc3b9cd0961a6d8f",
+  "srcSha1": "2609e328a50b6aea2dbe90709f04f77c9e44af5b"
  },
  "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_florafatalis.png": {
   "enc": "webp-q80-m6",
@@ -619,6 +763,15 @@
   "px": 64,
   "sha1": "a08bd82fc1895818779b23c8099eb01e6c921874",
   "srcSha1": "0c75e9b819b5fef61a3fb0ab1c5890e412c844c6"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_inferno.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc9-41de\"",
+  "file": "c086c7f54d0d.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:49 GMT",
+  "px": 64,
+  "sha1": "f19ce28489b728b1c13172179bf54308363fdd44",
+  "srcSha1": "bba19d9d14ca924023e9fe682822038f0d3703e3"
  },
  "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_invoker.png": {
   "enc": "webp-q80-m6",
@@ -647,6 +800,15 @@
   "sha1": "f629a45d7911cef19c5e477bb5ece10bbcb1fa64",
   "srcSha1": "30e1842a3d3ff28e383119f114467638ac4e4f95"
  },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_primal.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dca-457a\"",
+  "file": "665d4d4e2aab.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:50 GMT",
+  "px": 64,
+  "sha1": "3cc625aaf1a24158886b515734c2908f2f02bc30",
+  "srcSha1": "24859791b5f349dad052ff7ae7c64ba17b91ef1c"
+ },
  "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_rapidfire.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a824dbc-5280\"",
@@ -656,6 +818,33 @@
   "sha1": "a383c1d410ad1fda521802273344449a5d926a9e",
   "srcSha1": "dc5bb839086e6b0c1aae91b5b154f8a2ba8f727a"
  },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_ravager.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dba-56f4\"",
+  "file": "b6af04767311.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:34 GMT",
+  "px": 64,
+  "sha1": "c20befd1e5b8b6d2adb669785bfc03d58fd98bc1",
+  "srcSha1": "eb8718b30361b99a76be4e9e0b41067c814aecd2"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_spellweaver.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc3-4a16\"",
+  "file": "8e9bde92b90a.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:43 GMT",
+  "px": 64,
+  "sha1": "76d2b863f00b8a12498b1e885c62a23b63f64c21",
+  "srcSha1": "3cf9b3bf209b6a1d2ff983997798d22279c4e641"
+ },
+ "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_sprykin.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc4-485f\"",
+  "file": "95f6ddb52b45.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:44 GMT",
+  "px": 64,
+  "sha1": "52c5cbd6cf18d662794e58b5f3d67c5839661478",
+  "srcSha1": "29fd7fe908e72387d2f8264822e55337bc47714e"
+ },
  "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_vanguard.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a824dbb-4ed6\"",
@@ -664,6 +853,15 @@
   "px": 64,
   "sha1": "4feba2c6bfd979f29ba645e2a6b0db264aad183d",
   "srcSha1": "eb4a4e3a59dc5963f0ab294d8290fc4ee817d666"
+ },
+ "assets/maps/tft/icons/augments/choiceui/boosterpack1_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7172a5-79f1\"",
+  "file": "f99c573091ea.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:33 GMT",
+  "px": 64,
+  "sha1": "2c3720f94cd2ed283298c87d242e294797aeafd7",
+  "srcSha1": "51efc0628d5e791e4897d32b6716ecbddd22527c"
  },
  "assets/maps/tft/icons/augments/choiceui/precisiongrace_ii.png": {
   "enc": "webp-q80-m6",
@@ -683,6 +881,15 @@
   "sha1": "e7377b1fbd375dbdf57b4c02c722b9d472a31106",
   "srcSha1": "3cd0bf967774567f994924113b19f1b4c01c8077"
  },
+ "assets/maps/tft/icons/augments/hexcore/addicted-to-rolling-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cd3-28b4\"",
+  "file": "5f0a5d3b4dac.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:55 GMT",
+  "px": 64,
+  "sha1": "ea875c5dfc39a8f8876119643c8409518ae60377",
+  "srcSha1": "c787a051bee2d8a7e2fdace1f2cca7cee30ba780"
+ },
  "assets/maps/tft/icons/augments/hexcore/advancedloan_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614984-207d\"",
@@ -700,6 +907,69 @@
   "px": 64,
   "sha1": "6a4a4c74619cfe0181a826d12d69020a2c78ed65",
   "srcSha1": "e9b398541302c8396ce3e0ec0ab5d7c3e722a14a"
+ },
+ "assets/maps/tft/icons/augments/hexcore/ascension1.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c51-16dd\"",
+  "file": "0ecf3907f1ba.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:45 GMT",
+  "px": 64,
+  "sha1": "b6e65736f2de3099a6e9d8d4bae6a453421f5310",
+  "srcSha1": "f1d3378674dc731eec8109b56d86e0bdaf6bb849"
+ },
+ "assets/maps/tft/icons/augments/hexcore/ascension2.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c65-17e7\"",
+  "file": "2735c32ebb92.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:04:05 GMT",
+  "px": 64,
+  "sha1": "b9d34f344e3c8099ee6943d498cfa00f008d46ba",
+  "srcSha1": "9723e4590f63d48c9a7d0d415073c6399fd633f7"
+ },
+ "assets/maps/tft/icons/augments/hexcore/awakenedsoul_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149aa-25bc\"",
+  "file": "14be95fb43ec.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:26 GMT",
+  "px": 64,
+  "sha1": "3815099f557633ab4fd0b8b68d3d2482c638a304",
+  "srcSha1": "b09fc59dbf8644d175c26851589c7b1939a26ac8"
+ },
+ "assets/maps/tft/icons/augments/hexcore/backlineblueprint_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a71729e-210b\"",
+  "file": "4435f551a53c.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:26 GMT",
+  "px": 64,
+  "sha1": "b5091253a35cf63de55c482ea34f692bc846670c",
+  "srcSha1": "b7b5b939cb366eb6de05ce75539753fc8ba7c902"
+ },
+ "assets/maps/tft/icons/augments/hexcore/bandthieves1.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c4f-2484\"",
+  "file": "22ec2019ed5c.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:43 GMT",
+  "px": 64,
+  "sha1": "77faff7de708b80264ff24307c240e6f895d4f7c",
+  "srcSha1": "9198e260f47fa84e7a46cedc7edf20bf05cf3581"
+ },
+ "assets/maps/tft/icons/augments/hexcore/bandthieves3.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cee-27d9\"",
+  "file": "832ef10ac53f.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:06:22 GMT",
+  "px": 64,
+  "sha1": "29fd4b348e7145c81dc1628dbdd1ff05d6f4ab69",
+  "srcSha1": "7308ef5777bada48a33b1cd3a4e845341d98ea0a"
+ },
+ "assets/maps/tft/icons/augments/hexcore/beltoverflow_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a1-1fb6\"",
+  "file": "20fa71c9c183.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:17 GMT",
+  "px": 64,
+  "sha1": "2f948645ce644ed5ba6571752045ca86e2b006ee",
+  "srcSha1": "85f887ee010398f6a4f61255b898aaeea68c6b16"
  },
  "assets/maps/tft/icons/augments/hexcore/birthdayreunion_ii.png": {
   "enc": "webp-q80-m6",
@@ -719,6 +989,24 @@
   "sha1": "bfedd14a73129b9c20d785d1af4c1fb8ef48d402",
   "srcSha1": "406a518ea5f69a245a4d3383030b7446a910f6ab"
  },
+ "assets/maps/tft/icons/augments/hexcore/bodyguardstraining_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9ea-235f\"",
+  "file": "b5ec0b9b0db1.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:42 GMT",
+  "px": 64,
+  "sha1": "ed53e4f664512ad513cadbe4a42da0f2021b0553",
+  "srcSha1": "30a60b5a5a838f031da87ea374087c4935edf916"
+ },
+ "assets/maps/tft/icons/augments/hexcore/boosterpack1_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7172ab-1f84\"",
+  "file": "abe37636bcb7.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:39 GMT",
+  "px": 64,
+  "sha1": "b0c8d10f14c15bbd8639b02a021e6e730db986b5",
+  "srcSha1": "f45d7ee1eaeca74b67126abc69d7cc65ddd90634"
+ },
  "assets/maps/tft/icons/augments/hexcore/boxinglessons_i.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614996-1b8b\"",
@@ -736,6 +1024,15 @@
   "px": 64,
   "sha1": "504583cd2352ab9519b5c6e8a35c267c533da2ad",
   "srcSha1": "911a98452da73bb7fb47449a7726a32990c75787"
+ },
+ "assets/maps/tft/icons/augments/hexcore/bronzeforlife_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614990-253f\"",
+  "file": "94bcafe7a6a1.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:00 GMT",
+  "px": 64,
+  "sha1": "af67151386b93b6b2e3952d3536838c2185ed206",
+  "srcSha1": "401615e81c403064197eddb1b7736877cb97f341"
  },
  "assets/maps/tft/icons/augments/hexcore/bronzeforlife_iii.png": {
   "enc": "webp-q80-m6",
@@ -773,6 +1070,15 @@
   "sha1": "6e42f19cc8a07ea517a3b1385e8e53324e29aa4e",
   "srcSha1": "892b37b50d867cb3c1858e4829144439e180bba7"
  },
+ "assets/maps/tft/icons/augments/hexcore/calledshot_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499d-1f06\"",
+  "file": "212e05d1a790.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:13 GMT",
+  "px": 64,
+  "sha1": "e1e96ba0762e1f502ab469d443f7a1ebac35e3a8",
+  "srcSha1": "60a313a013ef178f42fe09445b64c85b951ed209"
+ },
  "assets/maps/tft/icons/augments/hexcore/calltochaos_iii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"69642c25-4030\"",
@@ -781,6 +1087,15 @@
   "px": 64,
   "sha1": "0b92d1f3b2b12f55ec05ee5cc7864240237f5724",
   "srcSha1": "2a760ed34b259df6c3a271f736b37f6e42148964"
+ },
+ "assets/maps/tft/icons/augments/hexcore/caretaker_s-chosen-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642bf4-1884\"",
+  "file": "0bc464da9a34.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:02:12 GMT",
+  "px": 64,
+  "sha1": "3d65bb82f7ab8bf93b348a4459aa4034f25e750d",
+  "srcSha1": "98b52c1b3ab92331255388ab3d7e2a12009e4b5c"
  },
  "assets/maps/tft/icons/augments/hexcore/caretaker_s-chosen-ii.png": {
   "enc": "webp-q80-m6",
@@ -818,6 +1133,51 @@
   "sha1": "2c995e4b0a21fa8e48361eb5a8d5b916a019beac",
   "srcSha1": "254e8d514653825a1da9ea04c28bba32643c5c29"
  },
+ "assets/maps/tft/icons/augments/hexcore/celestialblessing3.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642caa-2843\"",
+  "file": "65907ed4500e.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:14 GMT",
+  "px": 64,
+  "sha1": "6753f716ebf8b930fd31ceb9529db8ad06d003c9",
+  "srcSha1": "40ce439263d6af300f507b09fe884cb3f5df9da1"
+ },
+ "assets/maps/tft/icons/augments/hexcore/clearmind2.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c81-18de\"",
+  "file": "925b0f5f60a0.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:04:33 GMT",
+  "px": 64,
+  "sha1": "9d982e5c6ecb86f1e11af6d004535d8f6eff07f0",
+  "srcSha1": "7a2de65556d5839614f200cc93cf484e27087ff5"
+ },
+ "assets/maps/tft/icons/augments/hexcore/clockworkaccelerator_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a9-1dbf\"",
+  "file": "a2dbb9d5f9bf.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:25 GMT",
+  "px": 64,
+  "sha1": "2cc517efbbc7ce1fd74d1068a6b84b85d6348da9",
+  "srcSha1": "05c0f364e4ec91bf3ac48677149a937980eb9134"
+ },
+ "assets/maps/tft/icons/augments/hexcore/cognitiveoverload_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7172ab-2874\"",
+  "file": "65df7c99b195.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:39 GMT",
+  "px": 64,
+  "sha1": "58640377e6e89324e39e0063897314e4318e2a3f",
+  "srcSha1": "e92ec030d568526b4022933d7ae736fdfdb6f6c5"
+ },
+ "assets/maps/tft/icons/augments/hexcore/cognitivetax_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7172ae-23a4\"",
+  "file": "f62ccbf3cb50.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:42 GMT",
+  "px": 64,
+  "sha1": "a82a184769087cd58968fcd305204ef146f60c79",
+  "srcSha1": "cba3881d4ebd17e210be34eb649f387131474f42"
+ },
  "assets/maps/tft/icons/augments/hexcore/comebackstory_iii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614969-24c8\"",
@@ -854,6 +1214,60 @@
   "sha1": "2ac1462253dc65473584fdf5d33328d020d3720d",
   "srcSha1": "53856e3db4899cb401364cc61744dbaa886fd924"
  },
+ "assets/maps/tft/icons/augments/hexcore/corrosion_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614957-243e\"",
+  "file": "ddaffdc691d2.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:03 GMT",
+  "px": 64,
+  "sha1": "b07a505e6855c08a3a1c46640e199c8965462fae",
+  "srcSha1": "625760cf379533a3d95fafd6d04a5b532e9b69c7"
+ },
+ "assets/maps/tft/icons/augments/hexcore/craftedcrafting_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61496e-2647\"",
+  "file": "7d837d8a8d2b.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:26 GMT",
+  "px": 64,
+  "sha1": "7b853e7e3782fca3473452060fd399c1af89d154",
+  "srcSha1": "6b930d14cb0dc79887b04bbcb6cae6042caf9eec"
+ },
+ "assets/maps/tft/icons/augments/hexcore/crymeariver_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614990-20f7\"",
+  "file": "2ef84d46c2ee.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:00 GMT",
+  "px": 64,
+  "sha1": "79c6d279de66f028ad7389c6e9039285952fd6bb",
+  "srcSha1": "6ac25f2a5c5453ecca1cec1633ee594105ea909f"
+ },
+ "assets/maps/tft/icons/augments/hexcore/cursedcrown-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642b69-266e\"",
+  "file": "53379f4ef94f.webp",
+  "lastModified": "Sun, 11 Jan 2026 22:59:53 GMT",
+  "px": 64,
+  "sha1": "31f853f279b3aa12a8b64b75e6593af15e9d2fca",
+  "srcSha1": "de8190b3ad9528701c42b334e4ca486a7067d77b"
+ },
+ "assets/maps/tft/icons/augments/hexcore/cybernetic-uplink-ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cdd-1635\"",
+  "file": "06d663e56b37.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:06:05 GMT",
+  "px": 64,
+  "sha1": "0eb07b1ce4c9190a5cdd6eeae946e25b12ba42ea",
+  "srcSha1": "ba2d51449fa97f2c3d7da2ff67c0232fd168ea4a"
+ },
+ "assets/maps/tft/icons/augments/hexcore/cybernetic2.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c3f-1e5b\"",
+  "file": "36efbfbf8f67.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:27 GMT",
+  "px": 64,
+  "sha1": "d4414bd7213f84278186052153ab30ff0c8763b1",
+  "srcSha1": "2f52d09ae7948c5145086e6f54bc9aa9f60140e7"
+ },
  "assets/maps/tft/icons/augments/hexcore/deadlierblades_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a61497e-25da\"",
@@ -881,6 +1295,24 @@
   "sha1": "7bfeea6d2d63e29a70f2efec151f9fb1ac9ae712",
   "srcSha1": "e931c9cb851909f587968f3270fba9257a35a98d"
  },
+ "assets/maps/tft/icons/augments/hexcore/dummify_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614978-212f\"",
+  "file": "b0fa030d1efb.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:36 GMT",
+  "px": 64,
+  "sha1": "c17ee119a864be2774ee4206338394242e451136",
+  "srcSha1": "34567ec751a766234b5b441733d5bdccf6160865"
+ },
+ "assets/maps/tft/icons/augments/hexcore/duoqueue_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614971-206b\"",
+  "file": "ae9512e1c8d7.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:29 GMT",
+  "px": 64,
+  "sha1": "0cc95ea6c617b7f0ac298ea3d7b0dccd796afdc6",
+  "srcSha1": "19b59380d17ea28c8c3acb7c2a40271e241d87f3"
+ },
  "assets/maps/tft/icons/augments/hexcore/earlylearning_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"69fea9ea-2931\"",
@@ -889,6 +1321,24 @@
   "px": 64,
   "sha1": "f2596369a5b3c1cbc81d60e0cbf542336a1fcae5",
   "srcSha1": "f82c9230f382e0f2636c9c3015e70156202950a7"
+ },
+ "assets/maps/tft/icons/augments/hexcore/electrocharge-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cbd-207f\"",
+  "file": "b376b74d0e2f.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:33 GMT",
+  "px": 64,
+  "sha1": "1bd26ce79c65e16770621e6aec448c8618a6c094",
+  "srcSha1": "519b58de9da18bdc6dc6671ea2d1bcc6c8593414"
+ },
+ "assets/maps/tft/icons/augments/hexcore/electrocharge-ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c23-205e\"",
+  "file": "d8c050d13aaa.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:02:59 GMT",
+  "px": 64,
+  "sha1": "27edcf20020a23e4c55f65ebf29dca26082c9d8d",
+  "srcSha1": "c65552424db576deb763d0d2344ff410915b956f"
  },
  "assets/maps/tft/icons/augments/hexcore/epicrolldown_ii.png": {
   "enc": "webp-q80-m6",
@@ -908,6 +1358,42 @@
   "sha1": "7c87d0ebd808eb3bbfcb64f9dddad940fdf29eb8",
   "srcSha1": "58ff8d8b3f3b7382d47fee3b1b599ee8edb82a3e"
  },
+ "assets/maps/tft/icons/augments/hexcore/exclusivecustomization_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614957-233e\"",
+  "file": "27618f95771b.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:03 GMT",
+  "px": 64,
+  "sha1": "bfe02ceefc2b480c95544d4bda05be7051379ea5",
+  "srcSha1": "f0476848e7c9168131535e7548b28fc6a0fe0cc7"
+ },
+ "assets/maps/tft/icons/augments/hexcore/expedition_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a71729d-286d\"",
+  "file": "789a060d166d.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:25 GMT",
+  "px": 64,
+  "sha1": "950eed4eb8eb87b1b5f3d70ac331a792473d83d5",
+  "srcSha1": "579122d1e8a2852c91901ce7e4642866b2a54ec2"
+ },
+ "assets/maps/tft/icons/augments/hexcore/explosivegrowth_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61497f-2137\"",
+  "file": "9c5036aefe3c.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:43 GMT",
+  "px": 64,
+  "sha1": "05b1983e5d0a7695c22bccf330f94a6057c95d68",
+  "srcSha1": "e1d9c34178a64efd8e2f6923275528d263080c1f"
+ },
+ "assets/maps/tft/icons/augments/hexcore/extrabuckles_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614990-32af\"",
+  "file": "0faf588803bb.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:00 GMT",
+  "px": 64,
+  "sha1": "a136b935bdd5b1758a4e15f5ee76f4f6cab6f4e3",
+  "srcSha1": "054d5364425d12bc25928ffec7f8bc4b9ff3037b"
+ },
  "assets/maps/tft/icons/augments/hexcore/feelinglucky_i.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a7172aa-1cb9\"",
@@ -916,6 +1402,33 @@
   "px": 64,
   "sha1": "689da8ba847ff0c540d96578f26a469ea3beab92",
   "srcSha1": "c10e6167ad316d5404e0848e5043f1b420444254"
+ },
+ "assets/maps/tft/icons/augments/hexcore/findyourcenter_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614959-19a1\"",
+  "file": "a0bf7adc1230.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:05 GMT",
+  "px": 64,
+  "sha1": "188d85cce477560feecd18825e8242acea497a0d",
+  "srcSha1": "e5f0387f8d16514b6c89bc4ba9309a37f9ed7122"
+ },
+ "assets/maps/tft/icons/augments/hexcore/flexible_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499d-266f\"",
+  "file": "7e2b8b55bd3e.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:13 GMT",
+  "px": 64,
+  "sha1": "f75b3cd43fb83ec16c0a02598aa6beea38be6abe",
+  "srcSha1": "a5f286a4dcd42ee7439bd99d1efa57f05962cd54"
+ },
+ "assets/maps/tft/icons/augments/hexcore/forgedinstrength_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9f3-2477\"",
+  "file": "b38d1f71d0cc.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:51 GMT",
+  "px": 64,
+  "sha1": "e992ea04d35edcc9bebf59a7cde231871f4eb766",
+  "srcSha1": "8f67e9ecdb8d0dde44208f9abff920919e79b13b"
  },
  "assets/maps/tft/icons/augments/hexcore/frontlinefoundation_ii.png": {
   "enc": "webp-q80-m6",
@@ -926,6 +1439,33 @@
   "sha1": "ef987ef10b7b6dd9a772cdc91461bae4a5071846",
   "srcSha1": "9def43f8d320bcc1e6647e5c4df66d456d39ff16"
  },
+ "assets/maps/tft/icons/augments/hexcore/giantandmighty_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614995-21f1\"",
+  "file": "75d2a5d17d6c.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:05 GMT",
+  "px": 64,
+  "sha1": "5627c43fb43905cf4b1d6c78d973d7218c301d71",
+  "srcSha1": "f88b399d02b449b426dd03fd0b4aedf904aa1b23"
+ },
+ "assets/maps/tft/icons/augments/hexcore/gildedsteel_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a71729d-29d1\"",
+  "file": "a84d32d3e395.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:25 GMT",
+  "px": 64,
+  "sha1": "8e325798d916a12e97d0f162b6cb5389409fbdf3",
+  "srcSha1": "9da36d0634652bde22d62afebeaf43b2fab8c50f"
+ },
+ "assets/maps/tft/icons/augments/hexcore/glasscannon_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614998-1cf1\"",
+  "file": "2800ceed2f31.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:08 GMT",
+  "px": 64,
+  "sha1": "80d19eb35f1e8d7c29ac54ff390878d41115fcbe",
+  "srcSha1": "d5f30a87f2abbbe15ca72430a92882969920aced"
+ },
  "assets/maps/tft/icons/augments/hexcore/glasscannon_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614987-1d42\"",
@@ -934,6 +1474,24 @@
   "px": 64,
   "sha1": "282213e3e3c83dcd6155ab7f49c11e6c679374a2",
   "srcSha1": "7e4c29721e7554d6e81aff4ea7b3397062a550c8"
+ },
+ "assets/maps/tft/icons/augments/hexcore/going-long-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cd8-22d0\"",
+  "file": "87e66635c7b3.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:06:00 GMT",
+  "px": 64,
+  "sha1": "756eb269ee62dd9aa23fd0fb6ff4af519bcff073",
+  "srcSha1": "600a0241950ccf9bad6abe7a8d844f982cdf523a"
+ },
+ "assets/maps/tft/icons/augments/hexcore/golden-gifts-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c30-2311\"",
+  "file": "c93b0a945349.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:12 GMT",
+  "px": 64,
+  "sha1": "a972a31b099ce894b00e1f44d93af7c3e1cc2601",
+  "srcSha1": "27c5ee85f0e7fd2944e53be0d1f2c4a0010edd55"
  },
  "assets/maps/tft/icons/augments/hexcore/goldendestiny_ii.png": {
   "enc": "webp-q80-m6",
@@ -962,6 +1520,15 @@
   "sha1": "4b9cc12d9a7b2561c7caa5e0ee154a8b56d50279",
   "srcSha1": "00b039854cae72b1328ea4d50a9bfea835705062"
  },
+ "assets/maps/tft/icons/augments/hexcore/good-for-something-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c88-1b72\"",
+  "file": "e0cede012286.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:04:40 GMT",
+  "px": 64,
+  "sha1": "788ffedfc77682fecf0d1f00bf2210fa68dc97bd",
+  "srcSha1": "f653096063329565b12634f2fe0f0c62b13b37b6"
+ },
  "assets/maps/tft/icons/augments/hexcore/grab-bag-ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"69642c69-1add\"",
@@ -970,6 +1537,24 @@
   "px": 64,
   "sha1": "3e8fe12a568faf289ccf44c551462345959d4212",
   "srcSha1": "8224162f62b91fabf0827589469b8c8238dbf427"
+ },
+ "assets/maps/tft/icons/augments/hexcore/griefofthegreatgoddess_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61498f-20c8\"",
+  "file": "180bf5166a61.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:59 GMT",
+  "px": 64,
+  "sha1": "0490b70e687e06a17f3daeb8deb7e3f68404cfcd",
+  "srcSha1": "c7402fd2692a26f6df16276fdd2f890935769b6d"
+ },
+ "assets/maps/tft/icons/augments/hexcore/grouphug1_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a71729e-2221\"",
+  "file": "c891cd77d869.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:26 GMT",
+  "px": 64,
+  "sha1": "cf112ec0335a87f8631c492de3f34230ae99dc44",
+  "srcSha1": "fe1d9ec66ebea172667acab3c905f6dcd951f892"
  },
  "assets/maps/tft/icons/augments/hexcore/grouphug2_ii.png": {
   "enc": "webp-q80-m6",
@@ -980,6 +1565,51 @@
   "sha1": "5036806a68b9366ea29e4e0ca3c3ff4fab64d687",
   "srcSha1": "f88434d06d6d2aa6fa68aed620652029053567cc"
  },
+ "assets/maps/tft/icons/augments/hexcore/hardbargain_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61495c-2452\"",
+  "file": "1cc9551685fd.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:08 GMT",
+  "px": 64,
+  "sha1": "fab58bd376f11656f62d516d08266991261c5e6c",
+  "srcSha1": "300a21348b856195fb0f3483c361f7bf005059fc"
+ },
+ "assets/maps/tft/icons/augments/hexcore/hardcommit_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614982-2bf5\"",
+  "file": "eb04c410d3d4.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:46 GMT",
+  "px": 64,
+  "sha1": "601301a02f97b113492270096febec189da61346",
+  "srcSha1": "6861335b6bf23b79a4055a42b197bade6959bbc7"
+ },
+ "assets/maps/tft/icons/augments/hexcore/healing-orbs-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c2d-1b1e\"",
+  "file": "b5d4c0624235.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:09 GMT",
+  "px": 64,
+  "sha1": "fc203a234e26368cccbaf54d01fe6ba557b4b99a",
+  "srcSha1": "e5924e01658ecba21094a39c0dceebc1438a15a4"
+ },
+ "assets/maps/tft/icons/augments/hexcore/healing-orbs-ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cd3-1bc7\"",
+  "file": "804e4b051cb7.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:55 GMT",
+  "px": 64,
+  "sha1": "eacf2cb906c449f1ab4e409807ede0c22948fc79",
+  "srcSha1": "d6dd616aee79c172635157dae2658285e9b990ba"
+ },
+ "assets/maps/tft/icons/augments/hexcore/healthygains_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614997-2cc5\"",
+  "file": "d43343217297.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:07 GMT",
+  "px": 64,
+  "sha1": "7456b8af15d16cb9791d70dc46b6271c68dc30b4",
+  "srcSha1": "76382f7fde63640d39a00697b53e41c9d425991f"
+ },
  "assets/maps/tft/icons/augments/hexcore/heroic-grab-bag-ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"69642ca9-1e45\"",
@@ -989,6 +1619,15 @@
   "sha1": "c2ab190fe729feae34f782d54821cf780d1984b5",
   "srcSha1": "bb0b8f926aad0d5b09ab5928d731b159ad891355"
  },
+ "assets/maps/tft/icons/augments/hexcore/holdtheline_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499c-2518\"",
+  "file": "be59a587badf.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:12 GMT",
+  "px": 64,
+  "sha1": "06fcc63ec13864aa48aa6fcbb094ec3d9e757665",
+  "srcSha1": "56c583f827038cdaedaf4efda92cfc056e554962"
+ },
  "assets/maps/tft/icons/augments/hexcore/hyperbolicrodextender_i.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a6149a0-27a2\"",
@@ -997,6 +1636,24 @@
   "px": 64,
   "sha1": "522d295633fff9b08f2b88f775bbe57b6810c61f",
   "srcSha1": "9cd61a72ffe09019ab4be4430f76d6bb294b473a"
+ },
+ "assets/maps/tft/icons/augments/hexcore/hyperroll2.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642b8d-1a9c\"",
+  "file": "00daa8fc8fa8.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:00:29 GMT",
+  "px": 64,
+  "sha1": "8383145308535aaeb74ebfb5348508a12e3921c7",
+  "srcSha1": "1d02c495febd11023c60b5b003a3cdc63e3157f2"
+ },
+ "assets/maps/tft/icons/augments/hexcore/infinityprotection_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9f5-25aa\"",
+  "file": "29db0f355c25.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:53 GMT",
+  "px": 64,
+  "sha1": "60e66f6378321c8a9e0a1eeb888a77a0f87a81b3",
+  "srcSha1": "acc507d7f91b98072272119b65d16fc302f070f8"
  },
  "assets/maps/tft/icons/augments/hexcore/invested-iii.png": {
   "enc": "webp-q80-m6",
@@ -1016,6 +1673,33 @@
   "sha1": "58ca965db08e8553a63aaf5dbca100845a3316a1",
   "srcSha1": "18ba671298f5e9fcb0675ce70e1a7ee992eef327"
  },
+ "assets/maps/tft/icons/augments/hexcore/investmentstrategy_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614987-2366\"",
+  "file": "7a56662ce3dc.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:51 GMT",
+  "px": 64,
+  "sha1": "441afd75dde0e4613b55bb8ac2581cd25d6f66f9",
+  "srcSha1": "f9e9513547c585293c58da7ccb415b14e3f6604c"
+ },
+ "assets/maps/tft/icons/augments/hexcore/iron-assets-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c40-1499\"",
+  "file": "ded40a46c94e.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:28 GMT",
+  "px": 64,
+  "sha1": "35ab80f4bc33e5b7dbef24315d7ad4c23b2485ba",
+  "srcSha1": "2cadadfc7093b51b8e78bf790e31d32a487fb5a3"
+ },
+ "assets/maps/tft/icons/augments/hexcore/itemgrabbag1.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642be5-248b\"",
+  "file": "e5700be7f03f.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:01:57 GMT",
+  "px": 64,
+  "sha1": "fac49417eabf3a60770c5103e2db3b7119690c5a",
+  "srcSha1": "3e1e1101b62faa25c9792678ed1d415e83e3ada3"
+ },
  "assets/maps/tft/icons/augments/hexcore/jeweled-lotus-ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"69642c14-230b\"",
@@ -1024,6 +1708,42 @@
   "px": 64,
   "sha1": "be33eace2bad0bff3ed498c9e976d85b50086938",
   "srcSha1": "8a45cc010d46889ea09136b0a4b7befbec100f04"
+ },
+ "assets/maps/tft/icons/augments/hexcore/jeweled-lotus-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cf1-26ea\"",
+  "file": "e64fba26725b.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:06:25 GMT",
+  "px": 64,
+  "sha1": "72315d00dbeab3f0aebf44842c8f12ffde7590c0",
+  "srcSha1": "7074a67ed9f56977a7168e26fe51690367570668"
+ },
+ "assets/maps/tft/icons/augments/hexcore/kickstart_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a71729f-3113\"",
+  "file": "b1e48ca7d9e1.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:27 GMT",
+  "px": 64,
+  "sha1": "828a06d3f551014691f789c95acda23c91d953ff",
+  "srcSha1": "597f2665524f48b10b38848d3769d0d86e797c93"
+ },
+ "assets/maps/tft/icons/augments/hexcore/kingslayer_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499c-1ae7\"",
+  "file": "cbe813a7fd0d.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:12 GMT",
+  "px": 64,
+  "sha1": "890837830d2c5eb5f2091da9185dac8fa1285c21",
+  "srcSha1": "083975aac8aeb10a5a61c865d9341b2b382b7377"
+ },
+ "assets/maps/tft/icons/augments/hexcore/know-your-enemy-ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642d1f-1d38\"",
+  "file": "da50acb17786.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:07:11 GMT",
+  "px": 64,
+  "sha1": "01fb53d34cf316f9dd47e11354c61f3c28ccdc9d",
+  "srcSha1": "8ef11f825fda178b4583e61ad9e46cffda4ff16e"
  },
  "assets/maps/tft/icons/augments/hexcore/late-game-specialist-i.png": {
   "enc": "webp-q80-m6",
@@ -1043,6 +1763,24 @@
   "sha1": "bb2933489e716ae478ccdcd7d8d2a83d036b8d88",
   "srcSha1": "35903198e7d0eddd0017b0c554448fba582e0030"
  },
+ "assets/maps/tft/icons/augments/hexcore/learning-from-experience-ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c9d-11b8\"",
+  "file": "25988a00078b.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:01 GMT",
+  "px": 64,
+  "sha1": "f5f00522774a34b4f59c7082da0913928b828f96",
+  "srcSha1": "77d1ada3db6aeaa3e15b5297818437b8ba6340b3"
+ },
+ "assets/maps/tft/icons/augments/hexcore/legionofthrees_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9f0-26c9\"",
+  "file": "a7a2aa92e848.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:48 GMT",
+  "px": 64,
+  "sha1": "335acf34d751b301da82d4ec6a5675162920adc3",
+  "srcSha1": "71fcfa22e1ea047f4cb12b5dcba4da11cbd31fad"
+ },
  "assets/maps/tft/icons/augments/hexcore/levelup3.png": {
   "enc": "webp-q80-m6",
   "etag": "\"69642caf-1d9a\"",
@@ -1051,6 +1789,105 @@
   "px": 64,
   "sha1": "4a6b98c032787a83f4498837250752421e072b44",
   "srcSha1": "6ab912496f558dca2748201dfea2907f49c02d5a"
+ },
+ "assets/maps/tft/icons/augments/hexcore/lineup-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c0c-1ede\"",
+  "file": "df184123c0a8.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:02:36 GMT",
+  "px": 64,
+  "sha1": "28175ca75c6bcfc66624e5b8b7be8c03204b5e96",
+  "srcSha1": "5d71bb3fabf5c36c78d919b56c0642f80ed9f4ff"
+ },
+ "assets/maps/tft/icons/augments/hexcore/living-forge-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642d18-1860\"",
+  "file": "31a76679c986.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:07:04 GMT",
+  "px": 64,
+  "sha1": "f71008299027171151bbf7dd16def9ff1a91b487",
+  "srcSha1": "4a240ee49f596dc65e55728a0922340fdf47b021"
+ },
+ "assets/maps/tft/icons/augments/hexcore/long-time-crafting-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642d08-197a\"",
+  "file": "9a1f70245144.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:06:48 GMT",
+  "px": 64,
+  "sha1": "eb99588acc9a74be06b4cadff3381606715ca5fe",
+  "srcSha1": "c5f662038e8e25af72bfedeebb42f48d031c268b"
+ },
+ "assets/maps/tft/icons/augments/hexcore/lucky-gloves-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cf8-2419\"",
+  "file": "b454ed8d821b.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:06:32 GMT",
+  "px": 64,
+  "sha1": "bccaf04b8fdee6d91efd00212bf290bb36ed2676",
+  "srcSha1": "66608cbc08aa0701d3dd9db3e83bbd66e9778101"
+ },
+ "assets/maps/tft/icons/augments/hexcore/luxurysubscription_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a8-283e\"",
+  "file": "356a7af5f2a6.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:24 GMT",
+  "px": 64,
+  "sha1": "2482953a44fc92faa0ba43e0f42c78bb15fbbc71",
+  "srcSha1": "de70b5e1ccc24c25e8765f1604918149e994a121"
+ },
+ "assets/maps/tft/icons/augments/hexcore/makeshift1.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c1f-2494\"",
+  "file": "73bc0748876e.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:02:55 GMT",
+  "px": 64,
+  "sha1": "f23b76facc3fe1d7001403488e2321b1ced8d8ef",
+  "srcSha1": "5bdf8f299927adec668b6d2e27f44ea6f5a792f9"
+ },
+ "assets/maps/tft/icons/augments/hexcore/makeshift2.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cd3-246c\"",
+  "file": "0e055e64d7eb.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:55 GMT",
+  "px": 64,
+  "sha1": "5be27f202b2a6f0e7af4971739db6516cdc64d90",
+  "srcSha1": "420a98755a342caa49bdd85d9ab0e4ad5af20a4c"
+ },
+ "assets/maps/tft/icons/augments/hexcore/marksman_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614999-1bab\"",
+  "file": "4d8cb040cc2e.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:09 GMT",
+  "px": 64,
+  "sha1": "07560e634b7cd88c35d4d50d8c9e1414f255548b",
+  "srcSha1": "8f463c8812b42d8d1d257b981d7fe9393860b921"
+ },
+ "assets/maps/tft/icons/augments/hexcore/maxbuild_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9e8-2f7e\"",
+  "file": "7a73af9424ac.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:40 GMT",
+  "px": 64,
+  "sha1": "02d1f66fbe674ea93bea72b99aa92eab4cf48200",
+  "srcSha1": "ec7fce5c7d8dcd2f2745c74e7b91a7e0bb5fc307"
+ },
+ "assets/maps/tft/icons/augments/hexcore/minmax_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499f-2566\"",
+  "file": "b25d4eb7d82d.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:15 GMT",
+  "px": 64,
+  "sha1": "b08f6881371f23e536df65936ffdb55a9b247aff",
+  "srcSha1": "60299fc7c5fe8b11c3002b7f4685b73de563667d"
+ },
+ "assets/maps/tft/icons/augments/hexcore/mirroredmonetization_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614978-22be\"",
+  "file": "79c47f0e64a2.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:36 GMT",
+  "px": 64,
+  "sha1": "f7d45fba1f89a582511acff07641a810cd2fbe46",
+  "srcSha1": "0420a442a75d5f960dfa0d1ef9838ed91d8a593d"
  },
  "assets/maps/tft/icons/augments/hexcore/missed-connections-i.png": {
   "enc": "webp-q80-m6",
@@ -1097,6 +1934,60 @@
   "sha1": "bd4dcf52ab26541fb5e4350b967b997638853ddb",
   "srcSha1": "294094f15e2d5865da9f13d308723156920109d1"
  },
+ "assets/maps/tft/icons/augments/hexcore/moneyhungry2_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a71729f-2f10\"",
+  "file": "86401b014e61.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:27 GMT",
+  "px": 64,
+  "sha1": "9305bfcb989801fc4b347acb29cd6f9465a789e5",
+  "srcSha1": "a2da9c40f9c66647429bb74950403cc7f43fb817"
+ },
+ "assets/maps/tft/icons/augments/hexcore/moneymonsoon_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614988-257a\"",
+  "file": "c1bf3fa4934f.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:52 GMT",
+  "px": 64,
+  "sha1": "64e5d5b50808bf10105c4077f022b9251fc526d4",
+  "srcSha1": "9a922be66ffec4511fbd9ed9175387df8e1a4220"
+ },
+ "assets/maps/tft/icons/augments/hexcore/newrecruit3.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c90-2499\"",
+  "file": "a2983c6dfc92.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:04:48 GMT",
+  "px": 64,
+  "sha1": "63fe45af6b033c68f41faf9caabb5484bcb9e9be",
+  "srcSha1": "ba7d7d536fc0b22a4626d2327f63ace16146b715"
+ },
+ "assets/maps/tft/icons/augments/hexcore/noscoutnopivot_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a8-23d8\"",
+  "file": "44c6c164fa5f.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:24 GMT",
+  "px": 64,
+  "sha1": "a97d8b2ef35e5d87e69848d89a0fe33e33328110",
+  "srcSha1": "92de4f0f208b45a26e7a72e8aacc68e4e8d445e5"
+ },
+ "assets/maps/tft/icons/augments/hexcore/one-two-five-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cfb-1ec9\"",
+  "file": "f95d17e012ed.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:06:35 GMT",
+  "px": 64,
+  "sha1": "520b60d0ed80fe2c19b32349f86082254cb54284",
+  "srcSha1": "803ccab8d5bc5b6219140b693e67469a33abec4e"
+ },
+ "assets/maps/tft/icons/augments/hexcore/onebufftwobuff_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614969-2dbd\"",
+  "file": "433b0eaf43f1.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:21 GMT",
+  "px": 64,
+  "sha1": "1e6b3a13c640d98926122de6791ebf0d0430d1fd",
+  "srcSha1": "158092fd3132b3c5ca7b327802a14e671bd6a294"
+ },
  "assets/maps/tft/icons/augments/hexcore/pandora1.png": {
   "enc": "webp-q80-m6",
   "etag": "\"69642cfb-2120\"",
@@ -1106,6 +1997,69 @@
   "sha1": "739512ea7d3746bceb86dbd85dbb1bb62c23f7ce",
   "srcSha1": "d33de9063f1fcf70e0d6b03bab7b0c715e3fc7ff"
  },
+ "assets/maps/tft/icons/augments/hexcore/pandora2.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cf8-2156\"",
+  "file": "e6e632bc4850.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:06:32 GMT",
+  "px": 64,
+  "sha1": "4a0dc504b32c81c7c1d5661f65e8d2f41b0f7e36",
+  "srcSha1": "c85267af7ae3903644b90b6dc1f518be4a0d201a"
+ },
+ "assets/maps/tft/icons/augments/hexcore/pandora3.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642ba7-269e\"",
+  "file": "f7def53fab34.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:00:55 GMT",
+  "px": 64,
+  "sha1": "7cc608a92a8ea75aa3ad9213c3533b1ff8cbc823",
+  "srcSha1": "b6eb7d99832b4f712737a622f4f34d746884d7d3"
+ },
+ "assets/maps/tft/icons/augments/hexcore/pandoras-bench-ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c6a-1bcc\"",
+  "file": "8f5f75d8c2d5.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:04:10 GMT",
+  "px": 64,
+  "sha1": "61f199023ba06db58e4ff5e75a5e1b97bb7b2a85",
+  "srcSha1": "9039680c70977a20a0fc71b95b8d5fbf51da8205"
+ },
+ "assets/maps/tft/icons/augments/hexcore/patienceisavirtue_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61498f-1ff2\"",
+  "file": "dd4b6a027b57.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:59 GMT",
+  "px": 64,
+  "sha1": "94f56983b1312faec4c2646d9df9fcbf5b804ecf",
+  "srcSha1": "93507021bb330a1b5d6bb806b15cfb57675a68fa"
+ },
+ "assets/maps/tft/icons/augments/hexcore/phreaky-friday-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642bb0-1c34\"",
+  "file": "f8b94fe2559e.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:01:04 GMT",
+  "px": 64,
+  "sha1": "11d3ed5332fae6c604ba14c27b2a274db37f152d",
+  "srcSha1": "d9706ced965f7366c34d040cd57f382dd7c784b0"
+ },
+ "assets/maps/tft/icons/augments/hexcore/pilfer_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499e-2708\"",
+  "file": "6e682e1910df.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:14 GMT",
+  "px": 64,
+  "sha1": "f3898b09116be7011e5a781bded5a3411f747a1a",
+  "srcSha1": "5ed23ab6890d2347373cfa772553f385b907f9aa"
+ },
+ "assets/maps/tft/icons/augments/hexcore/plotarmor_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614992-2066\"",
+  "file": "8af5b038ac2e.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:02 GMT",
+  "px": 64,
+  "sha1": "146cae7be86e7bf753187d615cea5ef559266658",
+  "srcSha1": "eb5bde22e79f7f63a5ef2f9efe7425bacf2b8a24"
+ },
  "assets/maps/tft/icons/augments/hexcore/portableforge2.png": {
   "enc": "webp-q80-m6",
   "etag": "\"69642cf7-186d\"",
@@ -1114,6 +2068,15 @@
   "px": 64,
   "sha1": "286db91103c700fa8e370620fac56599b1c582f1",
   "srcSha1": "893ba03958e27567fef2ff02f8d21490ebde47e2"
+ },
+ "assets/maps/tft/icons/augments/hexcore/powerup_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61498a-1973\"",
+  "file": "dd644f906066.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:54 GMT",
+  "px": 64,
+  "sha1": "12f09069ce4184088300af016b8d647a0ed63c98",
+  "srcSha1": "ea04756a1a7cfb4e2940386d184c9fa64f070703"
  },
  "assets/maps/tft/icons/augments/hexcore/prismaticdestiny_iii.png": {
   "enc": "webp-q80-m6",
@@ -1132,6 +2095,33 @@
   "px": 64,
   "sha1": "ae0a2d54fb20ef873a550723ab5e1ae46c4432d8",
   "srcSha1": "c73cc12dee36d28d9ae948067771d06728542f94"
+ },
+ "assets/maps/tft/icons/augments/hexcore/radiantrelic-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c3d-2ab2\"",
+  "file": "ff53849fe940.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:25 GMT",
+  "px": 64,
+  "sha1": "c20ad3efabc2459630f95f993798e4c8489c14b3",
+  "srcSha1": "68c656cbdd83a065faa85c5339b3777acd688715"
+ },
+ "assets/maps/tft/icons/augments/hexcore/recombobulator-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c3e-1bec\"",
+  "file": "a604e9bbefd6.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:26 GMT",
+  "px": 64,
+  "sha1": "fac3a245438d072e26b553932801d89b807f7f5a",
+  "srcSha1": "6c094a9fd0590fd277d5642e67979005459de219"
+ },
+ "assets/maps/tft/icons/augments/hexcore/recurvewrecker_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61498f-26ee\"",
+  "file": "48404dc6146c.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:59 GMT",
+  "px": 64,
+  "sha1": "a3f086b3524ac90ef407dcbcb48220522d82e6ee",
+  "srcSha1": "71848c3b6495ced6deabfdfda61aab0fc5d97d43"
  },
  "assets/maps/tft/icons/augments/hexcore/reinfourcement_ii.png": {
   "enc": "webp-q80-m6",
@@ -1178,6 +2168,33 @@
   "sha1": "efcd7d863bc99062998216725d0d19bd6552af89",
   "srcSha1": "3c4397747182d64cb8698778c7b93e9befc50c96"
  },
+ "assets/maps/tft/icons/augments/hexcore/roll-the-dice-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642ca7-29a2\"",
+  "file": "01dd46836b77.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:11 GMT",
+  "px": 64,
+  "sha1": "b2c5df1c62939f838bdaa923a336cf9bb846cd23",
+  "srcSha1": "10c7d88afb86de08d068f986e299bfdb6e80d11f"
+ },
+ "assets/maps/tft/icons/augments/hexcore/rolling-for-days-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642d1c-1936\"",
+  "file": "f15211ef1cf0.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:07:08 GMT",
+  "px": 64,
+  "sha1": "b77fbc67c59d4c56cfa84b10d7007079eb6d50ca",
+  "srcSha1": "5f627fa72366653c51566dd34e439aabd4555149"
+ },
+ "assets/maps/tft/icons/augments/hexcore/salvage2.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c0a-234e\"",
+  "file": "0d4679ceae3f.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:02:34 GMT",
+  "px": 64,
+  "sha1": "6c4fd58b1f1b1edc7c584ec04470f9e5b977369f",
+  "srcSha1": "d7bc45990aa338637536822ca76dd20bc37a686a"
+ },
  "assets/maps/tft/icons/augments/hexcore/seraphimsstaff_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a6149a5-1e46\"",
@@ -1195,6 +2212,24 @@
   "px": 64,
   "sha1": "c8e2ffa201767ca6abc67a2153eb770082301038",
   "srcSha1": "0086624b4d6964c7f34f24066dad2b6cb54664c0"
+ },
+ "assets/maps/tft/icons/augments/hexcore/silver-spoon-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cd4-14f8\"",
+  "file": "15c1276b51d2.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:56 GMT",
+  "px": 64,
+  "sha1": "b35affb6ebd73bc2bcd39bfdd6c3c1424118f431",
+  "srcSha1": "eed796461bd8f49322e26966f43232358bf781ae"
+ },
+ "assets/maps/tft/icons/augments/hexcore/silver-ticket-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642ba5-1ded\"",
+  "file": "e72320ba65e9.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:00:53 GMT",
+  "px": 64,
+  "sha1": "e19af17076d8df38da9a983cf274a5b94ac1614c",
+  "srcSha1": "44d07bd32de33311170fa819e3d1ac22be3f8548"
  },
  "assets/maps/tft/icons/augments/hexcore/silverdestiny_i.png": {
   "enc": "webp-q80-m6",
@@ -1214,6 +2249,24 @@
   "sha1": "90824cf982781047c2875810edf39be0586fa4b9",
   "srcSha1": "4c57921af3432f92ada478bf6557f5e7724a6c5f"
  },
+ "assets/maps/tft/icons/augments/hexcore/slice_of_life_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a0-1793\"",
+  "file": "e44f42de0945.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:16 GMT",
+  "px": 64,
+  "sha1": "e5a34c7b4614d8bd55fe2907a18d26e0557f2290",
+  "srcSha1": "e3c5dd68df990e2f9452033f3432a2845daddf1d"
+ },
+ "assets/maps/tft/icons/augments/hexcore/slightlymagicroll_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a3-1de9\"",
+  "file": "109781211002.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:19 GMT",
+  "px": 64,
+  "sha1": "fb3fa4647ec6049012c9399a552f7311ec4ed02d",
+  "srcSha1": "3da0f9c86dbcf226572119d57e71a54c6e381c48"
+ },
  "assets/maps/tft/icons/augments/hexcore/smallgrabbag_i.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614956-2539\"",
@@ -1222,6 +2275,15 @@
   "px": 64,
   "sha1": "90c8e800901adaeac95e2903316ae29b2d7a3b1f",
   "srcSha1": "d4a066c43e95b52dd20e8800dc41d1b3c7151493"
+ },
+ "assets/maps/tft/icons/augments/hexcore/sololeveling_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614982-2577\"",
+  "file": "1d798bf1c0ff.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:46 GMT",
+  "px": 64,
+  "sha1": "922906315142080f1eb7224cd3df55bc1d111ac6",
+  "srcSha1": "d77c26381ad365ebd666c2e1579152350b12e17a"
  },
  "assets/maps/tft/icons/augments/hexcore/soloplate_ii.png": {
   "enc": "webp-q80-m6",
@@ -1241,6 +2303,15 @@
   "sha1": "61002b83be86a86f3e45e13259558095ae22b00c",
   "srcSha1": "28f328692d6c96f999263856d0d6daaf909630bb"
  },
+ "assets/maps/tft/icons/augments/hexcore/spiritofredemption_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614979-1f6a\"",
+  "file": "5df18d14b3e5.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:37 GMT",
+  "px": 64,
+  "sha1": "79e3a6c567ea1c238ceae054babd0a8b4b44f978",
+  "srcSha1": "9ad4d9a54dfb31e423abd3996042f57e57cadf49"
+ },
  "assets/maps/tft/icons/augments/hexcore/spreadingroots_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614981-2fde\"",
@@ -1249,6 +2320,33 @@
   "px": 64,
   "sha1": "c04ab2716ac5e2e68957e52ae1e060e8a8828f50",
   "srcSha1": "f821d25ab1a55b26b0e51e43135f842bd96184fb"
+ },
+ "assets/maps/tft/icons/augments/hexcore/standunited1.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642b7d-1d2c\"",
+  "file": "73bfcf544901.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:00:13 GMT",
+  "px": 64,
+  "sha1": "c6e1b5ef06043f5bf9e67d087be5884fd78bde90",
+  "srcSha1": "93d431ef2321f199a7c157b227cd1147945e9ef1"
+ },
+ "assets/maps/tft/icons/augments/hexcore/subscriptionservice_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614957-1f47\"",
+  "file": "d4e8c33bb785.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:03 GMT",
+  "px": 64,
+  "sha1": "fe6a2fb30823273a1bc97a4742f7093709a7a9b5",
+  "srcSha1": "c12dfc502747ada05e84e8190ce0699d1b600b7c"
+ },
+ "assets/maps/tft/icons/augments/hexcore/sweettreats_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9e6-221d\"",
+  "file": "6719e13f7dc1.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:38 GMT",
+  "px": 64,
+  "sha1": "1dfdfbe27199311e85717b616764e19810573836",
+  "srcSha1": "ba761836e4b32769af28dbef88e1690383f44fcf"
  },
  "assets/maps/tft/icons/augments/hexcore/swordsmith_ii.png": {
   "enc": "webp-q80-m6",
@@ -1259,6 +2357,33 @@
   "sha1": "f5e72f8838f07779dddb029085903630318eb0db",
   "srcSha1": "f0e4bc40d6e5d2c1f20242fab7bbe3056a01ff5b"
  },
+ "assets/maps/tft/icons/augments/hexcore/tacticianskitchen_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a2-285f\"",
+  "file": "6fad5e76943f.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:18 GMT",
+  "px": 64,
+  "sha1": "f8e95ca2f7c3b2476e66f93c5f3c0a939b4b4a58",
+  "srcSha1": "c9fd28d3ef66e99fdeae5fe509ab6e2b9f938c96"
+ },
+ "assets/maps/tft/icons/augments/hexcore/the-customer-is-always-right-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c65-1d38\"",
+  "file": "26804718e270.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:04:05 GMT",
+  "px": 64,
+  "sha1": "7d20ed8e344b71bc0f6f9a757087a2213187c55c",
+  "srcSha1": "47ccf27ad11dbd81737a3926f5d980a7ca94bf1e"
+ },
+ "assets/maps/tft/icons/augments/hexcore/the-golden-egg-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642bf7-21ac\"",
+  "file": "a5e4a5793a1e.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:02:15 GMT",
+  "px": 64,
+  "sha1": "708d4064957f52fe391b9855d384b7f3df7a52e7",
+  "srcSha1": "6928d7f572d48b3d5397d8eecc16b978e86c752e"
+ },
  "assets/maps/tft/icons/augments/hexcore/thebaronslair_iii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a7172a3-28cc\"",
@@ -1268,6 +2393,42 @@
   "sha1": "6f94efeccc699c762e2a305164996f1fb8163199",
   "srcSha1": "982b51d2b5ef18326c0dd3ec8a50d3ae84ad6b84"
  },
+ "assets/maps/tft/icons/augments/hexcore/thegoldendragon_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9ec-2ec2\"",
+  "file": "cad20fdb0d7c.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:44 GMT",
+  "px": 64,
+  "sha1": "9cc6917d5f09b2b07311eb6d2fa860997b863a7e",
+  "srcSha1": "5a36dd775f6798085f8dca7ee3f67057651a8982"
+ },
+ "assets/maps/tft/icons/augments/hexcore/thetower_i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7172a2-1d7a\"",
+  "file": "e13ec19134d5.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:30 GMT",
+  "px": 64,
+  "sha1": "b7444cdfcda8fbfa5141668b352b5a66cad01711",
+  "srcSha1": "071c2b6a9a1a016f4d686d7beee59c7140f39c7f"
+ },
+ "assets/maps/tft/icons/augments/hexcore/thetraittree_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499c-2755\"",
+  "file": "ed7284ce35bd.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:12 GMT",
+  "px": 64,
+  "sha1": "ff4232726786de83aaea19cc5d52395506b16542",
+  "srcSha1": "a604c67d7a7495b490e0e63276577d50a38adff0"
+ },
+ "assets/maps/tft/icons/augments/hexcore/threes-company-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c29-2339\"",
+  "file": "32d5b2b87cd1.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:05 GMT",
+  "px": 64,
+  "sha1": "b2a79bf2f95a7bc7104a603532a9e377882339b6",
+  "srcSha1": "b83fe174bb085515f22bee01d8bb8822ba6ddccf"
+ },
  "assets/maps/tft/icons/augments/hexcore/timeskip_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614979-2026\"",
@@ -1276,6 +2437,15 @@
   "px": 64,
   "sha1": "f25e0d43c32a708bc9c11fa2b6d5feab96b9d9b3",
   "srcSha1": "ee517591ad4b10462b8f1a4f8bcad748eb5e715b"
+ },
+ "assets/maps/tft/icons/augments/hexcore/tons-of-stats-ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cb5-1910\"",
+  "file": "abdf82a1a63a.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:25 GMT",
+  "px": 64,
+  "sha1": "9bbd897adad56ecfbd7f11c302abf361edcb957a",
+  "srcSha1": "b72f7c94b8cb5b18a2f7312e1388e6ce8901c95e"
  },
  "assets/maps/tft/icons/augments/hexcore/trade2.png": {
   "enc": "webp-q80-m6",
@@ -1313,6 +2483,24 @@
   "sha1": "1a37cfe8af58dd819aa6c7ee788fc58be1a121c3",
   "srcSha1": "5fb4815a2d6a1400dfd4bb8a4578fcccf6090f1f"
  },
+ "assets/maps/tft/icons/augments/hexcore/upwardmobility_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a2-2156\"",
+  "file": "86c7c713e1a3.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:18 GMT",
+  "px": 64,
+  "sha1": "bfbe3d06c0d9c084d4e82e7b3da78c5792416edf",
+  "srcSha1": "223fcba340f71a8bcde32f40361c15f4060cf50e"
+ },
+ "assets/maps/tft/icons/augments/hexcore/urfs-grab-bag-iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c58-24f0\"",
+  "file": "bcd4cfce2379.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:52 GMT",
+  "px": 64,
+  "sha1": "aab2c9aeb9de69fb37c24c7cf910efeaf317b185",
+  "srcSha1": "5cfa9fcf810e5bb71bc872bbb47b593e6d2b2502"
+ },
  "assets/maps/tft/icons/augments/hexcore/wandoverflow_iii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614984-2723\"",
@@ -1321,6 +2509,105 @@
   "px": 64,
   "sha1": "d928def001a077f7f969e94a4b112c4d192c6b02",
   "srcSha1": "dc390b403023ce511df5e639f110de2600dbb407"
+ },
+ "assets/maps/tft/icons/augments/hexcore/warpath_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614998-1fda\"",
+  "file": "1a908962b959.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:08 GMT",
+  "px": 64,
+  "sha1": "e6295f3c3bb974660b7cdf90684bc49d755a8246",
+  "srcSha1": "444bda6f1af5c22797479348a2af13ccadd21271"
+ },
+ "assets/maps/tft/icons/augments/hexcore/westicktogether_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9dc-283c\"",
+  "file": "8572990c7ca7.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:28 GMT",
+  "px": 64,
+  "sha1": "a7a776b9ec9a001f8bb1f00dcbab1cbef5e2abc5",
+  "srcSha1": "78d7fe2298223906f3dc3528c7474f4e53eca377"
+ },
+ "assets/maps/tft/icons/augments/hexcore/windfall2.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642c32-1c9a\"",
+  "file": "fb91870c0cbf.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:03:14 GMT",
+  "px": 64,
+  "sha1": "5909b3c1b3195d2cb3de3e4921a0f96a4b49ab0f",
+  "srcSha1": "97cb01b0bb2722f320cbee37cd6ccff61eb85ef4"
+ },
+ "assets/maps/tft/icons/augments/hexcore/worththewait_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614958-22b6\"",
+  "file": "5f8ced35f025.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:04 GMT",
+  "px": 64,
+  "sha1": "26b69c90625413697d53149ddaceb66b81ea8193",
+  "srcSha1": "c19c1b5b48e5f2be2b22998d0370dc8b09a38baf"
+ },
+ "assets/maps/tft/icons/augments/hexcore/worththewait_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614977-23d0\"",
+  "file": "3f4c207d7ef6.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:35 GMT",
+  "px": 64,
+  "sha1": "36c94e5cf2b5aeddde46d4bd725729190c7684cd",
+  "srcSha1": "dbd82ad6e9dd3ebba2635a1a5ad86515d2948ee7"
+ },
+ "assets/maps/tft/icons/augments/hexcore/wovenmagic_iii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61495c-243c\"",
+  "file": "91e0280e01ce.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:08 GMT",
+  "px": 64,
+  "sha1": "dbb8c96b6cce7cf285e1d0ed8771350a0ec8983c",
+  "srcSha1": "2e770472b659a95c6dd1cde2900d6777d3b8b329"
+ },
+ "assets/maps/tft/icons/augments/hexcore/young-and-wild-and-free-i.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69642cc6-1821\"",
+  "file": "524dc14defa0.webp",
+  "lastModified": "Sun, 11 Jan 2026 23:05:42 GMT",
+  "px": 64,
+  "sha1": "e347ed0c704e644807c5625846019707cf326996",
+  "srcSha1": "77305c809b27bf60bb1a12a18a03544b8405032a"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft16_artifact_eternalpact.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614956-1106c\"",
+  "file": "e7c44c4b1d50.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:02 GMT",
+  "px": 64,
+  "sha1": "424367b2bb088f37ae0ce89d9ed64c9961be465e",
+  "srcSha1": "cd565283d35630665ac6298c0b416e4ad1a573c7"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft16_artifact_voidgauntlet.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614993-112b6\"",
+  "file": "e62d1342f04f.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:03 GMT",
+  "px": 64,
+  "sha1": "c0dc9956a79552cb4740e8b7a48721a7941c6c57",
+  "srcSha1": "0d93ee7a65ed1beeb72306f82b52f8187b506416"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft4_item_ornninfinityforce.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61498f-4ed5\"",
+  "file": "4d7ae6644ae9.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:59 GMT",
+  "px": 64,
+  "sha1": "9c2e599775abcbbe1ec61bcdbf264305bd687542",
+  "srcSha1": "48fa18117fee50a36a9eec1283f1011c483ed288"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft4_item_ornnmuramana.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61496b-4c33\"",
+  "file": "b0c6b33a9ac3.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:23 GMT",
+  "px": 64,
+  "sha1": "1b08c029ec60544d35e9b97d3483855b47870d04",
+  "srcSha1": "b29c3c0a107c729bb9db87f35ba9cffa11ff0e85"
  },
  "assets/maps/tft/icons/items/hexcore/tft4_item_ornnthecollector.png": {
   "enc": "webp-q80-m6",
@@ -1331,6 +2618,69 @@
   "sha1": "06dba18dbcdd0e2d6102c2d18f19d79f79954c11",
   "srcSha1": "837c82cde9b636b7203f2b43cfda0cf0abf18676"
  },
+ "assets/maps/tft/icons/items/hexcore/tft4_item_ornnzhonyasparadox.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614983-5289\"",
+  "file": "80ea17eba489.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:47 GMT",
+  "px": 64,
+  "sha1": "739aabd91a9253955011f416b3898d2ab4569225",
+  "srcSha1": "c529eb0654ef26f4e42aabd1d56ae171285330aa"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_adaptivehelmradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a5-5775\"",
+  "file": "211915db30cc.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:21 GMT",
+  "px": 64,
+  "sha1": "74f87702c2bf2fc02e175478edc1cb79156e228b",
+  "srcSha1": "52ec618805da3cd353146c5d579b2916f0fe70ab"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_archangelsstaffradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a9-4e0b\"",
+  "file": "7eb6d656ffb0.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:25 GMT",
+  "px": 64,
+  "sha1": "6e43ea9742b1b3815b6f42603ef5693e6bab0f87",
+  "srcSha1": "1c8e2fe7cc6a934c4ee3a9291d3b4b8b43ccab26"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_bloodthirsterradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61498c-510f\"",
+  "file": "24f521f175cf.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:56 GMT",
+  "px": 64,
+  "sha1": "d07c085ffa492960d293340f7cb1f41edc935473",
+  "srcSha1": "1be3ed3d8f7de97431bdcef947386e6b3f3de47f"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_bluebuffradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614967-4cc9\"",
+  "file": "09e7179afd0d.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:19 GMT",
+  "px": 64,
+  "sha1": "c61e7256a98949656bad7a79d602616478869662",
+  "srcSha1": "eabed88ede9fcd2f4b4af51c23e1c18146d30edf"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_bramblevestradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61495e-56f3\"",
+  "file": "1587919325c5.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:10 GMT",
+  "px": 64,
+  "sha1": "b5cc4d27881b141ed242945305758eba5b1506ee",
+  "srcSha1": "e7d608805d72a4772a426c3e17c177d475aae4e7"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_crownguardradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499b-542d\"",
+  "file": "3562fb749025.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:11 GMT",
+  "px": 64,
+  "sha1": "5e9839eb56066c39574c8df1c0b65565578b7997",
+  "srcSha1": "7aa6729f3cab241b02ee61c50c0e80e9ff019799"
+ },
  "assets/maps/tft/icons/items/hexcore/tft5_item_deathbladeradiant.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614964-4aaa\"",
@@ -1340,6 +2690,168 @@
   "sha1": "fc9c7dc1e90a1e4eee195da65919307c5ef11e93",
   "srcSha1": "bb16e41ee0bfaafd1de9af6db2b064d71d9292d8"
  },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_dragonsclawradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499f-4e24\"",
+  "file": "a7ee92cfb2e6.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:15 GMT",
+  "px": 64,
+  "sha1": "9646b6f260308d794cb03daf5c12a8908de10976",
+  "srcSha1": "a05da8ed54eb88e8b7778d4059d03347e01978cc"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_frozenheartradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614986-5402\"",
+  "file": "a2f1802ae862.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:50 GMT",
+  "px": 64,
+  "sha1": "e45bf6482afb759c0f014c4a890eb2621b1cde86",
+  "srcSha1": "1f71d118368968e4a342a967d4409f0b1a7a4565"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_gargoylestoneplateradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a9-53fb\"",
+  "file": "6e5e91eaaa45.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:25 GMT",
+  "px": 64,
+  "sha1": "0c0e795d49f49dc537cb95a9b8a21416e9f4e71a",
+  "srcSha1": "a53546139c2de1792f274b2f13b716df98f0ac44"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_giantslayerradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614966-532a\"",
+  "file": "5c146028cd1c.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:18 GMT",
+  "px": 64,
+  "sha1": "8359e5e4bf664a51fce0c80abc8c30377baa6032",
+  "srcSha1": "3b00f08185a010c5afd489b0e390256b9c9474df"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_guardianangelradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a9-5340\"",
+  "file": "8319f414c91a.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:25 GMT",
+  "px": 64,
+  "sha1": "6e2141422084ac9c42eb22957aa6b7b8853e70f9",
+  "srcSha1": "e5bed312fc1577882535120aa3ed0df405a61eaa"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_guinsoosragebladeradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a9-5054\"",
+  "file": "66ed9e922096.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:25 GMT",
+  "px": 64,
+  "sha1": "44610e129f9644efb73d0ee58c42354e54253701",
+  "srcSha1": "33578e2dc2fdad838d5a218ea655d6a529196311"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_handofjusticeradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614962-4e81\"",
+  "file": "65f073c6d2d8.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:14 GMT",
+  "px": 64,
+  "sha1": "b814734a9e7ff0d3bb1ea6c890da15027939b36c",
+  "srcSha1": "0956725c3e67ffaae5da64758e6a6c5cb333a626"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_hextechgunbladeradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614986-598b\"",
+  "file": "b0b199dfb1e5.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:50 GMT",
+  "px": 64,
+  "sha1": "b0bde57e0ca9331d923a0c24a6abfa6eeeed1967",
+  "srcSha1": "09e42de9677c2c97312405f319adf5a36412e1b9"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_infinityedgeradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614962-5366\"",
+  "file": "8489a4a480ba.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:14 GMT",
+  "px": 64,
+  "sha1": "8bb771eb579d31557d439b01ffd60b904a38b0a4",
+  "srcSha1": "eba4bd185e9970292bc25e9041271a0995ed66a0"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_ionicsparkradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499b-532d\"",
+  "file": "595a68a34610.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:11 GMT",
+  "px": 64,
+  "sha1": "1e1e20c3537c35331bf13243bb5c974e514cc230",
+  "srcSha1": "aa96a0d609416aca6edacc9a663dd3301b0341ba"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_jeweledgauntletradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61498b-4df0\"",
+  "file": "b8879a0c368b.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:55 GMT",
+  "px": 64,
+  "sha1": "94227a249f38abd742455e1720edd2dad2ddf5ce",
+  "srcSha1": "1e9a55571ee8f14b1363ef51de2e59d5388655cc"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_lastwhisperradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61496a-4b3e\"",
+  "file": "6a4f15ce5fe2.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:22 GMT",
+  "px": 64,
+  "sha1": "0a8af4d5f70bc6d12cea51883d63afb2a05e4a29",
+  "srcSha1": "950ed47e9f6b1e57ea3297eae4b17baccf116f89"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_leviathanradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a9-538c\"",
+  "file": "89d831826ed3.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:25 GMT",
+  "px": 64,
+  "sha1": "39dc1e83f2037cde246bf5dd1f4133d1b76a5b05",
+  "srcSha1": "838f470797b0392ff73682b64ea95c81d1d8aaf3"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_morellonomiconradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614956-5688\"",
+  "file": "1d7d52e79e96.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:02 GMT",
+  "px": 64,
+  "sha1": "a525e0bcc52f216cafc4bfc20dd378dd5773094b",
+  "srcSha1": "b498a48a2971e1bc1e6482c77bdab86e66b9ff20"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_nightharvesterradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614997-5e69\"",
+  "file": "344e2fb9a865.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:07 GMT",
+  "px": 64,
+  "sha1": "cd994bc8a3a4cdeddbd17b95cda061518a215326",
+  "srcSha1": "2fda1be4313afd1ef920c42ee47fdd158468e10c"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_quicksilverradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149aa-4fb2\"",
+  "file": "68b092aaa955.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:26 GMT",
+  "px": 64,
+  "sha1": "dee8660d35ca93457da3eb03f5445223094480d7",
+  "srcSha1": "295f4089f3c4eda7191584496833747775e2f3e5"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_rabadonsdeathcapradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614970-55aa\"",
+  "file": "7f9b2a2d38c9.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:28 GMT",
+  "px": 64,
+  "sha1": "b17210b82b1e1d502fca813e6c3a3074782fa5c5",
+  "srcSha1": "f2d3779b252fd4bded36340f2147ebe79f519d28"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_rapidfirecannonradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614978-4b2f\"",
+  "file": "edade05a0e98.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:36 GMT",
+  "px": 64,
+  "sha1": "1ed3a002960e4fc9a185db347b61a5e971a11321",
+  "srcSha1": "b88ee4a6e0bef12a3244766a507356c0d09dbf2c"
+ },
  "assets/maps/tft/icons/items/hexcore/tft5_item_spearofshojinradiant.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a61497f-5338\"",
@@ -1348,6 +2860,96 @@
   "px": 64,
   "sha1": "8e5a1a92b44642415d946b944f5fef5c8e3dd00a",
   "srcSha1": "335f5b1b93f5b805da954efc56edbfe6b1891932"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_spectralgauntletradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614983-4fe6\"",
+  "file": "03ca0fe3da53.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:47 GMT",
+  "px": 64,
+  "sha1": "b624686aae24804070aed831988f1e2e3595f460",
+  "srcSha1": "0f3f576b889d3c81de69ed9ce75919d57fab6eeb"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_steraksgageradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a8-5e57\"",
+  "file": "f82d5f0528c0.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:24 GMT",
+  "px": 64,
+  "sha1": "a78feac1b77ef68b132cf367312f7d50aa2ab692",
+  "srcSha1": "a0a529373b8c0cb191184fc1d80737a5b801e5b8"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_sunfirecaperadiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a5-56f6\"",
+  "file": "8ea39238c67b.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:21 GMT",
+  "px": 64,
+  "sha1": "7351ac795e75bc24c89585690c01cc2d04149eb9",
+  "srcSha1": "3ac914f43f448a42c68583e32e5cc3312ce90974"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_thiefsglovesradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614956-4a22\"",
+  "file": "4b30d03e104e.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:02 GMT",
+  "px": 64,
+  "sha1": "7f06dcb0b0e484257ec6222f2c482b2545b57d21",
+  "srcSha1": "45f33f89c28543f97168226d3f915dccc3e749de"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_titansresolveradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a6-58c8\"",
+  "file": "4a27862eb194.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:22 GMT",
+  "px": 64,
+  "sha1": "041d71137fa3667635e040218aaa857b0fce95a6",
+  "srcSha1": "1c34db9bbe3434a79092407430cf67199b92255b"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_trapclawradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a1-598c\"",
+  "file": "e6f5785d10d2.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:17 GMT",
+  "px": 64,
+  "sha1": "630ce797a678311365e71ac6202cadf6604a4559",
+  "srcSha1": "bfac7b05c7402a3a0096a62eddc1cb464f1d2025"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_voidstaffradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7172ac-1a60\"",
+  "file": "e614e1213b71.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:40 GMT",
+  "px": 64,
+  "sha1": "d1ae48189c059517754922cd38c8198182938321",
+  "srcSha1": "28f4e2dc91ade547fd0f456d2bfe299a40e7fb84"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft5_item_warmogsarmorradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61495e-5c3d\"",
+  "file": "7e01caf67920.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:10 GMT",
+  "px": 64,
+  "sha1": "d4f1473a20c2ac21e5fd5982a65f8c3cefad9116",
+  "srcSha1": "1320ae1fc63ce9828bb64eb5ef476c0365d4fbbc"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft7_item_shimmerscalegamblersblade.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61497a-4534\"",
+  "file": "9bcc79a69136.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:38 GMT",
+  "px": 64,
+  "sha1": "8daaf3e83086553fa64a09f60c3d03fd9b6e5149",
+  "srcSha1": "797c9244c60a6d36f7e27d3549ca43d88712753f"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft7_item_shimmerscalemogulsmail.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499b-4998\"",
+  "file": "23eccb9b587a.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:11 GMT",
+  "px": 64,
+  "sha1": "0596672254676fbcc635691bcc57f82fb5da2313",
+  "srcSha1": "d47810f627e8e0b999db8dccc0d5ee2d77088653"
  },
  "assets/maps/tft/icons/items/hexcore/tft_item_adaptivehelm.png": {
   "enc": "webp-q80-m6",
@@ -1367,6 +2969,24 @@
   "sha1": "1f1d7c1cd96b3302badb40446872837339e0be96",
   "srcSha1": "d6dcb9aef664e83e3b307b6d13029a20f8ed4b91"
  },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_aegisofdawn.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499a-540a\"",
+  "file": "69569bcde8b8.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:10 GMT",
+  "px": 64,
+  "sha1": "d426918d446134d7adea7a4533a4c8914e61c7c1",
+  "srcSha1": "c7c951e900976d71251ea3154026200453e31d63"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_aegisofdusk.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614995-4eef\"",
+  "file": "d8db59e47506.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:05 GMT",
+  "px": 64,
+  "sha1": "c51cc36a390299fe4a628bb4cbea7cafa70a4c60",
+  "srcSha1": "f2786b5afc24322243fa6ac1ed896b911b3f2689"
+ },
  "assets/maps/tft/icons/items/hexcore/tft_item_artifact_blightingjewel.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614968-4873\"",
@@ -1375,6 +2995,78 @@
   "px": 64,
   "sha1": "75a891f19575ebf1e6b9c40f4f7f67a050531691",
   "srcSha1": "a27d387413b42923c72aa871934e4467037d2908"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_dawncore.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a0-4627\"",
+  "file": "e537f573ec32.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:16 GMT",
+  "px": 64,
+  "sha1": "19363557752ecf756808cbcf7e5c6a1f11a9e991",
+  "srcSha1": "ca0ca0af79d5eee0502d4b968797d4299e4626b1"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_fishbones.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a4-44b3\"",
+  "file": "5d98f71f2b94.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:20 GMT",
+  "px": 64,
+  "sha1": "3205ce05ba9ed188be90ed59825c54b18695bf29",
+  "srcSha1": "c201b5780491b4e79d0f896dc52080a64002ed79"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_forbiddenidol.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a3-49c4\"",
+  "file": "76a6a4937ed2.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:19 GMT",
+  "px": 64,
+  "sha1": "f4d52b4f003e077cb121736b10eea50144dad95e",
+  "srcSha1": "83bd3b4b9f8b2b4b76d7daeedca822be4e29fb36"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_hellfirehatchet.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614990-f55b\"",
+  "file": "3a7011b4af87.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:00 GMT",
+  "px": 64,
+  "sha1": "2ad85c90207d53c486e11366d21745f09747bddb",
+  "srcSha1": "cb5c9691b001d3f17cd48a9401cc78c9e3afb952"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_horizonfocus.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614981-509b\"",
+  "file": "70597831d274.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:45 GMT",
+  "px": 64,
+  "sha1": "5ee1105c921c679f44e6c180e72b6995a48919de",
+  "srcSha1": "f6943e757d3e0bad1feb6a35addef03b0ea8ab71"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_lightshieldcrest.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a1-4ae9\"",
+  "file": "774502d2e82a.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:17 GMT",
+  "px": 64,
+  "sha1": "e8170d2d83039cb5cee2bcea8f9f16de2ab8e394",
+  "srcSha1": "88b6b092b65b7e93f677dc7b729ee1ae309a85f4"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_ludenstempest.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499c-4a35\"",
+  "file": "5fb469749d77.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:12 GMT",
+  "px": 64,
+  "sha1": "5ca7f605d5bfe05e83add781547f5ac5ce648892",
+  "srcSha1": "4976d33c1ec964b1fe5705d5ff37f4bf257ec9de"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_mittens.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614990-3d0a\"",
+  "file": "14116a5ed8b8.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:00 GMT",
+  "px": 64,
+  "sha1": "37c8d5dbd8c86fc557e25c64575338d367f4d9c4",
+  "srcSha1": "91c9d311d388b9992e99c1aaa8f91531cabab467"
  },
  "assets/maps/tft/icons/items/hexcore/tft_item_artifact_navoriflickerplade.png": {
   "enc": "webp-q80-m6",
@@ -1394,6 +3086,15 @@
   "sha1": "fd1d1e461d80322b40be489b2dbba8f38c3be78f",
   "srcSha1": "38e873d7fc32f2e50588371374a27d54b80beea1"
  },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_seekersarmguard.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614973-45ad\"",
+  "file": "52aa2f314859.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:31 GMT",
+  "px": 64,
+  "sha1": "89a786acde9431ed573ca4724bf20970e2630856",
+  "srcSha1": "1ba362c1eaba5874c1a004dd7c7cd555beb4dd56"
+ },
  "assets/maps/tft/icons/items/hexcore/tft_item_artifact_silvermeredawn.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614968-4d17\"",
@@ -1402,6 +3103,51 @@
   "px": 64,
   "sha1": "2148dda1b39d92b2d276c4df73b8dbe127a71898",
   "srcSha1": "f4c35000bf7b3a1939ce73cb6ab1181ad708b136"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_stattikshiv.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9f2-40e4\"",
+  "file": "c152fdbabe5c.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:50 GMT",
+  "px": 64,
+  "sha1": "ea6e47c69321b536fa0dd4c362b2a1b3c88a79ca",
+  "srcSha1": "925dae9a476bc89763c92055c77cf94ad4b42873"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_talismanofascension.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a8-4411\"",
+  "file": "fb6ed6e9743a.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:24 GMT",
+  "px": 64,
+  "sha1": "8be7c03f0aa39e784fcce291a84e39537fe54ba4",
+  "srcSha1": "e3cd178c492b49ff953ea7b371f40b3f20d1ebfe"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_theindomitable.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9f1-4c04\"",
+  "file": "b715bd52cae2.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:49 GMT",
+  "px": 64,
+  "sha1": "f17d3ef120360fd6e1d5e3cf295d63c9f1407264",
+  "srcSha1": "5d75f870414189d1dc983b4034cc3c086ac03645"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_titanichydra.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9e1-59c9\"",
+  "file": "fb2c0fbf1a24.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:33 GMT",
+  "px": 64,
+  "sha1": "cb5f7f1dbb945526b750e8e99c9514cf07c93132",
+  "srcSha1": "ab2ccd643c06997ba93ef09345abe63358068148"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_artifact_witsend.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61495a-4e9a\"",
+  "file": "8d1b310f45eb.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:06 GMT",
+  "px": 64,
+  "sha1": "c3f57ace83d8605357f6227f0690620ab7a181bf",
+  "srcSha1": "9e35dd0453e55c6fe516c0f893357c6ce3c117e9"
  },
  "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.png": {
   "enc": "webp-q80-m6",
@@ -1474,6 +3220,15 @@
   "px": 64,
   "sha1": "137676da19576f4ba273ed1862425e0d0ced5eb1",
   "srcSha1": "b96c88f5da45c6c7722f9850fedfc899b7b69805"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_forceofnature.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614958-5bf3\"",
+  "file": "fce8ebdfb99d.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:04 GMT",
+  "px": 64,
+  "sha1": "7a6b8041296de748652e68ca1a88b628b93203c8",
+  "srcSha1": "21e36daace8342f26dd65893a4c4be1d8077f1bd"
  },
  "assets/maps/tft/icons/items/hexcore/tft_item_frozenheart.png": {
   "enc": "webp-q80-m6",
@@ -1574,6 +3329,15 @@
   "sha1": "11fe0931a9bce8de55cd7016181326e89adbdebe",
   "srcSha1": "cbcef6b5b32ce33c272579c449a2564083bff84c"
  },
+ "assets/maps/tft/icons/items/hexcore/tft_item_krakenslayerradiant.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"69fea9e4-533d\"",
+  "file": "dfd7424829dd.webp",
+  "lastModified": "Sat, 09 May 2026 03:28:36 GMT",
+  "px": 64,
+  "sha1": "aa77e6a1d40321b1d0622a8c8b8e5281ba3d7472",
+  "srcSha1": "35e4a90d018dd9ad18603a655a061dba47665dc5"
+ },
  "assets/maps/tft/icons/items/hexcore/tft_item_lastwhisper.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614956-44e0\"",
@@ -1664,6 +3428,15 @@
   "sha1": "6c6a8b3f7a992d24e17291f7235026005ac22f90",
   "srcSha1": "3208116ecf23c8c268df647fd7c69f184de2ba98"
  },
+ "assets/maps/tft/icons/items/hexcore/tft_item_rapidfirecannon.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a614960-4322\"",
+  "file": "cbed23b370fa.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:12 GMT",
+  "px": 64,
+  "sha1": "82b7724a41278dba8501384e80f91e9562890b2c",
+  "srcSha1": "3ea225e098db356d35292233dc5d99b1572dc581"
+ },
  "assets/maps/tft/icons/items/hexcore/tft_item_recurvebow.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614987-4256\"",
@@ -1690,6 +3463,15 @@
   "px": 64,
   "sha1": "7f4fe468f28f8321066985353724d37ad396314c",
   "srcSha1": "ec9dcfae1b393221212b416101f56e72b10c6fff"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_spatula.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61498b-3ce2\"",
+  "file": "c6ba524e7d07.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:51:55 GMT",
+  "px": 64,
+  "sha1": "3bbfaf0c143dd4331328375513db37f3cfa62416",
+  "srcSha1": "cd3c0205886a8e5ce759c12194e3ae158216c570"
  },
  "assets/maps/tft/icons/items/hexcore/tft_item_spearofshojin.png": {
   "enc": "webp-q80-m6",
@@ -1726,6 +3508,24 @@
   "px": 64,
   "sha1": "d74d272948fe3047446bf46aa11194444178517d",
   "srcSha1": "aae4f6478fdd8e2586913b4a4f4bb05c9ede5d1f"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_tacticiansring.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a6149a6-5530\"",
+  "file": "e2d60d064066.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:22 GMT",
+  "px": 64,
+  "sha1": "a1443721236f2bce29901692a42e524f398e31a0",
+  "srcSha1": "41b93779865fd0053c2c150941884c15e2c85eb3"
+ },
+ "assets/maps/tft/icons/items/hexcore/tft_item_tacticiansscepter.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a61499f-56d8\"",
+  "file": "3cdc3fae5c6c.webp",
+  "lastModified": "Wed, 22 Jul 2026 22:52:15 GMT",
+  "px": 64,
+  "sha1": "f7842e00116d825fe944678fda095e5807b8748c",
+  "srcSha1": "fc1db8f1e8812441cae9309bc0a68e04f336e5b4"
  },
  "assets/maps/tft/icons/items/hexcore/tft_item_tearofthegoddess.png": {
   "enc": "webp-q80-m6",
@@ -1781,6 +3581,33 @@
   "sha1": "c4e7081ad459edb68d614c8698d924c984a7fd09",
   "srcSha1": "e5d9ad1ab13dbd030bc1a9a62a9f73f4adb26913"
  },
+ "assets/maps/tft/icons/tft18/tft18_blastpotion.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbf-46fb\"",
+  "file": "4f143da07ef0.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:39 GMT",
+  "px": 64,
+  "sha1": "09e63e68396eb401924e7dd06fb829acc3b05622",
+  "srcSha1": "b4a1b77994e260dd5b668e9a917a9321726c4b7d"
+ },
+ "assets/maps/tft/icons/tft18/tft18_healthpotion.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dbd-3b42\"",
+  "file": "83852fc9f8f5.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:37 GMT",
+  "px": 64,
+  "sha1": "d9f9adba85343000a299a8e49532a1134c20ba62",
+  "srcSha1": "428d26341ae6fe6dc986069d822b916049f3dbf9"
+ },
+ "assets/maps/tft/icons/tft18/tft18_manapotion.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc4-3a58\"",
+  "file": "b9a31b16115e.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:44 GMT",
+  "px": 64,
+  "sha1": "26e6a8b5372b5268ae192398f213b2f6f44fd9dd",
+  "srcSha1": "96d228af7af31d0fffd5ef4019b42de461bae39e"
+ },
  "assets/ux/traiticons/trait_icon_18_adaptor.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a824dbc-1c4\"",
@@ -1808,6 +3635,15 @@
   "sha1": "d768c39422a3b996dee25096d5e344b52d30f0a0",
   "srcSha1": "3132b0769f568ca9212bdbdfa4308ad79c41b9d5"
  },
+ "assets/ux/traiticons/trait_icon_18_coven.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc1-237\"",
+  "file": "f8f48261367f.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:41 GMT",
+  "px": 32,
+  "sha1": "36ee4facbde10e14ba6c70b18a85d97bf1dca2b8",
+  "srcSha1": "9ce7183986e53de08dfb12aae4fc3f68ba86aa74"
+ },
  "assets/ux/traiticons/trait_icon_18_defender.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a824dbf-18c\"",
@@ -1816,6 +3652,15 @@
   "px": 32,
   "sha1": "b221c4f6cf04b7b2927a22628533ae2cb901c36c",
   "srcSha1": "da080d8e3996f9cc14b37dac1353236b093f3c63"
+ },
+ "assets/ux/traiticons/trait_icon_18_eclipse.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a824dc9-1f6\"",
+  "file": "f370df0412ca.webp",
+  "lastModified": "Sun, 16 Aug 2026 23:54:49 GMT",
+  "px": 32,
+  "sha1": "acc20b233177e6943a308f1150752d88311e1560",
+  "srcSha1": "a8ca9d186e7250092fc81a40dfc34dd36602f685"
  },
  "assets/ux/traiticons/trait_icon_18_elderwood.png": {
   "enc": "webp-q80-m6",
@@ -1996,5 +3841,59 @@
   "px": 32,
   "sha1": "1296553de560977e2776e55454295c840f8b0684",
   "srcSha1": "ea61e421116b7641362829c5a3a02accab82a52b"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/equip/92987.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7eb4e1-12b2\"",
+  "file": "b6f5832ac1e8.webp",
+  "lastModified": "Fri, 14 Aug 2026 06:25:37 GMT",
+  "px": 64,
+  "sha1": "2ef338e9ae854d3e33349a86b857c75a28f393b0",
+  "srcSha1": "c3f0b8b472926c0de2fa914fc814be9c8434b295"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/hex/94864.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a8ea724-ad59\"",
+  "file": "ea2a58d12978.webp",
+  "lastModified": "Wed, 26 Aug 2026 08:43:16 GMT",
+  "px": 64,
+  "sha1": "64e330030a8f8440714ef7973f7a2a4288de882b",
+  "srcSha1": "f5ad48a1f7be083f54699bb08db83b4effdfed3d"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/hex/94955.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7eb5d3-174f\"",
+  "file": "9f86be72fdea.webp",
+  "lastModified": "Fri, 14 Aug 2026 06:29:39 GMT",
+  "px": 64,
+  "sha1": "ab795727586b37ec6e760ea76cb0d3227e825dd5",
+  "srcSha1": "feb69b30767aaada0da627b52d2869b01e56a375"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/hex/95122.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a8d3bfa-e064\"",
+  "file": "71603a323ed7.webp",
+  "lastModified": "Tue, 25 Aug 2026 06:53:46 GMT",
+  "px": 64,
+  "sha1": "4cd3a00d3d96d17c173a770d8404b23abe51bf29",
+  "srcSha1": "22ee4141ccaa810d40d6e07f9cfd7a8d20ac2513"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/hex/95123.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a8d3bfa-f56f\"",
+  "file": "9bf2ed716022.webp",
+  "lastModified": "Tue, 25 Aug 2026 06:53:46 GMT",
+  "px": 64,
+  "sha1": "83159559b936b61e0f8e2253980e03d49a23686c",
+  "srcSha1": "deed69ba37fce74c784b48a22ab699213b583bb0"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/original-image/tft18_willump_square.tft_set18.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a8eb4d0-3a0f\"",
+  "file": "2e85a2bf02aa.webp",
+  "lastModified": "Wed, 26 Aug 2026 09:41:36 GMT",
+  "px": 128,
+  "sha1": "4949cd25fbf97e192a13c20bf45e9764c47342cc",
+  "srcSha1": "02a9099326f4734b19439424cf2d0854ad61ec4e"
  }
 }

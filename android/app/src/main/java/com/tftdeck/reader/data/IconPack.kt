@@ -436,7 +436,8 @@ class IconPack private constructor(private val context: Context) {
                 traits.forEach { add(it.icon) }
                 items.forEach { add(it.icon) }
                 augments.forEach { add(it.icon) }
-                // 통합: WP-3 모델에 catalog.pets 가 생기면 여기에 더한다(지금은 pet 도 decks[].units[].icon 으로 온다).
+                // 소환물(pet)은 상점에 없어 champions 에 빠져 있다. 보드·빌드업 칸이 이 아이콘을 쓴다.
+                pets.forEach { add(it.icon) }
             }
             for (deck in feed.decks) {
                 for (member in deck.units) {

@@ -57,7 +57,8 @@ jobs:
           if ! python collector/verify_stats.py; then
             # 검증을 통과하지 못한 도감은 커밋하지 않는다: 추적 파일은 되돌리고 새 파일은 지운다.
             git checkout -- data/stats 2>/dev/null || true
-            git clean -fdq -- data/stats || true
+            git checkout -- data/flags.json 2>/dev/null || true
+            git clean -fdq -- data/stats data/flags.json || true
             exit 1
           fi
 
@@ -75,6 +76,8 @@ jobs:
       - name: 변경분 커밋
         run: |
           git add data/
+          # 아이콘 변환 캐시(ETag·픽셀 서명)는 data/ 밖에 있다. 빠지면 다음 실행이 원본을 전부 다시 받는다.
+          if [ -f collector/.icon_cache.json ]; then git add collector/.icon_cache.json; fi
           # 먼저 스테이징한 뒤 비교해야 새로 생긴 파일(data/stats, data/icons, data/flags.json)도 잡힌다.
           if git diff --cached --quiet; then
             echo "변경 없음 — 커밋 생략"

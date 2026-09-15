@@ -22,8 +22,8 @@ android {
         // TYPE_APPLICATION_OVERLAY(다른 앱 위에 그리기)가 API 26부터라 최소 26.
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         // 앱이 매일 받아갈 JSON 위치. 배포용 저장소가 정해지면 여기만 바꾸면 된다.
         buildConfigField(

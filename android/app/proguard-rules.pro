@@ -27,6 +27,17 @@
 # 이 앱의 모델은 전부 직렬화 대상이라 통째로 남긴다 (26덱 규모라 용량 영향이 없다).
 -keep class com.tftdeck.reader.data.** { *; }
 
+# 게임 연동(ingame)의 지난 게임 로비·원격 플래그 모델은 data 패키지 밖에 있다.
+# metatft 응답과 로비 캐시(filesDir/last_lobby.json)를 이 클래스들로 읽으므로 같은 이유로 남긴다.
+-keep @kotlinx.serialization.Serializable class com.tftdeck.reader.ingame.** { *; }
+-keep,includedescriptorclasses class com.tftdeck.reader.ingame.**$$serializer { *; }
+-keepclassmembers class com.tftdeck.reader.ingame.** {
+    *** Companion;
+}
+-keepclasseswithmembers class com.tftdeck.reader.ingame.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
 -dontnote kotlinx.serialization.**
 -dontwarn kotlinx.serialization.**
 

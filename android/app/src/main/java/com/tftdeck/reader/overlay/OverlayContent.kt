@@ -315,8 +315,9 @@ private fun CollapsedChip(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(7.dp),
     ) {
-        // 통합: GameStatusBadge(GameSession.state) 삽입 자리
-        // (게임 연동이 켜져 있으면 TFT 감지 초록 점 / 판 종료 직후 '6등 −35 LP' 배지가 칩 맨 앞에 붙는다.)
+        // 게임 연동이 켜져 있으면 TFT 감지 초록 점 / 판 종료 직후 '6등 −35 LP' 배지가 칩 맨 앞에 붙는다.
+        // 아무 일도 없으면 아무것도 그리지 않아 칩 폭이 그대로다.
+        GameStatusBadge(OverlayService.gameStatus)
         val carry = deck?.carry
         if (deck != null && carry != null) {
             val tint = gradeTint(deck, bucket)
