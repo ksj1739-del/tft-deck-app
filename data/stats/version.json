@@ -1,0 +1,27 @@
+{
+  "contentHash": "5db61b18e389f4aa",
+  "files": {
+    "augments": "ab63fc75e43ad91a",
+    "champions": "ae559ad3b7b6068e",
+    "items": "fe18d65316ed9034",
+    "traits": "6310ee405b02f0e2"
+  },
+  "generatedAt": "2026-09-15T14:54:41Z",
+  "patch": "16.18",
+  "patchGlobal": "18.2",
+  "qqBuild": "16.18.817.4437",
+  "schemaVersion": 1,
+  "set": "s18",
+  "setNumber": 18,
+  "sources": {
+    "augmentsTiers": "ok",
+    "decksJson": "missing",
+    "lolqqDatasearch": "ok",
+    "lolqqStatic": "ok",
+    "metatftDetail": "ok",
+    "metatftLookup": "ok",
+    "metatftStats": "ok",
+    "namesKo": "ok"
+  },
+  "statDate": "2026-09-14"
+}
