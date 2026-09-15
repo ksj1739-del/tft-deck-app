@@ -73,7 +73,6 @@ import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.ProfileState
 import com.tftdeck.reader.data.Unit as DeckUnit
 import com.tftdeck.reader.ui.bucketLabel
-import com.tftdeck.reader.ui.components.StatsRow
 import com.tftdeck.reader.ui.components.ThreeStarMark
 import com.tftdeck.reader.ui.copyToClipboard
 import com.tftdeck.reader.ui.formatAvg
@@ -137,10 +136,14 @@ fun OverlayContent(
     val allDecks = data?.decks.orEmpty()
     if (allDecks.isEmpty()) return
     val assetBase = data?.assetBase.orEmpty()
-    // 목록: 숨긴 덱은 빼고, 그 구간 등급순으로, 고정한 덱을 맨 위로.
+    // 목록: 숨긴 덱과 그 구간에 기록이 없는 덱은 빼고(고정한 덱은 남긴다), 그 구간 등급순으로, 고정한 덱을 맨 위로.
     val decks = remember(allDecks, bucket, pinned, hidden) {
         DeckSearch.pinFirst(
-            DeckSearch.sort(allDecks.filterNot { it.id in hidden }, DeckSortMode.GRADE, bucket),
+            DeckSearch.sort(
+                allDecks.filter { it.id !in hidden && (it.appearsIn(bucket) || it.id in pinned) },
+                DeckSortMode.GRADE,
+                bucket,
+            ),
             pinned,
         )
     }
@@ -241,6 +244,12 @@ fun OverlayContent(
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.weight(1f),
                 )
+                // 덱 코드 복사는 본문 버튼 대신 헤더의 작은 아이콘으로 두어 패널을 얇게 한다.
+                selected.teamCode?.let { code ->
+                    TintedIconBtn(Icons.Default.ContentCopy, "덱 코드 복사", OverlayAccent) {
+                        copyToClipboard(context, "TFT 덱 코드", code.code)
+                    }
+                }
             }
             // 티어 카드만 따로 켜고 끈다. 전적을 연결하지 않았으면 끌 카드가 없으니 숨긴다.
             if (profileState.profileOrNull != null) {
@@ -264,7 +273,7 @@ fun OverlayContent(
         if (selected == null) {
             DeckListView(decks, bucket, pinned, metatftCompared, assetBase, wide) { onSelectDeck(it.id) }
         } else {
-            DeckSummaryView(selected, bucket, showStats = buckets.isNotEmpty(), catalog, assetBase, wide)
+            DeckSummaryView(selected, catalog, assetBase, wide)
         }
     }
 
@@ -386,36 +395,8 @@ private fun DeckListView(
                     .padding(horizontal = 8.dp, vertical = 4.dp),
                 verticalArrangement = Arrangement.spacedBy(3.dp),
             ) {
-                // 좁게 볼 때는 얼굴만으로도 어떤 덱인지 안다. 넓게 볼 때만 이름과 평균 등수를 붙인다.
-                if (wide) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        TierLabel(deck, bucket)
-                        if (deck.id in pinned) PinMark()
-                        Text(
-                            text = deck.name,
-                            color = OverlayText,
-                            fontSize = 10.sp,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier.weight(1f),
-                        )
-                        deck.statsFor(bucket)?.avg?.let { avg ->
-                            Spacer(Modifier.width(4.dp))
-                            Text("${formatAvg(avg)}등", color = OverlayMuted, fontSize = 10.sp)
-                        }
-                        if (chinaOnly) {
-                            Spacer(Modifier.width(4.dp))
-                            ChinaDot()
-                        }
-                    }
-                    FlowRow(
-                        modifier = Modifier.padding(start = 22.dp),
-                        horizontalArrangement = Arrangement.spacedBy(2.dp),
-                        verticalArrangement = Arrangement.spacedBy(2.dp),
-                    ) {
-                        deck.units.forEach { unit -> Face(unit, assetBase, 26.dp) }
-                    }
-                } else {
+                // 목록은 넓게 볼 때도 얼굴만 둔다. 덱 이름·평균 등수는 게임을 가려서 뺐다.
+                run {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         TierLabel(deck, bucket)
                         FlowRow(
@@ -483,13 +464,10 @@ private fun ChinaDot() {
 @Composable
 private fun DeckSummaryView(
     deck: Deck,
-    bucket: String,
-    showStats: Boolean,
     catalog: CatalogIndex?,
     assetBase: String,
     wide: Boolean,
 ) {
-    val context = LocalContext.current
     // 레벨 칩: 빌드업(글로벌·중국·작가 단계)이 있는 레벨. 기본 선택 규칙은 덱 상세와 같다.
     val levels = remember(deck) { BuildupPlanner.levels(deck) }
     var level by remember(deck.id) { mutableStateOf(BuildupPlanner.defaultLevel(deck, levels)) }
@@ -502,21 +480,7 @@ private fun DeckSummaryView(
             .padding(horizontal = 9.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Text(
-            text = deck.name,
-            color = OverlayText,
-            fontSize = 11.sp,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-        )
-        if (showStats) {
-            StatsRow(
-                stats = deck.statsFor(bucket),
-                labelColor = OverlayMuted,
-                valueColor = OverlayText,
-                compact = true,
-            )
-        }
+        // 덱 이름과 평균 등수·픽률·승률은 게임을 가려서 오버레이에서는 뺐다(앱의 덱 상세에서 본다).
         if (wide) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(5.dp)) {
                 deck.traits.take(6).forEach { trait ->
@@ -580,31 +544,6 @@ private fun DeckSummaryView(
             }
         }
 
-        deck.teamCode?.let { code ->
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(6.dp))
-                    .background(OverlayAccent.copy(alpha = 0.18f))
-                    .clickable { copyToClipboard(context, "TFT 덱 코드", code.code) }
-                    .padding(horizontal = 8.dp, vertical = 6.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon(
-                    Icons.Default.ContentCopy,
-                    contentDescription = null,
-                    tint = OverlayAccent,
-                    modifier = Modifier.size(13.dp),
-                )
-                Spacer(Modifier.width(6.dp))
-                Text(
-                    "덱 코드 복사",
-                    color = OverlayAccent,
-                    fontSize = 11.sp,
-                    fontWeight = FontWeight.Medium,
-                )
-            }
-        }
     }
 }
 

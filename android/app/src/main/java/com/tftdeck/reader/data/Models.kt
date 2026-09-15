@@ -242,10 +242,16 @@ data class Deck(
     fun statsFor(bucket: String): DeckStats? = stats[bucket]
 
     /**
-     * 이 구간 통계 등급이 없는 통계 덱(표본 부족이거나 그 구간에 없다). 카드·상세가 흐리게 하고 '표본 부족'을 붙인다.
-     * 통계가 아예 없는 편집 독립 덱은 해당하지 않는다(편집 등급이 원래 기준이다).
+     * 이 구간에 통계는 있지만 표본이 작아 등급이 없는 덱. 카드·상세가 흐리게 하고 '표본 부족'을 붙인다.
+     * 그 구간에 기록이 아예 없는 덱은 [appearsIn] 으로 목록에서 빠지므로 여기에 해당하지 않는다.
      */
-    fun isLowSample(bucket: String): Boolean = stats.isNotEmpty() && statsFor(bucket)?.grade == null
+    fun isLowSample(bucket: String): Boolean = statsFor(bucket)?.let { it.grade == null } ?: false
+
+    /**
+     * 이 구간 목록에 나올 덱인지. 그 구간에 기록이 없는 통계 덱까지 '표본 부족'으로 늘어놓으면
+     * 다이아+·마스터+에서 목록 대부분이 표본 부족으로 보여서 뺀다. 통계가 없는 편집 독립 덱은 어느 구간에서나 보인다.
+     */
+    fun appearsIn(bucket: String): Boolean = stats.isEmpty() || statsFor(bucket) != null
 
     /** 이 덱의 편집 덱 전부: 대표 먼저, 그다음 같은 그룹의 다른 작가. */
     val editorials: List<Editorial> get() = listOfNotNull(editorial) + moreEditorials

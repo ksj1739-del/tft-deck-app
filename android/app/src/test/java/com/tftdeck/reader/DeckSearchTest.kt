@@ -653,12 +653,16 @@ class DeckFeedV2Test {
     }
 
     @Test
-    fun `표본 부족은 통계가 있는 덱의 등급 없는 구간이다`() {
+    fun `표본 부족은 그 구간에 통계가 있지만 등급이 없는 경우다`() {
         assertFalse(deck(ELDER).isLowSample("goldem"))
         assertTrue("등급 null", deck(ELDER).isLowSample("master"))
         assertTrue("표본 250", deck(YORICK).isLowSample("goldem"))
-        assertTrue("그 구간에 없음", deck(APHELIOS).isLowSample("low"))
+        // 그 구간에 기록이 아예 없는 덱은 표본 부족으로 늘어놓지 않고 목록에서 뺀다.
+        assertFalse("그 구간에 없음", deck(APHELIOS).isLowSample("low"))
+        assertFalse(deck(APHELIOS).appearsIn("low"))
+        assertTrue(deck(ELDER).appearsIn("master"))
         assertFalse("통계가 없는 편집 독립 덱은 편집 등급이 기준", deck(EDITORIAL).isLowSample("goldem"))
+        assertTrue("편집 독립 덱은 어느 구간에나 나온다", deck(EDITORIAL).appearsIn("low"))
     }
 
     @Test

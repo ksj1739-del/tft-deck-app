@@ -178,6 +178,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 hidden = list.hidden,
                 showHidden = list.showHidden,
                 bucket = list.bucket,
+                alwaysShow = list.pinned,
             )
             DeckSearch.pinFirst(DeckSearch.sort(filtered, list.sort, list.bucket), list.pinned)
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
