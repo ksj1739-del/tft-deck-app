@@ -59,6 +59,15 @@ class ProfileRepository private constructor(private val context: Context) {
     @Volatile
     private var lookupInFlight = false
 
+    /**
+     * 계정 세대. 연결 해제·계정 변경 때 올린다. 조회는 시작할 때의 세대를 기억했다가 네트워크가 끝난 뒤
+     * 세대가 바뀌었으면 결과를 버린다 — 해제한 뒤에 옛 계정 요약·puuid·LP 기록이 다시 저장되지 않게.
+     * [accountLock] 은 세대 확인과 저장을 해제 처리와 겹치지 않게 묶는다.
+     */
+    @Volatile
+    private var accountGeneration = 0
+    private val accountLock = Any()
+
     // -- 설정 ---------------------------------------------------------------
 
     /** "랄라붕#KR1" 형식. 비어 있으면 기능이 꺼진 것으로 본다. */
@@ -92,8 +101,12 @@ class ProfileRepository private constructor(private val context: Context) {
         val nextId = newRiotId.trim()
         val nextRegion = newRegion.trim().uppercase()
         val changed = !nextId.equals(riotId, ignoreCase = true) || !nextRegion.equals(region, ignoreCase = true)
-        riotId = nextId
-        region = nextRegion
+        synchronized(accountLock) {
+            // 계정이 바뀌면 진행 중인 옛 계정 조회가 끝나도 결과를 저장하지 않게 세대를 함께 올린다.
+            if (changed) accountGeneration++
+            riotId = nextId
+            region = nextRegion
+        }
         if (changed) {
             // 다른 계정의 요약·로비가 새 ID 이름으로 잠깐이라도 보이면 안 된다.
             forgetAccountData()
@@ -109,7 +122,10 @@ class ProfileRepository private constructor(private val context: Context) {
     }
 
     fun clear() {
-        prefs.edit().remove(KEY_RIOT_ID).remove(KEY_REGION).apply()
+        synchronized(accountLock) {
+            accountGeneration++
+            prefs.edit().remove(KEY_RIOT_ID).remove(KEY_REGION).apply()
+        }
         forgetAccountData()
         clearCache()
         _state.value = ProfileState.NotConfigured
@@ -157,7 +173,11 @@ class ProfileRepository private constructor(private val context: Context) {
     }
 
     private fun refreshLocked(force: Boolean): RefreshOutcome {
-        if (!isConfigured) {
+        // 조회를 시작할 때의 계정. 네트워크가 끝난 뒤 세대가 바뀌었으면(해제·변경) 결과를 버린다.
+        val (generation, accountId, accountRegion) = synchronized(accountLock) {
+            Triple(accountGeneration, riotId, region)
+        }
+        if (!accountId.contains("#")) {
             _state.value = ProfileState.NotConfigured
             return RefreshOutcome.Failed
         }
@@ -172,40 +192,46 @@ class ProfileRepository private constructor(private val context: Context) {
         lookupInFlight = true
         _state.value = ProfileState.Loading(current)
         try {
-            val (name, tag) = splitRiotId(riotId) ?: run {
+            val (name, tag) = splitRiotId(accountId) ?: run {
                 _state.value = ProfileState.Failed("라이엇 ID는 '이름#태그' 형식이어야 합니다", current)
                 return RefreshOutcome.Failed
             }
 
             // source를 빼면 서버 순위(server_rank)가 오지 않는다. app_profile은 같은 63KB에
             // server_rank 한 줄만 더 붙는다(2026-09-15 실측). full_profile(211KB)은 쓰지 않는다.
-            val url = LOOKUP_BASE + region.uppercase() + "/" +
+            val url = LOOKUP_BASE + accountRegion.uppercase() + "/" +
                 encodePathSegment(name) + "/" + encodePathSegment(tag) + "?source=app_profile"
             val body = httpGet(url)
             val parsed = json.decodeFromString<ProfileResponse>(body)
-            val profile = parsed.toPlayerProfile(region, System.currentTimeMillis(), lastRating?.changes)
+            val profile = parsed.toPlayerProfile(accountRegion, System.currentTimeMillis(), lastRating?.changes)
 
-            if (profile == null) {
-                _state.value = ProfileState.Failed("이 세트의 랭크 기록이 없습니다", current)
-                return RefreshOutcome.Failed
+            synchronized(accountLock) {
+                // 받는 사이에 연결을 해제했거나 계정을 바꿨으면 옛 계정 결과를 저장하지도 보여 주지도 않는다.
+                if (generation != accountGeneration) return RefreshOutcome.Skipped
+                if (profile == null) {
+                    _state.value = ProfileState.Failed("이 세트의 랭크 기록이 없습니다", current)
+                    return RefreshOutcome.Failed
+                }
+
+                // 진행 중 게임 조회용. 서비스별 키로만 둔다.
+                prefs.edit()
+                    .putString(KEY_METATFT_PUUID, parsed.summoner.puuid)
+                    .putString(KEY_METATFT_REGION, parsed.summoner.summonerRegion)
+                    .apply()
+
+                writeCache(profile)
+                _state.value = ProfileState.Ready(profile)
             }
-
-            // 진행 중 게임 조회용. 서비스별 키로만 둔다.
-            prefs.edit()
-                .putString(KEY_METATFT_PUUID, parsed.summoner.puuid)
-                .putString(KEY_METATFT_REGION, parsed.summoner.summonerRegion)
-                .apply()
-
-            writeCache(profile)
-            _state.value = ProfileState.Ready(profile)
             return RefreshOutcome.Fetched
         } catch (e: Exception) {
             val message = when {
                 e.message?.contains("404") == true -> "소환사를 찾지 못했습니다. ID와 지역을 확인해 주세요"
                 else -> e.message ?: "조회 실패"
             }
-            // 실패해도 이전 요약은 그대로 보여 준다.
-            _state.value = ProfileState.Failed(message, current)
+            // 실패해도 이전 요약은 그대로 보여 준다. 그사이 연결을 해제했으면 해제 상태를 덮지 않는다.
+            synchronized(accountLock) {
+                if (generation == accountGeneration) _state.value = ProfileState.Failed(message, current)
+            }
             return RefreshOutcome.Failed
         } finally {
             lookupInFlight = false
@@ -218,8 +244,10 @@ class ProfileRepository private constructor(private val context: Context) {
      * 받아 오면 티어·LP와 최근 판별 ±LP를 요약에 반영한다. 실패하면 null.
      */
     suspend fun fetchRatingChanges(force: Boolean = false): RatingSnapshot? = ratingLock.withLock {
-        if (!isConfigured) return@withLock null
-        val id = riotId
+        val (generation, id, accountRegion) = synchronized(accountLock) {
+            Triple(accountGeneration, riotId, region)
+        }
+        if (!id.contains("#")) return@withLock null
         val cached = lastRating
         val now = System.currentTimeMillis()
         if (!force && cached != null && now - cached.fetchedAt < RATING_MIN_INTERVAL_MS) {
@@ -232,7 +260,7 @@ class ProfileRepository private constructor(private val context: Context) {
             _state.update { st -> if (st is ProfileState.Ready) ProfileState.Loading(st.profile) else st }
         }
 
-        val url = RATING_BASE + region.uppercase() + "/" +
+        val url = RATING_BASE + accountRegion.uppercase() + "/" +
             encodePathSegment(name) + "/" + encodePathSegment(tag) + "?queue=" + RANKED_QUEUE
         val body = withContext(Dispatchers.IO) { runCatching { httpGet(url) }.getOrNull() }
         if (body == null) {
@@ -253,8 +281,12 @@ class ProfileRepository private constructor(private val context: Context) {
             return@withLock null
         }
 
-        ratingSnapshot = snapshot
-        ratingOwner = id
+        synchronized(accountLock) {
+            // 받는 사이에 연결을 해제했거나 계정을 바꿨으면 옛 계정 LP 기록을 남기지 않는다.
+            if (generation != accountGeneration) return@withLock null
+            ratingSnapshot = snapshot
+            ratingOwner = id
+        }
         applyRating(snapshot)
         snapshot
     }

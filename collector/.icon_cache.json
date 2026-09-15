@@ -3842,6 +3842,33 @@
   "sha1": "1296553de560977e2776e55454295c840f8b0684",
   "srcSha1": "ea61e421116b7641362829c5a3a02accab82a52b"
  },
+ "https://game.gtimg.cn/images/lol/act/img/tft/champions/100292.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a8cff3e-572d\"",
+  "file": "d9ccd31587c1.webp",
+  "lastModified": "Tue, 25 Aug 2026 02:34:38 GMT",
+  "px": 128,
+  "sha1": "193142a87f037586e6ae29ed1defb8693e2c407d",
+  "srcSha1": "c4e84d649e4825de9e297dc51247c199b72792be"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/champions/100294.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a8cff3d-4267\"",
+  "file": "4f96c0da71ed.webp",
+  "lastModified": "Tue, 25 Aug 2026 02:34:37 GMT",
+  "px": 128,
+  "sha1": "ab1cd704d7b6740fefa5814ec72f143d8f3da783",
+  "srcSha1": "4f75c7ce69d486d0d1d4d32b6d2ac3b141ed1f09"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/champions/100295.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a8cff3d-3ec1\"",
+  "file": "440c7646cd13.webp",
+  "lastModified": "Tue, 25 Aug 2026 02:34:37 GMT",
+  "px": 128,
+  "sha1": "5e6e42c04f49bb478da4de3251af55ff002bd074",
+  "srcSha1": "bec56f389d5b926d1b3961c2d8d77ff589545ad1"
+ },
  "https://game.gtimg.cn/images/lol/act/img/tft/equip/92987.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a7eb4e1-12b2\"",

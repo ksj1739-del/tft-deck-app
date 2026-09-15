@@ -139,8 +139,12 @@ internal fun scopeRegionLabel(key: String): String = when {
 internal val RARITY_KEYS = listOf("silver", "gold", "prismatic")
 internal val TAG_KEYS = listOf("econ", "items", "combat", "trait", "scaling", "misc")
 
-/** 아이템 종류 칩. 재료(component)는 조합표와 부품 칩으로 보여 주므로 뺀다. */
-internal val ITEM_KIND_FILTERS = listOf("completed", "emblem", "artifact", "radiant", "support")
+/**
+ * 아이템 종류 칩. 재료(component)는 조합표와 부품 칩으로 보여 주므로 뺀다.
+ * 화면은 이번 파일에 실제로 있는 종류만 칩으로 그린다 — 누르면 늘 빈 목록인 칩(시즌 18 의 '지원')을 두지 않도록.
+ * other(물약 등)는 다른 칩으로 거를 수 없어 '기타' 칩을 둔다.
+ */
+internal val ITEM_KIND_FILTERS = listOf("completed", "emblem", "artifact", "radiant", "support", "other")
 
 internal fun rarityLabel(rarity: String?): String = when (rarity?.lowercase()) {
     "silver" -> "실버"

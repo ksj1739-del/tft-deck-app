@@ -48,14 +48,17 @@ class IconInterceptor(private val pack: IconPack) : Interceptor {
          * 경로로 종류별 한 변 픽셀을 정한다(챔피언 128, 특성 32, 아이템·증강·그 외 64).
          * 수집기 build_icons.py 의 icon_px() 와 같은 규칙이어야 팩 파일 크기와 디코드 크기가 맞는다.
          *
-         * `/original-image/` 는 pet 소환물 초상(lol.qq chess.js originalImage, 128×128 확인)이다.
-         * CDragon 상대 경로가 아니라 절대 URL 로 오지만 챔피언 칸에 같은 크기로 그려지므로 챔피언과 같이 둔다.
+         * pet 소환물 초상은 CDragon 상대 경로가 아니라 절대 URL 로 온다: lol.qq chess.js originalImage(`/original-image/`),
+         * lol.qq 도감 초상(`/img/tft/champions/{chessId}.png`), metatft 초상(`/file/metatft/champions/`).
+         * 모두 챔피언 칸에 같은 크기로 그려지므로 챔피언과 같이 둔다.
          */
         fun kind(path: String): Int = when {
-            path.contains("/characters/", ignoreCase = true) -> PX_CHAMPION
-            path.contains("/original-image/", ignoreCase = true) -> PX_CHAMPION
+            CHAMPION_MARKERS.any { path.contains(it, ignoreCase = true) } -> PX_CHAMPION
             path.contains("/traiticons/", ignoreCase = true) -> PX_TRAIT
             else -> PX_DEFAULT
         }
+
+        /** 챔피언 칸 크기로 줄일 경로 조각. 수집기 build_icons.py 의 CHAMPION_MARKERS 와 같아야 한다. */
+        private val CHAMPION_MARKERS = listOf("/characters/", "/original-image/", "/img/tft/champions/", "/file/metatft/champions/")
     }
 }

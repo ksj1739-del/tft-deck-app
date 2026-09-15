@@ -457,6 +457,11 @@ data class AugmentRow(
 data class AugmentDeckStat(
     val deck: String = "",
     val deckName: String = "",
+    /**
+     * 이 행의 중국 통계 구간(덱마다 상세를 받은 구간). 대부분 meta.cnStats.bucket 과 같고,
+     * 다르면(다이아+ 등) 화면이 구간 이름을 붙이고 요약 합산에서는 빠져 있다. 옛 파일에는 없다.
+     */
+    val bucket: String? = null,
     val n: Int = 0,
     val avg: Double? = null,
     /** 그 덱 안에서 이 증강의 순위(상위 5개만 집계된다). */

@@ -172,6 +172,10 @@ private fun HexCell(slot: BoardSlot?, assetBase: String, modifier: Modifier) {
                 .aspectRatio(1f)
                 .clip(HexagonShape),
         )
+        // 아이콘을 끝내 못 구한 칸(새 소환물 등)은 이름 첫 글자라도 그린다. 회색 칸만 남으면 무엇인지 알 수 없다.
+        if (slot.icon.isNullOrBlank()) {
+            InitialMark(slot.name, fontSize = 12.sp)
+        }
         // 소환물은 회색 테두리, 캐리는 강조 테두리, 3성은 별로 구분한다. 소환물에는 별이 없다.
         if (slot.isPet) {
             Box(
@@ -349,6 +353,9 @@ fun UnitPortrait(
                 .clip(shape)
                 .border(if (carry && !pet) 2.dp else 1.dp, borderColor, shape),
         )
+        if (icon.isNullOrBlank()) {
+            InitialMark(name, fontSize = if (size >= 36.dp) 13.sp else 10.sp, modifier = Modifier.align(Alignment.Center))
+        }
         if (showStar && !pet && star >= 3) {
             ThreeStarMark(if (size >= 36.dp) 8.sp else 6.sp, Modifier.offset(y = (-3).dp))
         }
@@ -535,6 +542,9 @@ private fun UnitCell(
                     .clip(RoundedCornerShape(6.dp))
                     .border(if (emphasized) 2.dp else 1.5.dp, border, RoundedCornerShape(6.dp)),
             )
+            if (unit.icon.isNullOrBlank()) {
+                InitialMark(unit.name, fontSize = 12.sp, modifier = Modifier.align(Alignment.Center))
+            }
             if (!unit.isPet && unit.star >= 3) {
                 ThreeStarMark(7.sp, Modifier.offset(y = (-3).dp))
             }
@@ -588,6 +598,29 @@ fun ThreeStarMark(fontSize: TextUnit, modifier: Modifier = Modifier) {
         ),
         modifier = modifier,
     )
+}
+
+/**
+ * 아이콘이 없는 유닛 자리에 그리는 이름 첫 글자. 수집기가 아이콘을 못 구한 새 소환물 같은 칸이
+ * 무엇인지 알 수 없는 회색 칸으로만 남지 않게 한다.
+ */
+@Composable
+internal fun InitialMark(name: String, fontSize: TextUnit, modifier: Modifier = Modifier) {
+    val initial = name.trim().firstOrNull()?.toString() ?: return
+    Text(
+        initial,
+        color = MaterialTheme.colorScheme.onSurface,
+        fontSize = fontSize,
+        fontWeight = FontWeight.Bold,
+        maxLines = 1,
+        modifier = modifier,
+    )
+}
+
+/** 편집 등급 배지 곁에 붙이는 '표본 부족' 작은 글자. 통계 등급이 없는 이유를 알린다. */
+@Composable
+fun LowSampleNote(modifier: Modifier = Modifier) {
+    Text("표본 부족", color = gradeColor(null), fontSize = 9.sp, lineHeight = 11.sp, maxLines = 1, modifier = modifier)
 }
 
 /** TFT 보드가 8칸이라 한 줄 8개가 자연스럽다. 9명 이상이면 다음 줄로 넘어간다. */

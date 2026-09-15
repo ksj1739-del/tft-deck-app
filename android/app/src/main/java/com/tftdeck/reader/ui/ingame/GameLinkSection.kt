@@ -18,6 +18,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -30,23 +31,31 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.tftdeck.reader.R
 import com.tftdeck.reader.ingame.describe
-import com.tftdeck.reader.overlay.OverlayService
 
 /**
  * 게임 연동 설정: 사용 기록 접근 권한 안내, 스위치, 현재 상태 한 줄.
  * 권한은 시스템 설정에서만 켤 수 있어서, 돌아왔을 때(ON_RESUME) 다시 확인한다.
+ *
+ * [riotIdConnected] 가 false 면 판 종료 판정·결과 배지·지난 게임 로비가 채워지지 않는다
+ * (모두 metatft 전적 조회에 기대므로). 감지를 켜 둔 사용자가 이유를 알 수 있게 안내한다.
  */
 @Composable
-fun GameLinkSection(viewModel: IngameViewModel, modifier: Modifier = Modifier) {
+fun GameLinkSection(
+    viewModel: IngameViewModel,
+    riotIdConnected: Boolean,
+    modifier: Modifier = Modifier,
+) {
     val context = LocalContext.current
     val scheme = MaterialTheme.colorScheme
 
     val granted by viewModel.usagePermission.collectAsState()
+    val overlayGranted by viewModel.overlayPermission.collectAsState()
     val detectEnabled by viewModel.detectEnabled.collectAsState()
     val autoOverlay by viewModel.autoOverlay.collectAsState()
     val resultNotify by viewModel.resultNotify.collectAsState()
     val showOutsideTft by viewModel.showOutsideTft.collectAsState()
     val status by viewModel.gameStatus.collectAsState()
+    val notificationPrompt by viewModel.notificationPrompt.collectAsState()
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
@@ -66,6 +75,14 @@ fun GameLinkSection(viewModel: IngameViewModel, modifier: Modifier = Modifier) {
             context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
         ) {
             notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
+    }
+
+    // 사용 기록 권한 화면에 다녀와 감지가 켜졌으면, 스위치를 바로 켤 때처럼 알림 권한을 묻는다.
+    LaunchedEffect(notificationPrompt) {
+        if (notificationPrompt) {
+            viewModel.consumeNotificationPrompt()
+            askNotificationPermission()
         }
     }
 
@@ -97,7 +114,7 @@ fun GameLinkSection(viewModel: IngameViewModel, modifier: Modifier = Modifier) {
         )
         SwitchRow(
             title = "TFT가 켜지면 오버레이 자동 표시",
-            subtitle = if (OverlayService.canDrawOverlays(context)) {
+            subtitle = if (overlayGranted) {
                 "TFT 밖에서는 자동으로 숨깁니다"
             } else {
                 "아래 '게임 위에 띄우기'에서 다른 앱 위에 표시 권한을 먼저 허용해 주세요"
@@ -132,6 +149,15 @@ fun GameLinkSection(viewModel: IngameViewModel, modifier: Modifier = Modifier) {
             "현재 상태: ${status.describe(detecting = active)}",
             style = MaterialTheme.typography.bodySmall,
         )
+        if (active && !riotIdConnected) {
+            Spacer(Modifier.size(4.dp))
+            Text(
+                "판 결과와 지난 게임 로비는 위 '내 전적'에서 라이엇 ID를 연결해야 채워집니다. " +
+                    "연결하지 않으면 TFT 실행만 감지합니다.",
+                style = MaterialTheme.typography.bodySmall,
+                color = scheme.error,
+            )
+        }
         Spacer(Modifier.size(4.dp))
         Text(
             "게임 중에는 상대 정보를 보여 주지 않습니다. 지난 게임 로비는 판이 끝난 뒤에만 채워집니다.",

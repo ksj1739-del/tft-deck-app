@@ -46,14 +46,19 @@ class StatsRepository private constructor(private val context: Context) {
      * 캐시를 먼저 읽고, 없거나 깨진 파일만 앱에 동봉한 스냅샷으로 떨어진다.
      * 넷 다 없으면 Missing. 하나라도 있으면 있는 것만으로 화면을 채운다.
      *
+     * 앱 업데이트로 동봉 스냅샷이 캐시보다 새로우면 캐시를 버린다. 두면 새로 넣은 도감이 옛 캐시에 가린다.
      * 이미 Ready면 건너뛴다(앱 시작과 화면이 동시에 불러도 한 번만 읽는다).
      */
     suspend fun load(force: Boolean = false) = lock.withLock {
         withContext(Dispatchers.IO) {
             if (!force && _state.value is StatsState.Ready) return@withContext
 
-            val cachedVersion = readCached(VERSION)?.let(StatsParser::parseVersion)
             val bundledVersion = readBundled(VERSION)?.let(StatsParser::parseVersion)
+            var cachedVersion = readCached(VERSION)?.let(StatsParser::parseVersion)
+            if (cachedVersion != null && bundledVersion != null && isStale(cachedVersion, bundledVersion)) {
+                runCatching { cacheDir.deleteRecursively() }
+                cachedVersion = null
+            }
             val hashes = HashMap<String, String>()
             var fromCache = 0
 
@@ -114,8 +119,10 @@ class StatsRepository private constructor(private val context: Context) {
      *
      * 1) stats/version.json(수백 바이트)을 받는다.
      * 2) files.<이름> 해시가 지금 올라온 파일과 다른 것만 받는다.
-     *    파싱이 끝나고 행이 있는 파일만 임시 파일에 쓰고 교체한다.
+     *    파싱이 끝나고 행이 있고, 파일 안의 해시가 version.json 이 약속한 해시와 같은 파일만
+     *    임시 파일에 쓰고 교체한다.
      * 3) 마지막에 version.json을 저장한다. 받지 못한 파일은 옛 해시를 남겨 다음에 다시 받는다.
+     *    하나라도 못 받았으면 패치·기준일 같은 메타는 바꾸지 않는다.
      *
      * 실패해도 기존 데이터는 그대로 둔다. 도감이 빈 화면이 되는 일은 없다.
      */
@@ -138,6 +145,7 @@ class StatsRepository private constructor(private val context: Context) {
             val failed = mutableListOf<String>()
 
             for (name in targets) {
+                val expected = remote.files[name].orEmpty()
                 val body = try {
                     httpGet(remoteUrl(name))
                 } catch (e: Exception) {
@@ -145,23 +153,33 @@ class StatsRepository private constructor(private val context: Context) {
                     continue
                 }
                 // 빈 파일·깨진 파일은 여기서 걸러진다. 멀쩡한 캐시를 덮어쓰지 않는다.
-                val accepted: Any? = when (name) {
-                    CHAMPIONS -> StatsParser.parseChampions(body)?.also { champions = it }
-                    TRAITS -> StatsParser.parseTraits(body)?.also { traits = it }
-                    ITEMS -> StatsParser.parseItems(body)?.also { items = it }
-                    AUGMENTS -> StatsParser.parseAugments(body)?.also { augments = it }
-                    else -> null
+                // raw.githubusercontent 는 파일마다 따로 캐시해 새 version.json 과 옛 본체가 섞여 올 수 있다.
+                // 옛 본체를 새 해시로 기록하면 다음에 해시가 바뀔 때까지 다시 받지 않으므로 여기서 거른다.
+                val accepted: Boolean = when (name) {
+                    CHAMPIONS -> StatsParser.parseChampions(body)
+                        ?.takeIf { hashMatches(expected, it.version.contentHash) }
+                        ?.also { champions = it } != null
+                    TRAITS -> StatsParser.parseTraits(body)
+                        ?.takeIf { hashMatches(expected, it.version.contentHash) }
+                        ?.also { traits = it } != null
+                    ITEMS -> StatsParser.parseItems(body)
+                        ?.takeIf { hashMatches(expected, it.version.contentHash) }
+                        ?.also { items = it } != null
+                    AUGMENTS -> StatsParser.parseAugments(body)
+                        ?.takeIf { hashMatches(expected, it.version.contentHash) }
+                        ?.also { augments = it } != null
+                    else -> false
                 }
-                if (accepted == null || !writeCache(name, body)) {
+                if (!accepted || !writeCache(name, body)) {
                     failed += name
                     continue
                 }
-                hashes[name] = remote.files.getValue(name)
+                hashes[name] = expected
                 updated += name
             }
 
             loadedHashes = hashes
-            val record = remote.copy(files = hashes.filterKeys { it in DATA_FILES })
+            val record = recordAfterSync(remote, current?.version, hashes, failed.isEmpty())
             writeCache(VERSION, StatsParser.json.encodeToString(StatsVersion.serializer(), record))
 
             val syncedAt = if (failed.isEmpty()) markSynced() else lastSyncedAt()
@@ -257,6 +275,37 @@ class StatsRepository private constructor(private val context: Context) {
         ): List<String> = DATA_FILES.filter { name ->
             val hash = remote.files[name]
             !hash.isNullOrBlank() && (force || hash != loaded[name])
+        }
+
+        /**
+         * 받은 파일이 version.json 이 가리키는 그 내용인가. 수집기는 파일 안 version.contentHash 와
+         * version.json 의 files.<이름> 에 같은 값을 쓴다(verify_stats.py 가 검사). 한쪽이 비어 있으면
+         * 확인할 수 없어 받아들인다.
+         */
+        internal fun hashMatches(expected: String, actual: String): Boolean =
+            expected.isBlank() || actual.isBlank() || expected == actual
+
+        /** 캐시가 동봉 스냅샷보다 옛 것인가. 스키마가 낮거나, 같으면 생성 시각이 이르다. 모르는 값이면 false. */
+        internal fun isStale(cached: StatsVersion, bundled: StatsVersion): Boolean =
+            if (cached.schemaVersion != bundled.schemaVersion) {
+                cached.schemaVersion < bundled.schemaVersion
+            } else {
+                FeedFreshness.isEarlier(cached.generatedAt, bundled.generatedAt)
+            }
+
+        /**
+         * 동기화 뒤 저장할 version.json. 파일 해시는 실제로 올라온 것으로 적고, 메타(패치·기준일·생성 시각)는
+         * 모든 파일을 받았을 때만 원격 것으로 바꾼다. 일부만 받았는데 새 메타를 쓰면 표는 옛 데이터인데
+         * 신선도 줄과 '도감 데이터' 행만 새 날짜로 보이고, 앱을 다시 켜도 그대로 남는다.
+         */
+        internal fun recordAfterSync(
+            remote: StatsVersion,
+            shown: StatsVersion?,
+            hashes: Map<String, String>,
+            allReceived: Boolean,
+        ): StatsVersion {
+            val meta = if (allReceived || shown == null) remote else shown
+            return meta.copy(files = hashes.filterKeys { it in DATA_FILES })
         }
 
         @Volatile

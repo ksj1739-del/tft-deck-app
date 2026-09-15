@@ -1,12 +1,12 @@
 {
-  "_설명": "CommunityDragon ko_kr 세트 챔피언 목록에 없는 소환물·변신체의 한글 이름. 게임 표기로 확인한 이름만 적는다(근거: CommunityDragon ko_kr DA_18_Elderwood 특성 설명, metatft TFTSet18_latest_ko_kr.json). 공식 이름을 찾지 못한 것은 '누구의 무엇' 식 설명형 이름이며 note 에 표시한다. icon 은 선택(절대 URL 또는 CommunityDragon 상대 경로).",
+  "_설명": "CommunityDragon ko_kr 세트 챔피언 목록에 없는 소환물·변신체의 한글 이름. 게임 표기로 확인한 이름만 적는다(근거: CommunityDragon ko_kr DA_18_Elderwood 특성 설명, metatft TFTSet18_latest_ko_kr.json). 공식 이름을 찾지 못한 것은 '누구의 무엇' 식 설명형 이름이며 note 에 표시한다. icon 은 선택(절대 URL 또는 CommunityDragon 상대 경로). sameAs 는 같은 소환물의 lol.qq id 로, 아이콘이 없으면 그 id 의 lol.qq 초상을 빌린다(metatft 형태 id 는 lol.qq 도감에 없다).",
   "units": {
     "DA_18_IronbarkTree": {"name": "돌껍질 나무", "note": "lol.qq 石皮树, CDragon 나무정령 설명"},
-    "DA_Elderwood18_StonebarkTree": {"name": "돌껍질 나무", "note": "metatft extraAbilities.unitName"},
+    "DA_Elderwood18_StonebarkTree": {"name": "돌껍질 나무", "note": "metatft extraAbilities.unitName", "sameAs": "DA_18_IronbarkTree"},
     "DA_18_LifeRoot": {"name": "생명꽃", "note": "lol.qq 生命花, CDragon 나무정령 설명"},
-    "DA_Elderwood18_Lifeblossom": {"name": "생명꽃", "note": "metatft ko 사전"},
+    "DA_Elderwood18_Lifeblossom": {"name": "생명꽃", "note": "metatft ko 사전", "sameAs": "DA_18_LifeRoot"},
     "DA_18_ElderwoodGuardian": {"name": "깊은숲 수호자", "note": "lol.qq 深林守卫, CDragon 나무정령 설명"},
-    "DA_Elderwood18_Protector": {"name": "깊은숲 수호자", "note": "metatft ko 사전"},
+    "DA_Elderwood18_Protector": {"name": "깊은숲 수호자", "note": "metatft ko 사전", "sameAs": "DA_18_ElderwoodGuardian"},
     "DA_18_CrimsonRaptor_Mini": {"name": "꼬마 부리", "note": "metatft ko 사전"},
     "DA_Krug18_MiniKrug": {"name": "꼬마 돌거북", "note": "metatft ko 사전"},
     "DA_18_NunuWillump": {"name": "누누와 윌럼프", "note": "metatft ko 사전"},

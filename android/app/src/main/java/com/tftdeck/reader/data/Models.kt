@@ -41,6 +41,34 @@ object FeedJson {
     fun decodeVersion(text: String): FeedVersion = json.decodeFromString(FeedVersion.serializer(), text)
 }
 
+/**
+ * 두 피드 버전 중 어느 쪽이 옛 데이터인지. 저장소가 기기 캐시·동봉 스냅샷·원격 중 무엇을 쓸지 고를 때 쓴다.
+ *
+ * schemaVersion 이 낮으면 옛 것으로 본다 — 원격이 옛 수집기(v1) 결과로 돌아가도 v2 화면을 지키기 위해서다.
+ * 같으면 generatedAt(수집기가 UTC ISO-8601 로 쓴다)을 비교하고, 한쪽이라도 없거나 읽을 수 없으면 옛 것이라
+ * 단정하지 않는다(모르는 값 때문에 새 데이터를 버리지 않도록).
+ */
+object FeedFreshness {
+
+    /** [candidate] 가 [reference] 보다 옛 데이터인가. */
+    fun isOlder(candidate: FeedVersion, reference: FeedVersion): Boolean =
+        if (candidate.schemaVersion != reference.schemaVersion) {
+            candidate.schemaVersion < reference.schemaVersion
+        } else {
+            isEarlier(candidate.generatedAt, reference.generatedAt)
+        }
+
+    /** [a] 가 [b] 보다 이른 시각인가. 둘 중 하나라도 읽을 수 없으면 false. */
+    fun isEarlier(a: String, b: String): Boolean {
+        val first = epochMillis(a) ?: return false
+        val second = epochMillis(b) ?: return false
+        return first < second
+    }
+
+    private fun epochMillis(text: String): Long? =
+        text.takeIf { it.isNotBlank() }?.let { runCatching { java.time.Instant.parse(it.trim()).toEpochMilli() }.getOrNull() }
+}
+
 /** 수집기와 약속한 고정 문자열. 여러 화면이 같은 값을 쓰므로 한 곳에 모은다. */
 object DeckKeys {
     const val KIND_GROUP = "group"
@@ -107,6 +135,10 @@ data class BucketMeta(
     val default: Boolean = false,
 )
 
+/**
+ * 비교 스코프의 표본 규모. metatft 스코프(glob_plat/kr_plat/kr_master)는 boards·updatedAt 을,
+ * 중국 스코프(cn_plat/cn_master, 数据检索器)는 games·statDate·tier 를 채운다.
+ */
 @Serializable
 data class ScopeMeta(
     val label: String = "",
@@ -114,6 +146,12 @@ data class ScopeMeta(
     val days: Int = 0,
     val boards: Long = 0,
     val updatedAt: String = "",
+    /** 중국 스코프: 집계 판 수. */
+    val games: Long = 0,
+    /** 중국 스코프: 기준일. */
+    val statDate: String = "",
+    /** 중국 스코프: 数据检索器 티어 조건("4+", "7+"). */
+    val tier: String = "",
 )
 
 /** 등급 컷. 앱은 계산하지 않고 표시용으로만 들고 있는다. */
@@ -162,6 +200,16 @@ data class Deck(
     val itemWearers: List<DeckItemWearers> = emptyList(),
     val variants: List<Variant> = emptyList(),
     val editorial: Editorial? = null,
+    /**
+     * 같은 그룹에 붙은 두 번째 이후 편집 덱(작가가 다르다). 대표(editorial)는 최근 작성분이다.
+     * 상세 화면이 작가를 바꿔 보여 준다([withEditorial]). 편집 덱이 하나뿐이면 비어 있다.
+     */
+    val moreEditorials: List<Editorial> = emptyList(),
+    /**
+     * 증강 성적·실측 배치·레벨 분포(상세)를 받은 구간. 대부분 기본 구간이지만 그 구간에 없는 덱은
+     * 다이아+ 등에서 받는다. 없으면(상세를 못 받은 덱·옛 파일) 기본 구간으로 본다.
+     */
+    val detailBucket: String? = null,
     /** 레벨별 빌드업(§13). 원천이 하나도 없으면 null 이고 화면은 섹션을 숨긴다. */
     val buildup: Buildup? = null,
     val itemOrder: List<ItemRef> = emptyList(),
@@ -192,6 +240,15 @@ data class Deck(
         }
 
     fun statsFor(bucket: String): DeckStats? = stats[bucket]
+
+    /**
+     * 이 구간 통계 등급이 없는 통계 덱(표본 부족이거나 그 구간에 없다). 카드·상세가 흐리게 하고 '표본 부족'을 붙인다.
+     * 통계가 아예 없는 편집 독립 덱은 해당하지 않는다(편집 등급이 원래 기준이다).
+     */
+    fun isLowSample(bucket: String): Boolean = stats.isNotEmpty() && statsFor(bucket)?.grade == null
+
+    /** 이 덱의 편집 덱 전부: 대표 먼저, 그다음 같은 그룹의 다른 작가. */
+    val editorials: List<Editorial> get() = listOfNotNull(editorial) + moreEditorials
 
     /** 그 구간의 통계 등급. 없으면(표본 부족·편집 덱) 편집 등급으로 대신한다. */
     fun gradeFor(bucket: String): String? = statsFor(bucket)?.grade ?: editorialGrade
@@ -488,13 +545,19 @@ data class Variant(
 @Serializable
 data class VariantUnit(
     val id: String = "",
-    val star: Int = 1,
+    /**
+     * 성급. 胜率阵容 조합 원본에는 유닛별 성급이 없어 수집기가 싣지 않는다(null = 모름).
+     * 화면은 변형에 별을 그리지 않는다.
+     */
+    val star: Int? = null,
     val items: List<String> = emptyList(),
 )
 
 @Serializable
 data class Editorial(
     val id: String = "",
+    /** 작성자가 붙인 중국어 덱 이름. 작가를 바꿔 볼 때 원문 섹션에 쓴다. 옛 파일에는 없다. */
+    val nameCn: String = "",
     val author: String = "",
     val updatedAt: String = "",
     val stale: Boolean = false,
@@ -783,6 +846,74 @@ class CatalogIndex(catalog: Catalog) {
 
     fun isPet(id: String): Boolean = id !in champions && id in pets
 }
+
+/**
+ * 같은 그룹의 다른 작가 편집 덱으로 바꿔 본 덱. 통계·글로벌 비교·변형·빌드업 통계는 그룹 것 그대로 두고,
+ * 작가에 딸린 것(최종 보드·편집 등급·덱 코드·조합 재료·추천 증강·원문·작가)만 바꾼다.
+ * 편집 덱의 단계 보드는 id 참조라 catalog 로 이름·아이콘·아이템을 푼다. 대표 편집 덱이면 그대로 돌려준다.
+ */
+fun Deck.withEditorial(chosen: Editorial, catalog: CatalogIndex): Deck {
+    if (chosen.id == editorial?.id) return this
+    val final = chosen.stages.lastOrNull { it.key == DeckKeys.STAGE_FINAL } ?: chosen.stages.lastOrNull()
+    val board = final?.units.orEmpty().map { placement ->
+        val entry = catalog.unit(placement.id)
+        Unit(
+            id = placement.id,
+            name = entry?.name ?: placement.id,
+            nameEn = entry?.nameEn,
+            cost = entry?.cost,
+            icon = entry?.icon,
+            star = placement.star,
+            carry = placement.carry,
+            kind = placement.kind ?: if (catalog.isPet(placement.id)) DeckKeys.KIND_PET else null,
+            row = placement.row,
+            col = placement.col,
+            items = placement.items.map { id ->
+                catalog.items[id]?.let { ItemRef(it.id, it.name, it.icon) } ?: ItemRef(id, id, null)
+            },
+        )
+    }
+    return copy(
+        nameCn = chosen.nameCn.ifBlank { nameCn },
+        editorialTier = chosen.quality?.takeIf { it.isNotBlank() } ?: editorialTier,
+        finalLevel = chosen.needLevel ?: finalLevel,
+        carryId = board.firstOrNull { it.carry }?.id ?: carryId,
+        units = board.ifEmpty { units },
+        editorial = chosen,
+        // '이전 패치 작성' 배지는 고른 작가의 작성 시점을 따른다(대표 작가가 옛 패치여도 이 작가는 새로 썼을 수 있다).
+        sources = sources.copy(editorialStale = chosen.stale),
+        itemOrder = chosen.itemOrder,
+        augments = chosen.augments,
+        notesCn = chosen.notesCn,
+        author = chosen.author,
+        updatedAt = chosen.updatedAt,
+        teamCode = chosen.teamCode ?: teamCode,
+    )
+}
+
+/**
+ * 증강 설명을 도감 통계(stats/augments.json)에서 채운 피드. 검색 엔진이 설명문으로도 증강을 찾게 한다(§6.5).
+ * decks.json catalog 에는 설명이 없어서 앱이 합친다. 이미 설명이 있는 항목은 그대로 둔다.
+ */
+fun DeckFeed.withAugmentDescriptions(descriptions: Map<String, String>): DeckFeed {
+    if (descriptions.isEmpty()) return this
+    var changed = false
+    val augments = catalog.augments.map { entry ->
+        val desc = descriptions[entry.id]?.let(::plainDescription)
+        if (entry.desc.isNullOrBlank() && !desc.isNullOrBlank()) {
+            changed = true
+            entry.copy(desc = desc)
+        } else {
+            entry
+        }
+    }
+    return if (changed) copy(catalog = catalog.copy(augments = augments)) else this
+}
+
+/** 설명의 서식 태그(<br> 등)를 공백으로 바꾼다. 태그 이름이 검색 단어로 섞이지 않게. */
+private fun plainDescription(text: String): String = text.replace(MARKUP, " ").trim()
+
+private val MARKUP = Regex("<[^>]*>")
 
 // ---------------------------------------------------------------------------
 // 검색 결과

@@ -77,6 +77,8 @@ ICON_KEYS = ("icon", "iconUrl")
 PX_CHAMPION = 128
 PX_TRAIT = 32
 PX_DEFAULT = 64
+# 챔피언 칸 크기로 줄일 경로 조각. 앱 IconInterceptor.kind() 의 목록과 같아야 한다.
+CHAMPION_MARKERS = ("/characters/", "/original-image/", "/img/tft/champions/", "/file/metatft/champions/")
 
 WEBP_QUALITY = 80
 WEBP_METHOD = 6
@@ -102,7 +104,8 @@ def icon_px(path):
     절대 URL 로 오지만 챔피언 칸에 같은 크기로 그려지므로 챔피언과 같게 둔다.
     """
     lowered = path.lower()
-    if "/characters/" in lowered or "/original-image/" in lowered:
+    # lol.qq champions/{chessId}.png(pet 초상 96px)와 metatft champions/*.png 도 챔피언 칸에 그려진다.
+    if any(marker in lowered for marker in CHAMPION_MARKERS):
         return PX_CHAMPION
     if "/traiticons/" in lowered:
         return PX_TRAIT

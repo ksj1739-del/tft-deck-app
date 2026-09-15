@@ -34,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.tftdeck.reader.data.AugmentCnStatsMeta
+import com.tftdeck.reader.ui.bucketLabel
 import com.tftdeck.reader.data.AugmentDeckStat
 import com.tftdeck.reader.data.AugmentEditorTierMeta
 import com.tftdeck.reader.data.AugmentRow
@@ -260,7 +261,12 @@ private fun DeckStatsSection(
                 Column(Modifier.weight(1f)) {
                     Text(name, style = MaterialTheme.typography.bodyMedium, color = scheme.onSurface, maxLines = 2, overflow = TextOverflow.Ellipsis)
                     Text(
-                        listOfNotNull(stat.rank?.let { "덱 안 ${it}위" }, "${formatCount(stat.n)} 판").joinToString(" · "),
+                        listOfNotNull(
+                            stat.rank?.let { "덱 안 ${it}위" },
+                            "${formatCount(stat.n)} 판",
+                            // 제목 라벨과 다른 구간(다이아+ 등)에서 받은 행이면 구간을 밝힌다. 요약 합산에서도 빠져 있다.
+                            stat.bucket?.takeIf { it.isNotBlank() && it != cn.bucket }?.let { "중국 ${bucketLabel(it)}" },
+                        ).joinToString(" · "),
                         style = MaterialTheme.typography.bodySmall,
                         color = scheme.onSurfaceVariant,
                     )

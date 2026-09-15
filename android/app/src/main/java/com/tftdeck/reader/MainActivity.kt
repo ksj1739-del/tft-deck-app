@@ -73,7 +73,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        pendingDeck.value = intent?.getStringExtra(OverlayService.EXTRA_OPEN_DECK)
+        // 화면 회전·다크 모드 전환으로 다시 만들어질 때는 같은 인텐트가 남아 있어도 읽지 않는다.
+        // 복원된 내비게이션 스택 맨 위가 이미 그 덱이라, 다시 열면 같은 상세가 두 번 쌓인다.
+        if (savedInstanceState == null) {
+            pendingDeck.value = intent?.getStringExtra(OverlayService.EXTRA_OPEN_DECK)
+        }
         setContent {
             TftDeckTheme {
                 AppRoot(pendingDeck)

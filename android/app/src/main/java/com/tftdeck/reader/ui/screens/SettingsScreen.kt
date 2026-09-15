@@ -191,12 +191,13 @@ fun SettingsScreen(
 
         // --- 게임 연동 ----------------------------------------------------------
         Group("게임 연동") {
-            GameLinkSection(ingame)
+            GameLinkSection(ingame, riotIdConnected = savedId.contains("#"))
         }
 
         // --- 오버레이 --------------------------------------------------------
         Group("게임 위에 띄우기") {
-            val granted = OverlayService.canDrawOverlays(context)
+            // 권한 화면에서 돌아올 때(ON_RESUME) 뷰모델이 다시 읽는다. 여기서 직접 읽으면 그대로 굳는다.
+            val granted by ingame.overlayPermission.collectAsState()
 
             if (!granted) {
                 Text(

@@ -7,9 +7,14 @@ import com.tftdeck.reader.data.Deck
 import com.tftdeck.reader.data.DeckFeed
 import com.tftdeck.reader.data.DeckSearch
 import com.tftdeck.reader.data.DeckSortMode
+import com.tftdeck.reader.data.FeedFreshness
 import com.tftdeck.reader.data.FeedJson
+import com.tftdeck.reader.data.FeedVersion
 import com.tftdeck.reader.data.IdIndex
 import com.tftdeck.reader.data.SearchAxis
+import com.tftdeck.reader.data.StatsParser
+import com.tftdeck.reader.data.withAugmentDescriptions
+import com.tftdeck.reader.data.withEditorial
 import com.tftdeck.reader.ui.components.formatPick
 import com.tftdeck.reader.ui.components.sampleText
 import com.tftdeck.reader.ui.formatAvg
@@ -21,7 +26,12 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonObject
 import org.junit.Assert.assertTrue
+import org.junit.Assume.assumeTrue
 import org.junit.Before
 import org.junit.Test
 import java.io.File
@@ -75,11 +85,106 @@ class DeckSearchTest {
         val missing = feed.decks
             .flatMap { deck ->
                 deck.stages.flatMap { stage -> stage.units.map { it.id } } +
+                    deck.moreEditorials.flatMap { extra -> extra.stages.flatMap { stage -> stage.units.map { it.id } } } +
                     deck.variants.flatMap { variant -> variant.units.map { it.id } }
             }
             .filterNot { it in known }
             .distinct()
         assertTrue("catalog에 없는 유닛 참조: $missing", missing.isEmpty())
+    }
+
+    // -- v2 계약이 실제 파일에서 채워지는지 ------------------------------------------
+    // 픽스처에만 있고 수집기가 만들지 않는 필드는 테스트가 모두 초록인데도 화면을 조용히 비게 만든다.
+
+    @Test
+    fun `픽스처가 쓰는 필드는 실제 수집 결과에도 있다`() {
+        assumeTrue("v2 파일에서만 검사한다", feed.version.schemaVersion >= 2)
+        val fixture = javaClass.classLoader?.getResource("decks_v2_sample.json")?.readText()
+        assertNotNull("테스트 리소스 decks_v2_sample.json 이 없다", fixture)
+        val real = jsonPaths(File("src/main/assets/decks.json").readText())
+        val onlyInFixture = jsonPaths(fixture!!) - real - FIXTURE_ONLY_PATHS
+        assertTrue(
+            "픽스처에만 있는 필드(수집기가 만들지 않는다): $onlyInFixture\n" +
+                "수집기가 싣게 고치거나, 그날 데이터에만 없는 조건부 필드면 FIXTURE_ONLY_PATHS 에 이유와 함께 넣는다.",
+            onlyInFixture.isEmpty(),
+        )
+    }
+
+    @Test
+    fun `수집한 편집 덱은 모두 앱에서 닿고 작가를 바꿔 볼 수 있다`() {
+        assumeTrue("v2 파일에서만 검사한다", feed.version.schemaVersion >= 2)
+        val reachable = feed.decks.sumOf { (if (it.editorial != null) 1 else 0) + it.moreEditorials.size }
+        assertEquals("editorial + moreEditorials 가 editorialCount 와 다르다", feed.version.editorialCount, reachable)
+
+        val catalog = CatalogIndex(feed.catalog)
+        feed.decks.filter { it.moreEditorials.isNotEmpty() }.forEach { deck ->
+            deck.moreEditorials.forEach { extra ->
+                val shown = deck.withEditorial(extra, catalog)
+                assertEquals(extra.id, shown.editorial?.id)
+                assertTrue("작가를 바꾼 보드가 비었다: ${deck.id}/${extra.id}", shown.units.isNotEmpty())
+                assertTrue("유닛 이름이 풀리지 않았다: ${shown.units.map { it.name }}", shown.units.none { it.name == it.id })
+                assertEquals(extra.teamCode?.code ?: deck.teamCode?.code, shown.teamCode?.code)
+            }
+        }
+    }
+
+    @Test
+    fun `대응 덱이 없는 불리한 상대는 metatft 이름이 있고 한글로 풀린다`() {
+        val catalog = CatalogIndex(feed.catalog)
+        val orphans = feed.decks.flatMap { it.global?.counters.orEmpty() }.filter { it.deck == null }
+        assertTrue("이름 없는 상대: ${orphans.filter { it.name.isNullOrBlank() }.take(3)}", orphans.all { !it.name.isNullOrBlank() })
+        val tokens = orphans.flatMap { it.name.orEmpty().split(',') }.map { it.trim() }.filter { it.isNotEmpty() }
+        val unresolved = tokens.filter { catalog.unit(it) == null && catalog.traits[it] == null }
+        // 사전에 아직 없는 새 유닛은 원문으로 남을 수 있다. 대부분 풀리기만 하면 된다.
+        assertTrue("catalog 로 풀리지 않는 이름 토큰이 많다: ${unresolved.distinct()}", unresolved.size * 10 <= tokens.size)
+    }
+
+    @Test
+    fun `보드에 쓰인 소환물은 아이콘이 있다`() {
+        val icons = feed.catalog.pets.associate { it.id to it.icon }
+        val used = feed.decks.flatMap { deck ->
+            deck.units.filter { it.isPet }.map { it.id } +
+                deck.editorials.flatMap { editorial -> editorial.stages.flatMap { stage -> stage.units.filter { it.isPet }.map { it.id } } }
+        }.distinct()
+        val blank = used.filter { icons[it].isNullOrBlank() }
+        assertTrue("아이콘 없는 소환물(무엇인지 알 수 없는 회색 칸이 된다): $blank", blank.isEmpty())
+    }
+
+    @Test
+    fun `변형 수치에도 픽률이 있다`() {
+        val stats = feed.decks.flatMap { deck -> deck.variants.flatMap { it.stats.values } }
+        assertEquals("픽률 없는 변형 수치(변형 행의 픽률 칸이 늘 '-')", 0, stats.count { it.pick == null })
+    }
+
+    @Test
+    fun `동봉 도감의 증강 설명으로도 증강을 찾는다`() {
+        val file = File("src/main/assets/stats/augments.json")
+        assumeTrue("도감 스냅샷이 없다: ${file.absolutePath}", file.exists())
+        val augments = StatsParser.parseAugments(file.readText())
+        assertNotNull("augments.json 파싱 실패", augments)
+        val descriptions = augments!!.augments.filter { it.desc.isNotBlank() }.associate { it.id to it.desc }
+        val merged = feed.withAugmentDescriptions(descriptions)
+        assertTrue("덱 피드의 증강에 설명이 하나도 붙지 않았다", merged.catalog.augments.any { !it.desc.isNullOrBlank() })
+
+        // 이름에는 없고 설명에만 있는 단어로 그 증강이 후보에 나와야 한다.
+        val probe = merged.catalog.augments.asSequence()
+            .filter { it.name in merged.index.augment }
+            .mapNotNull { entry ->
+                val keys = DeckSearch.keysFor(entry.name, entry.nameEn)
+                DeckSearch.descWords(entry.desc).firstOrNull { word -> keys.none { it.contains(word) } }
+                    ?.let { word -> entry.name to word }
+            }
+            .firstOrNull()
+        assertNotNull("설명 단어로 검색해 볼 증강이 없다", probe)
+        val (name, word) = probe!!
+        assertTrue(
+            "설명 단어 '$word'로 증강 '$name'을 못 찾았다",
+            DeckSearch(merged).suggest(word, limit = 1000).any { it.axis == SearchAxis.AUGMENT && it.name == name },
+        )
+        assertTrue(
+            "설명을 합치기 전에는 그 단어로 찾지 못해야 한다(이름으로 맞은 것이 아님을 확인)",
+            search.suggest(word, limit = 1000).none { it.axis == SearchAxis.AUGMENT && it.name == name },
+        )
     }
 
     // -- 덱 코드 -------------------------------------------------------------
@@ -230,6 +335,42 @@ class DeckSearchTest {
             assertFalse("${axis.label} 인덱스가 비었다", count == 0)
         }
     }
+
+    private companion object {
+        /** 그날 수집 결과에 없을 수 있는 조건부 필드. 픽스처에만 있어도 되는 이유를 함께 적는다. 지금은 없다. */
+        val FIXTURE_ONLY_PATHS: Set<String> = emptySet()
+
+        /** 키가 id·이름·구간 같은 값인 맵. 경로에서 '*' 로 접는다. */
+        val DYNAMIC_MAPS = setOf(
+            "version.sources", "buckets", "scopes",
+            "decks[].stats", "decks[].variants[].stats", "decks[].variants[].precise", "decks[].global.stats",
+            "decks[].positions",
+            "index.item", "index.component", "index.champion", "index.trait", "index.augment",
+            "index.byId.champion", "index.byId.item", "index.byId.trait", "index.byId.augment",
+        )
+
+        /** JSON 의 필드 경로 집합. 배열은 "[]", 동적 키 맵은 "*" 로 접는다. 수집기 진단(collector)은 뺀다. */
+        fun jsonPaths(text: String): Set<String> {
+            val out = mutableSetOf<String>()
+            fun walk(node: JsonElement, path: String) {
+                when (node) {
+                    is JsonObject -> {
+                        val dynamic = path in DYNAMIC_MAPS
+                        node.forEach { (key, value) ->
+                            if (path.isEmpty() && key == "collector") return@forEach
+                            val child = (if (path.isEmpty()) "" else "$path.") + (if (dynamic) "*" else key)
+                            out += child
+                            walk(value, child)
+                        }
+                    }
+                    is JsonArray -> node.forEach { walk(it, "${path}[]") }
+                    else -> {}
+                }
+            }
+            walk(Json.parseToJsonElement(text), "")
+            return out
+        }
+    }
 }
 
 /**
@@ -265,8 +406,11 @@ class DeckFeedV2Test {
         assertEquals(5, feed.buckets.size)
         assertEquals("goldem", feed.defaultBucket)
         assertEquals("20260914", feed.buckets.getValue("goldem").detailDate)
-        assertEquals(3, feed.scopes.size)
+        // metatft 스코프 3개 + 중국 스코프(수집기가 数据检索器 판 수를 싣는다)
+        assertEquals(4, feed.scopes.size)
         assertEquals(6_799_416L, feed.scopes.getValue("glob_plat").boards)
+        assertEquals(4_017_601L, feed.scopes.getValue("cn_plat").games)
+        assertEquals("4+", feed.scopes.getValue("cn_plat").tier)
         assertEquals(3.90, feed.gradeCuts.s, 1e-9)
         assertEquals(300, feed.gradeCuts.minSample)
         assertEquals(1, feed.catalog.pets.size)
@@ -337,6 +481,13 @@ class DeckFeedV2Test {
         assertEquals(8, elder.global!!.stats.getValue("glob_plat").places.size)
         assertEquals(0.668, elder.keyUnits.first().star2!!, 1e-9)
         assertEquals(9, elder.statsFor("goldem")!!.precise?.finalLevel)
+        assertEquals("DA_18_Ashe, DA_18_Sivir", elder.global?.counters?.get(1)?.name)
+        // 변형은 성급을 모르고(null), 픽률은 그룹과 같은 4수치 줄에 쓴다.
+        assertNull(elder.otherVariants.single().units.first().star)
+        assertEquals(0.0005, elder.otherVariants.single().stats.getValue("goldem").pick!!, 1e-9)
+        // 증강 성적·실측 배치를 받은 구간
+        assertEquals("goldem", elder.detailBucket)
+        assertNull(deck(APHELIOS).detailBucket)
 
         // 출처 배지 판정
         assertTrue(elder.hasEditorial)
@@ -432,7 +583,15 @@ class DeckFeedV2Test {
         val elder = search.suggest("장로").first { it.axis == SearchAxis.CHAMPION }
         assertEquals("DA_18_ElderDragon", elder.id)
 
-        val results = search.suggest("대검")
+        // decks.json 에는 증강 설명이 없다(수집기가 싣지 않는다). 도감 파일의 설명을 합친 피드여야 설명으로 찾는다.
+        assertTrue(search.suggest("대검").none { it.axis == SearchAxis.AUGMENT })
+        val merged = feed.withAugmentDescriptions(
+            mapOf("DA_Swordsmith" to "라운드마다 조합 재료 B.F. 대검을<br>하나 얻습니다.", "DA_NoSuchAugment" to "없는 증강"),
+        )
+        assertTrue("설명이 없으면 같은 피드", feed.withAugmentDescriptions(emptyMap()) === feed)
+        val swordsmith = merged.catalog.augments.first { it.id == "DA_Swordsmith" }.desc
+        assertFalse("서식 태그가 검색 단어로 섞였다", "br" in DeckSearch.descWords(swordsmith))
+        val results = DeckSearch(merged).suggest("대검")
         val augment = results.indexOfFirst { it.axis == SearchAxis.AUGMENT && it.name == "검 제작자" }
         assertTrue("설명문 검색이 동작하지 않는다: $results", augment >= 0)
         val item = results.indexOfFirst { it.name == "무한의 대검" }
@@ -443,11 +602,84 @@ class DeckFeedV2Test {
     @Test
     fun `catalog 지도는 챔피언에 없으면 소환물에서 찾는다`() {
         val catalog = CatalogIndex(feed.catalog)
-        assertEquals("철갑 나무", catalog.unit(PET)?.name)
+        assertEquals("돌껍질 나무", catalog.unit(PET)?.name)
         assertTrue(catalog.isPet(PET))
         assertFalse(catalog.isPet("DA_18_ElderDragon"))
         assertEquals(5, catalog.champions["DA_18_ElderDragon"]?.cost)
         assertNull(catalog.unit("DA_Unknown"))
+    }
+
+    // -- 편집 덱 여럿 · 표본 부족 · 데이터 신선도 ----------------------------------------
+
+    @Test
+    fun `같은 그룹의 다른 작가 편집 덱으로 바꿔 본다`() {
+        val elder = deck(ELDER)
+        assertEquals(listOf("14266", "14330"), elder.editorials.map { it.id })
+        val catalog = CatalogIndex(feed.catalog)
+        val other = elder.withEditorial(elder.moreEditorials.single(), catalog)
+
+        assertEquals("14330", other.editorial?.id)
+        assertEquals("作者B", other.author)
+        assertEquals("S", other.editorialTier)
+        assertEquals(9, other.finalLevel)
+        assertEquals("【作者B】4森林巨龙", other.nameCn)
+        assertEquals("02000000000000000000000000000003TFTSet18", other.teamCode?.code)
+        assertEquals(listOf("DA_Swordsmith"), other.authorAugments.recommended.map { it.id })
+        assertEquals(listOf("DA_Component_BFSword"), other.componentOrder.map { it.id })
+        assertEquals("前期卖血", other.buildupNotes.early)
+        assertEquals(listOf("final"), BuildupPlanner.authorPicks(other, 9).map { it.stage!!.key })
+        // 대표 작가(14266)는 이전 패치 작성이지만 이 작가는 새로 썼다. 배지는 고른 작가를 따른다.
+        assertTrue(elder.isEditorialStale)
+        assertFalse(other.isEditorialStale)
+
+        // 최종 단계 보드(id 참조)를 catalog 로 풀어 보드·아이템 섹션이 쓰는 유닛으로 만든다.
+        assertEquals(listOf("DA_18_ElderDragon", "DA_18_Kennen", "DA_18_Yorick", PET), other.units.map { it.id })
+        val carry = other.units.first { it.carry }
+        assertEquals("장로 드래곤", carry.name)
+        assertEquals(5, carry.cost)
+        assertEquals(listOf("무한의 대검"), carry.items.map { it.name })
+        assertEquals(3, other.units.first { it.id == "DA_18_Yorick" }.star)
+        assertTrue(other.units.first { it.id == PET }.isPet)
+        assertEquals("DA_18_ElderDragon", other.carries.first().id)
+
+        // 통계·변형·빌드업 통계는 그룹 것 그대로
+        assertEquals(elder.stats, other.stats)
+        assertEquals(elder.variants, other.variants)
+        assertEquals(elder.buildup, other.buildup)
+        // 대표 편집 덱을 고르면 같은 덱, 편집 덱이 하나뿐이거나 없는 덱
+        assertTrue(elder.withEditorial(elder.editorial!!, catalog) === elder)
+        assertEquals(1, deck(EDITORIAL).editorials.size)
+        assertTrue(deck(APHELIOS).editorials.isEmpty())
+    }
+
+    @Test
+    fun `표본 부족은 통계가 있는 덱의 등급 없는 구간이다`() {
+        assertFalse(deck(ELDER).isLowSample("goldem"))
+        assertTrue("등급 null", deck(ELDER).isLowSample("master"))
+        assertTrue("표본 250", deck(YORICK).isLowSample("goldem"))
+        assertTrue("그 구간에 없음", deck(APHELIOS).isLowSample("low"))
+        assertFalse("통계가 없는 편집 독립 덱은 편집 등급이 기준", deck(EDITORIAL).isLowSample("goldem"))
+    }
+
+    @Test
+    fun `캐시·동봉본·원격 중 더 새 피드를 고른다`() {
+        val v1 = FeedVersion(schemaVersion = 1, generatedAt = "2026-09-14T14:30:44Z")
+        val v2 = FeedVersion(schemaVersion = 2, generatedAt = "2026-09-15T16:34:40Z")
+        val v2Later = v2.copy(generatedAt = "2026-09-16T20:05:12Z")
+
+        // 1.0 이 받아 둔 v1 캐시는 1.1 동봉 v2 보다 옛 것이다.
+        assertTrue(FeedFreshness.isOlder(v1, v2))
+        assertFalse(FeedFreshness.isOlder(v2, v1))
+        // 옛 수집기가 다시 돌아 생성 시각이 늦어도 스키마가 낮으면 받지 않는다.
+        assertTrue(FeedFreshness.isOlder(v1.copy(generatedAt = "2026-09-20T00:00:00Z"), v2))
+        // 같은 스키마는 생성 시각으로
+        assertTrue(FeedFreshness.isOlder(v2, v2Later))
+        assertFalse(FeedFreshness.isOlder(v2Later, v2))
+        assertFalse(FeedFreshness.isOlder(v2, v2))
+        // 모르는 시각은 옛 것이라 단정하지 않는다.
+        assertFalse(FeedFreshness.isOlder(v2.copy(generatedAt = ""), v2Later))
+        assertFalse(FeedFreshness.isOlder(v2.copy(generatedAt = "어제"), v2Later))
+        assertTrue(FeedFreshness.isEarlier(feed.version.generatedAt, "2026-09-17T00:00:00Z"))
     }
 
     // -- 표시 도우미 ------------------------------------------------------------

@@ -1,6 +1,6 @@
 {
- "bytes": 958611,
- "count": 433,
+ "bytes": 964982,
+ "count": 436,
  "files": {
   "assets/characters/tft18_ahri/tft18_ahri_square.png": "a380aca8e526.webp",
   "assets/characters/tft18_akali/tft18_akali_square.png": "238ab129162c.webp",
@@ -429,6 +429,9 @@
   "assets/ux/traiticons/trait_icon_18_sprykin.png": "fed6ed6e047c.webp",
   "assets/ux/traiticons/trait_icon_18_summoner.png": "930dc9c02f16.webp",
   "assets/ux/traiticons/trait_icon_18_vanguard.png": "bd19c1f2c477.webp",
+  "https://game.gtimg.cn/images/lol/act/img/tft/champions/100292.png": "d9ccd31587c1.webp",
+  "https://game.gtimg.cn/images/lol/act/img/tft/champions/100294.png": "4f96c0da71ed.webp",
+  "https://game.gtimg.cn/images/lol/act/img/tft/champions/100295.png": "440c7646cd13.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/equip/92987.png": "b6f5832ac1e8.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/hex/94864.png": "ea2a58d12978.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/hex/94955.png": "9f86be72fdea.webp",
@@ -436,8 +439,8 @@
   "https://game.gtimg.cn/images/lol/act/img/tft/hex/95123.png": "9bf2ed716022.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/original-image/tft18_willump_square.tft_set18.png": "2e85a2bf02aa.webp"
  },
- "generatedAt": "2026-09-15T15:26:18Z",
- "hash": "133708506aa56605b65315a6f59f2145c34aa2f6",
+ "generatedAt": "2026-09-15T16:45:40Z",
+ "hash": "ab918814e23006eb57cc6cfa0c0b5ca08674e197",
  "schemaVersion": 1,
  "zip": "icons.zip"
 }

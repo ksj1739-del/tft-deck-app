@@ -438,6 +438,49 @@ class StatsRepositoryTest {
         assertEquals("대상에게 폭탄을 붙입니다\n3초 뒤 터집니다", cleanDesc(champion("DA_18_Tristana").ability!!.desc))
     }
 
+    // -- 동기화 규칙 ------------------------------------------------------------
+
+    @Test
+    fun `받은 파일의 해시가 version 과 다르면 받지 않는다`() {
+        assertTrue(StatsRepository.hashMatches("3a9f", "3a9f"))
+        assertFalse("새 version.json 과 옛 본체가 섞여 왔다", StatsRepository.hashMatches("3a9f", "0c44"))
+        assertTrue("파일에 해시가 없는 옛 형식은 확인할 수 없어 받아들인다", StatsRepository.hashMatches("3a9f", ""))
+    }
+
+    @Test
+    fun `동봉 스냅샷이 캐시보다 새로우면 캐시를 버린다`() {
+        val cached = StatsVersion(schemaVersion = 1, generatedAt = "2026-09-15T20:07:40Z", files = mapOf("champions" to "a"))
+        val bundled = cached.copy(generatedAt = "2026-09-16T20:07:40Z")
+        assertTrue(StatsRepository.isStale(cached, bundled))
+        assertFalse(StatsRepository.isStale(bundled, cached))
+        assertFalse(StatsRepository.isStale(cached, cached))
+        assertTrue("스키마가 낮으면 시각과 무관하게 옛 것", StatsRepository.isStale(cached.copy(schemaVersion = 0, generatedAt = "2026-09-20T00:00:00Z"), bundled))
+        assertFalse("시각을 모르면 버리지 않는다", StatsRepository.isStale(cached.copy(generatedAt = ""), bundled))
+    }
+
+    @Test
+    fun `일부 파일만 받으면 메타는 그대로 두고 해시만 바꾼다`() {
+        val shown = StatsVersion(
+            patchGlobal = "18.1", statDate = "2026-09-14", generatedAt = "2026-09-14T20:00:00Z",
+            files = mapOf("champions" to "old-c", "traits" to "old-t"),
+        )
+        val remote = StatsVersion(
+            patchGlobal = "18.2", statDate = "2026-09-15", generatedAt = "2026-09-15T20:00:00Z",
+            files = mapOf("champions" to "new-c", "traits" to "new-t"),
+        )
+        val hashes = mapOf("champions" to "new-c", "traits" to "old-t", "junk" to "x")
+
+        val partial = StatsRepository.recordAfterSync(remote, shown, hashes, allReceived = false)
+        assertEquals("18.1", partial.patchGlobal)
+        assertEquals("2026-09-14", partial.statDate)
+        assertEquals(mapOf("champions" to "new-c", "traits" to "old-t"), partial.files)
+
+        val complete = StatsRepository.recordAfterSync(remote, shown, hashes, allReceived = true)
+        assertEquals("18.2", complete.patchGlobal)
+        assertEquals("2026-09-15", complete.statDate)
+        assertEquals("비교할 메타가 없으면 원격 메타", "18.2", StatsRepository.recordAfterSync(remote, null, hashes, false).patchGlobal)
+    }
+
     // -- 실제 스냅샷 ------------------------------------------------------------
 
     @Test
@@ -456,6 +499,7 @@ class StatsRepositoryTest {
         read("champions")?.let { text ->
             val file = StatsParser.parseChampions(text)
             assertNotNull("champions.json 파싱 실패", file)
+            assertTrue("champions 해시가 version.json 과 다르다", StatsRepository.hashMatches(snapshotVersion.files["champions"].orEmpty(), file!!.version.contentHash))
             val scopes = CodexQuery.availableScopes(file!!.scopes)
             val withStats = scopes.associateWith { scope ->
                 ChampionSort.entries.forEach { CodexQuery.championTable(file, scope, ChampionFilter(sort = it)) }
@@ -467,6 +511,7 @@ class StatsRepositoryTest {
         read("traits")?.let { text ->
             val file = StatsParser.parseTraits(text)
             assertNotNull("traits.json 파싱 실패", file)
+            assertTrue("traits 해시가 version.json 과 다르다", StatsRepository.hashMatches(snapshotVersion.files["traits"].orEmpty(), file!!.version.contentHash))
             val staged = CodexQuery.availableScopes(file!!.scopes).sumOf { scope ->
                 CodexQuery.traitTable(file, scope, TraitFilter())
                 CodexQuery.traitTable(file, scope, TraitFilter(byStage = true)).rows.count { it.stat != null }
@@ -476,6 +521,7 @@ class StatsRepositoryTest {
         read("items")?.let { text ->
             val file = StatsParser.parseItems(text)
             assertNotNull("items.json 파싱 실패", file)
+            assertTrue("items 해시가 version.json 과 다르다", StatsRepository.hashMatches(snapshotVersion.files["items"].orEmpty(), file!!.version.contentHash))
             CodexQuery.availableScopes(file!!.scopes).forEach { CodexQuery.itemTable(file, it, ItemFilter()) }
             val components = CodexQuery.componentIds(file)
             val gridCells = components.sumOf { a -> components.count { b -> file.recipeFor(a, b) != null } }
@@ -484,6 +530,7 @@ class StatsRepositoryTest {
         read("augments")?.let { text ->
             val file = StatsParser.parseAugments(text)
             assertNotNull("augments.json 파싱 실패", file)
+            assertTrue("augments 해시가 version.json 과 다르다", StatsRepository.hashMatches(snapshotVersion.files["augments"].orEmpty(), file!!.version.contentHash))
             CodexQuery.augmentRows(file!!, AugmentFilter())
             val tiers = CodexQuery.augmentTierGroups(file).associate { it.tier to it.augments.size }
             summary += "증강 ${file.augments.size}(티어 $tiers, 덱별 성적 ${file.augments.count { it.deckStats.isNotEmpty() }}, 라운드 ${CodexQuery.roundRows(file).size})"

@@ -40,7 +40,7 @@ sealed interface GameState {
  * TFT가 켜졌는지 알아낸다.
  *
  * 다른 앱의 화면 전환은 UsageStatsManager 기록으로만 알 수 있다(접근성 서비스·화면 캡처는 쓰지 않는다).
- * 시스템이 이미 남긴 이벤트의 최근 10초만 3초마다 읽으므로 배터리 부담이 작다.
+ * 3초마다 시스템이 이미 남긴 이벤트를 지난 조회 이후 구간만(보통 13초 남짓) 읽으므로 배터리 부담이 작다.
  * 기기가 잠겨 있으면 queryEvents가 null을 주는데, 그때는 상태를 바꾸지 않는다.
  */
 class GameDetector(context: Context) {
@@ -67,11 +67,12 @@ class GameDetector(context: Context) {
     fun start(scope: CoroutineScope) {
         if (job?.isActive == true) return
         job = scope.launch(Dispatchers.Default) {
-            // 서비스가 게임 도중 다시 시작된 경우를 놓치지 않도록 처음 한 번은 넓게 본다.
-            poll(LOOKBACK_MS)
+            // 마지막으로 성공한 조회의 끝 시각은 이 코루틴만 들고 있는다(멈췄다 다시 켜면 0부터).
+            // 처음 한 번은 넓게 본다 — 서비스가 게임 도중 다시 시작된 경우를 놓치지 않도록.
+            var lastQueryEnd = poll(0L)
             while (isActive) {
                 delay(POLL_INTERVAL_MS)
-                poll(WINDOW_MS)
+                lastQueryEnd = poll(lastQueryEnd)
             }
         }
     }
@@ -83,12 +84,15 @@ class GameDetector(context: Context) {
         _state.value = GameState.Unknown
     }
 
-    private fun poll(windowMs: Long) {
-        val manager = usage ?: return
-        if (!hasPermission()) return
+    /** 한 번 조회해 상태를 고치고, 다음 조회가 이어 읽을 끝 시각을 돌려준다. 읽지 못했으면 [lastQueryEnd] 그대로. */
+    private fun poll(lastQueryEnd: Long): Long {
+        val manager = usage ?: return lastQueryEnd
+        if (!hasPermission()) return lastQueryEnd
         val now = System.currentTimeMillis()
-        // 잠금 상태면 null이다. 모르는 동안은 직전 상태를 유지한다.
-        val events = runCatching { manager.queryEvents(now - windowMs, now) }.getOrNull() ?: return
+        // 잠금 상태면 null이다. 모르는 동안은 직전 상태를 유지하고, 끝 시각을 옮기지 않아
+        // 다음 조회가 놓친 구간부터 다시 읽는다.
+        val events = runCatching { manager.queryEvents(queryStart(now, lastQueryEnd), now) }.getOrNull()
+            ?: return lastQueryEnd
 
         var sawTft = false
         var lastResumeAt = 0L
@@ -117,7 +121,7 @@ class GameDetector(context: Context) {
                     }
                 }
             }
-            if (!sawTft) return
+            if (!sawTft) return now
 
             val current = _state.value
             val next: GameState = if (resumed.isNotEmpty()) {
@@ -136,13 +140,29 @@ class GameDetector(context: Context) {
                 _state.value = next
             }
         }
+        return now
     }
 
     companion object {
         private const val TAG = "GameDetector"
         private const val POLL_INTERVAL_MS = 3_000L
-        private const val WINDOW_MS = 10_000L
-        private const val LOOKBACK_MS = 2 * 60 * 60 * 1000L
+        internal const val WINDOW_MS = 10_000L
+        internal const val LOOKBACK_MS = 2 * 60 * 60 * 1000L
+
+        /**
+         * 이번 조회의 시작 시각.
+         *
+         * 지난번 성공한 조회의 끝보다 [WINDOW_MS] 앞에서 시작해 빈틈 없이 이어 읽는다. 기기가 잠들어 폴링이
+         * 늦어지면(delay 는 잠든 동안 흐르지 않는다) 그 사이의 일시정지·정지 이벤트가 '최근 10초' 밖으로
+         * 밀려 영영 안 보이고, 상태가 Foreground 로 굳어 오버레이가 홈 화면에 남는다.
+         * 최근 [WINDOW_MS] 보다 좁히지 않고(시계가 뒤로 가도) [LOOKBACK_MS] 보다 넓히지 않는다.
+         * 겹쳐 다시 읽은 이벤트는 활동별 마지막 이벤트가 결과를 정하므로 상태가 달라지지 않는다.
+         */
+        internal fun queryStart(now: Long, lastQueryEnd: Long): Long {
+            val floor = now - LOOKBACK_MS
+            if (lastQueryEnd <= 0L) return floor
+            return (minOf(lastQueryEnd, now) - WINDOW_MS).coerceIn(floor, now - WINDOW_MS)
+        }
 
         // UsageEvents.Event 상수. API 29에서 ACTIVITY_* 이름이 생겼고 값은 옛
         // MOVE_TO_FOREGROUND(1)/MOVE_TO_BACKGROUND(2)와 같다. minSdk 26이라 숫자로 둔다.

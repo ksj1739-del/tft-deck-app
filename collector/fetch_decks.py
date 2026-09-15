@@ -58,6 +58,8 @@ TEAMPLANNER = ("https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-d
                "global/default/v1/tftchampions-teamplanner.json")
 META_CLUSTER = "https://api-hc.metatft.com/tft-comps-api/latest_cluster_info"
 META_VERSION = "https://api-hc.metatft.com/tft-comps-api/latest_cluster_id"
+# metatft 사이트가 유닛 초상을 그리는 주소(apiName 소문자). lol.qq 도감에 없는 소환물의 마지막 대체 경로.
+METATFT_CHAMPION_ICON = "https://cdn.metatft.com/file/metatft/champions/%s.png"
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
@@ -192,6 +194,9 @@ class Dictionary:
         self.overrides = (overrides or {}).get("units") or {}
         self.qq = None       # lol.qq 정적 도감(pet 이름·아이콘)
         self.aliases = {}    # 같은 캐릭터의 다른 형태 -> CommunityDragon 에 있는 id
+        # metatft unit_lookup: DA id -> TFT18_* apiName, apiName -> 그 이름을 쓰는 DA id 들(pet 아이콘 대체 경로)
+        self.metatft_api = {}
+        self.metatft_members = {}
 
         # 실제로 등장한 것만 catalog에 싣는다. 해석 시점에 기록해 두면 보드·빌드업을
         # id 참조로 줄여도 거기 쓰인 유닛이 catalog에서 빠지지 않는다.
@@ -225,6 +230,8 @@ class Dictionary:
             api = (row or {}).get("apiName")
             if api:
                 members.setdefault(api, []).append(da)
+        self.metatft_api = {da: api for api, ids in members.items() for da in ids}
+        self.metatft_members = members
         for ids in members.values():
             known = sorted(i for i in ids if i in self.champions)
             if not known:
@@ -262,20 +269,38 @@ class Dictionary:
     def pet(self, api_name):
         """
         pet·소환물. 이름은 수기 오버라이드(한글) → lol.qq displayName(중국어 원문) 순.
-        아이콘은 오버라이드 → lol.qq originalImage(절대 URL).
+        아이콘은 오버라이드 → lol.qq originalImage → lol.qq 도감 초상(champions/{chessId}.png)
+        → metatft 초상 순. 나무정령 소환물 3종은 originalImage 가 비어 있어 도감 초상만 있다.
+        metatft 형태 id(DA_Elderwood18_*)는 lol.qq 도감에 없으므로 오버라이드 sameAs 로
+        같은 소환물의 lol.qq id 를 빌린다.
         """
-        qq = self.qq.chess_record(api_name) if self.qq else None
         over = self.overrides.get(api_name) or {}
+        qq = self.qq.chess_record(api_name) if self.qq else None
+        alias = str(over.get("sameAs") or "").strip()
+        if qq is None and alias and self.qq:
+            qq = self.qq.chess_record(alias)
+        icon = (asset_path(over.get("icon")) or (qq or {}).get("image") or (qq or {}).get("avatar")
+                or self._metatft_icon(api_name))
         record = {
             "id": api_name,
             "name": over.get("name") or (qq or {}).get("name_cn") or api_name,
             "nameEn": None,
             "cost": None,
-            "icon": asset_path(over.get("icon")) or (qq or {}).get("image") or None,
+            "icon": icon or None,
             "translated": bool(over.get("name")),
             "kind": "pet",
         }
         return self._remember("pets", record)
+
+    def _metatft_icon(self, api_name):
+        """
+        metatft 가 그 유닛에 쓰는 초상(사이트가 apiName 소문자로 조립한다).
+        한 apiName 을 여러 형태가 함께 쓰면(생명꽃·돌껍질 나무 → TreeSummon) 그림이 한 장뿐이라 쓰지 않는다.
+        """
+        api = self.metatft_api.get(api_name)
+        if not api or len(self.metatft_members.get(api) or []) != 1:
+            return None
+        return METATFT_CHAMPION_ICON % api.lower()
 
     # -- trait ---------------------------------------------------------------
     def trait(self, api_name):
@@ -289,6 +314,19 @@ class Dictionary:
             "translated": ko is not None,
         }
         return self._remember("traits", record)
+
+    def remember_tokens(self, text):
+        """
+        metatft name_string('DA_18_Elderwood, DA_18_Ezreal, DA_Draven18')에 든 특성·유닛을 catalog 에 올린다.
+        앱은 우리 목록에 대응 덱이 없는 상대를 이 이름으로 보여 주는데, catalog 에 없는 id 는 원문이 그대로 보인다.
+        사전에 없는 토큰은 건너뛴다(소환물로 잘못 등록하지 않도록).
+        """
+        for token in str(text or "").split(","):
+            token = token.strip()
+            if token in self.traits:
+                self.trait(token)
+            elif token in self.champions or token in self.aliases:
+                self.unit(token)
 
     def trait_count(self, api_name, step):
         """metatft 특성 단계 순번(1부터) -> 그 단계의 최소 인원."""
@@ -639,6 +677,8 @@ def build_editorial(raw, dic, patch_start):
 def editorial_out(editorial, team_code):
     out = {
         "id": editorial["id"],
+        # 한 그룹에 편집 덱이 여럿이면 앱이 작가를 바꿔 보여 준다. 그때 원문 섹션의 덱 이름도 그 작가 것이어야 한다.
+        "nameCn": editorial["nameCn"],
         "author": editorial["author"],
         "updatedAt": editorial["updatedAt"],
         "stale": editorial["stale"],
@@ -918,7 +958,8 @@ def build_group_deck(group, ctx):
             deck["moreEditorials"] = [editorial_out(e, deck_code(e["units"], ctx.codes, ctx.set_number))
                                       for e in editorials[1:]]
     work = {"group": group, "rep": rep, "repBucket": rep_bucket, "row": row,
-            "wBoard": w_board, "matchUnits": rep["units"], "editorial": editorial}
+            "wBoard": w_board, "matchUnits": rep["units"], "editorial": editorial,
+            "moreEditorials": editorials[1:]}
     return deck, work
 
 
@@ -1122,6 +1163,19 @@ def build_index(decks, works):
         for augment in deck["augments"]["recommended"]:
             add(augments, augment["name"], did)
             add(by_id["augment"], augment["id"], did)
+        # 같은 그룹에 붙은 다른 작가의 편집 덱(moreEditorials)도 이 덱 id 로 찾게 한다.
+        # 앱 상세에서 작가를 바꿔 그 보드·증강을 볼 수 있다.
+        for extra in work.get("moreEditorials") or []:
+            for unit in extra["units"]:
+                add_unit(did, unit)
+            for item in extra["itemOrder"]:
+                add(components, item["name"], did)
+            for trait in extra["traits"]:
+                add(traits, trait["name"], did)
+                add(by_id["trait"], trait["id"], did)
+            for augment in extra["augments"]["recommended"]:
+                add(augments, augment["name"], did)
+                add(by_id["augment"], augment["id"], did)
 
     # 챔피언/특성은 덱 중복 제거
     champions = {k: sorted(set(v)) for k, v in champions.items()}
@@ -1546,7 +1600,12 @@ def main(argv=None):
             details = comp_results.get(cid)
             if details:
                 global_block["finalLevels"] = mt.final_levels(details)
-                global_block["counters"] = mt.counters(details, cid, deck_for_cluster)
+                names = {c["id"]: c["name"] for c in clusters if c.get("name")}
+                global_block["counters"] = mt.counters(details, cid, deck_for_cluster, names)
+                # 대응 덱이 없는 상대는 앱이 metatft 이름(DA id 나열)을 한글로 풀어 보여 준다.
+                # 거기 든 유닛·특성이 catalog 에 없으면 id 원문이 그대로 보이므로 여기서 올려 둔다.
+                for counter in global_block["counters"]:
+                    dic.remember_tokens(counter.get("name"))
             deck["global"] = global_block
 
         buildup = {}

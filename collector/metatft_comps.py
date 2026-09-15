@@ -213,11 +213,14 @@ def final_levels(results):
     return out
 
 
-def counters(results, own_cluster, deck_for_cluster):
+def counters(results, own_cluster, deck_for_cluster, names=None):
     """
     place_change 가 큰(만나면 등수가 더 밀리는) 상대 상위 3. 자기 자신 행은 뺀다.
     against 는 클러스터 id 라 우리 덱 id 로도 옮겨 적는다(매칭된 경우만).
+    names(클러스터 id -> metatft name_string)가 있으면 이름도 싣는다. 우리 목록에 대응 덱이 없는
+    상대(절반 가까이)는 앱이 이 이름을 한글로 풀어 보여 주고, 없으면 클러스터 숫자만 남는다.
     """
+    names = names or {}
     rows = []
     for row in results.get("counters") or []:
         against = str(row.get("against") or "")
@@ -226,8 +229,13 @@ def counters(results, own_cluster, deck_for_cluster):
             continue
         rows.append((change, against))
     rows.sort(reverse=True)
-    return [{"cluster": _int(against), "deck": deck_for_cluster.get(against), "placeChange": round(change, 2)}
-            for change, against in rows[:COUNTER_LIMIT]]
+    out = []
+    for change, against in rows[:COUNTER_LIMIT]:
+        entry = {"cluster": _int(against), "deck": deck_for_cluster.get(against), "placeChange": round(change, 2)}
+        if names.get(against):
+            entry["name"] = names[against]
+        out.append(entry)
+    return out
 
 
 def _unit_list(text):

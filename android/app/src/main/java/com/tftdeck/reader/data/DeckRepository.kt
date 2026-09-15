@@ -32,20 +32,32 @@ class DeckRepository private constructor(private val context: Context) {
     // -- 로드 ---------------------------------------------------------------
 
     /**
-     * 캐시를 먼저 읽고, 없거나 깨졌으면 앱에 동봉한 스냅샷으로 떨어진다.
-     * 첫 실행에도 네트워크 없이 화면이 채워진다.
+     * 기기 캐시와 앱 동봉 스냅샷 중 더 새 데이터를 올린다. 첫 실행에도 네트워크 없이 화면이 채워진다.
+     *
+     * 캐시를 무조건 먼저 쓰면 앱을 업데이트했을 때 옛 버전이 받아 둔 데이터(1.0 의 v1 26덱)가 새로 넣은
+     * 스냅샷(v2)을 가린다. 그래서 캐시를 쓴 앱 버전이 지금보다 낮으면 동봉본과 비교해 새것을 쓴다.
+     * 지금 앱 버전이 쓴 캐시는 동기화 규칙상 동봉본보다 옛 것일 수 없으므로 비교 없이 쓴다(동봉 1 MB 파싱을 아낀다).
      */
     suspend fun load() = withContext(Dispatchers.IO) {
         val cached = readCache()
-        if (cached != null) {
+        if (cached != null && prefs.getInt(KEY_CACHE_APP_VERSION, 0) >= BuildConfig.VERSION_CODE) {
             _state.value = FeedState.Ready(cached, lastSyncedAt(), fromBundle = false)
             return@withContext
         }
+
         val bundled = readBundled()
-        _state.value = if (bundled != null) {
-            FeedState.Ready(bundled, null, fromBundle = true)
-        } else {
-            FeedState.Error("덱 데이터를 읽지 못했습니다. 앱을 다시 설치해 주세요.")
+        _state.value = when {
+            cached != null && (bundled == null || !FeedFreshness.isOlder(cached.version, bundled.version)) -> {
+                // 앱을 올렸어도 캐시가 동봉본만큼 새롭다. 다음 실행부터는 비교하지 않는다.
+                prefs.edit().putInt(KEY_CACHE_APP_VERSION, BuildConfig.VERSION_CODE).apply()
+                FeedState.Ready(cached, lastSyncedAt(), fromBundle = false)
+            }
+            bundled != null -> {
+                // 옛 캐시는 다시 쓸 일이 없다. 남겨 두면 실행할 때마다 비교만 반복한다.
+                if (cached != null) runCatching { cacheFile.delete() }
+                FeedState.Ready(bundled, null, fromBundle = true)
+            }
+            else -> FeedState.Error("덱 데이터를 읽지 못했습니다. 앱을 다시 설치해 주세요.")
         }
     }
 
@@ -68,8 +80,11 @@ class DeckRepository private constructor(private val context: Context) {
      * 먼저 version.json(수백 바이트)만 받아 해시를 비교하고, 바뀐 경우에만
      * 본체를 내려받는다. 평상시 통신량은 사실상 0이다.
      *
-     * schemaVersion 은 보지 않는다. 수집기가 v1으로 되돌아가도(장애 복구 등) 모델이 두 버전을
-     * 모두 읽으므로, 버전으로 거르면 오히려 새 데이터를 못 받는 날이 생긴다.
+     * 지금 보여 주는 데이터보다 옛 데이터는 받지 않는다([FeedFreshness]: schemaVersion 이 낮거나 generatedAt 이 이르면).
+     * 원격 저장소에 새 스키마가 아직 올라가지 않았거나 옛 수집기가 다시 돌면 해시만 달라도 v2 화면을 v1 으로
+     * 덮어쓰기 때문이다. 사용자가 누른 강제 갱신도 같은 규칙을 따른다.
+     * raw.githubusercontent 는 파일마다 따로 캐시해 version.json 과 decks.json 이 다른 커밋에서 올 수 있어,
+     * 본체를 받은 뒤에도 한 번 더 확인한다.
      */
     suspend fun sync(force: Boolean = false): SyncResult = syncLock.withLock {
         withContext(Dispatchers.IO) {
@@ -77,9 +92,10 @@ class DeckRepository private constructor(private val context: Context) {
                 val remote = FeedJson.decodeVersion(httpGet(BuildConfig.FEED_BASE_URL + VERSION_NAME))
                 val current = currentVersion()
 
-                if (!force && current != null && remote.contentHash.isNotEmpty() &&
+                val sameContent = current != null && remote.contentHash.isNotEmpty() &&
                     remote.contentHash == current.contentHash
-                ) {
+                val olderThanShown = current != null && FeedFreshness.isOlder(remote, current)
+                if ((!force && sameContent) || olderThanShown) {
                     markSynced()
                     _state.value = (_state.value as? FeedState.Ready)?.copy(lastSyncedAt = lastSyncedAt())
                         ?: _state.value
@@ -92,6 +108,10 @@ class DeckRepository private constructor(private val context: Context) {
                     // 빈 응답으로 멀쩡한 캐시를 덮어쓰지 않는다.
                     return@withContext SyncResult.Failed("받은 데이터에 덱이 없습니다")
                 }
+                if (current != null && FeedFreshness.isOlder(feed.version, current)) {
+                    // version.json 은 새 커밋인데 본체는 아직 옛 파일이 캐시에서 왔다. 다음 동기화에서 다시 받는다.
+                    return@withContext SyncResult.Failed("서버 파일이 아직 바뀌는 중입니다. 잠시 뒤 다시 시도해 주세요")
+                }
 
                 // 임시 파일에 쓰고 교체해서, 중간에 끊겨도 캐시가 깨지지 않게 한다.
                 val temp = File(context.filesDir, "$CACHE_NAME.tmp")
@@ -100,6 +120,7 @@ class DeckRepository private constructor(private val context: Context) {
                     cacheFile.writeText(body)
                     temp.delete()
                 }
+                prefs.edit().putInt(KEY_CACHE_APP_VERSION, BuildConfig.VERSION_CODE).apply()
 
                 markSynced()
                 _state.value = FeedState.Ready(feed, lastSyncedAt(), fromBundle = false)
@@ -157,6 +178,9 @@ class DeckRepository private constructor(private val context: Context) {
         private const val PREFS = "tft_deck_reader"
         private const val KEY_SYNCED_AT = "synced_at"
         private const val KEY_PINNED = "pinned_deck"
+
+        /** 캐시 파일을 마지막으로 쓰거나 확인한 앱 versionCode. 1.0 은 이 값을 남기지 않았다(0). */
+        private const val KEY_CACHE_APP_VERSION = "cache_app_version"
 
         @Volatile
         private var instance: DeckRepository? = null

@@ -28,6 +28,10 @@ FILE_KEYS = (
 # 경로 속 '16.17-2026.S18' 부분.
 PATCH_SEGMENT = re.compile(r"/(\d+\.\d+)-(\d{4}\.S\d+)/")
 
+# chess.js 의 name('100294.png')을 붙이는 초상 경로. lol.qq 도감 화면이 쓰는 주소다.
+CHAMPION_AVATAR = "https://game.gtimg.cn/images/lol/act/img/tft/champions/"
+AVATAR_FILE = re.compile(r"^\d+\.png$")
+
 
 def _int(value, default=None):
     try:
@@ -60,12 +64,20 @@ class QQStatic:
             if not cid:
                 continue
             da = (row.get("hero_EN_name") or "").strip()
+            image = (row.get("originalImage") or "").strip()
+            # 원본 초상이 없는 칸은 'none.png' 자리표시 그림을 준다. 아이콘이 없는 것과 같다.
+            if image.lower().endswith("/none.png"):
+                image = ""
+            # lol.qq 도감 화면은 pet 초상을 originalImage 가 아니라 champions/{name} 으로 그린다
+            # (page-champion.js `$avatar`). pet 3종은 originalImage 가 비어 있어 이 경로만 있다(2026-09-16 200 확인).
+            file_name = (row.get("name") or "").strip()
             record = {
                 "chessId": cid,
                 "da": da or "QQ_" + cid,
                 "name_cn": (row.get("displayName") or "").strip(),
                 "price": _int(row.get("price")),
-                "image": (row.get("originalImage") or "").strip(),
+                "image": image,
+                "avatar": CHAMPION_AVATAR + file_name if AVATAR_FILE.match(file_name) else "",
                 "chess_type": row.get("chess_type"),
             }
             self.chess_by_id[cid] = record

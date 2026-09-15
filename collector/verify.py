@@ -142,6 +142,10 @@ def main():
     editorial_count = version.get("editorialCount") or 0
     if editorial_count < MIN_EDITORIAL:
         problems.append("편집 덱이 %d개뿐이다 (최소 %d)" % (editorial_count, MIN_EDITORIAL))
+    # 수집한 편집 덱은 전부 앱에서 닿아야 한다: 덱의 editorial 이거나 그룹의 moreEditorials.
+    reachable = sum((1 if d.get("editorial") else 0) + len(d.get("moreEditorials") or []) for d in decks)
+    if reachable != editorial_count:
+        problems.append("편집 덱 %d개 중 앱이 닿는 것은 %d개(editorial + moreEditorials)" % (editorial_count, reachable))
     goldem_rows = ((diag.get("winrate") or {}).get("goldem") or {}).get("variants") or 0
     if goldem_rows < MIN_GOLDEM_VARIANTS:
         problems.append("胜率阵容 골드~에메랄드 조합이 %d개뿐이다 (최소 %d)" % (goldem_rows, MIN_GOLDEM_VARIANTS))
@@ -183,6 +187,13 @@ def main():
             if len(places) != 8 or sum(places) != stat.get("n"):
                 problems.append("덱 '%s' %s: sum(places) %s != n %s"
                                 % (deck.get("id"), scope, sum(places), stat.get("n")))
+    # 우리 목록에 대응 덱이 없는 상대는 metatft 이름으로만 알아볼 수 있다.
+    nameless = [(deck.get("id"), counter.get("cluster")) for deck in decks
+                for counter in ((deck.get("global") or {}).get("counters") or [])
+                if not counter.get("deck") and not counter.get("name")]
+    if nameless:
+        problems.append("대응 덱도 이름도 없는 불리한 상대 %d건(앱에 클러스터 숫자만 보인다): %s"
+                        % (len(nameless), nameless[:3]))
     for scope, mean in (diag.get("scopeMeanAvg") or {}).items():
         if mean is None or abs(mean - SCOPE_MEAN) > SCOPE_MEAN_TOLERANCE:
             problems.append("metatft %s 클러스터 가중 평균 등수 %s (4.5±0.05 밖)" % (scope, mean))
@@ -209,6 +220,11 @@ def main():
                 impossible += 1
     if impossible:
         problems.append("평균 등수가 1등·TOP4 비율로 불가능한 lol.qq 수치 %d건" % impossible)
+    # 변형 행은 그룹과 같은 고정 4수치 줄을 쓴다. 픽률이 없으면 그 칸만 늘 비어 보인다.
+    no_pick = sum(1 for d in decks for v in d.get("variants") or []
+                  for s in (v.get("stats") or {}).values() if s.get("pick") is None)
+    if no_pick:
+        problems.append("픽률이 없는 변형 수치 %d건" % no_pick)
 
     # --- 등급 분포 ---------------------------------------------------------
     graded = [((d.get("stats") or {}).get("goldem") or {}) for d in decks if d.get("kind") == "group"]
@@ -225,6 +241,7 @@ def main():
 
     # --- 편집 덱 단계 보드 ----------------------------------------------------
     pet_cells = 0
+    used_pets = set()
     for deck in decks:
         editorials = ([deck["editorial"]] if deck.get("editorial") else []) + list(deck.get("moreEditorials") or [])
         for index_no, editorial in enumerate(editorials):
@@ -247,6 +264,7 @@ def main():
                         problems.append("편집 덱 %s %s 유닛 %s 가 catalog 에 없다" % (label, stage["key"], unit.get("id")))
                     if unit.get("kind") == "pet":
                         pet_cells += 1
+                        used_pets.add(unit.get("id"))
                         if unit.get("id") not in pet_ids:
                             problems.append("pet %s 가 catalog.pets 에 없다" % unit.get("id"))
             # 카드 보드가 이 편집 덱이면 최종 단계와 칸 수가 같아야 한다(pet 칸 포함).
@@ -256,6 +274,19 @@ def main():
                                 % (label, len(final.get("units") or []), len(deck.get("units") or [])))
     if catalog.get("pets") and not pet_cells:
         warnings.append("단계 보드에 pet 칸이 하나도 없다(pet 누락 버그 재발 가능성)")
+
+    # pet 아이콘. 보드에 쓰인 pet 이 아이콘 없이 나가면 앱은 무엇인지 알 수 없는 회색 칸을 그린다.
+    for deck in decks:
+        for unit in deck.get("units") or []:
+            if unit.get("kind") == "pet":
+                used_pets.add(unit.get("id"))
+    pet_icons = {p.get("id"): p.get("icon") for p in catalog.get("pets") or []}
+    blank_used = sorted(pid for pid in used_pets if pid and not pet_icons.get(pid))
+    if blank_used:
+        problems.append("보드에 쓰인 pet 의 아이콘이 없다(회색 칸으로 보인다): %s" % ", ".join(blank_used))
+    blank_other = sorted(pid for pid, icon in pet_icons.items() if pid and not icon and pid not in used_pets)
+    if blank_other:
+        warnings.append("catalog.pets 아이콘 없음(빌드업 칸 등): %s" % ", ".join(blank_other))
 
     # --- 실측 배치 방향 ---------------------------------------------------------
     # 수집기의 방향 판단을 믿지 않고, 실린 positions 를 편집 덱 최종 좌표와 다시 맞춰 본다.

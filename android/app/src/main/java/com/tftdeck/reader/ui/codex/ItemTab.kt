@@ -124,7 +124,9 @@ private fun ItemFilters(
                 onClick = { viewModel.setItemKind(null) },
                 label = { Text("전체") },
             )
-            ITEM_KIND_FILTERS.forEach { kind ->
+            // 이번 파일에 실제로 있는 종류만 칩으로 둔다. 행이 없는 칩은 누르면 늘 빈 목록이다.
+            val kinds = remember(ready) { ITEM_KIND_FILTERS.filter { kind -> ready.items.items.any { it.kind == kind } } }
+            kinds.forEach { kind ->
                 FilterChip(
                     selected = filter.kind == kind,
                     onClick = { viewModel.setItemKind(if (filter.kind == kind) null else kind) },

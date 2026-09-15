@@ -54,13 +54,18 @@ class LobbyRepository private constructor(private val context: Context) {
      * lookup(최근 경기 목록)에서 맨 앞 경기를 보고, 캐시와 같은 경기이거나 [newerThan]보다
      * 오래된 경기면 null. 새 경기면 경기 JSON을 한 번 받아 캐시를 바꾼다. 실패해도 null.
      */
-    suspend fun fetchLatest(riotId: String, region: String, newerThan: Long = 0L): LastLobby? = lock.withLock {
+    suspend fun fetchLatest(
+        riotId: String,
+        region: String,
+        newerThan: Long = 0L,
+        token: Int = accountToken(),
+    ): LastLobby? = lock.withLock {
         withContext(Dispatchers.IO) {
             runCatching {
                 val (name, tag) = splitRiotId(riotId) ?: return@runCatching null
                 val url = LOOKUP_BASE + region.uppercase() + "/" + encodePathSegment(name) + "/" + encodePathSegment(tag)
                 val ref = parseLatestMatchRef(metatftGet(url)) ?: return@runCatching null
-                fetchIfNew(ref, riotId, newerThan)
+                fetchIfNew(ref, riotId, newerThan, token)
             }.getOrNull()
         }
     }
@@ -68,13 +73,24 @@ class LobbyRepository private constructor(private val context: Context) {
     /**
      * 경기 참조를 이미 알고 있을 때(방금 받은 전적 요약 등) lookup 없이 경기 JSON만 받는다.
      */
-    suspend fun fetchMatch(ref: MatchRef, riotId: String, newerThan: Long = 0L): LastLobby? = lock.withLock {
+    suspend fun fetchMatch(
+        ref: MatchRef,
+        riotId: String,
+        newerThan: Long = 0L,
+        token: Int = accountToken(),
+    ): LastLobby? = lock.withLock {
         withContext(Dispatchers.IO) {
-            runCatching { fetchIfNew(ref, riotId, newerThan) }.getOrNull()
+            runCatching { fetchIfNew(ref, riotId, newerThan, token) }.getOrNull()
         }
     }
 
-    private fun fetchIfNew(ref: MatchRef, riotId: String, newerThan: Long): LastLobby? {
+    /**
+     * 지금 계정 세대. [clear] 가 올린다. 조회를 시작하는 쪽이 라이엇 ID 와 함께 잡아 넘기면, 받는 동안
+     * 연결 해제·계정 변경이 끼었을 때 결과를 저장하지 않는다.
+     */
+    fun accountToken(): Int = generation
+
+    private fun fetchIfNew(ref: MatchRef, riotId: String, newerThan: Long, token: Int): LastLobby? {
         if (ref.matchTimestamp in 1..newerThan) return null
         val cached = _state.value ?: readCache()
         if (cached != null && cached.matchId == ref.matchId && sameRiotId(cached.ownerRiotId, riotId)) return null
@@ -83,17 +99,31 @@ class LobbyRepository private constructor(private val context: Context) {
 
         val body = metatftGet(ref.matchDataUrl, referer = false)
         val lobby = parseLobbyMatch(body, ref.matchId, riotId) ?: return null
-        writeCache(lobby)
-        _state.value = lobby
+        synchronized(writeLock) {
+            // 받는 사이에 연결을 해제했으면 옛 계정 로비(다른 플레이어 8명)를 다시 저장하지 않는다.
+            if (generation != token) return null
+            writeCache(lobby)
+            _state.value = lobby
+        }
         loaded = true
         return lobby
     }
 
-    /** 계정 연결을 해제하면 다른 사람 정보가 남지 않게 지운다. */
+    /** 계정 연결을 해제하면 다른 사람 정보가 남지 않게 지운다. 진행 중인 조회의 결과도 버려지도록 세대를 올린다. */
     fun clear() {
-        runCatching { cacheFile.delete() }
-        _state.value = null
+        synchronized(writeLock) {
+            generation++
+            runCatching { cacheFile.delete() }
+            _state.value = null
+        }
     }
+
+    /** 계정 세대. [writeLock] 안에서만 올리고, 조회 시작 때는 잠금 없이 읽는다. */
+    @Volatile
+    private var generation = 0
+
+    /** 세대 확인과 파일·상태 쓰기를 [clear] 와 겹치지 않게 묶는다. */
+    private val writeLock = Any()
 
     private fun readCache(): LastLobby? = runCatching {
         if (!cacheFile.exists()) return null

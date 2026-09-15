@@ -82,6 +82,7 @@ fun DeckCardV2(
 ) {
     val scheme = MaterialTheme.colorScheme
     val stats = deck.statsFor(bucket)
+    val lowSample = deck.isLowSample(bucket)
     val hasMenu = onTogglePinned != null || onToggleHidden != null
     var menuOpen by remember { mutableStateOf(false) }
     var showVariants by rememberSaveable(deck.id) { mutableStateOf(false) }
@@ -89,9 +90,16 @@ fun DeckCardV2(
     Box(modifier.fillMaxWidth()) {
         Card(
             // 숨긴 덱은 '숨긴 덱 보기'에서만 나온다. 흐리게 해서 복구 대상임을 알린다.
+            // 이 구간 표본이 모자란 덱(등급 없음)도 흐리게 해서 수치를 과신하지 않게 한다(§4.4).
             modifier = Modifier
                 .fillMaxWidth()
-                .alpha(if (hidden) 0.55f else 1f),
+                .alpha(
+                    when {
+                        hidden -> 0.55f
+                        lowSample -> LOW_SAMPLE_ALPHA
+                        else -> 1f
+                    }
+                ),
             colors = CardDefaults.cardColors(containerColor = scheme.surface),
             elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
             border = BorderStroke(
@@ -177,7 +185,13 @@ fun DeckCardV2(
 private fun HeaderLine(deck: Deck, bucket: String, metatftCompared: Boolean, pinned: Boolean) {
     val scheme = MaterialTheme.colorScheme
     Row(verticalAlignment = Alignment.Top) {
-        TierBadge(deck.gradeFor(bucket), editorial = deck.showsEditorialGrade(bucket))
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            TierBadge(deck.gradeFor(bucket), editorial = deck.showsEditorialGrade(bucket))
+            // 편집 등급으로 대신 보여 줄 때도 이 구간 통계가 모자라다는 사실은 알린다.
+            if (deck.isLowSample(bucket) && deck.showsEditorialGrade(bucket)) {
+                LowSampleNote(Modifier.padding(top = 2.dp))
+            }
+        }
         Spacer(Modifier.width(7.dp))
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Text(
@@ -279,11 +293,13 @@ private fun VariantRow(
     ) {
         FaceRow(
             faces = variant.units.map { unit ->
-                faceFor(unit.id, unitInfo(unit.id), star = unit.star, carry = unit.id == variant.carryId)
+                faceFor(unit.id, unitInfo(unit.id), star = unit.star ?: 1, carry = unit.id == variant.carryId)
             },
             assetBase = assetBase,
             size = VARIANT_FACE,
             modifier = Modifier.weight(1f),
+            // 변형 조합 원본에는 성급이 없다. 별을 그리지 않는다.
+            showStars = false,
         )
         Spacer(Modifier.width(6.dp))
         Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(2.dp)) {
@@ -367,3 +383,6 @@ fun FaceRow(
 
 private val CARRY_FACE = 40.dp
 private val VARIANT_FACE = 22.dp
+
+/** 표본 부족 카드의 투명도. 숨긴 덱(0.55)보다 진하게 두어 둘이 구분된다. */
+private const val LOW_SAMPLE_ALPHA = 0.7f

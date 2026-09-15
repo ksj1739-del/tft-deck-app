@@ -71,12 +71,14 @@ import com.tftdeck.reader.data.Deck
 import com.tftdeck.reader.data.DeckFeed
 import com.tftdeck.reader.data.DeckKeys
 import com.tftdeck.reader.data.DeckWearer
+import com.tftdeck.reader.data.Editorial
 import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.ItemRef
 import com.tftdeck.reader.data.KeyUnit
 import com.tftdeck.reader.data.ScopeStat
 import com.tftdeck.reader.data.Stage
 import com.tftdeck.reader.data.Variant
+import com.tftdeck.reader.data.withEditorial
 import com.tftdeck.reader.data.Unit as DeckUnit
 import com.tftdeck.reader.ui.AppViewModel
 import com.tftdeck.reader.ui.bucketLabel
@@ -86,6 +88,7 @@ import com.tftdeck.reader.ui.components.EmptyState
 import com.tftdeck.reader.ui.components.FaceRow
 import com.tftdeck.reader.ui.components.HexBoard
 import com.tftdeck.reader.ui.components.ItemIcons
+import com.tftdeck.reader.ui.components.LowSampleNote
 import com.tftdeck.reader.ui.components.OutlineBadge
 import com.tftdeck.reader.ui.components.SampleLabel
 import com.tftdeck.reader.ui.components.SourceBadges
@@ -126,7 +129,7 @@ fun DeckDetailScreen(
     initialVariant: String? = null,
     onOpenDeck: (String) -> Unit = {},
 ) {
-    val deck = viewModel.deck(deckId)
+    val baseDeck = viewModel.deck(deckId)
     val assetBase by viewModel.assetBase.collectAsState()
     val pinned by viewModel.pinnedDeckId.collectAsState()
     val bucket by viewModel.bucket.collectAsState()
@@ -136,12 +139,21 @@ fun DeckDetailScreen(
     val context = LocalContext.current
     val scheme = MaterialTheme.colorScheme
 
-    if (deck == null) {
+    if (baseDeck == null) {
         EmptyState("덱을 찾을 수 없습니다", "목록에서 다시 선택해 주세요.")
         return
     }
 
     val catalog = remember(feed) { viewModel.catalog() } ?: EMPTY_CATALOG
+
+    // 한 그룹에 작가가 다른 편집 덱이 여럿 붙기도 한다(moreEditorials). 작가를 고르면 그 작가의
+    // 보드·빌드업 작가 행·증강·조합 재료·덱 코드·원문으로 화면 전체가 바뀐다. 통계는 그룹 것 그대로다.
+    val editorials = baseDeck.editorials
+    var authorIndex by rememberSaveable(deckId) { mutableStateOf(0) }
+    val deck = remember(baseDeck, catalog, authorIndex) {
+        editorials.getOrNull(authorIndex)?.takeIf { authorIndex > 0 }?.let { baseDeck.withEditorial(it, catalog) }
+            ?: baseDeck
+    }
     val scope = rememberCoroutineScope()
     val boardRequester = remember { BringIntoViewRequester() }
     val variantsRequester = remember { BringIntoViewRequester() }
@@ -173,6 +185,11 @@ fun DeckDetailScreen(
         Column(verticalArrangement = Arrangement.spacedBy(7.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 TierBadge(deck.gradeFor(bucket), editorial = deck.showsEditorialGrade(bucket))
+                // 편집 등급으로 대신 보여 줄 때도 이 구간 통계가 모자라다는 사실은 알린다.
+                if (deck.isLowSample(bucket) && deck.showsEditorialGrade(bucket)) {
+                    Spacer(Modifier.width(5.dp))
+                    LowSampleNote()
+                }
                 Spacer(Modifier.width(7.dp))
                 deck.finalLevel?.let {
                     Text(
@@ -202,6 +219,14 @@ fun DeckDetailScreen(
             comparisonLine(deck, bucket, feed)?.let { line ->
                 Text(line, style = MaterialTheme.typography.labelMedium, color = scheme.onSurfaceVariant)
             }
+            preciseLine(deck, bucket)?.let { line ->
+                Text(line, style = MaterialTheme.typography.labelSmall, color = scheme.onSurfaceVariant)
+            }
+        }
+
+        // --- 작가 고르기(같은 그룹에 편집 덱이 둘 이상일 때) ----------------------
+        if (editorials.size >= 2) {
+            AuthorChips(editorials, authorIndex) { authorIndex = it }
         }
 
         // --- 2. 덱 코드 / 오버레이 --------------------------------------------
@@ -255,6 +280,7 @@ fun DeckDetailScreen(
             deck = deck,
             catalog = catalog,
             assetBase = assetBase,
+            detailLabel = detailBucketLabel(deck, feed),
             previewVariant = previewVariant,
             measured = measured,
             onMeasuredChange = { measured = it },
@@ -266,7 +292,7 @@ fun DeckDetailScreen(
         KeyUnitsSection(deck, catalog, assetBase)
 
         // --- 5. 레벨 도달 -------------------------------------------------------
-        LevelReachSection(deck)
+        LevelReachSection(deck, detailBucketLabel(deck, feed))
 
         // --- 6. 아이템 배분 -----------------------------------------------------
         ItemsSection(deck, assetBase)
@@ -363,6 +389,56 @@ private fun comparisonLine(deck: Deck, bucket: String, feed: DeckFeed?): String?
     return parts.takeIf { it.size >= 2 }?.joinToString(" · ")
 }
 
+/**
+ * 数据检索器(카운트 기반, 3일) 참고치: "lol.qq 데이터 검색 · 중국 플래+ 4.14등 · TOP4 54.7% · n=3,139".
+ * 胜率阵容 수치와 정의가 다른 모집단이라 등급에는 쓰지 않고 머리말에 작게 곁들인다(§4.4).
+ */
+private fun preciseLine(deck: Deck, bucket: String): String? {
+    val precise = deck.statsFor(bucket)?.precise ?: return null
+    if (precise.n <= 0 || precise.avg == null) return null
+    return listOfNotNull(
+        "lol.qq 데이터 검색",
+        "${scopeLabel(precise.scope, short = true)} ${formatAvg(precise.avg)}등",
+        precise.top4?.let { "TOP4 ${formatPct(it)}" },
+        "n=${formatCount(precise.n)}",
+    ).joinToString(" · ")
+}
+
+/** 같은 그룹에 붙은 편집 덱의 작가 칩. 고르면 화면이 그 작가의 보드·증강·덱 코드로 바뀐다. */
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun AuthorChips(editorials: List<Editorial>, selected: Int, onSelect: (Int) -> Unit) {
+    val scheme = MaterialTheme.colorScheme
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Text(
+            "편집 덱 ${editorials.size}개 · 작가를 고르면 보드·증강·덱 코드가 바뀝니다",
+            style = MaterialTheme.typography.labelSmall,
+            color = scheme.onSurfaceVariant,
+        )
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            editorials.forEachIndexed { index, editorial ->
+                FilterChip(
+                    selected = index == selected,
+                    onClick = { onSelect(index) },
+                    label = {
+                        Text(
+                            listOfNotNull(
+                                editorial.author.takeIf { it.isNotBlank() } ?: "작가 ${index + 1}",
+                                editorial.quality?.takeIf { it.isNotBlank() },
+                            ).joinToString(" · "),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    },
+                )
+            }
+        }
+    }
+}
+
 // ---------------------------------------------------------------------------
 // 빌드업
 // ---------------------------------------------------------------------------
@@ -373,7 +449,10 @@ private fun BuildupSection(deck: Deck, catalog: CatalogIndex, assetBase: String,
     if (!BuildupPlanner.hasData(deck)) return
     val scheme = MaterialTheme.colorScheme
     val levels = remember(deck) { BuildupPlanner.levels(deck) }
-    var selected by rememberSaveable(deck.id) { mutableStateOf(BuildupPlanner.defaultLevel(deck, levels)) }
+    // 작가를 바꾸면 작가 단계 레벨이 달라지므로 그 작가 기준 기본 레벨로 다시 고른다.
+    var selected by rememberSaveable(deck.id, deck.editorial?.id) {
+        mutableStateOf(BuildupPlanner.defaultLevel(deck, levels))
+    }
     var showNotes by rememberSaveable(deck.id) { mutableStateOf(false) }
 
     Section("빌드업") {
@@ -583,6 +662,7 @@ private fun BoardSection(
     deck: Deck,
     catalog: CatalogIndex,
     assetBase: String,
+    detailLabel: String?,
     previewVariant: Variant?,
     measured: Boolean,
     onMeasuredChange: (Boolean) -> Unit,
@@ -610,7 +690,7 @@ private fun BoardSection(
                 Column(Modifier.weight(1f)) {
                     Text("실측 배치", style = MaterialTheme.typography.bodyMedium)
                     Text(
-                        "유닛마다 가장 많이 놓인 칸과 그 비율",
+                        "유닛마다 가장 많이 놓인 칸과 그 비율" + (detailLabel?.let { " · $it" } ?: ""),
                         style = MaterialTheme.typography.labelSmall,
                         color = scheme.onSurfaceVariant,
                     )
@@ -724,7 +804,8 @@ private fun Variant.toUnits(catalog: CatalogIndex): List<DeckUnit> = units.map {
         nameEn = entry?.nameEn,
         cost = entry?.cost,
         icon = entry?.icon,
-        star = unit.star,
+        // 변형은 성급을 모른다. 1로 두면 3성 표시가 나오지 않는다.
+        star = unit.star ?: 1,
         carry = unit.id == carryId,
         kind = if (catalog.isPet(unit.id)) DeckKeys.KIND_PET else null,
         items = unit.items.map { itemId ->
@@ -776,7 +857,7 @@ private fun keyUnitText(name: String, keyUnit: KeyUnit): String = buildString {
 }
 
 @Composable
-private fun LevelReachSection(deck: Deck) {
+private fun LevelReachSection(deck: Deck, detailLabel: String?) {
     val globalLevels = deck.global?.finalLevels.orEmpty()
     val shares = globalLevels.ifEmpty { deck.levelDist }
     if (shares.isEmpty()) return
@@ -803,7 +884,11 @@ private fun LevelReachSection(deck: Deck) {
             }
         }
         Text(
-            if (globalLevels.isNotEmpty()) "metatft 집계" else "중국 胜率阵容 상세 집계",
+            if (globalLevels.isNotEmpty()) {
+                "metatft 집계"
+            } else {
+                listOfNotNull(detailLabel ?: "중국", "胜率阵容 상세 집계").joinToString(" ")
+            },
             style = MaterialTheme.typography.labelSmall,
             color = scheme.onSurfaceVariant,
         )
@@ -992,7 +1077,7 @@ private fun AugmentsSection(deck: Deck, feed: DeckFeed?, assetBase: String) {
         if (stats.isNotEmpty()) {
             if (hasAuthor) Spacer(Modifier.size(4.dp))
             Text("통계 상위", style = MaterialTheme.typography.labelSmall, color = scheme.onSurfaceVariant)
-            augmentNotice(feed)?.let { notice ->
+            augmentNotice(feed, deck)?.let { notice ->
                 Text(notice, style = MaterialTheme.typography.labelSmall, color = scheme.onSurfaceVariant)
             }
             // 단계별 평균은 기본으로 접어 두고, 단계를 고르면 그 단계 값만 보여 준다.
@@ -1012,15 +1097,26 @@ private fun AugmentsSection(deck: Deck, feed: DeckFeed?, assetBase: String) {
     }
 }
 
-/** "중국 골드~에메랄드 9/14 기준 · 덱별 상위 5개만". 증강 성적은 기본 구간 상세에서만 온다. */
-private fun augmentNotice(feed: DeckFeed?): String? {
-    val buckets = feed?.buckets?.takeIf { it.isNotEmpty() } ?: return "중국 서버 집계 · 덱별 상위 5개만"
-    val key = feed.defaultBucket
+/**
+ * "중국 골드~에메랄드 9/14 기준 · 덱별 상위 5개만".
+ * 증강 성적은 덱마다 상세를 받은 구간(detailBucket)의 값이다. 대부분 기본 구간이지만 다이아+ 등에서 받은 덱도 있다.
+ */
+private fun augmentNotice(feed: DeckFeed?, deck: Deck): String? {
+    val label = detailBucketLabel(deck, feed) ?: return "중국 서버 집계 · 덱별 상위 5개만"
+    return "$label 기준 · 덱별 상위 5개만"
+}
+
+/**
+ * 상세(증강 성적·실측 배치·레벨 분포)를 받은 구간 이름과 기준일: "중국 다이아+ 9/14".
+ * 수집기가 적은 detailBucket 을 쓰고, 없으면(옛 파일) 기본 구간으로 본다. 구간 정보가 없는 v1 피드는 null.
+ */
+private fun detailBucketLabel(deck: Deck, feed: DeckFeed?): String? {
+    val buckets = feed?.buckets?.takeIf { it.isNotEmpty() } ?: return null
+    val key = deck.detailBucket?.takeIf { it in buckets } ?: feed.defaultBucket
     val meta = buckets[key]
     val label = meta?.label?.takeIf { it.isNotBlank() } ?: bucketLabel(key)
-    val date = formatShortDate(meta?.detailDate)
-    return listOf("중국 $label", date.takeIf { it.isNotBlank() }?.let { "$it 기준" }).filterNotNull().joinToString(" ") +
-        " · 덱별 상위 5개만"
+    val date = formatShortDate(meta?.detailDate).takeIf { it.isNotBlank() }
+    return listOfNotNull("중국 $label", date).joinToString(" ")
 }
 
 @Composable
@@ -1151,11 +1247,13 @@ private fun VariantsSection(
                 Row(verticalAlignment = Alignment.Top) {
                     FaceRow(
                         faces = variant.units.map { unit ->
-                            faceFor(unit.id, catalog.unit(unit.id), star = unit.star, carry = unit.id == variant.carryId, pet = catalog.isPet(unit.id))
+                            faceFor(unit.id, catalog.unit(unit.id), star = unit.star ?: 1, carry = unit.id == variant.carryId, pet = catalog.isPet(unit.id))
                         },
                         assetBase = assetBase,
                         size = 26.dp,
                         modifier = Modifier.weight(1f),
+                        // 변형 조합 원본에는 성급이 없다. 별을 그리지 않는다.
+                        showStars = false,
                     )
                     if (variant.editorialId != null) {
                         Spacer(Modifier.width(4.dp))

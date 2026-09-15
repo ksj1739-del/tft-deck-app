@@ -10,7 +10,7 @@
     "qqPatchStart": "2026-09-10T07:00:00+08:00",
     "statDate": "2026-09-15",
     "deckCount": 4,
-    "editorialCount": 2,
+    "editorialCount": 3,
     "onlyInChinaCount": 1,
     "teamCodeCount": 4,
     "metatftSet": "TFTSet18",
@@ -33,7 +33,8 @@
   "scopes": {
     "glob_plat": {"label": "글로벌 플래티넘+", "source": "metatft", "days": 3, "boards": 6799416, "updatedAt": "2026-09-15T13:14:40Z"},
     "kr_plat": {"label": "KR 플래티넘+", "source": "metatft", "days": 3, "boards": 1108328, "updatedAt": "2026-09-15T13:14:41Z"},
-    "kr_master": {"label": "KR 마스터+", "source": "metatft", "days": 3, "boards": 44976, "updatedAt": "2026-09-15T13:14:42Z"}
+    "kr_master": {"label": "KR 마스터+", "source": "metatft", "days": 3, "boards": 44976, "updatedAt": "2026-09-15T13:14:42Z"},
+    "cn_plat": {"label": "중국 플래티넘+", "source": "lolqq", "days": 3, "tier": "4+", "games": 4017601, "statDate": "2026-09-14", "build": ""}
   },
   "gradeCuts": {"S": 3.90, "A": 4.15, "B": 4.40, "C": 4.70, "minSample": 300, "shrinkK": 200},
   "decks": [
@@ -73,7 +74,7 @@
         {"id": "DA_Amumu18", "name": "아무무", "nameEn": "Amumu", "cost": 4, "icon": "assets/characters/tft18_amumu/tft18_amumu_square.png", "star": 2, "carry": false, "row": 1, "col": 4, "items": [], "itemsBackup": []},
         {"id": "DA_Sentinel18", "name": "파수꾼", "nameEn": "Sentinel", "cost": 4, "icon": "assets/characters/tft18_sentinel/tft18_sentinel_square.png", "star": 1, "carry": false, "row": 2, "col": 4, "items": [], "itemsBackup": []},
         {"id": "DA_18_Yorick", "name": "요릭", "nameEn": "Yorick", "cost": 1, "icon": "assets/characters/tft18_yorick/tft18_yorick_square.png", "star": 2, "carry": false, "row": 1, "col": 6, "items": [], "itemsBackup": []},
-        {"id": "DA_18_IronbarkTree", "name": "철갑 나무", "cost": null, "icon": "https://game.gtimg.cn/images/lol/act/img/tft/original-image/tft18_ironbarktree_square.tft_set18.png", "kind": "pet", "star": 1, "carry": false, "row": 2, "col": 1, "items": [], "itemsBackup": []}
+        {"id": "DA_18_IronbarkTree", "name": "돌껍질 나무", "cost": null, "icon": "https://game.gtimg.cn/images/lol/act/img/tft/champions/100294.png", "kind": "pet", "star": 1, "carry": false, "row": 2, "col": 1, "items": [], "itemsBackup": []}
       ],
       "sources": {"editorial": true, "editorialStale": true, "cnStats": true, "global": true, "kr": true, "onlyInChina": false},
       "stats": {
@@ -121,33 +122,33 @@
       "variants": [
         {"id": "v-1a2b3c4d5e", "representative": true, "editorialId": "14266",
          "units": [
-           {"id": "DA_18_ElderDragon", "star": 2, "items": ["DA_GuinsoosRageblade", "DA_InfinityEdge", "DA_KrakensFury"]},
-           {"id": "DA_Draven18", "star": 3},
-           {"id": "DA_Taric18", "star": 2},
-           {"id": "DA_18_Kennen", "star": 2},
-           {"id": "DA_18_Maokai"},
-           {"id": "DA_Amumu18", "star": 2},
-           {"id": "DA_Sentinel18"},
-           {"id": "DA_18_Yorick", "star": 2}
-         ],
-         "carryId": "DA_18_ElderDragon", "assistIds": ["DA_Taric18", "DA_18_Kennen"],
-         "stats": {"goldem": {"n": 17059, "avg": 3.6, "top4": 0.688, "win": 0.108}}},
-        {"id": "v-9f8e7d6c5b", "representative": false, "editorialId": null,
-         "units": [
-           {"id": "DA_18_ElderDragon", "star": 2, "items": ["DA_GuinsoosRageblade", "DA_InfinityEdge"]},
-           {"id": "DA_Draven18", "star": 2},
-           {"id": "DA_Taric18", "star": 2},
+           {"id": "DA_18_ElderDragon", "items": ["DA_GuinsoosRageblade", "DA_InfinityEdge", "DA_KrakensFury"]},
+           {"id": "DA_Draven18"},
+           {"id": "DA_Taric18"},
            {"id": "DA_18_Kennen"},
            {"id": "DA_18_Maokai"},
            {"id": "DA_Amumu18"},
-           {"id": "DA_18_Sett", "star": 2},
-           {"id": "DA_18_Yorick", "star": 2}
+           {"id": "DA_Sentinel18"},
+           {"id": "DA_18_Yorick"}
+         ],
+         "carryId": "DA_18_ElderDragon", "assistIds": ["DA_Taric18", "DA_18_Kennen"],
+         "stats": {"goldem": {"n": 17059, "avg": 3.6, "top4": 0.688, "win": 0.108, "pick": 0.0016}}},
+        {"id": "v-9f8e7d6c5b", "representative": false, "editorialId": null,
+         "units": [
+           {"id": "DA_18_ElderDragon", "items": ["DA_GuinsoosRageblade", "DA_InfinityEdge"]},
+           {"id": "DA_Draven18"},
+           {"id": "DA_Taric18"},
+           {"id": "DA_18_Kennen"},
+           {"id": "DA_18_Maokai"},
+           {"id": "DA_Amumu18"},
+           {"id": "DA_18_Sett"},
+           {"id": "DA_18_Yorick"}
          ],
          "carryId": "DA_18_ElderDragon", "assistIds": ["DA_Draven18"],
          "stats": {"goldem": {"n": 4100, "avg": 3.72, "top4": 0.66, "win": 0.10, "pick": 0.0005}}}
       ],
       "editorial": {
-        "id": "14266", "author": "巨龙95", "updatedAt": "2026-08-27 15:10:02", "stale": true, "quality": "SS", "needLevel": 8,
+        "id": "14266", "nameCn": "【巨龙95】3峡谷野怪2地狱火2主宰2重装战士", "author": "巨龙95", "updatedAt": "2026-08-27 15:10:02", "stale": true, "quality": "SS", "needLevel": 8,
         "stages": [
           {"key": "early", "label": "초반", "level": 5, "round": "2-3", "units": [
             {"id": "DA_18_Yorick", "star": 1, "row": 1, "col": 5},
@@ -186,8 +187,34 @@
         "augments": {"recommended": [{"id": "DA_Ascension", "name": "초월", "icon": "assets/maps/tft/icons/augments/hexcore/ascension_ii.png"}],
                      "alternatives": [{"id": "DA_LateGameScaling", "name": "후반 성장", "icon": "assets/maps/tft/icons/augments/hexcore/lategamescaling_ii.png"}]},
         "notesCn": {"items": "巨龙无尽血手必备", "augments": "建议拿双经济速9", "early": "前期连胜为主，血量低于50就卖血", "levelUp": "4-2上8，4-5搜卡"},
-        "teamCode": {"code": "023fc3fb41540440b4303ed428000000TFTSet18", "units": 8, "omitted": ["철갑 나무"], "truncated": null}
+        "teamCode": {"code": "023fc3fb41540440b4303ed428000000TFTSet18", "units": 8, "omitted": ["돌껍질 나무"], "truncated": null}
       },
+      "moreEditorials": [
+        {
+          "id": "14330", "nameCn": "【作者B】4森林巨龙", "author": "作者B", "updatedAt": "2026-09-13 10:00:00", "stale": false, "quality": "S", "needLevel": 9,
+          "stages": [
+            {"key": "early", "label": "초반", "level": 5, "round": "2-3", "units": [
+              {"id": "DA_18_Yorick", "star": 1, "row": 1, "col": 5},
+              {"id": "DA_18_IronbarkTree", "kind": "pet", "star": 1, "row": 1, "col": 4}
+            ]},
+            {"key": "mid", "label": "중반", "level": 8, "round": "4-3", "units": [
+              {"id": "DA_18_Yorick", "star": 2, "row": 1, "col": 5},
+              {"id": "DA_18_Kennen", "star": 1, "row": 1, "col": 4}
+            ]},
+            {"key": "final", "label": "최종", "level": 9, "round": null, "units": [
+              {"id": "DA_18_ElderDragon", "star": 2, "row": 4, "col": 4, "carry": true, "items": ["DA_InfinityEdge"]},
+              {"id": "DA_18_Kennen", "star": 2, "row": 1, "col": 4},
+              {"id": "DA_18_Yorick", "star": 3, "row": 1, "col": 5},
+              {"id": "DA_18_IronbarkTree", "kind": "pet", "star": 1, "row": 2, "col": 1}
+            ]}
+          ],
+          "itemOrder": [{"id": "DA_Component_BFSword", "name": "B.F. 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.png"}],
+          "augments": {"recommended": [{"id": "DA_Swordsmith", "name": "검 제작자", "icon": "assets/maps/tft/icons/augments/hexcore/swordsmith_ii.png"}], "alternatives": []},
+          "notesCn": {"items": "巨龙无尽", "augments": "", "early": "前期卖血"},
+          "teamCode": {"code": "02000000000000000000000000000003TFTSet18", "units": 3, "omitted": ["돌껍질 나무"], "truncated": null}
+        }
+      ],
+      "detailBucket": "goldem",
       "buildup": {
         "global": {
           "scope": "glob_plat",
@@ -233,7 +260,7 @@
       "notesCn": {"items": "巨龙无尽血手必备", "augments": "建议拿双经济速9"},
       "author": "巨龙95",
       "updatedAt": "2026-09-15",
-      "teamCode": {"code": "023fc3fb41540440b4303ed428000000TFTSet18", "units": 8, "omitted": ["철갑 나무"], "truncated": null},
+      "teamCode": {"code": "023fc3fb41540440b4303ed428000000TFTSet18", "units": 8, "omitted": ["돌껍질 나무"], "truncated": null},
       "metatft": {"similarity": 0.78, "matchedComp": "DA_18_Elderwood, DA_18_Ezreal, DA_Draven18", "onlyInChina": false, "compared": true}
     },
     {
@@ -292,9 +319,9 @@
       },
       "variants": [
         {"id": "v-2b2b2b2b2b", "representative": true, "editorialId": null,
-         "units": [{"id": "DA_18_Aphelios", "star": 2, "items": ["DA_InfinityEdge", "DA_KrakensFury"]}, {"id": "DA_18_Ezreal", "star": 2}, {"id": "DA_18_Sett", "star": 2}, {"id": "DA_18_Leona", "star": 2}, {"id": "DA_18_Shen", "star": 2}, {"id": "DA_18_Alistar", "star": 2}, {"id": "DA_18_Caitlyn", "star": 2}, {"id": "DA_18_Varus", "star": 2}],
+         "units": [{"id": "DA_18_Aphelios", "items": ["DA_InfinityEdge", "DA_KrakensFury"]}, {"id": "DA_18_Ezreal"}, {"id": "DA_18_Sett"}, {"id": "DA_18_Leona"}, {"id": "DA_18_Shen"}, {"id": "DA_18_Alistar"}, {"id": "DA_18_Caitlyn"}, {"id": "DA_18_Varus"}],
          "carryId": "DA_18_Aphelios", "assistIds": ["DA_18_Ezreal"],
-         "stats": {"goldem": {"n": 9000, "avg": 3.95, "top4": 0.60, "win": 0.12}}}
+         "stats": {"goldem": {"n": 9000, "avg": 3.95, "top4": 0.60, "win": 0.12, "pick": 0.0035}}}
       ],
       "buildup": {
         "global": {
@@ -383,7 +410,7 @@
       "sources": {"editorial": true, "editorialStale": false, "cnStats": false, "global": false, "kr": false, "onlyInChina": false},
       "stats": {},
       "editorial": {
-        "id": "14301", "author": "公众号北派解说", "updatedAt": "2026-09-14 14:49:53", "stale": false, "quality": "S", "needLevel": 9,
+        "id": "14301", "nameCn": "【北派】4森林巨龙", "author": "公众号北派解说", "updatedAt": "2026-09-14 14:49:53", "stale": false, "quality": "S", "needLevel": 9,
         "stages": [
           {"key": "final", "label": "최종", "level": 9, "round": null, "units": [
             {"id": "DA_18_ElderDragon", "star": 2, "row": 4, "col": 4, "carry": true, "items": ["DA_InfinityEdge"]},
@@ -469,10 +496,10 @@
     ],
     "augments": [
       {"id": "DA_Ascension", "name": "초월", "nameEn": "Ascension", "icon": "assets/maps/tft/icons/augments/hexcore/ascension_ii.png"},
-      {"id": "DA_Swordsmith", "name": "검 제작자", "nameEn": "Swordsmith", "icon": "assets/maps/tft/icons/augments/hexcore/swordsmith_ii.png", "desc": "라운드마다 조합 재료 B.F. 대검을 하나 얻습니다."}
+      {"id": "DA_Swordsmith", "name": "검 제작자", "nameEn": "Swordsmith", "icon": "assets/maps/tft/icons/augments/hexcore/swordsmith_ii.png"}
     ],
     "pets": [
-      {"id": "DA_18_IronbarkTree", "name": "철갑 나무", "icon": "https://game.gtimg.cn/images/lol/act/img/tft/original-image/tft18_ironbarktree_square.tft_set18.png", "kind": "pet"}
+      {"id": "DA_18_IronbarkTree", "name": "돌껍질 나무", "icon": "https://game.gtimg.cn/images/lol/act/img/tft/champions/100294.png", "kind": "pet"}
     ]
   }
 }

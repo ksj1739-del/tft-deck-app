@@ -45,6 +45,21 @@ class IngameViewModel(app: Application) : AndroidViewModel(app) {
     private val _usagePermission = MutableStateFlow(hasUsageStatsPermission(app))
     val usagePermission: StateFlow<Boolean> = _usagePermission.asStateFlow()
 
+    /**
+     * '다른 앱 위에 표시' 권한. 시스템 설정에서만 바뀌므로 화면이 다시 보일 때마다 새로 읽는다.
+     * 컴포지션 중에 한 번 읽고 말면 권한을 켜고 돌아와도 '권한 설정 열기' 버튼이 그대로 남는다.
+     */
+    private val _overlayPermission = MutableStateFlow(OverlayService.canDrawOverlays(app))
+    val overlayPermission: StateFlow<Boolean> = _overlayPermission.asStateFlow()
+
+    /**
+     * 사용 기록 권한 화면에 다녀와 감지를 마저 켰을 때 알림 권한을 물어야 하는지.
+     * 스위치를 직접 켤 때는 화면이 곧바로 묻지만, 이 경로는 뷰모델에서 끝나서 화면이 알 수 없다.
+     * 묻지 않으면 결과 알림 스위치는 켜져 있는데 알림이 오지 않는다(Android 13+).
+     */
+    private val _notificationPrompt = MutableStateFlow(false)
+    val notificationPrompt: StateFlow<Boolean> = _notificationPrompt.asStateFlow()
+
     /** 권한 화면에 다녀오는 동안 켜 달라고 한 요청. 돌아왔을 때 권한이 있으면 마저 켠다. */
     private var pendingEnable = false
 
@@ -92,14 +107,21 @@ class IngameViewModel(app: Application) : AndroidViewModel(app) {
 
     fun setShowOutsideTft(enabled: Boolean) = prefs.setShowOutsideTft(enabled)
 
+    /** 화면이 알림 권한 요청을 띄웠다. 같은 요청을 다시 띄우지 않게 지운다. */
+    fun consumeNotificationPrompt() {
+        _notificationPrompt.value = false
+    }
+
     /** 화면이 다시 보일 때(권한 화면에서 돌아올 때 포함) 권한을 다시 확인한다. */
     fun onScreenResumed() {
         val granted = hasUsagePermission()
         _usagePermission.value = granted
+        _overlayPermission.value = OverlayService.canDrawOverlays(getApplication())
         if (pendingEnable && granted) {
             pendingEnable = false
             prefs.setDetectEnabled(true)
             OverlayService.startWatch(getApplication())
+            if (prefs.resultNotify.value) _notificationPrompt.value = true
         }
         ensureWatchRunning()
     }

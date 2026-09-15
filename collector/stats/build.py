@@ -21,6 +21,8 @@ from . import cdragon, lolqq, metatft
 
 SCHEMA_VERSION = 1
 FILE_NAMES = ("champions", "traits", "items", "augments")
+# 증강 도감의 중국 통계 요약이 기준으로 삼는 덱 구간. meta.cnStats 라벨과 같은 구간 행만 합산한다.
+CN_STATS_BUCKET = "goldem"
 
 KIND_ORDER = {"completed": 0, "emblem": 1, "artifact": 2, "radiant": 3, "support": 4,
               "component": 5, "other": 6}
@@ -152,13 +154,16 @@ class DecksLink:
             table = by_id.get(axis) or {}
             link.by_id[axis] = {str(k): sorted({str(x) for x in v if x})
                                 for k, v in table.items() if isinstance(v, list)}
-        link.detail_date = ((blob.get("buckets") or {}).get("goldem") or {}).get("detailDate")
+        link.detail_date = ((blob.get("buckets") or {}).get(CN_STATS_BUCKET) or {}).get("detailDate")
 
         for deck in blob.get("decks") or []:
             if not isinstance(deck, dict) or not deck.get("id"):
                 continue
             did = str(deck["id"])
             name = deck.get("name") or did
+            # 증강 성적은 덱마다 상세를 받은 구간(detailBucket)의 값이다. 대부분 골드~에메랄드지만
+            # 그 구간에 없는 덱은 다이아+ 등에서 받는다. 행마다 구간을 적어 라벨이 섞이지 않게 한다.
+            bucket = str(deck.get("detailBucket") or CN_STATS_BUCKET)
             for stat in deck.get("augmentStats") or []:
                 n = stat.get("n") if isinstance(stat, dict) else None
                 if not stat.get("id") or not isinstance(n, (int, float)):
@@ -166,17 +171,23 @@ class DecksLink:
                 link.augment_stats[str(stat["id"])].append({
                     "deck": did,
                     "deckName": name,
+                    "bucket": bucket,
                     "n": int(n),
                     "avg": stat.get("avg"),
                     "rank": stat.get("rank"),
                     "stage": stat.get("stage") or [],
                     "stageLowSample": stat.get("stageLowSample") or [],
                 })
-            recommended = ((deck.get("editorial") or {}).get("augments") or {}).get("recommended") or []
-            for entry in recommended:
-                aid = entry.get("id") if isinstance(entry, dict) else entry
-                if aid:
-                    link.editorial[str(aid)].add(did)
+            # 한 그룹에 편집 덱이 여럿 붙으면 두 번째부터는 moreEditorials 에 있다. 그 작가 추천도 센다.
+            editorials = [deck.get("editorial")] + list(deck.get("moreEditorials") or [])
+            for editorial in editorials:
+                if not isinstance(editorial, dict):
+                    continue
+                recommended = (editorial.get("augments") or {}).get("recommended") or []
+                for entry in recommended:
+                    aid = entry.get("id") if isinstance(entry, dict) else entry
+                    if aid:
+                        link.editorial[str(aid)].add(did)
             cluster = as_int((deck.get("global") or {}).get("cluster"))
             if cluster is not None:
                 link.cluster_decks[cluster].add(did)
@@ -1323,14 +1334,17 @@ def build_augments(inputs, names, previous):
                 inputs.carried.add("augmentsTiers")
 
         deck_stats = sorted(inputs.decks.augment_stats.get(api, []), key=lambda s: (-s["n"], s["deck"]))
+        # 요약은 meta.cnStats 라벨이 가리키는 구간 행만 합친다. 다른 구간(다이아+ 등) 행은 덱별 표에만
+        # 구간 이름과 함께 나온다 — 섞어 합치면 '중국 골드~에메랄드' 라벨이 틀린 말이 된다.
+        base_rows = [s for s in deck_stats if s.get("bucket", CN_STATS_BUCKET) == CN_STATS_BUCKET]
         summary = None
-        if deck_stats:
-            total = sum(s["n"] for s in deck_stats)
-            weighted = [(s["n"], s["avg"]) for s in deck_stats if isinstance(s["avg"], (int, float))]
+        if base_rows:
+            total = sum(s["n"] for s in base_rows)
+            weighted = [(s["n"], s["avg"]) for s in base_rows if isinstance(s["avg"], (int, float))]
             weight = sum(n for n, _ in weighted)
             summary = {"n": total,
                        "avg": r2(sum(n * a for n, a in weighted) / float(weight)) if weight else None,
-                       "decks": len(deck_stats)}
+                       "decks": len(base_rows)}
         editorial = sorted(inputs.decks.editorial.get(api) or [])
         guide = guides.get(api, [])
         decks = sorted(set(inputs.decks.by_id["augment"].get(api, []))
@@ -1365,7 +1379,7 @@ def build_augments(inputs, names, previous):
         "version": version_block(inputs),
         "meta": {
             "editorTier": editor_meta,
-            "cnStats": {"source": "lolqq", "bucket": "goldem", "label": "중국 골드~에메랄드",
+            "cnStats": {"source": "lolqq", "bucket": CN_STATS_BUCKET, "label": "중국 골드~에메랄드",
                         "detailDate": inputs.decks.detail_date, "note": "덱별 상위 5개만 집계된다"},
         },
         "augments": rows,

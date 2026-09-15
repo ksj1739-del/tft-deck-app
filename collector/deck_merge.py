@@ -295,8 +295,10 @@ def variant_stats(variant):
     for bucket, _, _ in BUCKETS:
         agg = aggregate([o["row"] for o in variant["occ"].get(bucket) or []])
         if agg:
+            # 앱의 변형 행은 그룹과 같은 고정 4수치 줄을 쓴다. 픽률이 빠지면 그 칸만 늘 '-' 로 비어 보인다.
             out[bucket] = {"n": agg["n"], "avg": round(agg["avg"], 2),
-                           "top4": round(agg["top4"], 3), "win": round(agg["win"], 3)}
+                           "top4": round(agg["top4"], 3), "win": round(agg["win"], 3),
+                           "pick": round(agg["pick"], 4)}
     return out
 
 

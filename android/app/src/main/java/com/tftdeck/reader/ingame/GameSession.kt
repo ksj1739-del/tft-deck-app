@@ -237,7 +237,12 @@ class GameSession(
         lobbyJob?.cancel()
         lobbyJob = sessionScope.launch {
             if (!profiles.isConfigured) return@launch
+            // 라이엇 ID 와 로비 저장소의 계정 세대를 함께 잡는다. 둘 다 메인 스레드에서 읽으므로 그 사이에
+            // 연결 해제가 끼지 않는다. 기다리는 30분 동안 해제·계정 변경이 있으면 옛 계정 로비를 받지도
+            // 저장하지도 않는다(저장소가 세대로 한 번 더 막는다).
             val riotId = profiles.riotId
+            val token = lobbies.accountToken()
+            fun sameAccount(): Boolean = profiles.isConfigured && sameRiotId(profiles.riotId, riotId)
 
             // 방금 받은 요약에 새 경기가 이미 있으면 lookup 없이 경기 JSON만 받는다.
             val ref = after?.let { profile ->
@@ -250,7 +255,7 @@ class GameSession(
                     null
                 }
             }
-            var lobby = ref?.let { lobbies.fetchMatch(it, riotId, beforeMatchAt) }
+            var lobby = ref?.let { lobbies.fetchMatch(it, riotId, beforeMatchAt, token) }
             if (lobby == null && ref != null && lobbies.state.value?.matchId == ref.matchId) {
                 lobby = lobbies.state.value
             }
@@ -258,9 +263,11 @@ class GameSession(
             val deadline = System.currentTimeMillis() + LOBBY_DURATION_MS
             while (lobby == null && isActive && System.currentTimeMillis() < deadline) {
                 delay(LOBBY_INTERVAL_MS)
-                lobby = lobbies.fetchLatest(riotId, profiles.region, newerThan = beforeMatchAt)
+                if (!sameAccount()) return@launch
+                lobby = lobbies.fetchLatest(riotId, profiles.region, newerThan = beforeMatchAt, token = token)
             }
             val arrived = lobby ?: return@launch
+            if (!sameAccount()) return@launch
 
             // 등수를 모른 채 알렸으면 로비의 내 등수로 고쳐 다시 알린다(같은 알림을 바꾼다).
             val me = arrived.me

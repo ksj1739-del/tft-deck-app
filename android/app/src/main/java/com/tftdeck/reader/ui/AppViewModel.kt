@@ -19,7 +19,9 @@ import com.tftdeck.reader.data.ProfileRepository
 import com.tftdeck.reader.data.ProfileState
 import com.tftdeck.reader.data.SearchAxis
 import com.tftdeck.reader.data.StatsRepository
+import com.tftdeck.reader.data.StatsState
 import com.tftdeck.reader.data.StatsSyncResult
+import com.tftdeck.reader.data.withAugmentDescriptions
 import com.tftdeck.reader.data.SyncResult
 import com.tftdeck.reader.data.Suggestion
 import com.tftdeck.reader.data.TraitRef
@@ -50,13 +52,22 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     val feedState: StateFlow<FeedState> = repository.state
 
     /**
-     * 검색 엔진은 피드가 바뀔 때만 새로 만든다.
+     * 검색 엔진은 피드나 도감 증강 설명이 바뀔 때만 새로 만든다.
      * 인덱스를 만드는 동안 UI가 멈추지 않도록 기본 디스패처에서 돌린다.
+     *
+     * 증강 설명은 decks.json 에 없고 도감 통계 파일(stats/augments.json)에 있다. 합쳐야 증강 설명문 검색(§6.5)이
+     * 실제로 동작한다. 도감 파일이 아직 없으면 이름으로만 찾는다.
      */
-    private val engine: StateFlow<DeckSearch?> = repository.state
-        .map { state -> (state as? FeedState.Ready)?.let { DeckSearch(it.feed) } }
-        .flowOn(Dispatchers.Default)
-        .stateIn(viewModelScope, SharingStarted.Eagerly, null)
+    private val engine: StateFlow<DeckSearch?> =
+        combine(repository.state, StatsRepository.get(app).state) { deckState, statsState ->
+            val feed = (deckState as? FeedState.Ready)?.feed ?: return@combine null
+            val descriptions = (statsState as? StatsState.Ready)?.augments?.augments.orEmpty()
+                .filter { it.desc.isNotBlank() }
+                .associate { it.id to it.desc }
+            DeckSearch(feed.withAugmentDescriptions(descriptions))
+        }
+            .flowOn(Dispatchers.Default)
+            .stateIn(viewModelScope, SharingStarted.Eagerly, null)
 
     /**
      * 아직 인덱스를 만드는 중인지.
