@@ -289,6 +289,11 @@ def percentile(values, q):
     return ordered[low] + (ordered[high] - ordered[low]) * (pos - low)
 
 
+def percentile_cuts(values):
+    """낮을수록 좋은 값들 -> {"S": p10, "A": p25, "B": p50, "C": p75}. 표시 자리수(2)로 반올림해 등급과 화면을 맞춘다."""
+    return dict((grade, round(percentile(values, q), 2)) for grade, q in GRADE_PERCENTILES)
+
+
 def _half_up(value):
     # 파이썬 round 는 .5 를 짝수 쪽으로 보낸다. 문턱은 사사오입으로 잡는다.
     return int(math.floor(value + 0.5))
@@ -307,8 +312,7 @@ def bucket_grade_cuts(aggs):
         min_sample, shrink_k = MIN_SAMPLE, SHRINK_K
     eligible = [adjusted_avg(agg, shrink_k) for agg in aggs if agg["n"] >= min_sample]
     if len(eligible) >= PERCENTILE_MIN_GROUPS:
-        cuts = dict((grade, round(percentile(eligible, q), 2)) for grade, q in GRADE_PERCENTILES)
-        method = "percentile"
+        cuts, method = percentile_cuts(eligible), "percentile"
     else:
         cuts, method = dict(GRADE_CUTS), "absolute"
     cuts.update(minSample=min_sample, shrinkK=shrink_k, method=method)

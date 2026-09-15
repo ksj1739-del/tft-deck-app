@@ -198,6 +198,42 @@ def main():
         if known / float(len(variant_units)) < MIN_CHAMPION_JOIN:
             problems.append("변형 유닛 중 catalog 챔피언으로 풀린 비율 %.0f%%" % (100.0 * known / len(variant_units)))
 
+    # --- metatft 전용 덱(kind=global) ---------------------------------------------
+    # lol.qq 에 매칭되지 않은 metatft 클러스터. 보드 유닛이 catalog 챔피언으로 풀리고 덱 코드와 글로벌 등급이 있어야
+    # 앱이 '글로벌' 표시로 그린다. 등급은 실린 기준(globalGradeCuts)으로 다시 매겨 맞춰 본다.
+    global_decks = [d for d in decks if d.get("kind") == "global"]
+    if (version.get("globalOnlyCount") or 0) != len(global_decks):
+        problems.append("globalOnlyCount %s 와 실제 metatft 전용 덱 %d개가 다르다"
+                        % (version.get("globalOnlyCount"), len(global_decks)))
+    global_cuts = data.get("globalGradeCuts") or {}
+    if global_decks and any(not isinstance(global_cuts.get(k), (int, float)) for k in ("S", "A", "B", "C", "minSample")):
+        problems.append("metatft 전용 덱이 있는데 globalGradeCuts 가 없거나 깨졌다: %s" % global_cuts)
+        global_cuts = {}
+    for deck in global_decks:
+        label = deck.get("id")
+        grade = deck.get("globalGrade")
+        stat = ((deck.get("global") or {}).get("stats") or {}).get("glob_plat") or {}
+        if grade not in ("S", "A", "B", "C", "D"):
+            problems.append("metatft 전용 덱 %s 에 globalGrade 가 없다(%s)" % (label, grade))
+        elif deck.get("tier") != grade:
+            problems.append("metatft 전용 덱 %s tier %s 가 globalGrade %s 와 다르다" % (label, deck.get("tier"), grade))
+        elif global_cuts:
+            if (stat.get("n") or 0) < global_cuts["minSample"] or stat.get("avg") is None:
+                problems.append("metatft 전용 덱 %s glob_plat 표본 %s 가 문턱 %s 미만이다"
+                                % (label, stat.get("n"), global_cuts["minSample"]))
+            elif grade != next((g for g in "SABC" if stat["avg"] <= global_cuts[g]), "D"):
+                problems.append("metatft 전용 덱 %s globalGrade %s 가 기준으로 다시 매긴 등급과 다르다(avg %s)"
+                                % (label, grade, stat["avg"]))
+        units = deck.get("units") or []
+        unknown = sorted({str(u.get("id")) for u in units if u.get("id") not in champion_ids})
+        if not units or unknown:
+            problems.append("metatft 전용 덱 %s 보드가 비었거나 catalog 챔피언에 없는 유닛: %s" % (label, unknown))
+        if not (deck.get("teamCode") or {}).get("code"):
+            problems.append("metatft 전용 덱 %s 에 덱 코드가 없다" % label)
+    if global_decks:
+        print("metatft 전용 덱 %d개 · 글로벌 등급 %s"
+              % (len(global_decks), {g: sum(1 for d in global_decks if d.get("globalGrade") == g) for g in "SABCD"}))
+
     # --- metatft 비교 수치 ---------------------------------------------------
     for deck in decks:
         for scope, stat in ((deck.get("global") or {}).get("stats") or {}).items():
@@ -435,9 +471,9 @@ def main():
         print("\n검증 실패: %d건" % len(problems), file=sys.stderr)
         return 1
 
-    print("검증 통과 — 덱 %d개(그룹 %d · 편집 독립 %d), 패치 %s, 아이템 인덱스 %d개, 덱 코드 %d개, %.0f KB"
+    print("검증 통과 — 덱 %d개(그룹 %d · 편집 독립 %d · metatft 전용 %d), 패치 %s, 아이템 인덱스 %d개, 덱 코드 %d개, %.0f KB"
           % (len(decks), sum(1 for d in decks if d.get("kind") == "group"),
-             sum(1 for d in decks if d.get("kind") == "editorial"), version.get("patch"),
+             sum(1 for d in decks if d.get("kind") == "editorial"), len(global_decks), version.get("patch"),
              len(index.get("item") or {}), version.get("teamCodeCount", 0), size / 1024.0))
     return 0
 

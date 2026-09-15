@@ -123,6 +123,8 @@ def fetch_comps_data(fetch_json, error_cls):
             "levelling": row.get("levelling"),
             "difficulty": _float(row.get("difficulty")),
             "overall": row.get("overall") or {},
+            # 유닛별 1순위 3아이템 빌드(comp builds). metatft 전용 덱의 보드 아이템·캐리 순위에 쓴다.
+            "builds": row.get("builds") or [],
         }
     return out
 
@@ -334,3 +336,80 @@ def buildup_global(results, cluster, sort_units, trait_count):
     rolling = [row for row in levels if row["rollsPerGame"] is not None]
     roll_level = max(rolling, key=lambda row: row["rollsPerGame"])["level"] if rolling else None
     return {"scope": "glob_plat", "cluster": _int(cluster), "rollLevel": roll_level, "levels": levels}
+
+
+# ----------------------------------------------------------------------------
+# metatft 전용 덱(kind=global): lol.qq 그룹·편집 덱에 매칭되지 않은 클러스터
+# ----------------------------------------------------------------------------
+
+GLOBAL_SCOPE = "glob_plat"
+GLOBAL_MIN_SAMPLE = 1000
+# 대표 유닛(units_string)은 클러스터에 따라 8~21명이라 보드로 보일 만큼만 남긴다.
+GLOBAL_BOARD_MAX = 10
+
+
+def split_ids(text):
+    """cluster_info 의 'DA_18_Varus, DA_KogMaw18_AD' -> id 목록(순서 유지)."""
+    return [part.strip() for part in str(text or "").split(",") if part.strip()]
+
+
+def cluster_traits(text, trait_count):
+    """traits_string('DA_18_Lunar_2, DA_Primal18_1') -> [{"id", "count"}]. _N 은 단계 순번이다(_traits 와 같다)."""
+    return _traits("&".join(split_ids(text)), trait_count)
+
+
+def unit_builds(builds):
+    """
+    comps_data builds -> [(유닛, 1순위 아이템 id 들, 표본)] 표본 큰 순.
+    유닛마다 목록에서 처음 나온 빌드가 1순위다(score 순으로 온다). 표본은 그 유닛이 아이템 3개를 든
+    보드 수(unit_numitems_count, 없으면 그 빌드의 count).
+    """
+    best = {}
+    for row in builds or []:
+        unit = str(row.get("unit") or "").strip()
+        items = [str(i).strip() for i in row.get("buildName") or [] if str(i).strip()]
+        if not unit or not items or unit in best:
+            continue
+        best[unit] = (items[:3], _int(row.get("unit_numitems_count"), 0) or _int(row.get("count"), 0))
+    ordered = sorted(best.items(), key=lambda pair: -pair[1][1])
+    return [(unit, items, sample) for unit, (items, sample) in ordered]
+
+
+def unit_usage(results):
+    """
+    comp_details unit_stats -> {유닛: {"count": 채용 보드 수, "star": 최빈 성급, "key": keyUnits 행}}.
+    keyUnits 행은 lol.qq 핵심 유닛과 같은 모양(1~3성 비율·평균 아이템 수·평균 등수)이다.
+    """
+    out = {}
+    for row in (results or {}).get("unit_stats") or []:
+        unit = str(row.get("unit") or "").strip()
+        if not unit:
+            continue
+        tiers = {}
+        for tier in row.get("tiers") or []:
+            level = _int(tier.get("tier"))
+            if level is not None:
+                tiers[level] = _float(tier.get("pcnt"), 0.0)
+        shares = [(_int(n.get("num_items"), 0), _float(n.get("pcnt"), 0.0)) for n in row.get("num_items") or []]
+        weight = sum(share for _, share in shares)
+        avg = _float(row.get("avg"))
+        out[unit] = {
+            "count": _int(row.get("count"), 0),
+            "star": max(tiers, key=lambda level: tiers[level]) if tiers else None,
+            "key": {
+                "id": unit,
+                "star1": round(tiers.get(1, 0.0), 3) if tiers else None,
+                "star2": round(tiers.get(2, 0.0), 3) if tiers else None,
+                "star3": round(tiers.get(3, 0.0), 3) if tiers else None,
+                "items": round(sum(k * share for k, share in shares) / weight, 2) if weight else None,
+                "avg": round(avg, 2) if avg is not None else None,
+            },
+        }
+    return out
+
+
+def common_final_level(results):
+    """comp_details final_levels 에서 가장 많이 끝난 레벨. 없으면 None."""
+    rows = [(_int(row.get("count"), 0), _int(row.get("level"))) for row in (results or {}).get("final_levels") or []]
+    rows = [(count, level) for count, level in rows if level is not None and count > 0]
+    return max(rows)[1] if rows else None

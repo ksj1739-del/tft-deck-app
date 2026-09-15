@@ -335,8 +335,16 @@ class Dictionary:
             return None
         return effects[step - 1].get("minUnits")
 
+    # CommunityDragon effects[].style -> 앱 시너지 색(1 브론즈, 2 실버, 3 골드, 4 프리즘 — lol.qq color 와 같은 체계).
+    # 편집 덱 보드의 lol.qq color 1/2/3 이 CDragon 1/3/5 와 짝지어진다(2026-09-16, 135칸). CDragon 4 는 고유 특성(효과 하나, 1명)이다.
+    CDRAGON_STYLE_COLOR = {1: 1, 3: 2, 5: 3, 6: 4}
+
     def trait_style(self, api_name, count):
-        """인원수로 켜진 단계의 style(1 브론즈 … 4 프리즘). 안 켜졌거나 고유 특성이면 0."""
+        """
+        인원수로 켜진 단계의 색(1 브론즈 … 4 프리즘). 안 켜졌거나 고유 특성이면 0.
+        예전에는 CDragon style 을 그대로 돌려줘 실버(3)가 앱에서 골드로 보였고, 골드(5)·프리즘(6)은
+        고유 특성(lol.qq color 5)으로 오인돼 胜率阵容 덱 시너지에서 빠졌다.
+        """
         effects = (self.traits.get(api_name) or {}).get("effects") or []
         if len(effects) == 1 and (effects[0].get("minUnits") or 0) <= 1:
             return 0
@@ -345,7 +353,7 @@ class Dictionary:
             low = effect.get("minUnits") or 0
             high = effect.get("maxUnits") or 10 ** 6
             if low <= count <= high:
-                style = effect.get("style") or 0
+                style = self.CDRAGON_STYLE_COLOR.get(effect.get("style") or 0, 0)
         return style
 
     # -- item / augment ------------------------------------------------------
@@ -995,6 +1003,154 @@ def build_editorial_deck(editorial, ctx):
 
 
 # ----------------------------------------------------------------------------
+# metatft 전용 덱(kind=global): lol.qq 그룹·편집 덱에 매칭되지 않은 클러스터
+# ----------------------------------------------------------------------------
+
+# 대표 유닛이 보드보다 많을 때 남길 수: 가장 흔한 최종 레벨(8~10 사이로 자른다).
+GLOBAL_BOARD_MIN = 8
+
+
+def champion_id(dic, unit_id):
+    """
+    metatft 유닛 id -> 사전에 있는 챔피언 id. DA id 는 lol.qq 와 같은 체계라 그대로 쓰고(형태 id 는 별칭으로 풀린다),
+    'TFT18_Akali' 같은 apiName 은 같은 캐릭터의 DA id 로 옮긴다. 소환물·모르는 id 는 None.
+    """
+    if unit_id in dic.champions or unit_id in dic.aliases:
+        return unit_id
+    return next((member for member in dic.metatft_members.get(unit_id) or [] if member in dic.champions), None)
+
+
+def global_plan(clusters, glob_scope, matched_clusters):
+    """
+    metatft 전용 덱 계획 -> (globalGradeCuts, 대상 [{cluster, stat, grade}]).
+    등급 기준은 매칭·미매칭을 합친 전체 클러스터 중 glob_plat 표본이 문턱 이상인 것의 평균 등수 분위수
+    (p10/p25/p50/p75 → S/A/B/C, 그 밖 D). 대상은 그중 lol.qq 어디에도 매칭되지 않은 클러스터, 좋은 등급 → 평균 등수 순.
+    """
+    rows = []
+    for cluster in clusters:
+        raw = ((glob_scope or {}).get("clusters") or {}).get(cluster["id"])
+        stat = mt.summarize(raw["places"], raw["count"]) if raw else None
+        if stat and (stat["n"] or 0) >= mt.GLOBAL_MIN_SAMPLE:
+            rows.append((cluster, stat))
+    if len(rows) < merge.PERCENTILE_MIN_GROUPS:
+        return None, []
+    cuts = merge.percentile_cuts([stat["avg"] for _, stat in rows])
+    cuts.update(minSample=mt.GLOBAL_MIN_SAMPLE, scope=mt.GLOBAL_SCOPE, method="percentile")
+    targets = [{"cluster": cluster, "stat": stat, "grade": merge.grade_for(stat["avg"], cuts)}
+               for cluster, stat in rows if cluster["id"] not in matched_clusters]
+    targets.sort(key=lambda t: (merge.GRADE_ORDER[t["grade"]], t["stat"]["avg"], t["cluster"]["id"]))
+    return cuts, targets
+
+
+def build_global_deck(target, info, details, ctx, patch_global, updated):
+    """
+    lol.qq 에 없는 metatft 클러스터 -> kind=global 덱(계약 2026-09-16). 보드는 대표 유닛(units_string)이고 좌표가 없다.
+    아이템은 comps_data builds 의 유닛별 1순위 3아이템, 캐리 순위는 빌드 표본(아이템 3개를 든 보드 수) 순이되
+    metatft 가 덱 이름에 쓴 유닛(name_string)을 앞에 둔다 — 2026-09-16 대상 20개 중 16개는 표본 1위와 같고,
+    나머지 넷은 탱커가 표본 1위라 '세트 · 개화' 처럼 metatft 이름(개화 아리)과 어긋났다.
+    성급·핵심 유닛·최종 레벨은 comp_details(unit_stats·final_levels)에서 온다. 사전으로 풀리는 유닛이 없으면 (None, None).
+    """
+    dic = ctx.dic
+    cluster, grade = target["cluster"], target["grade"]
+    did = "m-%s" % cluster["id"]
+    usage = mt.unit_usage(details)
+    final_level = mt.common_final_level(details)
+
+    builds = [(champion_id(dic, unit), items, sample) for unit, items, sample in mt.unit_builds(info.get("builds"))]
+    build_items = {}
+    for uid, items, _ in builds:
+        if uid and uid not in build_items:
+            build_items[uid] = items
+    named = [champion_id(dic, token) for token in mt.split_ids(cluster["name"])]
+    carry_order = unique([uid for uid in named if uid in build_items] + [uid for uid, _, _ in builds])
+
+    ids = unique(champion_id(dic, uid) for uid in cluster["unitIds"])
+    cap = max(GLOBAL_BOARD_MIN, min(mt.GLOBAL_BOARD_MAX, final_level or mt.GLOBAL_BOARD_MAX))
+    if len(ids) > cap:
+        # 대표 유닛이 보드보다 많으면 아이템 빌드가 있는 유닛, 그다음 채용 보드가 많은 유닛을 남긴다.
+        ids.sort(key=lambda uid: (uid not in build_items, -((usage.get(uid) or {}).get("count") or 0)))
+        ids = ids[:cap]
+    if not ids:
+        return None, None
+
+    order = [uid for uid in carry_order if uid in ids]
+    carry_id = order[0] if order else None
+    units = []
+    for uid in ids:
+        record = dic.unit(uid)
+        units.append({
+            "id": record["id"],
+            "name": record["name"],
+            "nameEn": record.get("nameEn"),
+            "cost": record.get("cost"),
+            "icon": record.get("icon"),
+            "star": (usage.get(uid) or {}).get("star"),
+            "carry": uid == carry_id,
+            "row": None,
+            "col": None,
+            "items": [slim(dic.item(i)) for i in build_items.get(uid) or []],
+            "itemsBackup": [],
+        })
+    units.sort(key=lambda u: (u["cost"] if u["cost"] is not None else 0, u["name"]))
+    assign_carry_ranks(units, carry_id, order)
+    carry = next((u for u in units if u.get("carryRank") == 1), None)
+
+    # 특성은 클러스터 traits_string(단계 순번) -> 인원수. 胜率阵容 덱처럼 켜진 시너지만, 주특성(name_string) 먼저.
+    main_ids = {token for token in mt.split_ids(cluster["name"]) if token in dic.traits}
+    traits = []
+    for row in mt.cluster_traits(cluster["traitsString"], dic.trait_count):
+        style = dic.trait_style(row["id"], row["count"])
+        if not style or style >= UNIQUE_TRAIT_STYLE:
+            continue
+        entry = slim(dic.trait(row["id"]))
+        entry["count"] = row["count"]
+        entry["style"] = style
+        traits.append(entry)
+    traits.sort(key=lambda t: (t["id"] not in main_ids, -t["count"], -t["style"], t["name"]))
+    main_traits = [t for t in traits if t["id"] in main_ids] or traits[:1]
+
+    key_units = []
+    for unit, row in sorted(usage.items(), key=lambda pair: -pair[1]["count"]):
+        uid = champion_id(dic, unit)
+        if not uid or any(k["id"] == uid for k in key_units):
+            continue
+        dic.unit(uid)
+        key_units.append(dict(row["key"], id=uid))
+        if len(key_units) >= merge.KEY_UNIT_LIMIT:
+            break
+
+    deck = {
+        "id": did,
+        "kind": "global",
+        "key": "metatft:%s" % cluster["id"],
+        "name": korean_deck_name(carry, traits, did),
+        "nameCn": "",
+        "tier": grade,
+        "tierOrder": merge.GRADE_ORDER[grade],
+        "globalGrade": grade,
+        "patch": patch_global or ctx.patch,
+        "finalLevel": final_level,
+        "carryId": (carry or {}).get("id"),
+        "mainTraits": main_traits,
+        "traits": traits,
+        "units": units,
+        "stats": {},
+        "variants": [],
+        "itemOrder": [],
+        "augments": {"recommended": [], "alternatives": []},
+        "notesCn": {"items": "", "augments": ""},
+        "author": "",
+        "updatedAt": updated or "",
+        "teamCode": deck_code(units, ctx.codes, ctx.set_number),
+        "metatft": {"similarity": 1.0, "matchedComp": cluster["name"] or None, "onlyInChina": False, "compared": True},
+    }
+    if key_units:
+        deck["keyUnits"] = key_units
+    work = {"group": None, "matchUnits": cluster["units"], "editorial": None}
+    return deck, work
+
+
+# ----------------------------------------------------------------------------
 # 胜率阵容 상세
 # ----------------------------------------------------------------------------
 
@@ -1093,7 +1249,9 @@ def metatft_clusters(cluster_blob, space):
         units = space.normalize(raw)
         if units:
             comps.append({"id": str(cluster.get("Cluster") or cluster.get("cluster") or ""),
-                          "units": units, "name": (cluster.get("name_string") or "").strip()})
+                          "units": units, "name": (cluster.get("name_string") or "").strip(),
+                          # 대표 유닛·특성 원문. lol.qq 에 없는 클러스터를 metatft 전용 덱으로 만들 때 쓴다.
+                          "unitIds": raw, "traitsString": (cluster.get("traits_string") or "").strip()})
     return comps
 
 
@@ -1559,15 +1717,21 @@ def main(argv=None):
                               ((d.get("stats") or {}).get(merge.DEFAULT_BUCKET) or {}).get("adjAvg") or 9.0,
                               d["name"]))
 
-    deck_for_cluster, best_score = {}, {}
-    for did, (cluster, score) in matched.items():
-        if score > best_score.get(cluster["id"], -1):
-            best_score[cluster["id"]] = score
-            deck_for_cluster[cluster["id"]] = did
+    # --- metatft 전용 덱(kind=global) 대상 ---------------------------------------
+    # lol.qq 그룹·편집 덱 어디에도 매칭되지 않은 클러스터 중 glob_plat 표본이 문턱 이상인 것. 등급은 전체 클러스터 분포로.
+    global_cuts, global_targets = global_plan(clusters, scope_data.get(mt.GLOBAL_SCOPE),
+                                              {cluster["id"] for cluster, _ in matched.values()})
 
     cluster_set = meta_version.get("cluster_id") or next(
         (s.get("clusterSet") for s in scope_data.values() if s.get("clusterSet")), None)
-    wanted = unique(matched[d["id"]][0]["id"] for d in decks if d["id"] in matched)
+    wanted_matched = unique(matched[d["id"]][0]["id"] for d in decks if d["id"] in matched)
+    wanted = unique(wanted_matched + [t["cluster"]["id"] for t in global_targets])
+    if global_targets:
+        # 전용 덱도 최종 레벨·상대 덱·빌드업·성급·핵심 유닛을 comp_details 에서 받으므로 호출이 는다.
+        log("metatft comp_details 호출 대상: 매칭 덱 %d + 전용 덱 %d = %d클러스터 (상한 %d)"
+            % (len(wanted_matched), len(wanted) - len(wanted_matched), len(wanted), args.comp_limit))
+        if len(wanted) > args.comp_limit:
+            warn("comp_details 상한 %d 에 걸려 %d클러스터는 상세 없이 싣는다" % (args.comp_limit, len(wanted) - args.comp_limit))
     comp_results = {}
     if cluster_set:
         for cid in wanted[:max(0, args.comp_limit)]:
@@ -1575,6 +1739,27 @@ def main(argv=None):
                 comp_results[cid] = mt.fetch_comp_details(fetch_json, cid, cluster_set, SourceError)
             except SourceError as exc:
                 warn("metatft comp_details %s 실패: %s" % (cid, exc))
+
+    # 전용 덱은 lol.qq 덱 뒤에 글로벌 등급·평균 등수 순으로 붙는다(대상 순서 그대로, 앱 정렬과 같다).
+    for target in global_targets:
+        cid = target["cluster"]["id"]
+        deck, work = build_global_deck(target, comps_info.get(cid) or {}, comp_results.get(cid), ctx, patch_global,
+                                       (scope_data.get(mt.GLOBAL_SCOPE) or {}).get("updatedAt"))
+        if deck is None:
+            warn("metatft 전용 덱 %s: 사전으로 풀리는 대표 유닛이 없어 뺀다" % cid)
+            continue
+        decks.append(deck)
+        works[deck["id"]] = work
+        matched[deck["id"]] = (target["cluster"], 1.0)
+    global_decks = [d for d in decks if d["kind"] == "global"]
+
+    # 상대 덱(counters)이 우리 덱을 가리키게 한다. 전용 덱도 포함해 metatft 에만 있는 상대로도 옮겨 갈 수 있다.
+    deck_for_cluster, best_score = {}, {}
+    for did, (cluster, score) in matched.items():
+        if score > best_score.get(cluster["id"], -1):
+            best_score[cluster["id"]] = score
+            deck_for_cluster[cluster["id"]] = did
+
     buildups = {cid: mt.buildup_global(res, cid, ctx.sort_unit_ids, dic.trait_count)
                 for cid, res in comp_results.items()}
 
@@ -1677,7 +1862,8 @@ def main(argv=None):
         "editorialAttached": attached,
         "legacyBoardMismatch": legacy,
         "winrate": list_counts,
-        "groups": len(decks) - len(standalone),
+        "groups": sum(1 for d in decks if d["kind"] == "group"),
+        "globalOnly": len(global_decks),
         "lineupRankRows": {scope: len(rows) for scope, rows in rank_rows.items()},
         "lineupRankDropped": dropped,
         "preciseMatched": precise_matched,
@@ -1716,6 +1902,8 @@ def main(argv=None):
             "deckCount": len(decks),
             "editorialCount": len(editorials),
             "onlyInChinaCount": len(only_china),
+            # lol.qq 에 없어 metatft 클러스터로만 만든 덱(kind=global) 수.
+            "globalOnlyCount": len(global_decks),
             "teamCodeCount": coded,
             "metatftSet": meta_version.get("tft_set"),
             "metatftClusterId": meta_version.get("cluster_id"),
@@ -1729,6 +1917,8 @@ def main(argv=None):
         "scopes": scopes,
         # 앱 호환 자리(구간별 기준을 모르는 앱이 읽는다): 기본 구간 기준. 구간별 기준은 buckets[b].gradeCuts.
         "gradeCuts": dict(grade_cuts[merge.DEFAULT_BUCKET]),
+        # metatft 전용 덱 globalGrade 기준(glob_plat 표본 문턱 이상 전체 클러스터의 평균 등수 분위수).
+        "globalGradeCuts": global_cuts,
         "decks": decks,
         "index": index,
         "catalog": catalog,
@@ -1749,8 +1939,12 @@ def main(argv=None):
         log("        등급 %s S≤%.2f A≤%.2f B≤%.2f C≤%.2f · 표본≥%d · K %d → 등급 %d/%d %s"
             % (cuts["method"], cuts["S"], cuts["A"], cuts["B"], cuts["C"], cuts["minSample"], cuts["shrinkK"],
                sum(1 for g in grades if g), len(grades), " ".join("%s%d" % (x, grades.count(x)) for x in "SABCD")))
-    log("덱 %d개 = 그룹 %d + 편집 독립 %d (편집 덱 %d개 중 그룹 첨부 %d, 파싱 실패 %d)"
-        % (len(decks), diag["groups"], len(standalone), len(editorials), attached, failed))
+    log("덱 %d개 = 그룹 %d + 편집 독립 %d + metatft 전용 %d (편집 덱 %d개 중 그룹 첨부 %d, 파싱 실패 %d)"
+        % (len(decks), diag["groups"], len(standalone), len(global_decks), len(editorials), attached, failed))
+    if global_decks:
+        log("metatft 전용 덱 글로벌 등급 %s · 기준 S≤%.2f A≤%.2f B≤%.2f C≤%.2f (glob_plat 표본≥%d 클러스터 분위수)"
+            % (" ".join("%s%d" % (g, sum(1 for d in global_decks if d["globalGrade"] == g)) for g in "SABCD"),
+               global_cuts["S"], global_cuts["A"], global_cuts["B"], global_cuts["C"], global_cuts["minSample"]))
     log("数据检索器 행 %s · 범위 검사로 버림 %s · 변형에 붙은 행 %d"
         % (diag["lineupRankRows"], dropped, precise_matched))
     log("metatft 매칭 %d/%d덱 · comp_details %d/%d클러스터 · 스코프 평균 %s"
