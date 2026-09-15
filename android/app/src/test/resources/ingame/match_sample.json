@@ -1,0 +1,559 @@
+{
+  "metadata": {
+    "data_version": "6",
+    "match_id": "KR_1000000001",
+    "participants": [
+      "MASKED",
+      "MASKED",
+      "MASKED",
+      "MASKED",
+      "MASKED",
+      "MASKED",
+      "MASKED",
+      "MASKED"
+    ]
+  },
+  "info": {
+    "endOfGameResult": "GameComplete",
+    "gameCreation": 1789469042137,
+    "gameId": 1000000001,
+    "game_datetime": 1789471371596,
+    "game_length": 2326.72705078125,
+    "game_version": "TFT Unreal Version ?.?.?.?",
+    "mapId": 22,
+    "participants": [
+      {
+        "gold_left": 0,
+        "last_round": 26,
+        "level": 7,
+        "placement": 8,
+        "players_eliminated": 0,
+        "puuid": "MASKED",
+        "riotIdGameName": "마지막손님",
+        "riotIdTagline": "KR9",
+        "time_eliminated": 1617,
+        "total_damage_to_players": 0,
+        "traits": [
+          {
+            "name": "DA_18_Blackthorn",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 3
+          },
+          {
+            "name": "DA_18_Blossom",
+            "num_units": 1,
+            "style": 0,
+            "tier_current": 0,
+            "tier_total": 5
+          }
+        ],
+        "units": [
+          {
+            "character_id": "DA_18_Ornn",
+            "itemNames": [
+              "DA_Artifact_LightshieldCrest",
+              "DA_GargoyleStoneplate",
+              "DA_SpiritVisage"
+            ],
+            "name": "",
+            "rarity": 0,
+            "tier": 3
+          },
+          {
+            "character_id": "DA_18_Veigar",
+            "itemNames": [
+              "DA_BlueBuff",
+              "DA_JeweledGauntlet",
+              "DA_HextechGunblade"
+            ],
+            "name": "",
+            "rarity": 0,
+            "tier": 3
+          }
+        ],
+        "win": false
+      },
+      {
+        "gold_left": 5,
+        "last_round": 28,
+        "level": 8,
+        "placement": 7,
+        "players_eliminated": 0,
+        "puuid": "MASKED",
+        "riotIdGameName": "Lazy Panda",
+        "riotIdTagline": "KR1",
+        "time_eliminated": 1767,
+        "total_damage_to_players": 0,
+        "traits": [
+          {
+            "name": "DA_18_Defender",
+            "num_units": 4,
+            "style": 2,
+            "tier_current": 2,
+            "tier_total": 3
+          },
+          {
+            "name": "DA_18_Adaptor",
+            "num_units": 1,
+            "style": 0,
+            "tier_current": 0,
+            "tier_total": 3
+          }
+        ],
+        "units": [
+          {
+            "character_id": "DA_18_Leona",
+            "itemNames": [],
+            "name": "",
+            "rarity": 0,
+            "tier": 2
+          },
+          {
+            "character_id": "DA_18_Shen",
+            "itemNames": [
+              "DA_Evenshroud"
+            ],
+            "name": "",
+            "rarity": 1,
+            "tier": 2
+          }
+        ],
+        "win": false
+      },
+      {
+        "gold_left": 0,
+        "last_round": 28,
+        "level": 9,
+        "placement": 6,
+        "players_eliminated": 0,
+        "puuid": "MASKED",
+        "riotIdGameName": "Tester",
+        "riotIdTagline": "KR1",
+        "time_eliminated": 1767,
+        "total_damage_to_players": 0,
+        "traits": [
+          {
+            "name": "DA_18_Fae",
+            "num_units": 1,
+            "style": 0,
+            "tier_current": 0,
+            "tier_total": 2
+          },
+          {
+            "name": "DA_18_Hunter",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 4
+          }
+        ],
+        "units": [
+          {
+            "character_id": "DA_Vi18",
+            "itemNames": [],
+            "name": "",
+            "rarity": 2,
+            "tier": 2
+          },
+          {
+            "character_id": "DA_18_Sivir",
+            "itemNames": [
+              "DA_InfinityEdge",
+              "DA_LastWhisper",
+              "DA_RedBuff"
+            ],
+            "name": "",
+            "rarity": 3,
+            "tier": 2
+          }
+        ],
+        "win": false
+      },
+      {
+        "gold_left": 1,
+        "last_round": 30,
+        "level": 8,
+        "placement": 5,
+        "players_eliminated": 0,
+        "puuid": "MASKED",
+        "riotIdGameName": "오후세시",
+        "riotIdTagline": "KR1",
+        "time_eliminated": 1857,
+        "total_damage_to_players": 0,
+        "traits": [
+          {
+            "name": "DA_18_Battlemage",
+            "num_units": 1,
+            "style": 3,
+            "tier_current": 1,
+            "tier_total": 1
+          },
+          {
+            "name": "DA_18_Blackthorn",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 3
+          }
+        ],
+        "units": [
+          {
+            "character_id": "DA_Fiddlesticks18",
+            "itemNames": [],
+            "name": "",
+            "rarity": 2,
+            "tier": 2
+          },
+          {
+            "character_id": "DA_18_Malphite",
+            "itemNames": [
+              "DA_Crownguard",
+              "DA_GargoyleStoneplate",
+              "DA_SpiritVisage"
+            ],
+            "name": "",
+            "rarity": 3,
+            "tier": 2
+          }
+        ],
+        "win": false
+      },
+      {
+        "gold_left": 0,
+        "last_round": 31,
+        "level": 7,
+        "placement": 4,
+        "players_eliminated": 0,
+        "puuid": "MASKED",
+        "riotIdGameName": "파란하늘",
+        "riotIdTagline": "KR3",
+        "time_eliminated": 1947,
+        "total_damage_to_players": 0,
+        "traits": [
+          {
+            "name": "DA_18_Coven",
+            "num_units": 1,
+            "style": 0,
+            "tier_current": 0,
+            "tier_total": 4
+          },
+          {
+            "name": "DA_18_Defender",
+            "num_units": 6,
+            "style": 4,
+            "tier_current": 3,
+            "tier_total": 3
+          }
+        ],
+        "units": [
+          {
+            "character_id": "DA_18_Ornn",
+            "itemNames": [],
+            "name": "",
+            "rarity": 0,
+            "tier": 2
+          },
+          {
+            "character_id": "DA_18_Leona",
+            "itemNames": [],
+            "name": "",
+            "rarity": 0,
+            "tier": 2
+          }
+        ],
+        "win": true
+      },
+      {
+        "gold_left": 0,
+        "last_round": 34,
+        "level": 9,
+        "placement": 3,
+        "players_eliminated": 0,
+        "puuid": "MASKED",
+        "riotIdGameName": "돌담길",
+        "riotIdTagline": "KR1",
+        "time_eliminated": 2109,
+        "total_damage_to_players": 0,
+        "traits": [
+          {
+            "name": "DA_18_Adaptor",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 3
+          },
+          {
+            "name": "DA_18_Inferno",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 4
+          }
+        ],
+        "units": [
+          {
+            "character_id": "DA_Sentinel18",
+            "itemNames": [
+              "DA_GargoyleStoneplate",
+              "DA_WarmogsArmor",
+              "DA_DragonsClaw"
+            ],
+            "name": "",
+            "rarity": 3,
+            "tier": 2
+          },
+          {
+            "character_id": "DA_18_Diana",
+            "itemNames": [],
+            "name": "",
+            "rarity": 2,
+            "tier": 2
+          }
+        ],
+        "win": true
+      },
+      {
+        "gold_left": 1,
+        "last_round": 38,
+        "level": 9,
+        "placement": 2,
+        "players_eliminated": 0,
+        "puuid": "MASKED",
+        "riotIdGameName": "새벽바람",
+        "riotIdTagline": "KR2",
+        "time_eliminated": 2321,
+        "total_damage_to_players": 0,
+        "traits": [
+          {
+            "name": "DA_18_Battlemage",
+            "num_units": 1,
+            "style": 3,
+            "tier_current": 1,
+            "tier_total": 1
+          },
+          {
+            "name": "DA_18_Blackthorn",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 3
+          }
+        ],
+        "units": [
+          {
+            "character_id": "DA_Amumu18",
+            "itemNames": [
+              "DA_GargoyleStoneplate",
+              "DA_SpiritVisage",
+              "DA_IonicSpark"
+            ],
+            "name": "",
+            "rarity": 3,
+            "tier": 2
+          },
+          {
+            "character_id": "DA_18_Zyra",
+            "itemNames": [],
+            "name": "",
+            "rarity": 3,
+            "tier": 2
+          }
+        ],
+        "win": true
+      },
+      {
+        "gold_left": 8,
+        "last_round": 38,
+        "level": 9,
+        "placement": 1,
+        "players_eliminated": 0,
+        "puuid": "MASKED",
+        "riotIdGameName": "초록고양이",
+        "riotIdTagline": "KR1",
+        "time_eliminated": 2326,
+        "total_damage_to_players": 0,
+        "traits": [
+          {
+            "name": "DA_18_Blossom",
+            "num_units": 3,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 5
+          },
+          {
+            "name": "DA_18_Brawler",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 3
+          }
+        ],
+        "units": [
+          {
+            "character_id": "DA_Karma18",
+            "itemNames": [],
+            "name": "",
+            "rarity": 0,
+            "tier": 2
+          },
+          {
+            "character_id": "DA_18_Sentry",
+            "itemNames": [],
+            "name": "",
+            "rarity": 0,
+            "tier": 2
+          }
+        ],
+        "win": true
+      }
+    ],
+    "queueId": 1100,
+    "queue_id": 1100,
+    "tft_game_type": "standard",
+    "tft_set_core_name": "TFTSet18",
+    "tft_set_number": 18
+  },
+  "_metatft": {
+    "patch": "18.2",
+    "participant_info": [
+      {
+        "riot_id": "초록고양이#KR1",
+        "puuid": "MASKED",
+        "summoner_region": "kr",
+        "ranked": {
+          "num_games": 180,
+          "rating_text": "DIAMOND IV 42 LP",
+          "rating_numeric": 2442,
+          "created_timestamp": "2026-09-15T10:52:27.364",
+          "tft_set_name": "TFTSet18",
+          "queue_id": 1100
+        },
+        "server_rank": {
+          "rank": 5139,
+          "total": 617010
+        }
+      },
+      {
+        "riot_id": "새벽바람#KR2",
+        "puuid": "MASKED",
+        "summoner_region": "kr",
+        "ranked": {
+          "num_games": 61,
+          "rating_text": "EMERALD I 10 LP",
+          "rating_numeric": 2310,
+          "created_timestamp": "2026-09-15T10:52:32.273",
+          "tft_set_name": "TFTSet18",
+          "queue_id": 1100
+        },
+        "server_rank": {
+          "rank": 8188,
+          "total": 617010
+        }
+      },
+      {
+        "riot_id": "돌담길#KR1",
+        "puuid": "MASKED",
+        "summoner_region": "kr",
+        "ranked": {
+          "num_games": 219,
+          "rating_text": "DIAMOND IV 63 LP",
+          "rating_numeric": 2463,
+          "created_timestamp": "2026-09-15T10:52:20.506",
+          "tft_set_name": "TFTSet18",
+          "queue_id": 1100
+        },
+        "server_rank": {
+          "rank": 4728,
+          "total": 617010
+        }
+      },
+      {
+        "riot_id": "파란하늘#KR3",
+        "puuid": "MASKED",
+        "summoner_region": "kr",
+        "ranked": {
+          "num_games": 165,
+          "rating_text": "DIAMOND IV 34 LP",
+          "rating_numeric": 2434,
+          "created_timestamp": "2026-09-15T10:52:25.637",
+          "tft_set_name": "TFTSet18",
+          "queue_id": 1100
+        },
+        "server_rank": {
+          "rank": 5361,
+          "total": 617010
+        }
+      },
+      {
+        "riot_id": "오후세시#KR1",
+        "puuid": "MASKED",
+        "summoner_region": "kr",
+        "ranked": {
+          "num_games": 108,
+          "rating_text": "DIAMOND IV 35 LP",
+          "rating_numeric": 2435,
+          "created_timestamp": "2026-09-15T10:52:19.905",
+          "tft_set_name": "TFTSet18",
+          "queue_id": 1100
+        },
+        "server_rank": {
+          "rank": 5322,
+          "total": 617010
+        }
+      },
+      {
+        "riot_id": "Tester#KR1",
+        "puuid": "MASKED",
+        "summoner_region": "kr",
+        "ranked": {
+          "num_games": 111,
+          "rating_text": "DIAMOND IV 1 LP",
+          "rating_numeric": 2401,
+          "created_timestamp": "2026-09-15T09:22:20.099",
+          "tft_set_name": "TFTSet18",
+          "queue_id": 1100
+        },
+        "server_rank": {
+          "rank": 6274,
+          "total": 617010
+        }
+      },
+      {
+        "riot_id": "Lazy Panda#KR1",
+        "puuid": "MASKED",
+        "summoner_region": "kr",
+        "ranked": {
+          "num_games": 139,
+          "rating_text": "DIAMOND IV 34 LP",
+          "rating_numeric": 2434,
+          "created_timestamp": "2026-09-15T10:52:20.507",
+          "tft_set_name": "TFTSet18",
+          "queue_id": 1100
+        },
+        "server_rank": {
+          "rank": 5361,
+          "total": 617010
+        }
+      },
+      {
+        "riot_id": "마지막손님#KR9",
+        "puuid": "MASKED",
+        "summoner_region": "kr",
+        "ranked": {
+          "num_games": 176,
+          "rating_text": "DIAMOND III 10 LP",
+          "rating_numeric": 2510,
+          "created_timestamp": "2026-09-14T18:07:10.239",
+          "tft_set_name": "TFTSet18",
+          "queue_id": 1100
+        },
+        "server_rank": {
+          "rank": 3898,
+          "total": 617010
+        }
+      }
+    ]
+  }
+}

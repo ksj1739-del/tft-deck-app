@@ -16,6 +16,20 @@
     <!-- Android 13+ 에서 포그라운드 서비스 알림을 띄우려면 필요하다. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <!--
+        게임 연동: TFT 앱이 화면 앞에 왔는지 사용 기록(UsageStats)으로 확인한다.
+        사용자가 설정의 '사용 기록 접근'에서 직접 켜야 하는 권한이다.
+        접근성 서비스·화면 캡처·QUERY_ALL_PACKAGES는 쓰지 않는다.
+    -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- TFT 설치 여부 확인용. 패키지 하나만 보이게 한다. -->
+    <queries>
+        <package android:name="com.riotgames.league.teamfighttactics" />
+    </queries>
+
     <application
         android:name=".TftApp"
         android:allowBackup="true"
@@ -44,7 +58,7 @@
             android:foregroundServiceType="specialUse">
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="게임 화면 위에 선택한 덱을 띄워 두기 위한 오버레이 창" />
+                android:value="게임 화면 위에 선택한 덱을 띄우고, 사용자가 켠 경우 TFT 실행과 판 종료를 감지하기 위한 오버레이 서비스" />
         </service>
 
     </application>
