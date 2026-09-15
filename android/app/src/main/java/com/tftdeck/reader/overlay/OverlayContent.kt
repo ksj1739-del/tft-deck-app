@@ -238,7 +238,7 @@ fun OverlayContent(
                 IconBtn(Icons.AutoMirrored.Filled.ArrowBack, "목록으로") { onSelectDeck(null) }
                 // 헤더에는 버튼이 많아 이름을 두면 한두 글자만 남는다. 이름은 본문 첫 줄로 내렸다.
                 Text(
-                    text = selected.gradeFor(bucket) ?: "-",
+                    text = gradeText(selected, bucket),
                     color = gradeTint(selected, bucket),
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Bold,
@@ -298,9 +298,14 @@ private val PROFILE_WIDTH = 124.dp
 
 /** 통계 등급은 등급색, 편집 등급으로 대신 보여 줄 때는 편집 등급색. 등급이 없으면 흐린 색. */
 private fun gradeTint(deck: Deck, bucket: String): Color {
+    if (deck.isGlobalOnly) return OverlayAccent
     val grade = deck.gradeFor(bucket) ?: return OverlayMuted
     return if (deck.showsEditorialGrade(bucket)) tierColor(grade) else gradeColor(grade)
 }
+
+/** 오버레이는 칸이 좁아 metatft 전용 덱을 등급 글자 대신 'G' 한 글자로 구분한다. */
+private fun gradeText(deck: Deck, bucket: String): String =
+    if (deck.isGlobalOnly) "G" else deck.gradeFor(bucket) ?: "-"
 
 // ---------------------------------------------------------------------------
 // 접힌 상태
@@ -340,7 +345,7 @@ private fun CollapsedChip(
                     .border(1.5.dp, tint, CircleShape),
             )
             Text(
-                text = deck.gradeFor(bucket) ?: "-",
+                text = gradeText(deck, bucket),
                 color = tint,
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
@@ -424,7 +429,7 @@ private fun DeckListView(
 @Composable
 private fun TierLabel(deck: Deck, bucket: String) {
     Text(
-        text = deck.gradeFor(bucket) ?: "-",
+        text = gradeText(deck, bucket),
         color = gradeTint(deck, bucket),
         fontSize = 10.sp,
         fontWeight = FontWeight.Bold,

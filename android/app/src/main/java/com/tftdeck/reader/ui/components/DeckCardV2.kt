@@ -81,7 +81,7 @@ fun DeckCardV2(
     onOpenVariant: ((String) -> Unit)? = null,
 ) {
     val scheme = MaterialTheme.colorScheme
-    val stats = deck.statsFor(bucket)
+    val stats = deck.displayStats(bucket)
     val lowSample = deck.isLowSample(bucket)
     val hasMenu = onTogglePinned != null || onToggleHidden != null
     var menuOpen by remember { mutableStateOf(false) }
@@ -186,7 +186,7 @@ private fun HeaderLine(deck: Deck, bucket: String, metatftCompared: Boolean, pin
     val scheme = MaterialTheme.colorScheme
     Row(verticalAlignment = Alignment.Top) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            TierBadge(deck.gradeFor(bucket), editorial = deck.showsEditorialGrade(bucket))
+            TierBadge(deck.gradeFor(bucket), editorial = deck.showsEditorialGrade(bucket), global = deck.isGlobalOnly)
             // 편집 등급으로 대신 보여 줄 때도 이 구간 통계가 모자라다는 사실은 알린다.
             if (deck.isLowSample(bucket) && deck.showsEditorialGrade(bucket)) {
                 LowSampleNote(Modifier.padding(top = 2.dp))

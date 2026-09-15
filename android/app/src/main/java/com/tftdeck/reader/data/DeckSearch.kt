@@ -215,9 +215,11 @@ class DeckSearch(private val feed: DeckFeed) {
             return decks.sortedWith(comparator)
         }
 
+        // lol.qq 덱(구간 등급·편집 등급)을 먼저, metatft 전용 덱은 그 뒤에 글로벌 등급·평균 등수 순으로.
         private fun gradeComparator(bucket: String): Comparator<Deck> =
-            compareBy<Deck> { gradeRank(it.statsFor(bucket)?.grade) }
-                .thenBy(nullsLast<Double>()) { it.statsFor(bucket)?.adjAvg }
+            compareBy<Deck> { it.isGlobalOnly }
+                .thenBy { gradeRank(if (it.isGlobalOnly) it.globalGrade else it.statsFor(bucket)?.grade) }
+                .thenBy(nullsLast<Double>()) { if (it.isGlobalOnly) it.displayStats(bucket)?.avg else it.statsFor(bucket)?.adjAvg }
                 .thenBy { it.tierOrder }
                 .thenBy { it.name }
 

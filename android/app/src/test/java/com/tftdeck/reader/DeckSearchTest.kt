@@ -674,6 +674,30 @@ class DeckFeedV2Test {
     }
 
     @Test
+    fun `metatft 전용 덱은 어느 구간에나 보이고 글로벌 등급과 KR 수치로 lol_qq 덱 뒤에 선다`() {
+        val global = Deck(
+            id = "m-423017",
+            kind = "global",
+            name = "글로벌 전용",
+            globalGrade = "A",
+            global = com.tftdeck.reader.data.GlobalStats(
+                cluster = 423017,
+                stats = mapOf(
+                    "kr_plat" to com.tftdeck.reader.data.ScopeStat(n = 5000, avg = 4.1, top4 = 0.55, win = 0.13),
+                    "glob_plat" to com.tftdeck.reader.data.ScopeStat(n = 90000, avg = 4.2, top4 = 0.53, win = 0.12),
+                ),
+            ),
+        )
+        assertTrue(global.isGlobalOnly)
+        assertTrue(global.listedIn("master"))
+        assertFalse(global.isLowSample("goldem"))
+        assertEquals("A", global.gradeFor("goldem"))
+        assertEquals(5000, global.displayStats("goldem")?.n)
+        assertEquals(4.1, global.displayStats("goldem")?.avg ?: 0.0, 1e-9)
+        assertEquals(listOf(ELDER, "m-423017"), ids(DeckSearch.sort(listOf(global, deck(ELDER)), DeckSortMode.GRADE, "goldem")))
+    }
+
+    @Test
     fun `캐시·동봉본·원격 중 더 새 피드를 고른다`() {
         val v1 = FeedVersion(schemaVersion = 1, generatedAt = "2026-09-14T14:30:44Z")
         val v2 = FeedVersion(schemaVersion = 2, generatedAt = "2026-09-15T16:34:40Z")

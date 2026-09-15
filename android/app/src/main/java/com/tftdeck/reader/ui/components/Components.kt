@@ -230,8 +230,26 @@ private fun HexCell(slot: BoardSlot?, assetBase: String, modifier: Modifier) {
  * 등급이 없으면(표본 부족) 빈칸 대신 이유를 쓴다.
  */
 @Composable
-fun TierBadge(grade: String?, modifier: Modifier = Modifier, editorial: Boolean = false) {
+fun TierBadge(grade: String?, modifier: Modifier = Modifier, editorial: Boolean = false, global: Boolean = false) {
     val shape = RoundedCornerShape(6.dp)
+    // lol.qq 에 없는 metatft 전용 덱. 중국 통계 등급과 섞여 보이지 않게 '글로벌' 글자를 붙인다.
+    if (global) {
+        val color = FloaColors.Secondary
+        Box(
+            modifier = modifier
+                .clip(shape)
+                .border(1.dp, color.copy(alpha = 0.8f), shape)
+                .padding(horizontal = 6.dp, vertical = 2.dp),
+        ) {
+            Text(
+                if (grade.isNullOrBlank()) "글로벌" else "글로벌 $grade",
+                color = color,
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        return
+    }
     if (grade.isNullOrBlank()) {
         val color = gradeColor(null)
         Box(

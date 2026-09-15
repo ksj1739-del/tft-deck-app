@@ -184,7 +184,7 @@ fun DeckDetailScreen(
         // --- 1. 머리말 ---------------------------------------------------------
         Column(verticalArrangement = Arrangement.spacedBy(7.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                TierBadge(deck.gradeFor(bucket), editorial = deck.showsEditorialGrade(bucket))
+                TierBadge(deck.gradeFor(bucket), editorial = deck.showsEditorialGrade(bucket), global = deck.isGlobalOnly)
                 // 편집 등급으로 대신 보여 줄 때도 이 구간 통계가 모자라다는 사실은 알린다.
                 if (deck.isLowSample(bucket) && deck.showsEditorialGrade(bucket)) {
                     Spacer(Modifier.width(5.dp))
@@ -212,7 +212,7 @@ fun DeckDetailScreen(
             }
 
             if (feed != null && feed.buckets.isNotEmpty()) {
-                StatsRow(deck.statsFor(bucket), Modifier.padding(top = 4.dp))
+                StatsRow(deck.displayStats(bucket), Modifier.padding(top = 4.dp))
                 BucketChips(feed.buckets, bucket, viewModel::setBucket)
                 SampleLabel(deck, bucket, feed.buckets)
             }

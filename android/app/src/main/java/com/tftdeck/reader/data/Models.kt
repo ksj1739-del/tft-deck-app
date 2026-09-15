@@ -181,6 +181,8 @@ data class Deck(
     val tierOrder: Int = 9,
     /** 편집 덱의 SS~C 등급. 통계 등급(S~D)과 다른 체계라 따로 둔다. */
     val editorialTier: String? = null,
+    /** metatft 전용 덱(kind=global)의 글로벌 등급. lol.qq 통계가 없는 덱의 배지·정렬에만 쓴다. */
+    val globalGrade: String? = null,
     val patch: String = "",
     val finalLevel: Int? = null,
     val carryId: String? = null,
@@ -242,6 +244,18 @@ data class Deck(
     fun statsFor(bucket: String): DeckStats? = stats[bucket]
 
     /**
+     * 카드·상세의 네 수치에 쓸 값. lol.qq 덱은 그 구간 통계이고,
+     * metatft 전용 덱은 lol.qq 구간이 없으므로 KR 플래+(없으면 글로벌 플래+) 값을 쓴다.
+     */
+    fun displayStats(bucket: String): DeckStats? {
+        if (!isGlobalOnly) return statsFor(bucket)
+        val stats = global?.stats ?: return null
+        val scope = listOf(DeckKeys.SCOPE_KR_PLAT, DeckKeys.SCOPE_GLOBAL_PLAT).firstOrNull { it in stats } ?: return null
+        val stat = stats.getValue(scope)
+        return DeckStats(n = stat.n, avg = stat.avg, top4 = stat.top4, win = stat.win, grade = globalGrade)
+    }
+
+    /**
      * 이 구간에 통계는 있지만 표본이 작아 등급이 없는 덱. 카드·상세가 흐리게 하고 '표본 부족'을 붙인다.
      * 그 구간에 기록이 아예 없는 덱은 [appearsIn] 으로 목록에서 빠지므로 여기에 해당하지 않는다.
      */
@@ -261,7 +275,8 @@ data class Deck(
     val editorials: List<Editorial> get() = listOfNotNull(editorial) + moreEditorials
 
     /** 그 구간의 통계 등급. 없으면(표본 부족·편집 덱) 편집 등급으로 대신한다. */
-    fun gradeFor(bucket: String): String? = statsFor(bucket)?.grade ?: editorialGrade
+    fun gradeFor(bucket: String): String? =
+        statsFor(bucket)?.grade ?: editorialGrade ?: globalGrade?.takeIf { isGlobalOnly }
 
     /** 배지에 통계 등급이 아니라 편집 등급을 보여 주는 중인지. 모양을 달리해야 두 체계가 섞여 보이지 않는다. */
     fun showsEditorialGrade(bucket: String): Boolean =
