@@ -1,0 +1,91 @@
+{
+  "version": {"schemaVersion": 1, "generatedAt": "2026-09-16T20:07:40Z", "patchGlobal": "18.2", "patch": "16.18", "statDate": "2026-09-15", "contentHash": "3a9f0c1d2e4b"},
+  "scopes": {
+    "glob_plat": {"label": "글로벌 플래티넘+", "source": "metatft", "days": 3, "games": 5785016, "updatedAt": "2026-09-15T13:14:43Z", "unitsPerBoard": 8.38},
+    "kr_plat": {"label": "KR 플래티넘+", "source": "metatft", "days": 3, "games": 967672, "updatedAt": "2026-09-15T13:14:44Z", "unitsPerBoard": 8.40},
+    "kr_master": {"label": "KR 마스터+", "source": "metatft", "days": 3, "games": 38960, "updatedAt": "2026-09-15T13:14:45Z", "unitsPerBoard": 8.41},
+    "cn_plat": {"label": "중국 플래티넘+", "source": "lolqq", "days": 3, "games": 3534340, "statDate": "2026-09-15", "build": "", "meanAvg": 4.174},
+    "cn_master": {"label": "중국 마스터+", "source": "lolqq", "days": 3, "games": 97474, "statDate": "2026-09-15", "build": "", "meanAvg": 4.087}
+  },
+  "gradeCuts": {"S": 0.30, "A": 0.10, "B": -0.10, "C": -0.30, "minSample": 1000},
+  "prevPatch": {"patchGlobal": "18.1d", "frozenAt": "2026-09-09T20:39:41Z"},
+  "champions": [
+    {
+      "id": "DA_18_Ahri", "name": "아리", "nameEn": "Ahri", "cost": 4,
+      "icon": "assets/characters/tft18_ahri/tft18_ahri_square.png",
+      "traits": [{"id": "DA_18_Blossom", "name": "개화"}, {"id": "DA_18_Invoker", "name": "기원자"}],
+      "role": "주문술사",
+      "ability": {"name": "구미호", "desc": "적에게 마법 피해를 입힙니다 (455/685/3500)", "mana": [20, 100]},
+      "base": {"health": [700, 1260, 2268], "attackDamage": [40, 60, 90], "armor": 30, "magicResist": 30, "attackSpeed": 0.75, "range": 4},
+      "changed": null,
+      "stats": {
+        "glob_plat": {"n": 134007, "places": [17013, 17438, 18173, 17866, 17296, 16486, 15735, 14000], "avg": 4.37, "top4": 0.526, "win": 0.127, "pick": 0.139, "delta": -0.13, "grade": "B"},
+        "kr_plat": {"n": 14200, "places": [1800, 1810, 1820, 1790, 1760, 1740, 1730, 1750], "avg": 4.46, "top4": 0.508, "win": 0.127, "pick": 0.147, "delta": -0.04, "grade": "B"},
+        "kr_master": {"n": 620, "places": [80, 80, 79, 78, 77, 76, 75, 75], "avg": 4.44, "top4": 0.511, "win": 0.129, "pick": 0.159, "delta": -0.06, "grade": null},
+        "cn_plat": {"n": 1526455, "top1": 292487, "top4": 898053, "avg": 3.99, "top4Rate": 0.588, "win": 0.192, "pick": 0.432, "delta": -0.18, "grade": "A"},
+        "cn_master": {"n": 47565, "top1": 8696, "top4": 27232, "avg": 4.09, "top4Rate": 0.573, "win": 0.183, "pick": 0.488, "delta": 0.0, "grade": "B"}
+      },
+      "starStats": {"glob_plat": [{"star": 1, "n": 40000, "avg": 5.2}, {"star": 2, "n": 90000, "avg": 4.1}, {"star": 3, "n": 4007, "avg": 2.2}]},
+      "items": {
+        "scope": "glob_plat",
+        "top": [
+          {"id": "DA_InfinityEdge", "name": "무한의 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png", "n": 51262, "avg": 4.18, "delta": -0.19},
+          {"id": "DA_Deathblade", "name": "죽음의 검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_deathblade.png", "n": 30120, "avg": 4.29, "delta": -0.08}
+        ],
+        "builds": [{"items": ["DA_InfinityEdge", "DA_Deathblade", "DA_18_EmblemFae"], "n": 8210, "avg": 3.98}]
+      },
+      "cnItems": [{"id": "DA_InfinityEdge", "name": "무한의 대검", "n": 192382, "avg": 3.92}],
+      "prev": {"glob_plat": {"avg": 4.30, "pick": 0.15}},
+      "decks": ["g-7f3a9c1b2d"]
+    },
+    {
+      "id": "DA_18_Tristana", "name": "트리스타나", "nameEn": "Tristana", "cost": 1,
+      "icon": "assets/characters/tft18_tristana/tft18_tristana_square.png",
+      "traits": [{"id": "DA_18_Fae", "name": "요정"}, {"id": "DA_18_Adaptor", "name": "적응가"}],
+      "role": "원거리 딜러",
+      "ability": {"name": "폭발 화약", "desc": "<magicDamage>대상에게 폭탄을 붙입니다</magicDamage><br>3초 뒤 터집니다", "mana": [0.0, 60.0]},
+      "base": {"health": [550.0, 990.0, 1782.0], "attackDamage": [45.0, 67.5, 101.25], "armor": 20.0, "magicResist": 20.0, "attackSpeed": 0.7, "range": 4.0},
+      "changed": "buff",
+      "stats": {
+        "glob_plat": {"n": 402110, "places": [52674, 53480, 54285, 55890, 52272, 49460, 45840, 38209], "avg": 4.30, "top4": 0.538, "win": 0.131, "pick": 0.417, "delta": -0.20, "grade": "B"},
+        "kr_plat": {"n": 25000, "places": [3500, 3450, 3400, 3300, 3100, 2900, 2750, 2600], "avg": 4.27, "top4": 0.546, "win": 0.140, "pick": 0.260, "delta": -0.23, "grade": "A"},
+        "kr_master": {"n": 1200, "places": [140, 142, 145, 150, 155, 152, 158, 158], "avg": 4.60, "top4": 0.481, "win": 0.117, "pick": 0.308, "delta": 0.10, "grade": "B"},
+        "cn_plat": {"n": 812345, "top1": 150283, "top4": 470345, "avg": 4.12, "top4Rate": 0.579, "win": 0.185, "pick": 0.230, "delta": -0.05, "grade": "B"},
+        "cn_master": {"n": 20111, "top1": 3620, "top4": 11262, "avg": 4.15, "top4Rate": 0.560, "win": 0.180, "pick": 0.206, "delta": 0.06, "grade": "B"}
+      },
+      "starStats": {"glob_plat": [{"star": 1, "n": 101000, "avg": 4.9}, {"star": 2, "n": 250000, "avg": 4.2}, {"star": 3, "n": 51110, "avg": 3.4}]},
+      "items": {"scope": "glob_plat", "top": [], "builds": []},
+      "cnItems": [],
+      "prev": {"glob_plat": {"avg": 4.41, "pick": 0.39}, "kr_plat": {"avg": 4.33, "pick": 0.24}},
+      "decks": []
+    },
+    {
+      "id": "DA_18_ElderDragon", "name": "장로 드래곤", "nameEn": "Elder Dragon", "cost": 5,
+      "icon": "assets/characters/tft18_elderdragon/tft18_elderdragon_square.png",
+      "traits": [{"id": "DA_Riftbeast18", "name": "협곡야수"}],
+      "role": "마법사",
+      "ability": {"name": "장로의 숨결", "desc": "적 전체에 마법 피해를 입힙니다", "mana": [60, 150]},
+      "base": {"health": [1100, 1980, 3564], "attackDamage": [70, 105, 158], "armor": 60, "magicResist": 60, "attackSpeed": 0.8, "range": 4},
+      "changed": "new",
+      "stats": {
+        "glob_plat": {"n": 60000, "places": [9600, 8700, 8100, 7500, 7000, 6700, 6300, 6100], "avg": 4.16, "top4": 0.565, "win": 0.160, "pick": 0.062, "delta": -0.34, "grade": "S"},
+        "kr_plat": {"n": 800, "places": [150, 120, 110, 100, 90, 85, 75, 70], "avg": 3.96, "top4": 0.600, "win": 0.188, "pick": 0.008, "delta": -0.54, "grade": null},
+        "kr_master": {"n": 90, "places": [20, 15, 12, 10, 9, 8, 8, 8], "avg": 3.77, "top4": 0.633, "win": 0.222, "pick": 0.023, "delta": -0.73, "grade": null}
+      },
+      "starStats": {},
+      "items": {"scope": "glob_plat", "top": [], "builds": []},
+      "cnItems": [],
+      "prev": {},
+      "decks": ["g-7f3a9c1b2d"]
+    },
+    {
+      "id": "DA_18_Yorick", "name": "요릭", "nameEn": "Yorick", "cost": 2,
+      "icon": "assets/characters/tft18_yorick/tft18_yorick_square.png",
+      "traits": [{"id": "DA_18_Fae", "name": "요정"}],
+      "role": "탱커",
+      "changed": null,
+      "stats": {},
+      "decks": []
+    }
+  ]
+}

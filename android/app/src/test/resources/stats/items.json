@@ -1,0 +1,84 @@
+{
+  "version": {"schemaVersion": 1, "generatedAt": "2026-09-16T20:07:40Z", "patchGlobal": "18.2", "patch": "16.18", "statDate": "2026-09-15", "contentHash": "0c445e6f7081"},
+  "scopes": {
+    "glob_plat": {"label": "글로벌 플래티넘+", "source": "metatft", "days": 3, "games": 5785016, "updatedAt": "2026-09-15T13:14:43Z"},
+    "kr_plat": {"label": "KR 플래티넘+", "source": "metatft", "days": 3, "games": 967672, "updatedAt": "2026-09-15T13:14:44Z"},
+    "kr_master": {"label": "KR 마스터+", "source": "metatft", "days": 3, "games": 38960, "updatedAt": "2026-09-15T13:14:45Z"},
+    "cn_plat": {"label": "중국 플래티넘+", "source": "lolqq", "days": 3, "games": 3534340, "statDate": "2026-09-15", "build": "", "meanAvg": 4.174}
+  },
+  "gradeCuts": {"S": 0.30, "A": 0.20, "B": 0.10, "C": 0.0, "minSample": 1000},
+  "items": [
+    {
+      "id": "DA_Component_BFSword", "name": "B.F. 대검", "nameEn": "B.F. Sword", "kind": "component",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.png",
+      "desc": "공격력 +10", "components": [],
+      "stats": {}, "wearers": {}, "stages": [], "prev": {}, "decks": []
+    },
+    {
+      "id": "DA_Component_SparringGloves", "name": "연습용 장갑", "nameEn": "Sparring Gloves", "kind": "component",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_sparringgloves.png",
+      "desc": "치명타 확률 +20%", "components": [],
+      "stats": {}, "wearers": {}, "stages": [], "prev": {}, "decks": []
+    },
+    {
+      "id": "DA_InfinityEdge", "name": "무한의 대검", "nameEn": "Infinity Edge", "kind": "completed",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png",
+      "desc": "치명타 확률 +35%<br>스킬에 치명타가 적용됩니다",
+      "components": ["DA_Component_BFSword", "DA_Component_SparringGloves"],
+      "stats": {
+        "glob_plat": {"n": 2438487, "places": [317003, 314565, 309688, 302372, 299934, 297495, 297495, 299935], "avg": 4.26, "top4": 0.508, "win": 0.130, "pick": 0.360, "grade": "A"},
+        "kr_plat": {"n": 401233, "avg": 4.31, "top4": 0.530, "win": 0.120, "pick": 0.350, "grade": "B"},
+        "kr_master": {"n": 17002, "avg": 4.28, "top4": 0.540, "win": 0.125, "pick": 0.370, "grade": "B"},
+        "cn_plat": {"n": 1348678, "pick": 0.38, "avg": null, "grade": null}
+      },
+      "wearers": {
+        "glob_plat": [
+          {"id": "DA_18_ElderDragon", "name": "장로 드래곤", "n": 120000, "avg": 3.80, "delta": -0.16},
+          {"id": "DA_18_Tristana", "name": "트리스타나", "n": 98000, "avg": 4.21, "delta": 0.02}
+        ],
+        "cn_plat": [{"id": "DA_18_Ahri", "name": "아리", "n": 192382, "avg": 3.92}]
+      },
+      "stages": [{"stage": 2, "n": 12000, "win": 0.58}, {"stage": 3, "n": 400000, "win": 0.55}, {"stage": 4, "n": 800000, "win": 0.51}],
+      "prev": {"glob_plat": {"avg": 4.30}},
+      "decks": ["g-7f3a9c1b2d"]
+    },
+    {
+      "id": "DA_Deathblade", "name": "죽음의 검", "nameEn": "Deathblade", "kind": "completed",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_deathblade.png",
+      "desc": "공격력 +66%",
+      "components": ["DA_Component_BFSword", "DA_Component_BFSword"],
+      "stats": {
+        "glob_plat": {"n": 810000, "avg": 4.35, "top4": 0.52, "win": 0.12, "pick": 0.12, "grade": "B"},
+        "kr_plat": {"n": 640, "avg": 4.02, "top4": 0.58, "win": 0.15, "pick": 0.004, "grade": null}
+      },
+      "wearers": {"glob_plat": [{"id": "DA_18_Ahri", "name": "아리", "n": 50000, "avg": 4.10, "delta": -0.27}]},
+      "stages": [],
+      "prev": {},
+      "decks": []
+    },
+    {
+      "id": "DA_18_EmblemFae", "name": "요정 상징", "nameEn": "Fae Emblem", "kind": "emblem",
+      "icon": "assets/maps/tft/icons/items/hexcore/tft_item_emblem_fae.png",
+      "desc": "착용자가 요정 특성을 얻습니다.",
+      "components": ["DA_Component_Spatula", "DA_Component_TearOfTheGoddess"],
+      "stats": {
+        "glob_plat": {"n": 90000, "avg": 4.05, "top4": 0.57, "win": 0.15, "pick": 0.015, "grade": "A"},
+        "kr_plat": {"n": 15000, "avg": 4.10, "top4": 0.56, "win": 0.14, "pick": 0.016, "grade": "A"}
+      },
+      "wearers": {},
+      "stages": [],
+      "prev": {},
+      "decks": []
+    }
+  ],
+  "components": [
+    "DA_Component_BFSword", "DA_Component_RecurveBow", "DA_Component_NeedlesslyLargeRod", "DA_Component_TearOfTheGoddess",
+    "DA_Component_ChainVest", "DA_Component_NegatronCloak", "DA_Component_GiantsBelt", "DA_Component_SparringGloves",
+    "DA_Component_Spatula", "DA_Component_FryingPan"
+  ],
+  "recipes": {
+    "DA_Component_BFSword|DA_Component_SparringGloves": "DA_InfinityEdge",
+    "DA_Component_BFSword|DA_Component_BFSword": "DA_Deathblade",
+    "DA_Component_Spatula|DA_Component_TearOfTheGoddess": "DA_18_EmblemFae"
+  }
+}
