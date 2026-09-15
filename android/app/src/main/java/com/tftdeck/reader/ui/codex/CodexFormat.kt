@@ -1,6 +1,7 @@
 package com.tftdeck.reader.ui.codex
 
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import com.tftdeck.reader.data.StatScope
 import java.time.Instant
 import java.time.OffsetDateTime
@@ -202,13 +203,12 @@ internal fun changedLabel(changed: String): String = when (changed.lowercase()) 
 
 /** 등급 배지 바탕색. 글자는 어두운 색을 얹어 밝은 테마에서도 읽힌다. */
 internal fun gradeColor(grade: String?): Color = when (grade?.uppercase()) {
-    "SS" -> Color(0xFFFF7A95)
-    "S" -> Color(0xFFFFA94D)
-    "A" -> Color(0xFF4FC2A3)
-    "B" -> Color(0xFF6BA8E5)
-    "C" -> Color(0xFFB4BFBB)
-    "D" -> Color(0xFFD69A9A)
-    else -> Color(0xFF9AA8A4)
+    "SS", "S" -> FloaColors.TierS
+    "A" -> FloaColors.TierA
+    "B" -> FloaColors.TierB
+    "C" -> FloaColors.TierC
+    "D" -> FloaColors.TierD
+    else -> FloaColors.NoGrade
 }
 
 internal fun rarityColor(rarity: String?): Color = when (rarity?.lowercase()) {
@@ -221,11 +221,11 @@ internal fun rarityColor(rarity: String?): Color = when (rarity?.lowercase()) {
 internal fun changedColor(changed: String): Color = when (changed.lowercase()) {
     "buff" -> BetterColor
     "nerf" -> WorseColor
-    else -> Color(0xFF6BA8E5)
+    else -> FloaColors.Secondary
 }
 
-internal val BetterColor = Color(0xFF2E9E7A)
-internal val WorseColor = Color(0xFFD9605A)
+internal val BetterColor = FloaColors.Positive
+internal val WorseColor = FloaColors.Negative
 
 /** 평균 등수 차이 색: 낮아지면(좋아지면) 초록, 높아지면 빨강. */
 internal fun deltaColor(delta: Double?, neutral: Color): Color = when {

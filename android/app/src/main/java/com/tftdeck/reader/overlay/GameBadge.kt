@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -83,7 +84,7 @@ private fun ResultPill(result: GameStatus.Result, modifier: Modifier) {
     )
 }
 
-private val BadgeGreen = Color(0xFF5BD68A)
-private val BadgeRing = Color(0xFFE6EDEA)
-private val BadgeText = Color(0xFFE6EDEA)
-private val BadgeBackground = Color(0x664FC2A3)
+private val BadgeGreen = FloaColors.Positive
+private val BadgeRing = FloaColors.OnSurface
+private val BadgeText = FloaColors.OnSurface
+private val BadgeBackground = FloaColors.Primary.copy(alpha = 0.4f)

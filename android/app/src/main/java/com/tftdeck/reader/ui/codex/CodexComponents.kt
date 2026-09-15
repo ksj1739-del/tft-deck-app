@@ -41,6 +41,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -78,8 +79,8 @@ internal val DetailPadding = PaddingValues(horizontal = CodexHPad, vertical = 12
 internal val DetailGap = 22.dp
 
 /** 밝은 배지 위에 얹는 어두운 글자색. 밝은 테마·어두운 테마 모두에서 읽힌다. */
-internal val BadgeInk = Color(0xFF14201C)
-private val UnstyledGlyphBackground = Color(0xFF3A4A45)
+internal val BadgeInk = FloaColors.Background
+private val UnstyledGlyphBackground = FloaColors.OutlineVariant
 
 // ---------------------------------------------------------------------------
 // 배지·칸
@@ -348,7 +349,7 @@ fun TraitGlyph(
             AsyncImage(
                 model = url,
                 contentDescription = contentDescription,
-                colorFilter = ColorFilter.tint(if (styled) BadgeInk else Color(0xFFE6EDEA)),
+                colorFilter = ColorFilter.tint(if (styled) BadgeInk else FloaColors.OnSurface),
                 modifier = Modifier.fillMaxSize().padding(size * 0.16f),
             )
         }

@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -182,8 +183,8 @@ fun ProfileSummaryV2(
 /** 오른 판은 초록, 내린 판은 빨강. 밝은·어두운 테마 양쪽에서 읽히는 중간 톤으로 둔다. */
 private fun lpColor(delta: Int?, neutral: Color): Color = when {
     delta == null || delta == 0 -> neutral
-    delta > 0 -> Color(0xFF3DA66A)
-    else -> Color(0xFFD0605B)
+    delta > 0 -> FloaColors.Positive
+    else -> FloaColors.Negative
 }
 
 private const val RECENT_SLOTS = 8

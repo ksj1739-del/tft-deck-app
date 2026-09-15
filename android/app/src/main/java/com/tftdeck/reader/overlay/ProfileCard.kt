@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -228,20 +229,20 @@ private fun LpDeltaText(delta: Int?) {
 
 /** 1등은 금색, 톱4는 강조색, 그 아래는 차분하게. 색만 봐도 판이 어땠는지 읽힌다. */
 private fun placementColor(place: Int): Color = when (place) {
-    1 -> Color(0xFFE0B348)
-    2, 3, 4 -> Color(0xFF4FC2A3)
-    5, 6 -> Color(0xFF9AA8A4)
-    else -> Color(0xFFE0736F)
+    1 -> FloaColors.Gold
+    2, 3, 4 -> FloaColors.Positive
+    5, 6 -> FloaColors.OnSurfaceVariant
+    else -> FloaColors.Negative
 }
 
 private const val OVERLAY_RECENT_GAMES = 6
 private val CHIP_WIDTH = 15.dp
 
-private val ProfileScrim = Color(0xF20E1413)
-private val ProfileBorder = Color(0x4D4FC2A3)
-private val ProfileText = Color(0xFFE6EDEA)
-private val ProfileMuted = Color(0xFF8FA29C)
-private val ProfileAccent = Color(0xFF4FC2A3)
-private val ProfileWarn = Color(0xFFD9A441)
-private val ProfileGain = Color(0xFF5BD68A)
-private val ProfileLoss = Color(0xFFE0736F)
+private val ProfileScrim = FloaColors.Surface.copy(alpha = 0.95f)
+private val ProfileBorder = FloaColors.Secondary.copy(alpha = 0.3f)
+private val ProfileText = FloaColors.OnSurface
+private val ProfileMuted = FloaColors.OnSurfaceVariant
+private val ProfileAccent = FloaColors.Secondary
+private val ProfileWarn = FloaColors.Gold
+private val ProfileGain = FloaColors.Positive
+private val ProfileLoss = FloaColors.Negative

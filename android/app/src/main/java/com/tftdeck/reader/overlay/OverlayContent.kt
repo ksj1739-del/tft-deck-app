@@ -50,6 +50,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
@@ -822,13 +823,13 @@ private fun TintedIconBtn(icon: ImageVector, label: String, tint: Color, onClick
 }
 
 // 오버레이 전용 색. 게임 위에 떠 있어야 해서 앱 테마와 무관하게 어두운 반투명으로 고정한다.
-private val OverlayScrim = Color(0xF20E1413)
-private val OverlayHeader = Color(0xFF18211F)
-private val OverlayBorder = Color(0x4D4FC2A3)
-private val OverlayText = Color(0xFFE6EDEA)
-private val OverlayMuted = Color(0xFF8FA29C)
-private val OverlayAccent = Color(0xFF4FC2A3)
-private val OverlayAmber = Color(0xFFD9A441)
+private val OverlayScrim = FloaColors.Surface.copy(alpha = 0.95f)
+private val OverlayHeader = FloaColors.SurfaceElevated
+private val OverlayBorder = FloaColors.Secondary.copy(alpha = 0.3f)
+private val OverlayText = FloaColors.OnSurface
+private val OverlayMuted = FloaColors.OnSurfaceVariant
+private val OverlayAccent = FloaColors.Secondary
+private val OverlayAmber = FloaColors.Gold
 
 /** 오버레이용 코스트 테두리 색. 어두운 배경 위에서 읽히도록 앱 테마와 따로 둔다. */
 private fun costTint(cost: Int?): Color = when (cost) {

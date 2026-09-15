@@ -227,4 +227,4 @@ fun BucketChips(
     }
 }
 
-private val KrBlue = Color(0xFF4E8FD6)
+private val KrBlue = Color(0xFF60A5FA)

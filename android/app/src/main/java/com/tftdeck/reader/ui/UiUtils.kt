@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Build
 import android.widget.Toast
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -64,13 +65,13 @@ fun openUrl(context: Context, url: String) {
     }
 }
 
-/** 편집 등급(SS~C) 색. SS가 가장 강하고 아래로 갈수록 차분해진다. */
+/** 편집 등급(SS~C) 색. 디자인 시스템 등급 팔레트를 한 칸 올려 SS 가 가장 강하다. */
 fun tierColor(tier: String): Color = when (tier.uppercase()) {
-    "SS" -> Color(0xFFFF6B8A)
-    "S" -> Color(0xFFFFA94D)
-    "A" -> Color(0xFF4FC2A3)
-    "B" -> Color(0xFF6BA8E5)
-    else -> Color(0xFF9AA8A4)
+    "SS" -> FloaColors.TierS
+    "S" -> FloaColors.TierA
+    "A" -> FloaColors.TierB
+    "B" -> FloaColors.TierC
+    else -> FloaColors.TierD
 }
 
 /**
@@ -78,12 +79,12 @@ fun tierColor(tier: String): Color = when (tier.uppercase()) {
  * 표본 부족(null)은 회색이라 등급이 있는 덱과 한눈에 구분된다.
  */
 fun gradeColor(grade: String?): Color = when (grade?.uppercase()) {
-    "S" -> Color(0xFFFF6B8A)
-    "A" -> Color(0xFFFFA94D)
-    "B" -> Color(0xFF4FC2A3)
-    "C" -> Color(0xFF6BA8E5)
-    "D" -> Color(0xFF9AA8A4)
-    else -> Color(0xFF8A9591)
+    "S" -> FloaColors.TierS
+    "A" -> FloaColors.TierA
+    "B" -> FloaColors.TierB
+    "C" -> FloaColors.TierC
+    "D" -> FloaColors.TierD
+    else -> FloaColors.NoGrade
 }
 
 /** 추세 표시. 평탄하면 아무것도 붙이지 않는다. */
@@ -95,17 +96,17 @@ fun trendGlyph(trend: String?): String = when (trend) {
 
 /** 추세 색. 오르면 초록, 내리면 빨강. */
 fun trendColor(trend: String?): Color = when (trend) {
-    "up" -> Color(0xFF3FAE6A)
-    "down" -> Color(0xFFE0736F)
-    else -> Color(0xFF8FA29C)
+    "up" -> FloaColors.Positive
+    "down" -> FloaColors.Negative
+    else -> FloaColors.OnSurfaceVariant
 }
 
-/** 등수 색. 1등 금색, 톱4 옥색, 5·6등 회색, 7·8등 빨강. 분포 막대와 칩이 같은 규칙을 쓴다. */
+/** 등수 색. 1등 금색, 톱4 초록, 5·6등 회색, 7·8등 빨강. 분포 막대와 칩이 같은 규칙을 쓴다. */
 fun placeColor(place: Int): Color = when (place) {
-    1 -> Color(0xFFE0B348)
-    2, 3, 4 -> Color(0xFF4FC2A3)
-    5, 6 -> Color(0xFF9AA8A4)
-    else -> Color(0xFFE0736F)
+    1 -> FloaColors.Gold
+    2, 3, 4 -> FloaColors.Positive
+    5, 6 -> FloaColors.OnSurfaceVariant
+    else -> FloaColors.Negative
 }
 
 /** 시너지 등급 색. 1=브론즈, 2=실버, 3=골드, 4=프리즘. */

@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shadow
@@ -627,7 +628,7 @@ fun LowSampleNote(modifier: Modifier = Modifier) {
 private const val PER_ROW = 8
 private val ITEM_ROW_HEIGHT = 11.dp
 private val COMPACT_FACE = 26.dp
-private val StarGold = Color(0xFFE0B348)
+private val StarGold = FloaColors.Gold
 
 /** 목록이 비었을 때 무엇을 해야 하는지 알려 준다. */
 @Composable

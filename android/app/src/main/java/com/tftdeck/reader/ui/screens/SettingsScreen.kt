@@ -36,6 +36,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -342,10 +343,10 @@ private fun iconPackStatusText(state: IconPackState): String {
 
 /** 1등 금색, 톱4 강조색, 그 아래는 차분하게. 전적 카드·지난 게임 로비·오버레이 카드가 같은 규칙을 쓴다. */
 internal fun placementTint(place: Int): Color = when (place) {
-    1 -> Color(0xFFCF9B1F)
-    2, 3, 4 -> Color(0xFF17705C)
-    5, 6 -> Color(0xFF6E7C78)
-    else -> Color(0xFFBA5A56)
+    1 -> FloaColors.Gold
+    2, 3, 4 -> FloaColors.Positive
+    5, 6 -> FloaColors.OnSurfaceVariant
+    else -> FloaColors.Negative
 }
 
 @Composable
