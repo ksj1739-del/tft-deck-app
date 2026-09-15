@@ -506,8 +506,12 @@ class DeckFeedV2Test {
     @Test
     fun `구간별 네 가지 정렬`() {
         val goldem = "goldem"
-        val all = search.filter(bucket = goldem)
-        assertEquals(ids(feed.decks), ids(all))
+        // 목록 필터는 그 구간 등급이 있는 덱과 편집 독립 덱만 남긴다(요릭은 표본 250이라 등급이 없어 빠진다).
+        assertEquals(listOf(ELDER, APHELIOS, EDITORIAL), ids(search.filter(bucket = goldem)))
+        // 고정한 덱은 등급이 없어도 남긴다.
+        assertEquals(ids(feed.decks), ids(search.filter(bucket = goldem, alwaysShow = setOf(YORICK))))
+        // 정렬 규칙은 필터와 무관하게 모든 덱으로 검사한다.
+        val all = feed.decks
 
         // 등급 S→D→없음, 같은 무리에서는 보정 평균(없으면 뒤)
         assertEquals(listOf(ELDER, APHELIOS, YORICK, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.GRADE, goldem)))
@@ -529,7 +533,9 @@ class DeckFeedV2Test {
     fun `구간 등급·편집 덱·중국 한정·주 특성·레벨 필터`() {
         // 티어 필터는 그 구간의 등급(없으면 편집 등급)으로 본다.
         assertEquals(setOf(ELDER, EDITORIAL), ids(search.filter(tiers = setOf("S"), bucket = "goldem")).toSet())
-        assertEquals(setOf(ELDER), ids(search.filter(tiers = setOf("SS"), bucket = "master")).toSet())
+        // 마스터+ 에서 장로 드래곤은 통계 등급이 없어(표본 부족) 편집 등급 SS 여도 목록에서 빠진다. 고정하면 남는다.
+        assertTrue(search.filter(tiers = setOf("SS"), bucket = "master").isEmpty())
+        assertEquals(setOf(ELDER), ids(search.filter(tiers = setOf("SS"), bucket = "master", alwaysShow = setOf(ELDER))).toSet())
 
         assertEquals(setOf(ELDER, EDITORIAL), ids(search.filter(editorialOnly = true)).toSet())
         assertEquals(listOf(YORICK), ids(search.filter(onlyChina = true)))
@@ -657,12 +663,14 @@ class DeckFeedV2Test {
         assertFalse(deck(ELDER).isLowSample("goldem"))
         assertTrue("등급 null", deck(ELDER).isLowSample("master"))
         assertTrue("표본 250", deck(YORICK).isLowSample("goldem"))
-        // 그 구간에 기록이 아예 없는 덱은 표본 부족으로 늘어놓지 않고 목록에서 뺀다.
+        // 그 구간에 기록이 없거나 표본이 작아 등급이 없으면 목록에서 뺀다(등급 있는 덱만 보인다).
         assertFalse("그 구간에 없음", deck(APHELIOS).isLowSample("low"))
-        assertFalse(deck(APHELIOS).appearsIn("low"))
-        assertTrue(deck(ELDER).appearsIn("master"))
+        assertFalse(deck(APHELIOS).listedIn("low"))
+        assertFalse("등급 없는 구간", deck(ELDER).listedIn("master"))
+        assertTrue(deck(ELDER).listedIn("goldem"))
+        assertFalse("표본 250", deck(YORICK).listedIn("goldem"))
         assertFalse("통계가 없는 편집 독립 덱은 편집 등급이 기준", deck(EDITORIAL).isLowSample("goldem"))
-        assertTrue("편집 독립 덱은 어느 구간에나 나온다", deck(EDITORIAL).appearsIn("low"))
+        assertTrue("편집 독립 덱은 어느 구간에나 나온다", deck(EDITORIAL).listedIn("low"))
     }
 
     @Test

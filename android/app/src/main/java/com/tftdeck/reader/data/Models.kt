@@ -247,11 +247,15 @@ data class Deck(
      */
     fun isLowSample(bucket: String): Boolean = statsFor(bucket)?.let { it.grade == null } ?: false
 
+    /** metatft 에만 있는 덱(lol.qq 통계·편집 덱이 없다). 목록에서 등급 대신 '글로벌' 표시를 단다. */
+    val isGlobalOnly: Boolean get() = kind == "global"
+
     /**
-     * 이 구간 목록에 나올 덱인지. 그 구간에 기록이 없는 통계 덱까지 '표본 부족'으로 늘어놓으면
-     * 다이아+·마스터+에서 목록 대부분이 표본 부족으로 보여서 뺀다. 통계가 없는 편집 독립 덱은 어느 구간에서나 보인다.
+     * 이 구간 목록에 나올 덱인지. 등급이 있는 덱만 보인다 — 그 구간에 기록이 없거나 표본이 작아
+     * 등급이 없는 통계 덱은 뺀다(다이아+·마스터+에서 목록 대부분이 표본 부족으로 보이던 문제).
+     * 통계가 없는 편집 독립 덱(편집 등급)과 metatft 전용 덱('글로벌' 표시)은 어느 구간에서나 보인다.
      */
-    fun appearsIn(bucket: String): Boolean = stats.isEmpty() || statsFor(bucket) != null
+    fun listedIn(bucket: String): Boolean = isGlobalOnly || stats.isEmpty() || statsFor(bucket)?.grade != null
 
     /** 이 덱의 편집 덱 전부: 대표 먼저, 그다음 같은 그룹의 다른 작가. */
     val editorials: List<Editorial> get() = listOfNotNull(editorial) + moreEditorials

@@ -136,11 +136,11 @@ fun OverlayContent(
     val allDecks = data?.decks.orEmpty()
     if (allDecks.isEmpty()) return
     val assetBase = data?.assetBase.orEmpty()
-    // 목록: 숨긴 덱과 그 구간에 기록이 없는 덱은 빼고(고정한 덱은 남긴다), 그 구간 등급순으로, 고정한 덱을 맨 위로.
+    // 목록: 숨긴 덱과 그 구간 등급이 없는 덱은 빼고(고정한 덱은 남긴다), 그 구간 등급순으로, 고정한 덱을 맨 위로.
     val decks = remember(allDecks, bucket, pinned, hidden) {
         DeckSearch.pinFirst(
             DeckSearch.sort(
-                allDecks.filter { it.id !in hidden && (it.appearsIn(bucket) || it.id in pinned) },
+                allDecks.filter { it.id !in hidden && (it.listedIn(bucket) || it.id in pinned) },
                 DeckSortMode.GRADE,
                 bucket,
             ),

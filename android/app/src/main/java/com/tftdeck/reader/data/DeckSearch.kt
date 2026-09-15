@@ -157,7 +157,7 @@ class DeckSearch(private val feed: DeckFeed) {
     /**
      * 덱 목록 필터. [bucket] 을 주면 티어 필터는 그 구간의 등급(없으면 편집 등급)으로 본다.
      * 숨긴 덱은 [showHidden] 일 때만 함께 나온다 — 길게 눌러 복구할 수 있어야 하기 때문이다.
-     * [bucket] 을 주면 그 구간에 기록이 없는 통계 덱은 뺀다. 고정한 덱처럼 늘 남길 덱은 [alwaysShow] 로 넘긴다.
+     * [bucket] 을 주면 그 구간 등급이 없는 통계 덱은 뺀다. 고정한 덱처럼 늘 남길 덱은 [alwaysShow] 로 넘긴다.
      */
     fun filter(
         tiers: Set<String> = emptySet(),
@@ -170,7 +170,7 @@ class DeckSearch(private val feed: DeckFeed) {
         bucket: String? = null,
         alwaysShow: Set<String> = emptySet(),
     ): List<Deck> = feed.decks.filter { deck ->
-        (bucket == null || deck.appearsIn(bucket) || deck.id in alwaysShow) &&
+        (bucket == null || deck.listedIn(bucket) || deck.id in alwaysShow) &&
             (tiers.isEmpty() || (if (bucket != null) deck.gradeFor(bucket) else deck.tier) in tiers) &&
             (levels.isEmpty() || deck.finalLevel in levels) &&
             (!onlyChina || deck.isOnlyInChina) &&
