@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -32,25 +33,31 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.tftdeck.reader.data.Deck
+import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.SearchAxis
 import com.tftdeck.reader.data.Suggestion
 import com.tftdeck.reader.ui.AppViewModel
-import com.tftdeck.reader.ui.components.DeckCard
+import com.tftdeck.reader.ui.components.DeckCardV2
 import com.tftdeck.reader.ui.components.EmptyState
 import com.tftdeck.reader.ui.components.ScreenPadding
 import com.tftdeck.reader.ui.costColor
 import com.tftdeck.reader.ui.iconUrl
 
+/** 도감 상세가 있는 검색 축. 조합 재료는 아이템 도감의 일부라 따로 버튼을 달지 않는다. */
+private val CODEX_AXES = setOf(SearchAxis.CHAMPION, SearchAxis.TRAIT, SearchAxis.ITEM, SearchAxis.AUGMENT)
+
 /**
  * 통합 검색.
  *
  * 아이템을 고르면 그 아이템이 들어가는 덱이 나온다 — 두 원본 사이트 어디에도 없는 기능이라
- * 결과를 '핵심'과 '대체'로 나눠 보여 준다.
+ * 결과를 '핵심'과 '대체'로 나눠 보여 준다. 후보 오른쪽의 '도감' 버튼은 그 항목의 통계 화면으로 간다.
  */
 @Composable
 fun SearchScreen(
     viewModel: AppViewModel,
     onOpenDeck: (String) -> Unit,
+    onOpenCodex: (SearchAxis, String) -> Unit = { _, _ -> },
 ) {
     val query by viewModel.query.collectAsState()
     val suggestions by viewModel.suggestions.collectAsState()
@@ -81,7 +88,7 @@ fun SearchScreen(
         when {
             // 아직 아무것도 고르지 않았고 입력 중이면 후보를 보여 준다.
             selected == null && suggestions.isNotEmpty() ->
-                SuggestionList(suggestions, assetBase, viewModel::select)
+                SuggestionList(suggestions, assetBase, viewModel::select, onOpenCodex)
 
             selected == null && query.isNotBlank() -> EmptyState(
                 title = "검색 결과가 없습니다",
@@ -105,6 +112,7 @@ private fun SuggestionList(
     suggestions: List<Suggestion>,
     assetBase: String,
     onPick: (Suggestion) -> Unit,
+    onOpenCodex: (SearchAxis, String) -> Unit,
 ) {
     LazyColumn(contentPadding = ScreenPadding) {
         items(suggestions, key = { "${it.axis}:${it.name}" }) { item ->
@@ -112,7 +120,7 @@ private fun SuggestionList(
                 Modifier
                     .fillMaxWidth()
                     .clickable { onPick(item) }
-                    .padding(horizontal = 4.dp, vertical = 9.dp),
+                    .padding(start = 4.dp, top = 5.dp, bottom = 5.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Box(Modifier.size(30.dp), contentAlignment = Alignment.Center) {
@@ -148,6 +156,20 @@ private fun SuggestionList(
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+                val codexId = item.id?.takeIf { item.axis in CODEX_AXES }
+                if (codexId != null) {
+                    IconButton(onClick = { onOpenCodex(item.axis, codexId) }) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.MenuBook,
+                            contentDescription = "${item.name} 도감",
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(20.dp),
+                        )
+                    }
+                } else {
+                    // 버튼이 없는 줄도 오른쪽 끝이 같은 자리에서 끝나게 한다.
+                    Spacer(Modifier.width(48.dp))
+                }
             }
         }
     }
@@ -161,7 +183,29 @@ private fun ResultList(
 ) {
     val selected by viewModel.selected.collectAsState()
     val results by viewModel.results.collectAsState()
+    val state by viewModel.feedState.collectAsState()
+    val bucket by viewModel.bucket.collectAsState()
+    val pinned by viewModel.pinnedSet.collectAsState()
+    val hidden by viewModel.hiddenSet.collectAsState()
+    val feed = (state as? FeedState.Ready)?.feed
     val pick = selected ?: return
+
+    val card: @Composable (Deck, String?) -> Unit = { deck, highlightUnit ->
+        DeckCardV2(
+            deck = deck,
+            bucket = bucket,
+            assetBase = assetBase,
+            onClick = { onOpenDeck(deck.id) },
+            buckets = feed?.buckets.orEmpty(),
+            metatftCompared = feed?.version?.metatftCompared ?: true,
+            pinned = deck.id in pinned,
+            hidden = deck.id in hidden,
+            onTogglePinned = { viewModel.togglePinned(deck.id) },
+            onToggleHidden = { viewModel.toggleHidden(deck.id) },
+            highlightUnit = highlightUnit,
+            unitInfo = viewModel::unitEntry,
+        )
+    }
 
     LazyColumn(
         contentPadding = ScreenPadding,
@@ -174,29 +218,19 @@ private fun ResultList(
             if (core.isNotEmpty()) {
                 item { SectionLabel("핵심 아이템으로 쓰는 덱 ${core.size}") }
                 items(core, key = { "core-${it.deck.id}-${it.unitName}" }) { hit ->
-                    DeckCard(
-                        deck = hit.deck,
-                        assetBase = assetBase,
-                        onClick = { onOpenDeck(hit.deck.id) },
-                        highlightUnit = hit.unitName,
-                    )
+                    card(hit.deck, hit.unitName)
                 }
             }
             if (backup.isNotEmpty()) {
                 item { SectionLabel("대체 아이템으로 쓰는 덱 ${backup.size}") }
                 items(backup, key = { "backup-${it.deck.id}-${it.unitName}" }) { hit ->
-                    DeckCard(
-                        deck = hit.deck,
-                        assetBase = assetBase,
-                        onClick = { onOpenDeck(hit.deck.id) },
-                        highlightUnit = hit.unitName,
-                    )
+                    card(hit.deck, hit.unitName)
                 }
             }
         } else {
             item { SectionLabel("${pick.name}이(가) 들어가는 덱 ${results.decks.size}") }
             items(results.decks, key = { it.id }) { deck ->
-                DeckCard(deck = deck, assetBase = assetBase, onClick = { onOpenDeck(deck.id) })
+                card(deck, null)
             }
         }
     }
@@ -226,7 +260,7 @@ private fun SearchHints() {
         listOf(
             "무한의 대검" to "그 아이템이 들어가는 덱 전부 — 핵심/대체로 구분",
             "곡궁" to "기본 아이템으로 갈 수 있는 덱 (지금 뭘 먹었는지로 검색)",
-            "아리" to "그 챔피언을 쓰는 덱",
+            "아리" to "그 챔피언을 쓰는 덱. 오른쪽 책 버튼은 도감으로 갑니다",
             "ㅁㅎㅇ" to "초성으로도 찾습니다",
             "무대" to "줄임말도 받습니다",
         ).forEach { (example, detail) ->

@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,9 +16,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.automirrored.filled.ViewList
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -31,12 +33,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -46,9 +47,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.tftdeck.reader.data.SearchAxis
 import com.tftdeck.reader.overlay.OverlayService
 import com.tftdeck.reader.overlay.OverlayState
 import com.tftdeck.reader.ui.AppViewModel
+import com.tftdeck.reader.ui.screens.CodexPlaceholder
 import com.tftdeck.reader.ui.screens.DeckDetailScreen
 import com.tftdeck.reader.ui.screens.DeckListScreen
 import com.tftdeck.reader.ui.screens.SearchScreen
@@ -92,12 +95,38 @@ class MainActivity : ComponentActivity() {
 
 private sealed class Tab(val route: String, val label: String) {
     data object Decks : Tab("decks", "덱")
+    data object Codex : Tab("codex", "도감")
     data object Search : Tab("search", "검색")
-    data object Settings : Tab("settings", "설정")
+    data object Settings : Tab("settings", "내 정보")
 }
 
-private val TABS = listOf(Tab.Decks, Tab.Search, Tab.Settings)
-private const val DETAIL_ROUTE = "deck/{deckId}"
+private val TABS = listOf(Tab.Decks, Tab.Codex, Tab.Search, Tab.Settings)
+
+/** 덱 상세. variant 는 목록의 변형 행에서 들어올 때만 붙는다(오버레이의 "deck/{id}"도 그대로 맞는다). */
+private const val DETAIL_ROUTE = "deck/{deckId}?variant={variant}"
+private const val CODEX_CHAMPION_ROUTE = "codex/champion/{id}"
+private const val CODEX_TRAIT_ROUTE = "codex/trait/{id}"
+private const val CODEX_ITEM_ROUTE = "codex/item/{id}"
+private const val CODEX_AUGMENT_ROUTE = "codex/augment/{id}"
+
+/** 하단 바를 숨기고 뒤로 버튼을 다는 상세 화면: 덱 상세와 도감 상세(codex/종류/id). */
+private fun isDetailRoute(route: String?): Boolean =
+    route != null && (route.startsWith("deck/") || isCodexDetailRoute(route))
+
+private fun isCodexDetailRoute(route: String?): Boolean =
+    route != null && route.startsWith("codex/") && route.count { it == '/' } >= 2
+
+/** 검색 후보의 '도감' 버튼이 여는 라우트. 조합 재료 축은 도감 버튼을 달지 않는다. */
+private fun codexRouteFor(axis: SearchAxis, id: String): String? {
+    val encoded = Uri.encode(id)
+    return when (axis) {
+        SearchAxis.CHAMPION -> "codex/champion/$encoded"
+        SearchAxis.TRAIT -> "codex/trait/$encoded"
+        SearchAxis.ITEM -> "codex/item/$encoded"
+        SearchAxis.AUGMENT -> "codex/augment/$encoded"
+        SearchAxis.COMPONENT -> null
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -153,7 +182,8 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
         android.widget.Toast.makeText(context, "앱을 나가면 게임 위에 나타납니다", android.widget.Toast.LENGTH_SHORT).show()
     }
 
-    val isDetail = route == DETAIL_ROUTE
+    val openDeck: (String) -> Unit = { id -> navController.navigate("deck/$id") }
+    val isDetail = isDetailRoute(route)
 
     Scaffold(
         topBar = {
@@ -161,9 +191,11 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
                 title = {
                     Text(
                         when {
-                            isDetail -> "덱 상세"
+                            route?.startsWith("deck/") == true -> "덱 상세"
+                            isCodexDetailRoute(route) -> "도감"
+                            route == Tab.Codex.route -> "도감"
                             route == Tab.Search.route -> "검색"
-                            route == Tab.Settings.route -> "설정"
+                            route == Tab.Settings.route -> "내 정보"
                             else -> stringResourceSafe(context, R.string.app_name)
                         },
                         style = MaterialTheme.typography.titleMedium,
@@ -204,11 +236,67 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
             NavHost(navController = navController, startDestination = Tab.Decks.route) {
 
                 composable(Tab.Decks.route) {
-                    DeckListScreen(viewModel) { id -> navController.navigate("deck/$id") }
+                    DeckListScreen(
+                        viewModel = viewModel,
+                        onOpenDeck = openDeck,
+                        onOpenVariant = { deckId, variantId ->
+                            navController.navigate("deck/$deckId?variant=${Uri.encode(variantId)}")
+                        },
+                    )
+                }
+
+                // -- 도감: 통합 단계에서 WP-4 화면으로 교체 ---------------------------
+
+                composable(Tab.Codex.route) {
+                    // 통합: CodexScreen(viewModel = codexViewModel,
+                    //     onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") },
+                    //     onOpenTrait = { navController.navigate("codex/trait/${Uri.encode(it)}") },
+                    //     onOpenItem = { navController.navigate("codex/item/${Uri.encode(it)}") },
+                    //     onOpenAugment = { navController.navigate("codex/augment/${Uri.encode(it)}") })
+                    CodexPlaceholder(kind = "codex", id = null)
+                }
+
+                composable(
+                    route = CODEX_CHAMPION_ROUTE,
+                    arguments = listOf(navArgument("id") { type = NavType.StringType }),
+                ) { entry ->
+                    // 통합: ChampionDetailScreen(id, viewModel = codexViewModel, onOpenDeck = openDeck,
+                    //     onOpenItem = { navController.navigate("codex/item/${Uri.encode(it)}") })
+                    CodexPlaceholder(kind = "champion", id = entry.arguments?.getString("id"))
+                }
+
+                composable(
+                    route = CODEX_TRAIT_ROUTE,
+                    arguments = listOf(navArgument("id") { type = NavType.StringType }),
+                ) { entry ->
+                    // 통합: TraitDetailScreen(id, viewModel = codexViewModel, onOpenDeck = openDeck,
+                    //     onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") })
+                    CodexPlaceholder(kind = "trait", id = entry.arguments?.getString("id"))
+                }
+
+                composable(
+                    route = CODEX_ITEM_ROUTE,
+                    arguments = listOf(navArgument("id") { type = NavType.StringType }),
+                ) { entry ->
+                    // 통합: ItemDetailScreen(id, viewModel = codexViewModel, onOpenDeck = openDeck,
+                    //     onOpenChampion = { navController.navigate("codex/champion/${Uri.encode(it)}") })
+                    CodexPlaceholder(kind = "item", id = entry.arguments?.getString("id"))
+                }
+
+                composable(
+                    route = CODEX_AUGMENT_ROUTE,
+                    arguments = listOf(navArgument("id") { type = NavType.StringType }),
+                ) { entry ->
+                    // 통합: AugmentDetailScreen(id, viewModel = codexViewModel, onOpenDeck = openDeck)
+                    CodexPlaceholder(kind = "augment", id = entry.arguments?.getString("id"))
                 }
 
                 composable(Tab.Search.route) {
-                    SearchScreen(viewModel) { id -> navController.navigate("deck/$id") }
+                    SearchScreen(
+                        viewModel = viewModel,
+                        onOpenDeck = openDeck,
+                        onOpenCodex = { axis, id -> codexRouteFor(axis, id)?.let { navController.navigate(it) } },
+                    )
                 }
 
                 composable(Tab.Settings.route) {
@@ -229,13 +317,22 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
 
                 composable(
                     route = DETAIL_ROUTE,
-                    arguments = listOf(navArgument("deckId") { type = NavType.StringType }),
+                    arguments = listOf(
+                        navArgument("deckId") { type = NavType.StringType },
+                        navArgument("variant") {
+                            type = NavType.StringType
+                            nullable = true
+                            defaultValue = null
+                        },
+                    ),
                 ) { entry ->
                     DeckDetailScreen(
                         deckId = entry.arguments?.getString("deckId").orEmpty(),
                         viewModel = viewModel,
                         overlayRunning = overlayRunning,
                         onStartOverlay = { id -> startOverlay(id) },
+                        initialVariant = entry.arguments?.getString("variant"),
+                        onOpenDeck = openDeck,
                     )
                 }
             }
@@ -245,8 +342,9 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
 
 private fun tabIcon(tab: Tab) = when (tab) {
     Tab.Decks -> Icons.AutoMirrored.Filled.ViewList
+    Tab.Codex -> Icons.AutoMirrored.Filled.MenuBook
     Tab.Search -> Icons.Default.Search
-    Tab.Settings -> Icons.Default.Settings
+    Tab.Settings -> Icons.Default.Person
 }
 
 private fun stringResourceSafe(context: Context, id: Int): String = context.getString(id)

@@ -3,9 +3,14 @@ package com.tftdeck.reader.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.tftdeck.reader.data.CatalogEntry
+import com.tftdeck.reader.data.CatalogIndex
 import com.tftdeck.reader.data.Deck
+import com.tftdeck.reader.data.DeckFeed
+import com.tftdeck.reader.data.DeckPrefs
 import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.DeckSearch
+import com.tftdeck.reader.data.DeckSortMode
 import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.ItemHit
 import com.tftdeck.reader.data.ProfileRepository
@@ -13,6 +18,7 @@ import com.tftdeck.reader.data.ProfileState
 import com.tftdeck.reader.data.SearchAxis
 import com.tftdeck.reader.data.SyncResult
 import com.tftdeck.reader.data.Suggestion
+import com.tftdeck.reader.data.TraitRef
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -27,6 +33,9 @@ import kotlinx.coroutines.launch
 class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repository = DeckRepository.get(app)
+
+    /** 구간·정렬·고정·숨김. 오버레이와 같은 싱글턴을 본다. */
+    private val prefs = DeckPrefs.get(app)
 
     init {
         // 저장해 둔 전적 요약을 먼저 올린다. 설정 화면이 빈 채로 뜨지 않도록.
@@ -56,6 +65,49 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         .map { (it as? FeedState.Ready)?.feed?.version?.assetBase.orEmpty() }
         .stateIn(viewModelScope, SharingStarted.Eagerly, "")
 
+    /** 지금 화면에 올라온 피드. 없으면 null. */
+    val currentFeed: DeckFeed? get() = (repository.state.value as? FeedState.Ready)?.feed
+
+    // -- 구간·정렬(기기에 저장) ----------------------------------------------
+
+    /**
+     * 선택한 구간. 저장해 둔 구간이 이번 피드에 없으면 피드의 기본 구간으로 본다 —
+     * 그대로 두면 모든 카드가 '-'로 비어 보인다.
+     */
+    val bucket: StateFlow<String> =
+        combine(prefs.bucket, repository.state) { saved, state ->
+            val feed = (state as? FeedState.Ready)?.feed
+            if (feed == null || feed.buckets.isEmpty() || saved in feed.buckets) saved else feed.defaultBucket
+        }.stateIn(viewModelScope, SharingStarted.Eagerly, prefs.bucket.value)
+
+    fun setBucket(key: String) {
+        prefs.setBucket(key)
+    }
+
+    val sortMode: StateFlow<DeckSortMode> = prefs.sortMode
+
+    fun setSortMode(mode: DeckSortMode) {
+        prefs.setSortMode(mode)
+    }
+
+    val pinnedSet: StateFlow<Set<String>> = prefs.pinned
+
+    fun togglePinned(id: String) {
+        prefs.togglePinned(id)
+    }
+
+    val hiddenSet: StateFlow<Set<String>> = prefs.hidden
+
+    fun toggleHidden(id: String) {
+        prefs.toggleHidden(id)
+    }
+
+    val showHidden: StateFlow<Boolean> = prefs.showHidden
+
+    fun toggleShowHidden() {
+        prefs.setShowHidden(!prefs.showHidden.value)
+    }
+
     // -- 덱 목록 필터 -------------------------------------------------------
 
     private val _tierFilter = MutableStateFlow<Set<String>>(emptySet())
@@ -67,25 +119,78 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     private val _onlyChina = MutableStateFlow(false)
     val onlyChina: StateFlow<Boolean> = _onlyChina.asStateFlow()
 
+    private val _editorialOnly = MutableStateFlow(false)
+    val editorialOnly: StateFlow<Boolean> = _editorialOnly.asStateFlow()
+
+    private val _mainTrait = MutableStateFlow<String?>(null)
+    val mainTraitFilter: StateFlow<String?> = _mainTrait.asStateFlow()
+
+    private data class FilterSpec(
+        val tiers: Set<String>,
+        val levels: Set<Int>,
+        val onlyChina: Boolean,
+        val editorialOnly: Boolean,
+        val mainTrait: String?,
+    )
+
+    private data class ListPrefs(
+        val bucket: String,
+        val sort: DeckSortMode,
+        val pinned: Set<String>,
+        val hidden: Set<String>,
+        val showHidden: Boolean,
+    )
+
+    private val filterSpec = combine(_tierFilter, _levelFilter, _onlyChina, _editorialOnly, _mainTrait) { t, l, c, e, m ->
+        FilterSpec(t, l, c, e, m)
+    }
+
+    private val listPrefs = combine(bucket, prefs.sortMode, prefs.pinned, prefs.hidden, prefs.showHidden) { b, s, p, h, sh ->
+        ListPrefs(b, s, p, h, sh)
+    }
+
+    /** 필터 → 정렬 → 고정한 덱을 맨 위로. */
     val decks: StateFlow<List<Deck>> =
-        combine(engine, _tierFilter, _levelFilter, _onlyChina) { search, tiers, levels, china ->
-            search?.filter(tiers, levels, china).orEmpty()
+        combine(engine, filterSpec, listPrefs) { search, filter, list ->
+            if (search == null) return@combine emptyList()
+            val filtered = search.filter(
+                tiers = filter.tiers,
+                levels = filter.levels,
+                onlyChina = filter.onlyChina,
+                editorialOnly = filter.editorialOnly,
+                mainTrait = filter.mainTrait,
+                hidden = list.hidden,
+                showHidden = list.showHidden,
+                bucket = list.bucket,
+            )
+            DeckSearch.pinFirst(DeckSearch.sort(filtered, list.sort, list.bucket), list.pinned)
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
-    /** 필터에 쓸 티어 목록. 실제 데이터에 있는 것만 보여준다. */
-    val availableTiers: StateFlow<List<String>> = repository.state
-        .map { state ->
+    /** 필터에 쓸 등급 목록. 선택 구간에서 실제로 나오는 것만 보여준다. */
+    val availableTiers: StateFlow<List<String>> =
+        combine(repository.state, bucket) { state, b ->
             (state as? FeedState.Ready)?.feed?.decks
-                ?.map { it.tier }?.distinct()
+                ?.mapNotNull { it.gradeFor(b) }?.distinct()
                 ?.sortedBy { tier -> TIER_SORT.indexOf(tier).takeIf { it >= 0 } ?: 99 }
                 .orEmpty()
-        }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val availableLevels: StateFlow<List<Int>> = repository.state
         .map { state ->
             (state as? FeedState.Ready)?.feed?.decks
                 ?.mapNotNull { it.finalLevel }?.distinct()?.sorted().orEmpty()
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    /** 주 특성 필터 칩. 목록에 실제로 있는 주 특성만, 많이 쓰이는 순. 아이콘이 있는 항목을 대표로 쓴다. */
+    val availableMainTraits: StateFlow<List<TraitRef>> = repository.state
+        .map { state ->
+            (state as? FeedState.Ready)?.feed?.decks.orEmpty()
+                .flatMap { deck -> deck.mainTraits.distinctBy { it.id } }
+                .groupBy { it.id }
+                .values
+                .sortedWith(compareByDescending<List<TraitRef>> { it.size }.thenBy { it.first().name })
+                .map { group -> group.firstOrNull { !it.icon.isNullOrBlank() } ?: group.first() }
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
@@ -101,15 +206,28 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         _onlyChina.value = !_onlyChina.value
     }
 
+    fun toggleEditorialOnly() {
+        _editorialOnly.value = !_editorialOnly.value
+    }
+
+    /** 주 특성은 하나만 고른다. 같은 칩을 다시 누르면 해제. */
+    fun toggleMainTrait(id: String) {
+        _mainTrait.value = if (_mainTrait.value == id) null else id
+    }
+
     fun clearFilters() {
         _tierFilter.value = emptySet()
         _levelFilter.value = emptySet()
         _onlyChina.value = false
+        _editorialOnly.value = false
+        _mainTrait.value = null
+        prefs.setShowHidden(false)
     }
 
     val hasActiveFilter: StateFlow<Boolean> =
-        combine(_tierFilter, _levelFilter, _onlyChina) { tiers, levels, china ->
-            tiers.isNotEmpty() || levels.isNotEmpty() || china
+        combine(filterSpec, prefs.showHidden) { f, showHidden ->
+            f.tiers.isNotEmpty() || f.levels.isNotEmpty() || f.onlyChina || f.editorialOnly ||
+                f.mainTrait != null || showHidden
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     // -- 검색 ---------------------------------------------------------------
@@ -150,17 +268,42 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         _selected.value = null
     }
 
+    /** DA id 로 덱 찾기(도감 → 덱). byId 가 없는 옛 피드는 이름 인덱스로 떨어진다. */
+    fun decksForId(axis: SearchAxis, id: String): List<Deck> =
+        engine.value?.decksForId(axis, id).orEmpty()
+
     // -- 덱 상세 ------------------------------------------------------------
 
     fun deck(id: String): Deck? =
         (repository.state.value as? FeedState.Ready)?.feed?.decks?.firstOrNull { it.id == id }
 
-    /** 레벨별 배치는 id 참조라 catalog에서 이름/아이콘을 찾아야 한다. */
-    fun catalogChampion(id: String) =
-        (repository.state.value as? FeedState.Ready)?.feed?.catalog?.champions?.firstOrNull { it.id == id }
+    @Volatile
+    private var catalogCache: Pair<DeckFeed, CatalogIndex>? = null
 
-    fun catalogItem(id: String) =
-        (repository.state.value as? FeedState.Ready)?.feed?.catalog?.items?.firstOrNull { it.id == id }
+    /**
+     * 지금 피드의 catalog 지도. 화면이 그리는 도중에 동기로 불러도 늦지 않도록
+     * 흐름 대신 피드 객체 기준 캐시로 둔다(피드가 바뀌면 한 번만 새로 만든다).
+     */
+    fun catalog(): CatalogIndex? {
+        val feed = currentFeed ?: return null
+        catalogCache?.let { (cachedFeed, index) -> if (cachedFeed === feed) return index }
+        return CatalogIndex(feed.catalog).also { catalogCache = feed to it }
+    }
+
+    /** 단계 배치·빌드업은 id 참조라 catalog에서 이름/아이콘을 찾아야 한다. */
+    fun catalogChampion(id: String): CatalogEntry? = catalog()?.champions?.get(id)
+
+    fun catalogItem(id: String): CatalogEntry? = catalog()?.items?.get(id)
+
+    fun catalogTrait(id: String): CatalogEntry? = catalog()?.traits?.get(id)
+
+    fun catalogAugment(id: String): CatalogEntry? = catalog()?.augments?.get(id)
+
+    /** 상점에 없는 소환물. */
+    fun petEntry(id: String): CatalogEntry? = catalog()?.pets?.get(id)
+
+    /** 챔피언이면 챔피언, 아니면 소환물. */
+    fun unitEntry(id: String): CatalogEntry? = catalog()?.unit(id)
 
     // -- 동기화 -------------------------------------------------------------
 

@@ -1,0 +1,478 @@
+{
+  "version": {
+    "schemaVersion": 2,
+    "generatedAt": "2026-09-16T20:05:12Z",
+    "set": "s18",
+    "setNumber": 18,
+    "patch": "16.18",
+    "patchGlobal": "18.2",
+    "qqBuild": "16.18.817.4437",
+    "qqPatchStart": "2026-09-10T07:00:00+08:00",
+    "statDate": "2026-09-15",
+    "deckCount": 4,
+    "editorialCount": 2,
+    "onlyInChinaCount": 1,
+    "teamCodeCount": 4,
+    "metatftSet": "TFTSet18",
+    "metatftClusterId": 423,
+    "assetBase": "https://raw.communitydragon.org/latest/game/",
+    "sources": {
+      "modeRegistry": "ok", "lolqq": "ok", "lolqqWinrate": "ok", "lolqqDatasearch": "ok", "lolqqDetail": "ok",
+      "lolqqStatic": "ok", "metatft": "ok", "metatftStats": "ok", "namesKo": "ok", "namesEn": "ok", "teamPlanner": "ok"
+    },
+    "untranslatedIds": [],
+    "contentHash": "v2-sample-0001"
+  },
+  "buckets": {
+    "goldem": {"label": "골드~에메랄드", "qqTierPart": "2", "listDate": "20260915", "detailDate": "20260914", "groups": 45, "variants": 425, "default": true},
+    "all": {"label": "전체", "qqTierPart": "255", "listDate": "20260915", "detailDate": "20260914", "groups": 52, "variants": 479},
+    "master": {"label": "마스터+", "qqTierPart": "0", "listDate": "20260915", "detailDate": "20260914", "groups": 9, "variants": 10},
+    "diamond": {"label": "다이아+", "qqTierPart": "1", "listDate": "20260915", "detailDate": "20260914", "groups": 30, "variants": 76},
+    "low": {"label": "골드 이하", "qqTierPart": "3", "listDate": "20260915", "detailDate": "20260914", "groups": 40, "variants": 218}
+  },
+  "scopes": {
+    "glob_plat": {"label": "글로벌 플래티넘+", "source": "metatft", "days": 3, "boards": 6799416, "updatedAt": "2026-09-15T13:14:40Z"},
+    "kr_plat": {"label": "KR 플래티넘+", "source": "metatft", "days": 3, "boards": 1108328, "updatedAt": "2026-09-15T13:14:41Z"},
+    "kr_master": {"label": "KR 마스터+", "source": "metatft", "days": 3, "boards": 44976, "updatedAt": "2026-09-15T13:14:42Z"}
+  },
+  "gradeCuts": {"S": 3.90, "A": 4.15, "B": 4.40, "C": 4.70, "minSample": 300, "shrinkK": 200},
+  "decks": [
+    {
+      "id": "g-7f3a9c1b2d",
+      "kind": "group",
+      "key": "DA_Riftbeast18.3|DA_18_ElderDragon",
+      "name": "장로 드래곤 · 3 협곡야수 2 선봉대 2 전쟁기계",
+      "nameCn": "【巨龙95】3峡谷野怪2地狱火2主宰2重装战士",
+      "tier": "S",
+      "tierOrder": 1,
+      "editorialTier": "SS",
+      "patch": "16.18",
+      "finalLevel": 8,
+      "carryId": "DA_18_ElderDragon",
+      "mainTraits": [{"id": "DA_Riftbeast18", "name": "협곡야수", "count": 3, "style": 1, "icon": "assets/ux/traiticons/trait_icon_18_riftbeast.png"}],
+      "traits": [
+        {"id": "DA_Riftbeast18", "name": "협곡야수", "count": 3, "style": 1, "icon": "assets/ux/traiticons/trait_icon_18_riftbeast.png"},
+        {"id": "DA_18_Vanguard", "name": "선봉대", "count": 2, "style": 1, "icon": "assets/ux/traiticons/trait_icon_18_vanguard.png"},
+        {"id": "DA_Juggernaut18", "name": "전쟁기계", "count": 2, "style": 1, "icon": "assets/ux/traiticons/trait_icon_18_juggernaut.png"},
+        {"id": "DA_18_Inferno", "name": "지옥불", "count": 2, "style": 1, "icon": "assets/ux/traiticons/trait_icon_18_inferno.png"}
+      ],
+      "units": [
+        {"id": "DA_18_ElderDragon", "name": "장로 드래곤", "nameEn": "Elder Dragon", "cost": 5, "icon": "assets/characters/tft18_elderdragon/hud/tft18_elderdragon_square.png", "star": 2, "carry": true, "carryRank": 1, "row": 3, "col": 5,
+         "items": [
+           {"id": "DA_GuinsoosRageblade", "name": "구인수의 격노검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.png"},
+           {"id": "DA_InfinityEdge", "name": "무한의 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png"},
+           {"id": "DA_KrakensFury", "name": "크라켄의 분노", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_krakenslayer.png"}
+         ],
+         "itemsBackup": [{"id": "DA_LastWhisper", "name": "최후의 속삭임", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_lastwhisper.png"}]},
+        {"id": "DA_Draven18", "name": "드레이븐", "nameEn": "Draven", "cost": 5, "icon": "assets/characters/tft18_draven/tft18_draven_square.png", "star": 3, "carry": false, "carryRank": 2, "row": 4, "col": 7,
+         "items": [{"id": "DA_GuinsoosRageblade", "name": "구인수의 격노검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.png"}], "itemsBackup": []},
+        {"id": "DA_Taric18", "name": "타릭", "nameEn": "Taric", "cost": 5, "icon": "assets/characters/tft18_taric/tft18_taric_square.png", "star": 2, "carry": false, "carryRank": 3, "row": 1, "col": 3,
+         "items": [{"id": "DA_18_EmblemVanguard", "name": "선봉대 상징", "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_vanguard.png"}], "itemsBackup": []},
+        {"id": "DA_18_Kennen", "name": "케넨", "nameEn": "Kennen", "cost": 5, "icon": "assets/characters/tft18_kennen/tft18_kennen_square.png", "star": 2, "carry": false, "row": 1, "col": 5, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Maokai", "name": "마오카이", "nameEn": "Maokai", "cost": 5, "icon": "assets/characters/tft18_maokai/tft18_maokai_square.png", "star": 1, "carry": false, "row": 1, "col": 2, "items": [], "itemsBackup": []},
+        {"id": "DA_Amumu18", "name": "아무무", "nameEn": "Amumu", "cost": 4, "icon": "assets/characters/tft18_amumu/tft18_amumu_square.png", "star": 2, "carry": false, "row": 1, "col": 4, "items": [], "itemsBackup": []},
+        {"id": "DA_Sentinel18", "name": "파수꾼", "nameEn": "Sentinel", "cost": 4, "icon": "assets/characters/tft18_sentinel/tft18_sentinel_square.png", "star": 1, "carry": false, "row": 2, "col": 4, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Yorick", "name": "요릭", "nameEn": "Yorick", "cost": 1, "icon": "assets/characters/tft18_yorick/tft18_yorick_square.png", "star": 2, "carry": false, "row": 1, "col": 6, "items": [], "itemsBackup": []},
+        {"id": "DA_18_IronbarkTree", "name": "철갑 나무", "cost": null, "icon": "https://game.gtimg.cn/images/lol/act/img/tft/original-image/tft18_ironbarktree_square.tft_set18.png", "kind": "pet", "star": 1, "carry": false, "row": 2, "col": 1, "items": [], "itemsBackup": []}
+      ],
+      "sources": {"editorial": true, "editorialStale": true, "cnStats": true, "global": true, "kr": true, "onlyInChina": false},
+      "stats": {
+        "goldem": {"n": 17059, "avg": 3.61, "adjAvg": 3.62, "top4": 0.688, "win": 0.108, "pick": 0.0021, "avgDiff": -0.1, "pickDiff": -0.0002, "grade": "S", "trend": "flat",
+                   "precise": {"scope": "cn_plat", "n": 3139, "avg": 4.14, "top4": 0.547, "win": 0.193, "finalLevel": 9}},
+        "all": {"n": 25133, "avg": 3.70, "adjAvg": 3.71, "top4": 0.66, "win": 0.10, "pick": 0.0019, "avgDiff": 0.0, "pickDiff": 0.0001, "grade": "S", "trend": "flat"},
+        "master": {"n": 210, "avg": 3.3, "adjAvg": 3.91, "top4": 0.71, "win": 0.14, "pick": 0.0025, "avgDiff": null, "pickDiff": null, "grade": null, "trend": null},
+        "diamond": {"n": 3000, "avg": 3.95, "adjAvg": 3.98, "top4": 0.61, "win": 0.12, "pick": 0.0030, "avgDiff": 0.06, "pickDiff": -0.0003, "grade": "A", "trend": "down"},
+        "low": {"n": 5000, "avg": 4.20, "adjAvg": 4.21, "top4": 0.55, "win": 0.09, "pick": 0.0012, "avgDiff": 0.01, "pickDiff": 0.0, "grade": "B", "trend": "flat"}
+      },
+      "global": {
+        "cluster": 423009, "similarity": 0.78, "name": "DA_18_Elderwood, DA_18_Ezreal, DA_Draven18",
+        "levelling": "빠른 9레벨", "levellingRaw": "Fast 9", "difficulty": "보통", "difficultyRaw": -0.014,
+        "stats": {
+          "glob_plat": {"n": 556572, "avg": 4.22, "top4": 0.55, "win": 0.13, "places": [72354, 71012, 70988, 70210, 69880, 68990, 67530, 65608]},
+          "kr_plat": {"n": 9849, "avg": 4.20, "top4": 0.56, "win": 0.13, "places": [1281, 1290, 1266, 1245, 1231, 1200, 1180, 1156]},
+          "kr_master": {"n": 620, "avg": 4.31, "top4": 0.52, "win": 0.11, "places": [70, 78, 82, 92, 80, 79, 72, 67]}
+        },
+        "finalLevels": [{"level": 8, "share": 0.466}, {"level": 9, "share": 0.465}, {"level": 10, "share": 0.05}],
+        "counters": [
+          {"cluster": 423003, "deck": "g-1c2d3e4f5a", "placeChange": 0.42},
+          {"cluster": 423011, "deck": null, "name": "DA_18_Ashe, DA_18_Sivir", "placeChange": 0.31}
+        ]
+      },
+      "keyUnits": [
+        {"id": "DA_18_ElderDragon", "star1": 0.328, "star2": 0.668, "star3": 0.004, "items": 2.89, "avg": 3.67},
+        {"id": "DA_Draven18", "star1": 0.1, "star2": 0.45, "star3": 0.45, "items": 1.2, "avg": 3.4}
+      ],
+      "positions": {
+        "DA_18_ElderDragon": [{"row": 3, "col": 5, "use": 0.157, "win": 0.091}, {"row": 3, "col": 4, "use": 0.115, "win": 0.093}],
+        "DA_Draven18": [{"row": 4, "col": 1, "use": 0.21, "win": 0.10}, {"row": 4, "col": 7, "use": 0.18, "win": 0.11}],
+        "DA_Taric18": [{"row": 1, "col": 3, "use": 0.30, "win": 0.08}]
+      },
+      "levelDist": [{"level": 8, "share": 0.025, "avg": 6.7}, {"level": 9, "share": 0.796, "avg": 4.0}, {"level": 10, "share": 0.179, "avg": 1.9}],
+      "augmentStats": [
+        {"id": "DA_Ascension", "name": "초월", "icon": "assets/maps/tft/icons/augments/hexcore/ascension_ii.png", "rank": 1, "n": 634, "avg": 3.16, "stage": [3.23, 2.68, 4.33], "stageLowSample": [false, false, true]},
+        {"id": "DA_SilverSpoon", "name": "은수저", "icon": "assets/maps/tft/icons/augments/hexcore/silverspoon_ii.png", "rank": 5, "n": 256, "avg": 3.25, "stage": [null, 3.24, 3.23], "stageLowSample": [true, false, false]}
+      ],
+      "itemWearers": [
+        {"item": {"id": "DA_18_EmblemVanguard", "name": "선봉대 상징", "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_vanguard.png"},
+         "wearers": [{"id": "DA_Taric18", "name": "타릭", "n": 94, "avg": 2.5}]},
+        {"item": {"id": "DA_InfinityEdge", "name": "무한의 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png"},
+         "wearers": [{"id": "DA_18_ElderDragon", "name": "장로 드래곤", "n": 1200, "avg": 3.4}, {"id": "DA_Draven18", "name": "드레이븐", "n": 300, "avg": 3.9}]}
+      ],
+      "variants": [
+        {"id": "v-1a2b3c4d5e", "representative": true, "editorialId": "14266",
+         "units": [
+           {"id": "DA_18_ElderDragon", "star": 2, "items": ["DA_GuinsoosRageblade", "DA_InfinityEdge", "DA_KrakensFury"]},
+           {"id": "DA_Draven18", "star": 3},
+           {"id": "DA_Taric18", "star": 2},
+           {"id": "DA_18_Kennen", "star": 2},
+           {"id": "DA_18_Maokai"},
+           {"id": "DA_Amumu18", "star": 2},
+           {"id": "DA_Sentinel18"},
+           {"id": "DA_18_Yorick", "star": 2}
+         ],
+         "carryId": "DA_18_ElderDragon", "assistIds": ["DA_Taric18", "DA_18_Kennen"],
+         "stats": {"goldem": {"n": 17059, "avg": 3.6, "top4": 0.688, "win": 0.108}}},
+        {"id": "v-9f8e7d6c5b", "representative": false, "editorialId": null,
+         "units": [
+           {"id": "DA_18_ElderDragon", "star": 2, "items": ["DA_GuinsoosRageblade", "DA_InfinityEdge"]},
+           {"id": "DA_Draven18", "star": 2},
+           {"id": "DA_Taric18", "star": 2},
+           {"id": "DA_18_Kennen"},
+           {"id": "DA_18_Maokai"},
+           {"id": "DA_Amumu18"},
+           {"id": "DA_18_Sett", "star": 2},
+           {"id": "DA_18_Yorick", "star": 2}
+         ],
+         "carryId": "DA_18_ElderDragon", "assistIds": ["DA_Draven18"],
+         "stats": {"goldem": {"n": 4100, "avg": 3.72, "top4": 0.66, "win": 0.10, "pick": 0.0005}}}
+      ],
+      "editorial": {
+        "id": "14266", "author": "巨龙95", "updatedAt": "2026-08-27 15:10:02", "stale": true, "quality": "SS", "needLevel": 8,
+        "stages": [
+          {"key": "early", "label": "초반", "level": 5, "round": "2-3", "units": [
+            {"id": "DA_18_Yorick", "star": 1, "row": 1, "col": 5},
+            {"id": "DA_18_IronbarkTree", "kind": "pet", "star": 1, "row": 1, "col": 4},
+            {"id": "DA_18_Rakan", "star": 1, "row": 2, "col": 3},
+            {"id": "DA_Karma18", "star": 1, "row": 4, "col": 7},
+            {"id": "DA_18_Yunara", "star": 1, "row": 4, "col": 6}
+          ]},
+          {"key": "mid", "label": "중반", "level": 8, "round": "4-3", "units": [
+            {"id": "DA_Draven18", "star": 3, "row": 4, "col": 7, "items": ["DA_GuinsoosRageblade"]},
+            {"id": "DA_18_Yorick", "star": 2, "row": 1, "col": 5},
+            {"id": "DA_Taric18", "star": 1, "row": 1, "col": 3},
+            {"id": "DA_18_Kennen", "star": 1, "row": 1, "col": 4},
+            {"id": "DA_Amumu18", "star": 1, "row": 1, "col": 2},
+            {"id": "DA_18_Alistar", "star": 2, "row": 2, "col": 3},
+            {"id": "DA_Sentinel18", "star": 1, "row": 2, "col": 4},
+            {"id": "DA_18_IronbarkTree", "kind": "pet", "star": 1, "row": 2, "col": 1}
+          ]},
+          {"key": "final", "label": "최종", "level": 8, "round": null, "units": [
+            {"id": "DA_18_ElderDragon", "star": 2, "row": 3, "col": 5, "carry": true, "items": ["DA_GuinsoosRageblade", "DA_InfinityEdge", "DA_KrakensFury"]},
+            {"id": "DA_Draven18", "star": 3, "row": 4, "col": 7, "items": ["DA_GuinsoosRageblade"]},
+            {"id": "DA_Taric18", "star": 2, "row": 1, "col": 3},
+            {"id": "DA_18_Kennen", "star": 2, "row": 1, "col": 5},
+            {"id": "DA_18_Maokai", "star": 1, "row": 1, "col": 2},
+            {"id": "DA_Amumu18", "star": 2, "row": 1, "col": 4},
+            {"id": "DA_Sentinel18", "star": 1, "row": 2, "col": 4},
+            {"id": "DA_18_Yorick", "star": 2, "row": 1, "col": 6},
+            {"id": "DA_18_IronbarkTree", "kind": "pet", "star": 1, "row": 2, "col": 1}
+          ]}
+        ],
+        "itemOrder": [
+          {"id": "DA_Component_BFSword", "name": "B.F. 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.png"},
+          {"id": "DA_Component_SparringGloves", "name": "연습용 장갑", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_sparringgloves.png"},
+          {"id": "DA_Component_FryingPan", "name": "프라이팬", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_fryingpan.png"}
+        ],
+        "augments": {"recommended": [{"id": "DA_Ascension", "name": "초월", "icon": "assets/maps/tft/icons/augments/hexcore/ascension_ii.png"}],
+                     "alternatives": [{"id": "DA_LateGameScaling", "name": "후반 성장", "icon": "assets/maps/tft/icons/augments/hexcore/lategamescaling_ii.png"}]},
+        "notesCn": {"items": "巨龙无尽血手必备", "augments": "建议拿双经济速9", "early": "前期连胜为主，血量低于50就卖血", "levelUp": "4-2上8，4-5搜卡"},
+        "teamCode": {"code": "023fc3fb41540440b4303ed428000000TFTSet18", "units": 8, "omitted": ["철갑 나무"], "truncated": null}
+      },
+      "buildup": {
+        "global": {
+          "scope": "glob_plat",
+          "cluster": 423009,
+          "rollLevel": 9,
+          "levels": [
+            {"level": 4, "reachRound": null, "reachShare": 0.01, "rollsPerGame": 0.8,
+             "options": [{"units": ["DA_18_Rakan", "DA_18_Yorick", "DA_Karma18", "DA_18_Yunara"], "n": 3632, "avg": 4.30}]},
+            {"level": 5, "reachRound": "2-5", "reachShare": 0.98, "rollsPerGame": 0.2,
+             "options": [
+               {"units": ["DA_18_Rakan", "DA_18_Yorick", "DA_Karma18", "DA_18_Alistar", "DA_18_Yunara"], "n": 5634, "avg": 4.22},
+               {"units": ["DA_18_Ornn", "DA_18_Varus", "DA_18_Xayah", "DA_18_Alistar", "DA_18_Shen"], "n": 2100, "avg": 4.35}
+             ]},
+            {"level": 6, "reachRound": "3-2", "reachShare": 0.97, "rollsPerGame": 1.5,
+             "options": [{"units": ["DA_18_Rakan", "DA_18_Yorick", "DA_Karma18", "DA_18_Alistar", "DA_18_Yunara", "DA_Sentinel18"], "n": 4200, "avg": 4.18}]},
+            {"level": 7, "reachRound": "3-5", "reachShare": 0.97, "rollsPerGame": 3.1, "options": []},
+            {"level": 8, "reachRound": "4-2", "reachShare": 0.98, "rollsPerGame": 12.4,
+             "options": [
+               {"units": ["DA_18_Yorick", "DA_Karma18", "DA_18_Alistar", "DA_Amumu18", "DA_Sentinel18", "DA_Taric18", "DA_18_Kennen", "DA_Draven18"], "n": 20000, "avg": 4.10,
+                "traits": [{"id": "DA_Riftbeast18", "count": 3}, {"id": "DA_18_Vanguard", "count": 2}]},
+               {"units": ["DA_18_Yorick", "DA_18_Alistar", "DA_Amumu18", "DA_Sentinel18", "DA_Taric18", "DA_18_Kennen", "DA_Draven18", "DA_18_Sett"], "n": 8000, "avg": 4.25}
+             ]},
+            {"level": 9, "reachRound": "4-6", "reachShare": 0.96, "rollsPerGame": 31.9,
+             "options": [{"units": ["DA_18_Yorick", "DA_Amumu18", "DA_Sentinel18", "DA_18_Kennen", "DA_18_Maokai", "DA_Taric18", "DA_Draven18", "DA_18_ElderDragon", "DA_18_Alistar"], "n": 69363, "avg": 4.01,
+               "traits": [{"id": "DA_18_Inferno", "count": 1}]}]},
+            {"level": 10, "reachRound": "6-5", "reachShare": 0.30, "rollsPerGame": 5.2,
+             "options": [{"units": ["DA_18_Yorick", "DA_Amumu18", "DA_Sentinel18", "DA_18_Kennen", "DA_18_Maokai", "DA_Taric18", "DA_Draven18", "DA_18_ElderDragon", "DA_18_Alistar", "DA_18_Sett"], "n": 120, "avg": 3.20}]}
+          ]
+        },
+        "cn": {
+          "bucket": "goldem",
+          "levels": [
+            {"level": 8, "options": [{"units": ["DA_18_Yorick", "DA_18_Alistar", "DA_Amumu18", "DA_Sentinel18", "DA_Taric18", "DA_18_Kennen", "DA_Draven18", "DA_18_ElderDragon"], "carryId": "DA_18_ElderDragon", "n": 462, "avg": 3.3, "top4": 0.755, "win": 0.147}]},
+            {"level": 9, "options": []}
+          ]
+        }
+      },
+      "itemOrder": [
+        {"id": "DA_Component_BFSword", "name": "B.F. 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.png"},
+        {"id": "DA_Component_SparringGloves", "name": "연습용 장갑", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_sparringgloves.png"}
+      ],
+      "augments": {"recommended": [{"id": "DA_Ascension", "name": "초월", "icon": "assets/maps/tft/icons/augments/hexcore/ascension_ii.png"}], "alternatives": []},
+      "notesCn": {"items": "巨龙无尽血手必备", "augments": "建议拿双经济速9"},
+      "author": "巨龙95",
+      "updatedAt": "2026-09-15",
+      "teamCode": {"code": "023fc3fb41540440b4303ed428000000TFTSet18", "units": 8, "omitted": ["철갑 나무"], "truncated": null},
+      "metatft": {"similarity": 0.78, "matchedComp": "DA_18_Elderwood, DA_18_Ezreal, DA_Draven18", "onlyInChina": false, "compared": true}
+    },
+    {
+      "id": "g-1c2d3e4f5a",
+      "kind": "group",
+      "key": "DA_18_Vanguard.4|DA_18_Aphelios",
+      "name": "아펠리오스 · 4 선봉대 2 사냥꾼",
+      "nameCn": "4重装2猎人",
+      "tier": "A",
+      "tierOrder": 2,
+      "patch": "16.18",
+      "finalLevel": 8,
+      "carryId": "DA_18_Aphelios",
+      "mainTraits": [{"id": "DA_18_Vanguard", "name": "선봉대", "count": 4, "style": 2, "icon": "assets/ux/traiticons/trait_icon_18_vanguard.png"}],
+      "traits": [
+        {"id": "DA_18_Vanguard", "name": "선봉대", "count": 4, "style": 2, "icon": "assets/ux/traiticons/trait_icon_18_vanguard.png"},
+        {"id": "DA_18_Hunter", "name": "사냥꾼", "count": 2, "style": 1, "icon": "assets/ux/traiticons/trait_icon_18_hunter.png"}
+      ],
+      "units": [
+        {"id": "DA_18_Aphelios", "name": "아펠리오스", "nameEn": "Aphelios", "cost": 4, "icon": "assets/characters/tft18_aphelios/tft18_aphelios_square.png", "star": 2, "carry": true, "carryRank": 1, "row": null, "col": null,
+         "items": [
+           {"id": "DA_InfinityEdge", "name": "무한의 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png"},
+           {"id": "DA_KrakensFury", "name": "크라켄의 분노", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_krakenslayer.png"}
+         ], "itemsBackup": []},
+        {"id": "DA_18_Ezreal", "name": "이즈리얼", "nameEn": "Ezreal", "cost": 4, "icon": "assets/characters/tft18_ezreal/tft18_ezreal_square.png", "star": 2, "carry": false, "carryRank": 2,
+         "items": [{"id": "DA_GuinsoosRageblade", "name": "구인수의 격노검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.png"}], "itemsBackup": []},
+        {"id": "DA_18_Sett", "name": "세트", "nameEn": "Sett", "cost": 4, "icon": "assets/characters/tft18_sett/tft18_sett_square.png", "star": 2, "carry": false, "carryRank": 3,
+         "items": [{"id": "DA_GargoyleStoneplate", "name": "가고일 돌갑옷", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_gargoylestoneplate.png"}], "itemsBackup": []},
+        {"id": "DA_18_Leona", "name": "레오나", "nameEn": "Leona", "cost": 1, "icon": "assets/characters/tft18_leona/tft18_leona_square.png", "star": 2, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Shen", "name": "쉔", "nameEn": "Shen", "cost": 2, "icon": "assets/characters/tft18_shen/tft18_shen_square.png", "star": 2, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Alistar", "name": "알리스타", "nameEn": "Alistar", "cost": 2, "icon": "assets/characters/tft18_alistar/tft18_alistar_square.png", "star": 2, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Caitlyn", "name": "케이틀린", "nameEn": "Caitlyn", "cost": 2, "icon": "assets/characters/tft18_caitlyn/tft18_caitlyn_square.png", "star": 2, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Varus", "name": "바루스", "nameEn": "Varus", "cost": 1, "icon": "assets/characters/tft18_varus/tft18_varus_square.png", "star": 2, "items": [], "itemsBackup": []}
+      ],
+      "sources": {"editorial": false, "editorialStale": false, "cnStats": true, "global": true, "kr": false, "onlyInChina": false},
+      "stats": {
+        "goldem": {"n": 9000, "avg": 3.95, "adjAvg": 3.96, "top4": 0.60, "win": 0.12, "pick": 0.0035, "avgDiff": -0.12, "pickDiff": 0.0004, "grade": "A", "trend": "up"},
+        "all": {"n": 12000, "avg": 4.00, "adjAvg": 4.01, "top4": 0.58, "win": 0.11, "pick": 0.0031, "avgDiff": -0.02, "pickDiff": 0.0001, "grade": "A", "trend": "flat"},
+        "master": {"n": 800, "avg": 4.30, "adjAvg": 4.30, "top4": 0.51, "win": 0.10, "pick": 0.0040, "avgDiff": 0.02, "pickDiff": 0.0, "grade": "B", "trend": "flat"}
+      },
+      "global": {
+        "cluster": 423003, "similarity": 0.66, "name": "DA_18_Aphelios, DA_18_Sett, DA_18_Leona",
+        "levelling": "빠른 8레벨", "levellingRaw": "Fast 8", "difficulty": "쉬움", "difficultyRaw": -0.2,
+        "stats": {
+          "glob_plat": {"n": 120000, "avg": 4.41, "top4": 0.51, "win": 0.12, "places": [14400, 15000, 15300, 16500, 15500, 15000, 14500, 13800]}
+        },
+        "finalLevels": [{"level": 8, "share": 0.7}, {"level": 9, "share": 0.28}],
+        "counters": []
+      },
+      "positions": {
+        "DA_18_Aphelios": [{"row": 4, "col": 4, "use": 0.30, "win": 0.10}],
+        "DA_18_Ezreal": [{"row": 4, "col": 3, "use": 0.25, "win": 0.10}],
+        "DA_18_Sett": [{"row": 1, "col": 4, "use": 0.28, "win": 0.10}],
+        "DA_18_Leona": [{"row": 1, "col": 3, "use": 0.20, "win": 0.10}],
+        "DA_18_Shen": [{"row": 1, "col": 5, "use": 0.20, "win": 0.10}]
+      },
+      "variants": [
+        {"id": "v-2b2b2b2b2b", "representative": true, "editorialId": null,
+         "units": [{"id": "DA_18_Aphelios", "star": 2, "items": ["DA_InfinityEdge", "DA_KrakensFury"]}, {"id": "DA_18_Ezreal", "star": 2}, {"id": "DA_18_Sett", "star": 2}, {"id": "DA_18_Leona", "star": 2}, {"id": "DA_18_Shen", "star": 2}, {"id": "DA_18_Alistar", "star": 2}, {"id": "DA_18_Caitlyn", "star": 2}, {"id": "DA_18_Varus", "star": 2}],
+         "carryId": "DA_18_Aphelios", "assistIds": ["DA_18_Ezreal"],
+         "stats": {"goldem": {"n": 9000, "avg": 3.95, "top4": 0.60, "win": 0.12}}}
+      ],
+      "buildup": {
+        "global": {
+          "scope": "glob_plat",
+          "cluster": 423003,
+          "rollLevel": 7,
+          "levels": [
+            {"level": 6, "reachRound": "3-2", "reachShare": 0.95, "rollsPerGame": 4.0,
+             "options": [{"units": ["DA_18_Leona", "DA_18_Varus", "DA_18_Shen", "DA_18_Alistar", "DA_18_Caitlyn", "DA_18_Sett"], "n": 2500, "avg": 4.40}]},
+            {"level": 7, "reachRound": "3-5", "reachShare": 0.90, "rollsPerGame": 25.3,
+             "options": [{"units": ["DA_18_Leona", "DA_18_Varus", "DA_18_Shen", "DA_18_Alistar", "DA_18_Caitlyn", "DA_18_Sett", "DA_18_Aphelios"], "n": 6000, "avg": 4.20}]},
+            {"level": 8, "reachRound": "4-2", "reachShare": 0.70, "rollsPerGame": 6.1,
+             "options": [{"units": ["DA_18_Leona", "DA_18_Varus", "DA_18_Shen", "DA_18_Alistar", "DA_18_Caitlyn", "DA_18_Sett", "DA_18_Aphelios", "DA_18_Ezreal"], "n": 8800, "avg": 4.05}]}
+          ]
+        }
+      },
+      "itemOrder": [],
+      "augments": {"recommended": [], "alternatives": []},
+      "notesCn": {"items": "", "augments": ""},
+      "author": "",
+      "updatedAt": "2026-09-15",
+      "teamCode": {"code": "02000000000000000000000000000000TFTSet18", "units": 8, "omitted": null, "truncated": null},
+      "metatft": {"similarity": 0.66, "matchedComp": "DA_18_Aphelios, DA_18_Sett, DA_18_Leona", "onlyInChina": false, "compared": true}
+    },
+    {
+      "id": "g-2b3c4d5e6f",
+      "kind": "group",
+      "key": "DA_18_Elderwood.3|DA_18_Yorick",
+      "name": "요릭 · 3 나무정령",
+      "nameCn": "3森林约里克",
+      "tier": "B",
+      "tierOrder": 3,
+      "patch": "16.18",
+      "finalLevel": 9,
+      "carryId": "DA_18_Yorick",
+      "mainTraits": [{"id": "DA_18_Elderwood", "name": "나무정령", "count": 3, "style": 1, "icon": "assets/ux/traiticons/trait_icon_18_elderwood.png"}],
+      "traits": [{"id": "DA_18_Elderwood", "name": "나무정령", "count": 3, "style": 1, "icon": "assets/ux/traiticons/trait_icon_18_elderwood.png"}],
+      "units": [
+        {"id": "DA_18_Yorick", "name": "요릭", "nameEn": "Yorick", "cost": 1, "icon": "assets/characters/tft18_yorick/tft18_yorick_square.png", "star": 3, "carry": true, "carryRank": 1,
+         "items": [{"id": "DA_InfinityEdge", "name": "무한의 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png"}], "itemsBackup": []},
+        {"id": "DA_Krug18", "name": "돌거북", "nameEn": "Krug", "cost": 3, "icon": "assets/characters/tft18_krug/tft18_krug_square.png", "star": 2, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Rammus", "name": "람머스", "nameEn": "Rammus", "cost": 3, "icon": "assets/characters/tft18_rammus/tft18_rammus_square.png", "star": 2, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Rakan", "name": "라칸", "nameEn": "Rakan", "cost": 1, "icon": "assets/characters/tft18_rakan/tft18_rakan_square.png", "star": 3, "items": [], "itemsBackup": []}
+      ],
+      "sources": {"editorial": false, "editorialStale": false, "cnStats": true, "global": false, "kr": false, "onlyInChina": true},
+      "stats": {
+        "goldem": {"n": 250, "avg": 3.90, "adjAvg": 4.30, "top4": 0.58, "win": 0.11, "pick": 0.0009, "avgDiff": -0.2, "pickDiff": -0.0001, "grade": null, "trend": "flat"}
+      },
+      "buildup": {
+        "cn": {
+          "bucket": "goldem",
+          "levels": [
+            {"level": 8, "options": [{"units": ["DA_18_Yorick", "DA_18_Rakan", "DA_Krug18"], "carryId": "DA_18_Yorick", "n": 120, "avg": 3.9, "top4": 0.6, "win": 0.12}]},
+            {"level": 9, "options": [{"units": ["DA_18_Yorick", "DA_18_Rakan", "DA_Krug18", "DA_18_Rammus"], "carryId": "DA_18_Yorick", "n": 330, "avg": 3.8, "top4": 0.62, "win": 0.13}]}
+          ]
+        }
+      },
+      "itemOrder": [],
+      "augments": {"recommended": [], "alternatives": []},
+      "author": "",
+      "updatedAt": "2026-09-15",
+      "teamCode": {"code": "02000000000000000000000000000001TFTSet18", "units": 4},
+      "metatft": {"similarity": 0.31, "matchedComp": null, "onlyInChina": true, "compared": true}
+    },
+    {
+      "id": "14301",
+      "kind": "editorial",
+      "name": "장로 드래곤 · 4 나무정령",
+      "nameCn": "【北派】4森林巨龙",
+      "tier": "S",
+      "tierOrder": 1,
+      "editorialTier": "S",
+      "patch": "16.18",
+      "finalLevel": 9,
+      "carryId": "DA_18_ElderDragon",
+      "mainTraits": [],
+      "traits": [{"id": "DA_18_Elderwood", "name": "나무정령", "count": 4, "style": 2, "icon": "assets/ux/traiticons/trait_icon_18_elderwood.png"}],
+      "units": [
+        {"id": "DA_18_ElderDragon", "name": "장로 드래곤", "nameEn": "Elder Dragon", "cost": 5, "icon": "assets/characters/tft18_elderdragon/hud/tft18_elderdragon_square.png", "star": 2, "carry": true, "row": 4, "col": 4,
+         "items": [{"id": "DA_InfinityEdge", "name": "무한의 대검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png"}], "itemsBackup": []},
+        {"id": "DA_18_Kennen", "name": "케넨", "nameEn": "Kennen", "cost": 5, "icon": "assets/characters/tft18_kennen/tft18_kennen_square.png", "star": 1, "row": 1, "col": 4, "items": [], "itemsBackup": []},
+        {"id": "DA_18_Ezreal", "name": "이즈리얼", "nameEn": "Ezreal", "cost": 4, "icon": "assets/characters/tft18_ezreal/tft18_ezreal_square.png", "star": 2, "row": 4, "col": 5,
+         "items": [{"id": "DA_GuinsoosRageblade", "name": "구인수의 격노검", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.png"}], "itemsBackup": []},
+        {"id": "DA_18_Yorick", "name": "요릭", "nameEn": "Yorick", "cost": 1, "icon": "assets/characters/tft18_yorick/tft18_yorick_square.png", "star": 2, "row": 1, "col": 5, "items": [], "itemsBackup": []}
+      ],
+      "sources": {"editorial": true, "editorialStale": false, "cnStats": false, "global": false, "kr": false, "onlyInChina": false},
+      "stats": {},
+      "editorial": {
+        "id": "14301", "author": "公众号北派解说", "updatedAt": "2026-09-14 14:49:53", "stale": false, "quality": "S", "needLevel": 9,
+        "stages": [
+          {"key": "final", "label": "최종", "level": 9, "round": null, "units": [
+            {"id": "DA_18_ElderDragon", "star": 2, "row": 4, "col": 4, "carry": true, "items": ["DA_InfinityEdge"]},
+            {"id": "DA_18_Kennen", "star": 1, "row": 1, "col": 4},
+            {"id": "DA_18_Ezreal", "star": 2, "row": 4, "col": 5, "items": ["DA_GuinsoosRageblade"]},
+            {"id": "DA_18_Yorick", "star": 2, "row": 1, "col": 5}
+          ]}
+        ],
+        "itemOrder": [],
+        "augments": {"recommended": [], "alternatives": []},
+        "notesCn": {"items": "巨龙无尽", "augments": ""},
+        "teamCode": {"code": "02000000000000000000000000000002TFTSet18", "units": 4}
+      },
+      "itemOrder": [],
+      "augments": {"recommended": [], "alternatives": []},
+      "notesCn": {"items": "巨龙无尽", "augments": ""},
+      "author": "公众号北派解说",
+      "updatedAt": "2026-09-14 14:49:53",
+      "teamCode": {"code": "02000000000000000000000000000002TFTSet18", "units": 4},
+      "metatft": {"similarity": 0.6, "matchedComp": "DA_18_Elderwood, DA_18_ElderDragon", "onlyInChina": false, "compared": true}
+    }
+  ],
+  "index": {
+    "item": {
+      "무한의 대검": [{"deck": "g-7f3a9c1b2d", "unit": "장로 드래곤", "role": "main"}, {"deck": "g-1c2d3e4f5a", "unit": "아펠리오스", "role": "main"}, {"deck": "14301", "unit": "장로 드래곤", "role": "main"}, {"deck": "g-7f3a9c1b2d", "unit": "드레이븐", "role": "backup"}],
+      "구인수의 격노검": [{"deck": "g-7f3a9c1b2d", "unit": "장로 드래곤", "role": "main"}]
+    },
+    "component": {"B.F. 대검": ["g-7f3a9c1b2d"], "연습용 장갑": ["g-7f3a9c1b2d", "g-1c2d3e4f5a"]},
+    "champion": {"장로 드래곤": ["g-7f3a9c1b2d", "14301"], "드레이븐": ["g-7f3a9c1b2d"], "아펠리오스": ["g-1c2d3e4f5a"], "요릭": ["g-7f3a9c1b2d", "g-2b3c4d5e6f", "14301"]},
+    "trait": {"협곡야수": ["g-7f3a9c1b2d"], "선봉대": ["g-7f3a9c1b2d", "g-1c2d3e4f5a"], "나무정령": ["g-2b3c4d5e6f", "14301"]},
+    "augment": {"초월": ["g-7f3a9c1b2d"], "검 제작자": ["g-1c2d3e4f5a"]},
+    "byId": {
+      "champion": {"DA_18_ElderDragon": ["g-7f3a9c1b2d", "14301"], "DA_Draven18": ["g-7f3a9c1b2d"], "DA_18_Aphelios": ["g-1c2d3e4f5a"], "DA_18_Yorick": ["g-7f3a9c1b2d", "g-2b3c4d5e6f", "14301"]},
+      "item": {"DA_InfinityEdge": ["g-7f3a9c1b2d", "g-1c2d3e4f5a", "14301"], "DA_GuinsoosRageblade": ["g-7f3a9c1b2d"]},
+      "trait": {"DA_Riftbeast18": ["g-7f3a9c1b2d"], "DA_18_Vanguard": ["g-7f3a9c1b2d", "g-1c2d3e4f5a"], "DA_18_Elderwood": ["g-2b3c4d5e6f", "14301"]},
+      "augment": {"DA_Ascension": ["g-7f3a9c1b2d"], "DA_Swordsmith": ["g-1c2d3e4f5a"]}
+    }
+  },
+  "catalog": {
+    "champions": [
+      {"id": "DA_18_ElderDragon", "name": "장로 드래곤", "nameEn": "Elder Dragon", "cost": 5, "icon": "assets/characters/tft18_elderdragon/hud/tft18_elderdragon_square.png"},
+      {"id": "DA_Draven18", "name": "드레이븐", "nameEn": "Draven", "cost": 5, "icon": "assets/characters/tft18_draven/tft18_draven_square.png"},
+      {"id": "DA_Taric18", "name": "타릭", "nameEn": "Taric", "cost": 5, "icon": "assets/characters/tft18_taric/tft18_taric_square.png"},
+      {"id": "DA_18_Kennen", "name": "케넨", "nameEn": "Kennen", "cost": 5, "icon": "assets/characters/tft18_kennen/tft18_kennen_square.png"},
+      {"id": "DA_18_Maokai", "name": "마오카이", "nameEn": "Maokai", "cost": 5, "icon": "assets/characters/tft18_maokai/tft18_maokai_square.png"},
+      {"id": "DA_Amumu18", "name": "아무무", "nameEn": "Amumu", "cost": 4, "icon": "assets/characters/tft18_amumu/tft18_amumu_square.png"},
+      {"id": "DA_Sentinel18", "name": "파수꾼", "nameEn": "Sentinel", "cost": 4, "icon": "assets/characters/tft18_sentinel/tft18_sentinel_square.png"},
+      {"id": "DA_18_Aphelios", "name": "아펠리오스", "nameEn": "Aphelios", "cost": 4, "icon": "assets/characters/tft18_aphelios/tft18_aphelios_square.png"},
+      {"id": "DA_18_Ezreal", "name": "이즈리얼", "nameEn": "Ezreal", "cost": 4, "icon": "assets/characters/tft18_ezreal/tft18_ezreal_square.png"},
+      {"id": "DA_18_Sett", "name": "세트", "nameEn": "Sett", "cost": 4, "icon": "assets/characters/tft18_sett/tft18_sett_square.png"},
+      {"id": "DA_Krug18", "name": "돌거북", "nameEn": "Krug", "cost": 3, "icon": "assets/characters/tft18_krug/tft18_krug_square.png"},
+      {"id": "DA_18_Rammus", "name": "람머스", "nameEn": "Rammus", "cost": 3, "icon": "assets/characters/tft18_rammus/tft18_rammus_square.png"},
+      {"id": "DA_18_Alistar", "name": "알리스타", "nameEn": "Alistar", "cost": 2, "icon": "assets/characters/tft18_alistar/tft18_alistar_square.png"},
+      {"id": "DA_18_Shen", "name": "쉔", "nameEn": "Shen", "cost": 2, "icon": "assets/characters/tft18_shen/tft18_shen_square.png"},
+      {"id": "DA_18_Yunara", "name": "유나라", "nameEn": "Yunara", "cost": 2, "icon": "assets/characters/tft18_yunara/tft18_yunara_square.png"},
+      {"id": "DA_18_Caitlyn", "name": "케이틀린", "nameEn": "Caitlyn", "cost": 2, "icon": "assets/characters/tft18_caitlyn/tft18_caitlyn_square.png"},
+      {"id": "DA_18_Yorick", "name": "요릭", "nameEn": "Yorick", "cost": 1, "icon": "assets/characters/tft18_yorick/tft18_yorick_square.png"},
+      {"id": "DA_18_Rakan", "name": "라칸", "nameEn": "Rakan", "cost": 1, "icon": "assets/characters/tft18_rakan/tft18_rakan_square.png"},
+      {"id": "DA_Karma18", "name": "카르마", "nameEn": "Karma", "cost": 1, "icon": "assets/characters/tft18_karma/tft18_karma_square.png"},
+      {"id": "DA_18_Ornn", "name": "오른", "nameEn": "Ornn", "cost": 1, "icon": "assets/characters/tft18_ornn/tft18_ornn_square.png"},
+      {"id": "DA_18_Varus", "name": "바루스", "nameEn": "Varus", "cost": 1, "icon": "assets/characters/tft18_varus/tft18_varus_square.png"},
+      {"id": "DA_18_Xayah", "name": "자야", "nameEn": "Xayah", "cost": 1, "icon": "assets/characters/tft18_xayah/tft18_xayah_square.png"},
+      {"id": "DA_18_Leona", "name": "레오나", "nameEn": "Leona", "cost": 1, "icon": "assets/characters/tft18_leona/tft18_leona_square.png"}
+    ],
+    "traits": [
+      {"id": "DA_Riftbeast18", "name": "협곡야수", "nameEn": "Riftbeast", "icon": "assets/ux/traiticons/trait_icon_18_riftbeast.png"},
+      {"id": "DA_18_Vanguard", "name": "선봉대", "nameEn": "Vanguard", "icon": "assets/ux/traiticons/trait_icon_18_vanguard.png"},
+      {"id": "DA_Juggernaut18", "name": "전쟁기계", "nameEn": "Juggernaut", "icon": "assets/ux/traiticons/trait_icon_18_juggernaut.png"},
+      {"id": "DA_18_Inferno", "name": "지옥불", "nameEn": "Inferno", "icon": "assets/ux/traiticons/trait_icon_18_inferno.png"},
+      {"id": "DA_18_Hunter", "name": "사냥꾼", "nameEn": "Hunter", "icon": "assets/ux/traiticons/trait_icon_18_hunter.png"},
+      {"id": "DA_18_Elderwood", "name": "나무정령", "nameEn": "Elderwood", "icon": "assets/ux/traiticons/trait_icon_18_elderwood.png"}
+    ],
+    "items": [
+      {"id": "DA_Component_BFSword", "name": "B.F. 대검", "nameEn": "B.F. Sword", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_bfsword.png"},
+      {"id": "DA_Component_SparringGloves", "name": "연습용 장갑", "nameEn": "Sparring Gloves", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_sparringgloves.png"},
+      {"id": "DA_Component_FryingPan", "name": "프라이팬", "nameEn": "Frying Pan", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_fryingpan.png"},
+      {"id": "DA_Component_ChainVest", "name": "쇠사슬 조끼", "nameEn": "Chain Vest", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_chainvest.png"},
+      {"id": "DA_InfinityEdge", "name": "무한의 대검", "nameEn": "Infinity Edge", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_infinityedge.png", "components": ["DA_Component_BFSword", "DA_Component_SparringGloves"]},
+      {"id": "DA_GuinsoosRageblade", "name": "구인수의 격노검", "nameEn": "Guinsoo's Rageblade", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_guinsoosrageblade.png", "components": ["DA_Component_RecurveBow", "DA_Component_NeedlesslyLargeRod"]},
+      {"id": "DA_KrakensFury", "name": "크라켄의 분노", "nameEn": "Kraken's Fury", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_krakenslayer.png", "components": ["DA_Component_RecurveBow", "DA_Component_NegatronCloak"]},
+      {"id": "DA_18_EmblemVanguard", "name": "선봉대 상징", "nameEn": "Vanguard Emblem", "icon": "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_vanguard.png", "components": ["DA_Component_FryingPan", "DA_Component_ChainVest"]},
+      {"id": "DA_GargoyleStoneplate", "name": "가고일 돌갑옷", "nameEn": "Gargoyle Stoneplate", "icon": "assets/maps/tft/icons/items/hexcore/tft_item_gargoylestoneplate.png", "components": ["DA_Component_ChainVest", "DA_Component_NegatronCloak"]}
+    ],
+    "augments": [
+      {"id": "DA_Ascension", "name": "초월", "nameEn": "Ascension", "icon": "assets/maps/tft/icons/augments/hexcore/ascension_ii.png"},
+      {"id": "DA_Swordsmith", "name": "검 제작자", "nameEn": "Swordsmith", "icon": "assets/maps/tft/icons/augments/hexcore/swordsmith_ii.png", "desc": "라운드마다 조합 재료 B.F. 대검을 하나 얻습니다."}
+    ],
+    "pets": [
+      {"id": "DA_18_IronbarkTree", "name": "철갑 나무", "icon": "https://game.gtimg.cn/images/lol/act/img/tft/original-image/tft18_ironbarktree_square.tft_set18.png", "kind": "pet"}
+    ]
+  }
+}
