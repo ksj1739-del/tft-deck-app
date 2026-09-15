@@ -15,6 +15,8 @@ lol.qq 한 그룹 안의 조합끼리 주특성 개수와 메인C 가 서로 다
 import base64
 import binascii
 import hashlib
+import math
+import statistics
 from collections import OrderedDict
 
 # (키, 라벨, lol.qq tier_part)
@@ -35,14 +37,23 @@ EXPOSURE_QUOTA = (("goldem", 40), ("all", 25), ("diamond", 15), ("master", 10), 
 PRECISE_SCOPE_FOR_BUCKET = {"goldem": "cn_plat", "all": "cn_plat", "diamond": "cn_plat",
                             "low": "cn_plat", "master": "cn_master"}
 
-# 등급: 표본 보정 평균(adjAvg)의 절대 컷. 분포가 바뀌면 여기 한 곳에서 조정한다.
-# 설계 초기값(S 3.90 / A 4.15 / B 4.40 / C 4.70)으로는 골드~에메랄드 43그룹이 전부 S 가 됐다.
-# 胜率阵容은 평균 4.0 이하 조합만 노출해 그룹 평균이 2.4~3.8 에 몰리기 때문이다.
-# 2026-09-15 골드~에메랄드 분포(10/25/50/75/90% = 2.70/2.96/3.09/3.27/3.50)에 맞춰 다시 잡았다.
+# 등급: 구간마다 그 구간 그룹 분포로 기준을 잡는다(bucket_grade_cuts). 조정은 여기 상수 한 곳에서 한다.
+# 구간마다 표본 규모가 수십 배 다르다(2026-09-15 수집분 그룹 n 중앙값: 전체 4613 · 골드~에메랄드 3100 ·
+# 골드 이하 1065 · 다이아+ 250 · 마스터+ 104). 전 구간에 문턱 300 · 보정 K 200 을 쓰면 다이아+ 는 16/28,
+# 마스터+ 는 9/9 그룹이 표본 부족이었고, 등급이 붙어도 K 가 표본만 해서 평균이 4.5 쪽으로 끌려가 D 로 눌렸다.
+#   minSample = clamp(사사오입(n 중앙값 × 0.1), 30, 300)  — 미만이면 grade null(표본 부족)
+#   shrinkK   = clamp(사사오입(n 중앙값 × 0.2), 20, 200)  — adjAvg = (n·avg + K·4.5) / (n + K)
+#   컷        = minSample 이상 그룹 adjAvg 의 10/25/50/75% 분위수 → S/A/B/C, 그 밖 D
+# minSample 이상 그룹이 5개 미만이면 분위수가 뜻이 없어 절대 컷 GRADE_CUTS 를 쓴다.
+# 절대 컷: 胜率阵容은 평균 4.0 이하 조합만 노출해 그룹 평균이 2.4~3.8 에 몰린다. 설계 초기값
+# (S 3.90 / A 4.15 / B 4.40 / C 4.70)으로는 전부 S 가 돼 2026-09-15 골드~에메랄드 분포
+# (10/25/50/75/90% = 2.70/2.96/3.09/3.27/3.50)에 맞춰 다시 잡았다.
 GRADE_CUTS = (("S", 2.70), ("A", 3.00), ("B", 3.25), ("C", 3.50))
-SHRINK_K = 200
+GRADE_PERCENTILES = (("S", 0.10), ("A", 0.25), ("B", 0.50), ("C", 0.75))
+PERCENTILE_MIN_GROUPS = 5
 SHRINK_TO = 4.5
-MIN_SAMPLE = 300
+MIN_SAMPLE_RATIO, MIN_SAMPLE_FLOOR, MIN_SAMPLE = 0.1, 30, 300   # MIN_SAMPLE 은 문턱 상한
+SHRINK_K_RATIO, SHRINK_K_FLOOR, SHRINK_K = 0.2, 20, 200         # SHRINK_K 는 보정 강도 상한
 TREND_AVG_DELTA = 0.05
 GRADE_ORDER = {"S": 0, "A": 1, "B": 2, "C": 3, "D": 4}
 # 편집 덱 등급(v1 과 같은 순서). 통계 등급이 없는 덱의 정렬에만 쓴다.
@@ -245,9 +256,10 @@ def aggregate(rows):
     }
 
 
-def grade_for(adj_avg):
-    for grade, cut in GRADE_CUTS:
-        if adj_avg <= cut:
+def grade_for(adj_avg, cuts):
+    """cuts: bucket_grade_cuts 가 만든 그 구간 기준. 컷 이하이면 그 등급, 넷 다 넘으면 D."""
+    for grade, _ in GRADE_CUTS:
+        if adj_avg <= cuts[grade]:
             return grade
     return "D"
 
@@ -262,10 +274,57 @@ def trend_for(avg_diff, pick_diff):
     return "flat"
 
 
-def finish_stats(agg):
-    """집계 -> 카드 수치. 등급은 표시되는 반올림 값으로 매겨 화면과 어긋나지 않게 한다."""
+def adjusted_avg(agg, shrink_k):
+    """표본 보정 평균. 표시되는 반올림 값이라 등급·분위수도 이 값으로 매겨 화면과 어긋나지 않게 한다."""
     n = agg["n"]
-    adj = round((n * agg["avg"] + SHRINK_K * SHRINK_TO) / float(n + SHRINK_K), 2)
+    return round((n * agg["avg"] + shrink_k * SHRINK_TO) / float(n + shrink_k), 2)
+
+
+def percentile(values, q):
+    """선형 보간 분위수(numpy 기본 방식). values 는 비어 있지 않아야 한다."""
+    ordered = sorted(values)
+    pos = (len(ordered) - 1) * q
+    low = int(math.floor(pos))
+    high = min(low + 1, len(ordered) - 1)
+    return ordered[low] + (ordered[high] - ordered[low]) * (pos - low)
+
+
+def _half_up(value):
+    # 파이썬 round 는 .5 를 짝수 쪽으로 보낸다. 문턱은 사사오입으로 잡는다.
+    return int(math.floor(value + 0.5))
+
+
+def bucket_grade_cuts(aggs):
+    """
+    한 구간 그룹 집계들 -> 그 구간 등급 기준. decks.json buckets[b].gradeCuts 에 그대로 싣는다.
+    표본 문턱·보정 강도는 n 중앙값에 비례(상·하한 안), 컷은 문턱을 넘은 그룹 adjAvg 의 분위수.
+    """
+    if aggs:
+        med = statistics.median([agg["n"] for agg in aggs])
+        min_sample = max(MIN_SAMPLE_FLOOR, min(MIN_SAMPLE, _half_up(med * MIN_SAMPLE_RATIO)))
+        shrink_k = max(SHRINK_K_FLOOR, min(SHRINK_K, _half_up(med * SHRINK_K_RATIO)))
+    else:
+        min_sample, shrink_k = MIN_SAMPLE, SHRINK_K
+    eligible = [adjusted_avg(agg, shrink_k) for agg in aggs if agg["n"] >= min_sample]
+    if len(eligible) >= PERCENTILE_MIN_GROUPS:
+        cuts = dict((grade, round(percentile(eligible, q), 2)) for grade, q in GRADE_PERCENTILES)
+        method = "percentile"
+    else:
+        cuts, method = dict(GRADE_CUTS), "absolute"
+    cuts.update(minSample=min_sample, shrinkK=shrink_k, method=method)
+    return cuts
+
+
+def grade_cuts(aggregates):
+    """{gid: group_aggregates 결과} -> {구간: 등급 기준}. 통계가 없는 구간도 기준(상한 문턱·절대 컷)은 만든다."""
+    return {bucket: bucket_grade_cuts([aggs[bucket] for aggs in aggregates.values() if bucket in aggs])
+            for bucket, _, _ in BUCKETS}
+
+
+def finish_stats(agg, cuts):
+    """집계 -> 카드 수치. cuts: 그 구간 등급 기준(bucket_grade_cuts)."""
+    n = agg["n"]
+    adj = adjusted_avg(agg, cuts["shrinkK"])
     return {
         "n": n,
         "avg": round(agg["avg"], 2),
@@ -275,19 +334,25 @@ def finish_stats(agg):
         "pick": round(agg["pick"], 4),
         "avgDiff": _round(agg["avgDiff"], 2),
         "pickDiff": _round(agg["pickDiff"], 4),
-        "grade": grade_for(adj) if n >= MIN_SAMPLE else None,
+        "grade": grade_for(adj, cuts) if n >= cuts["minSample"] else None,
         "trend": trend_for(agg["avgDiff"], agg["pickDiff"]),
     }
 
 
-def group_stats(group):
-    stats = {}
+def group_aggregates(group):
+    """등급 1단계: 구간별 use_num 가중 집계. 구간 기준은 모든 그룹을 집계한 뒤 grade_cuts 로 잡는다."""
+    out = {}
     for bucket, _, _ in BUCKETS:
         rows = [o["row"] for v in group["variants"].values() for o in v["occ"].get(bucket) or []]
         agg = aggregate(rows)
         if agg:
-            stats[bucket] = finish_stats(agg)
-    return stats
+            out[bucket] = agg
+    return out
+
+
+def group_stats(aggregates, cuts):
+    """등급 2단계: 그룹의 구간 집계(group_aggregates) -> 카드 수치. cuts: grade_cuts 결과."""
+    return {bucket: finish_stats(agg, cuts[bucket]) for bucket, agg in aggregates.items()}
 
 
 def variant_stats(variant):

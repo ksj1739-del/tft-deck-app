@@ -1473,8 +1473,11 @@ def main(argv=None):
     # --- 그룹 병합 ---------------------------------------------------------
     join = {}
     groups = merge.build_groups(lists, static, space, join) if static else {}
-    for group in groups.values():
-        group["stats"] = merge.group_stats(group)
+    # 등급 기준은 구간마다 그 구간 그룹 분포로 잡는다: 모든 그룹 집계 → 구간 기준 → 등급.
+    aggregates = {gid: merge.group_aggregates(group) for gid, group in groups.items()}
+    grade_cuts = merge.grade_cuts(aggregates)
+    for gid, group in groups.items():
+        group["stats"] = merge.group_stats(aggregates[gid], grade_cuts)
 
     precise, dropped = [], {}
     for scope, rows in rank_rows.items():
@@ -1645,6 +1648,8 @@ def main(argv=None):
             "detailDate": detail_dates.get(key),
             "groups": sum(1 for g in groups.values() if key in g["stats"]),
             "variants": sum(1 for g in groups.values() for v in g["variants"].values() if v["occ"].get(key)),
+            # 이 구간 등급 기준(표본 문턱·보정 강도·컷). 구간마다 그 구간 분포로 잡는다.
+            "gradeCuts": grade_cuts[key],
         }
         if key == merge.DEFAULT_BUCKET:
             meta["default"] = True
@@ -1722,8 +1727,8 @@ def main(argv=None):
         },
         "buckets": buckets,
         "scopes": scopes,
-        "gradeCuts": dict([(g, c) for g, c in merge.GRADE_CUTS],
-                          minSample=merge.MIN_SAMPLE, shrinkK=merge.SHRINK_K),
+        # 앱 호환 자리(구간별 기준을 모르는 앱이 읽는다): 기본 구간 기준. 구간별 기준은 buckets[b].gradeCuts.
+        "gradeCuts": dict(grade_cuts[merge.DEFAULT_BUCKET]),
         "decks": decks,
         "index": index,
         "catalog": catalog,
@@ -1739,6 +1744,11 @@ def main(argv=None):
         log("구간 %-7s 원본 그룹 %3d · 조합 %3d → 통합 그룹 %3d · 변형 %3d · 목록 %s · 상세 %s"
             % (key, src.get("groups", 0), src.get("variants", 0), meta["groups"], meta["variants"],
                meta["listDate"], meta["detailDate"]))
+        cuts = meta["gradeCuts"]
+        grades = [g["stats"][key]["grade"] for g in groups.values() if key in g["stats"]]
+        log("        등급 %s S≤%.2f A≤%.2f B≤%.2f C≤%.2f · 표본≥%d · K %d → 등급 %d/%d %s"
+            % (cuts["method"], cuts["S"], cuts["A"], cuts["B"], cuts["C"], cuts["minSample"], cuts["shrinkK"],
+               sum(1 for g in grades if g), len(grades), " ".join("%s%d" % (x, grades.count(x)) for x in "SABCD")))
     log("덱 %d개 = 그룹 %d + 편집 독립 %d (편집 덱 %d개 중 그룹 첨부 %d, 파싱 실패 %d)"
         % (len(decks), diag["groups"], len(standalone), len(editorials), attached, failed))
     log("数据检索器 행 %s · 범위 검사로 버림 %s · 변형에 붙은 행 %d"

@@ -55,6 +55,14 @@ LEVEL_RANGE = (4, 11)
 # 胜率阵容 평균 등수는 0.1 단위로 반올림돼 오므로 가능 범위 검사에 여유를 둔다.
 WINRATE_TOLERANCE = 0.06
 PRECISE_TOLERANCE = 0.01
+# 胜率阵容 구간(앱 칩 순서)과 구간별 등급 기준(buckets[b].gradeCuts).
+BUCKET_ORDER = ("all", "master", "diamond", "goldem", "low")
+GRADE_CUT_KEYS = ("S", "A", "B", "C", "minSample", "shrinkK")
+GRADE_METHODS = ("percentile", "absolute")
+# 통계가 있는 그룹 중 등급이 붙은 비율이 이보다 낮으면 경고한다(앱에 표본 부족 카드가 많아진다).
+MIN_GRADED_SHARE = 0.70
+# 기본 구간이 아닌 구간은 등급 붙은 그룹이 이만큼은 돼야 S 비율 초과를 실패로 본다.
+MIN_S_GATE_GROUPS = 10
 
 
 def feasible(avg, win, top4, tolerance):
@@ -62,6 +70,16 @@ def feasible(avg, win, top4, tolerance):
     low = 1 * win + 2 * (top4 - win) + 5 * (1 - top4)
     high = 1 * win + 4 * (top4 - win) + 8 * (1 - top4)
     return low - tolerance <= avg <= high + tolerance
+
+
+def expected_grade(stat, cuts):
+    """실린 구간 기준으로 다시 매긴 등급. 표본 문턱 미만이면 None(deck_merge.finish_stats 와 같은 규칙)."""
+    if (stat.get("n") or 0) < cuts["minSample"] or stat.get("adjAvg") is None:
+        return None
+    for grade in ("S", "A", "B", "C"):
+        if stat["adjAvg"] <= cuts[grade]:
+            return grade
+    return "D"
 
 
 def main():
@@ -227,17 +245,44 @@ def main():
         problems.append("픽률이 없는 변형 수치 %d건" % no_pick)
 
     # --- 등급 분포 ---------------------------------------------------------
-    graded = [((d.get("stats") or {}).get("goldem") or {}) for d in decks if d.get("kind") == "group"]
-    grades = [s.get("grade") for s in graded if s]
-    with_grade = [g for g in grades if g]
-    if not with_grade:
+    # 등급 기준은 구간마다 그 구간 분포로 잡아 buckets[b].gradeCuts 에 싣는다. 실린 기준으로 등급을 다시 매겨
+    # 맞춰 보고, 구간마다 S 비율과 '통계가 있는 그룹 중 등급이 붙은 비율'을 본다.
+    group_decks = [d for d in decks if d.get("kind") == "group"]
+    if not any(((d.get("stats") or {}).get("goldem") or {}).get("grade") for d in group_decks):
         problems.append("골드~에메랄드 등급이 하나도 없다")
-    else:
-        s_share = with_grade.count("S") / float(len(with_grade))
-        if s_share > MAX_S_SHARE:
-            problems.append("S 등급 비율 %.0f%% (최대 %.0f%%)" % (s_share * 100, MAX_S_SHARE * 100))
-        print("등급 분포(골드~에메랄드): %s · 표본 부족(null) %d/%d"
-              % ({g: with_grade.count(g) for g in "SABCD"}, len(grades) - len(with_grade), len(grades)))
+    for key in BUCKET_ORDER:
+        if key not in buckets:
+            continue
+        meta = buckets[key]
+        cuts = meta.get("gradeCuts") or {}
+        if cuts.get("method") not in GRADE_METHODS or any(
+                not isinstance(cuts.get(k), (int, float)) for k in GRADE_CUT_KEYS):
+            problems.append("구간 %s 등급 기준(gradeCuts)이 없거나 깨졌다: %s" % (key, cuts))
+            continue
+        stats = [s for s in ((d.get("stats") or {}).get(key) for d in group_decks) if s]
+        grades = [s.get("grade") for s in stats]
+        with_grade = [g for g in grades if g]
+        mismatched = sum(1 for s in stats if s.get("grade") != expected_grade(s, cuts))
+        if mismatched:
+            problems.append("구간 %s 등급 %d건이 실린 기준(gradeCuts)으로 다시 매긴 등급과 다르다" % (key, mismatched))
+        if with_grade:
+            s_share = with_grade.count("S") / float(len(with_grade))
+            if s_share > MAX_S_SHARE:
+                text = ("구간 %s S 등급 비율 %.0f%% (최대 %.0f%%, 등급 %d개)"
+                        % (key, s_share * 100, MAX_S_SHARE * 100, len(with_grade)))
+                # 등급이 붙은 그룹이 적은 구간은 adjAvg 동률 하나로도 30% 를 넘어 경고로만 둔다. 기본 구간은 늘 막는다.
+                if key == "goldem" or len(with_grade) >= MIN_S_GATE_GROUPS:
+                    problems.append(text)
+                else:
+                    warnings.append(text)
+        coverage = len(with_grade) / float(len(grades)) if grades else None
+        print("등급 분포(%s): %s · 등급 %d/%d%s · %s S≤%s A≤%s B≤%s C≤%s · 표본≥%s · K %s"
+              % (meta.get("label") or key, {g: with_grade.count(g) for g in "SABCD"}, len(with_grade), len(grades),
+                 " (%.0f%%)" % (coverage * 100) if coverage is not None else "",
+                 cuts["method"], cuts["S"], cuts["A"], cuts["B"], cuts["C"], cuts["minSample"], cuts["shrinkK"]))
+        if coverage is not None and coverage < MIN_GRADED_SHARE:
+            warnings.append("구간 %s 통계가 있는 그룹 중 등급이 붙은 비율 %.0f%% (%d/%d, 기준 %.0f%%)"
+                            % (key, coverage * 100, len(with_grade), len(grades), MIN_GRADED_SHARE * 100))
 
     # --- 편집 덱 단계 보드 ----------------------------------------------------
     pet_cells = 0
