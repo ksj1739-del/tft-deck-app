@@ -47,6 +47,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.tftdeck.reader.overlay.OverlayService
+import com.tftdeck.reader.overlay.OverlayState
 import com.tftdeck.reader.ui.AppViewModel
 import com.tftdeck.reader.ui.screens.DeckDetailScreen
 import com.tftdeck.reader.ui.screens.DeckListScreen
@@ -68,6 +69,17 @@ class MainActivity : ComponentActivity() {
                 AppRoot(pendingDeck)
             }
         }
+    }
+
+    // 앱 화면이 보이는 동안 오버레이는 숨는다. 게임으로 돌아가면 다시 나타난다.
+    override fun onStart() {
+        super.onStart()
+        OverlayState.appVisible.value = true
+    }
+
+    override fun onStop() {
+        OverlayState.appVisible.value = false
+        super.onStop()
     }
 
     // launchMode=singleTask 라 이미 떠 있으면 onCreate 가 아니라 여기로 온다.
@@ -99,8 +111,8 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
     val snackbar = remember { SnackbarHostState() }
     val syncMessage by viewModel.syncMessage.collectAsState()
 
-    // 오버레이는 시스템 서비스라 상태를 직접 들고 있어야 한다.
-    var overlayRunning by remember { mutableStateOf(false) }
+    // 실제로 떠 있는지는 서비스가 알린다. 화면 변수로 들고 있으면 앱을 새로 열 때 꺼짐으로 초기화된다.
+    val overlayRunning by OverlayState.running.collectAsState()
 
     // Android 13+ 는 포그라운드 서비스 알림을 띄우려면 알림 권한이 필요하다.
     val notificationPermission = androidx.activity.compose.rememberLauncherForActivityResult(
@@ -137,7 +149,8 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
             notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
         OverlayService.start(context, deckId)
-        overlayRunning = true
+        // 앱이 열려 있는 동안은 숨어 있으므로, 눌렀는데 아무 일도 없는 것처럼 보이지 않게 알려 준다.
+        android.widget.Toast.makeText(context, "앱을 나가면 게임 위에 나타납니다", android.widget.Toast.LENGTH_SHORT).show()
     }
 
     val isDetail = route == DETAIL_ROUTE
@@ -209,7 +222,6 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
                                 startOverlay(null)
                             } else {
                                 OverlayService.stop(context)
-                                overlayRunning = false
                             }
                         },
                     )

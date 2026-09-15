@@ -213,11 +213,36 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         lifecycleRegistry.currentState = Lifecycle.State.RESUMED
 
         runCatching { windowManager.addView(view, params) }
+            .onSuccess {
+                OverlayState.running.value = true
+                observeAppVisibility()
+            }
             .onFailure {
                 // 권한이 도중에 회수된 경우. 조용히 떠 있는 척하지 않고 끝낸다.
                 overlayView = null
                 stopSelf()
             }
+    }
+
+    /**
+     * 앱 화면이 열려 있는 동안은 오버레이를 숨긴다. 같은 정보가 앱을 가리기 때문이다.
+     * 숨길 때는 터치도 통과시켜 보이지 않는 창이 앱 조작을 막지 않게 한다.
+     * 앱을 나가 게임으로 돌아가면 그대로 다시 나타난다.
+     */
+    private fun observeAppVisibility() {
+        scope.launch {
+            OverlayState.appVisible.collect { appVisible ->
+                val view = overlayView ?: return@collect
+                val params = layoutParams ?: return@collect
+                view.visibility = if (appVisible) View.GONE else View.VISIBLE
+                params.flags = if (appVisible) {
+                    params.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                } else {
+                    params.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
+                }
+                runCatching { windowManager.updateViewLayout(view, params) }
+            }
+        }
     }
 
     private fun moveBy(dx: Float, dy: Float) {
@@ -288,6 +313,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     }
 
     override fun onDestroy() {
+        OverlayState.running.value = false
         overlayView?.let { view ->
             runCatching { windowManager.removeView(view) }
             view.disposeComposition()
