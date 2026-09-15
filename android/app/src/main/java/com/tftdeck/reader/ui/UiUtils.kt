@@ -9,6 +9,8 @@ import androidx.compose.ui.graphics.Color
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.content.Intent
+import android.net.Uri
 
 /** 수집기는 아이콘을 상대 경로로 저장한다. 표시할 때 접두사를 붙인다. */
 fun iconUrl(assetBase: String, path: String?): String? =
@@ -23,6 +25,37 @@ fun copyToClipboard(context: Context, label: String, text: String) {
     clipboard.setPrimaryClip(ClipData.newPlainText(label, text))
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
         Toast.makeText(context, "복사했습니다", Toast.LENGTH_SHORT).show()
+    }
+}
+
+/**
+ * 연결한 라이엇 ID 의 lolchess.gg 전적 페이지.
+ * "랄라붕#KR1" -> https://lolchess.gg/profile/kr/랄라붕-KR1 (실측으로 확인한 형식)
+ */
+fun lolchessProfileUrl(riotId: String, region: String): String =
+    "https://lolchess.gg/profile/" + region.lowercase() + "/" + riotIdPathSegment(riotId)
+
+/**
+ * metatft 선수 페이지. 사이트 라우트가 /player/:server/:playerName 이고
+ * 이름의 # 을 - 로 바꿔 넣는다 (metatft 번들에서 확인).
+ */
+fun metatftProfileUrl(riotId: String, region: String): String =
+    "https://www.metatft.com/player/" + region.lowercase() + "/" + riotIdPathSegment(riotId)
+
+/** 경로 조각이라 공백은 + 가 아니라 %20 이어야 한다. URLEncoder 대신 Uri.encode 를 쓴다. */
+private fun riotIdPathSegment(riotId: String): String {
+    val name = riotId.substringBefore('#').trim()
+    val tag = riotId.substringAfter('#', "").trim()
+    return Uri.encode(name) + "-" + Uri.encode(tag)
+}
+
+fun openUrl(context: Context, url: String) {
+    runCatching {
+        context.startActivity(
+            Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        )
+    }.onFailure {
+        Toast.makeText(context, "브라우저를 열 수 없습니다", Toast.LENGTH_SHORT).show()
     }
 }
 

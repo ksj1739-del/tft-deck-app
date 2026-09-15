@@ -22,7 +22,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.PictureInPictureAlt
-import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilterChip
@@ -56,6 +55,7 @@ import com.tftdeck.reader.ui.components.TraitChip
 import com.tftdeck.reader.ui.copyToClipboard
 import com.tftdeck.reader.ui.costColor
 import com.tftdeck.reader.ui.iconUrl
+import com.tftdeck.reader.data.ItemRef
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -263,10 +263,10 @@ fun DeckDetailScreen(
         // --- 증강체 ----------------------------------------------------------
         if (deck.augments.recommended.isNotEmpty()) {
             Section("증강체") {
-                AugmentRow("추천", deck.augments.recommended.map { it.name }, scheme.primary)
+                AugmentRow("추천", deck.augments.recommended, assetBase, scheme.primary)
                 if (deck.augments.alternatives.isNotEmpty()) {
                     Spacer(Modifier.size(6.dp))
-                    AugmentRow("차선", deck.augments.alternatives.map { it.name }, scheme.onSurfaceVariant)
+                    AugmentRow("차선", deck.augments.alternatives, assetBase, scheme.onSurfaceVariant)
                 }
             }
         }
@@ -336,12 +336,49 @@ private fun Section(title: String, content: @Composable () -> kotlin.Unit) {
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun AugmentRow(label: String, names: List<String>, color: androidx.compose.ui.graphics.Color) {
+private fun AugmentRow(
+    label: String,
+    augments: List<ItemRef>,
+    assetBase: String,
+    color: androidx.compose.ui.graphics.Color,
+) {
+    val scheme = MaterialTheme.colorScheme
     Row(verticalAlignment = Alignment.Top) {
-        Text(label, style = MaterialTheme.typography.labelSmall, color = color, modifier = Modifier.width(30.dp))
-        FlowRow(horizontalArrangement = Arrangement.spacedBy(5.dp), verticalArrangement = Arrangement.spacedBy(5.dp)) {
-            names.forEach { name ->
-                AssistChip(onClick = {}, label = { Text(name, style = MaterialTheme.typography.labelSmall) })
+        Text(
+            label,
+            style = MaterialTheme.typography.labelSmall,
+            color = color,
+            modifier = Modifier
+                .width(30.dp)
+                .padding(top = 7.dp),
+        )
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+            verticalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
+            augments.forEach { augment ->
+                // 증강은 이름보다 아이콘으로 기억하는 경우가 많아 아이콘을 앞에 둔다.
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(scheme.surfaceVariant)
+                        .padding(start = 3.dp, end = 8.dp, top = 3.dp, bottom = 3.dp),
+                ) {
+                    AsyncImage(
+                        model = iconUrl(assetBase, augment.icon),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(22.dp)
+                            .clip(RoundedCornerShape(5.dp)),
+                    )
+                    Spacer(Modifier.width(5.dp))
+                    Text(
+                        augment.name,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = scheme.onSurfaceVariant,
+                    )
+                }
             }
         }
     }

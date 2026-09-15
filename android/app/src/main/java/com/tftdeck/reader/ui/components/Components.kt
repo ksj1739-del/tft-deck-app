@@ -49,6 +49,10 @@ import com.tftdeck.reader.ui.costColor
 import com.tftdeck.reader.ui.iconUrl
 import com.tftdeck.reader.ui.tierColor
 import com.tftdeck.reader.ui.traitStyleColor
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.TextUnit
 
 // ---------------------------------------------------------------------------
 // 헥사곤 보드
@@ -149,12 +153,7 @@ private fun HexCell(slot: BoardSlot?, assetBase: String, modifier: Modifier) {
             )
         }
         if (slot.star >= 3) {
-            Text(
-                "★★★",
-                color = Color(0xFFE0B348),
-                style = MaterialTheme.typography.labelSmall,
-                modifier = Modifier.align(Alignment.TopCenter),
-            )
+            ThreeStarMark(9.sp, Modifier.align(Alignment.TopCenter))
         }
     }
 }
@@ -372,17 +371,7 @@ private fun UnitCell(
                     .border(if (emphasized) 2.dp else 1.5.dp, border, RoundedCornerShape(6.dp)),
             )
             if (unit.star >= 3) {
-                Text(
-                    "★★★",
-                    color = StarGold,
-                    fontSize = 7.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .offset(y = (-3).dp)
-                        .clip(RoundedCornerShape(3.dp))
-                        .background(scheme.surface)
-                        .padding(horizontal = 2.dp),
-                )
+                ThreeStarMark(7.sp, Modifier.offset(y = (-3).dp))
             }
         }
 
@@ -416,6 +405,24 @@ private fun UnitCell(
             textAlign = TextAlign.Center,
         )
     }
+}
+
+/**
+ * 3성 표시. 초상화 위에 얹히므로 바탕 상자를 깔지 않고 그림자로만 읽히게 한다.
+ * 상자가 있으면 얼굴 윗부분을 가리고 흰 띠처럼 튄다.
+ */
+@Composable
+fun ThreeStarMark(fontSize: TextUnit, modifier: Modifier = Modifier) {
+    Text(
+        "★★★",
+        color = StarGold,
+        fontSize = fontSize,
+        fontWeight = FontWeight.Bold,
+        style = TextStyle(
+            shadow = Shadow(color = Color(0xE6000000), offset = Offset(0f, 1f), blurRadius = 2.5f),
+        ),
+        modifier = modifier,
+    )
 }
 
 /** TFT 보드가 8칸이라 한 줄 8개가 자연스럽다. 9명 이상이면 다음 줄로 넘어간다. */

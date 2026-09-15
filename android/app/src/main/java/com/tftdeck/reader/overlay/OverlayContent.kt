@@ -60,6 +60,9 @@ import com.tftdeck.reader.ui.iconUrl
 import com.tftdeck.reader.ui.tierColor
 import com.tftdeck.reader.ui.traitStyleColor
 import kotlinx.coroutines.flow.StateFlow
+import androidx.compose.material.icons.filled.EmojiEvents
+import com.tftdeck.reader.ui.components.ThreeStarMark
+import androidx.compose.ui.text.style.TextOverflow
 /**
  * 게임 위에 뜨는 창의 내용.
  *
@@ -75,8 +78,11 @@ fun OverlayContent(
     selectedIdFlow: StateFlow<String?>,
     expandedFlow: StateFlow<Boolean>,
     wideFlow: StateFlow<Boolean>,
+    showProfileFlow: StateFlow<Boolean>,
     onToggleExpand: () -> Unit,
     onToggleWide: () -> Unit,
+    onToggleProfile: () -> Unit,
+    onRefreshProfile: () -> Unit,
     onSelectDeck: (String?) -> Unit,
     onDrag: (Float, Float) -> Unit,
     onDragEnd: () -> Unit,
@@ -88,6 +94,7 @@ fun OverlayContent(
     val expanded by expandedFlow.collectAsState()
     val profileState by profileFlow.collectAsState()
     val wide by wideFlow.collectAsState()
+    val showProfile by showProfileFlow.collectAsState()
 
     val decks = data?.decks.orEmpty()
     if (decks.isEmpty()) return
@@ -118,7 +125,8 @@ fun OverlayContent(
     // 창은 WRAP_CONTENT 라 그냥 두면 덱 패널이 폭을 다 먹고 프로필 카드가 찌그러진다.
     // 화면 폭에서 카드 자리를 먼저 떼고 남는 만큼만 덱 패널에 준다.
     BoxWithConstraints {
-        val hasProfile = profileState.profileOrNull != null
+        // 티어 카드를 꺼 두면 그 자리를 덱 패널이 쓴다.
+        val hasProfile = showProfile && profileState.profileOrNull != null
         val profileWidth = PROFILE_WIDTH
         val deckMax = if (hasProfile) {
             (maxWidth - profileWidth - 14.dp).coerceIn(200.dp, if (wide) 380.dp else 300.dp)
@@ -162,19 +170,22 @@ fun OverlayContent(
                 )
             } else {
                 IconBtn(Icons.AutoMirrored.Filled.ArrowBack, "목록으로") { onSelectDeck(null) }
+                // 헤더에는 버튼이 많아 이름을 두면 한두 글자만 남는다. 이름은 본문 첫 줄로 내렸다.
                 Text(
                     text = selected.tier,
                     color = tierColor(selected.tier),
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Bold,
-                )
-                Spacer(Modifier.width(6.dp))
-                Text(
-                    text = selected.name,
-                    color = OverlayText,
-                    fontSize = 12.sp,
-                    maxLines = 1,
                     modifier = Modifier.weight(1f),
+                )
+            }
+            // 티어 카드만 따로 켜고 끈다. 전적을 연결하지 않았으면 끌 카드가 없으니 숨긴다.
+            if (profileState.profileOrNull != null) {
+                TintedIconBtn(
+                    Icons.Default.EmojiEvents,
+                    if (showProfile) "티어 카드 숨기기" else "티어 카드 보기",
+                    if (showProfile) OverlayAccent else OverlayMuted,
+                    onToggleProfile,
                 )
             }
             IconBtn(
@@ -195,12 +206,16 @@ fun OverlayContent(
     }
 
         // 내 티어와 최근 등수. 덱 패널 오른쪽에 붙는다.
-        profileState.profileOrNull?.let { profile ->
-            OverlayProfileCard(
-                profile = profile,
-                stale = profileState is ProfileState.Failed,
-                modifier = Modifier.width(profileWidth),
-            )
+        if (showProfile) {
+            profileState.profileOrNull?.let { profile ->
+                OverlayProfileCard(
+                    profile = profile,
+                    stale = profileState is ProfileState.Failed,
+                    refreshing = profileState is ProfileState.Loading,
+                    onRefresh = onRefreshProfile,
+                    modifier = Modifier.width(profileWidth),
+                )
+            }
         }
     }
     }
@@ -363,6 +378,13 @@ private fun DeckSummaryView(deck: Deck, assetBase: String, wide: Boolean) {
             .padding(horizontal = 9.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
+        Text(
+            text = deck.name,
+            color = OverlayText,
+            fontSize = 11.sp,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
         if (wide) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(5.dp)) {
                 deck.traits.take(6).forEach { trait ->
@@ -483,23 +505,18 @@ private fun Face(unit: DeckUnit, assetBase: String, size: Dp) {
                 ),
         )
         if (unit.star >= 3) {
-            Text(
-                "★★★",
-                color = OverlayStar,
-                fontSize = 6.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .offset(y = (-2).dp)
-                    .clip(RoundedCornerShape(2.dp))
-                    .background(OverlayScrim)
-                    .padding(horizontal = 1.dp),
-            )
+            ThreeStarMark(6.sp, Modifier.offset(y = (-2).dp))
         }
     }
 }
 
 @Composable
-private fun IconBtn(icon: ImageVector, label: String, onClick: () -> Unit) {
+private fun IconBtn(icon: ImageVector, label: String, onClick: () -> Unit) =
+    TintedIconBtn(icon, label, OverlayMuted, onClick)
+
+/** 켜짐/꺼짐을 색으로 보여 줘야 하는 버튼용. */
+@Composable
+private fun TintedIconBtn(icon: ImageVector, label: String, tint: Color, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .size(26.dp)
@@ -507,7 +524,7 @@ private fun IconBtn(icon: ImageVector, label: String, onClick: () -> Unit) {
             .clickable(onClick = onClick),
         contentAlignment = Alignment.Center,
     ) {
-        Icon(icon, contentDescription = label, tint = OverlayMuted, modifier = Modifier.size(15.dp))
+        Icon(icon, contentDescription = label, tint = tint, modifier = Modifier.size(15.dp))
     }
 }
 

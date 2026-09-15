@@ -46,6 +46,12 @@ import com.tftdeck.reader.overlay.OverlayService
 import com.tftdeck.reader.ui.AppViewModel
 import com.tftdeck.reader.ui.formatDate
 import com.tftdeck.reader.ui.relativeTime
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
+import androidx.compose.material3.Icon
+import com.tftdeck.reader.ui.lolchessProfileUrl
+import com.tftdeck.reader.ui.metatftProfileUrl
+import com.tftdeck.reader.ui.openUrl
 
 @Composable
 fun SettingsScreen(
@@ -188,6 +194,23 @@ fun SettingsScreen(
                 )
             }
 
+            // 연결한 계정의 전적 사이트 바로가기. 매치 상세처럼 앱에 없는 정보는 거기서 본다.
+            if (savedId.contains("#")) {
+                Spacer(Modifier.size(10.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedButton(onClick = { openUrl(context, lolchessProfileUrl(savedId, savedRegion)) }) {
+                        Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(15.dp))
+                        Spacer(Modifier.width(6.dp))
+                        Text("lolchess.gg 전적")
+                    }
+                    OutlinedButton(onClick = { openUrl(context, metatftProfileUrl(savedId, savedRegion)) }) {
+                        Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(15.dp))
+                        Spacer(Modifier.width(6.dp))
+                        Text("metatft 전적")
+                    }
+                }
+            }
+
             Spacer(Modifier.size(8.dp))
             Text(
                 "전적은 metatft의 공개 프로필에서 가져옵니다. 라이엇 ID는 이 기기에만 저장되고 조회할 때만 쓰입니다.",
@@ -302,7 +325,8 @@ private fun ProfileSummary(profile: PlayerProfile?, error: String?) {
 
         if (profile.recentPlacements.isNotEmpty()) {
             Row(horizontalArrangement = Arrangement.spacedBy(3.dp)) {
-                profile.recentPlacements.reversed().forEach { place ->
+                // 왼쪽이 가장 최근 판. 오버레이 카드와 같은 순서.
+                profile.recentPlacements.forEach { place ->
                     Box(
                         Modifier
                             .size(width = 20.dp, height = 22.dp)

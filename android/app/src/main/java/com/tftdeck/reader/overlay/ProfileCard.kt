@@ -23,6 +23,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.tftdeck.reader.data.PlayerProfile
+import androidx.compose.foundation.clickable
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 
 /**
  * 내 티어와 최근 등수. 덱 패널 오른쪽에 붙는다.
@@ -33,6 +38,8 @@ import com.tftdeck.reader.data.PlayerProfile
 fun OverlayProfileCard(
     profile: PlayerProfile,
     stale: Boolean,
+    refreshing: Boolean,
+    onRefresh: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -64,6 +71,29 @@ fun OverlayProfileCard(
                 maxLines = 1,
                 modifier = Modifier.weight(1f),
             )
+            // 판이 끝난 직후 바로 확인할 수 있게 작게 둔다.
+            Box(
+                modifier = Modifier
+                    .size(20.dp)
+                    .clip(CircleShape)
+                    .clickable(enabled = !refreshing, onClick = onRefresh),
+                contentAlignment = Alignment.Center,
+            ) {
+                if (refreshing) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(11.dp),
+                        strokeWidth = 1.5.dp,
+                        color = ProfileMuted,
+                    )
+                } else {
+                    Icon(
+                        Icons.Default.Refresh,
+                        contentDescription = "전적 새로고침",
+                        tint = ProfileMuted,
+                        modifier = Modifier.size(13.dp),
+                    )
+                }
+            }
         }
 
         // 티어
@@ -93,8 +123,9 @@ fun OverlayProfileCard(
         // 최근 등수
         if (profile.recentPlacements.isNotEmpty()) {
             Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-                // 최근 경기가 앞에 오므로 뒤집어서 왼쪽이 과거, 오른쪽이 최근이 되게 한다.
-                profile.recentPlacements.reversed().forEach { place ->
+                // 최근 경기가 앞에 온다 — 왼쪽이 가장 최근 판.
+                // 카드 폭에 6칸까지 들어간다. 더 넣으면 오른쪽이 잘린다(설정 화면은 8판 전부).
+                profile.recentPlacements.take(OVERLAY_RECENT_GAMES).forEach { place ->
                     PlacementChip(place)
                 }
             }
@@ -151,6 +182,8 @@ private fun placementColor(place: Int): Color = when (place) {
     5, 6 -> Color(0xFF9AA8A4)
     else -> Color(0xFFE0736F)
 }
+
+private const val OVERLAY_RECENT_GAMES = 6
 
 private val ProfileScrim = Color(0xF20E1413)
 private val ProfileBorder = Color(0x4D4FC2A3)

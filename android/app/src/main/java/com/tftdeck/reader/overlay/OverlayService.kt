@@ -76,6 +76,9 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     // 좁게(얼굴만) / 넓게(이름·아이템·시너지까지). 마지막 선택을 기억한다.
     private val wide = MutableStateFlow(false)
 
+    // 티어 카드만 따로 켜고 끈다. 마지막 선택을 기억한다.
+    private val showProfile = MutableStateFlow(true)
+
     override fun onCreate() {
         super.onCreate()
         savedStateController.performRestore(null)
@@ -84,6 +87,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         repository = DeckRepository.get(this)
         profiles = ProfileRepository.get(this)
         wide.value = getSharedPreferences(PREFS, Context.MODE_PRIVATE).getBoolean(KEY_WIDE, false)
+        showProfile.value = getSharedPreferences(PREFS, Context.MODE_PRIVATE).getBoolean(KEY_SHOW_PROFILE, true)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -171,6 +175,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                     selectedIdFlow = selectedDeckId,
                     expandedFlow = expanded,
                     wideFlow = wide,
+                    showProfileFlow = showProfile,
                     onToggleExpand = {
                         val opening = !expanded.value
                         expanded.value = opening
@@ -183,6 +188,16 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                         getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
                             .putBoolean(KEY_WIDE, next).apply()
                     },
+                    onToggleProfile = {
+                        val next = !showProfile.value
+                        showProfile.value = next
+                        getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
+                            .putBoolean(KEY_SHOW_PROFILE, next).apply()
+                        // 다시 켤 때는 그사이 판이 끝났을 수 있으니 한 번 확인한다.
+                        if (next) scope.launch { profiles.refresh() }
+                    },
+                    // 사용자가 직접 누른 새로고침은 최소 간격을 무시한다.
+                    onRefreshProfile = { scope.launch { profiles.refresh(force = true) } },
                     onSelectDeck = { id ->
                         selectedDeckId.value = id
                         if (id != null) repository.pinnedDeckId = id
@@ -293,6 +308,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         private const val KEY_X = "x"
         private const val KEY_Y = "y"
         private const val KEY_WIDE = "wide"
+        private const val KEY_SHOW_PROFILE = "show_profile"
         private const val DEFAULT_TOP_MARGIN = 120
 
         const val ACTION_STOP = "com.tftdeck.reader.STOP_OVERLAY"
