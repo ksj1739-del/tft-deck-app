@@ -1,0 +1,124 @@
+{
+  "rating_changes": [
+    {
+      "num_games": 112,
+      "rating_text": "DIAMOND IV 0 LP",
+      "rating_numeric": 2400,
+      "created_timestamp": "2026-09-15T11:22:19.493",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 111,
+      "rating_text": "DIAMOND IV 1 LP",
+      "rating_numeric": 2401,
+      "created_timestamp": "2026-09-15T09:22:20.099",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 110,
+      "rating_text": "DIAMOND IV 36 LP",
+      "rating_numeric": 2436,
+      "created_timestamp": "2026-09-14T15:07:20.545",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 109,
+      "rating_text": "DIAMOND IV 0 LP",
+      "rating_numeric": 2400,
+      "created_timestamp": "2026-09-14T14:22:20.241",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 108,
+      "rating_text": "DIAMOND IV 0 LP",
+      "rating_numeric": 2400,
+      "created_timestamp": "2026-09-14T13:52:22.403",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 107,
+      "rating_text": "DIAMOND IV 0 LP",
+      "rating_numeric": 2400,
+      "created_timestamp": "2026-09-14T11:37:18.214",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 106,
+      "rating_text": "DIAMOND IV 15 LP",
+      "rating_numeric": 2415,
+      "created_timestamp": "2026-09-14T09:37:21.901",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 105,
+      "rating_text": "DIAMOND IV 25 LP",
+      "rating_numeric": 2425,
+      "created_timestamp": "2026-09-13T12:52:14.926",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 104,
+      "rating_text": "DIAMOND IV 15 LP",
+      "rating_numeric": 2415,
+      "created_timestamp": "2026-09-13T12:22:18.320",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 103,
+      "rating_text": "DIAMOND IV 5 LP",
+      "rating_numeric": 2405,
+      "created_timestamp": "2026-09-13T11:52:18.721",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 102,
+      "rating_text": "DIAMOND IV 24 LP",
+      "rating_numeric": 2424,
+      "created_timestamp": "2026-09-13T11:07:15.037",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 101,
+      "rating_text": "DIAMOND IV 75 LP",
+      "rating_numeric": 2475,
+      "created_timestamp": "2026-09-13T03:52:12.658",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 6,
+      "rating_text": "GOLD II 24 LP",
+      "rating_numeric": 1424,
+      "created_timestamp": "2026-08-28T09:17:57.537",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 5,
+      "rating_text": "GOLD II 12 LP",
+      "rating_numeric": 1412,
+      "created_timestamp": "2026-08-27T13:18:19.132",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    },
+    {
+      "num_games": 5,
+      "rating_text": "GOLD II 12 LP",
+      "rating_numeric": 1412,
+      "created_timestamp": "2026-08-27T13:01:09.036",
+      "tft_set_name": "TFTSet18",
+      "queue_id": 1100
+    }
+  ]
+}

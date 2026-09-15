@@ -3,8 +3,16 @@
     <string name="app_name">협곡 덱 리더</string>
 
     <string name="overlay_channel_name">오버레이</string>
-    <string name="overlay_channel_desc">게임 위에 덱이 떠 있는 동안 표시됩니다</string>
+    <string name="overlay_channel_desc">게임 위에 덱이 떠 있거나 TFT를 감지하는 동안 표시됩니다</string>
     <string name="overlay_running">덱을 게임 위에 띄우는 중</string>
     <string name="overlay_deck_list">전체 덱 목록</string>
     <string name="overlay_stop">중지</string>
+
+    <!-- 게임 연동 -->
+    <string name="overlay_watching">TFT 감지 중</string>
+    <string name="overlay_watch_stop">감지 끄기</string>
+    <string name="game_result_channel_name">게임 결과</string>
+    <string name="game_result_channel_desc">TFT 한 판이 끝나면 등수와 LP 변화를 알려 줍니다</string>
+    <string name="game_result_title">TFT 한 판이 끝났습니다</string>
+    <string name="usage_permission_rationale">TFT가 켜졌는지 알려면 \'사용 기록 접근\' 권한이 필요합니다. 어떤 앱이 화면 앞에 있는지만 확인하고, 그 기록은 기기 밖으로 보내지 않습니다.</string>
 </resources>
