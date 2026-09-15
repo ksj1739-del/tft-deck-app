@@ -1,0 +1,45 @@
+{
+ "season": "<str>",
+ "champions": [
+  {
+   "key": "<str>",
+   "ingameKey": "DA_18_Ahri",
+   "name": "<str>",
+   "imageUrl": "<str>",
+   "originalImageUrl": "<str>",
+   "traits": [
+    "<str>"
+   ],
+   "cost": [
+    "<int>"
+   ],
+   "health": [
+    "<int>"
+   ],
+   "attackDamage": [
+    "<int>"
+   ],
+   "damagePerSecond": [
+    "<int>"
+   ],
+   "attackRange": "<int>",
+   "attackSpeed": "<float>",
+   "armor": "<int>",
+   "magicalResistance": "<int>",
+   "skill": {
+    "name": "<str>",
+    "imageUrl": "<str>",
+    "desc": "<str>",
+    "startingMana": "<int>",
+    "skillMana": "<int>",
+    "stats": [
+     "<str>"
+    ]
+   },
+   "recommendItems": [
+    "DA_JeweledGauntlet"
+   ],
+   "role": "<str>"
+  }
+ ]
+}

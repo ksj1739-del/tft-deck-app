@@ -1,0 +1,50 @@
+[
+ {
+  "name": "<str>",
+  "name_ch": "<str>",
+  "set": [
+   "<int>"
+  ],
+  "tier": "<int>",
+  "tier_up": "<bool>",
+  "tier_down": "<bool>",
+  "emblem": "<bool>",
+  "traits": [
+   "<str>"
+  ],
+  "playstyle": "<str>",
+  "description": "<str>",
+  "synergy": [
+   {
+    "name": "<str>",
+    "type": "<str>",
+    "count": "<int>",
+    "rank": "<str>"
+   }
+  ],
+  "characters": [
+   {
+    "name": "<str>",
+    "position": "<str>"
+   }
+  ],
+  "carrousel": [
+   {
+    "item": "<str>",
+    "component": "<str>",
+    "shadow": "<bool>"
+   }
+  ],
+  "mid": [
+   "<str>"
+  ],
+  "replacements": [
+   {
+    "out": [],
+    "in": [
+     "<str>"
+    ]
+   }
+  ]
+ }
+]

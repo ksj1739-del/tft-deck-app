@@ -1,0 +1,104 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "37b15847-be07-4abc-aee6-f85c14fd89e3",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "20260914",
+  "v_version_id": "",
+  "equip_data": [
+   {
+    "equip_type": "1",
+    "info": [
+     {
+      "equip_data": [
+       {
+        "avg_rank": "3.8",
+        "chess_id": "100352",
+        "chess_rank_1": "1",
+        "top_1_rate": "0.1818",
+        "top_4_rate": "0.4545",
+        "use_num": "11",
+        "use_rate": "0.0199"
+       },
+       {
+        "avg_rank": "3.9",
+        "chess_id": "100339",
+        "chess_rank_1": "2",
+        "top_1_rate": "0.1071",
+        "top_4_rate": "0.5714",
+        "use_num": "28",
+        "use_rate": "0.0505"
+       },
+       "... 외 1개"
+      ],
+      "equip_info": {
+       "equip_id": "DA_18_EmblemBrawler",
+       "rank": "1"
+      }
+     },
+     {
+      "equip_data": [
+       {
+        "avg_rank": "3.9",
+        "chess_id": "100346",
+        "chess_rank_1": "1",
+        "top_1_rate": "0.1667",
+        "top_4_rate": "0.5833",
+        "use_num": "12",
+        "use_rate": "0.375"
+       }
+      ],
+      "equip_info": {
+       "equip_id": "DA_18_EmblemBlackthorn",
+       "rank": "10"
+      }
+     },
+     "... 외 10개"
+    ]
+   },
+   {
+    "equip_type": "2",
+    "info": [
+     {
+      "equip_data": [
+       {
+        "avg_rank": "3.1",
+        "chess_id": "100331",
+        "chess_rank_1": "1",
+        "top_1_rate": "0.2583",
+        "top_4_rate": "0.7583",
+        "use_num": "120",
+        "use_rate": "0.9231"
+       }
+      ],
+      "equip_info": {
+       "equip_id": "DA_Guinsoos<플레이어>bladeRadiant",
+       "rank": "1"
+      }
+     },
+     {
+      "equip_data": [
+       {
+        "avg_rank": "3.7",
+        "chess_id": "100331",
+        "chess_rank_1": "1",
+        "top_1_rate": "0.0625",
+        "top_4_rate": "0.6875",
+        "use_num": "16",
+        "use_rate": "0.6154"
+       }
+      ],
+      "equip_info": {
+       "equip_id": "DA_BloodthirsterRadiant",
+       "rank": "10"
+      }
+     },
+     "... 외 11개"
+    ]
+   },
+   "... 외 2개"
+  ]
+ }
+}

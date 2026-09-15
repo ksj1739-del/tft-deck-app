@@ -1,0 +1,94 @@
+{
+ "results": {
+  "players": [
+   {
+    "puuid": "<가림>",
+    "id": "572549650",
+    "summoner_region": "vn2",
+    "summoner_name": null,
+    "riot_id": "<가림>",
+    "num_games_a": 373,
+    "rating_num_a": 3157,
+    "rating_a": "CHALLENGER I 357 LP",
+    "num_games_b": 435,
+    "rating_num_b": 3941,
+    "rating_b": "CHALLENGER I 1141 LP",
+    "rating_change": 784,
+    "rating_score": 2776144,
+    "place": 217,
+    "count": 62,
+    "placements": [
+     16,
+     11,
+     "... 외 6개"
+    ],
+    "top_comp": {
+     "units": [
+      "DA_18_Ashe",
+      "DA_18_ElderDragon",
+      "... 외 6개"
+     ],
+     "traits": [
+      "DA_18_ApexPredator_1",
+      "DA_18_Greenfather_1",
+      "... 외 6개"
+     ],
+     "cluster": "423009"
+    },
+    "top_comp_stats": {
+     "count": 18,
+     "place": 56,
+     "comp": "423009"
+    },
+    "comps_played": 25
+   },
+   {
+    "puuid": "<가림>",
+    "id": "4620907",
+    "summoner_region": "euw1",
+    "summoner_name": "",
+    "riot_id": "<가림>",
+    "num_games_a": 259,
+    "rating_num_a": 3374,
+    "rating_a": "CHALLENGER I 574 LP",
+    "num_games_b": 311,
+    "rating_num_b": 4026,
+    "rating_b": "CHALLENGER I 1226 LP",
+    "rating_change": 652,
+    "rating_score": 2364152,
+    "place": 185,
+    "count": 52,
+    "placements": [
+     9,
+     16,
+     "... 외 6개"
+    ],
+    "top_comp": {
+     "units": [
+      "DA_18_Ashe",
+      "DA_18_ElderDragon",
+      "... 외 6개"
+     ],
+     "traits": [
+      "DA_18_ApexPredator_1",
+      "DA_18_Inferno_3",
+      "... 외 6개"
+     ],
+     "cluster": "423009"
+    },
+    "top_comp_stats": {
+     "count": 10,
+     "place": 34,
+     "comp": "423009"
+    },
+    "comps_played": 23
+   },
+   "... 외 98개"
+  ],
+  "updated": 1789470476918
+ },
+ "updated": 1789473517104,
+ "tft_set": "TFTSet18",
+ "queue_id": 1100,
+ "cluster_id": 423
+}

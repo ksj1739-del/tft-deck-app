@@ -1,0 +1,54 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "1ed481fb-a89c-476b-a999-03a7c79c1828",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "",
+  "v_version_id": "",
+  "details": [
+   {
+    "hero_id": "DA_18_Ahri",
+    "list": [
+     {
+      "avg_rank": "3.752635",
+      "cycle": "20260914",
+      "top_1_rate": "0.197632",
+      "top_4_rate": "0.637136",
+      "use_rate": "0.014876"
+     },
+     {
+      "avg_rank": "3.73729",
+      "cycle": "20260913",
+      "top_1_rate": "0.200345",
+      "top_4_rate": "0.641011",
+      "use_rate": "0.015054"
+     },
+     "... 외 8개"
+    ]
+   },
+   {
+    "hero_id": "DA_18_Akali_AD",
+    "list": [
+     {
+      "avg_rank": "4.350027",
+      "cycle": "20260914",
+      "top_1_rate": "0.12962",
+      "top_4_rate": "0.534396",
+      "use_rate": "0.011531"
+     },
+     {
+      "avg_rank": "4.345002",
+      "cycle": "20260913",
+      "top_1_rate": "0.123422",
+      "top_4_rate": "0.535877",
+      "use_rate": "0.011702"
+     },
+     "... 외 8개"
+    ]
+   },
+   "... 외 73개"
+  ]
+ }
+}

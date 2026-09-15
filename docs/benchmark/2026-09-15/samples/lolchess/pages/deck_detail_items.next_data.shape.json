@@ -1,0 +1,231 @@
+{
+ "props": {
+  "initialProps": {
+   "locale": "<str>",
+   "notifications": [],
+   "viewOriginalSkin": "<bool>",
+   "isDakggMobile": "<bool>",
+   "isNoBannerToShow": "<bool>",
+   "desktopScale": "<int>",
+   "hasCookieBannerNoticeBarKey": "<bool>",
+   "isLegacyMobile": "<bool>",
+   "isDakggDesktop": "<bool>",
+   "isMobile": "<bool>",
+   "onReleaseTime": "<bool>",
+   "serverTime": "<str>",
+   "notificationKey": "<str>",
+   "bannerKey": "<str>",
+   "isVenatusV4": "<bool>",
+   "theme": "<str>",
+   "showAdOnMobile": "<bool>",
+   "isRnMobileApp": "<bool>",
+   "seasonReleaseInfo": {
+    "season": "<str>",
+    "isReleased": "<bool>"
+   },
+   "embargoExceptionInfo": {
+    "season": "<str>",
+    "isReleased": "<bool>"
+   }
+  },
+  "pageProps": {
+   "dehydratedState": {
+    "mutations": [],
+    "queries": [
+     {
+      "state": {
+       "data": {
+        "patchRevisions": [
+         {
+          "patch": "<int>",
+          "revision": "<int>",
+          "patchVersion": "<str>"
+         }
+        ],
+        "season": "<str>",
+        "metaDeckList": {
+         "updatedAt": "<int>",
+         "shard": "<str>",
+         "queueId": "<int>",
+         "dt": "<int>",
+         "patch": "<int>",
+         "revision": "<int>",
+         "tierId": "<int>",
+         "metaDecks": [
+          {
+           "key": "<str>",
+           "deckKey": "<str>",
+           "plays": "<int>",
+           "pickRate": "<float>",
+           "winRate": "<float>",
+           "topRate": "<float>",
+           "avgPlacement": "<float>",
+           "placements": [
+            "<int>"
+           ],
+           "deck": {
+            "augments": [
+             null
+            ],
+            "champions": [
+             {
+              "key": "DA_18_Tristana",
+              "coreRank": "<int>",
+              "items": [
+               "DA_GiantSlayer"
+              ]
+             }
+            ],
+            "traits": [
+             {
+              "style": "<int>",
+              "numUnits": "<int>",
+              "key": "DA_18_Fae"
+             }
+            ]
+           },
+           "augments": [
+            null
+           ],
+           "championStats": [
+            {
+             "key": "DA_18_Tristana",
+             "plays": "<int>",
+             "wins": "<int>",
+             "tops": "<int>",
+             "placements": {
+              "1": "<int>",
+              "2": "<int>",
+              "3": "<int>",
+              "4": "<int>",
+              "5": "<int>",
+              "6": "<int>",
+              "7": "<int>",
+              "8": "<int>"
+             },
+             "championTierStats": [
+              {
+               "key": "<int>",
+               "plays": "<int>",
+               "wins": "<int>",
+               "tops": "<int>",
+               "placements": {
+                "1": "<int>",
+                "2": "<int>",
+                "3": "<int>",
+                "4": "<int>",
+                "5": "<int>",
+                "6": "<int>",
+                "7": "<int>",
+                "8": "<int>"
+               }
+              }
+             ]
+            }
+           ],
+           "deckNameKo": "<str>",
+           "deckNameEn": "<str>",
+           "deckChampionKey": "DA_18_Tristana"
+          }
+         ],
+         "plays": "<int>"
+        },
+        "refs": {
+         "champions": [
+          {
+           "key": "DA_18_Ahri",
+           "name": "<str>",
+           "imageUrl": "<str>",
+           "originalImageUrl": "<str>",
+           "traits": [
+            "DA_18_Blossom"
+           ],
+           "cost": "<int>",
+           "attackRange": "<int>",
+           "skill": {
+            "name": "<str>",
+            "imageUrl": "<str>",
+            "desc": "<str>",
+            "startingMana": "<int>",
+            "skillMana": "<int>",
+            "stats": [
+             "<str>"
+            ]
+           },
+           "recommendItems": [
+            "DA_JeweledGauntlet"
+           ],
+           "role": "<str>"
+          }
+         ],
+         "traits": [
+          {
+           "key": "DA_18_Adaptor",
+           "name": "<str>",
+           "desc": "<str>",
+           "imageUrl": "<str>",
+           "blackImageUrl": "<str>",
+           "whiteImageUrl": "<str>",
+           "type": "<str>",
+           "styles": [
+            {
+             "style": "<str>",
+             "min": "<int>",
+             "max": "<int>"
+            }
+           ],
+           "stats": {
+            "2": "<str>",
+            "3": "<str>",
+            "4": "<str>"
+           }
+          }
+         ],
+         "items": [
+          {
+           "key": "TFT11_Item_ThiefsGlovesSupport",
+           "name": "<str>",
+           "desc": "<str>",
+           "fromDesc": "<str>",
+           "imageUrl": "<str>",
+           "isHidden": "<bool>",
+           "isSupport": "<bool>"
+          }
+         ],
+         "augments": [],
+         "metaDeckHideKeys": [],
+         "metaDeckNames": [],
+         "metaDeckTeamBuilders": []
+        }
+       },
+       "dataUpdateCount": "<int>",
+       "dataUpdatedAt": "<int>",
+       "error": null,
+       "errorUpdateCount": "<int>",
+       "errorUpdatedAt": "<int>",
+       "fetchFailureCount": "<int>",
+       "fetchFailureReason": null,
+       "fetchMeta": null,
+       "isInvalidated": "<bool>",
+       "status": "<str>",
+       "fetchStatus": "<str>"
+      },
+      "queryKey": [
+       "<str>"
+      ],
+      "queryHash": "<str>"
+     }
+    ]
+   }
+  },
+  "__N_SSP": "<bool>"
+ },
+ "page": "<str>",
+ "query": {},
+ "buildId": "<str>",
+ "assetPrefix": "<str>",
+ "isFallback": "<bool>",
+ "gssp": "<bool>",
+ "appGip": "<bool>",
+ "scriptLoader": []
+}

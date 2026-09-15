@@ -1,0 +1,45 @@
+{
+ "meta": {
+  "page": "<int>",
+  "totalCount": "<int>"
+ },
+ "guides": [
+  {
+   "key": "<str>",
+   "name": "<str>"
+  }
+ ],
+ "streamers": [
+  {
+   "id": "<int>",
+   "key": "<str>",
+   "name": "<str>",
+   "linkUrl": "<str>",
+   "thumbnailUrl": "<str>"
+  }
+ ],
+ "streamerDecks": [
+  {
+   "streamerId": "<int>",
+   "teamBuilderKey": "<str>",
+   "name": "<str>",
+   "linkUrl": "<str>",
+   "thumbnailUrl": "<str>",
+   "data": {
+    "slots": [
+     {
+      "index": "<int>",
+      "champion": "<str>",
+      "star": "<int>"
+     }
+    ],
+    "specialUnit": {
+     "championKey": "<str>",
+     "traitKey": "<str>",
+     "slotIndex": "<int>"
+    }
+   },
+   "season": "<str>"
+  }
+ ]
+}

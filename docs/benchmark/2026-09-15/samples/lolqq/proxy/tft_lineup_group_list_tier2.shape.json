@@ -1,0 +1,498 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "8c8a349d-14f0-40bd-9548-265fa409f4f3",
+ "data": {
+  "dtstatdate": "20260915",
+  "period": "20260915",
+  "v_version_id": "",
+  "main_traits_data": [
+   {
+    "id": "winlineup_MTEwMCMxMDM3OTsxMDM4MyQxMDAzMzE7MTAwMzM3JDg=",
+    "main_trait_list": [
+     "10379"
+    ],
+    "num": "8",
+    "info": {
+     "main_c_chess_id": "100331",
+     "main_assist_chess": [
+      "100331",
+      "100337"
+     ],
+     "list": [
+      {
+       "lineup_rank": "1",
+       "main_trait_list": [
+        {
+         "trait_id": "10379",
+         "chess_num": "4"
+        },
+        {
+         "trait_id": "10383",
+         "chess_num": "3"
+        }
+       ],
+       "sub_trait_list": [
+        {
+         "trait_id": "10384",
+         "chess_num": "2"
+        },
+        {
+         "trait_id": "10412",
+         "chess_num": "2"
+        },
+        "... 외 2개"
+       ],
+       "lineup": [
+        "100310",
+        "100323",
+        "... 외 6개"
+       ],
+       "core_chess": [
+        "100331",
+        "100337",
+        "... 외 6개"
+       ],
+       "free_chess": [],
+       "main_c_chess": "100331",
+       "assist_chess": [
+        "100337"
+       ],
+       "assist_chess_equip": [
+        "DA_JeweledGauntlet",
+        "DA_RedBuff",
+        "... 외 1개"
+       ],
+       "main_c_chess_equip": [
+        "DA_EdgeOfNight",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "avg_rank": "3.6",
+       "avg_rank_diff": "-0.1",
+       "use_num": "4232",
+       "use_rate": "0.0021",
+       "use_rate_diff": "-0.0002",
+       "top_1_rate": "0.108",
+       "top_1_rate_diff": "0.0096",
+       "top_4_rate": "0.6881",
+       "top_4_rate_diff": "-0.015",
+       "pass_num": "",
+       "pass_num_diff": "",
+       "rune_id_group": [
+        "DA_ClockworkAccelerator",
+        "DA_CelestialBlessingI",
+        "... 외 3개"
+       ],
+       "unpopular_lineup": "0",
+       "second_assist_chess": "100338",
+       "second_assist_chess_equip": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ]
+      },
+      {
+       "lineup_rank": "2",
+       "main_trait_list": [
+        {
+         "trait_id": "10379",
+         "chess_num": "3"
+        },
+        {
+         "trait_id": "10383",
+         "chess_num": "3"
+        }
+       ],
+       "sub_trait_list": [
+        {
+         "trait_id": "10384",
+         "chess_num": "2"
+        },
+        {
+         "trait_id": "10412",
+         "chess_num": "2"
+        },
+        "... 외 2개"
+       ],
+       "lineup": [
+        "100310",
+        "100331",
+        "... 외 6개"
+       ],
+       "core_chess": [
+        "100331",
+        "100339",
+        "... 외 5개"
+       ],
+       "free_chess": [
+        "100333"
+       ],
+       "main_c_chess": "100331",
+       "assist_chess": [
+        "100333"
+       ],
+       "assist_chess_equip": [
+        "DA_EdgeOfNight",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "main_c_chess_equip": [
+        "DA_EdgeOfNight",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "avg_rank": "3.3",
+       "avg_rank_diff": "0",
+       "use_num": "2911",
+       "use_rate": "0.0015",
+       "use_rate_diff": "-0.0001",
+       "top_1_rate": "0.158",
+       "top_1_rate_diff": "-0.0098",
+       "top_4_rate": "0.7599",
+       "top_4_rate_diff": "-0.0048",
+       "pass_num": "",
+       "pass_num_diff": "",
+       "rune_id_group": [
+        "DA_Swordsmith",
+        "DA_SmallGrabBag",
+        "... 외 3개"
+       ],
+       "unpopular_lineup": "0",
+       "second_assist_chess": "100339",
+       "second_assist_chess_equip": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ]
+      },
+      "... 외 16개"
+     ]
+    }
+   },
+   {
+    "id": "winlineup_MTEwMCMxMDM4MjsxMDQwNCQxMDAzMDg7MTAwMzQ0JDg=",
+    "main_trait_list": [
+     "10382"
+    ],
+    "num": "8",
+    "info": {
+     "main_c_chess_id": "100308",
+     "main_assist_chess": [
+      "100308",
+      "100344"
+     ],
+     "list": [
+      {
+       "lineup_rank": "1",
+       "main_trait_list": [
+        {
+         "trait_id": "10382",
+         "chess_num": "4"
+        },
+        {
+         "trait_id": "10404",
+         "chess_num": "3"
+        }
+       ],
+       "sub_trait_list": [
+        {
+         "trait_id": "10384",
+         "chess_num": "2"
+        },
+        {
+         "trait_id": "10387",
+         "chess_num": "2"
+        },
+        "... 외 4개"
+       ],
+       "lineup": [
+        "100301",
+        "100305",
+        "... 외 6개"
+       ],
+       "core_chess": [
+        "100308",
+        "100344",
+        "... 외 5개"
+       ],
+       "free_chess": [
+        "100348"
+       ],
+       "main_c_chess": "100308",
+       "assist_chess": [
+        "100344"
+       ],
+       "assist_chess_equip": [
+        "DA_GargoyleStoneplate",
+        "DA_GargoyleStoneplate",
+        "... 외 1개"
+       ],
+       "main_c_chess_equip": [
+        "DA_BlueBuff",
+        "DA_JeweledGauntlet",
+        "... 외 1개"
+       ],
+       "avg_rank": "4",
+       "avg_rank_diff": "0",
+       "use_num": "605",
+       "use_rate": "0.0003",
+       "use_rate_diff": "0",
+       "top_1_rate": "0.0777",
+       "top_1_rate_diff": "-0.0117",
+       "top_4_rate": "0.6083",
+       "top_4_rate_diff": "-0.0173",
+       "pass_num": "",
+       "pass_num_diff": "",
+       "rune_id_group": [
+        "DA_CryMeARiver"
+       ],
+       "unpopular_lineup": "0",
+       "second_assist_chess": "100348",
+       "second_assist_chess_equip": [
+        "DA_Morellonomicon",
+        "DA_SpearOfShojin",
+        "... 외 1개"
+       ]
+      },
+      {
+       "lineup_rank": "2",
+       "main_trait_list": [
+        {
+         "trait_id": "10382",
+         "chess_num": "4"
+        },
+        {
+         "trait_id": "10404",
+         "chess_num": "3"
+        }
+       ],
+       "sub_trait_list": [
+        {
+         "trait_id": "10384",
+         "chess_num": "2"
+        },
+        {
+         "trait_id": "10387",
+         "chess_num": "2"
+        },
+        "... 외 6개"
+       ],
+       "lineup": [
+        "100301",
+        "100305",
+        "... 외 7개"
+       ],
+       "core_chess": [
+        "100308",
+        "100344",
+        "... 외 5개"
+       ],
+       "free_chess": [
+        "100349",
+        "100348"
+       ],
+       "main_c_chess": "100308",
+       "assist_chess": [
+        "100344"
+       ],
+       "assist_chess_equip": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ],
+       "main_c_chess_equip": [
+        "DA_BlueBuff",
+        "DA_JeweledGauntlet",
+        "... 외 1개"
+       ],
+       "avg_rank": "2.8",
+       "avg_rank_diff": "-0.1",
+       "use_num": "292",
+       "use_rate": "0.0001",
+       "use_rate_diff": "-0.0001",
+       "top_1_rate": "0.2158",
+       "top_1_rate_diff": "-0.0024",
+       "top_4_rate": "0.8356",
+       "top_4_rate_diff": "0.0018",
+       "pass_num": "",
+       "pass_num_diff": "",
+       "rune_id_group": [
+        "DA_CryMeARiver"
+       ],
+       "unpopular_lineup": "1",
+       "second_assist_chess": "100349",
+       "second_assist_chess_equip": [
+        "DA_JeweledGauntlet",
+        "DA_SpearOfShojin",
+        "... 외 1개"
+       ]
+      },
+      "... 외 2개"
+     ]
+    }
+   },
+   "... 외 1개"
+  ],
+  "transfer_traits_data": [
+   {
+    "main_trait": [
+     "10379"
+    ],
+    "num": "8",
+    "data": {
+     "main_c_chess": "",
+     "main_assist_chess": [
+      "100331",
+      "100337"
+     ],
+     "list": [
+      {
+       "lineup_rank": "1",
+       "main_trait_list": [
+        {
+         "trait_id": "10379",
+         "chess_num": "4"
+        },
+        {
+         "trait_id": "10383",
+         "chess_num": "3"
+        }
+       ],
+       "sub_trait_list": [
+        {
+         "trait_id": "10384",
+         "chess_num": "2"
+        },
+        {
+         "trait_id": "10412",
+         "chess_num": "2"
+        },
+        "... 외 2개"
+       ],
+       "chess_lineup": [
+        "100310",
+        "100323",
+        "... 외 6개"
+       ],
+       "transfer_trait_id_group": [],
+       "unpopular_lineup": "0"
+      },
+      {
+       "lineup_rank": "2",
+       "main_trait_list": [
+        {
+         "trait_id": "10379",
+         "chess_num": "3"
+        },
+        {
+         "trait_id": "10383",
+         "chess_num": "3"
+        }
+       ],
+       "sub_trait_list": [
+        {
+         "trait_id": "10384",
+         "chess_num": "2"
+        },
+        {
+         "trait_id": "10412",
+         "chess_num": "2"
+        },
+        "... 외 2개"
+       ],
+       "chess_lineup": [
+        "100310",
+        "100331",
+        "... 외 6개"
+       ],
+       "transfer_trait_id_group": [],
+       "unpopular_lineup": "0"
+      },
+      "... 외 16개"
+     ]
+    }
+   },
+   {
+    "main_trait": [
+     "10382"
+    ],
+    "num": "8",
+    "data": {
+     "main_c_chess": "",
+     "main_assist_chess": [
+      "100308",
+      "100344"
+     ],
+     "list": [
+      {
+       "lineup_rank": "1",
+       "main_trait_list": [
+        {
+         "trait_id": "10382",
+         "chess_num": "4"
+        },
+        {
+         "trait_id": "10404",
+         "chess_num": "3"
+        }
+       ],
+       "sub_trait_list": [
+        {
+         "trait_id": "10384",
+         "chess_num": "2"
+        },
+        {
+         "trait_id": "10387",
+         "chess_num": "2"
+        },
+        "... 외 4개"
+       ],
+       "chess_lineup": [
+        "100301",
+        "100305",
+        "... 외 6개"
+       ],
+       "transfer_trait_id_group": [],
+       "unpopular_lineup": "0"
+      },
+      {
+       "lineup_rank": "2",
+       "main_trait_list": [
+        {
+         "trait_id": "10382",
+         "chess_num": "4"
+        },
+        {
+         "trait_id": "10404",
+         "chess_num": "3"
+        }
+       ],
+       "sub_trait_list": [
+        {
+         "trait_id": "10384",
+         "chess_num": "2"
+        },
+        {
+         "trait_id": "10387",
+         "chess_num": "2"
+        },
+        "... 외 6개"
+       ],
+       "chess_lineup": [
+        "100301",
+        "100305",
+        "... 외 7개"
+       ],
+       "transfer_trait_id_group": [],
+       "unpopular_lineup": "1"
+      },
+      "... 외 2개"
+     ]
+    }
+   },
+   "... 외 43개"
+  ]
+ }
+}

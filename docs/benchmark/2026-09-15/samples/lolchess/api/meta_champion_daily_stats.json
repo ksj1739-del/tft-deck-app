@@ -1,0 +1,375 @@
+{
+ "patchRevisions": [
+  {
+   "patch": "<int>",
+   "revision": "<int>",
+   "patchVersion": "<str>"
+  }
+ ],
+ "season": "<str>",
+ "metaChampionDailyStats": {
+  "updatedAt": "<int>",
+  "shard": "<str>",
+  "queueId": "<int>",
+  "patch": "<int>",
+  "revision": "<int>",
+  "tierId": "<int>",
+  "dailyStatsObj": {
+   "DA_Sentinel18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Amumu18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Taric18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Kennen": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Sett": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Krug18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Maokai": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Ivern": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Vi18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Ashe": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_GnarSmall": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Sivir": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_KogMaw18_AD": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Fiddlesticks18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Nidalee18_AP": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Yorick": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Ahri": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Diana": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Morgana": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Alistar": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Ezreal": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Sentry": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Malphite": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Aphelios": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Zyra": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Ornn": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Karma18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Lux18_Base": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Draven18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Rakan": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Soraka": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_RekSai": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Alune": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Azir": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Varus": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_LeBlanc": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_ElderDragon": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Scuttlecrab18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Hecarim": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Cinderling18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Sejuani": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Lillia": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Veigar": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Brambleback18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Leona": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Xayah": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Tristana": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Kayle": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_CrimsonRaptor18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Cassiopeia": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_KhaZix": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Rengar": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Rammus": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Shen": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Akali_AD": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Caitlyn": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_MasterYi_AD": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Camille": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Yunara": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Kobuko": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Murkwolf18": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Elise": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Gromp18_AP": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Teemo": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Warwick": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Lux_Primal": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Lux_Elderwood": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Lux_Inferno": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Lux18_Blackthorn": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_Lux18_Blossom": [
+    [
+     "<str>"
+    ]
+   ],
+   "DA_18_Lux_Moonbeam": [
+    [
+     "<str>"
+    ]
+   ]
+  }
+ }
+}

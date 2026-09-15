@@ -1,0 +1,312 @@
+[
+ {
+  "files": [
+   "robots.txt.headers.txt",
+   "robots.txt"
+  ],
+  "url": "https://tftactics.gg/robots.txt",
+  "status": 200,
+  "bytes": 25,
+  "wire_bytes": 25,
+  "saved_as": "original",
+  "note": ""
+ },
+ {
+  "files": [
+   "home.html.headers.txt",
+   "home.html"
+  ],
+  "url": "https://tftactics.gg/",
+  "status": 200,
+  "bytes": 13981,
+  "wire_bytes": 4109,
+  "saved_as": "original",
+  "note": "CRA + react-snap 프리렌더 HTML"
+ },
+ {
+  "files": [
+   "tierlist_team-comps.html.headers.txt",
+   "tierlist_team-comps.html.head.txt"
+  ],
+  "url": "https://tftactics.gg/tierlist/team-comps/",
+  "status": 200,
+  "bytes": 164695,
+  "wire_bytes": 10829,
+  "saved_as": "first 32KB",
+  "note": "덱 티어리스트 프리렌더(36덱)"
+ },
+ {
+  "files": [
+   "privacy-policy.html.headers.txt",
+   "privacy-policy.html"
+  ],
+  "url": "https://tftactics.gg/privacy-policy/",
+  "status": 200,
+  "bytes": 19715,
+  "wire_bytes": 6466,
+  "saved_as": "original",
+  "note": "개인정보처리방침(2018-12-11)"
+ },
+ {
+  "files": [
+   "set-update.html.headers.txt",
+   "set-update.html.head.txt"
+  ],
+  "url": "https://tftactics.gg/set-update/",
+  "status": 200,
+  "bytes": 146354,
+  "wire_bytes": 16886,
+  "saved_as": "first 32KB",
+  "note": ""
+ },
+ {
+  "files": [
+   "db_augments.html.headers.txt",
+   "db_augments.html.head.txt"
+  ],
+  "url": "https://tftactics.gg/db/augments/",
+  "status": 200,
+  "bytes": 131569,
+  "wire_bytes": 13835,
+  "saved_as": "first 32KB",
+  "note": "제목·설명은 Set 17 문구, 내용은 Set 18 증강"
+ },
+ {
+  "files": [
+   "tierlist_items.html.headers.txt",
+   "tierlist_items.html"
+  ],
+  "url": "https://tftactics.gg/tierlist/items/",
+  "status": 200,
+  "bytes": 18660,
+  "wire_bytes": 3753,
+  "saved_as": "original",
+  "note": ""
+ },
+ {
+  "files": [
+   "champions.html.headers.txt",
+   "champions.html"
+  ],
+  "url": "https://tftactics.gg/champions/",
+  "status": 200,
+  "bytes": 35317,
+  "wire_bytes": 5236,
+  "saved_as": "original",
+  "note": ""
+ },
+ {
+  "files": [
+   "champions_ahri.html.headers.txt",
+   "champions_ahri.html"
+  ],
+  "url": "https://tftactics.gg/champions/ahri/",
+  "status": 200,
+  "bytes": 16545,
+  "wire_bytes": 3952,
+  "saved_as": "original",
+  "note": ""
+ },
+ {
+  "files": [
+   "terms_probe.headers.txt"
+  ],
+  "url": "https://tftactics.gg/terms/",
+  "status": 200,
+  "bytes": 13981,
+  "wire_bytes": 4106,
+  "saved_as": "headers-only",
+  "note": "라우트 없음: 홈과 같은 index.html(etag e326a208…) 폴백"
+ },
+ {
+  "files": [
+   "tierlist_champions.headers.txt"
+  ],
+  "url": "https://tftactics.gg/tierlist/champions/",
+  "status": 200,
+  "bytes": 13981,
+  "wire_bytes": 4110,
+  "saved_as": "headers-only",
+  "note": "라우터에는 있으나 프리렌더 없음: index.html 폴백"
+ },
+ {
+  "files": [
+   "db_champion-stats.headers.txt"
+  ],
+  "url": "https://tftactics.gg/db/champion-stats/",
+  "status": 200,
+  "bytes": 13981,
+  "wire_bytes": 4110,
+  "saved_as": "headers-only",
+  "note": "라우터에는 있으나 프리렌더 없음: index.html 폴백"
+ },
+ {
+  "files": [
+   "main.616d9066.chunk.js.headers.txt"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js",
+  "status": 200,
+  "bytes": 3042959,
+  "wire_bytes": 291246,
+  "saved_as": "headers-only",
+  "note": "JS 번들 본문은 저장하지 않음(데이터는 아래 module 샘플로 대체)"
+ },
+ {
+  "files": [
+   "wayback_cdx_main-chunk_2026.json.headers.txt",
+   "wayback_cdx_main-chunk_2026.json"
+  ],
+  "url": "https://web.archive.org/cdx/search/cdx?url=tftactics.gg/static/js/main.&matchType=prefix&from=2026&output=json&fl=timestamp,original,statuscode,digest&collapse=digest&limit=200",
+  "status": 200,
+  "bytes": 6601,
+  "wire_bytes": 2251,
+  "saved_as": "original",
+  "note": "web.archive.org CDX"
+ },
+ {
+  "files": [
+   "wayback_cdx_team-comps_2026.json.headers.txt",
+   "wayback_cdx_team-comps_2026.json"
+  ],
+  "url": "https://web.archive.org/cdx/search/cdx?url=tftactics.gg/tierlist/team-comps/&from=202605&output=json&fl=timestamp,statuscode,digest,length&collapse=digest&limit=100",
+  "status": 200,
+  "bytes": 323,
+  "wire_bytes": 251,
+  "saved_as": "original",
+  "note": "web.archive.org CDX"
+ },
+ {
+  "files": [
+   "critcap_home.html.headers.txt",
+   "critcap_home.html"
+  ],
+  "url": "https://www.critcap.gg/",
+  "status": 200,
+  "bytes": 16765,
+  "wire_bytes": 4355,
+  "saved_as": "original",
+  "note": "같은 네트워크(Our Network) 사이트"
+ },
+ {
+  "files": [
+   "sunderarmor_root_404.html.headers.txt",
+   "sunderarmor_root_404.html"
+  ],
+  "url": "https://sunderarmor.com/",
+  "status": 404,
+  "bytes": 1506,
+  "wire_bytes": 1506,
+  "saved_as": "original",
+  "note": "이미지 호스트 루트(Cloudflare 404)"
+ },
+ {
+  "files": [
+   "bundle_comps_all.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 121)",
+  "status": 200,
+  "bytes": 319084,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "덱 186개(세트 15~18)"
+ },
+ {
+  "files": [
+   "bundle_comps_set18.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 121)",
+  "status": 200,
+  "bytes": 61620,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "덱 중 세트 18만(36개)"
+ },
+ {
+  "files": [
+   "bundle_champions_set18.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 2)",
+  "status": 200,
+  "bytes": 364428,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "챔피언 중 세트 18만(73명)"
+ },
+ {
+  "files": [
+   "bundle_items_set18.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 3)",
+  "status": 200,
+  "bytes": 177406,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "아이템 중 세트 18 포함(98개)"
+ },
+ {
+  "files": [
+   "bundle_augments.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 33)",
+  "status": 200,
+  "bytes": 48777,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "증강 257개(id=DA_*, tierlist 1~4)"
+ },
+ {
+  "files": [
+   "bundle_classes_set18.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 8)",
+  "status": 200,
+  "bytes": 42094,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "계열(class) 중 세트 18(16개)"
+ },
+ {
+  "files": [
+   "bundle_origins_set18.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 9)",
+  "status": 200,
+  "bytes": 60202,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "기원(origin) 중 세트 18(19개)"
+ },
+ {
+  "files": [
+   "bundle_rolling_odds.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 122)",
+  "status": 200,
+  "bytes": 1071,
+  "saved_as": "original (bundle JSON.parse module, <=2KB)",
+  "note": "레벨별 상점 확률(세트 구분 없음)"
+ },
+ {
+  "files": [
+   "bundle_patch_changelog.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 120)",
+  "status": 200,
+  "bytes": 67686,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "Set/Ver 표기 + 패치노트(Contentful, 최신 2024-02) + 앱 변경 이력"
+ },
+ {
+  "files": [
+   "bundle_mod61_descriptions.shape.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 61)",
+  "status": 200,
+  "bytes": 13977,
+  "saved_as": "shape (편집 콘텐츠 전체 복제를 피하려고 64KB 이하여도 골격만)",
+  "note": "구세트 파워업류 설명 107개"
+ },
+ {
+  "files": [
+   "bundle_mod17_db_tabs.json"
+  ],
+  "url": "https://tftactics.gg/static/js/main.616d9066.chunk.js (webpack module 17)",
+  "status": 200,
+  "bytes": 45,
+  "saved_as": "original (bundle JSON.parse module, <=2KB)",
+  "note": "DB 탭 이름"
+ }
+]

@@ -1,0 +1,158 @@
+{
+  "verdicts": [
+    {
+      "category": "deck",
+      "winner": "lolqq",
+      "agreesWithScoreSum": false,
+      "reasoning": "합계는 metatft 21 : lolqq 18 : lolchess 16이지만 lolqq로 뒤집는다.\n(1) 3점 차는 전부 모바일 사용성 축(metatft 6 : lolqq 2.5)에서 났고, 그 축의 1위는 metatft가 아니라 lolchess(7.5)다. lol.qq의 2.5점은 '중국어·1050px 고정 데스크톱 사이트'라는 원본 화면 점수인데 우리는 화면을 직접 만든다. 그 심사위원 스스로 'lol.qq 데이터는 모바일 UI에 쓰기 가장 좋다(티어 구간·변화량·칸별 배치율·단계별 증강)'고 적었다. 데이터+구현 두 축만 합치면 lolqq 15.5 : metatft 15로 대등하다.\n(2) 앱 정체성: 2026-09-14 확정 결정이 'lol.qq 목록 기준, metatft는 대조(단방향)'다. 덱 목록의 기준 소스를 metatft로 바꾸면 중국 통계 앱이 아니게 된다.\n(3) 유일 데이터: 덱별 증강 성적(세 소스 중 유일), 칸별 사용률·승률, 핵심 유닛 성급 비율·아이템 수, 5개 티어 구간, 당일 신선도, 편집 덱(레벨별 보드·운영 텍스트)이 lol.qq에만 있다.\n(4) metatft의 데이터 8점은 comps_stats 한 엔드포인트에 기댄 점수다. 직접 재확인(2026-09-15 22:14 KST): comps_stats는 server=KR·rank 필터가 실제로 먹고(KR 플래+ 3일 1,108,328보드, 55클러스터 합이 정확히 100%, 가중 평균 4.5000, 미분류 747) 품질이 훌륭하다. 그러나 데이터·구현 심사위원이 독립적으로 확인했듯 comps_data·comp_details는 rank/days/server를 무시한 고정 모집단이고(KR 마스터+를 붙여도 423009 = 556,572·4.2225 그대로), 증강이 없고, 클러스터 id가 재클러스터링마다 바뀌며, 새 패치 덱이 43시간 늦게 생겼다. metatft로 덱 목록을 만들면 카드 숫자는 좋지만 상세는 라벨을 붙일 수 없는 고정 집계가 된다.\n(5) 구현 8.5점은 근거가 충실하다. 이 카테고리 요소 전부가 인증 없이 endpointVerified이고 정적 경로가 s13부터 유지되며 숫자 id도 chess/race/job.js로 100% DA_* 변환된다. 내 재확인에서도 数据检索器 tft_lineup_rank(version='' 전 빌드, tier '7+', 3일)가 100행·개수 모순 0·comp_s 중앙값 94, 胜率阵容 tft_lineup_group_list 425조합 당일(dtstatdate 20260915), 상세 augment_data 5행이 result 0으로 왔다.\n(6) lol.qq의 약점과 처방: 胜率阵容은 0.1단위 반올림·평균 4.0 이하만 노출·소표본 S등급·기간 정의 없음 → 등급과 수치는 数据检索器 카운트(comp_s·top1_cnt·top4_cnt)로 수집기가 재계산하고 표본 라벨을 단다. 단 lineup_rank 상위 100덱은 마스터+ 보드의 17%(16,404/97,474)만 덮는 좁은 덱 정의라, 커버리지가 넓은 '한국/글로벌 등수' 열은 metatft comps_stats에서 가져온다. lolchess는 약관(재배포 금지 조항을 3명이 확인)·마스터+ 글로벌 한 조합만 동작·상세 null이라 데이터원에서 제외한다.",
+      "graftFrom": [
+        {
+          "site": "metatft",
+          "idea": "매칭된 덱에 'KR 플래+ n=9,849 · 4.2등' 같은 한국/글로벌 비교 한 줄. comps_stats(queue=1100&patch=current&days=3&rank=…&server=KR&permit_filter_adjustment=false)의 places 앞 8개(9번째 원소는 count)로 평균·톱4·표본을 계산한다. 클러스터 id는 latest_cluster_info의 Cluster 필드로 당일에만 연결하고 저장하지 않는다."
+        },
+        {
+          "site": "metatft",
+          "idea": "카드에 운영 방식 칩(comps_data levelling: Fast 8/Fast 9 → '빠른 8레벨')과 난이도 칩(difficulty). comps_data는 필터를 무시하는 고정 집계이므로 티어·기간 라벨은 붙이지 않는다."
+        },
+        {
+          "site": "metatft",
+          "idea": "카드 정보 위계(큰 숫자 하나 + 작은 보조 수치 하나), 목록 고정·숨김(길게 누르기, DataStore 저장), 상세 레벨 칩에 도달 비율('8렙 47% · 9렙 47%', comp_details.final_levels)을 '기간·티어 미표기 집계' 라벨과 함께 표시."
+        },
+        {
+          "site": "lolchess",
+          "idea": "모든 덱 카드 같은 자리에 고정 4수치 줄(평균 등수 / 픽률 / 승률 / TOP4)과 상세 맨 위의 큰 '팀 코드 복사' 버튼. 값은 lol.qq·metatft로 채우고 lolchess 데이터는 가져오지 않는다."
+        },
+        {
+          "site": "lolchess",
+          "idea": "캐리 순위 강조(캐리 3명만 아이템 3개를 크게, 나머지는 아이콘만 — lol.qq main_c_chess/assist_chess/second_assist_chess가 그대로 대응), 한글 덱 이름 규칙 '[태그] 핵심 특성+캐리', '최종 업데이트 N시간 전' 표기."
+        },
+        {
+          "site": "lolchess",
+          "idea": "배포 전 일관성 검사 패턴을 verify.py에 넣는다: sum(places)=count, 분포로 재계산한 평균·톱4가 표시값과 같은지, 목록 가중 평균이 4.5±0.05인지(lolchess 4.35 같은 편향 감지), 전부 0인 필드 제거, HTTP 200 빈 응답을 실패로."
+        }
+      ],
+      "dataSourcePlan": "[기준 목록·상세: lol.qq]\n① 편집 덱 GET game.gtimg.cn/images/lol/act/tftzlkauto/json/lineupJson/s18/6/lineup_detail_total.json(기존 26덱, hero_id DA_*). tft_recent_versions의 16.18 첫 빌드 시작(2026091007 CST)보다 update_time이 이르면 '이전 패치 작성' 배지(현재 21/26).\n② 胜率阵容 POST mlol.qt.qq.com/go/exploit/proxy req_alias tft_lineup_group_list(version_id dgroup_v3, time_type d_grouping_v3, queue_id 1100), tier_part 255/0/1/2/3 각 1회 → '주특성+메인C 그룹 → 변형(more_lineup)' 2단 목록, 다섯 구간을 JSON에 미리 담아 폰에서 오프라인 전환. 숫자 chessId/traitId는 chess/race/job.js(TFTID→hero_EN_name, raceId/jobId→characterid; versionconfig.json은 16.17을 가리키지만 '16.18-2026.S18' 경로가 존재하므로 CDragon 패치 버전으로 먼저 시도 후 폴백)로 DA_* 변환. 아이템·증강(rune_id)은 이미 DA_*.\n③ 수치·등급: 数据检索器 tft_match_overview + tft_lineup_rank(req_params version='' 전 빌드 합산, tier '7+'와 '4+', stime=etime-2, etime=전날(CST), minSampleSize 10, limit 100) → comp_s·top1_cnt·top4_cnt로 평균·톱4·1위율과 표본 보정 등급((n·avg+200·4.5)/(n+200))을 수집기가 계산, Δ는 overview rank_dist로 만든 가중 평균 대비. 덱 id(base64 구성 문자열 '1100#DA_…$DA_…$8')를 풀어 DA_* 집합으로 ①·②와 자카드 매칭.\n④ 상세는 노출 덱(구간별 상위 N, 100 이내)에만 tft_lineup_all_detail(augment_data·key_champion_data·equip_data·level_data), tft_lineup_position(칸별 use_rate·win_rate → 히트맵), tft_lineup_key_chess(성급 비율·equip_num → '2성 67% · 아이템 2.9개' 칩) 호출(version_id v1, minor_traits_id는 sub_trait_list로 구성하고 없으면 '-1,-1'). dtstatdate(T-1)를 그대로 라벨.\n[대조·한국 열: metatft]\nlatest_cluster_info(units_string, 기존 자카드 매칭·onlyInChina 유지) + comps_stats(글로벌 플래+, KR 플래+, KR 마스터+ 3회, permit_filter_adjustment=false) places[0..7] → 매칭 클러스터의 평균·톱4·n. comps_data 1회 → levelling·difficulty. 클러스터 id는 당일 조인만, 저장 금지.\n[한글화] CDragon ko_kr apiName 정확 일치(기존).\n[검사] verify.py: 소스별 최소 행수(편집 20, group_list 300, lineup_rank 50, 클러스터 30), sum(places)=count, avg 범위 검사, HTTP 200 빈 응답 실패 처리. 모든 덱 카드에 'n=… · 3일 · 티어 · 기준일' 라벨."
+    },
+    {
+      "category": "champion",
+      "winner": "metatft",
+      "agreesWithScoreSum": true,
+      "reasoning": "세 축 모두 metatft 1위(데이터 8.5 / 사용성 7.5 / 구현 8)이고 근거의 질도 가장 높다. 표본(플래+ 7일 1,190만 보드, lolchess의 4.6배), 랭크 임의 조합, KR 서버 단독 조회(직접 재확인: server=KR이면 games.count 5,785,016→967,672, 70행), places[8] 원시 분포, lolchess와 상관 0.995(특성 0.998) 교차검증, 이미 수집기가 쓰는 호스트. 감점 요인(분모 흔들림, TFT18_* 6행, 특성 _N 순번, 사전 수치 일부 불일치)은 전부 수집기 정규화로 흡수된다.\nlol.qq를 1위로 두지 않는 이유: 사이트 기본 화면 tft_hero_ranking은 사용률 가중 평균 3.53·톱4 68%로 모집단상 불가능하고 표본 수가 없다. 数据检索器 tier ''(不限)는 내 재확인에서도 75/75행 모순이었다. 심사위원 간 불일치(데이터 심사위원 '티어 필터면 위반 0' vs 구현 심사위원 '티어 필터에서도 47/69 모순')는 재확인으로 데이터 심사위원 손을 들었다: 분모를 unit_s(해당 유닛이 있는 보드 수)로 두면 tier 4+/2+/7+에서 위반 0(72/74/65행, 특성 87행도 0)이고, 분모를 total(전체 보드)로 두면 71/73/64행이 위반된다. 구현 심사위원의 '모순'은 total을 분모로 쓴 계산으로 보인다. 합산도 정상이다(sum(unit_s)/total=8.35 유닛/보드, 비 DA 행 0). 따라서 lol.qq 数据检索器는 '티어 필터 + version='' + unit_s 분모' 조건에서 중국 서버 열로 쓸 수 있지만, 기간 최대 3일·티어 필수·avg_rank_delta 정의 불명·정적 사전 한 패치 지연 때문에 기준이 아니라 보조다.\nlolchess는 원시 카운트가 정확하고 해석성·한국어가 최고지만 약관, 글로벌만(KR 필터 없음), 표본 작음, 1시간 갱신, pickRate가 슬롯 점유율이라 UI와 용어만 빌린다.",
+      "graftFrom": [
+        {
+          "site": "lolchess",
+          "idea": "한국어 용어 표준: 헤더 '평균 등수 / TOP4 / 승률 / 게임 수 / 픽률', 특성 행은 '11 나무정령'(활성 인원수+이름), 챔피언 상세 추천 아이템 탭 '3신기 / 아이템 / 유물 / 찬템 / 상징'. 이름은 CDragon ko_kr로 채운다."
+        },
+        {
+          "site": "lolchess",
+          "idea": "특성 단계 키를 (DA_특성, 활성 인원수)로 통일. metatft의 'DA_X_N'(N=단계 순번)을 CDragon effects[N-1].minUnits로 바꾸면 lol.qq 'DA_X,n'·lolchess numUnits와 같은 키가 된다(88행 비교 상관 0.998로 검증됨). Eclipse·Rival처럼 한쪽에만 있는 행은 출처를 표시."
+        },
+        {
+          "site": "lolchess",
+          "idea": "패치 리비전 스냅샷: 패치가 바뀌는 날 이전 패치의 마지막 챔피언·특성 통계를 동결 저장해 '지난 패치 대비 평균 등수 변화'를 보여 준다. 하루 1회 수집 구조에 그대로 붙는다."
+        },
+        {
+          "site": "lolchess",
+          "idea": "반면교사 3개: 기본 정렬에 최소 표본 문턱(1,000게임 미만 흐림 — lolchess는 3~19게임짜리 럭스 변형이 1~4위), 표가 폰 폭을 넘으면 챔피언 이름 열 고정(가능하면 등급·평균 등수·TOP4·게임 수 4열만 남겨 스와이프 제거), 목록 상단에 '18.2 · 플래+ · 32만 판 · N시간 전' 표본·신선도 줄."
+        },
+        {
+          "site": "lolqq",
+          "idea": "'중국 서버' 열: 数据检索器 tft_hero_rank·tft_trait_rank(tier '4+', version='', 3일)의 unit_s·top1_cnt·top4_cnt로 평균·톱4를 직접 계산하고, Δ는 서버가 주는 avg_rank_delta 대신 '유닛 평균 − 같은 모집단의 unit_s 가중 평균'(4+ 3일 기준 4.174; overview 평균 4.284와 다름)으로 우리 정의로 계산. 범위 검사 통과 행만 싣는다."
+        },
+        {
+          "site": "lolqq",
+          "idea": "chess.js 16.18(CDragon 16.18과 74명×9수치 전부 일치)로 metatft·lolchess 사전 불일치(다이애나 마나 40, 렝가 공속 0.75, 사거리 5 등)를 자동 경고. 도감의 增强/削弱/最新을 '버프/너프/신규' 배지로. 특성 '조합' 카드(tft_trait_strength_trend 2특성+단계별 登顶·前四 5주기 추세, 숫자 traitId → race/job.js)를 아코디언으로."
+        }
+      ],
+      "dataSourcePlan": "[기준: metatft] GET api-hc.metatft.com/tft-stat-api/units 와 /traits를 (글로벌 플래+, KR 플래+, KR 마스터+) × queue=1100&patch=current&days=3&permit_filter_adjustment=false로 하루 3회씩 호출해 행마다 places[8]와 games[0].count·updated를 저장. 수집기가 avg/top4/win/pick(=Σplaces/games.count, 보드당 채용률)과 등급(4.5−avg 기준 S>.3/A>.1/B>−.1/C>−.3, 표본 보정 후)을 계산해 champions.json·traits.json에 넣고 앱은 조회만. TFT18_* 저표본 행 제거, 특성 'DA_X_N'은 CDragon effects로 (DA_X, minUnits) 변환. 상위 챔피언은 unit_detail_items(unit=DA_*, artifact_count=0)로 추천 아이템 5개·3아이템 빌드 3개를 요약(유닛별 1회, 약 70회/일).\n[중국 열: lol.qq] POST mlol.qt.qq.com/go/exploit/proxy 数据检索器 tft_hero_rank(unitType '')·tft_trait_rank, req_params {queueId '[\"1100\"]', version '', tier '4+', stime=etime-2, etime=전날(CST), minSampleSize '10', limit '2000', filterOptions ''} → unit_id(DA_*)·unit_s·top1_cnt·top4_cnt·total 저장. 수집기에서 avg가 top1·top4 비율로 가능한 구간 안인지 검사해 실패 행은 버리고, 픽률은 unit_s/total. 특성 키 'DA_X,n'은 이미 인원수. tft_hero_ranking(国服大数据)은 쓰지 않음.\n[사전] CDragon ko_kr(이름·설명 기본) + metatft data.metatft.com/lookups/TFTSet18_latest_ko_kr.json ability.variables(스킬 수치 텍스트 보조) + lol.qq chess.js 16.18(수치 검증용).\n[조인] DA_* 정확 일치(metatft 65/71, lol.qq 69/69, 특성 35/35~36/36 확인). lolchess 미수집."
+    },
+    {
+      "category": "item",
+      "winner": "metatft",
+      "agreesWithScoreSum": true,
+      "reasoning": "세 축 모두 metatft 1위(데이터 9 / 사용성 7 / 구현 8.5). 아이템 키 142개가 lol.qq와 완전히 같고(lolchess 126은 부분집합), items_matches places[8]·item_detail(착용 유닛 68개, 유닛 평균 대비 차이)·item_stage_detail·unit_items_processed(아이템→상위 5유닛 역검색, 1회 68KB)가 인증 없이 온다. 내 재확인: items_matches server=KR 142행, games 1,108,328(플래+ 3일). lolchess와 113개 아이템 평균 등수 차 0.020·Spearman 0.988로 정확성이 교차검증됐다.\nlol.qq는 중국 표본과 '챔피언#아이템' 전체 행렬(7,395행)이라는 고유 가치가 있지만, 같은 날 같은 아이템의 평균 순위가 엔드포인트마다 4.1/1.69/5.19로 갈리고, 数据检索器도 실버+에서 10행이 불가능 값이며, 装备排行 착용 챔피언은 id가 잘려(전체 고유 8개) 못 쓴다. 인기도(build_s)만 글로벌 사용량과 0.988로 일관돼 그 용도로만 쓴다.\nlolchess는 유일한 '동반 아이템' 통계와 가장 자연스러운 한국어·조합표가 있지만 약관, 부품 누락, 등수 분포·추세 없음, dt=1/5 조용한 빈 응답이라 UI만 빌린다.\n범위 주의: 앱의 차별점 '아이템→덱 역검색'은 수집기 index.item(lol.qq 편집 덱 기반)이 이미 담당한다. 이 판정은 '아이템→착용 유닛·수치·조합표' 부분의 소스에 관한 것이며, 덱 역검색의 기준은 그대로 lol.qq다.",
+      "graftFrom": [
+        {
+          "site": "lolqq",
+          "idea": "数据检索器 tft_equip_rank(ShowHero=1, limit 8000)의 'DA_챔피언#DA_아이템' 행렬(7,395행)로 '중국에서 이 아이템을 누가 드나' 열. 정렬은 build_s(사용 수), 최소 표본 300~500, 서버가 주는 S/A/B/C 등급은 버린다. 아이템 역검색 결과 아래에 '중국 덱 / 글로벌 착용 유닛' 두 줄로."
+        },
+        {
+          "site": "lolqq",
+          "idea": "装备 페이지의 '부품 선택 → 그 부품이 들어가는 완성템 목록' 흐름을 부품 10종 칩 줄로 옮긴다(칩 1~2개 탭 → 완성템을 평균 등수순으로). 데이터 기준 라벨에 핫픽스 빌드('16.18.817.4437 반영') 표기. 레거시 tft_equip_ranking의 hero_list·top_*_hero는 쓰지 않는다."
+        },
+        {
+          "site": "lolchess",
+          "idea": "용어와 글자 칩: 지표 '평균 등수 / TOP4 / 승률 / 픽률 / 게임 수', 분류 칩 '전체 / 일반 / 상징 / 유물 / 찬란'(metatft식 글자 없는 20px 아이콘 대신). 덱은 '덱', 아이템 제작만 '조합'으로."
+        },
+        {
+          "site": "lolchess",
+          "idea": "부품 10종 11×11 조합표를 가로 넘침 없이 한 화면 격자로(칸 30dp 이상, 부품 머리칸 탭 시 행·열 강조, 칸 탭 시 하단 시트에 효과·착용 상위 5명). 통계 티어표에서는 부품·물약 16개를 빼고(142→126) 조합표로만 보여 준다."
+        },
+        {
+          "site": "lolchess",
+          "idea": "챔피언 TOP5를 740px 가로표 대신 2줄 카드로: 1줄 아이콘·이름·티어·평균 등수·TOP4·n판, 2줄 착용 상위 5명의 아바타+한글 이름(아이콘만 두지 않음). 모든 행에 'n판'을 항상 표시하고 표본 하한 아래는 흐림. 상세 라우트 키는 DA_* apiName으로 통일."
+        }
+      ],
+      "dataSourcePlan": "[기준: metatft] GET api-hc.metatft.com/tft-stat-api/items_matches를 (글로벌 플래+, KR 플래+, KR 마스터+) × days=3&permit_filter_adjustment=false로 호출해 places[8]·games.count 저장 → 수집기가 평균·톱4·승률·픽률과 아이템 티어((4.5−avg+p)×빈도^i, 일반 p=.5 i=1 / 상징 p=.125 i=.25 / 유물·지원·찬란 p=0 i=0)를 계산. tft-comps-api/unit_items_processed 1회 → itemNames[DA].units 상위 5(착용 유닛). 완성템 55+상징은 item_detail(itemName=DA_*) units places로 착용 유닛 표(≈70회/일), TFT18_* 행 제거. 톱4는 조건부(아이템 인스턴스 기준)로 계산하고 '보드 기준보다 높게 나온다' 도움말.\n[중국 열: lol.qq] 数据检索器 tft_equip_rank(ShowHero='1', tier '2+', version ''(hero/lineup에서 전 빌드 합산 확인, equip은 같은 파라미터 규약이라 적용 가능[추정]; 빈 응답이면 tft_recent_versions 최신 빌드 문자열로 재시도), stime=etime-2, etime=전날 CST, minSampleSize '10', limit '8000') → 'DA_챔피언#DA_아이템' 키의 build_s·build_rate 저장(최소 build_s가 10보다 크면 잘린 것으로 보고 로그). 아이템 단독 tft_equip_rank는 build_rate·build_s만 쓰고, avg_rank·前四는 범위 검사 통과 시에만 참고 표시. 빈 item_id 행 제거.\n[조합표] CDragon ko_kr items[].composition(DA_* 완성템 55, 부품 10 확인) → 격자; lol.qq equip.js formula(DA_Component_* 이름, 55/55 동일)는 패치 날 교차검증에만.\n[덱 역검색] 기존 index.item(lol.qq 편집 덱 units[].items) 유지, 胜率阵容 main_c_chess_equip·assist_chess_equip으로 확장.\n[조인] DA_* 정확 일치(metatft 142 = lol.qq 142, CDragon 141/142; DA_Artifact_Hullcrusher만 세 소스 모두 없음). lolchess 미수집."
+    },
+    {
+      "category": "augment",
+      "winner": "lolqq",
+      "agreesWithScoreSum": true,
+      "reasoning": "시즌 18 증강의 실측 통계는 lol.qq에만 있다. 세 심사위원이 각각 확인했고 내 재확인(22:14 KST)에서도 胜率阵容 상세 tft_lineup_all_detail의 augment_data가 5행(DA_Ascension 634회 3.16등, DA_LateGameScaling 2,021회 3.19등, 1_/2_/3_avg_rank 포함)으로 result 0이었다. metatft는 unit_augments가 빈 문자열 1행, augment_unit_detail [], augments_full2 500, 경기 JSON에 증강 키 없음. lolchess는 meta-deck-augments {patchRevisions:[]}이고 화면에 'Riot 정책상 시즌 13부터 미제공'이라 적혀 있다. 두 곳의 티어는 표본 0인 편집 의견이고 공통 249개 중 53%만 같은 등급이다. lolchess의 사용성 7점은 데이터 없는 화면 구조이고 약관 문제도 있어 뒤집을 근거가 되지 못한다.\nlol.qq의 한계는 분명히 적는다. 전체 증강 랭킹 tft_augment_rank는 화이트리스트(result 101)이고 프론트 탭 자체가 폐지돼 통계 티어표는 만들 수 없다. 덱당 평균 등수 상위 5개만 나와 265개 중 111개(42%)만 통계에 등장하고 성적 나쁜 증강은 보이지 않는다. use_rate 분모가 덱 판수와 맞지 않고(약 2~36배), 단계별 평균에 표본 수가 없어 '1'·'0' 같은 소표본 값이 섞인다(재확인 샘플 DA_SilverSpoon 1_avg_rank '1'). 상세는 T-1, 목록은 당일이다. 마스터+는 증강 행이 1/10덱뿐이라 골드~에메랄드(tier_part 2)·전체(255)를 쓴다. 따라서 앱의 증강 화면은 '덱별 통계(lol.qq) + 편집 티어(metatft) + 사전 태그(metatft ko_kr)' 조합이 되며, 증강 자체의 평균 등수 순위는 만들 수 없다고 명시한다.",
+      "graftFrom": [
+        {
+          "site": "metatft",
+          "idea": "tft-stat-api/augments_tiers(1회 GET 60KB; 재확인 S24/A84/B129/C21, updated_at 2026-09-15T11:11Z) → 증강 카탈로그에 '에디터 티어 S~D' 배지. 통계가 아니므로 작성자(META Spencer)·갱신 시각을 함께 표기하고 lol.qq 수치와 섞지 않는다."
+        },
+        {
+          "site": "metatft",
+          "idea": "data.metatft.com/lookups/TFTSet18_latest_ko_kr.json augments의 rarity(실버/골드/프리즘)·manual_tags(경제/아이템/전투/특성/성장)로 엄지 위치의 필터 칩. CDragon에 없는 증강 15개(DA_18_FloraFatalisAugmentPlus 등)의 한글명도 여기서 보충한다. 파일의 augmentTiers 키는 희귀도 아이콘 스타일이라 티어로 쓰지 않는다."
+        },
+        {
+          "site": "metatft",
+          "idea": "comp_augment_tiers(클러스터 28개, 가이드 기반)를 뒤집어 '이 증강을 S로 추천하는 덱' 목록. units_string으로 lol.qq 덱에 붙이고 S만 쓰며 distance가 큰 매칭은 제외, source_title을 출처로 적는다."
+        },
+        {
+          "site": "metatft",
+          "idea": "증강 검색을 이름·한글 설명·영문명으로 넓히고 '/'로 여러 단어 OR 검색. CDragon 설명의 @EmblemAmount@ 같은 자리표시자는 지운 평문으로 인덱싱한다."
+        },
+        {
+          "site": "lolchess",
+          "idea": "화면 구조만: 가이드/티어/확률/배제 탭, 희귀도·라운드(2-1/3-2/4-2) 칩, 격자↔목록 토글(폰에서 격자 이름 잘림 39~91칸 방지). 상단에 '증강 성적은 중국 서버 골드~에메랄드 하루치, 티어는 편집자 의견'이라는 출처 고지 한 줄. 라운드별 등장 확률표는 API가 아니라 게임 상수이므로 패치마다 수기 관리."
+        }
+      ],
+      "dataSourcePlan": "[통계·추천 덱: lol.qq] POST mlol.qt.qq.com/go/exploit/proxy tft_lineup_group_list(tier_part 2와 255, dgroup_v3) rune_id_group(DA_*, 덱당 ≤5) → 증강→덱 역인덱스(라벨 '통계 상위')를 만들고 기존 hexbuff 역인덱스(라벨 '작가 추천')와 병합. 노출 덱(≤100)만 tft_lineup_all_detail(version_id v1, minor_traits_id는 sub_trait_list로 구성) augment_data의 use_num·avg_rank·1_/2_/3_avg_rank 저장: '0'은 결측 처리, use_num<300은 흐림, use_rate는 미표시, 단계별 평균은 기본 접힘, dtstatdate와 tier_part 이름을 라벨로. 호출량은 목록 2회+상세 ≤100회(심사에서 436회 연속 호출도 차단 없었음).\n[티어·사전: metatft] GET api-hc.metatft.com/tft-stat-api/augments_tiers content.content.tierList → catalog.augments[].editorTier(+author, updated_at); GET data.metatft.com/lookups/TFTSet18_latest_ko_kr.json augments → rarity·manual_tags·한글명 fallback; GET tft-comps-api/comp_augment_tiers → 추천 덱 역인덱스. 전부 인증 없음, tierList가 비면 이전 값 유지.\n[풀·이름] lol.qq hex.js(265개, augments 필드 DA_* 100%; 16.17 경로 → 16.18 경로 우선 시도) + CDragon ko_kr 이름 우선 + 수동 오버라이드 사전.\n[조인] DA_* 정확 일치(통계 증강 111/111 CDragon 일치, augments_tiers 253/265 hex.js 겹침). lolchess 데이터 미수집."
+    },
+    {
+      "category": "profile",
+      "winner": "metatft",
+      "agreesWithScoreSum": true,
+      "reasoning": "합계 metatft 21.5 : lolchess 20 : lolqq 4.5. 1.5점 차지만 뒤집을 이유가 없다. 이 카테고리는 개인 데이터라 하루 1회 수집기가 아니라 기기가 직접 호출해야 하고, 앱 ProfileRepository가 이미 metatft lookup_by_riotid로 동작 중이다. 정확성은 두 소스가 같다(시즌 18 랭크 112/112 경기, 등수 불일치 0, LP 로그 108/108, 현재 DIAMOND IV 일치, 서버 순위 0.7% 이내). 차이는 세 가지다. (1) 갱신: metatft는 조회 후 last_refreshed가 바뀐 사례를 확인했고, lolchess는 GET으로 갱신되지 않아(syncedAt 11:57Z 고정) 서버가 Riot을 부르게 하는 sync RPC가 필요해 차단 위험이 가장 크다. (2) 깊이: metatft 경기 JSON에 8인 티어·LP·서버 순위·MMR 전후값·로비 평균이 있고, lolchess는 티어·디비전뿐이며 eog/details가 404다. (3) 약관: lolchess는 복제·제3자 제공·타 이용자 정보 저장 금지 조항이 명시돼 있고 metatft 약관(2023-06-11)에는 해당 조항이 없다. lolchess가 앞서는 백분위·b패치·자연스러운 한국어·큰 터치 영역은 같은 metatft 응답(server_rank, match_timestamp)으로 재현할 수 있는 UI 차이다. lol.qq는 KR 계정을 조회할 수 없어 이 카테고리의 핵심을 줄 수 없다.\n범위 주의: 오버레이는 '덱 참고·티어 참고'만이므로 인게임 로비 스카우팅(summoner_by_puuid)은 범위 밖이고, 게임 중 응답도 세 심사위원 모두 '{}'만 봐서 미확인이다. 실질적 개선점은 오버레이 주기 호출을 211KB·최대 10초짜리 full_profile 대신 rating_changes(17KB, 0.9초)로 바꾸고, 현재 8~9.5sp인 ProfileCard 글자를 10sp 이상으로 올리는 것이다.",
+      "graftFrom": [
+        {
+          "site": "lolchess",
+          "idea": "'상위 1.03% · 6,397위' 표기. metatft lookup 응답의 server_rank{rank,total}로 기기에서 계산한다(lolchess 6,353/617,673과 0.7% 안쪽 일치 확인). 톱4율·1등 백분위는 metatft에 없으니 티어 백분위 하나만."
+        },
+        {
+          "site": "lolchess",
+          "idea": "터치 영역 48dp 이상, 글자 12sp 위주, 'Diamond IV'가 아니라 '다이아몬드 IV'로 통일, 'N분 전 업데이트' 표시와 수동 갱신 버튼. metatft의 9~10px 글자·고정 광고·'28일 8월'·'강제 플레이어' 같은 직역은 반면교사."
+        },
+        {
+          "site": "lolchess",
+          "idea": "b패치 구분(18.1 / 18.1d). metatft 프로필의 patch는 b패치를 합치므로 match_timestamp를 tft-stat-api/patch 시작 시각이나 경기 JSON _metatft.patch_resolution(live_at)과 비교해 기기에서 붙이고 '현재 패치 18.2: 32판 평균 x등'을 보여 준다."
+        },
+        {
+          "site": "lolchess",
+          "idea": "지난 시즌 표기는 '마지막 관측 티어' 라벨로(metatft rating_history가 Set 14에서 DIAMOND I vs lolchess MASTER I로 어긋남), 최고 티어가 최종보다 낮은 경우(Set 9.5)는 숨긴다. LP 추이 그래프에 누적 톱4 비율을 겹친다(rating_changes 109행, 중복된 5번째 경기는 num_games로 제거)."
+        },
+        {
+          "site": "lolqq",
+          "idea": "段位排行 get_tier_rank_1000(Referer 없이 200 확인)에서 대区별 王者·宗师 최저 LP와 인원만 집계해 '중국 서버 챌린저 컷' 참고 수치로. puuid·닉네임·intent는 저장하지 않는다. 우선순위 낮음."
+        }
+      ],
+      "dataSourcePlan": "[기기 직접 호출: metatft] 상세 화면은 GET api.metatft.com/public/profile/lookup_by_riotid/KR/{name}/{tag}?source=full_profile&tft_set=TFTSet18(기존) → ranked.rating_text/rating_numeric/peak_rating, server_rank{rank,total}, ranked_season_stats['1100'].placements[8], matches[].placement/avg_rating(로비 평균 티어 → '로비 평균 에메랄드 I')/match_timestamp/summary.units. 오버레이 주기 갱신은 GET public/profile/rating_changes/KR/{name}/{tag}?queue=1100(17KB) → 이웃 행 rating_numeric 차로 경기별 ±LP를 등수 칩 아래에 표시. 응답 refresh.status가 queued면 1·2·4·8초 백오프로 lookup 재조회(번들 코드로 확인, 실응답 미관찰). '지난 판 로비'가 필요하면 matches3.metatft.com/{riot_match_id}.json(25KB, immutable) 한 경기만 받아 participant_info 티어를 표시하고 기기 캐시에는 타인 riot_id·puuid·mmr을 넣지 않는다. 한글화는 summary.units character_id/itemNames(DA_*)를 decks.json catalog로 조인, 특성은 '_N' 제거 후 조인. 브라우저 CORS 제한(public/*는 www 출처만)은 네이티브 호출과 무관.\n[수집기(집계만, 하루 1회)] metatft public/promotion_thresholds/latest → KR 챌린저(500LP·161명)·그마(200LP·314명) 컷과 인원(응답 timestamp 대신 수집 시각 기록) → '그마 컷까지 xLP'. lol.qq POST mlol.qt.qq.com/go/exploit/get_tier_rank_1000 {area_id} → 대区별 최저 point·인원만.\n[저장·범위 금지] 타인 puuid·riot_id·MMR·login_ip 저장 금지, tft-spectate·관전·lolchess summoner-sync 계열은 쓰지 않음(lolchess 약관 + 범위 밖)."
+    }
+  ],
+  "crossCuttingNotes": "[판정 요약] deck=lolqq(합계와 다름), champion·item·profile=metatft(합계와 같음), augment=lolqq(합계와 같음). 방침은 '덱 목록의 기준과 중국 고유 데이터(덱·증강)는 lol.qq, 챔피언·아이템·전적의 수치 기준은 metatft, lolchess는 UI·용어·검증 기준만'. 2026-09-14 확정 결정(lol.qq 기준·metatft 대조 단방향·앱 밖 수집·CDragon 한글화)과 충돌하는 판정은 없다.\n\n[lolchess는 데이터원이 아니다] 세 심사위원이 라이브 약관 페이지에서 '사전 승낙 없는 복제·제3자 제공 금지', '타 이용자 개인정보 수집·저장 금지', '상업적 이용 금지' 조항을 직접 확인했다. 공개 저장소+Actions 재배포 구조와 정면 충돌하므로 어떤 카테고리에서도 자동 수집하지 않는다. 화면 패턴, 한국어 용어집(평균 등수/TOP4/승률/픽률/게임 수, '11 나무정령', 3신기/유물/찬템/상징), 내부 일관성 검사 기준만 빌린다. 사용성 축에서 lolchess가 3번 1위였지만 이것은 우리 화면 설계의 참고이지 소스 판정의 근거가 아니다.\n\n[DA_* 조인 규칙] 세 소스 공통 키는 DA_* 정확 일치(접두사 제거 불필요; 아이템 142=142, 챔피언·특성도 CDragon과 거의 전부 일치). 정규화 3가지: ① metatft 특성 'DA_X_N'의 N은 인원수가 아니라 단계 순번 → CDragon effects[N-1].minUnits로 (DA_X, 인원수)로 변환하면 lol.qq 'DA_X,n'·lolchess numUnits와 같은 키가 된다. ② metatft 통계의 TFT18_*(Akali, Gromp, KogMaw, MasterYi, NidaleeCougar, SprykinSummonMelee) 저표본 행 제거. ③ lol.qq 胜率阵容·특성 추세의 숫자 chessId/traitId는 chess/race/job.js(TFTID→hero_EN_name, raceId/jobId→characterid; 65/65, 36/36 매핑 확인)로 변환. versionconfig.json은 아직 16.17을 가리키지만 '16.18-2026.S18' 경로 파일이 존재하므로 CDragon 패치 버전으로 먼저 조립하고 404면 versionconfig 경로로 폴백. 한글 이름은 CDragon ko_kr 우선, metatft ko_kr lookup은 CDragon에 없는 증강 15개·스킬 수치 보조.\n\n[metatft 사용 규칙] 필터(rank/days/server/patch)가 먹는 엔드포인트는 tft-stat-api/*(units·traits·items_matches·item_detail·unit_detail_*)와 tft-comps-api/comps_stats뿐이다(재확인: server=KR에서 units games.count 5,785,016→967,672, comps_stats 6,799,416→1,108,328). comps_data·comp_details·unit_items_processed는 필터를 무시하는 고정 모집단이라 티어·기간 라벨을 붙이지 않는다. permit_filter_adjustment=false 고정, 과거 패치는 patch=18.1&b_patch=d처럼 b_patch까지 지정(빈값이면 18.2로 폴백). comps_stats places는 9원소(앞 8개=등수 분포, 9번째=count)라 앞 8개만 합산하고, 첫 행 {cluster:''}은 총 보드 수다. 클러스터 id는 저장하지 않고 units_string으로 매일 재매칭(없는 id는 HTTP 500). api-hc는 CDN 캐시가 없어 요청마다 오리진이 집계하므로 하루 호출을 수백 회 이내로 유지. 잘못된 키(TFT18_Aphelios, TFT_Item_*)는 200 빈 응답이라 빈 값 검증 필수.\n\n[lol.qq 사용 규칙] 数据检索器는 반드시 tier 필터('2+'/'4+'/'7+')를 주고 분모는 unit_s/trait_s/build_s/comp_s(해당 항목이 있는 보드 수)를 쓴다. tier ''는 전 행 모순(재확인 75/75)이고, 'total'(전체 보드)을 분모로 쓰면 위반이 난다 — 구현 심사위원의 '티어 필터에서도 모순' 보고는 이 계산으로 판단한다. version=''로 전 빌드 합산(hero/trait/lineup에서 확인), version에 '16.18' 같은 짧은 문자열은 200 빈 응답. 기간 최대 3일(5·7·14일 빈 배열), 날짜는 CST, 수집기(05:00 KST=04:00 CST)에서는 etime=전날로 완결 데이터를 받는다. 国服大数据 랭킹(tft_hero_ranking·tft_equip_ranking)의 절대 수치와 hero_list, lol.qq가 주는 S/A/B/C 등급과 avg_rank_delta는 쓰지 않는다. 숫자는 전부 문자열, 편집 덱 detail은 제어문자 섞인 JSON 속 JSON(strict=False). 胜率阵容 목록은 당일·상세는 T-1이므로 각각 dtstatdate를 라벨로. 프록시 ACAO가 lol.qq.com이라 WebView 직접 호출은 불가하지만 수집기·네이티브는 무관.\n\n[지표 정의 통일] 픽률=항목이 있는 보드/전체 보드(unit_s/total, Σplaces/games.count; lolchess pickRate 슬롯 점유율·metatft 전 랭크 분모 오차 11%는 쓰지 않음); 톱4·1위율=조건부(항목 보드 중); 아이템은 인스턴스 기준이라 보드 기준보다 높다는 도움말 한 줄; Δ는 같은 모집단의 가중 평균 대비(중국 플래+ 4.17~4.28 vs 글로벌 4.37이라 절대값 나란히 두면 착시); 등급은 표본 보정 후 수집기가 계산. 모든 통계 블록에 '패치(핫픽스 빌드) · 티어 · 서버 · n · 기준일 · 수집 시각'을 싣고, 최소 표본 아래 행은 흐리게.\n\n[검증 게이트(verify.py 확장)] HTTP 200 빈 응답을 실패로(lol.qq 짧은 version·빈 req_params·limit 20000, metatft 잘못된 키, lolchess 파라미터 오류 모두 200 빈값); 소스별 최소 행수(편집 덱 20, group_list 300, lineup_rank 50, 클러스터 30, units 60, items 130); sum(places)=count; avg가 top1·top4 비율로 가능한 구간 안(이 검사가 lol.qq 不限 버킷을 100% 걸러냈다); 목록 가중 평균 4.5±0.05; DA 조인율(챔피언 90% 미만 실패); metatft filter_adjustment.override_applied=false; 원천 교차검증(metatft 마스터+ 챔피언 평균과 이전 수집 대비 차이 중앙값 0.1 초과 시 경고). 실패 시 기존 '수집 실패 이슈 등록' 흐름.\n\n[운영 리스크] daily.yml은 등록만 되고 실행 이력 0회라 미국 러너 IP에서 mlol.qt.qq.com·api-hc.metatft.com 접근 가능 여부가 미확인이다(모든 심사위원 공통 미확인). 첫 cron 로그로 확인하고, 차단 시 self-hosted 러너나 국내 프록시 대안을 준비. 세 곳 모두 비공개 API라 스키마 변경·경로 폐기 위험이 있고(lol.qq tft_augment_rank 화이트리스트, metatft unit_detail2 같은 개정 흔적), 상세 호출량(lol.qq 425회/일 가능하지만 노출 덱만 ≤100회, metatft 유닛·아이템 상세 ≈140회/일)은 레이트리밋이 관찰되진 않았으나 유지 한도는 추정이다.\n\n[개인정보] lol.qq fightdetail의 openid·login_ip·originalPuuid, 작가 QQ 번호, metatft 경기 JSON의 타인 puuid·riot_id·MMR은 저장·배포하지 않는다. 프로필은 기기 안에서만 처리하고 수집기에는 집계(컷·인원)만 넣는다.\n\n[증거] 최종 심판 재확인 스크립트와 응답: C:/Users/ksj17/AppData/Local/Temp/claude/C--claude-project-tft-deck-app/bb917a36-0519-4bf4-a42c-9a2e185792cb/scratchpad/judge_final/ (recheck.py, recheck_out.txt, qq_hero_rank_{4p,2p,7p,all}.json, qq_trait_rank_4p.json, qq_lineup_rank_7p.json, qq_group_list_tp2.json, qq_all_detail_top.json, mt_comps_stats_{glob_plat_d3,kr_plat_d3,kr_master_d3}.json, mt_units_{glob,kr}_plat_d3.json, mt_items_kr.json). 호출 시각 2026-09-15 22:14 KST, Chrome/120 UA, 쿠키·Referer 없음(metatft만 Referer 부착), 전부 HTTP 200·result 0. 저장소 코드는 읽기만 했다."
+}

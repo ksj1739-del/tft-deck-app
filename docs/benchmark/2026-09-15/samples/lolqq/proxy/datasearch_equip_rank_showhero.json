@@ -1,0 +1,64 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "7aff7904-de39-4df7-98b0-50aa84996d9e",
+ "data": [
+  {
+   "avg_rank": "3.916",
+   "avg_rank_delta": "-0.2806909636909434",
+   "build_rate": "0.143",
+   "build_s": "192382",
+   "item_id": "DA_Draven18#DA_Guinsoos<플레이어>blade",
+   "top1_cnt": "54162",
+   "top4_cnt": "129292",
+   "total": "1348678",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "4.584",
+   "avg_rank_delta": "0.38730903630905633",
+   "build_rate": "0.114",
+   "build_s": "154008",
+   "item_id": "DA_Amumu18#DA_GargoyleStoneplate",
+   "top1_cnt": "28894",
+   "top4_cnt": "102399",
+   "total": "1348678",
+   "tier": "B"
+  },
+  {
+   "avg_rank": "3.579",
+   "avg_rank_delta": "-0.6176909636909431",
+   "build_rate": "0.111",
+   "build_s": "149231",
+   "item_id": "DA_18_ElderDragon#DA_InfinityEdge",
+   "top1_cnt": "40247",
+   "top4_cnt": "99591",
+   "total": "1348678",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.683",
+   "avg_rank_delta": "-0.5136909636909435",
+   "build_rate": "0.1",
+   "build_s": "134605",
+   "item_id": "DA_18_Maokai#DA_GargoyleStoneplate",
+   "top1_cnt": "46405",
+   "top4_cnt": "106540",
+   "total": "1348678",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "4.15",
+   "avg_rank_delta": "-0.046690963690942944",
+   "build_rate": "0.085",
+   "build_s": "114079",
+   "item_id": "DA_Amumu18#DA_WarmogsArmor",
+   "top1_cnt": "20513",
+   "top4_cnt": "71325",
+   "total": "1348678",
+   "tier": "A"
+  }
+ ],
+ "_note": "trimmed to 5 rows of 2000"
+}

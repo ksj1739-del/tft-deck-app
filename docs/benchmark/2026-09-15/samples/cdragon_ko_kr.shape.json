@@ -1,0 +1,1507 @@
+{
+ "items": [
+  {
+   "apiName": "TFT13_TeamupAugment_Reunion",
+   "associatedTraits": [
+    "TFT13_Squad",
+    "TFT13_Pugilist",
+    "... 외 3개"
+   ],
+   "composition": [],
+   "desc": "바이가 스킬을 사용하면 에코가 바이의 대상에게 잔상 3개를 보내 @EkkoAfterImageReducedDamage*100@%의 피해를 입힙니다. 에코가 스킬을 사용하면 바이가 에코의 대상에게 지진 강타를 사용해 @ViEarthquakeReducedDamage*100@%의 피해를 입힙니다.<br><br>바이와 에코를 획득합니다.",
+   "effects": {
+    "EkkoAfterImageReducedDamage": 0.4000000059604645,
+    "ViEarthquakeReducedDamage": 1.0
+   },
+   "from": null,
+   "icon": "assets/maps/tft/icons/augments/hexcore/teamup_reunion_ii.tex",
+   "id": null,
+   "incompatibleTraits": [],
+   "isAugment": true,
+   "name": "특성: 재회",
+   "tags": [
+    "{ce1fd21c}",
+    "{d02ae323}",
+    "... 외 4개"
+   ],
+   "unique": false
+  },
+  {
+   "apiName": "TFT13_Augment_BruiserCrown",
+   "associatedTraits": [
+    "TFT13_Bruiser"
+   ],
+   "composition": [],
+   "desc": "난동꾼 상징, 구원, 세트를 획득합니다.",
+   "effects": {},
+   "from": null,
+   "icon": "assets/maps/tft/icons/augments/hexcore/crown_bruiser_iii.tex",
+   "id": null,
+   "incompatibleTraits": [],
+   "isAugment": true,
+   "name": "난동꾼 왕관",
+   "tags": [
+    "{cf1fd3af}",
+    "{b72bd3bf}",
+    "... 외 2개"
+   ],
+   "unique": false
+  },
+  "... 외 4219개"
+ ],
+ "setData": [
+  {
+   "augments": [
+    "TFT10_Augment_FullyAdapted",
+    "TFT10_Augment_GoingLong",
+    "... 외 356개"
+   ],
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 92개"
+   ],
+   "items": [
+    "TFT11_Item_ThiefsGlovesSupport",
+    "TFT14_AnimaSquad_T1_Magic",
+    "... 외 459개"
+   ],
+   "mutator": "TFTSet14",
+   "name": "Set14",
+   "number": 14,
+   "traits": [
+    {
+     "apiName": "TFT14_Divinicorp",
+     "desc": "신성기업 챔피언이 전장의 신성기업 유닛 수에 따라 증가하는 고유한 능력치를 아군에게 부여하며, 신성기업 챔피언은 두 배로 얻습니다.<br><expandRow>(@MinUnits@) <TFTGuildActive>추가 효과 @DivinicorpBonus*100@%</TFTGuildActive></expandRow><br><TFTGuildActive enable...(2145자)",
+     "effects": [
+      {
+       "maxUnits": 1,
+       "minUnits": 1,
+       "style": 1,
+       "variables": {
+        "DivinicorpBonus": 1.0,
+        "{19e47528}": 9.0,
+        "{3c9e3624}": 3.0,
+        "{414a2beb}": 7.0,
+        "{4803a4eb}": 5.0,
+        "{4e1c6b85}": 1.0,
+        "{912546f4}": 8.0,
+        "{a8a84fe9}": 50.0,
+        "{f82ecbac}": 6.0
+       }
+      },
+      {
+       "maxUnits": 2,
+       "minUnits": 2,
+       "style": 3,
+       "variables": {
+        "DivinicorpBonus": 1.100000023841858,
+        "{19e47528}": 9.0,
+        "{3c9e3624}": 3.0,
+        "{414a2beb}": 7.0,
+        "{4803a4eb}": 5.0,
+        "{4e1c6b85}": 1.0,
+        "{912546f4}": 8.0,
+        "{a8a84fe9}": 50.0,
+        "{f82ecbac}": 6.0
+       }
+      },
+      "... 외 5개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_14_divinicorp.tex",
+     "name": "신성기업"
+    },
+    {
+     "apiName": "TFT14_StreetDemon",
+     "desc": "색칠 칸에 위치한 아군이 체력, 주문력, 공격력을 얻습니다. 몇몇 칸은 시그니처 칸이 되어 @EmpoweredHexPercentBonus*100@%를 추가로 제공합니다. <br><br>거리의 악마는 모든 추가 효과를 두 배로 얻습니다.<br><br><row>(@MinUnits@) +@HP*100@% %i:scaleHealth%, @ADAP@ %i:scale...(530자)",
+     "effects": [
+      {
+       "maxUnits": 4,
+       "minUnits": 3,
+       "style": 1,
+       "variables": {
+        "ADAP": 6.0,
+        "EmpoweredHexPercentBonus": 0.5,
+        "HP": 0.05999999865889549,
+        "{05fa71fc}": 2.0,
+        "{696854de}": 20.0
+       }
+      },
+      {
+       "maxUnits": 6,
+       "minUnits": 5,
+       "style": 3,
+       "variables": {
+        "ADAP": 10.0,
+        "EmpoweredHexPercentBonus": 0.5,
+        "HP": 0.10000000149011612,
+        "{05fa71fc}": 2.0,
+        "{696854de}": 20.0
+       }
+      },
+      "... 외 2개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_14_streetdemon.tex",
+     "name": "거리의 악마"
+    },
+    "... 외 24개"
+   ]
+  },
+  {
+   "augments": [
+    "DA_18_BigGrabBag",
+    "DA_18_BlossomTraitAugment",
+    "... 외 590개"
+   ],
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 89개"
+   ],
+   "items": [
+    "DA_18_AfterShock",
+    "DA_18_AfterShock_Upgrade",
+    "... 외 769개"
+   ],
+   "mutator": "TFTSet18",
+   "name": "Set10",
+   "number": 18,
+   "traits": [
+    {
+     "apiName": "DA_18_Elderwood",
+     "desc": "배치할 수 있는 나무정령 식물을 획득합니다.<br><row>(@MinUnits@) 돌껍질 나무, 생명꽃 획득</row><br><row>(@MinUnits@) 두 번째 돌껍질 나무 획득 및 돌껍질 나무 체력 @StonebarkTreeBonusHealth@ 증가</row><br><row>(@MinUnits@) 또한 깊은숲 수호자 획득</row><br><row>...(276자)",
+     "effects": [
+      {
+       "maxUnits": 4,
+       "minUnits": 3,
+       "style": 1,
+       "variables": {
+        "{0f90e7a4}": 0.25,
+        "{4013f48e}": 0.10000000149011612
+       }
+      },
+      {
+       "maxUnits": 6,
+       "minUnits": 5,
+       "style": 3,
+       "variables": {
+        "{0f90e7a4}": 0.25,
+        "{4013f48e}": 0.10000000149011612,
+        "{b027c2f9}": 200.0
+       }
+      },
+      "... 외 3개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_18_elderwood.tex",
+     "name": "나무정령"
+    },
+    {
+     "apiName": "DA_18_LuxUniqueTrait",
+     "desc": "대기석이나 전장에 화신이 있으면 상점 내 모든 화신의 특성이 해당 화신의 특성으로 바뀝니다.<br><br>선택된 화신의 특성은 특성 추가 효과를 위한 중첩이 2개로 간주됩니다.",
+     "effects": [
+      {
+       "maxUnits": 25000,
+       "minUnits": 1,
+       "style": 4,
+       "variables": {}
+      }
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_18_avatar.tex",
+     "name": "화신"
+    },
+    "... 외 34개"
+   ]
+  },
+  "... 외 33개"
+ ],
+ "sets": {
+  "1": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 45개"
+   ],
+   "name": "TutorialV2",
+   "traits": [
+    {
+     "apiName": "TFTTutorial_Wild",
+     "desc": "(@MinUnits@) 야생 챔피언은 공격할 때마다 @AttackSpeedPercent@%의 추가 공격 속도를 얻습니다. (최대 @MaxStacks@번까지 중첩)",
+     "effects": [
+      {
+       "maxUnits": 25000,
+       "minUnits": 3,
+       "style": 5,
+       "variables": {
+        "AttackSpeedPercent": 10.0,
+        "MaxStacks": 5.0
+       }
+      }
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_wild.tex",
+     "name": "야생"
+    },
+    {
+     "apiName": "TFTTutorial_Gunslinger",
+     "desc": "총잡이는 기본 공격 시 @ProcPercent@%의 확률로 공격 사거리 내의 다른 적에게 추가 공격을 합니다. 각 공격은 대상에게 총잡이 공격력의 100%에 해당하는 피해를 입힙니다.<br><br><row>(@MinUnits@) @ExtraTargetsHit@명의 적 추가 공격</row><br><row>(@MinUnits@) @ExtraTargetsHit@...(216자)",
+     "effects": [
+      {
+       "maxUnits": 3,
+       "minUnits": 2,
+       "style": 1,
+       "variables": {
+        "ExtraTargetsHit": 1.0,
+        "ProcPercent": 50.0,
+        "{f768e185}": 1.0
+       }
+      },
+      {
+       "maxUnits": 25000,
+       "minUnits": 4,
+       "style": 5,
+       "variables": {
+        "ExtraTargetsHit": 2.0,
+        "ProcPercent": 50.0,
+        "{f768e185}": 2.0
+       }
+      }
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_gunslinger.tex",
+     "name": "총잡이"
+    },
+    "... 외 17개"
+   ]
+  },
+  "3": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 80개"
+   ],
+   "name": "Galaxies",
+   "traits": [
+    {
+     "apiName": "Sniper",
+     "desc": "저격수와 대상 사이에 놓인 칸 하나당 해당 저격수가 입히는 피해량이 증가합니다.<br><br><expandRow>(@MinUnits@) 칸 하나당 +@PercentDamageIncrease@%</expandRow>",
+     "effects": [
+      {
+       "maxUnits": 3,
+       "minUnits": 2,
+       "style": 1,
+       "variables": {
+        "PercentDamageIncrease": 9.0
+       }
+      },
+      {
+       "maxUnits": 25000,
+       "minUnits": 4,
+       "style": 5,
+       "variables": {
+        "PercentDamageIncrease": 16.0
+       }
+      }
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_3_sniper.tex",
+     "name": "저격수"
+    },
+    {
+     "apiName": "Set3_Celestial",
+     "desc": "아군이 모든 피해 흡혈 효과를 얻습니다.<br><br><expandRow>(@MinUnits@) 모든 피해 흡혈 @HealPercent@%</expandRow>",
+     "effects": [
+      {
+       "maxUnits": 3,
+       "minUnits": 2,
+       "style": 1,
+       "variables": {
+        "HealPercent": 12.0
+       }
+      },
+      {
+       "maxUnits": 5,
+       "minUnits": 4,
+       "style": 5,
+       "variables": {
+        "HealPercent": 25.0
+       }
+      },
+      "... 외 1개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_3_celestial.tex",
+     "name": "천상"
+    },
+    "... 외 24개"
+   ]
+  },
+  "7": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 88개"
+   ],
+   "name": "Set7",
+   "traits": [
+    {
+     "apiName": "TFT7_<플레이어>wing",
+     "desc": "고유: 마나를 분노로 전환합니다. 기본 공격 시 분노를 15 생성합니다. 스킬을 사용하면 4초 동안 격분합니다. 격분 시 공격 속도를 25% 얻지만, 분노를 얻을 수 없습니다.<br><br>격분 시 공격 속도 및 모든 피해 흡혈을 얻습니다.<br><br><row>(@MinUnits@) @AttackSpeedPercent@% %i:scaleAS% 및 @Omn...(560자)",
+     "effects": [
+      {
+       "maxUnits": 3,
+       "minUnits": 2,
+       "style": 1,
+       "variables": {
+        "AttackSpeedPercent": 50.0,
+        "EnrageDuration": 4.0,
+        "Omnivamp": 10.0,
+        "{10dbb87c}": 25.0
+       }
+      },
+      {
+       "maxUnits": 5,
+       "minUnits": 4,
+       "style": 3,
+       "variables": {
+        "AttackSpeedPercent": 100.0,
+        "EnrageDuration": 4.0,
+        "Omnivamp": 25.0,
+        "{10dbb87c}": 25.0
+       }
+      },
+      "... 외 2개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_7_ragewing.tex",
+     "name": "분노날개"
+    },
+    {
+     "apiName": "TFT7_Astral",
+     "desc": "플레이어 대상 전투 후 별의 구를 획득합니다. 아군 별 챔피언의 별 레벨 총합에 따라 구의 값어치가 달라집니다.<br><br>별 챔피언은 주문력을 얻습니다.<br><br><row>(@MinUnits@) @AbilityPower@ %i:scaleAP%</row><br><row>(@MinUnits@) @AbilityPower@ %i:scaleAP%</row><...(253자)",
+     "effects": [
+      {
+       "maxUnits": 4,
+       "minUnits": 3,
+       "style": 1,
+       "variables": {
+        "AbilityPower": 10.0,
+        "AttackDamage": 0.05000000074505806,
+        "{246b675b}": 1.0,
+        "{41233bac}": 4.0
+       }
+      },
+      {
+       "maxUnits": 7,
+       "minUnits": 5,
+       "style": 3,
+       "variables": {
+        "AbilityPower": 50.0,
+        "AttackDamage": 0.10000000149011612,
+        "{246b675b}": 1.0,
+        "{41233bac}": 4.0
+       }
+      },
+      "... 외 1개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_7_astral.tex",
+     "name": "별"
+    },
+    "... 외 27개"
+   ]
+  },
+  "13": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 86개"
+   ],
+   "name": "Set13",
+   "traits": [
+    {
+     "apiName": "TFT13_Hextech",
+     "desc": "자동기계가 피해를 입힐 때 수정을 획득합니다. 수정이 @TriggerNumCrystals@개가 되면 현재 대상에게 폭발을 일으켜 마법 피해+이전 폭발 이후 입힌 피해량의 <magicDamage>@ConversionDamagePct*100@%</magicDamage>만큼 피해를 입히고 초기화됩니다. 또한 자동기계가 방어력 및 마법 저항력을 얻습니다.<br><...(320자)",
+     "effects": [
+      {
+       "maxUnits": 3,
+       "minUnits": 2,
+       "style": 1,
+       "variables": {
+        "ConversionDamagePct": 0.25,
+        "MagicDamage": 150.0,
+        "Resists": 25.0,
+        "TriggerNumCrystals": 20.0,
+        "{a142f31c}": 1.0
+       }
+      },
+      {
+       "maxUnits": 5,
+       "minUnits": 4,
+       "style": 3,
+       "variables": {
+        "ConversionDamagePct": 0.25,
+        "MagicDamage": 450.0,
+        "Resists": 60.0,
+        "TriggerNumCrystals": 20.0,
+        "{a142f31c}": 1.0
+       }
+      },
+      "... 외 1개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_13_automata.tex",
+     "name": "자동기계"
+    },
+    {
+     "apiName": "TFT13_Teamup_Menaces",
+     "desc": "파우더가 지배자 특성을 얻지만, 더 이상 가족 특성의 효과를 받지 않습니다. 파우더의 원숭이가 폭발하면 실코의 괴수 @NumMonstrosities@마리가 생성됩니다.",
+     "effects": [
+      {
+       "maxUnits": 25000,
+       "minUnits": 2,
+       "style": 4,
+       "variables": {
+        "NumMonstrosities": 3.0
+       }
+      }
+     ],
+     "icon": "assets/ux/traiticons/teamup_trait_menaces.tex",
+     "name": "모략"
+    },
+    "... 외 36개"
+   ]
+  },
+  "14": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 92개"
+   ],
+   "name": "Set14",
+   "traits": [
+    {
+     "apiName": "TFT14_Divinicorp",
+     "desc": "신성기업 챔피언이 전장의 신성기업 유닛 수에 따라 증가하는 고유한 능력치를 아군에게 부여하며, 신성기업 챔피언은 두 배로 얻습니다.<br><expandRow>(@MinUnits@) <TFTGuildActive>추가 효과 @DivinicorpBonus*100@%</TFTGuildActive></expandRow><br><TFTGuildActive enable...(2145자)",
+     "effects": [
+      {
+       "maxUnits": 1,
+       "minUnits": 1,
+       "style": 1,
+       "variables": {
+        "DivinicorpBonus": 1.0,
+        "{19e47528}": 9.0,
+        "{3c9e3624}": 3.0,
+        "{414a2beb}": 7.0,
+        "{4803a4eb}": 5.0,
+        "{4e1c6b85}": 1.0,
+        "{912546f4}": 8.0,
+        "{a8a84fe9}": 50.0,
+        "{f82ecbac}": 6.0
+       }
+      },
+      {
+       "maxUnits": 2,
+       "minUnits": 2,
+       "style": 3,
+       "variables": {
+        "DivinicorpBonus": 1.100000023841858,
+        "{19e47528}": 9.0,
+        "{3c9e3624}": 3.0,
+        "{414a2beb}": 7.0,
+        "{4803a4eb}": 5.0,
+        "{4e1c6b85}": 1.0,
+        "{912546f4}": 8.0,
+        "{a8a84fe9}": 50.0,
+        "{f82ecbac}": 6.0
+       }
+      },
+      "... 외 5개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_14_divinicorp.tex",
+     "name": "신성기업"
+    },
+    {
+     "apiName": "TFT14_StreetDemon",
+     "desc": "색칠 칸에 위치한 아군이 체력, 주문력, 공격력을 얻습니다. 몇몇 칸은 시그니처 칸이 되어 @EmpoweredHexPercentBonus*100@%를 추가로 제공합니다. <br><br>거리의 악마는 모든 추가 효과를 두 배로 얻습니다.<br><br><row>(@MinUnits@) +@HP*100@% %i:scaleHealth%, @ADAP@ %i:scale...(530자)",
+     "effects": [
+      {
+       "maxUnits": 4,
+       "minUnits": 3,
+       "style": 1,
+       "variables": {
+        "ADAP": 6.0,
+        "EmpoweredHexPercentBonus": 0.5,
+        "HP": 0.05999999865889549,
+        "{05fa71fc}": 2.0,
+        "{696854de}": 20.0
+       }
+      },
+      {
+       "maxUnits": 6,
+       "minUnits": 5,
+       "style": 3,
+       "variables": {
+        "ADAP": 10.0,
+        "EmpoweredHexPercentBonus": 0.5,
+        "HP": 0.10000000149011612,
+        "{05fa71fc}": 2.0,
+        "{696854de}": 20.0
+       }
+      },
+      "... 외 2개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_14_streetdemon.tex",
+     "name": "거리의 악마"
+    },
+    "... 외 24개"
+   ]
+  },
+  "15": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "이 고서를 상점에 끌어다 놓으면 상징이 가득한 무기고가 열립니다! 30초 안에 선택해야 합니다.",
+      "icon": "assets/characters/tft8_teamupprop/hud/icons2d/tft5_emblemarmorykey_square.tex",
+      "name": "특성의 고서",
+      "variables": [
+       {
+        "name": "RoundsToHatch",
+        "value": [
+         2.0,
+         2.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT5_EmblemArmoryKey",
+     "characterName": "TFT5_EmblemArmoryKey",
+     "cost": 8,
+     "icon": "assets/ux/tft/championsplashes/tft5_emblemarmorykey.tex",
+     "name": "특성의 고서",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft5_draconicegg_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 1.0,
+      "critChance": null,
+      "critMultiplier": 0.0,
+      "damage": null,
+      "hp": 10.0,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 0
+     },
+     "tileIcon": "assets/characters/tft8_teamupprop/hud/icons2d/tft5_emblemarmorykey_square.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "이 아이템을 상점에 끌어다 놓으면 완성 아이템이 가득한 무기고가 열립니다! 30초 안에 선택해야 합니다.",
+      "icon": "assets/characters/tft_armorykeycompleted/hud/icons2d/tft_armorykeycompleted_square.tex",
+      "name": "완성 아이템 모루",
+      "variables": [
+       {
+        "name": "RoundsToHatch",
+        "value": [
+         2.0,
+         2.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_ArmoryKeyCompleted",
+     "characterName": "TFT_ArmoryKeyCompleted",
+     "cost": 8,
+     "icon": "None",
+     "name": "완성 아이템 모루",
+     "role": null,
+     "squareIcon": "None",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 1.0,
+      "critChance": null,
+      "critMultiplier": 0.0,
+      "damage": 70.0,
+      "hp": 10.0,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 0
+     },
+     "tileIcon": "assets/characters/tft_armorykeycompleted/hud/icons2d/tft_armorykeycompleted_square.tex",
+     "traits": []
+    },
+    "... 외 84개"
+   ],
+   "name": "Set15",
+   "traits": [
+    {
+     "apiName": "TFT15_Destroyer",
+     "desc": "처형자가 치명타 확률 및 치명타 피해량을 얻습니다. 스킬에 치명타가 적용될 수 있습니다.<br><br><expandRow>(@MinUnits@) @CritChanceAmpPercent@% %i:scaleCrit%, @CritAmpPercent@% %i:scaleCritMult%</expandRow>",
+     "effects": [
+      {
+       "maxUnits": 2,
+       "minUnits": 2,
+       "style": 1,
+       "variables": {
+        "CritAmpPercent": 10.0,
+        "CritChanceAmpPercent": 25.0
+       }
+      },
+      {
+       "maxUnits": 3,
+       "minUnits": 3,
+       "style": 3,
+       "variables": {
+        "CritAmpPercent": 12.0,
+        "CritChanceAmpPercent": 35.0
+       }
+      },
+      "... 외 2개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_15_destroyer.tex",
+     "name": "처형자"
+    },
+    {
+     "apiName": "TFT15_MechanicTrait_StarStudent",
+     "desc": "<row>(@MinUnits@) 체력 @BaseHealth@ 및 +@PctAdditionalPotential@% 잠재력 %i:set14AmpIcon% 획득</row><br><row>(@MinUnits@) 라운드마다 경험치 @BaseXP@ 획득, 생존한 우등생 한 명당 @XPPerSurvival@ 추가 획득</row>",
+     "effects": [
+      {
+       "maxUnits": 1,
+       "minUnits": 1,
+       "style": 1,
+       "variables": {
+        "BaseHealth": 200.0,
+        "PctAdditionalPotential": 40
+       }
+      },
+      {
+       "maxUnits": 25000,
+       "minUnits": 2,
+       "style": 1,
+       "variables": {
+        "BaseHealth": 200.0,
+        "BaseXP": 1,
+        "PctAdditionalPotential": 40,
+        "XPPerSurvival": 1
+       }
+      }
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_15_secrettechnique.tex",
+     "name": "우등생"
+    },
+    "... 외 171개"
+   ]
+  },
+  "16": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "이 고서를 상점에 끌어다 놓으면 상징이 가득한 무기고가 열립니다! 30초 안에 선택해야 합니다.",
+      "icon": "assets/characters/tft8_teamupprop/hud/icons2d/tft5_emblemarmorykey_square.tex",
+      "name": "특성의 고서",
+      "variables": [
+       {
+        "name": "RoundsToHatch",
+        "value": [
+         2.0,
+         2.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT5_EmblemArmoryKey",
+     "characterName": "TFT5_EmblemArmoryKey",
+     "cost": 8,
+     "icon": "assets/ux/tft/championsplashes/tft5_emblemarmorykey.tex",
+     "name": "특성의 고서",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft5_draconicegg_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 1.0,
+      "critChance": null,
+      "critMultiplier": 0.0,
+      "damage": null,
+      "hp": 10.0,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 0
+     },
+     "tileIcon": "assets/characters/tft8_teamupprop/hud/icons2d/tft5_emblemarmorykey_square.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "이 아이템을 상점에 끌어다 놓으면 완성 아이템이 가득한 무기고가 열립니다! 30초 안에 선택해야 합니다.",
+      "icon": "assets/characters/tft_armorykeycompleted/hud/icons2d/tft_armorykeycompleted_square.tex",
+      "name": "완성 아이템 모루",
+      "variables": [
+       {
+        "name": "RoundsToHatch",
+        "value": [
+         2.0,
+         2.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_ArmoryKeyCompleted",
+     "characterName": "TFT_ArmoryKeyCompleted",
+     "cost": 8,
+     "icon": "None",
+     "name": "완성 아이템 모루",
+     "role": null,
+     "squareIcon": "None",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 1.0,
+      "critChance": null,
+      "critMultiplier": 0.0,
+      "damage": 70.0,
+      "hp": 10.0,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 0
+     },
+     "tileIcon": "assets/characters/tft_armorykeycompleted/hud/icons2d/tft_armorykeycompleted_square.tex",
+     "traits": []
+    },
+    "... 외 128개"
+   ],
+   "name": "Set16",
+   "traits": [
+    {
+     "apiName": "TFT16_Teamup_SingedTeemo",
+     "desc": "2성 티모를 획득합니다. 신지드가 피해를 입히면 티모의 중독 지속시간이 초기화되며, 티모가 피해를 입히면 신지드가 주문력을 얻습니다. 각 플레이어 대상 전투 후 티모를 획득합니다.",
+     "effects": [
+      {
+       "maxUnits": 25000,
+       "minUnits": 2,
+       "style": 4,
+       "variables": {
+        "SingedAPGain": 2,
+        "TeemoDamageReq": 100
+       }
+      }
+     ],
+     "icon": "assets/ux/traiticons/teamup_trait_poisonpals.tex",
+     "name": "독성 친구들"
+    },
+    {
+     "apiName": "TFT16_XerathUnique",
+     "desc": "전투를 마칠 때마다 초월체 주술이 상점에 등장합니다. 주술은 강력한 효과를 제공하며 골드로 구매할 수 있습니다.@TFTUnitProperty.trait:TFT16_XerathUnique_PurchasedCharmDisplay@<br><br><ShowIfCustom.Set=TFTSetEventCT>배불뚝이의 보물에서는 신실한 추종자 주술이 7레벨 전까지 등장...(241자)",
+     "effects": [
+      {
+       "maxUnits": 25000,
+       "minUnits": 1,
+       "style": 4,
+       "variables": {}
+      }
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_12_ascendant.tex",
+     "name": "초월체"
+    },
+    "... 외 51개"
+   ]
+  },
+  "17": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 86개"
+   ],
+   "name": "Set17",
+   "traits": [
+    {
+     "apiName": "TFT17_VexUniqueTrait",
+     "desc": "전투 시작: 모든 적에게 파멸 표식을 남깁니다.<br><br>각 전투에서 적이 처음으로 피해를 입으면 파멸 표식이 소모되고 해당 적의 공격력과 주문력을 @ADAP1@%만큼 강탈해 가장 강한 아군 벡스에게 부여합니다.",
+     "effects": [
+      {
+       "maxUnits": 25000,
+       "minUnits": 1,
+       "style": 4,
+       "variables": {
+        "ADAP1": 12.0
+       }
+      }
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_17_doomer.tex",
+     "name": "파멸자"
+    },
+    {
+     "apiName": "TFT17_ASTrait",
+     "desc": "아군이 공격 속도를 @TeamwideAS*100@% 얻습니다. 도전자는 추가 공격 속도를 얻습니다. 대상이 사망하면 새로운 대상에게 돌진하며 @BurstDuration@초 동안 공격 속도 상승 효과가 @BurstPercent*100@% 증가합니다.<br><br><row>(@MinUnits@) @AttackSpeedPercent*100@% %i:scaleAS...(402자)",
+     "effects": [
+      {
+       "maxUnits": 2,
+       "minUnits": 2,
+       "style": 1,
+       "variables": {
+        "AttackSpeedPercent": 0.15000000596046448,
+        "BurstDuration": 2.5,
+        "BurstPercent": 0.5,
+        "DamageReduction": null,
+        "TeamwideAS": 0.10000000149011612
+       }
+      },
+      {
+       "maxUnits": 3,
+       "minUnits": 3,
+       "style": 3,
+       "variables": {
+        "AttackSpeedPercent": 0.2800000011920929,
+        "BurstDuration": 2.5,
+        "BurstPercent": 0.5,
+        "DamageReduction": null,
+        "TeamwideAS": 0.10000000149011612
+       }
+      },
+      "... 외 2개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_17_challenger.tex",
+     "name": "도전자"
+    },
+    "... 외 42개"
+   ]
+  },
+  "18": {
+   "champions": [
+    {
+     "ability": {
+      "desc": "대상을 강타해 <magicDamage>@ModifiedDamage@(%i:scaleAP%)</magicDamage>의 마법 피해를 입힙니다.",
+      "icon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+      "name": "골렘의 강타",
+      "variables": [
+       {
+        "name": "Damage",
+        "value": [
+         100.0,
+         300.0,
+         "... 외 5개"
+        ]
+       }
+      ]
+     },
+     "apiName": "TFT_BlueGolem",
+     "characterName": "TFT_BlueGolem",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_bluegolem.tex",
+     "name": "골렘",
+     "role": "APTank",
+     "squareIcon": "assets/ux/tft/championsplashes/tft_bluegolem_mobile.tex",
+     "stats": {
+      "armor": 40.0,
+      "attackSpeed": 0.550000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 55.0,
+      "hp": 600.0,
+      "initialMana": 30.0,
+      "magicResist": 40.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft_bluegolem/hud/tft_bluegolem_spell.tex",
+     "traits": []
+    },
+    {
+     "ability": {
+      "desc": "<spellPassive>기본 지속 효과:</spellPassive> 때때로 전장을 이리저리 돌진합니다.",
+      "icon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+      "name": "수영 속도",
+      "variables": []
+     },
+     "apiName": "TFT9_SLIME_Crab",
+     "characterName": "TFT9_SLIME_Crab",
+     "cost": 1,
+     "icon": "assets/ux/tft/championsplashes/tft_scuttlecrab.tex",
+     "name": "협곡 바위 게",
+     "role": null,
+     "squareIcon": "assets/ux/tft/championsplashes/tft_scuttlecrab_mobile.tex",
+     "stats": {
+      "armor": 10.0,
+      "attackSpeed": 0.800000011920929,
+      "critChance": 0.25,
+      "critMultiplier": 1.399999976158142,
+      "damage": 20.0,
+      "hp": null,
+      "initialMana": 0,
+      "magicResist": 10.0,
+      "mana": 100,
+      "range": 1.0
+     },
+     "tileIcon": "assets/characters/tft9_slime_crab/hud/icons2d/tft9_slime_crab_spell.tex",
+     "traits": []
+    },
+    "... 외 89개"
+   ],
+   "name": "Set10",
+   "traits": [
+    {
+     "apiName": "DA_18_Elderwood",
+     "desc": "배치할 수 있는 나무정령 식물을 획득합니다.<br><row>(@MinUnits@) 돌껍질 나무, 생명꽃 획득</row><br><row>(@MinUnits@) 두 번째 돌껍질 나무 획득 및 돌껍질 나무 체력 @StonebarkTreeBonusHealth@ 증가</row><br><row>(@MinUnits@) 또한 깊은숲 수호자 획득</row><br><row>...(276자)",
+     "effects": [
+      {
+       "maxUnits": 4,
+       "minUnits": 3,
+       "style": 1,
+       "variables": {
+        "{0f90e7a4}": 0.25,
+        "{4013f48e}": 0.10000000149011612
+       }
+      },
+      {
+       "maxUnits": 6,
+       "minUnits": 5,
+       "style": 3,
+       "variables": {
+        "{0f90e7a4}": 0.25,
+        "{4013f48e}": 0.10000000149011612,
+        "{b027c2f9}": 200.0
+       }
+      },
+      "... 외 3개"
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_18_elderwood.tex",
+     "name": "나무정령"
+    },
+    {
+     "apiName": "DA_18_LuxUniqueTrait",
+     "desc": "대기석이나 전장에 화신이 있으면 상점 내 모든 화신의 특성이 해당 화신의 특성으로 바뀝니다.<br><br>선택된 화신의 특성은 특성 추가 효과를 위한 중첩이 2개로 간주됩니다.",
+     "effects": [
+      {
+       "maxUnits": 25000,
+       "minUnits": 1,
+       "style": 4,
+       "variables": {}
+      }
+     ],
+     "icon": "assets/ux/traiticons/trait_icon_18_avatar.tex",
+     "name": "화신"
+    },
+    "... 외 34개"
+   ]
+  }
+ }
+}

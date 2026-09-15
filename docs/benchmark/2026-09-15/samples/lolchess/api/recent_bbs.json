@@ -1,0 +1,15 @@
+{
+ "boards": [
+  {
+   "boardId": "<int>",
+   "articles": [
+    {
+     "id": "<int>",
+     "no": "<int>",
+     "title": "<str>",
+     "hit": "<int>"
+    }
+   ]
+  }
+ ]
+}

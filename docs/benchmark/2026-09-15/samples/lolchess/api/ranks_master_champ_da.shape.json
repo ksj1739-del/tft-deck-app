@@ -1,0 +1,40 @@
+{
+ "summonerChampionRankingSnapshot": {
+  "updatedAt": "<int>",
+  "season": "<str>",
+  "shard": "<str>",
+  "queueId": "<int>",
+  "championKey": "DA_18_Ahri",
+  "tierId": "<int>",
+  "sortKey": "<str>",
+  "summonerChampionRankings": [
+   {
+    "summoner": {
+     "puuid": "<str>",
+     "shard": "<str>",
+     "gameName": "<str>",
+     "tagLine": "<str>",
+     "profileUrl": "<str>",
+     "profileIconUrl": "<str>"
+    },
+    "summonerSeasonStat": {
+     "tier": "<str>",
+     "rank": "<str>",
+     "leaguePoints": "<int>"
+    },
+    "plays": "<int>",
+    "wins": "<int>",
+    "tops": "<int>",
+    "placements": "<int>",
+    "scores": "<int>",
+    "star3s": "<int>",
+    "itemStats": [
+     {
+      "key": "DA_JeweledGauntlet",
+      "plays": "<int>"
+     }
+    ]
+   }
+  ]
+ }
+}

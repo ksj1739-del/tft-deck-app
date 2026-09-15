@@ -1,0 +1,24 @@
+{
+ "meta": {
+  "shard": "<str>",
+  "season": "<str>",
+  "queueId": "<int>"
+ },
+ "tierAvgs": [
+  {
+   "tier": "<str>",
+   "play": "<int>",
+   "win": "<float>",
+   "top": "<float>",
+   "loss": "<float>",
+   "winRate": "<float>",
+   "topRate": "<float>",
+   "avgPlacement": "<float>"
+  }
+ ],
+ "tierDistributions": [
+  [
+   "<str>"
+  ]
+ ]
+}

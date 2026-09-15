@@ -1,0 +1,1418 @@
+{
+ "stage_data": "[{\"board\":{\"board_pieces\":{},\"opponent_board_pieces\":{\"cell_18\":{\"name\":\"DA_Minion_ChaosMelee\",\"level\":\"1\",\"item_1\":\"\",\"item_2\":\"\",\"item_3\":\"\",\"items\":[]},\"cell_23\":{\"name\":\"DA_Minion_ChaosMelee\",\"lev...(452713자)",
+ "board_players": [
+  {
+   "stage": {
+    "stage_main": 1,
+    "stage_sub": 2
+   },
+   "board": [
+    {
+     "summoner": "<가림>",
+     "tag_line": "<가림>",
+     "teamId": 0,
+     "board": [
+      {
+       "name": "DA_18_Veigar",
+       "level": 1,
+       "cell": "cell_1",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      }
+     ],
+     "bench": []
+    },
+    {
+     "summoner": "<가림>",
+     "tag_line": "<가림>",
+     "teamId": 1,
+     "board": [
+      {
+       "name": "DA_18_Camille",
+       "level": 1,
+       "cell": "cell_25",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      }
+     ],
+     "bench": []
+    },
+    "... 외 6개"
+   ]
+  },
+  {
+   "stage": {
+    "stage_main": 1,
+    "stage_sub": 3
+   },
+   "board": [
+    {
+     "summoner": "<가림>",
+     "tag_line": "<가림>",
+     "teamId": 0,
+     "board": [
+      {
+       "name": "DA_Cinderling18",
+       "level": 1,
+       "cell": "cell_6",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      },
+      {
+       "name": "DA_18_Sentry",
+       "level": 1,
+       "cell": "cell_7",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      }
+     ],
+     "bench": [
+      {
+       "name": "DA_18_Veigar",
+       "level": 1,
+       "cell": "cell_1",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      },
+      {
+       "name": "DA_18_RekSai",
+       "level": 1,
+       "cell": "cell_2",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      },
+      "... 외 1개"
+     ]
+    },
+    {
+     "summoner": "<가림>",
+     "tag_line": "<가림>",
+     "teamId": 1,
+     "board": [
+      {
+       "name": "DA_18_LeBlanc",
+       "level": 1,
+       "cell": "cell_17",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      },
+      {
+       "name": "DA_18_Camille",
+       "level": 2,
+       "cell": "cell_25",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      }
+     ],
+     "bench": [
+      {
+       "name": "DA_18_Veigar",
+       "level": 1,
+       "cell": "cell_1",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      },
+      {
+       "name": "DA_18_Akali_AD",
+       "level": 1,
+       "cell": "cell_9",
+       "item_1": "",
+       "item_2": "",
+       "item_3": ""
+      }
+     ]
+    },
+    "... 외 6개"
+   ]
+  },
+  "... 외 10개"
+ ],
+ "uuid": "011eb339-4467-4867-9b52-f4896146f2bf",
+ "summoner_info": "{\"is_garena_user\":\"false\",\"player_info\":\"{\\\"displayName\\\":\\\"랄라붕\\\",\\\"gameName\\\":\\\"랄라붕\\\",\\\"puuid\\\":\\\"257150cf-6240-55d7-b8ac-de9d49e8f426\\\",\\\"summonerId\\\":1343100,\\\"tagLine\\\":\\\"KR1\\\"}\",\"display_name\":\"랄...(422자)",
+ "summoner_name": "<가림>",
+ "tagline": "<가림>",
+ "queue_id": "1100",
+ "match_id": "728744af-8334-4234-849e-d6e71c1023f0",
+ "datetime": 1789398102093,
+ "set": "TFTSet18",
+ "match_metrics": {
+  "rerolls": [
+   {
+    "level": 3,
+    "rolls": 0
+   },
+   {
+    "level": 4,
+    "rolls": 1
+   },
+   "... 외 6개"
+  ],
+  "scouting_time": [
+   {
+    "stage": 2,
+    "total_time": 0,
+    "rounds": 6
+   },
+   {
+    "stage": 3,
+    "total_time": 0,
+    "rounds": 6
+   },
+   "... 외 2개"
+  ],
+  "uncom<플레이어>ed_components": [
+   {
+    "stage": 2,
+    "total_components": 0,
+    "rounds": 6
+   },
+   {
+    "stage": 3,
+    "total_components": 0,
+    "rounds": 6
+   },
+   "... 외 2개"
+  ],
+  "first_unit_star": {
+   "DA_18_Xayah": {
+    "star_1": "1-3",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Rakan": {
+    "star_1": "1-3",
+    "star_2": "1-3",
+    "star_3": null
+   },
+   "DA_Elderwood18_Lifeblossom": {
+    "star_1": "1-4",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Alistar": {
+    "star_1": "1-4",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_Elderwood18_StonebarkTree": {
+    "star_1": "1-4",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Ornn": {
+    "star_1": "1-4",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Yunara": {
+    "star_1": "2-2",
+    "star_2": "4-1",
+    "star_3": null
+   },
+   "DA_18_Yorick": {
+    "star_1": "2-2",
+    "star_2": "3-6",
+    "star_3": null
+   },
+   "DA_18_KhaZix": {
+    "star_1": "2-2",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Sejuani": {
+    "star_1": "2-5",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Ahri": {
+    "star_1": "2-6",
+    "star_2": "4-5",
+    "star_3": null
+   },
+   "DA_18_Hecarim": {
+    "star_1": "3-3",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_Fiddlesticks18": {
+    "star_1": "3-5",
+    "star_2": "4-5",
+    "star_3": null
+   },
+   "DA_18_LeBlanc": {
+    "star_1": "3-6",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Cassiopeia": {
+    "star_1": "4-1",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Ezreal": {
+    "star_1": "4-2",
+    "star_2": "4-2",
+    "star_3": null
+   },
+   "DA_18_Soraka": {
+    "star_1": "4-2",
+    "star_2": "4-6",
+    "star_3": null
+   },
+   "DA_18_Sett": {
+    "star_1": "4-2",
+    "star_2": "4-7",
+    "star_3": null
+   },
+   "DA_18_Alune": {
+    "star_1": "6-1",
+    "star_2": null,
+    "star_3": null
+   },
+   "DA_18_Diana": {
+    "star_1": "6-1",
+    "star_2": null,
+    "star_3": null
+   }
+  },
+  "first_shred_item": {
+   "stage": "4-3",
+   "unit": "DA_18_Sett",
+   "item": "DA_IonicSpark"
+  },
+  "first_sunder_item": null,
+  "first_antiheal_item": {
+   "stage": "5-1",
+   "unit": "DA_18_Ezreal",
+   "item": "DA_RedBuff"
+  },
+  "first_3_item_carry": {
+   "stage": "3-5",
+   "unit": "DA_18_KhaZix"
+  },
+  "first_3_item_tank": {
+   "stage": "4-3",
+   "unit": "DA_18_Sett"
+  }
+ },
+ "metadata": {
+  "manifest_version": "0.2.756"
+ },
+ "comp_cluster": {
+  "cluster_id": 423,
+  "comp_id": 423007,
+  "comp_distance": 12.602200000000002,
+  "comp_name": "DA_18_Executioner, DA_18_Sett",
+  "comp_name_parts": [
+   {
+    "name": "DA_18_Executioner",
+    "score": 1.3327945555083007,
+    "type": "trait"
+   },
+   {
+    "name": "DA_18_Sett",
+    "score": 3.727243726074011,
+    "type": "unit"
+   }
+  ],
+  "unit_importance": {
+   "DA_18_Sett": {
+    "play_rate": 0.928,
+    "item_score": 0.891,
+    "star_target": {
+     "1": 1,
+     "3": 0.846,
+     "9": 0.007
+    }
+   },
+   "DA_18_Ezreal": {
+    "play_rate": 0.848,
+    "item_score": 0.828,
+    "star_target": {
+     "1": 1,
+     "3": 0.831,
+     "9": 0.008
+    }
+   },
+   "DA_18_Soraka": {
+    "play_rate": 0.827,
+    "item_score": 0.677,
+    "star_target": {
+     "1": 1,
+     "3": 0.815,
+     "9": 0.01
+    }
+   },
+   "DA_18_Ahri": {
+    "play_rate": 0.762,
+    "item_score": 0.809,
+    "star_target": {
+     "1": 1,
+     "3": 0.839,
+     "9": 0.01
+    }
+   },
+   "DA_Fiddlesticks18": {
+    "play_rate": 0.722,
+    "item_score": 0.207,
+    "star_target": {
+     "1": 1,
+     "3": 0.828,
+     "9": 0.006
+    }
+   },
+   "DA_18_Yunara": {
+    "play_rate": 0.674,
+    "item_score": 0.105,
+    "star_target": {
+     "1": 1,
+     "3": 0.733,
+     "9": 0.049
+    }
+   },
+   "DA_18_Ornn": {
+    "play_rate": 0.574,
+    "item_score": 0.053,
+    "star_target": {
+     "1": 1,
+     "3": 0.717,
+     "9": 0.041
+    }
+   },
+   "DA_18_Alistar": {
+    "play_rate": 0.52,
+    "item_score": 0.104,
+    "star_target": {
+     "1": 1,
+     "3": 0.761,
+     "9": 0.02
+    }
+   },
+   "DA_18_GnarSmall": {
+    "play_rate": 0.485,
+    "item_score": 0.287,
+    "star_target": {
+     "1": 1,
+     "3": 0.312,
+     "9": 0
+    }
+   },
+   "DA_18_Kennen": {
+    "play_rate": 0.363,
+    "item_score": 0.432,
+    "star_target": {
+     "1": 1,
+     "3": 0.311,
+     "9": 0
+    }
+   },
+   "DA_18_Hecarim": {
+    "play_rate": 0.155,
+    "item_score": 0.171,
+    "star_target": {
+     "1": 1,
+     "3": 0.721,
+     "9": 0
+    }
+   },
+   "DA_18_LeBlanc": {
+    "play_rate": 0.15,
+    "item_score": 0.131,
+    "star_target": {
+     "1": 1,
+     "3": 0.748,
+     "9": 0.079
+    }
+   },
+   "DA_18_Yorick": {
+    "play_rate": 0.132,
+    "item_score": 0.05,
+    "star_target": {
+     "1": 1,
+     "3": 0.719,
+     "9": 0.019
+    }
+   },
+   "DA_18_Azir": {
+    "play_rate": 0.114,
+    "item_score": 0.148,
+    "star_target": {
+     "1": 1,
+     "3": 0.594,
+     "9": 0.02
+    }
+   },
+   "DA_Lux18_Base": {
+    "play_rate": 0.113,
+    "item_score": 0.458,
+    "star_target": {
+     "1": 1,
+     "3": 0.357,
+     "9": 0
+    }
+   },
+   "DA_Amumu18": {
+    "play_rate": 0.112,
+    "item_score": 0.304,
+    "star_target": {
+     "1": 1,
+     "3": 0.509,
+     "9": 0
+    }
+   },
+   "DA_Karma18": {
+    "play_rate": 0.109,
+    "item_score": 0.071,
+    "star_target": {
+     "1": 1,
+     "3": 0.732,
+     "9": 0.05
+    }
+   },
+   "DA_18_Ashe": {
+    "play_rate": 0.098,
+    "item_score": 0.591,
+    "star_target": {
+     "1": 1,
+     "3": 0.405,
+     "9": 0
+    }
+   },
+   "DA_Taric18": {
+    "play_rate": 0.097,
+    "item_score": 0.284,
+    "star_target": {
+     "1": 1,
+     "3": 0.305,
+     "9": 0
+    }
+   },
+   "DA_18_Ivern": {
+    "play_rate": 0.088,
+    "item_score": 0.211,
+    "star_target": {
+     "1": 1,
+     "3": 0.316,
+     "9": 0
+    }
+   },
+   "DA_18_Alune": {
+    "play_rate": 0.078,
+    "item_score": 0.59,
+    "star_target": {
+     "1": 1,
+     "3": 0.438,
+     "9": 0
+    }
+   },
+   "DA_Krug18": {
+    "play_rate": 0.07,
+    "item_score": 0.123,
+    "star_target": {
+     "1": 1,
+     "3": 0.615,
+     "9": 0
+    }
+   },
+   "DA_18_Lillia": {
+    "play_rate": 0.064,
+    "item_score": 0.467,
+    "star_target": {
+     "1": 1,
+     "3": 0.749,
+     "9": 0
+    }
+   },
+   "DA_18_Malphite": {
+    "play_rate": 0.063,
+    "item_score": 0.655,
+    "star_target": {
+     "1": 1,
+     "3": 0.689,
+     "9": 0
+    }
+   },
+   "DA_18_Maokai": {
+    "play_rate": 0.06,
+    "item_score": 0.405,
+    "star_target": {
+     "1": 1,
+     "3": 0.282,
+     "9": 0
+    }
+   },
+   "DA_Sentinel18": {
+    "play_rate": 0.053,
+    "item_score": 0.383,
+    "star_target": {
+     "1": 1,
+     "3": 0.526,
+     "9": 0
+    }
+   },
+   "DA_18_Zyra": {
+    "play_rate": 0.046,
+    "item_score": 0.51,
+    "star_target": {
+     "1": 1,
+     "3": 0.659,
+     "9": 0
+    }
+   },
+   "DA_18_RekSai": {
+    "play_rate": 0.043,
+    "item_score": 0.093,
+    "star_target": {
+     "1": 1,
+     "3": 0.695,
+     "9": 0.101
+    }
+   },
+   "DA_18_Shen": {
+    "play_rate": 0.025,
+    "item_score": 0.063,
+    "star_target": {
+     "1": 1,
+     "3": 0.653,
+     "9": 0.026
+    }
+   },
+   "DA_18_Diana": {
+    "play_rate": 0.022,
+    "item_score": 0.13,
+    "star_target": {
+     "1": 1,
+     "3": 0.601,
+     "9": 0
+    }
+   },
+   "...": "외 30개 키"
+  }
+ },
+ "board_strengths": {
+  "1-2": {
+   "strengths": {
+    "0": 16.737,
+    "1": 32.821,
+    "2": 20.055,
+    "3": 35.666,
+    "4": 18.152,
+    "5": 35.666,
+    "6": 37.4,
+    "7": 18.152
+   },
+   "matchups": [
+    {
+     "teams": [
+      0,
+      1
+     ],
+     "win_chance": 0.1573
+    },
+    {
+     "teams": [
+      2,
+      3
+     ],
+     "win_chance": 0.2297
+    },
+    "... 외 2개"
+   ]
+  },
+  "1-3": {
+   "strengths": {
+    "0": 17.358,
+    "1": 29.962,
+    "2": 21.19,
+    "3": 31.08,
+    "4": 22.496,
+    "5": 19.462,
+    "6": 20.053,
+    "7": 16.891
+   },
+   "matchups": [
+    {
+     "teams": [
+      0,
+      1
+     ],
+     "win_chance": 0.108
+    },
+    {
+     "teams": [
+      2,
+      3
+     ],
+     "win_chance": 0.2545
+    },
+    "... 외 2개"
+   ]
+  },
+  "1-4": {
+   "strengths": {
+    "0": 12.389,
+    "1": 27.478,
+    "2": 19.026,
+    "3": 22.348,
+    "4": 19.216,
+    "5": 21.801,
+    "6": 17.533,
+    "7": 21.038
+   },
+   "matchups": [
+    {
+     "teams": [
+      0,
+      1
+     ],
+     "win_chance": 0.0681
+    },
+    {
+     "teams": [
+      2,
+      3
+     ],
+     "win_chance": 0.2458
+    },
+    "... 외 2개"
+   ]
+  },
+  "2-1": {
+   "strengths": {
+    "0": 17.037,
+    "1": 38.405,
+    "2": 35.705,
+    "3": 31.974,
+    "4": 24.766,
+    "5": 35.086,
+    "6": 26.272,
+    "7": 25.822
+   },
+   "matchups": [
+    {
+     "teams": [
+      0,
+      1
+     ],
+     "win_chance": 0.0582
+    },
+    {
+     "teams": [
+      2,
+      3
+     ],
+     "win_chance": 0.7426
+    },
+    "... 외 2개"
+   ]
+  },
+  "2-2": {
+   "strengths": {
+    "0": 17.037,
+    "1": 38.405,
+    "2": 35.705,
+    "3": 35.831,
+    "4": 34.927,
+    "5": 38.353,
+    "6": 32.357,
+    "7": 33.152
+   },
+   "matchups": [
+    {
+     "teams": [
+      1,
+      2
+     ],
+     "win_chance": 0.6145
+    },
+    {
+     "teams": [
+      3,
+      5
+     ],
+     "win_chance": 0.3584
+    },
+    "... 외 2개"
+   ]
+  },
+  "2-3": {
+   "strengths": {
+    "0": 25.963,
+    "1": 30.757,
+    "2": 35.705,
+    "3": 38.951,
+    "4": 34.927,
+    "5": 40.058,
+    "6": 32.013,
+    "7": 48.739
+   },
+   "matchups": [
+    {
+     "teams": [
+      2,
+      5
+     ],
+     "win_chance": 0.2528
+    },
+    {
+     "teams": [
+      1,
+      6
+     ],
+     "win_chance": 0.3575
+    },
+    "... 외 2개"
+   ]
+  },
+  "2-5": {
+   "strengths": {
+    "0": 28.006,
+    "1": 33.806,
+    "2": 35.705,
+    "3": 41.418,
+    "4": 35.353,
+    "5": 48.896,
+    "6": 26.111,
+    "7": 50.07
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      1
+     ],
+     "win_chance": 0.9366
+    },
+    {
+     "teams": [
+      3,
+      2
+     ],
+     "win_chance": 0.8479
+    },
+    "... 외 2개"
+   ]
+  },
+  "2-6": {
+   "strengths": {
+    "0": 28.64,
+    "1": 31.326,
+    "2": 44.18,
+    "3": 42.893,
+    "4": 40.632,
+    "5": 50.46,
+    "6": 30.775,
+    "7": 50
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      3
+     ],
+     "win_chance": 0.8801
+    },
+    {
+     "teams": [
+      7,
+      1
+     ],
+     "win_chance": 0.9386
+    },
+    "... 외 2개"
+   ]
+  },
+  "2-7": {
+   "strengths": {
+    "0": 28.64,
+    "1": 31.326,
+    "2": 44.18,
+    "3": 42.893,
+    "4": 40.632,
+    "5": 52.311,
+    "6": 32.298,
+    "7": 50.07
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      3
+     ],
+     "win_chance": 0.9006
+    },
+    {
+     "teams": [
+      7,
+      4
+     ],
+     "win_chance": 0.8591
+    },
+    "... 외 2개"
+   ]
+  },
+  "3-1": {
+   "strengths": {
+    "0": 45.716,
+    "1": 33.037,
+    "2": 47.237,
+    "3": 44.846,
+    "4": 40.632,
+    "5": 53.665,
+    "6": 34.723,
+    "7": 53.921
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      3
+     ],
+     "win_chance": 0.8536
+    },
+    {
+     "teams": [
+      4,
+      7
+     ],
+     "win_chance": 0.0695
+    },
+    "... 외 2개"
+   ]
+  },
+  "3-2": {
+   "strengths": {
+    "0": 46.948,
+    "1": 39.318,
+    "2": 48.767,
+    "3": 41.613,
+    "4": 51.776,
+    "5": 57.251,
+    "6": 40.422,
+    "7": 56.485
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      7
+     ],
+     "win_chance": 0.5071
+    },
+    {
+     "teams": [
+      1,
+      3
+     ],
+     "win_chance": 0.2025
+    },
+    "... 외 2개"
+   ]
+  },
+  "3-3": {
+   "strengths": {
+    "0": 53.568,
+    "1": 40.708,
+    "2": 48.767,
+    "3": 46.206,
+    "4": 53.671,
+    "5": 61.941,
+    "6": 54.069,
+    "7": 54.982
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      1
+     ],
+     "win_chance": 0.9441
+    },
+    {
+     "teams": [
+      4,
+      7
+     ],
+     "win_chance": 0.5921
+    },
+    "... 외 2개"
+   ]
+  },
+  "3-5": {
+   "strengths": {
+    "0": 72.427,
+    "1": 47.026,
+    "2": 56.337,
+    "3": 48.628,
+    "4": 53.791,
+    "5": 61.683,
+    "6": 60.087,
+    "7": 57.482
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      7
+     ],
+     "win_chance": 0.8479
+    },
+    {
+     "teams": [
+      1,
+      4
+     ],
+     "win_chance": 0.1046
+    },
+    "... 외 2개"
+   ]
+  },
+  "3-6": {
+   "strengths": {
+    "0": 73.409,
+    "1": 47.616,
+    "2": 55.638,
+    "3": 48.628,
+    "4": 60.515,
+    "5": 64.537,
+    "6": 59.491,
+    "7": 60.735
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      7
+     ],
+     "win_chance": 0.7749
+    },
+    {
+     "teams": [
+      6,
+      1
+     ],
+     "win_chance": 0.8842
+    },
+    "... 외 2개"
+   ]
+  },
+  "3-7": {
+   "strengths": {
+    "0": 73.409,
+    "1": 66.504,
+    "2": 55.638,
+    "3": 48.211,
+    "4": 56.728,
+    "5": 64.905,
+    "6": 59.58,
+    "7": 60.735
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      7
+     ],
+     "win_chance": 0.8405
+    },
+    {
+     "teams": [
+      6,
+      1
+     ],
+     "win_chance": 0.429
+    },
+    "... 외 2개"
+   ]
+  },
+  "4-1": {
+   "strengths": {
+    "0": 78.046,
+    "1": 67.951,
+    "2": 63.018,
+    "3": 61.21,
+    "4": 58.492,
+    "5": 65.729,
+    "6": 61.153,
+    "7": 61.692
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      7
+     ],
+     "win_chance": 0.8719
+    },
+    {
+     "teams": [
+      6,
+      1
+     ],
+     "win_chance": 0.2506
+    },
+    "... 외 2개"
+   ]
+  },
+  "4-2": {
+   "strengths": {
+    "0": 82.639,
+    "1": 72.844,
+    "2": 60.742,
+    "3": 70.026,
+    "4": 78.108,
+    "5": 65.729,
+    "6": 72.853,
+    "7": 60.866
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      6
+     ],
+     "win_chance": 0.1372
+    },
+    {
+     "teams": [
+      1,
+      7
+     ],
+     "win_chance": 0.9296
+    },
+    "... 외 2개"
+   ]
+  },
+  "4-3": {
+   "strengths": {
+    "0": 82.639,
+    "1": 77.336,
+    "2": 72.538,
+    "3": 74.094,
+    "4": 82.438,
+    "5": 66.338,
+    "6": 78.828,
+    "7": 62.532
+   },
+   "matchups": [
+    {
+     "teams": [
+      5,
+      6
+     ],
+     "win_chance": 0.0784
+    },
+    {
+     "teams": [
+      1,
+      0
+     ],
+     "win_chance": 0.1682
+    },
+    "... 외 2개"
+   ]
+  },
+  "4-5": {
+   "strengths": {
+    "0": 86.704,
+    "1": 80.786,
+    "2": 85.131,
+    "3": 76.912,
+    "4": 90.08,
+    "5": 66.338,
+    "6": 83.03,
+    "7": 66.769
+   },
+   "matchups": [
+    {
+     "teams": [
+      6,
+      5
+     ],
+     "win_chance": 0.9325
+    },
+    {
+     "teams": [
+      1,
+      0
+     ],
+     "win_chance": 0.1317
+    },
+    "... 외 2개"
+   ]
+  },
+  "4-6": {
+   "strengths": {
+    "0": 88.521,
+    "1": 84.005,
+    "2": 86.952,
+    "3": 72.658,
+    "4": 95.64,
+    "5": 66.338,
+    "6": 89.863,
+    "7": 70.996
+   },
+   "matchups": [
+    {
+     "teams": [
+      6,
+      5
+     ],
+     "win_chance": 0.9459
+    },
+    {
+     "teams": [
+      1,
+      0
+     ],
+     "win_chance": 0.1431
+    },
+    "... 외 2개"
+   ]
+  },
+  "4-7": {
+   "strengths": {
+    "0": 92.654,
+    "1": 84.005,
+    "2": 86.952,
+    "3": 72.465,
+    "4": 98.375,
+    "5": 47.594,
+    "6": 89.863,
+    "7": 76.459
+   },
+   "matchups": [
+    {
+     "teams": [
+      6,
+      0
+     ],
+     "win_chance": 0.3355
+    },
+    {
+     "teams": [
+      4,
+      5
+     ],
+     "win_chance": 0.9527
+    },
+    "... 외 2개"
+   ]
+  },
+  "5-1": {
+   "strengths": {
+    "0": 93.976,
+    "1": 89.257,
+    "2": 94.942,
+    "3": 92.134,
+    "4": 99.372,
+    "5": 88.745,
+    "6": 92.141,
+    "7": 84.138
+   },
+   "matchups": [
+    {
+     "teams": [
+      6,
+      0
+     ],
+     "win_chance": 0.2748
+    },
+    {
+     "teams": [
+      4,
+      5
+     ],
+     "win_chance": 0.9127
+    },
+    "... 외 2개"
+   ]
+  },
+  "5-2": {
+   "strengths": {
+    "0": 93.976,
+    "1": 89.257,
+    "2": 95.46,
+    "3": 92.134,
+    "4": 99.372,
+    "5": 104.951,
+    "6": 101.519,
+    "7": 92.133
+   },
+   "matchups": [
+    {
+     "teams": [
+      6,
+      4
+     ],
+     "win_chance": 0.3989
+    },
+    {
+     "teams": [
+      0,
+      5
+     ],
+     "win_chance": 0.1456
+    },
+    "... 외 2개"
+   ]
+  },
+  "5-3": {
+   "strengths": {
+    "0": 94.27,
+    "1": 93.33,
+    "2": 112.917,
+    "3": 90.515,
+    "4": 97.266,
+    "5": 106.556,
+    "6": 98.787
+   },
+   "matchups": [
+    {
+     "teams": [
+      6,
+      4
+     ],
+     "win_chance": 0.6577
+    },
+    {
+     "teams": [
+      5,
+      0
+     ],
+     "win_chance": 0.8644
+    },
+    "... 외 1개"
+   ]
+  },
+  "5-5": {
+   "strengths": {
+    "0": 99.486,
+    "1": 95.794,
+    "2": 114.997,
+    "4": 100.351,
+    "5": 112.294,
+    "6": 98.842
+   },
+   "matchups": [
+    {
+     "teams": [
+      6,
+      4
+     ],
+     "win_chance": 0.2981
+    },
+    {
+     "teams": [
+      5,
+      1
+     ],
+     "win_chance": 0.9374
+    },
+    "... 외 1개"
+   ]
+  },
+  "5-6": {
+   "strengths": {
+    "0": 99.486,
+    "2": 114.155,
+    "4": 100.351,
+    "6": 98.753
+   },
+   "matchups": [
+    {
+     "teams": [
+      6,
+      4
+     ],
+     "win_chance": 0.3075
+    },
+    {
+     "teams": [
+      0,
+      2
+     ],
+     "win_chance": 0.0832
+    }
+   ]
+  },
+  "5-7": {
+   "strengths": {
+    "2": 114.155,
+    "4": 100.351,
+    "6": 98.753
+   },
+   "matchups": [
+    {
+     "teams": [
+      4,
+      6
+     ],
+     "win_chance": 0.6935
+    }
+   ]
+  },
+  "6-1": {
+   "strengths": {
+    "2": 114.379,
+    "4": 103.181,
+    "6": 99.458
+   },
+   "matchups": [
+    {
+     "teams": [
+      4,
+      6
+     ],
+     "win_chance": 0.7859
+    }
+   ]
+  },
+  "6-2": {
+   "strengths": {
+    "4": 103.181,
+    "6": 103.989
+   },
+   "matchups": [
+    {
+     "teams": [
+      4,
+      6
+     ],
+     "win_chance": 0.5036
+    }
+   ]
+  },
+  "6-3": {
+   "strengths": {
+    "4": 103.181,
+    "6": 103.34
+   },
+   "matchups": [
+    {
+     "teams": [
+      4,
+      6
+     ],
+     "win_chance": 0.673
+    }
+   ]
+  },
+  "...": "외 2개 키"
+ },
+ "summoner_tier": "DIAMOND",
+ "summoner_id": "<가림>",
+ "tft_set_core_name": "TFTSet18",
+ "server": "KR",
+ "portal": "TFT_Portals_Default_NoPortal",
+ "data_version": "1.0"
+}

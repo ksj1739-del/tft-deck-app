@@ -1,0 +1,31 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "93b7b704-3ff3-4248-90eb-50623cd63e43",
+ "data": [
+  {
+   "avg_rank": "4.108",
+   "avg_rank_delta": "-0.12629095607236174",
+   "build_rate": "0.156",
+   "build_s": "3026",
+   "item_id": "DA_Draven18#DA_Guinsoos<플레이어>blade",
+   "top1_cnt": "809",
+   "top4_cnt": "1903",
+   "total": "19412",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.776",
+   "avg_rank_delta": "-0.4582909560723616",
+   "build_rate": "0.132",
+   "build_s": "2572",
+   "item_id": "DA_18_ElderDragon#DA_InfinityEdge",
+   "top1_cnt": "685",
+   "top4_cnt": "1618",
+   "total": "19412",
+   "tier": "S"
+  },
+  "... 외 1933개"
+ ]
+}

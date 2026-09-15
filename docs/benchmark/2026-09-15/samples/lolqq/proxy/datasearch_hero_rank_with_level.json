@@ -1,0 +1,64 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "4f0af1ad-5076-45b4-9c5e-68fc2219db10",
+ "data": [
+  {
+   "avg_rank": "3.202",
+   "avg_rank_delta": "-0.625",
+   "top1_cnt": "86174",
+   "top4_cnt": "233404",
+   "total": "1348678",
+   "unit_id": "DA_Amumu18,2",
+   "unit_rate": "0.235",
+   "unit_s": "316277",
+   "tier": "A"
+  },
+  {
+   "avg_rank": "3.349",
+   "avg_rank_delta": "-0.478",
+   "top1_cnt": "73568",
+   "top4_cnt": "213176",
+   "total": "1348678",
+   "unit_id": "DA_Sentinel18,2",
+   "unit_rate": "0.221",
+   "unit_s": "298706",
+   "tier": "A"
+  },
+  {
+   "avg_rank": "4.157",
+   "avg_rank_delta": "0.33",
+   "top1_cnt": "37614",
+   "top4_cnt": "136467",
+   "total": "1348678",
+   "unit_id": "DA_Vi18,2",
+   "unit_rate": "0.181",
+   "unit_s": "243653",
+   "tier": "B"
+  },
+  {
+   "avg_rank": "5.005",
+   "avg_rank_delta": "1.178",
+   "top1_cnt": "19134",
+   "top4_cnt": "83742",
+   "total": "1348678",
+   "unit_id": "DA_Amumu18,1",
+   "unit_rate": "0.159",
+   "unit_s": "213865",
+   "tier": "C"
+  },
+  {
+   "avg_rank": "4.229",
+   "avg_rank_delta": "0.402",
+   "top1_cnt": "30232",
+   "top4_cnt": "116301",
+   "total": "1348678",
+   "unit_id": "DA_18_Yorick,2",
+   "unit_rate": "0.157",
+   "unit_s": "211322",
+   "tier": "B"
+  }
+ ],
+ "_note": "trimmed to 5 rows of 224"
+}

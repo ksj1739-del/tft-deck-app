@@ -1,0 +1,31 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "30174fc3-28a7-42cb-b111-12cf9a7934ae",
+ "data": [
+  {
+   "avg_rank": "3.997",
+   "avg_rank_delta": "0.087",
+   "build_rate": "0.017",
+   "build_s": "339",
+   "item_id": "DA_18_Malphite#DA_Crownguard|DA_GargoyleStoneplate|DA_WarmogsArmor",
+   "top1_cnt": "34",
+   "top4_cnt": "207",
+   "total": "19412",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.569",
+   "avg_rank_delta": "-0.341",
+   "build_rate": "0.017",
+   "build_s": "334",
+   "item_id": "DA_Draven18#DA_Guinsoos<플레이어>blade|DA_InfinityEdge|DA_KrakensFury",
+   "top1_cnt": "99",
+   "top4_cnt": "220",
+   "total": "19412",
+   "tier": "S"
+  },
+  "... 외 1021개"
+ ]
+}

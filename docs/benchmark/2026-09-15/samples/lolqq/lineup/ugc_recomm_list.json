@@ -1,0 +1,6 @@
+{
+ "err_msg": "cookie userid empty",
+ "msg": "登录态失效，请重新登录",
+ "result": 1001,
+ "data": []
+}

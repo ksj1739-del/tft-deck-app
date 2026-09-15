@@ -1,0 +1,59 @@
+{
+ "Set": "<str>",
+ "Ver": "<str>",
+ "Full": [
+  {
+   "metadata": {
+    "tags": []
+   },
+   "sys": {
+    "space": {
+     "sys": {
+      "type": "<str>",
+      "linkType": "<str>",
+      "id": "<str>"
+     }
+    },
+    "id": "<str>",
+    "type": "<str>",
+    "createdAt": "<str>",
+    "updatedAt": "<str>",
+    "environment": {
+     "sys": {
+      "id": "<str>",
+      "type": "<str>",
+      "linkType": "<str>"
+     }
+    },
+    "revision": "<int>",
+    "contentType": {
+     "sys": {
+      "type": "<str>",
+      "linkType": "<str>",
+      "id": "<str>"
+     }
+    },
+    "locale": "<str>"
+   },
+   "fields": {
+    "title": "<str>",
+    "description": "<str>"
+   }
+  }
+ ],
+ "Notes": {
+  "AAA": {
+   "Nerf": [
+    "<str>"
+   ]
+  }
+ },
+ "Changelog": [
+  {
+   "ver": "<str>",
+   "notes": [
+    "<str>"
+   ]
+  }
+ ]
+}

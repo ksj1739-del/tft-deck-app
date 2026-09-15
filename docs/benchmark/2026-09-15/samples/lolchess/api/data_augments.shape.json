@@ -1,0 +1,17 @@
+{
+ "season": "<str>",
+ "augments": [
+  {
+   "key": "<str>",
+   "ingameKey": "TFT14_Augment_Controller_Vertical",
+   "name": "<str>",
+   "desc": "<str>",
+   "imageUrl": "<str>",
+   "tier": "<int>",
+   "isHidden": "<bool>",
+   "tags": [
+    "TFT_Augment_Trait"
+   ]
+  }
+ ]
+}

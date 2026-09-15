@@ -1,0 +1,203 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "c6300fa7-9734-4189-bd4e-1a762aaa00db",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "",
+  "v_version_id": "",
+  "details": [
+   {
+    "equip_id": "DA_18_EmblemBlackthorn",
+    "list": [
+     {
+      "data": {
+       "avg_rank": "4.242201",
+       "cycle": "20260914",
+       "top_1_hero_id": "Lux18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.150903",
+       "top_4_rate": "0.54498",
+       "use_rate": "0.002943"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "Lux18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "Taric18"
+       }
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "Taric18"
+      }
+     }
+    ]
+   },
+   {
+    "equip_id": "DA_18_EmblemBlossom",
+    "list": [
+     {
+      "data": {
+       "avg_rank": "4.082771",
+       "cycle": "20260914",
+       "top_1_hero_id": "18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.188954",
+       "top_4_rate": "0.564126",
+       "use_rate": "0.004729"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       }
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      }
+     }
+    ]
+   },
+   {
+    "equip_id": "DA_18_EmblemBrawler",
+    "list": [
+     {
+      "data": {
+       "avg_rank": "3.938505",
+       "cycle": "20260914",
+       "top_1_hero_id": "Taric18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.157432",
+       "top_4_rate": "0.608135",
+       "use_rate": "0.004573"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "Taric18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       }
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      }
+     }
+    ]
+   },
+   {
+    "equip_id": "DA_18_EmblemCoven",
+    "list": [
+     {
+      "data": {
+       "avg_rank": "4.818543",
+       "cycle": "20260914",
+       "top_1_hero_id": "Lux18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.121667",
+       "top_4_rate": "0.43007",
+       "use_rate": "0.001672"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "Lux18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       }
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      }
+     }
+    ]
+   },
+   {
+    "equip_id": "DA_18_EmblemDefender",
+    "list": [
+     {
+      "data": {
+       "avg_rank": "3.905707",
+       "cycle": "20260914",
+       "top_1_hero_id": "Taric18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.170118",
+       "top_4_rate": "0.612641",
+       "use_rate": "0.003511"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "Taric18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       }
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

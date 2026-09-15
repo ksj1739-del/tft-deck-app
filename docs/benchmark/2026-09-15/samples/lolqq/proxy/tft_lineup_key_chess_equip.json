@@ -1,0 +1,1186 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "22c87a16-9247-4b8e-86d9-c3055177bded",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "20260914",
+  "v_version_id": "",
+  "key_champion_items_data": [
+   {
+    "chess_id": "100331",
+    "data": {
+     "equip_group": {
+      "avg_rank": "2.214286",
+      "equip_id_list": [
+       "DA_Artifact_RapidFireCannon",
+       "DA_Artifact_WitsEnd",
+       "DA_Guinsoos<플레이어>blade"
+      ],
+      "use_num": "14",
+      "use_rate": "0.002151"
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.938628",
+       "equip_id": "DA_Artifact_WitsEnd",
+       "equip_rank": "1",
+       "use_num": "554",
+       "use_rate": "0.085113"
+      },
+      {
+       "avg_rank": "3.091667",
+       "equip_id": "DA_Guinsoos<플레이어>bladeRadiant",
+       "equip_rank": "2",
+       "use_num": "120",
+       "use_rate": "0.018436"
+      },
+      {
+       "avg_rank": "3.196429",
+       "equip_id": "DA_EdgeOfNightRadiant",
+       "equip_rank": "3",
+       "use_num": "56",
+       "use_rate": "0.008603"
+      },
+      {
+       "avg_rank": "3.210256",
+       "equip_id": "DA_Artifact_NavoriFlickerblade",
+       "equip_rank": "4",
+       "use_num": "388",
+       "use_rate": "0.05961"
+      },
+      {
+       "avg_rank": "3.249147",
+       "equip_id": "DA_Artifact_HellfireHatchet",
+       "equip_rank": "5",
+       "use_num": "293",
+       "use_rate": "0.045015"
+      },
+      {
+       "avg_rank": "3.414634",
+       "equip_id": "DA_Artifact_ZhonyasParadox",
+       "equip_rank": "6",
+       "use_num": "41",
+       "use_rate": "0.006299"
+      },
+      {
+       "avg_rank": "3.459259",
+       "equip_id": "DA_Artifact_RapidFireCannon",
+       "equip_rank": "7",
+       "use_num": "675",
+       "use_rate": "0.103703"
+      },
+      {
+       "avg_rank": "3.465035",
+       "equip_id": "DA_GiantSlayer",
+       "equip_rank": "8",
+       "use_num": "285",
+       "use_rate": "0.043786"
+      },
+      {
+       "avg_rank": "3.478261",
+       "equip_id": "DA_18_EmblemSlayer",
+       "equip_rank": "9",
+       "use_num": "23",
+       "use_rate": "0.003534"
+      },
+      {
+       "avg_rank": "3.484375",
+       "equip_id": "DA_Artifact_InfinityForce",
+       "equip_rank": "10",
+       "use_num": "64",
+       "use_rate": "0.009833"
+      },
+      {
+       "avg_rank": "3.658716",
+       "equip_id": "DA_EdgeOfNight",
+       "equip_rank": "11",
+       "use_num": "4065",
+       "use_rate": "0.62452"
+      },
+      {
+       "avg_rank": "3.710847",
+       "equip_id": "DA_TitansResolve",
+       "equip_rank": "12",
+       "use_num": "3521",
+       "use_rate": "0.540943"
+      },
+      {
+       "avg_rank": "3.736918",
+       "equip_id": "DA_Guinsoos<플레이어>blade",
+       "equip_rank": "13",
+       "use_num": "5510",
+       "use_rate": "0.84652"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100337",
+    "data": {
+     "equip_group": {
+      "avg_rank": "2.666667",
+      "equip_id_list": [
+       "DA_ArchangelsStaff",
+       "DA_BlueBuff",
+       "DA_JeweledGauntlet"
+      ],
+      "use_num": "18",
+      "use_rate": "0.00277"
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.933333",
+       "equip_id": "DA_WarmogsArmor",
+       "equip_rank": "1",
+       "use_num": "15",
+       "use_rate": "0.002308"
+      },
+      {
+       "avg_rank": "3.214286",
+       "equip_id": "DA_Artifact_EternalPact",
+       "equip_rank": "2",
+       "use_num": "14",
+       "use_rate": "0.002155"
+      },
+      {
+       "avg_rank": "3.268817",
+       "equip_id": "DA_Quicksilver",
+       "equip_rank": "3",
+       "use_num": "93",
+       "use_rate": "0.014312"
+      },
+      {
+       "avg_rank": "3.275766",
+       "equip_id": "DA_Morellonomicon",
+       "equip_rank": "4",
+       "use_num": "359",
+       "use_rate": "0.055248"
+      },
+      {
+       "avg_rank": "3.30303",
+       "equip_id": "DA_TitansResolve",
+       "equip_rank": "5",
+       "use_num": "33",
+       "use_rate": "0.005078"
+      },
+      {
+       "avg_rank": "3.344064",
+       "equip_id": "DA_GiantSlayer",
+       "equip_rank": "6",
+       "use_num": "495",
+       "use_rate": "0.076177"
+      },
+      {
+       "avg_rank": "3.344828",
+       "equip_id": "DA_StrikersFlail",
+       "equip_rank": "7",
+       "use_num": "288",
+       "use_rate": "0.044321"
+      },
+      {
+       "avg_rank": "3.357623",
+       "equip_id": "DA_RedBuff",
+       "equip_rank": "8",
+       "use_num": "1935",
+       "use_rate": "0.297784"
+      },
+      {
+       "avg_rank": "3.392857",
+       "equip_id": "DA_Deathblade",
+       "equip_rank": "9",
+       "use_num": "269",
+       "use_rate": "0.041397"
+      },
+      {
+       "avg_rank": "3.395062",
+       "equip_id": "DA_HextechGunblade",
+       "equip_rank": "10",
+       "use_num": "241",
+       "use_rate": "0.037088"
+      },
+      {
+       "avg_rank": "3.565677",
+       "equip_id": "DA_SpearOfShojin",
+       "equip_rank": "11",
+       "use_num": "3336",
+       "use_rate": "0.513389"
+      },
+      {
+       "avg_rank": "3.636513",
+       "equip_id": "DA_JeweledGauntlet",
+       "equip_rank": "12",
+       "use_num": "2424",
+       "use_rate": "0.373038"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100352",
+    "data": {
+     "equip_group": {
+      "avg_rank": "2",
+      "equip_id_list": [
+       "DA_InfinityEdge",
+       "DA_SpearOfShojin",
+       "DA_StrikersFlail"
+      ],
+      "use_num": "11",
+      "use_rate": "0.001703"
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.615385",
+       "equip_id": "DA_ProtectorsVow",
+       "equip_rank": "1",
+       "use_num": "26",
+       "use_rate": "0.004025"
+      },
+      {
+       "avg_rank": "3",
+       "equip_id": "DA_IonicSpark",
+       "equip_rank": "2",
+       "use_num": "33",
+       "use_rate": "0.005109"
+      },
+      {
+       "avg_rank": "3.071429",
+       "equip_id": "DA_Artifact_Manazane",
+       "equip_rank": "3",
+       "use_num": "14",
+       "use_rate": "0.002168"
+      },
+      {
+       "avg_rank": "3.12",
+       "equip_id": "DA_DragonsClaw",
+       "equip_rank": "4",
+       "use_num": "25",
+       "use_rate": "0.003871"
+      },
+      {
+       "avg_rank": "3.151515",
+       "equip_id": "DA_SpiritVisage",
+       "equip_rank": "5",
+       "use_num": "33",
+       "use_rate": "0.005109"
+      },
+      {
+       "avg_rank": "3.154696",
+       "equip_id": "DA_StrikersFlail",
+       "equip_rank": "6",
+       "use_num": "362",
+       "use_rate": "0.056046"
+      },
+      {
+       "avg_rank": "3.159509",
+       "equip_id": "DA_EdgeOfNight",
+       "equip_rank": "7",
+       "use_num": "489",
+       "use_rate": "0.075708"
+      },
+      {
+       "avg_rank": "3.174455",
+       "equip_id": "DA_HextechGunblade",
+       "equip_rank": "8",
+       "use_num": "321",
+       "use_rate": "0.049698"
+      },
+      {
+       "avg_rank": "3.204545",
+       "equip_id": "DA_Evenshroud",
+       "equip_rank": "9",
+       "use_num": "44",
+       "use_rate": "0.006812"
+      },
+      {
+       "avg_rank": "3.242553",
+       "equip_id": "DA_TitansResolve",
+       "equip_rank": "10",
+       "use_num": "231",
+       "use_rate": "0.035764"
+      },
+      {
+       "avg_rank": "3.467161",
+       "equip_id": "DA_SpearOfShojin",
+       "equip_rank": "11",
+       "use_num": "930",
+       "use_rate": "0.143985"
+      },
+      {
+       "avg_rank": "3.524079",
+       "equip_id": "DA_Guinsoos<플레이어>blade",
+       "equip_rank": "12",
+       "use_num": "1365",
+       "use_rate": "0.211333"
+      },
+      {
+       "avg_rank": "3.614078",
+       "equip_id": "DA_JeweledGauntlet",
+       "equip_rank": "13",
+       "use_num": "1223",
+       "use_rate": "0.189348"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100346",
+    "data": {
+     "equip_group": {
+      "avg_rank": "2.181818",
+      "equip_id_list": [
+       "DA_BrambleVest",
+       "DA_NashorsTooth",
+       "DA_ThiefsGloves"
+      ],
+      "use_num": "11",
+      "use_rate": "0.001731"
+     },
+     "equip_list": [
+      {
+       "avg_rank": "3",
+       "equip_id": "DA_VoidStaff",
+       "equip_rank": "1",
+       "use_num": "35",
+       "use_rate": "0.005507"
+      },
+      {
+       "avg_rank": "3.016667",
+       "equip_id": "DA_BlueBuff",
+       "equip_rank": "2",
+       "use_num": "60",
+       "use_rate": "0.009441"
+      },
+      {
+       "avg_rank": "3.020833",
+       "equip_id": "DA_JeweledGauntlet",
+       "equip_rank": "3",
+       "use_num": "48",
+       "use_rate": "0.007553"
+      },
+      {
+       "avg_rank": "3.022222",
+       "equip_id": "DA_GiantSlayer",
+       "equip_rank": "4",
+       "use_num": "45",
+       "use_rate": "0.007081"
+      },
+      {
+       "avg_rank": "3.02381",
+       "equip_id": "DA_KrakensFury",
+       "equip_rank": "5",
+       "use_num": "84",
+       "use_rate": "0.013218"
+      },
+      {
+       "avg_rank": "3.034483",
+       "equip_id": "DA_Component_TearOfTheGoddess",
+       "equip_rank": "6",
+       "use_num": "29",
+       "use_rate": "0.004563"
+      },
+      {
+       "avg_rank": "3.037037",
+       "equip_id": "DA_RabadonsDeathcap",
+       "equip_rank": "7",
+       "use_num": "54",
+       "use_rate": "0.008497"
+      },
+      {
+       "avg_rank": "3.063492",
+       "equip_id": "DA_NashorsTooth",
+       "equip_rank": "8",
+       "use_num": "63",
+       "use_rate": "0.009913"
+      },
+      {
+       "avg_rank": "3.083333",
+       "equip_id": "DA_BrambleVest",
+       "equip_rank": "9",
+       "use_num": "251",
+       "use_rate": "0.039496"
+      },
+      {
+       "avg_rank": "3.097087",
+       "equip_id": "DA_EdgeOfNight",
+       "equip_rank": "10",
+       "use_num": "103",
+       "use_rate": "0.016208"
+      },
+      {
+       "avg_rank": "3.561644",
+       "equip_id": "DA_GargoyleStoneplate",
+       "equip_rank": "11",
+       "use_num": "1258",
+       "use_rate": "0.197954"
+      },
+      {
+       "avg_rank": "3.598055",
+       "equip_id": "DA_WarmogsArmor",
+       "equip_rank": "12",
+       "use_num": "1179",
+       "use_rate": "0.185523"
+      },
+      {
+       "avg_rank": "3.6374",
+       "equip_id": "DA_SpiritVisage",
+       "equip_rank": "13",
+       "use_num": "861",
+       "use_rate": "0.135484"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100310",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.923077",
+       "equip_id": "DA_Component_ChainVest",
+       "equip_rank": "1",
+       "use_num": "26",
+       "use_rate": "0.004131"
+      },
+      {
+       "avg_rank": "3.35",
+       "equip_id": "DA_Crownguard",
+       "equip_rank": "2",
+       "use_num": "20",
+       "use_rate": "0.003178"
+      },
+      {
+       "avg_rank": "3.444444",
+       "equip_id": "DA_DragonsClaw",
+       "equip_rank": "3",
+       "use_num": "27",
+       "use_rate": "0.00429"
+      },
+      {
+       "avg_rank": "3.459459",
+       "equip_id": "DA_SunfireCape",
+       "equip_rank": "4",
+       "use_num": "37",
+       "use_rate": "0.005879"
+      },
+      {
+       "avg_rank": "3.5",
+       "equip_id": "DA_Evenshroud",
+       "equip_rank": "5",
+       "use_num": "32",
+       "use_rate": "0.005084"
+      },
+      {
+       "avg_rank": "3.5",
+       "equip_id": "DA_ThiefsGloves",
+       "equip_rank": "6",
+       "use_num": "90",
+       "use_rate": "0.014299"
+      },
+      {
+       "avg_rank": "3.681818",
+       "equip_id": "DA_SteadfastHeart",
+       "equip_rank": "7",
+       "use_num": "21",
+       "use_rate": "0.003337"
+      },
+      {
+       "avg_rank": "3.819672",
+       "equip_id": "DA_SpiritVisage",
+       "equip_rank": "8",
+       "use_num": "60",
+       "use_rate": "0.009533"
+      },
+      {
+       "avg_rank": "3.842105",
+       "equip_id": "DA_IonicSpark",
+       "equip_rank": "9",
+       "use_num": "19",
+       "use_rate": "0.003019"
+      },
+      {
+       "avg_rank": "3.909091",
+       "equip_id": "DA_ProtectorsVow",
+       "equip_rank": "10",
+       "use_num": "22",
+       "use_rate": "0.003495"
+      },
+      {
+       "avg_rank": "4.013333",
+       "equip_id": "DA_GargoyleStoneplate",
+       "equip_rank": "11",
+       "use_num": "70",
+       "use_rate": "0.011122"
+      },
+      {
+       "avg_rank": "4.242424",
+       "equip_id": "DA_WarmogsArmor",
+       "equip_rank": "12",
+       "use_num": "65",
+       "use_rate": "0.010327"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100339",
+    "data": {
+     "equip_group": {
+      "avg_rank": "2.384615",
+      "equip_id_list": [
+       "DA_BrambleVest",
+       "DA_DragonsClaw",
+       "DA_WarmogsArmor"
+      ],
+      "use_num": "13",
+      "use_rate": "0.002089"
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.75",
+       "equip_id": "DA_JeweledGauntlet",
+       "equip_rank": "1",
+       "use_num": "28",
+       "use_rate": "0.004499"
+      },
+      {
+       "avg_rank": "2.828571",
+       "equip_id": "DA_HextechGunblade",
+       "equip_rank": "2",
+       "use_num": "35",
+       "use_rate": "0.005623"
+      },
+      {
+       "avg_rank": "2.852941",
+       "equip_id": "DA_ArchangelsStaff",
+       "equip_rank": "3",
+       "use_num": "34",
+       "use_rate": "0.005463"
+      },
+      {
+       "avg_rank": "2.934211",
+       "equip_id": "DA_EdgeOfNight",
+       "equip_rank": "4",
+       "use_num": "76",
+       "use_rate": "0.012211"
+      },
+      {
+       "avg_rank": "2.977169",
+       "equip_id": "DA_BrambleVest",
+       "equip_rank": "5",
+       "use_num": "218",
+       "use_rate": "0.035026"
+      },
+      {
+       "avg_rank": "3",
+       "equip_id": "DA_Guinsoos<플레이어>blade",
+       "equip_rank": "6",
+       "use_num": "53",
+       "use_rate": "0.008515"
+      },
+      {
+       "avg_rank": "3.030303",
+       "equip_id": "DA_BlueBuff",
+       "equip_rank": "7",
+       "use_num": "33",
+       "use_rate": "0.005302"
+      },
+      {
+       "avg_rank": "3.082902",
+       "equip_id": "DA_Crownguard",
+       "equip_rank": "8",
+       "use_num": "193",
+       "use_rate": "0.031009"
+      },
+      {
+       "avg_rank": "3.111475",
+       "equip_id": "DA_SteadfastHeart",
+       "equip_rank": "9",
+       "use_num": "301",
+       "use_rate": "0.048361"
+      },
+      {
+       "avg_rank": "3.146497",
+       "equip_id": "DA_SteraksGage",
+       "equip_rank": "10",
+       "use_num": "155",
+       "use_rate": "0.024904"
+      },
+      {
+       "avg_rank": "3.372166",
+       "equip_id": "DA_WarmogsArmor",
+       "equip_rank": "11",
+       "use_num": "1226",
+       "use_rate": "0.196979"
+      },
+      {
+       "avg_rank": "3.390562",
+       "equip_id": "DA_SpiritVisage",
+       "equip_rank": "12",
+       "use_num": "978",
+       "use_rate": "0.157134"
+      },
+      {
+       "avg_rank": "3.401506",
+       "equip_id": "DA_GargoyleStoneplate",
+       "equip_rank": "13",
+       "use_num": "1535",
+       "use_rate": "0.246626"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100323",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.627119",
+       "equip_id": "DA_RedBuff",
+       "equip_rank": "1",
+       "use_num": "59",
+       "use_rate": "0.00973"
+      },
+      {
+       "avg_rank": "2.727273",
+       "equip_id": "DA_Deathblade",
+       "equip_rank": "2",
+       "use_num": "22",
+       "use_rate": "0.003628"
+      },
+      {
+       "avg_rank": "2.846154",
+       "equip_id": "DA_ArchangelsStaff",
+       "equip_rank": "3",
+       "use_num": "37",
+       "use_rate": "0.006102"
+      },
+      {
+       "avg_rank": "2.878049",
+       "equip_id": "DA_KrakensFury",
+       "equip_rank": "4",
+       "use_num": "40",
+       "use_rate": "0.006596"
+      },
+      {
+       "avg_rank": "2.88",
+       "equip_id": "DA_StrikersFlail",
+       "equip_rank": "5",
+       "use_num": "25",
+       "use_rate": "0.004123"
+      },
+      {
+       "avg_rank": "3",
+       "equip_id": "DA_GiantSlayer",
+       "equip_rank": "6",
+       "use_num": "41",
+       "use_rate": "0.006761"
+      },
+      {
+       "avg_rank": "3",
+       "equip_id": "DA_NashorsTooth",
+       "equip_rank": "7",
+       "use_num": "40",
+       "use_rate": "0.006596"
+      },
+      {
+       "avg_rank": "3.086957",
+       "equip_id": "DA_RabadonsDeathcap",
+       "equip_rank": "8",
+       "use_num": "46",
+       "use_rate": "0.007586"
+      },
+      {
+       "avg_rank": "3.1",
+       "equip_id": "DA_Component_NeedlesslyLargeRod",
+       "equip_rank": "9",
+       "use_num": "40",
+       "use_rate": "0.006596"
+      },
+      {
+       "avg_rank": "3.12",
+       "equip_id": "DA_Morellonomicon",
+       "equip_rank": "10",
+       "use_num": "75",
+       "use_rate": "0.012368"
+      },
+      {
+       "avg_rank": "3.248175",
+       "equip_id": "DA_ThiefsGloves",
+       "equip_rank": "11",
+       "use_num": "137",
+       "use_rate": "0.022592"
+      },
+      {
+       "avg_rank": "3.413333",
+       "equip_id": "DA_SpearOfShojin",
+       "equip_rank": "12",
+       "use_num": "75",
+       "use_rate": "0.012368"
+      },
+      {
+       "avg_rank": "3.75",
+       "equip_id": "DA_JeweledGauntlet",
+       "equip_rank": "13",
+       "use_num": "88",
+       "use_rate": "0.014512"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100338",
+    "data": {
+     "equip_group": {
+      "avg_rank": "2.6",
+      "equip_id_list": [
+       "DA_Evenshroud",
+       "DA_GargoyleStoneplate",
+       "DA_SunfireCape"
+      ],
+      "use_num": "15",
+      "use_rate": "0.002676"
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.782609",
+       "equip_id": "DA_Morellonomicon",
+       "equip_rank": "1",
+       "use_num": "23",
+       "use_rate": "0.004103"
+      },
+      {
+       "avg_rank": "2.8125",
+       "equip_id": "DA_ArchangelsStaff",
+       "equip_rank": "2",
+       "use_num": "16",
+       "use_rate": "0.002855"
+      },
+      {
+       "avg_rank": "3.071429",
+       "equip_id": "DA_StrikersFlail",
+       "equip_rank": "3",
+       "use_num": "14",
+       "use_rate": "0.002498"
+      },
+      {
+       "avg_rank": "3.09375",
+       "equip_id": "DA_Quicksilver",
+       "equip_rank": "4",
+       "use_num": "32",
+       "use_rate": "0.005709"
+      },
+      {
+       "avg_rank": "3.129921",
+       "equip_id": "DA_BrambleVest",
+       "equip_rank": "5",
+       "use_num": "253",
+       "use_rate": "0.045138"
+      },
+      {
+       "avg_rank": "3.1875",
+       "equip_id": "DA_GargoyleStoneplate_Radiant",
+       "equip_rank": "6",
+       "use_num": "16",
+       "use_rate": "0.002855"
+      },
+      {
+       "avg_rank": "3.2",
+       "equip_id": "DA_EdgeOfNight",
+       "equip_rank": "7",
+       "use_num": "25",
+       "use_rate": "0.00446"
+      },
+      {
+       "avg_rank": "3.222222",
+       "equip_id": "DA_BlueBuff",
+       "equip_rank": "8",
+       "use_num": "18",
+       "use_rate": "0.003211"
+      },
+      {
+       "avg_rank": "3.227273",
+       "equip_id": "DA_NashorsTooth",
+       "equip_rank": "9",
+       "use_num": "22",
+       "use_rate": "0.003925"
+      },
+      {
+       "avg_rank": "3.25",
+       "equip_id": "DA_Artifact_AegisOfDawn",
+       "equip_rank": "10",
+       "use_num": "28",
+       "use_rate": "0.004996"
+      },
+      {
+       "avg_rank": "3.555906",
+       "equip_id": "DA_WarmogsArmor",
+       "equip_rank": "11",
+       "use_num": "2139",
+       "use_rate": "0.381624"
+      },
+      {
+       "avg_rank": "3.564588",
+       "equip_id": "DA_GargoyleStoneplate",
+       "equip_rank": "12",
+       "use_num": "2452",
+       "use_rate": "0.437467"
+      },
+      {
+       "avg_rank": "3.60636",
+       "equip_id": "DA_SpiritVisage",
+       "equip_rank": "13",
+       "use_num": "1779",
+       "use_rate": "0.317395"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100333",
+    "data": {
+     "equip_group": {
+      "avg_rank": "2.533333",
+      "equip_id_list": [
+       "DA_Guinsoos<플레이어>blade",
+       "DA_SteraksGage",
+       "DA_TitansResolve"
+      ],
+      "use_num": "15",
+      "use_rate": "0.025295"
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.388889",
+       "equip_id": "DA_GiantSlayer",
+       "equip_rank": "1",
+       "use_num": "18",
+       "use_rate": "0.030354"
+      },
+      {
+       "avg_rank": "2.6",
+       "equip_id": "DA_Quicksilver",
+       "equip_rank": "2",
+       "use_num": "65",
+       "use_rate": "0.109612"
+      },
+      {
+       "avg_rank": "2.695313",
+       "equip_id": "DA_TitansResolve",
+       "equip_rank": "3",
+       "use_num": "256",
+       "use_rate": "0.431703"
+      },
+      {
+       "avg_rank": "2.747774",
+       "equip_id": "DA_EdgeOfNight",
+       "equip_rank": "4",
+       "use_num": "337",
+       "use_rate": "0.568297"
+      },
+      {
+       "avg_rank": "2.760494",
+       "equip_id": "DA_Guinsoos<플레이어>blade",
+       "equip_rank": "5",
+       "use_num": "401",
+       "use_rate": "0.676223"
+      },
+      {
+       "avg_rank": "2.829545",
+       "equip_id": "DA_HandOfJustice",
+       "equip_rank": "6",
+       "use_num": "87",
+       "use_rate": "0.146712"
+      },
+      {
+       "avg_rank": "2.9375",
+       "equip_id": "DA_SteraksGage",
+       "equip_rank": "7",
+       "use_num": "96",
+       "use_rate": "0.161889"
+      },
+      {
+       "avg_rank": "3",
+       "equip_id": "DA_ThiefsGloves",
+       "equip_rank": "8",
+       "use_num": "18",
+       "use_rate": "0.030354"
+      },
+      {
+       "avg_rank": "3.125",
+       "equip_id": "DA_KrakensFury",
+       "equip_rank": "9",
+       "use_num": "15",
+       "use_rate": "0.025295"
+      },
+      {
+       "avg_rank": "3.126126",
+       "equip_id": "DA_Bloodthirster",
+       "equip_rank": "10",
+       "use_num": "111",
+       "use_rate": "0.187184"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100299",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "3.909091",
+       "equip_id": "DA_ThiefsGloves",
+       "equip_rank": "1",
+       "use_num": "11",
+       "use_rate": "0.021569"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100357",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.157895",
+       "equip_id": "DA_TitansResolve",
+       "equip_rank": "1",
+       "use_num": "19",
+       "use_rate": "0.106145"
+      },
+      {
+       "avg_rank": "2.444444",
+       "equip_id": "DA_EdgeOfNight",
+       "equip_rank": "2",
+       "use_num": "18",
+       "use_rate": "0.100559"
+      },
+      {
+       "avg_rank": "2.6",
+       "equip_id": "DA_SteraksGage",
+       "equip_rank": "3",
+       "use_num": "20",
+       "use_rate": "0.111732"
+      },
+      {
+       "avg_rank": "2.909091",
+       "equip_id": "DA_ThiefsGloves",
+       "equip_rank": "4",
+       "use_num": "22",
+       "use_rate": "0.122905"
+      },
+      {
+       "avg_rank": "2.9375",
+       "equip_id": "DA_Bloodthirster",
+       "equip_rank": "5",
+       "use_num": "16",
+       "use_rate": "0.089385"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100340",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "5",
+       "equip_id": "DA_SpearOfShojin",
+       "equip_rank": "1",
+       "use_num": "15",
+       "use_rate": "0.127119"
+      },
+      {
+       "avg_rank": "5.5",
+       "equip_id": "DA_BlueBuff",
+       "equip_rank": "2",
+       "use_num": "14",
+       "use_rate": "0.118644"
+      },
+      {
+       "avg_rank": "6",
+       "equip_id": "DA_JeweledGauntlet",
+       "equip_rank": "3",
+       "use_num": "21",
+       "use_rate": "0.177966"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100358",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.4375",
+       "equip_id": "DA_SpearOfShojin",
+       "equip_rank": "1",
+       "use_num": "15",
+       "use_rate": "0.132743"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100355",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "3.3125",
+       "equip_id": "DA_RedBuff",
+       "equip_rank": "1",
+       "use_num": "16",
+       "use_rate": "0.161616"
+      },
+      {
+       "avg_rank": "3.695652",
+       "equip_id": "DA_SpearOfShojin",
+       "equip_rank": "2",
+       "use_num": "23",
+       "use_rate": "0.232323"
+      },
+      {
+       "avg_rank": "3.8125",
+       "equip_id": "DA_InfinityEdge",
+       "equip_rank": "3",
+       "use_num": "16",
+       "use_rate": "0.161616"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100372",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "2.6",
+       "equip_id": "DA_WarmogsArmor",
+       "equip_rank": "1",
+       "use_num": "10",
+       "use_rate": "0.10101"
+      },
+      {
+       "avg_rank": "2.705882",
+       "equip_id": "DA_GargoyleStoneplate",
+       "equip_rank": "2",
+       "use_num": "17",
+       "use_rate": "0.171717"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100350",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "3.545455",
+       "equip_id": "DA_WarmogsArmor",
+       "equip_rank": "1",
+       "use_num": "11",
+       "use_rate": "0.174603"
+      },
+      {
+       "avg_rank": "3.764706",
+       "equip_id": "DA_GargoyleStoneplate",
+       "equip_rank": "2",
+       "use_num": "16",
+       "use_rate": "0.253968"
+      }
+     ]
+    }
+   },
+   {
+    "chess_id": "100367",
+    "data": {
+     "equip_group": {
+      "avg_rank": "",
+      "equip_id_list": [],
+      "use_num": "",
+      "use_rate": ""
+     },
+     "equip_list": [
+      {
+       "avg_rank": "3",
+       "equip_id": "DA_WarmogsArmor",
+       "equip_rank": "1",
+       "use_num": "10",
+       "use_rate": "0.192308"
+      },
+      {
+       "avg_rank": "3.785714",
+       "equip_id": "DA_GargoyleStoneplate",
+       "equip_rank": "2",
+       "use_num": "13",
+       "use_rate": "0.25"
+      },
+      {
+       "avg_rank": "3.916667",
+       "equip_id": "DA_SpiritVisage",
+       "equip_rank": "3",
+       "use_num": "12",
+       "use_rate": "0.230769"
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

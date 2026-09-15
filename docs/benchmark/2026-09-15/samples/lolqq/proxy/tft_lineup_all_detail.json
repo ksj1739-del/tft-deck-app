@@ -1,0 +1,1266 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "83796583-0140-4f69-b073-00280c62289d",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "20260914",
+  "v_version_id": "",
+  "id": "winlineup_MTEwMCMxMDM3OTsxMDM4MyQxMDAzMzE7MTAwMzM3JDg=",
+  "augment_data": [
+   {
+    "rune_id": "DA_ClockworkAccelerator",
+    "info": {
+     "avg_rank": "3.220779",
+     "use_rate": "0.035489",
+     "use_num": "231",
+     "1_avg_rank": "3.1875",
+     "2_avg_rank": "3.373134",
+     "3_avg_rank": "2",
+     "rune_id_rank": "1"
+    }
+   },
+   {
+    "rune_id": "DA_CelestialBlessingI",
+    "info": {
+     "avg_rank": "3.270677",
+     "use_rate": "0.020433",
+     "use_num": "133",
+     "1_avg_rank": "3.208791",
+     "2_avg_rank": "3.439024",
+     "3_avg_rank": "2",
+     "rune_id_rank": "2"
+    }
+   },
+   {
+    "rune_id": "DA_PortableForge",
+    "info": {
+     "avg_rank": "3.363022",
+     "use_rate": "0.250115",
+     "use_num": "1628",
+     "1_avg_rank": "3.345238",
+     "2_avg_rank": "3.368515",
+     "3_avg_rank": "3.361169",
+     "rune_id_rank": "3"
+    }
+   },
+   {
+    "rune_id": "DA_LivingForge",
+    "info": {
+     "avg_rank": "3.434066",
+     "use_rate": "0.027961",
+     "use_num": "182",
+     "1_avg_rank": "3.948718",
+     "2_avg_rank": "3.263736",
+     "3_avg_rank": "3.346154",
+     "rune_id_rank": "4"
+    }
+   },
+   {
+    "rune_id": "DA_HealingOrbsII",
+    "info": {
+     "avg_rank": "3.452055",
+     "use_rate": "0.02243",
+     "use_num": "146",
+     "1_avg_rank": "3.448276",
+     "2_avg_rank": "3.27027",
+     "3_avg_rank": "4.428571",
+     "rune_id_rank": "5"
+    }
+   }
+  ],
+  "equip_data": [
+   {
+    "equip_type": "1",
+    "list": [
+     {
+      "info": {
+       "equip_id": "DA_18_EmblemBrawler",
+       "equip_rank": "1"
+      },
+      "list": [
+       {
+        "avg_rank": "3.8",
+        "chess_id": "100352",
+        "chess_rank": "1",
+        "top_1_rate": "0.1818",
+        "top_4_rate": "0.4545",
+        "use_num": "11",
+        "use_rate": "0.0199"
+       },
+       {
+        "avg_rank": "3.9",
+        "chess_id": "100339",
+        "chess_rank": "2",
+        "top_1_rate": "0.1071",
+        "top_4_rate": "0.5714",
+        "use_num": "28",
+        "use_rate": "0.0505"
+       },
+       {
+        "avg_rank": "4.2",
+        "chess_id": "100331",
+        "chess_rank": "3",
+        "top_1_rate": "0.0741",
+        "top_4_rate": "0.5711",
+        "use_num": "499",
+        "use_rate": "0.9007"
+       }
+      ]
+     },
+     {
+      "info": {
+       "equip_id": "DA_18_EmblemBlossom",
+       "equip_rank": "2"
+      },
+      "list": [
+       {
+        "avg_rank": "3.6",
+        "chess_id": "100323",
+        "chess_rank": "1",
+        "top_1_rate": "0.1351",
+        "top_4_rate": "0.7297",
+        "use_num": "37",
+        "use_rate": "0.1682"
+       },
+       {
+        "avg_rank": "3.8",
+        "chess_id": "100338",
+        "chess_rank": "2",
+        "top_1_rate": "0.0435",
+        "top_4_rate": "0.6957",
+        "use_num": "23",
+        "use_rate": "0.1045"
+       },
+       {
+        "avg_rank": "4.2",
+        "chess_id": "100339",
+        "chess_rank": "3",
+        "top_1_rate": "0.0323",
+        "top_4_rate": "0.5806",
+        "use_num": "31",
+        "use_rate": "0.1409"
+       },
+       {
+        "avg_rank": "4.3",
+        "chess_id": "100352",
+        "chess_rank": "4",
+        "top_1_rate": "0.0147",
+        "top_4_rate": "0.5588",
+        "use_num": "68",
+        "use_rate": "0.3091"
+       },
+       {
+        "avg_rank": "4.5",
+        "chess_id": "100337",
+        "chess_rank": "5",
+        "top_1_rate": "0.0222",
+        "top_4_rate": "0.4889",
+        "use_num": "45",
+        "use_rate": "0.2045"
+       }
+      ]
+     },
+     {
+      "info": {
+       "equip_id": "DA_18_EmblemInvoker",
+       "equip_rank": "3"
+      },
+      "list": [
+       {
+        "avg_rank": "3.3",
+        "chess_id": "100352",
+        "chess_rank": "1",
+        "top_1_rate": "0.1452",
+        "top_4_rate": "0.7581",
+        "use_num": "62",
+        "use_rate": "0.5905"
+       },
+       {
+        "avg_rank": "3.9",
+        "chess_id": "100323",
+        "chess_rank": "2",
+        "top_1_rate": "0.1304",
+        "top_4_rate": "0.7391",
+        "use_num": "23",
+        "use_rate": "0.219"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "equip_type": "2",
+    "list": [
+     {
+      "info": {
+       "equip_id": "DA_Guinsoos<플레이어>bladeRadiant",
+       "equip_rank": "1"
+      },
+      "list": [
+       {
+        "avg_rank": "3.1",
+        "chess_id": "100331",
+        "chess_rank": "1",
+        "top_1_rate": "0.2583",
+        "top_4_rate": "0.7583",
+        "use_num": "120",
+        "use_rate": "0.9231"
+       }
+      ]
+     },
+     {
+      "info": {
+       "equip_id": "DA_TitansResolve_Radiant",
+       "equip_rank": "2"
+      },
+      "list": [
+       {
+        "avg_rank": "3.6",
+        "chess_id": "100331",
+        "chess_rank": "1",
+        "top_1_rate": "0.125",
+        "top_4_rate": "0.6563",
+        "use_num": "96",
+        "use_rate": "0.9057"
+       }
+      ]
+     },
+     {
+      "info": {
+       "equip_id": "DA_EdgeOfNightRadiant",
+       "equip_rank": "3"
+      },
+      "list": [
+       {
+        "avg_rank": "3.2",
+        "chess_id": "100331",
+        "chess_rank": "1",
+        "top_1_rate": "0.1071",
+        "top_4_rate": "0.7679",
+        "use_num": "56",
+        "use_rate": "0.918"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "equip_type": "4",
+    "list": [
+     {
+      "info": {
+       "equip_id": "DA_Artifact_RapidFireCannon",
+       "equip_rank": "1"
+      },
+      "list": [
+       {
+        "avg_rank": "2.8",
+        "chess_id": "100352",
+        "chess_rank": "1",
+        "top_1_rate": "0.3",
+        "top_4_rate": "0.8",
+        "use_num": "10",
+        "use_rate": "0.0145"
+       },
+       {
+        "avg_rank": "3.5",
+        "chess_id": "100331",
+        "chess_rank": "2",
+        "top_1_rate": "0.1333",
+        "top_4_rate": "0.717",
+        "use_num": "675",
+        "use_rate": "0.9783"
+       }
+      ]
+     },
+     {
+      "info": {
+       "equip_id": "DA_Artifact_WitsEnd",
+       "equip_rank": "2"
+      },
+      "list": [
+       {
+        "avg_rank": "2.9",
+        "chess_id": "100331",
+        "chess_rank": "1",
+        "top_1_rate": "0.2148",
+        "top_4_rate": "0.8249",
+        "use_num": "554",
+        "use_rate": "0.9823"
+       }
+      ]
+     },
+     {
+      "info": {
+       "equip_id": "DA_Artifact_NavoriFlickerblade",
+       "equip_rank": "3"
+      },
+      "list": [
+       {
+        "avg_rank": "3.2",
+        "chess_id": "100331",
+        "chess_rank": "1",
+        "top_1_rate": "0.1624",
+        "top_4_rate": "0.7835",
+        "use_num": "388",
+        "use_rate": "0.9417"
+       },
+       {
+        "avg_rank": "3.3",
+        "chess_id": "100337",
+        "chess_rank": "2",
+        "top_1_rate": "0.0769",
+        "top_4_rate": "0.6923",
+        "use_num": "13",
+        "use_rate": "0.0316"
+       },
+       {
+        "avg_rank": "3.6",
+        "chess_id": "100352",
+        "chess_rank": "3",
+        "top_1_rate": "0.0769",
+        "top_4_rate": "0.6923",
+        "use_num": "13",
+        "use_rate": "0.0316"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "equip_type": "5",
+    "list": [
+     {
+      "info": {
+       "equip_id": "DA_Guinsoos<플레이어>blade",
+       "equip_rank": "1"
+      },
+      "list": [
+       {
+        "avg_rank": "2.8",
+        "chess_id": "100333",
+        "chess_rank": "1",
+        "top_1_rate": "0.2195",
+        "top_4_rate": "0.8554",
+        "use_num": "401",
+        "use_rate": "0.0662"
+       },
+       {
+        "avg_rank": "2.9",
+        "chess_id": "100368",
+        "chess_rank": "2",
+        "top_1_rate": "0.1176",
+        "top_4_rate": "0.7647",
+        "use_num": "17",
+        "use_rate": "0.0028"
+       },
+       {
+        "avg_rank": "3",
+        "chess_id": "100339",
+        "chess_rank": "3",
+        "top_1_rate": "0.1887",
+        "top_4_rate": "0.7736",
+        "use_num": "53",
+        "use_rate": "0.0087"
+       },
+       {
+        "avg_rank": "3.2",
+        "chess_id": "100346",
+        "chess_rank": "4",
+        "top_1_rate": "0.1667",
+        "top_4_rate": "0.8148",
+        "use_num": "54",
+        "use_rate": "0.0089"
+       },
+       {
+        "avg_rank": "3.2",
+        "chess_id": "100323",
+        "chess_rank": "5",
+        "top_1_rate": "0.1739",
+        "top_4_rate": "0.7681",
+        "use_num": "69",
+        "use_rate": "0.0114"
+       }
+      ]
+     },
+     {
+      "info": {
+       "equip_id": "DA_GargoyleStoneplate",
+       "equip_rank": "2"
+      },
+      "list": [
+       {
+        "avg_rank": "2.7",
+        "chess_id": "100372",
+        "chess_rank": "1",
+        "top_1_rate": "0.3529",
+        "top_4_rate": "0.8235",
+        "use_num": "17",
+        "use_rate": "0.0036"
+       },
+       {
+        "avg_rank": "3.4",
+        "chess_id": "100339",
+        "chess_rank": "2",
+        "top_1_rate": "0.1329",
+        "top_4_rate": "0.7401",
+        "use_num": "1535",
+        "use_rate": "0.3213"
+       },
+       {
+        "avg_rank": "3.6",
+        "chess_id": "100346",
+        "chess_rank": "3",
+        "top_1_rate": "0.1256",
+        "top_4_rate": "0.7019",
+        "use_num": "1258",
+        "use_rate": "0.2633"
+       },
+       {
+        "avg_rank": "3.6",
+        "chess_id": "100338",
+        "chess_rank": "4",
+        "top_1_rate": "0.1142",
+        "top_4_rate": "0.699",
+        "use_num": "2452",
+        "use_rate": "0.5133"
+       },
+       {
+        "avg_rank": "3.8",
+        "chess_id": "100367",
+        "chess_rank": "5",
+        "top_1_rate": "0.1538",
+        "top_4_rate": "0.6154",
+        "use_num": "13",
+        "use_rate": "0.0027"
+       }
+      ]
+     },
+     {
+      "info": {
+       "equip_id": "DA_EdgeOfNight",
+       "equip_rank": "3"
+      },
+      "list": [
+       {
+        "avg_rank": "2.4",
+        "chess_id": "100357",
+        "chess_rank": "1",
+        "top_1_rate": "0.1667",
+        "top_4_rate": "0.9444",
+        "use_num": "18",
+        "use_rate": "0.0039"
+       },
+       {
+        "avg_rank": "2.7",
+        "chess_id": "100333",
+        "chess_rank": "2",
+        "top_1_rate": "0.2166",
+        "top_4_rate": "0.8457",
+        "use_num": "337",
+        "use_rate": "0.0738"
+       },
+       {
+        "avg_rank": "2.9",
+        "chess_id": "100339",
+        "chess_rank": "3",
+        "top_1_rate": "0.1316",
+        "top_4_rate": "0.8421",
+        "use_num": "76",
+        "use_rate": "0.0166"
+       },
+       {
+        "avg_rank": "3.1",
+        "chess_id": "100346",
+        "chess_rank": "4",
+        "top_1_rate": "0.1845",
+        "top_4_rate": "0.7961",
+        "use_num": "103",
+        "use_rate": "0.0226"
+       },
+       {
+        "avg_rank": "3.2",
+        "chess_id": "100338",
+        "chess_rank": "5",
+        "top_1_rate": "0.16",
+        "top_4_rate": "0.88",
+        "use_num": "25",
+        "use_rate": "0.0055"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "key_champion_data": [
+   {
+    "chess_id": "100331",
+    "info": {
+     "1_star_percent": "0.00507",
+     "2_star_percent": "0.262099",
+     "3_star_percent": "0.732831",
+     "avg_rank": "3.714856",
+     "avg_rank_cycle": "0.076992",
+     "chess_rank": "1",
+     "equip_num": "2.961438",
+     "top_1_rate": "0.114303",
+     "top_4_rate": "0.670149",
+     "use_rate": "1"
+    }
+   },
+   {
+    "chess_id": "100337",
+    "info": {
+     "1_star_percent": "0.021083",
+     "2_star_percent": "0.506617",
+     "3_star_percent": "0.472299",
+     "avg_rank": "3.711296",
+     "avg_rank_cycle": "0.078232",
+     "chess_rank": "2",
+     "equip_num": "2.33518",
+     "top_1_rate": "0.114497",
+     "top_4_rate": "0.670668",
+     "use_rate": "0.99831"
+    }
+   },
+   {
+    "chess_id": "100352",
+    "info": {
+     "1_star_percent": "0.321412",
+     "2_star_percent": "0.668525",
+     "3_star_percent": "0.010063",
+     "avg_rank": "3.698096",
+     "avg_rank_cycle": "0.076982",
+     "chess_rank": "3",
+     "equip_num": "2.0048",
+     "top_1_rate": "0.114878",
+     "top_4_rate": "0.673324",
+     "use_rate": "0.992318"
+    }
+   },
+   {
+    "chess_id": "100346",
+    "info": {
+     "1_star_percent": "0.325885",
+     "2_star_percent": "0.661998",
+     "3_star_percent": "0.012116",
+     "avg_rank": "3.671125",
+     "avg_rank_cycle": "0.070947",
+     "chess_rank": "4",
+     "equip_num": "1.497561",
+     "top_1_rate": "0.116758",
+     "top_4_rate": "0.67915",
+     "use_rate": "0.97634"
+    }
+   }
+  ],
+  "key_champion_units_data": [
+   {
+    "chess_id": "100331",
+    "equip_list": [
+     {
+      "equip_id": "DA_Artifact_WitsEnd",
+      "avg_rank": "2.938628",
+      "use_rate": "0.085113",
+      "use_num": "554",
+      "equip_rank": "1"
+     },
+     {
+      "equip_id": "DA_Guinsoos<플레이어>bladeRadiant",
+      "avg_rank": "3.091667",
+      "use_rate": "0.018436",
+      "use_num": "120",
+      "equip_rank": "2"
+     },
+     {
+      "equip_id": "DA_EdgeOfNightRadiant",
+      "avg_rank": "3.196429",
+      "use_rate": "0.008603",
+      "use_num": "56",
+      "equip_rank": "3"
+     },
+     {
+      "equip_id": "DA_Artifact_NavoriFlickerblade",
+      "avg_rank": "3.210256",
+      "use_rate": "0.05961",
+      "use_num": "388",
+      "equip_rank": "4"
+     },
+     {
+      "equip_id": "DA_Artifact_HellfireHatchet",
+      "avg_rank": "3.249147",
+      "use_rate": "0.045015",
+      "use_num": "293",
+      "equip_rank": "5"
+     }
+    ]
+   },
+   {
+    "chess_id": "100337",
+    "equip_list": [
+     {
+      "equip_id": "DA_WarmogsArmor",
+      "avg_rank": "2.933333",
+      "use_rate": "0.002308",
+      "use_num": "15",
+      "equip_rank": "1"
+     },
+     {
+      "equip_id": "DA_Artifact_EternalPact",
+      "avg_rank": "3.214286",
+      "use_rate": "0.002155",
+      "use_num": "14",
+      "equip_rank": "2"
+     },
+     {
+      "equip_id": "DA_Quicksilver",
+      "avg_rank": "3.268817",
+      "use_rate": "0.014312",
+      "use_num": "93",
+      "equip_rank": "3"
+     },
+     {
+      "equip_id": "DA_Morellonomicon",
+      "avg_rank": "3.275766",
+      "use_rate": "0.055248",
+      "use_num": "359",
+      "equip_rank": "4"
+     },
+     {
+      "equip_id": "DA_TitansResolve",
+      "avg_rank": "3.30303",
+      "use_rate": "0.005078",
+      "use_num": "33",
+      "equip_rank": "5"
+     }
+    ]
+   },
+   {
+    "chess_id": "100352",
+    "equip_list": [
+     {
+      "equip_id": "DA_ProtectorsVow",
+      "avg_rank": "2.615385",
+      "use_rate": "0.004025",
+      "use_num": "26",
+      "equip_rank": "1"
+     },
+     {
+      "equip_id": "DA_IonicSpark",
+      "avg_rank": "3",
+      "use_rate": "0.005109",
+      "use_num": "33",
+      "equip_rank": "2"
+     },
+     {
+      "equip_id": "DA_Artifact_Manazane",
+      "avg_rank": "3.071429",
+      "use_rate": "0.002168",
+      "use_num": "14",
+      "equip_rank": "3"
+     },
+     {
+      "equip_id": "DA_DragonsClaw",
+      "avg_rank": "3.12",
+      "use_rate": "0.003871",
+      "use_num": "25",
+      "equip_rank": "4"
+     },
+     {
+      "equip_id": "DA_SpiritVisage",
+      "avg_rank": "3.151515",
+      "use_rate": "0.005109",
+      "use_num": "33",
+      "equip_rank": "5"
+     }
+    ]
+   }
+  ],
+  "level_data": [
+   {
+    "degree": "7",
+    "info": {
+     "avg_rank": "5.6",
+     "use_num": "632",
+     "use_num_percent": "0.0969"
+    }
+   },
+   {
+    "degree": "8",
+    "info": {
+     "avg_rank": "3.6",
+     "use_num": "5228",
+     "use_num_percent": "0.8015"
+    }
+   },
+   {
+    "degree": "9",
+    "info": {
+     "avg_rank": "2.5",
+     "use_num": "636",
+     "use_num_percent": "0.0975"
+    }
+   },
+   {
+    "degree": "10",
+    "info": {
+     "avg_rank": "2.3",
+     "use_num": "27",
+     "use_num_percent": "0.0041"
+    }
+   }
+  ],
+  "lineup_data": {
+   "assist_chess": [
+    "100337"
+   ],
+   "assist_chess_equip": [
+    "DA_JeweledGauntlet",
+    "DA_RedBuff",
+    "DA_SpearOfShojin"
+   ],
+   "second_assist_chess": "100338",
+   "second_assist_chess_equip": [
+    "DA_GargoyleStoneplate",
+    "DA_SpiritVisage",
+    "DA_WarmogsArmor"
+   ],
+   "lineup_population": "8",
+   "avg_rank": "3.6",
+   "avg_rank_diff": "-0.1",
+   "core_chess": [
+    "100331",
+    "100337",
+    "100338",
+    "100352",
+    "100346",
+    "100339",
+    "100323",
+    "100310"
+   ],
+   "free_chess": [],
+   "main_c_chess_equip": [
+    "DA_EdgeOfNight",
+    "DA_Guinsoos<플레이어>blade",
+    "DA_TitansResolve"
+   ],
+   "stages": null,
+   "top_1_rate": "0.108",
+   "top_1_rate_diff": "0.0096",
+   "top_4_rate": "0.6881",
+   "top_4_rate_diff": "-0.015",
+   "transfer_group": [
+    {
+     "equip_id": "",
+     "num": ""
+    }
+   ],
+   "use_num": "4232",
+   "use_rate": "0.0021",
+   "use_rate_diff": "-0.0002"
+  },
+  "mechanictrait_data": [],
+  "more_lineup_add_data": [
+   {
+    "chess_group": [
+     "100310",
+     "100323",
+     "100331",
+     "100333",
+     "100337",
+     "100338",
+     "100339",
+     "100346",
+     "100352"
+    ],
+    "top": "1",
+    "trait_group": [
+     {
+      "trait_id": "10384",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "10412",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "10413",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "10385",
+      "chess_num": "1"
+     }
+    ]
+   },
+   {
+    "chess_group": [
+     "100299",
+     "100310",
+     "100331",
+     "100337",
+     "100338",
+     "100339",
+     "100346",
+     "100352"
+    ],
+    "top": "2",
+    "trait_group": [
+     {
+      "trait_id": "10384",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "10412",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "10413",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "10385",
+      "chess_num": "1"
+     }
+    ]
+   }
+  ],
+  "more_lineup_data": [
+   {
+    "assist_chess": [
+     "100333"
+    ],
+    "assist_chess_equip": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "avg_rank": "2.4",
+    "avg_rank_diff": "0",
+    "core_chess": [
+     "100331",
+     "100339",
+     "100346",
+     "100352",
+     "100338",
+     "100337",
+     "100323",
+     "100310"
+    ],
+    "free_chess": [
+     "100333"
+    ],
+    "lineup_chess_id_list": [
+     "100310",
+     "100323",
+     "100331",
+     "100333",
+     "100337",
+     "100338",
+     "100339",
+     "100346",
+     "100352"
+    ],
+    "main_c_chess": "100331",
+    "main_c_chess_equip": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "rank": "1",
+    "stage_pass_num": [],
+    "use_num": "259",
+    "use_rate": "0.0001",
+    "use_rate_diff": "0",
+    "top_1_rate": "0.2857",
+    "top_1_rate_diff": "0",
+    "top_4_rate": "0.9305",
+    "top_4_rate_diff": "0"
+   },
+   {
+    "assist_chess": [
+     "100352"
+    ],
+    "assist_chess_equip": [
+     "DA_Guinsoos<플레이어>blade",
+     "DA_JeweledGauntlet",
+     "DA_VoidStaff"
+    ],
+    "avg_rank": "3.4",
+    "avg_rank_diff": "0",
+    "core_chess": [
+     "100331",
+     "100352",
+     "100337",
+     "100346",
+     "100339",
+     "100338",
+     "100310"
+    ],
+    "free_chess": [
+     "100299"
+    ],
+    "lineup_chess_id_list": [
+     "100299",
+     "100310",
+     "100331",
+     "100337",
+     "100338",
+     "100339",
+     "100346",
+     "100352"
+    ],
+    "main_c_chess": "100331",
+    "main_c_chess_equip": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "rank": "2",
+    "stage_pass_num": [],
+    "use_num": "150",
+    "use_rate": "0.0001",
+    "use_rate_diff": "0",
+    "top_1_rate": "0.1",
+    "top_1_rate_diff": "-0.039",
+    "top_4_rate": "0.72",
+    "top_4_rate_diff": "-0.034"
+   }
+  ],
+  "level_change_lineup_data": [
+   {
+    "level": "7",
+    "avg_rank": "5.825",
+    "list": [
+     {
+      "rank": "1",
+      "main_trait_list": [
+       {
+        "trait_id": "10379",
+        "chess_num": "3"
+       },
+       {
+        "trait_id": "10383",
+        "chess_num": "3"
+       }
+      ],
+      "sub_trait_list": [
+       {
+        "trait_id": "10384",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10412",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10413",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10385",
+        "chess_num": "1"
+       }
+      ],
+      "lineup": [
+       "100310",
+       "100331",
+       "100337",
+       "100338",
+       "100339",
+       "100346",
+       "100352"
+      ],
+      "main_c_chess": "100331",
+      "assist_chess": [
+       "100337"
+      ],
+      "avg_rank": "5.4",
+      "avg_rank_diff": "0",
+      "use_num": "2571",
+      "use_rate": "0.0074",
+      "use_rate_diff": "-0.0008",
+      "top_1_rate": "0.0132",
+      "top_1_rate_diff": "0.0001",
+      "top_4_rate": "0.3034",
+      "top_4_rate_diff": "-0.0086",
+      "final_pos_data": []
+     },
+     {
+      "rank": "2",
+      "main_trait_list": [
+       {
+        "trait_id": "10379",
+        "chess_num": "4"
+       },
+       {
+        "trait_id": "10383",
+        "chess_num": "3"
+       }
+      ],
+      "sub_trait_list": [
+       {
+        "trait_id": "10412",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10413",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10385",
+        "chess_num": "1"
+       }
+      ],
+      "lineup": [
+       "100310",
+       "100323",
+       "100331",
+       "100337",
+       "100339",
+       "100346",
+       "100352"
+      ],
+      "main_c_chess": "100331",
+      "assist_chess": [
+       "100337"
+      ],
+      "avg_rank": "5.8",
+      "avg_rank_diff": "0",
+      "use_num": "147",
+      "use_rate": "0.0004",
+      "use_rate_diff": "-0.0001",
+      "top_1_rate": "0.0068",
+      "top_1_rate_diff": "-0.007",
+      "top_4_rate": "0.2313",
+      "top_4_rate_diff": "0.0562",
+      "final_pos_data": []
+     },
+     {
+      "rank": "3",
+      "main_trait_list": [
+       {
+        "trait_id": "10379",
+        "chess_num": "3"
+       },
+       {
+        "trait_id": "10383",
+        "chess_num": "3"
+       }
+      ],
+      "sub_trait_list": [
+       {
+        "trait_id": "10384",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10412",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10385",
+        "chess_num": "1"
+       }
+      ],
+      "lineup": [
+       "100310",
+       "100323",
+       "100331",
+       "100337",
+       "100338",
+       "100339",
+       "100346"
+      ],
+      "main_c_chess": "100331",
+      "assist_chess": [
+       "100337"
+      ],
+      "avg_rank": "5.9",
+      "avg_rank_diff": "-0.1",
+      "use_num": "495",
+      "use_rate": "0.0014",
+      "use_rate_diff": "-0.0002",
+      "top_1_rate": "0.0101",
+      "top_1_rate_diff": "0.0054",
+      "top_4_rate": "0.2",
+      "top_4_rate_diff": "0.0253",
+      "final_pos_data": []
+     },
+     {
+      "rank": "4",
+      "main_trait_list": [
+       {
+        "trait_id": "10379",
+        "chess_num": "4"
+       }
+      ],
+      "sub_trait_list": [
+       {
+        "trait_id": "10412",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10413",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10385",
+        "chess_num": "1"
+       }
+      ],
+      "lineup": [
+       "100310",
+       "100323",
+       "100331",
+       "100337",
+       "100338",
+       "100339",
+       "100352"
+      ],
+      "main_c_chess": "100331",
+      "assist_chess": [
+       "100337"
+      ],
+      "avg_rank": "6.2",
+      "avg_rank_diff": "-0.1",
+      "use_num": "429",
+      "use_rate": "0.0012",
+      "use_rate_diff": "-0.0002",
+      "top_1_rate": "0.0023",
+      "top_1_rate_diff": "0.0023",
+      "top_4_rate": "0.1469",
+      "top_4_rate_diff": "0.0155",
+      "final_pos_data": []
+     }
+    ]
+   },
+   {
+    "level": "8",
+    "avg_rank": "3.45",
+    "list": [
+     {
+      "rank": "1",
+      "main_trait_list": [
+       {
+        "trait_id": "10379",
+        "chess_num": "3"
+       },
+       {
+        "trait_id": "10383",
+        "chess_num": "3"
+       }
+      ],
+      "sub_trait_list": [
+       {
+        "trait_id": "10384",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10405",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10412",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10413",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10385",
+        "chess_num": "1"
+       },
+       {
+        "trait_id": "10407",
+        "chess_num": "1"
+       }
+      ],
+      "lineup": [
+       "100310",
+       "100331",
+       "100337",
+       "100338",
+       "100339",
+       "100346",
+       "100349",
+       "100352"
+      ],
+      "main_c_chess": "100331",
+      "assist_chess": [
+       "100337"
+      ],
+      "avg_rank": "3.3",
+      "avg_rank_diff": "-0.1",
+      "use_num": "462",
+      "use_rate": "0.0013",
+      "use_rate_diff": "-0.0002",
+      "top_1_rate": "0.1472",
+      "top_1_rate_diff": "0.0065",
+      "top_4_rate": "0.7554",
+      "top_4_rate_diff": "-0.0029",
+      "final_pos_data": []
+     },
+     {
+      "rank": "2",
+      "main_trait_list": [
+       {
+        "trait_id": "10379",
+        "chess_num": "4"
+       },
+       {
+        "trait_id": "10383",
+        "chess_num": "3"
+       }
+      ],
+      "sub_trait_list": [
+       {
+        "trait_id": "10384",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10412",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10413",
+        "chess_num": "2"
+       },
+       {
+        "trait_id": "10385",
+        "chess_num": "1"
+       }
+      ],
+      "lineup": [
+       "100310",
+       "100323",
+       "100331",
+       "100337",
+       "100338",
+       "100339",
+       "100346",
+       "100352"
+      ],
+      "main_c_chess": "100331",
+      "assist_chess": [
+       "100337"
+      ],
+      "avg_rank": "3.6",
+      "avg_rank_diff": "0",
+      "use_num": "4054",
+      "use_rate": "0.0116",
+      "use_rate_diff": "-0.0011",
+      "top_1_rate": "0.1095",
+      "top_1_rate_diff": "0.0098",
+      "top_4_rate": "0.6912",
+      "top_4_rate_diff": "-0.0148",
+      "final_pos_data": []
+     }
+    ]
+   }
+  ],
+  "designate_equip_data": []
+ }
+}

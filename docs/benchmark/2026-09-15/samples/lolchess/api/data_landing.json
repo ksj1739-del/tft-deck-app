@@ -1,0 +1,4 @@
+{
+ "season": "<str>",
+ "isReleased": "<bool>"
+}

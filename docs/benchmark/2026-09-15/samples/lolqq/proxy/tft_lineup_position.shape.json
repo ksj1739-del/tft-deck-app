@@ -1,0 +1,711 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "013dbbd8-02c3-46c8-ad69-85df23389cc2",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "20260914",
+  "v_version_id": "",
+  "content_pos_data": [
+   {
+    "chess_id": "100310",
+    "position_data": [
+     {
+      "AssignedBy": 0,
+      "position": {
+       "x": "3",
+       "y": "1"
+      },
+      "rank": "1",
+      "score": "0.124045",
+      "use_rate": "0.156758",
+      "win_rate": "0.091331"
+     },
+     {
+      "AssignedBy": 0,
+      "position": {
+       "x": "3",
+       "y": "4"
+      },
+      "rank": "2",
+      "score": "0.103948",
+      "use_rate": "0.115263",
+      "win_rate": "0.092632"
+     },
+     "... 외 8개"
+    ]
+   },
+   {
+    "chess_id": "100323",
+    "position_data": [
+     {
+      "AssignedBy": 0,
+      "position": {
+       "x": "5",
+       "y": "1"
+      },
+      "rank": "1",
+      "score": "0.173103",
+      "use_rate": "0.250182",
+      "win_rate": "0.096023"
+     },
+     {
+      "AssignedBy": 0,
+      "position": {
+       "x": "1",
+       "y": "1"
+      },
+      "rank": "2",
+      "score": "0.137431",
+      "use_rate": "0.151662",
+      "win_rate": "0.1232"
+     },
+     "... 외 8개"
+    ]
+   },
+   "... 외 6개"
+  ],
+  "excessive_content_data": [
+   {
+    "degree": "3",
+    "lineup": [
+     "100310",
+     "100312",
+     "... 외 1개"
+    ],
+    "diff": {
+     "added": null,
+     "missing": null
+    },
+    "use_rate": "0.062761",
+    "win_rate": "0.5504",
+    "pos_data": [
+     {
+      "chess_id": "100310",
+      "position_data": [
+       {
+        "AssignedBy": 0,
+        "position": {
+         "x": "4",
+         "y": "4"
+        },
+        "rank": "1",
+        "score": "0.622999",
+        "use_rate": "0.580254",
+        "win_rate": "0.665744"
+       },
+       {
+        "AssignedBy": 0,
+        "position": {
+         "x": "3",
+         "y": "4"
+        },
+        "rank": "2",
+        "score": "0.458005",
+        "use_rate": "0.28151",
+        "win_rate": "0.634501"
+       },
+       "... 외 8개"
+      ]
+     },
+     {
+      "chess_id": "100312",
+      "position_data": [
+       {
+        "AssignedBy": 0,
+        "position": {
+         "x": "1",
+         "y": "1"
+        },
+        "rank": "1",
+        "score": "0.744854",
+        "use_rate": "0.820578",
+        "win_rate": "0.669129"
+       },
+       {
+        "AssignedBy": 0,
+        "position": {
+         "x": "7",
+         "y": "1"
+        },
+        "rank": "2",
+        "score": "0.354696",
+        "use_rate": "0.082737",
+        "win_rate": "0.626655"
+       },
+       "... 외 8개"
+      ]
+     },
+     "... 외 1개"
+    ],
+    "final_pos_data": [
+     {
+      "chess_id": "100310",
+      "rank": 1,
+      "score": 0.622999,
+      "x": "4",
+      "y": "4"
+     },
+     {
+      "chess_id": "100312",
+      "rank": 1,
+      "score": 0.744854,
+      "x": "1",
+      "y": "1"
+     },
+     "... 외 1개"
+    ],
+    "equip_data": [
+     {
+      "chess_id": "100310",
+      "avg_equip": "0.0",
+      "equip_list": []
+     },
+     {
+      "chess_id": "100312",
+      "avg_equip": "0.0",
+      "equip_list": []
+     },
+     "... 외 1개"
+    ]
+   },
+   {
+    "degree": "4",
+    "lineup": [
+     "100304",
+     "100310",
+     "... 외 2개"
+    ],
+    "diff": {
+     "added": null,
+     "missing": null
+    },
+    "use_rate": "0.026398",
+    "win_rate": "0.5337",
+    "pos_data": [
+     {
+      "chess_id": "100304",
+      "position_data": [
+       {
+        "AssignedBy": 0,
+        "position": {
+         "x": "4",
+         "y": "4"
+        },
+        "rank": "1",
+        "score": "0.540407",
+        "use_rate": "0.310209",
+        "win_rate": "0.770605"
+       },
+       {
+        "AssignedBy": 0,
+        "position": {
+         "x": "3",
+         "y": "4"
+        },
+        "rank": "2",
+        "score": "0.518539",
+        "use_rate": "0.288933",
+        "win_rate": "0.748144"
+       },
+       "... 외 8개"
+      ]
+     },
+     {
+      "chess_id": "100310",
+      "position_data": [
+       {
+        "AssignedBy": 0,
+        "position": {
+         "x": "4",
+         "y": "4"
+        },
+        "rank": "1",
+        "score": "0.62675",
+        "use_rate": "0.494368",
+        "win_rate": "0.759132"
+       },
+       {
+        "AssignedBy": 0,
+        "position": {
+         "x": "3",
+         "y": "4"
+        },
+        "rank": "2",
+        "score": "0.508472",
+        "use_rate": "0.263723",
+        "win_rate": "0.75322"
+       },
+       "... 외 8개"
+      ]
+     },
+     "... 외 2개"
+    ],
+    "final_pos_data": [
+     {
+      "chess_id": "100312",
+      "rank": 1,
+      "score": 0.799388,
+      "x": "1",
+      "y": "1"
+     },
+     {
+      "chess_id": "100331",
+      "rank": 1,
+      "score": 0.477935,
+      "x": "2",
+      "y": "3"
+     },
+     "... 외 2개"
+    ],
+    "equip_data": [
+     {
+      "chess_id": "100304",
+      "avg_equip": "0.0",
+      "equip_list": []
+     },
+     {
+      "chess_id": "100310",
+      "avg_equip": "0.0",
+      "equip_list": []
+     },
+     "... 외 2개"
+    ]
+   },
+   "... 외 3개"
+  ],
+  "excessive_content_data_top5": [
+   {
+    "degree": "3",
+    "items": [
+     {
+      "degree": "3",
+      "rank": "1",
+      "lineup": [
+       "100310",
+       "100312",
+       "... 외 1개"
+      ],
+      "win_rate": "0.5504",
+      "use_rate": "0.062761",
+      "pos_data": [
+       {
+        "chess_id": "100310",
+        "position_data": [
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "4",
+           "y": "4"
+          },
+          "rank": "1",
+          "score": "0.622999",
+          "use_rate": "0.580254",
+          "win_rate": "0.665744"
+         },
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "3",
+           "y": "4"
+          },
+          "rank": "2",
+          "score": "0.458005",
+          "use_rate": "0.28151",
+          "win_rate": "0.634501"
+         },
+         "... 외 8개"
+        ]
+       },
+       {
+        "chess_id": "100312",
+        "position_data": [
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "1",
+           "y": "1"
+          },
+          "rank": "1",
+          "score": "0.744854",
+          "use_rate": "0.820578",
+          "win_rate": "0.669129"
+         },
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "7",
+           "y": "1"
+          },
+          "rank": "2",
+          "score": "0.354696",
+          "use_rate": "0.082737",
+          "win_rate": "0.626655"
+         },
+         "... 외 8개"
+        ]
+       },
+       "... 외 1개"
+      ],
+      "final_pos_data": [
+       {
+        "chess_id": "100310",
+        "rank": 1,
+        "score": 0.622999,
+        "x": "4",
+        "y": "4"
+       },
+       {
+        "chess_id": "100312",
+        "rank": 1,
+        "score": 0.744854,
+        "x": "1",
+        "y": "1"
+       },
+       "... 외 1개"
+      ],
+      "equip_data": [
+       {
+        "chess_id": "100310",
+        "avg_equip": "0.0",
+        "equip_list": []
+       },
+       {
+        "chess_id": "100312",
+        "avg_equip": "0.0",
+        "equip_list": []
+       },
+       "... 외 1개"
+      ]
+     },
+     {
+      "degree": "3",
+      "rank": "2",
+      "lineup": [
+       "100310",
+       "100312",
+       "... 외 1개"
+      ],
+      "win_rate": "0.4858",
+      "use_rate": "0.019819",
+      "pos_data": [
+       {
+        "chess_id": "100310",
+        "position_data": [
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "4",
+           "y": "4"
+          },
+          "rank": "1",
+          "score": "0.630549",
+          "use_rate": "0.646479",
+          "win_rate": "0.614618"
+         },
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "3",
+           "y": "4"
+          },
+          "rank": "2",
+          "score": "0.451934",
+          "use_rate": "0.307157",
+          "win_rate": "0.596711"
+         },
+         "... 외 8개"
+        ]
+       },
+       {
+        "chess_id": "100312",
+        "position_data": [
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "1",
+           "y": "1"
+          },
+          "rank": "1",
+          "score": "0.568062",
+          "use_rate": "0.5209",
+          "win_rate": "0.615224"
+         },
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "2",
+           "y": "1"
+          },
+          "rank": "2",
+          "score": "0.45183",
+          "use_rate": "0.330372",
+          "win_rate": "0.573287"
+         },
+         "... 외 8개"
+        ]
+       },
+       "... 외 1개"
+      ],
+      "final_pos_data": [
+       {
+        "chess_id": "100310",
+        "rank": 1,
+        "score": 0.630549,
+        "x": "4",
+        "y": "4"
+       },
+       {
+        "chess_id": "100312",
+        "rank": 1,
+        "score": 0.568062,
+        "x": "1",
+        "y": "1"
+       },
+       "... 외 1개"
+      ],
+      "equip_data": [
+       {
+        "chess_id": "100310",
+        "avg_equip": "0.0",
+        "equip_list": []
+       },
+       {
+        "chess_id": "100312",
+        "avg_equip": "0.0",
+        "equip_list": []
+       },
+       "... 외 1개"
+      ]
+     },
+     "... 외 3개"
+    ]
+   },
+   {
+    "degree": "4",
+    "items": [
+     {
+      "degree": "4",
+      "rank": "1",
+      "lineup": [
+       "100304",
+       "100310",
+       "... 외 2개"
+      ],
+      "win_rate": "0.5337",
+      "use_rate": "0.026398",
+      "pos_data": [
+       {
+        "chess_id": "100304",
+        "position_data": [
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "4",
+           "y": "4"
+          },
+          "rank": "1",
+          "score": "0.540407",
+          "use_rate": "0.310209",
+          "win_rate": "0.770605"
+         },
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "3",
+           "y": "4"
+          },
+          "rank": "2",
+          "score": "0.518539",
+          "use_rate": "0.288933",
+          "win_rate": "0.748144"
+         },
+         "... 외 8개"
+        ]
+       },
+       {
+        "chess_id": "100310",
+        "position_data": [
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "4",
+           "y": "4"
+          },
+          "rank": "1",
+          "score": "0.62675",
+          "use_rate": "0.494368",
+          "win_rate": "0.759132"
+         },
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "3",
+           "y": "4"
+          },
+          "rank": "2",
+          "score": "0.508472",
+          "use_rate": "0.263723",
+          "win_rate": "0.75322"
+         },
+         "... 외 8개"
+        ]
+       },
+       "... 외 2개"
+      ],
+      "final_pos_data": [
+       {
+        "chess_id": "100310",
+        "rank": 2,
+        "score": 0.508472,
+        "x": "3",
+        "y": "4"
+       },
+       {
+        "chess_id": "100312",
+        "rank": 1,
+        "score": 0.799388,
+        "x": "1",
+        "y": "1"
+       },
+       "... 외 2개"
+      ],
+      "equip_data": [
+       {
+        "chess_id": "100304",
+        "avg_equip": "0.0",
+        "equip_list": []
+       },
+       {
+        "chess_id": "100310",
+        "avg_equip": "0.0",
+        "equip_list": []
+       },
+       "... 외 2개"
+      ]
+     },
+     {
+      "degree": "4",
+      "rank": "2",
+      "lineup": [
+       "100310",
+       "100312",
+       "... 외 2개"
+      ],
+      "win_rate": "0.5948",
+      "use_rate": "0.015085",
+      "pos_data": [
+       {
+        "chess_id": "100310",
+        "position_data": [
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "4",
+           "y": "4"
+          },
+          "rank": "1",
+          "score": "0.696959",
+          "use_rate": "0.597588",
+          "win_rate": "0.79633"
+         },
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "3",
+           "y": "4"
+          },
+          "rank": "2",
+          "score": "0.499236",
+          "use_rate": "0.200658",
+          "win_rate": "0.797814"
+         },
+         "... 외 8개"
+        ]
+       },
+       {
+        "chess_id": "100312",
+        "position_data": [
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "1",
+           "y": "1"
+          },
+          "rank": "1",
+          "score": "0.629477",
+          "use_rate": "0.45943",
+          "win_rate": "0.799523"
+         },
+         {
+          "AssignedBy": 0,
+          "position": {
+           "x": "2",
+           "y": "1"
+          },
+          "rank": "2",
+          "score": "0.539643",
+          "use_rate": "0.286184",
+          "win_rate": "0.793103"
+         },
+         "... 외 8개"
+        ]
+       },
+       "... 외 2개"
+      ],
+      "final_pos_data": [
+       {
+        "chess_id": "100331",
+        "rank": 1,
+        "score": 0.480263,
+        "x": "3",
+        "y": "4"
+       },
+       {
+        "chess_id": "100337",
+        "rank": 2,
+        "score": 0.56114,
+        "x": "2",
+        "y": "1"
+       },
+       "... 외 2개"
+      ],
+      "equip_data": [
+       {
+        "chess_id": "100310",
+        "avg_equip": "0.0",
+        "equip_list": []
+       },
+       {
+        "chess_id": "100312",
+        "avg_equip": "0.0",
+        "equip_list": []
+       },
+       "... 외 2개"
+      ]
+     },
+     "... 외 3개"
+    ]
+   },
+   "... 외 3개"
+  ],
+  "final_pos_data": [
+   {
+    "chess_id": "100352",
+    "rank": 1,
+    "score": 0.164791,
+    "x": "6",
+    "y": "1"
+   },
+   {
+    "chess_id": "100310",
+    "rank": 1,
+    "score": 0.124045,
+    "x": "3",
+    "y": "1"
+   },
+   "... 외 6개"
+  ]
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "2a4a8905-b980-4afa-b791-02d8836cf1a0",
+ "data": [
+  {
+   "avg_rank": "5.221",
+   "avg_rank_delta": "1.117461538461539",
+   "build_rate": "0.752",
+   "build_s": "1014840",
+   "item_id": "DA_GargoyleStoneplate",
+   "top1_cnt": "216029",
+   "top4_cnt": "750380",
+   "total": "1348678",
+   "tier": "C"
+  },
+  {
+   "avg_rank": "5.198",
+   "avg_rank_delta": "1.0944615384615393",
+   "build_rate": "0.608",
+   "build_s": "819851",
+   "item_id": "DA_Guinsoos<플레이어>blade",
+   "top1_cnt": "172783",
+   "top4_cnt": "577145",
+   "total": "1348678",
+   "tier": "C"
+  },
+  {
+   "avg_rank": "4.667",
+   "avg_rank_delta": "0.5634615384615387",
+   "build_rate": "0.568",
+   "build_s": "766347",
+   "item_id": "DA_WarmogsArmor",
+   "top1_cnt": "157912",
+   "top4_cnt": "536696",
+   "total": "1348678",
+   "tier": "B"
+  },
+  {
+   "avg_rank": "4.762",
+   "avg_rank_delta": "0.6584615384615384",
+   "build_rate": "0.487",
+   "build_s": "656993",
+   "item_id": "DA_SpearOfShojin",
+   "top1_cnt": "148245",
+   "top4_cnt": "484357",
+   "total": "1348678",
+   "tier": "C"
+  },
+  {
+   "avg_rank": "4.629",
+   "avg_rank_delta": "0.5254615384615384",
+   "build_rate": "0.462",
+   "build_s": "622565",
+   "item_id": "DA_InfinityEdge",
+   "top1_cnt": "139296",
+   "top4_cnt": "440880",
+   "total": "1348678",
+   "tier": "B"
+  }
+ ],
+ "_note": "trimmed to 5 rows of 143"
+}

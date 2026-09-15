@@ -1,0 +1,12 @@
+{
+ "companions": [
+  {
+   "key": "<str>",
+   "name": "<str>",
+   "imageUrl": "<str>",
+   "level": "<int>",
+   "speciesId": "<int>",
+   "speciesName": "<str>"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+{
+ "data": {
+  "updatedAt": "<int>",
+  "augmentTiers": [
+   {
+    "key": "TFT7_Augment_BestFriends2",
+    "tier": "<str>"
+   }
+  ]
+ }
+}

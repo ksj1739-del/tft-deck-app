@@ -1,0 +1,17 @@
+{
+ "season": "<str>",
+ "items": [
+  {
+   "key": "<str>",
+   "ingameKey": "TFT11_Item_ThiefsGlovesSupport",
+   "ingameIcon": "<str>",
+   "name": "<str>",
+   "desc": "<str>",
+   "shortDesc": "<str>",
+   "fromDesc": "<str>",
+   "imageUrl": "<str>",
+   "isHidden": "<bool>",
+   "isSupport": "<bool>"
+  }
+ ]
+}

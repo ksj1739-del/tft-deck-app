@@ -1,0 +1,951 @@
+{
+ "trait_encodings": {
+  "Attuned": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 0
+   }
+  ],
+  "BountySeeker": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 1
+   }
+  ],
+  "ApexPredator": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 2
+   }
+  ],
+  "Greenfather": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 3
+   }
+  ],
+  "Avatar": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 4
+   }
+  ],
+  "OldGrowth": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 5
+   }
+  ],
+  "Thornmaiden": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 6
+   }
+  ],
+  "Adaptor": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 7
+   },
+   {
+    "min_num": 3,
+    "style": 3,
+    "encoding": 8
+   },
+   "... 외 1개"
+  ],
+  "Monolith": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 10
+   }
+  ],
+  "Blackthorn": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 11
+   },
+   {
+    "min_num": 4,
+    "style": 3,
+    "encoding": 12
+   },
+   "... 외 1개"
+  ],
+  "Blossom": [
+   {
+    "min_num": 3,
+    "style": 1,
+    "encoding": 14
+   },
+   {
+    "min_num": 5,
+    "style": 3,
+    "encoding": 15
+   },
+   "... 외 3개"
+  ],
+  "Brawler": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 19
+   },
+   {
+    "min_num": 4,
+    "style": 3,
+    "encoding": 20
+   },
+   "... 외 1개"
+  ],
+  "Caustic": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 22
+   }
+  ],
+  "Coven": [
+   {
+    "min_num": 3,
+    "style": 1,
+    "encoding": 23
+   },
+   {
+    "min_num": 4,
+    "style": 3,
+    "encoding": 24
+   },
+   "... 외 2개"
+  ],
+  "Defender": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 27
+   },
+   {
+    "min_num": 4,
+    "style": 3,
+    "encoding": 28
+   },
+   "... 외 1개"
+  ],
+  "Eclipse": [
+   {
+    "min_num": 0,
+    "style": 6,
+    "encoding": 30
+   }
+  ],
+  "Elderwood": [
+   {
+    "min_num": 3,
+    "style": 1,
+    "encoding": 31
+   },
+   {
+    "min_num": 5,
+    "style": 3,
+    "encoding": 32
+   },
+   "... 외 3개"
+  ],
+  "EmeraldAspect": [
+   {
+    "min_num": 1,
+    "style": 6,
+    "encoding": 36
+   }
+  ],
+  "Executioner": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 37
+   },
+   {
+    "min_num": 3,
+    "style": 3,
+    "encoding": 38
+   },
+   "... 외 1개"
+  ],
+  "Fae": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 40
+   },
+   {
+    "min_num": 4,
+    "style": 4,
+    "encoding": 41
+   }
+  ],
+  "FloraFatalis": [
+   {
+    "min_num": 1,
+    "style": 1,
+    "encoding": 42
+   },
+   {
+    "min_num": 2,
+    "style": 4,
+    "encoding": 43
+   }
+  ],
+  "Hunter": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 44
+   },
+   {
+    "min_num": 3,
+    "style": 3,
+    "encoding": 45
+   },
+   "... 외 2개"
+  ],
+  "Inferno": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 48
+   },
+   {
+    "min_num": 3,
+    "style": 3,
+    "encoding": 49
+   },
+   "... 외 2개"
+  ],
+  "Invoker": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 52
+   },
+   {
+    "min_num": 3,
+    "style": 3,
+    "encoding": 53
+   },
+   "... 외 2개"
+  ],
+  "Juggernaut": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 56
+   },
+   {
+    "min_num": 4,
+    "style": 3,
+    "encoding": 57
+   },
+   "... 외 1개"
+  ],
+  "Lunar": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 59
+   },
+   {
+    "min_num": 3,
+    "style": 3,
+    "encoding": 60
+   },
+   "... 외 2개"
+  ],
+  "Primal": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 63
+   },
+   {
+    "min_num": 4,
+    "style": 4,
+    "encoding": 64
+   }
+  ],
+  "Rapidfire": [
+   {
+    "min_num": 2,
+    "style": 1,
+    "encoding": 65
+   },
+   {
+    "min_num": 3,
+    "style": 3,
+    "encoding": 66
+   },
+   "... 외 2개"
+  ],
+  "Riftbeast": [
+   {
+    "min_num": 3,
+    "style": 1,
+    "encoding": 69
+   },
+   {
+    "min_num": 5,
+    "style": 3,
+    "encoding": 70
+   },
+   "... 외 2개"
+  ],
+  "Rival": [
+   {
+    "min_num": 1,
+    "style": 4,
+    "encoding": 73
+   },
+   {
+    "min_num": 1,
+    "style": 1,
+    "encoding": 74
+   },
+   "... 외 1개"
+  ],
+  "...": "외 6개 키"
+ },
+ "trait_mapping": {
+  "Attuned_1": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_2": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_3": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_4": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_5": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_6": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_7": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_8": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_9": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_10": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_11": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "Attuned_12": {
+   "name": "Attuned_1",
+   "encoding": 0
+  },
+  "BountySeeker_1": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_2": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_3": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_4": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_5": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_6": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_7": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_8": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_9": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_10": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_11": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "BountySeeker_12": {
+   "name": "BountySeeker_1",
+   "encoding": 1
+  },
+  "ApexPredator_1": {
+   "name": "ApexPredator_1",
+   "encoding": 2
+  },
+  "ApexPredator_2": {
+   "name": "ApexPredator_1",
+   "encoding": 2
+  },
+  "ApexPredator_3": {
+   "name": "ApexPredator_1",
+   "encoding": 2
+  },
+  "ApexPredator_4": {
+   "name": "ApexPredator_1",
+   "encoding": 2
+  },
+  "ApexPredator_5": {
+   "name": "ApexPredator_1",
+   "encoding": 2
+  },
+  "ApexPredator_6": {
+   "name": "ApexPredator_1",
+   "encoding": 2
+  },
+  "...": "외 374개 키"
+ },
+ "trait_offset": 215,
+ "trait_len": 91,
+ "augment_tag_encodings": {
+  "combat": 0,
+  "econ": 1,
+  "items": 2,
+  "misc": 3,
+  "scaling": 4,
+  "trait": 5,
+  "TagUnknown": 6
+ },
+ "augment_lookup": {
+  "DA_AdvancedLoan": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "econ",
+    "misc"
+   ]
+  },
+  "DA_AdvancedLoanPlus": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "econ",
+    "misc"
+   ]
+  },
+  "DA_ArcaneViktory": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_Ascension": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_PartialAscension": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_AugmentedPower": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "misc"
+   ]
+  },
+  "DA_BacklineBlueprint": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "items",
+    "econ",
+    "... 외 1개"
+   ]
+  },
+  "DA_BirthdayPresent": {
+   "rarity": "Prismatic",
+   "manual_tags": [
+    "econ",
+    "scaling"
+   ]
+  },
+  "DA_BodyguardTraining": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_BoosterPack": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_BoosterPackPlus": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_BoosterPackPlusPlus": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_BoxingLessons": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_BronzeForLifeI": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_BronzeForLifeII": {
+   "rarity": "Prismatic",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_BuildABud": {
+   "rarity": "Prismatic",
+   "manual_tags": []
+  },
+  "DA_CalledShot": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_CapitalGainsI": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_CapitalGainsII": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_CelestialBlessingI": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_CelestialBlessingII": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_CelestialBlessingIII": {
+   "rarity": "Prismatic",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_ChallengersGrace": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_ChampDelivery": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_ChampDeliveryPlus": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_ChampDeliveryPlusPlus": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_ClearMind": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_ClockworkAccelerator": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "combat"
+   ]
+  },
+  "DA_ClutteredMind": {
+   "rarity": "Gold",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "DA_CognitiveTax": {
+   "rarity": "Silver",
+   "manual_tags": [
+    "econ"
+   ]
+  },
+  "...": "외 227개 키"
+ },
+ "rarity_values": {
+  "Silver": 1,
+  "Gold": 2.5,
+  "Prismatic": 5
+ },
+ "max_rarity_value": 15,
+ "augment_offset": 306,
+ "augment_len": 7,
+ "augment_traits": {},
+ "emblems": {
+  "T_TraitItemIcon_18_Blackthorn": "Blackthorn",
+  "DA_18_EmblemBlackthorn": "Blackthorn",
+  "T_TraitItemIcon_18_Blossom": "Blossom",
+  "DA_18_EmblemBlossom": "Blossom",
+  "T_TraitItemIcon_18_Brawler": "Brawler",
+  "DA_18_EmblemBrawler": "Brawler",
+  "T_TraitItemIcon_18_Coven": "Coven",
+  "DA_18_EmblemCoven": "Coven",
+  "T_TraitItemIcon_18_Defender": "Defender",
+  "DA_18_EmblemDefender": "Defender",
+  "T_TraitItemIcon_18_Elderwood": "Elderwood",
+  "DA_18_EmblemElderwood": "Elderwood",
+  "T_TraitItemIcon_18_Executioner": "Executioner",
+  "DA_18_EmblemExecutioner": "Executioner",
+  "T_TraitItemIcon_18_Fae": "Fae",
+  "DA_18_EmblemFae": "Fae",
+  "T_TraitItemIcon_Augment_18_FloraFatalis": "FloraFatalis",
+  "DA_18_EmblemFloraFatalisAugment": "FloraFatalis",
+  "T_TraitItemIcon_18_FloraFatalis": "FloraFatalis",
+  "DA_18_EmblemFloraFatalis": "FloraFatalis",
+  "T_TraitItemIcon_18_Hunter": "Hunter",
+  "DA_18_EmblemHunter": "Hunter",
+  "T_TraitItemIcon_18_Inferno": "Inferno",
+  "DA_18_EmblemInferno": "Inferno",
+  "T_TraitItemIcon_18_Invoker": "Invoker",
+  "DA_18_EmblemInvoker": "Invoker",
+  "T_TraitItemIcon_18_Juggernaut": "Juggernaut",
+  "DA_18_EmblemJuggernaut": "Juggernaut",
+  "T_TraitItemIcon_18_Lunar": "Lunar",
+  "DA_18_EmblemLunar": "Lunar",
+  "...": "외 12개 키"
+ },
+ "unit_traits": {
+  "TFT_TrainingDummy": [],
+  "DA_TheTower_TrainingDummy": [],
+  "DA_TrainingDummy": [],
+  "TFT_BlueGolem": [],
+  "DA_Golem": [],
+  "TFT18_Ahri": [
+   "Blossom",
+   "Spellweaver"
+  ],
+  "DA_18_Ahri": [
+   "Blossom",
+   "Spellweaver"
+  ],
+  "TFT18_Akali": [
+   "Inferno",
+   "Adaptor",
+   "... 외 1개"
+  ],
+  "DA_18_Akali_AD": [
+   "Inferno",
+   "Adaptor",
+   "... 외 1개"
+  ],
+  "DA_18_Akali_AP": [
+   "Inferno",
+   "Adaptor",
+   "... 외 1개"
+  ],
+  "TFT18_Alistar": [
+   "Elderwood",
+   "Brawler"
+  ],
+  "DA_18_Alistar": [
+   "Elderwood",
+   "Brawler"
+  ],
+  "TFT18_Alune": [
+   "Attuned",
+   "Lunar",
+   "... 외 1개"
+  ],
+  "DA_18_Alune": [
+   "Attuned",
+   "Lunar",
+   "... 외 1개"
+  ],
+  "TFT18_Amumu": [
+   "Inferno",
+   "Juggernaut"
+  ],
+  "DA_Amumu18": [
+   "Inferno",
+   "Juggernaut"
+  ],
+  "TFT18_Aphelios": [
+   "Lunar",
+   "Rapidfire"
+  ],
+  "DA_18_Aphelios": [
+   "Lunar",
+   "Rapidfire"
+  ],
+  "TFT18_Ashe": [
+   "Blossom",
+   "Hunter"
+  ],
+  "DA_18_Ashe": [
+   "Blossom",
+   "Hunter"
+  ],
+  "TFT18_Azir": [
+   "Blackthorn",
+   "Executioner",
+   "... 외 1개"
+  ],
+  "DA_18_Azir": [
+   "Blackthorn",
+   "Executioner",
+   "... 외 1개"
+  ],
+  "TFT18_Brambleback": [
+   "Riftbeast",
+   "Ravager"
+  ],
+  "DA_Brambleback18": [
+   "Riftbeast",
+   "Ravager"
+  ],
+  "TFT18_Caitlyn": [
+   "Coven",
+   "Hunter"
+  ],
+  "DA_18_Caitlyn": [
+   "Coven",
+   "Hunter"
+  ],
+  "TFT18_Camille": [
+   "Coven",
+   "Ravager"
+  ],
+  "DA_18_Camille": [
+   "Coven",
+   "Ravager"
+  ],
+  "TFT18_Cassiopeia": [
+   "Coven",
+   "Spellweaver"
+  ],
+  "DA_18_Cassiopeia": [
+   "Coven",
+   "Spellweaver"
+  ],
+  "...": "외 121개 키"
+ },
+ "item_encodings": {
+  "T_AdaptiveHelm": 0,
+  "DA_AdaptiveHelm": 0,
+  "DA_AdaptiveHelm_Radiant": 1,
+  "T_ArchangelsStaff": 2,
+  "DA_ArchangelsStaff": 2,
+  "DA_ArchangelsStaffRadiant": 3,
+  "T_Artifact_AegisOfDawn": 4,
+  "DA_Artifact_AegisOfDawn": 4,
+  "T_Artifact_AegisOfDusk": 5,
+  "DA_Artifact_AegisOfDusk": 5,
+  "T_Artifact_BlightingJewel": 6,
+  "DA_Artifact_BlightingJewel": 6,
+  "T_Artifact_Dawncore": 7,
+  "DA_Artifact_Dawncore": 7,
+  "T_Artifact_EternalPact": 8,
+  "DA_Artifact_EternalPact": 8,
+  "T_Artifact_Fishbones": 9,
+  "DA_Artifact_Fishbones": 9,
+  "T_Artifact_ForbiddenIdol": 10,
+  "DA_Artifact_ForbiddenIdol": 10,
+  "T_Artifact_GamblersBlade": 11,
+  "DA_Artifact_GamblersBlade": 11,
+  "T_Artifact_GoldCollector": 12,
+  "DA_Artifact_GoldCollector": 12,
+  "T_Artifact_HellfireHatchet": 13,
+  "DA_Artifact_HellfireHatchet": 13,
+  "T_Artifact_HorizonFocus": 14,
+  "DA_Artifact_HorizonFocus": 14,
+  "T_Artifact_Hullcrusher": 15,
+  "DA_Artifact_Hullcrusher": 15,
+  "...": "외 215개 키"
+ },
+ "item_offset": 73,
+ "item_len": 142,
+ "unit_encodings": {
+  "TFT_TrainingDummy": 68,
+  "DA_TheTower_TrainingDummy": 0,
+  "DA_TrainingDummy": 0,
+  "TFT_BlueGolem": 69,
+  "DA_Golem": 1,
+  "TFT18_Ahri": 2,
+  "DA_18_Ahri": 2,
+  "TFT18_Akali": 3,
+  "DA_18_Akali_AD": 3,
+  "DA_18_Akali_AP": 3,
+  "TFT18_Alistar": 4,
+  "DA_18_Alistar": 4,
+  "TFT18_Alune": 5,
+  "DA_18_Alune": 5,
+  "TFT18_Amumu": 6,
+  "DA_Amumu18": 6,
+  "TFT18_Aphelios": 7,
+  "DA_18_Aphelios": 7,
+  "TFT18_Ashe": 8,
+  "DA_18_Ashe": 8,
+  "TFT18_Azir": 9,
+  "DA_18_Azir": 9,
+  "TFT18_Brambleback": 10,
+  "DA_Brambleback18": 10,
+  "TFT18_Caitlyn": 11,
+  "DA_18_Caitlyn": 11,
+  "TFT18_Camille": 12,
+  "DA_18_Camille": 12,
+  "TFT18_Cassiopeia": 13,
+  "DA_18_Cassiopeia": 13,
+  "...": "외 124개 키"
+ },
+ "unit_len": 73,
+ "unit_role_lookup": {
+  "TFT_GoldenEgg": 29,
+  "DA_GoldenEggCharacter": 29,
+  "DA_MagicEggCharacter": 29,
+  "TFT_TrainingDummy": 20,
+  "DA_TheTower_TrainingDummy": 20,
+  "DA_TrainingDummy": 20,
+  "TFT_BlueGolem": 29,
+  "DA_Golem": 29,
+  "TFT18_Ahri": 5,
+  "DA_18_Ahri": 5,
+  "TFT18_Akali": 6,
+  "DA_18_Akali_AD": 6,
+  "DA_18_Akali_AP": 6,
+  "TFT18_Alistar": 29,
+  "DA_18_Alistar": 29,
+  "TFT18_Alune": 5,
+  "DA_18_Alune": 5,
+  "TFT18_Amumu": 29,
+  "DA_Amumu18": 29,
+  "TFT18_Aphelios": 9,
+  "DA_18_Aphelios": 9,
+  "TFT18_Ashe": 3,
+  "DA_18_Ashe": 3,
+  "TFT18_AzirSoldier": 11,
+  "DA_18_AzirSoldier": 11,
+  "TFT18_Azir": 11,
+  "DA_18_Azir": 11,
+  "TFT18_Brambleback": 6,
+  "DA_Brambleback18": 6,
+  "TFT18_Caitlyn": 12,
+  "...": "외 139개 키"
+ },
+ "unit_costs": {
+  "TFT_GoldenEgg": 0,
+  "DA_GoldenEggCharacter": 0,
+  "DA_MagicEggCharacter": 0,
+  "TFT_TrainingDummy": 0,
+  "DA_TheTower_TrainingDummy": 0,
+  "DA_TrainingDummy": 0,
+  "TFT_BlueGolem": 1,
+  "DA_Golem": 1,
+  "TFT18_Ahri": 4,
+  "DA_18_Ahri": 4,
+  "TFT18_Akali": 1,
+  "DA_18_Akali_AD": 1,
+  "DA_18_Akali_AP": 1,
+  "TFT18_Alistar": 2,
+  "DA_18_Alistar": 2,
+  "TFT18_Alune": 5,
+  "DA_18_Alune": 5,
+  "TFT18_Amumu": 4,
+  "DA_Amumu18": 4,
+  "TFT18_Aphelios": 4,
+  "DA_18_Aphelios": 4,
+  "TFT18_Ashe": 5,
+  "DA_18_Ashe": 5,
+  "TFT18_AzirSoldier": 1,
+  "DA_18_AzirSoldier": 1,
+  "TFT18_Azir": 3,
+  "DA_18_Azir": 3,
+  "TFT18_Brambleback": 4,
+  "DA_Brambleback18": 4,
+  "TFT18_Caitlyn": 2,
+  "...": "외 149개 키"
+ },
+ "role_encodings": {},
+ "role_len": 30,
+ "role_offset": 313,
+ "charm_encodings": {},
+ "charm_offset": 343,
+ "charm_len": 0,
+ "num_features": 345,
+ "max_num_units": 14,
+ "augment_holder": "TFT13_Augment",
+ "board_strength_parameters": {
+  "m": 127.12883879742046,
+  "c": -0.09055678135896193
+ }
+}

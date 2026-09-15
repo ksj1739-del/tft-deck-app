@@ -1,0 +1,6 @@
+{
+ "error": {
+  "status": "<int>",
+  "message": "<str>"
+ }
+}

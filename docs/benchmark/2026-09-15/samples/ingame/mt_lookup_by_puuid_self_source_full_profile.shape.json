@@ -1,0 +1,294 @@
+{
+ "summoner": {
+  "id": 4109603,
+  "puuid": "<가림>",
+  "summoner_region": "kr",
+  "profile_icon_id": 4574,
+  "summoner_level": 274,
+  "revision_date": 1789030066000,
+  "riot_id": "랄라붕#KR1",
+  "account": {
+   "summoner_id": "",
+   "account_id": ""
+  },
+  "last_refreshed": 1789398706,
+  "last_name_fetch": "2026-09-11T10:55:24.651086",
+  "is_profile_hidden": false
+ },
+ "ranked": {
+  "num_games": 112,
+  "rating_text": "DIAMOND IV 0 LP",
+  "rating_numeric": 2400,
+  "peak_rating": "DIAMOND III 29 LP",
+  "peak_rating_numeric": 2529,
+  "timestamp": "2026-09-15T11:22:19.493500"
+ },
+ "rating_history": {
+  "TFTSet10": {
+   "1100": {
+    "num_games": 242,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "peak_rating": "MASTER I 56 LP",
+    "peak_rating_numeric": 2856,
+    "timestamp": "2024-01-31T15:31:14.675914"
+   }
+  },
+  "TFTSet11": {
+   "1100": {
+    "num_games": 212,
+    "rating_text": "DIAMOND IV 0 LP",
+    "rating_numeric": 2400,
+    "peak_rating": "DIAMOND II 1 LP",
+    "peak_rating_numeric": 2601,
+    "timestamp": "2024-07-17T15:25:08.295879"
+   }
+  },
+  "TFTSet12": {
+   "1100": {
+    "num_games": 401,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "peak_rating": "MASTER I 2 LP",
+    "peak_rating_numeric": 2802,
+    "timestamp": "2024-10-24T11:37:55.140250"
+   }
+  },
+  "TFTSet13": {
+   "1100": {
+    "num_games": 345,
+    "rating_text": "MASTER I 83 LP",
+    "rating_numeric": 2883,
+    "peak_rating": "MASTER I 335 LP",
+    "peak_rating_numeric": 3135,
+    "timestamp": "2025-01-29T05:46:33.397745"
+   }
+  },
+  "TFTSet14": {
+   "1100": {
+    "num_games": 241,
+    "rating_text": "DIAMOND I 83 LP",
+    "rating_numeric": 2783,
+    "peak_rating": "DIAMOND I 96 LP",
+    "peak_rating_numeric": 2796,
+    "timestamp": "2025-06-13T10:03:57.808394"
+   }
+  },
+  "TFTSet15": {
+   "1100": {
+    "num_games": 362,
+    "rating_text": "MASTER I 45 LP",
+    "rating_numeric": 2845,
+    "peak_rating": "MASTER I 212 LP",
+    "peak_rating_numeric": 3012,
+    "timestamp": "2025-11-29T04:06:50.608523"
+   }
+  },
+  "TFTSet16": {
+   "1100": {
+    "num_games": 163,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "peak_rating": "MASTER I 80 LP",
+    "peak_rating_numeric": 2880,
+    "timestamp": "2026-03-15T14:15:04.518761"
+   }
+  },
+  "TFTSet17": {
+   "1100": {
+    "num_games": 250,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "peak_rating": "MASTER I 197 LP",
+    "peak_rating_numeric": 2997,
+    "timestamp": "2026-08-21T14:35:48.689"
+   }
+  },
+  "TFTSet8_2": {
+   "1100": {
+    "num_games": 122,
+    "rating_text": "DIAMOND IV 39 LP",
+    "rating_numeric": 2439,
+    "timestamp": "1970-01-01T00:00:00"
+   }
+  },
+  "TFTSet9": {
+   "1100": {
+    "num_games": 221,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "timestamp": "1970-01-01T00:00:00"
+   }
+  },
+  "TFTSet9_2": {
+   "1100": {
+    "num_games": 16,
+    "rating_text": "DIAMOND III 0 LP",
+    "rating_numeric": 2500,
+    "peak_rating": "EMERALD III 81 LP",
+    "peak_rating_numeric": 2181,
+    "timestamp": "2023-11-08T15:04:51.084225"
+   }
+  }
+ },
+ "ranked_rating_changes": [
+  {
+   "num_games": 112,
+   "rating_text": "DIAMOND IV 0 LP",
+   "rating_numeric": 2400,
+   "created_timestamp": "2026-09-15T11:22:19.493",
+   "tft_set_name": "TFTSet18",
+   "queue_id": 1100
+  },
+  {
+   "num_games": 111,
+   "rating_text": "DIAMOND IV 1 LP",
+   "rating_numeric": 2401,
+   "created_timestamp": "2026-09-15T09:22:20.099",
+   "tft_set_name": "TFTSet18",
+   "queue_id": 1100
+  },
+  "... 외 107개"
+ ],
+ "matches": [
+  {
+   "placement": 6,
+   "riot_match_id": "KR_8382256353",
+   "match_timestamp": 1789471371596,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 28 LP",
+   "avg_rating_numeric": 2428,
+   "patch": "18.2",
+   "game_duration": 2326,
+   "match_data_url": "https://matches3.metatft.com/KR_8382256353.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1767,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 2,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_LastWhisper",
+       "... 외 1개"
+      ]
+     },
+     "... 외 6개"
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Hunter_1",
+     "DA_18_Inferno_1",
+     "... 외 6개"
+    ],
+    "player_rating": "DIAMOND IV 1 LP",
+    "player_rating_numeric": 2401,
+    "headliner_traits": null,
+    "player_ids": [
+     328161922,
+     3085012,
+     "... 외 6개"
+    ]
+   }
+  },
+  {
+   "placement": 7,
+   "riot_match_id": "KR_8382126779",
+   "match_timestamp": 1789464051118,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 42 LP",
+   "avg_rating_numeric": 2442,
+   "patch": "18.2",
+   "game_duration": 2322,
+   "match_data_url": "https://matches3.metatft.com/KR_8382126779.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1601,
+    "last_round": 27,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": []
+     },
+     "... 외 6개"
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Coven_1",
+     "DA_18_Adaptor_1",
+     "... 외 5개"
+    ],
+    "player_rating": "DIAMOND IV 36 LP",
+    "player_rating_numeric": 2436,
+    "headliner_traits": null,
+    "player_ids": [
+     1460820,
+     235899631,
+     "... 외 6개"
+    ]
+   }
+  },
+  "... 외 110개"
+ ],
+ "app_matches": [
+  {
+   "id": 0,
+   "uuid": "027f9376-cff3-48f9-a114-93c6a919e682",
+   "player_id": 4109603,
+   "match_id_ow": "728744af-8334-4234-849e-d6e71c1023f0",
+   "placement": 0,
+   "recv_timestamp": 0,
+   "created_timestamp": 1789398116103,
+   "match_data_url": "https://matches3.metatft.com/027f9376-cff3-48f9-a114-93c6a919e682.json"
+  },
+  {
+   "id": 0,
+   "uuid": "8ef91a26-feb3-4ac3-b8bf-84655f7d2756",
+   "player_id": 4109603,
+   "match_id_ow": "d729cfb5-b68e-4f1a-8f02-6440cdc57462",
+   "placement": 0,
+   "recv_timestamp": 0,
+   "created_timestamp": 1789395669064,
+   "match_data_url": "https://matches3.metatft.com/8ef91a26-feb3-4ac3-b8bf-84655f7d2756.json"
+  },
+  "... 외 73개"
+ ],
+ "replays": [],
+ "ranked_season_stats": {
+  "1100": {
+   "total": 112,
+   "placements": [
+    14,
+    13,
+    "... 외 6개"
+   ]
+  }
+ },
+ "server_rank": {
+  "rank": 6311,
+  "total": 617010
+ }
+}

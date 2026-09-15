@@ -1,0 +1,1259 @@
+{
+ "results": {
+  "423000": {
+   "builds": [
+    {
+     "cluster": "423000",
+     "count": 34264,
+     "avg": 3.9019,
+     "unit": "DA_Nidalee18_AP",
+     "buildName": [
+      "DA_InfinityEdge",
+      "DA_SpearOfShojin",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5258,
+     "place_change": -0.372,
+     "unit_numitems_count": 151701
+    },
+    {
+     "cluster": "423000",
+     "count": 19438,
+     "avg": 3.9778,
+     "unit": "DA_18_Aphelios",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4543,
+     "place_change": -0.296,
+     "unit_numitems_count": 160826
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 176106,
+    "avg": 4.2738
+   }
+  },
+  "423001": {
+   "builds": [
+    {
+     "cluster": "423001",
+     "count": 4844,
+     "avg": 3.2514,
+     "unit": "DA_18_Ashe",
+     "buildName": [
+      "DA_LastWhisper",
+      "DA_RedBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.6361,
+     "place_change": -1.047,
+     "unit_numitems_count": 47697
+    },
+    {
+     "cluster": "423001",
+     "unit_buildNames": "DA_18_Ashe&DA_18_EmblemInferno|DA_RedBuff|DA_SpearOfShojin",
+     "count": 4197,
+     "avg": 3.3474,
+     "unit": "DA_18_Ashe",
+     "buildName": [
+      "DA_18_EmblemInferno",
+      "DA_RedBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5798,
+     "adjusted_score": 0.5798,
+     "place_change": -0.951
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 75813,
+    "avg": 4.2981
+   }
+  },
+  "423002": {
+   "builds": [
+    {
+     "cluster": "423002",
+     "count": 1202,
+     "avg": 3.6414,
+     "unit": "DA_18_Veigar",
+     "buildName": [
+      "DA_18_EmblemFloraFatalisAugment",
+      "DA_BlueBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5556,
+     "place_change": -0.429,
+     "unit_numitems_count": 8128
+    },
+    {
+     "cluster": "423002",
+     "count": 118,
+     "avg": 3.4915,
+     "unit": "DA_18_Malphite",
+     "buildName": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4281,
+     "place_change": -0.579,
+     "unit_numitems_count": 8579
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 9510,
+    "avg": 4.07
+   }
+  },
+  "423003": {
+   "builds": [
+    {
+     "cluster": "423003",
+     "count": 8902,
+     "avg": 4.264,
+     "unit": "DA_18_KhaZix",
+     "buildName": [
+      "DA_EdgeOfNight",
+      "DA_HandOfJustice",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4497,
+     "place_change": -0.178,
+     "unit_numitems_count": 26049
+    },
+    {
+     "cluster": "423003",
+     "unit_buildNames": "DA_18_KhaZix&DA_EdgeOfNight|DA_HandOfJustice|DA_JeweledGauntlet",
+     "count": 2448,
+     "avg": 4.2451,
+     "unit": "DA_18_KhaZix",
+     "buildName": [
+      "DA_EdgeOfNight",
+      "DA_HandOfJustice",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3571,
+     "adjusted_score": 0.3571,
+     "place_change": -0.197
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 27510,
+    "avg": 4.4425
+   }
+  },
+  "423004": {
+   "builds": [
+    {
+     "cluster": "423004",
+     "count": 5659,
+     "avg": 3.0977,
+     "unit": "DA_18_Ashe",
+     "buildName": [
+      "DA_LastWhisper",
+      "DA_RedBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5975,
+     "place_change": -1.273,
+     "unit_numitems_count": 36139
+    },
+    {
+     "cluster": "423004",
+     "unit_buildNames": "DA_18_Ashe&DA_InfinityEdge|DA_RedBuff|DA_SpearOfShojin",
+     "count": 2290,
+     "avg": 3.1118,
+     "unit": "DA_18_Ashe",
+     "buildName": [
+      "DA_InfinityEdge",
+      "DA_RedBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4946,
+     "adjusted_score": 0.4946,
+     "place_change": -1.259
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 68418,
+    "avg": 4.3706
+   }
+  },
+  "423005": {
+   "builds": [
+    {
+     "cluster": "423005",
+     "count": 2495,
+     "avg": 3.9948,
+     "unit": "DA_18_Aphelios",
+     "buildName": [
+      "DA_InfinityEdge",
+      "DA_KrakensFury",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.592,
+     "place_change": -0.535,
+     "unit_numitems_count": 33078
+    },
+    {
+     "cluster": "423005",
+     "count": 4706,
+     "avg": 4.0574,
+     "unit": "DA_Brambleback18",
+     "buildName": [
+      "DA_18_EmblemRapidfire",
+      "DA_EdgeOfNight",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5272,
+     "place_change": -0.473,
+     "unit_numitems_count": 27615
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 35664,
+    "avg": 4.53
+   }
+  },
+  "423006": {
+   "builds": [
+    {
+     "cluster": "423006",
+     "count": 17484,
+     "avg": 3.8083,
+     "unit": "DA_18_Ahri",
+     "buildName": [
+      "DA_18_EmblemInvoker",
+      "DA_JeweledGauntlet",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5226,
+     "place_change": -0.441,
+     "unit_numitems_count": 177178
+    },
+    {
+     "cluster": "423006",
+     "unit_buildNames": "DA_18_Ahri&DA_18_EmblemInvoker|DA_JeweledGauntlet|DA_RabadonsDeathcap",
+     "count": 8735,
+     "avg": 3.6795,
+     "unit": "DA_18_Ahri",
+     "buildName": [
+      "DA_18_EmblemInvoker",
+      "DA_JeweledGauntlet",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5171,
+     "adjusted_score": 0.5171,
+     "place_change": -0.57
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 193860,
+    "avg": 4.2493
+   }
+  },
+  "423007": {
+   "builds": [
+    {
+     "cluster": "423007",
+     "count": 1315,
+     "avg": 4.1103,
+     "unit": "DA_18_Sett",
+     "buildName": [
+      "DA_GargoyleStoneplate",
+      "DA_GargoyleStoneplate",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4828,
+     "place_change": -0.403,
+     "unit_numitems_count": 14456
+    },
+    {
+     "cluster": "423007",
+     "unit_buildNames": "DA_18_Sett&DA_GargoyleStoneplate|DA_SunfireCape|DA_WarmogsArmor",
+     "count": 289,
+     "avg": 4.0242,
+     "unit": "DA_18_Sett",
+     "buildName": [
+      "DA_GargoyleStoneplate",
+      "DA_SunfireCape",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3906,
+     "adjusted_score": 0.3906,
+     "place_change": -0.489
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 18925,
+    "avg": 4.5133
+   }
+  },
+  "423008": {
+   "builds": [
+    {
+     "cluster": "423008",
+     "count": 17134,
+     "avg": 4.0394,
+     "unit": "DA_18_Malphite",
+     "buildName": [
+      "DA_Crownguard",
+      "DA_GargoyleStoneplate",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5878,
+     "place_change": -0.45,
+     "unit_numitems_count": 100621
+    },
+    {
+     "cluster": "423008",
+     "count": 13602,
+     "avg": 4.0164,
+     "unit": "DA_18_Sivir",
+     "buildName": [
+      "DA_InfinityEdge",
+      "DA_RedBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.55,
+     "place_change": -0.473,
+     "unit_numitems_count": 96270
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 113822,
+    "avg": 4.4893
+   }
+  },
+  "423009": {
+   "builds": [
+    {
+     "cluster": "423009",
+     "count": 53836,
+     "avg": 3.7322,
+     "unit": "DA_Draven18",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4279,
+     "place_change": -0.491,
+     "unit_numitems_count": 373952
+    },
+    {
+     "cluster": "423009",
+     "count": 29754,
+     "avg": 3.4486,
+     "unit": "DA_18_Maokai",
+     "buildName": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4008,
+     "place_change": -0.774,
+     "unit_numitems_count": 306603
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 554806,
+    "avg": 4.2229
+   }
+  },
+  "423010": {
+   "builds": [
+    {
+     "cluster": "423010",
+     "count": 1809,
+     "avg": 3.8541,
+     "unit": "DA_18_Aphelios",
+     "buildName": [
+      "DA_18_EmblemElderwood",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.504,
+     "place_change": -0.59,
+     "unit_numitems_count": 30878
+    },
+    {
+     "cluster": "423010",
+     "unit_buildNames": "DA_18_Aphelios&DA_18_EmblemElderwood|DA_Guinsoos<플레이어>blade|DA_KrakensFury",
+     "count": 2348,
+     "avg": 3.954,
+     "unit": "DA_18_Aphelios",
+     "buildName": [
+      "DA_18_EmblemElderwood",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4823,
+     "adjusted_score": 0.4823,
+     "place_change": -0.49
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 39438,
+    "avg": 4.4443
+   }
+  },
+  "423011": {
+   "builds": [
+    {
+     "cluster": "423011",
+     "count": 376,
+     "avg": 3.8298,
+     "unit": "DA_18_LeBlanc",
+     "buildName": [
+      "DA_RedBuff",
+      "DA_SpearOfShojin",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.45,
+     "place_change": -0.773,
+     "unit_numitems_count": 19661
+    },
+    {
+     "cluster": "423011",
+     "unit_buildNames": "DA_18_LeBlanc&DA_BlueBuff|DA_GiantSlayer|DA_VoidStaff",
+     "count": 80,
+     "avg": 3.3875,
+     "unit": "DA_18_LeBlanc",
+     "buildName": [
+      "DA_BlueBuff",
+      "DA_GiantSlayer",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4449,
+     "adjusted_score": 0.4449,
+     "place_change": -1.215
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 28648,
+    "avg": 4.6026
+   }
+  },
+  "423012": {
+   "builds": [
+    {
+     "cluster": "423012",
+     "count": 7954,
+     "avg": 4.2525,
+     "unit": "DA_18_Rengar",
+     "buildName": [
+      "DA_EdgeOfNight",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5508,
+     "place_change": -0.387,
+     "unit_numitems_count": 29361
+    },
+    {
+     "cluster": "423012",
+     "count": 8068,
+     "avg": 4.2626,
+     "unit": "DA_18_KhaZix",
+     "buildName": [
+      "DA_EdgeOfNight",
+      "DA_HandOfJustice",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5343,
+     "place_change": -0.377,
+     "unit_numitems_count": 28724
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 32986,
+    "avg": 4.6391
+   }
+  },
+  "423013": {
+   "builds": [
+    {
+     "cluster": "423013",
+     "count": 4590,
+     "avg": 3.849,
+     "unit": "DA_18_ElderDragon",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_InfinityEdge",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5364,
+     "place_change": -0.759,
+     "unit_numitems_count": 45891
+    },
+    {
+     "cluster": "423013",
+     "unit_buildNames": "DA_18_ElderDragon&DA_InfinityEdge|DA_SteraksGage|DA_StrikersFlail",
+     "count": 1237,
+     "avg": 3.6847,
+     "unit": "DA_18_ElderDragon",
+     "buildName": [
+      "DA_InfinityEdge",
+      "DA_SteraksGage",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4665,
+     "adjusted_score": 0.4665,
+     "place_change": -0.923
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 68788,
+    "avg": 4.608
+   }
+  },
+  "423014": {
+   "builds": [
+    {
+     "cluster": "423014",
+     "count": 8987,
+     "avg": 4.1903,
+     "unit": "DA_18_Caitlyn",
+     "buildName": [
+      "DA_Guinsoos<플레이어>blade",
+      "DA_HextechGunblade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5117,
+     "place_change": -0.306,
+     "unit_numitems_count": 31197
+    },
+    {
+     "cluster": "423014",
+     "unit_buildNames": "DA_18_Caitlyn&DA_Deathblade|DA_Guinsoos<플레이어>blade|DA_HextechGunblade",
+     "count": 829,
+     "avg": 4.047,
+     "unit": "DA_18_Caitlyn",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3742,
+     "adjusted_score": 0.3742,
+     "place_change": -0.449
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 34403,
+    "avg": 4.4964
+   }
+  },
+  "423015": {
+   "builds": [
+    {
+     "cluster": "423015",
+     "count": 21268,
+     "avg": 3.9548,
+     "unit": "DA_18_Malphite",
+     "buildName": [
+      "DA_Crownguard",
+      "DA_GargoyleStoneplate",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.6059,
+     "place_change": -0.544,
+     "unit_numitems_count": 175110
+    },
+    {
+     "cluster": "423015",
+     "count": 9913,
+     "avg": 3.6868,
+     "unit": "DA_18_Zyra",
+     "buildName": [
+      "DA_18_EmblemExecutioner",
+      "DA_SpearOfShojin",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5694,
+     "place_change": -0.812,
+     "unit_numitems_count": 152542
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 202952,
+    "avg": 4.4991
+   }
+  },
+  "423016": {
+   "builds": [
+    {
+     "cluster": "423016",
+     "count": 1189,
+     "avg": 3.6375,
+     "unit": "DA_18_Sivir",
+     "buildName": [
+      "DA_18_EmblemFae",
+      "DA_LastWhisper",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5916,
+     "place_change": -1.17,
+     "unit_numitems_count": 15060
+    },
+    {
+     "cluster": "423016",
+     "count": 3129,
+     "avg": 4.4078,
+     "unit": "DA_18_Tristana",
+     "buildName": [
+      "DA_GiantSlayer",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5369,
+     "place_change": -0.399,
+     "unit_numitems_count": 20907
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 24517,
+    "avg": 4.8072
+   }
+  },
+  "423017": {
+   "builds": [
+    {
+     "cluster": "423017",
+     "count": 42,
+     "avg": 3.2857,
+     "unit": "DA_Nidalee18_AP",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_EdgeOfNight",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5956,
+     "place_change": -1.27,
+     "unit_numitems_count": 13073
+    },
+    {
+     "cluster": "423017",
+     "unit_buildNames": "DA_Nidalee18_AP&DA_EdgeOfNight|DA_HandOfJustice|DA_SteraksGage",
+     "count": 62,
+     "avg": 3.6129,
+     "unit": "DA_Nidalee18_AP",
+     "buildName": [
+      "DA_EdgeOfNight",
+      "DA_HandOfJustice",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5248,
+     "adjusted_score": 0.5248,
+     "place_change": -0.943
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 14953,
+    "avg": 4.5557
+   }
+  },
+  "423018": {
+   "builds": [
+    {
+     "cluster": "423018",
+     "count": 5338,
+     "avg": 3.4116,
+     "unit": "DA_18_ElderDragon",
+     "buildName": [
+      "DA_InfinityEdge",
+      "DA_LastWhisper",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5252,
+     "place_change": -1.15,
+     "unit_numitems_count": 43823
+    },
+    {
+     "cluster": "423018",
+     "count": 7408,
+     "avg": 3.9808,
+     "unit": "DA_18_Sentry",
+     "buildName": [
+      "DA_BlueBuff",
+      "DA_JeweledGauntlet",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3917,
+     "place_change": -0.581,
+     "unit_numitems_count": 46727
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 90255,
+    "avg": 4.5616
+   }
+  },
+  "423019": {
+   "builds": [
+    {
+     "cluster": "423019",
+     "count": 719,
+     "avg": 4.1335,
+     "unit": "DA_Sentinel18",
+     "buildName": [
+      "DA_GargoyleStoneplate",
+      "DA_ProtectorsVow",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4083,
+     "place_change": -0.432,
+     "unit_numitems_count": 13212
+    },
+    {
+     "cluster": "423019",
+     "unit_buildNames": "DA_Sentinel18&DA_GargoyleStoneplate|DA_SpiritVisage|DA_WarmogsArmor",
+     "count": 407,
+     "avg": 4.0516,
+     "unit": "DA_Sentinel18",
+     "buildName": [
+      "DA_GargoyleStoneplate",
+      "DA_SpiritVisage",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3964,
+     "adjusted_score": 0.3964,
+     "place_change": -0.514
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 18501,
+    "avg": 4.5653
+   }
+  },
+  "423020": {
+   "builds": [
+    {
+     "cluster": "423020",
+     "count": 10461,
+     "avg": 4.5617,
+     "unit": "DA_18_MasterYi_AD",
+     "buildName": [
+      "DA_18_EmblemBrawler",
+      "DA_EdgeOfNight",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3223,
+     "place_change": 0.011,
+     "unit_numitems_count": 52222
+    },
+    {
+     "cluster": "423020",
+     "unit_buildNames": "DA_18_MasterYi_AD&DA_EdgeOfNight|DA_Guinsoos<플레이어>blade|DA_TitansResolve",
+     "count": 4191,
+     "avg": 4.4939,
+     "unit": "DA_18_MasterYi_AD",
+     "buildName": [
+      "DA_EdgeOfNight",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3056,
+     "adjusted_score": 0.3056,
+     "place_change": -0.057
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 55476,
+    "avg": 4.5508
+   }
+  },
+  "423021": {
+   "builds": [
+    {
+     "cluster": "423021",
+     "count": 5079,
+     "avg": 4.1618,
+     "unit": "DA_18_Cassiopeia",
+     "buildName": [
+      "DA_ArchangelsStaff",
+      "DA_ArchangelsStaff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5579,
+     "place_change": -0.447,
+     "unit_numitems_count": 42664
+    },
+    {
+     "cluster": "423021",
+     "unit_buildNames": "DA_18_Cassiopeia&DA_ArchangelsStaff|DA_HextechGunblade|DA_SpearOfShojin",
+     "count": 4273,
+     "avg": 4.2623,
+     "unit": "DA_18_Cassiopeia",
+     "buildName": [
+      "DA_ArchangelsStaff",
+      "DA_HextechGunblade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4818,
+     "adjusted_score": 0.4818,
+     "place_change": -0.347
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 46668,
+    "avg": 4.6093
+   }
+  },
+  "423022": {
+   "builds": [
+    {
+     "cluster": "423022",
+     "count": 519,
+     "avg": 4.2909,
+     "unit": "DA_18_Aphelios",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_InfinityEdge",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3922,
+     "place_change": -0.493,
+     "unit_numitems_count": 49973
+    },
+    {
+     "cluster": "423022",
+     "unit_buildNames": "DA_18_Aphelios&DA_Guinsoos<플레이어>blade|DA_InfinityEdge|DA_KrakensFury",
+     "count": 5339,
+     "avg": 4.6696,
+     "unit": "DA_18_Aphelios",
+     "buildName": [
+      "DA_Guinsoos<플레이어>blade",
+      "DA_InfinityEdge",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3869,
+     "adjusted_score": 0.3869,
+     "place_change": -0.115
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 55583,
+    "avg": 4.7843
+   }
+  },
+  "423023": {
+   "builds": [
+    {
+     "cluster": "423023",
+     "count": 11906,
+     "avg": 4.4373,
+     "unit": "DA_18_Veigar",
+     "buildName": [
+      "DA_18_EmblemFloraFatalisAugment",
+      "DA_BlueBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4968,
+     "place_change": -0.23,
+     "unit_numitems_count": 121401
+    },
+    {
+     "cluster": "423023",
+     "unit_buildNames": "DA_18_Veigar&DA_18_EmblemFloraFatalisAugment|DA_JeweledGauntlet|DA_SpearOfShojin",
+     "count": 1160,
+     "avg": 4.5405,
+     "unit": "DA_18_Veigar",
+     "buildName": [
+      "DA_18_EmblemFloraFatalisAugment",
+      "DA_JeweledGauntlet",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.2677,
+     "adjusted_score": 0.2677,
+     "place_change": -0.126
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 124812,
+    "avg": 4.6669
+   }
+  },
+  "423024": {
+   "builds": [
+    {
+     "cluster": "423024",
+     "count": 2161,
+     "avg": 4.4294,
+     "unit": "DA_18_Yunara",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_SpearOfShojin",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4373,
+     "place_change": -0.214,
+     "unit_numitems_count": 10203
+    },
+    {
+     "cluster": "423024",
+     "unit_buildNames": "DA_18_Yunara&DA_Deathblade|DA_Deathblade|DA_SpearOfShojin",
+     "count": 195,
+     "avg": 4.0462,
+     "unit": "DA_18_Yunara",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_Deathblade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4154,
+     "adjusted_score": 0.4154,
+     "place_change": -0.597
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 11664,
+    "avg": 4.6436
+   }
+  },
+  "423025": {
+   "builds": [
+    {
+     "cluster": "423025",
+     "count": 574,
+     "avg": 3.5296,
+     "unit": "DA_Nidalee18_AP",
+     "buildName": [
+      "DA_Bloodthirster",
+      "DA_EdgeOfNight",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.583,
+     "place_change": -0.863,
+     "unit_numitems_count": 25903
+    },
+    {
+     "cluster": "423025",
+     "count": 2391,
+     "avg": 3.9364,
+     "unit": "DA_18_Sivir",
+     "buildName": [
+      "DA_InfinityEdge",
+      "DA_RedBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5326,
+     "place_change": -0.456,
+     "unit_numitems_count": 25359
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 31768,
+    "avg": 4.3927
+   }
+  },
+  "423026": {
+   "builds": [
+    {
+     "cluster": "423026",
+     "count": 843,
+     "avg": 4.0403,
+     "unit": "DA_Sentinel18",
+     "buildName": [
+      "DA_GargoyleStoneplate",
+      "DA_ProtectorsVow",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4464,
+     "place_change": -0.653,
+     "unit_numitems_count": 14572
+    },
+    {
+     "cluster": "423026",
+     "unit_buildNames": "DA_Sentinel18&DA_ProtectorsVow|DA_ProtectorsVow|DA_ProtectorsVow",
+     "count": 108,
+     "avg": 3.6389,
+     "unit": "DA_Sentinel18",
+     "buildName": [
+      "DA_ProtectorsVow",
+      "DA_ProtectorsVow",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3991,
+     "adjusted_score": 0.3991,
+     "place_change": -1.054
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 23292,
+    "avg": 4.6931
+   }
+  },
+  "423027": {
+   "builds": [
+    {
+     "cluster": "423027",
+     "count": 1171,
+     "avg": 4.2425,
+     "unit": "DA_18_Aphelios",
+     "buildName": [
+      "DA_Deathblade",
+      "DA_Guinsoos<플레이어>blade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4904,
+     "place_change": -0.505,
+     "unit_numitems_count": 18963
+    },
+    {
+     "cluster": "423027",
+     "unit_buildNames": "DA_18_Aphelios&DA_18_EmblemFae|DA_Deathblade|DA_Guinsoos<플레이어>blade",
+     "count": 68,
+     "avg": 3.4853,
+     "unit": "DA_18_Aphelios",
+     "buildName": [
+      "DA_18_EmblemFae",
+      "DA_Deathblade",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4866,
+     "adjusted_score": 0.4866,
+     "place_change": -1.262
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 22946,
+    "avg": 4.7476
+   }
+  },
+  "423028": {
+   "builds": [
+    {
+     "cluster": "423028",
+     "count": 329,
+     "avg": 4.4833,
+     "unit": "DA_18_Kayle",
+     "buildName": [
+      "DA_Guinsoos<플레이어>blade",
+      "DA_JeweledGauntlet",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5972,
+     "place_change": -0.594,
+     "unit_numitems_count": 5298
+    },
+    {
+     "cluster": "423028",
+     "unit_buildNames": "DA_18_Kayle&DA_Guinsoos<플레이어>blade|DA_JeweledGauntlet|DA_StrikersFlail",
+     "count": 113,
+     "avg": 4.4425,
+     "unit": "DA_18_Kayle",
+     "buildName": [
+      "DA_Guinsoos<플레이어>blade",
+      "DA_JeweledGauntlet",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.5002,
+     "adjusted_score": 0.5002,
+     "place_change": -0.635
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 6222,
+    "avg": 5.077
+   }
+  },
+  "423029": {
+   "builds": [
+    {
+     "cluster": "423029",
+     "count": 3429,
+     "avg": 3.8816,
+     "unit": "DA_18_Ashe",
+     "buildName": [
+      "DA_LastWhisper",
+      "DA_RedBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.4377,
+     "place_change": -0.638,
+     "unit_numitems_count": 18145
+    },
+    {
+     "cluster": "423029",
+     "unit_buildNames": "DA_18_Ashe&DA_InfinityEdge|DA_RedBuff|DA_SpearOfShojin",
+     "count": 922,
+     "avg": 3.6681,
+     "unit": "DA_18_Ashe",
+     "buildName": [
+      "DA_InfinityEdge",
+      "DA_RedBuff",
+      "... 외 1개"
+     ],
+     "build": [],
+     "num_items": 3,
+     "score": 0.3997,
+     "adjusted_score": 0.3997,
+     "place_change": -0.851
+    },
+    "... 외 10개"
+   ],
+   "overall": {
+    "count": 32882,
+    "avg": 4.5194
+   }
+  },
+  "...": "외 26개 키"
+ },
+ "tft_set": "TFTSet18",
+ "updated": 1789473371085,
+ "queue_id": 1100,
+ "cluster_id": 423
+}

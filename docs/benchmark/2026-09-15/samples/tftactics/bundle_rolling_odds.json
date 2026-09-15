@@ -1,0 +1,10 @@
+[
+ {
+  "level": "<int>",
+  "tier_1": "<str>",
+  "tier_2": "<str>",
+  "tier_3": "<str>",
+  "tier_4": "<str>",
+  "tier_5": "<str>"
+ }
+]

@@ -1,0 +1,94 @@
+{
+ "games": [
+  {
+   "day": 0,
+   "srq": [
+    "BR1",
+    "BRONZE",
+    "... 외 1개"
+   ],
+   "patch": [
+    "18.2",
+    ""
+   ],
+   "count": 7320
+  },
+  {
+   "day": 0,
+   "srq": [
+    "BR1",
+    "BRONZE",
+    "... 외 1개"
+   ],
+   "patch": [
+    "18.2",
+    ""
+   ],
+   "count": 1656
+  },
+  "... 외 2782개"
+ ],
+ "updated": 1789473001734,
+ "patch": {
+  "patch_data": [
+   {
+    "patch": "18.2",
+    "b_patch_version": "",
+    "full_padded_patch": "0018.0002",
+    "count": 30954923,
+    "start": "2026-09-09T20:39:41.873Z"
+   },
+   {
+    "patch": "18.1",
+    "b_patch_version": "d",
+    "full_padded_patch": "0018.0001d",
+    "count": 12160450,
+    "start": "2026-09-08T00:00:00.019Z"
+   },
+   "... 외 1개"
+  ],
+  "pbe_patch_data": [
+   {
+    "patch": "18.3",
+    "b_patch_version": "",
+    "full_padded_patch": "0018.0003",
+    "count": 1417,
+    "start": "2026-09-10T00:04:34.843Z"
+   },
+   {
+    "patch": "18.2",
+    "b_patch_version": "",
+    "full_padded_patch": "0018.0002",
+    "count": 1111,
+    "start": "2026-09-08T00:10:34.734Z"
+   }
+  ],
+  "pbe_patch_mappings": [
+   {
+    "id": 6,
+    "patch": "16.1",
+    "b_patch_version": "b",
+    "live_at": "2025-11-19T20:00:00.000Z",
+    "patch_notes": "https://x.com/Mortdog/status/1991186949122703540",
+    "b_patch_name": "Nov-19"
+   },
+   {
+    "id": 5,
+    "patch": "16.1",
+    "b_patch_version": "a",
+    "live_at": "2025-11-18T20:00:00.000Z",
+    "patch_notes": "",
+    "b_patch_name": "Nov-18"
+   },
+   "... 외 12개"
+  ],
+  "lastUpdated": 1789473001734
+ },
+ "current_patch": {
+  "patch": "18.2",
+  "b_patch_version": "",
+  "full_padded_patch": "0018.0002",
+  "count": 30954923,
+  "start": "2026-09-09T20:39:41.873Z"
+ }
+}

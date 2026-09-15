@@ -1,0 +1,144 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "536ad17c-6069-4218-814f-85df10efc7ce",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "",
+  "v_version_id": "",
+  "details": [
+   {
+    "equip_id": "DA_18_EmblemBlackthorn",
+    "list": [
+     {
+      "data": {
+       "avg_rank": "4.262157",
+       "cycle": "16.18",
+       "top_1_hero_id": "18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.148022",
+       "top_4_rate": "0.541535",
+       "use_rate": "0.0029"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "Lux18"
+       },
+       "... 외 1개"
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "Lux18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      }
+     },
+     {
+      "data": {
+       "avg_rank": "4.309803",
+       "cycle": "16.17",
+       "top_1_hero_id": "18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.143427",
+       "top_4_rate": "0.534428",
+       "use_rate": "0.002922"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       "... 외 1개"
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      }
+     }
+    ]
+   },
+   {
+    "equip_id": "DA_18_EmblemBlossom",
+    "list": [
+     {
+      "data": {
+       "avg_rank": "4.074269",
+       "cycle": "16.18",
+       "top_1_hero_id": "18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.188575",
+       "top_4_rate": "0.566859",
+       "use_rate": "0.004809"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       "... 외 1개"
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      }
+     },
+     {
+      "data": {
+       "avg_rank": "4.046011",
+       "cycle": "16.17",
+       "top_1_hero_id": "18",
+       "top_1_hero_version": "DA",
+       "top_1_rate": "0.183411",
+       "top_4_rate": "0.573773",
+       "use_rate": "0.005428"
+      },
+      "hero_list": [
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       {
+        "version": "DA",
+        "hero_id": "18"
+       },
+       "... 외 1개"
+      ],
+      "top_2_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      },
+      "top_3_hero": {
+       "version": "DA",
+       "hero_id": "18"
+      }
+     }
+    ]
+   },
+   "... 외 341개"
+  ]
+ }
+}

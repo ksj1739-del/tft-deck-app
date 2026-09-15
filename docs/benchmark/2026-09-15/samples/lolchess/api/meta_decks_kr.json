@@ -1,0 +1,14 @@
+{
+ "patchRevisions": [],
+ "season": "<str>",
+ "metaDeckList": null,
+ "refs": {
+  "champions": [],
+  "traits": [],
+  "items": [],
+  "augments": [],
+  "metaDeckHideKeys": [],
+  "metaDeckNames": [],
+  "metaDeckTeamBuilders": []
+ }
+}

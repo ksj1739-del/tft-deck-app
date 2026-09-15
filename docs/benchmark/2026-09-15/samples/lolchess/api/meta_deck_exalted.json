@@ -1,0 +1,45 @@
+{
+ "patchRevisions": [
+  {
+   "patch": "<int>",
+   "revision": "<int>",
+   "patchVersion": "<str>"
+  }
+ ],
+ "season": "<str>",
+ "metaDeckExalted": {
+  "updatedAt": "<int>",
+  "shard": "<str>",
+  "queueId": "<int>",
+  "dt": "<int>",
+  "patch": "<int>",
+  "revision": "<int>",
+  "tierId": "<int>",
+  "plays": "<int>",
+  "metaDeckExaltedStats": [
+   {
+    "key": "<str>",
+    "keys": [
+     "<str>"
+    ],
+    "plays": "<int>",
+    "wins": "<int>",
+    "tops": "<int>",
+    "placements": "<int>",
+    "pickRate": "<float>",
+    "avgPlacement": "<float>",
+    "exaltedStyleStats": [
+     {
+      "key": "<int>",
+      "plays": "<int>",
+      "wins": "<int>",
+      "tops": "<int>",
+      "placements": "<int>",
+      "pickRate": "<float>",
+      "avgPlacement": "<float>"
+     }
+    ]
+   }
+  ]
+ }
+}

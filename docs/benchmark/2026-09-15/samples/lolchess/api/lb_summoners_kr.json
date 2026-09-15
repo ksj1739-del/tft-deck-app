@@ -1,0 +1,33 @@
+{
+ "meta": {
+  "shard": "<str>",
+  "season": "<str>",
+  "queueId": "<int>",
+  "tier": "<str>",
+  "page": "<int>",
+  "totalCount": "<int>",
+  "updatedAt": "<int>"
+ },
+ "summonerTierCutoffs": [
+  {
+   "tier": "<str>",
+   "leaguePoints": "<int>"
+  }
+ ],
+ "summonerRankings": [
+  {
+   "puuid": "<str>",
+   "shard": "<str>",
+   "gameName": "<str>",
+   "tagLine": "<str>",
+   "summonerLevel": "<int>",
+   "profileIconUrl": "<str>",
+   "tier": "<str>",
+   "rank": "<str>",
+   "leaguePoints": "<int>",
+   "plays": "<int>",
+   "wins": "<int>",
+   "tops": "<int>"
+  }
+ ]
+}

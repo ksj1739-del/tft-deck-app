@@ -1,0 +1,12 @@
+== no key, real puuid
+{"status":{"message":"Cannot process request apikey or authorization header is empty","status_code":401}}
+HTTP 401
+== bogus key header
+{"status":{"message":"Unknown apikey","status_code":401}}
+HTTP 401
+== bogus key query
+{"status":{"message":"Unknown apikey","status_code":401}}
+HTTP 401
+== asia account-v1 no key
+{"status":{"message":"Cannot process request apikey or authorization header is empty","status_code":401}}
+HTTP 401

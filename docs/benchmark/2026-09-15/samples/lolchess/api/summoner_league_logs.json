@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "queueId": "<int>",
+  "page": "<int>",
+  "size": "<int>",
+  "totalCount": "<int>"
+ },
+ "summonerLeagueLogs": [
+  [
+   "<int>"
+  ]
+ ],
+ "summonerTierCutoffs": [
+  {
+   "tier": "<str>",
+   "leaguePoints": "<int>"
+  }
+ ]
+}

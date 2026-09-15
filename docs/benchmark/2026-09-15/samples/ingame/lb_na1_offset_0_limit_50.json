@@ -1,0 +1,2394 @@
+{
+ "meta": {
+  "total": 1000,
+  "offset": 0,
+  "limit": 50
+ },
+ "data": [
+  {
+   "player_id": "3179267",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 1564 LP",
+   "rating_numeric": 4364,
+   "num_played": 278,
+   "rank": 1,
+   "stats": {
+    "num_played": 278,
+    "place_sum": 994,
+    "wins": 69,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 7,
+     "place_sum": 52,
+     "avg_similarity": 0.3577,
+     "lpChange": 385
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 34,
+     "num_played": 34,
+     "wins": 9,
+     "place_sum": 109,
+     "avg_similarity": 0.308,
+     "lpChange": 367
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "214118785",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 1400 LP",
+   "rating_numeric": 4200,
+   "num_played": 235,
+   "rank": 2,
+   "stats": {
+    "num_played": 235,
+    "place_sum": 787,
+    "wins": 71,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 64,
+     "avg_similarity": 0.2225,
+     "lpChange": 198
+    },
+    "currentPatchResult": {},
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "349791247",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 1127 LP",
+   "rating_numeric": 3927,
+   "num_played": 268,
+   "rank": 3,
+   "stats": {
+    "num_played": 268,
+    "place_sum": 985,
+    "wins": 51,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 88,
+     "avg_similarity": 0.1747,
+     "lpChange": -93
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 56,
+     "num_played": 56,
+     "wins": 15,
+     "place_sum": 207,
+     "avg_similarity": 0.2358,
+     "lpChange": 286
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4496051",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 1101 LP",
+   "rating_numeric": 3901,
+   "num_played": 274,
+   "rank": 4,
+   "stats": {
+    "num_played": 274,
+    "place_sum": 1061,
+    "wins": 46,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 72,
+     "avg_similarity": 0.3914,
+     "lpChange": 187
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 49,
+     "num_played": 49,
+     "wins": 8,
+     "place_sum": 180,
+     "avg_similarity": 0.3152,
+     "lpChange": 392
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "50532132",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 1069 LP",
+   "rating_numeric": 3869,
+   "num_played": 312,
+   "rank": 5,
+   "stats": {
+    "num_played": 311,
+    "place_sum": 1231,
+    "wins": 60,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 71,
+     "avg_similarity": 0.3436,
+     "lpChange": 117
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 53,
+     "num_played": 53,
+     "wins": 12,
+     "place_sum": 182,
+     "avg_similarity": 0.2789,
+     "lpChange": 534
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "3407741",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 1043 LP",
+   "rating_numeric": 3843,
+   "num_played": 147,
+   "rank": 6,
+   "stats": {
+    "num_played": 147,
+    "place_sum": 481,
+    "wins": 40,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 86,
+     "avg_similarity": 0.1668,
+     "lpChange": -50
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 24,
+     "num_played": 24,
+     "wins": 5,
+     "place_sum": 105,
+     "avg_similarity": 0.1849,
+     "lpChange": -94
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "340856034",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 970 LP",
+   "rating_numeric": 3770,
+   "num_played": 233,
+   "rank": 7,
+   "stats": {
+    "num_played": 233,
+    "place_sum": 903,
+    "wins": 51,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 6,
+     "place_sum": 74,
+     "avg_similarity": 0.2408,
+     "lpChange": 95
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 3,
+     "num_played": 3,
+     "wins": 0,
+     "place_sum": 13,
+     "avg_similarity": 0.0556,
+     "lpChange": -14
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "269770281",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 932 LP",
+   "rating_numeric": 3732,
+   "num_played": 319,
+   "rank": 8,
+   "stats": {
+    "num_played": 319,
+    "place_sum": 1336,
+    "wins": 43,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 1,
+     "place_sum": 83,
+     "avg_similarity": 0.1433,
+     "lpChange": 70
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 53,
+     "num_played": 53,
+     "wins": 8,
+     "place_sum": 210,
+     "avg_similarity": 0.1802,
+     "lpChange": 336
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "16403789",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 927 LP",
+   "rating_numeric": 3727,
+   "num_played": 266,
+   "rank": 9,
+   "stats": {
+    "num_played": 266,
+    "place_sum": 999,
+    "wins": 50,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 1,
+     "place_sum": 93,
+     "avg_similarity": 0.2011,
+     "lpChange": -96
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 56,
+     "num_played": 56,
+     "wins": 5,
+     "place_sum": 243,
+     "avg_similarity": 0.1977,
+     "lpChange": -72
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "2916913",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 919 LP",
+   "rating_numeric": 3719,
+   "num_played": 167,
+   "rank": 10,
+   "stats": {
+    "num_played": 167,
+    "place_sum": 608,
+    "wins": 41,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 63,
+     "avg_similarity": 0.2087,
+     "lpChange": 306
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 37,
+     "num_played": 37,
+     "wins": 7,
+     "place_sum": 127,
+     "avg_similarity": 0.1978,
+     "lpChange": 471
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "4441643",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 905 LP",
+   "rating_numeric": 3705,
+   "num_played": 216,
+   "rank": 11,
+   "stats": {
+    "num_played": 216,
+    "place_sum": 813,
+    "wins": 46,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 78,
+     "avg_similarity": 0.1319,
+     "lpChange": 143
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 28,
+     "num_played": 28,
+     "wins": 7,
+     "place_sum": 106,
+     "avg_similarity": 0.2015,
+     "lpChange": 244
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "3793401",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 893 LP",
+   "rating_numeric": 3693,
+   "num_played": 213,
+   "rank": 12,
+   "stats": {
+    "num_played": 213,
+    "place_sum": 774,
+    "wins": 38,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 67,
+     "avg_similarity": 0.2385,
+     "lpChange": 222
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 2,
+     "num_played": 2,
+     "wins": 0,
+     "place_sum": 6,
+     "avg_similarity": 0.125,
+     "lpChange": 25
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "142606374",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 883 LP",
+   "rating_numeric": 3683,
+   "num_played": 215,
+   "rank": 13,
+   "stats": {
+    "num_played": 215,
+    "place_sum": 814,
+    "wins": 45,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 7,
+     "place_sum": 65,
+     "avg_similarity": 0.3472,
+     "lpChange": 274
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 37,
+     "num_played": 37,
+     "wins": 10,
+     "place_sum": 125,
+     "avg_similarity": 0.3113,
+     "lpChange": 478
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4615557",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 875 LP",
+   "rating_numeric": 3675,
+   "num_played": 291,
+   "rank": 14,
+   "stats": {
+    "num_played": 291,
+    "place_sum": 1162,
+    "wins": 46,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 81,
+     "avg_similarity": 0.2612,
+     "lpChange": 108
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 52,
+     "num_played": 52,
+     "wins": 8,
+     "place_sum": 210,
+     "avg_similarity": 0.198,
+     "lpChange": 305
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "4226371",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 868 LP",
+   "rating_numeric": 3668,
+   "num_played": 259,
+   "rank": 15,
+   "stats": {
+    "num_played": 259,
+    "place_sum": 984,
+    "wins": 54,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 76,
+     "avg_similarity": 0.1735,
+     "lpChange": 168
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 34,
+     "num_played": 34,
+     "wins": 6,
+     "place_sum": 139,
+     "avg_similarity": 0.204,
+     "lpChange": 144
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4437487",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 860 LP",
+   "rating_numeric": 3660,
+   "num_played": 154,
+   "rank": 16,
+   "stats": {
+    "num_played": 154,
+    "place_sum": 531,
+    "wins": 45,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 81,
+     "avg_similarity": 0.1577,
+     "lpChange": 54
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 12,
+     "num_played": 12,
+     "wins": 3,
+     "place_sum": 49,
+     "avg_similarity": 0.1568,
+     "lpChange": 29
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4635945",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 858 LP",
+   "rating_numeric": 3658,
+   "num_played": 161,
+   "rank": 17,
+   "stats": {
+    "num_played": 161,
+    "place_sum": 591,
+    "wins": 36,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 67,
+     "avg_similarity": 0.0717,
+     "lpChange": 284
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 23,
+     "num_played": 23,
+     "wins": 4,
+     "place_sum": 82,
+     "avg_similarity": 0.1119,
+     "lpChange": 247
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4625995",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 847 LP",
+   "rating_numeric": 3647,
+   "num_played": 264,
+   "rank": 18,
+   "stats": {
+    "num_played": 264,
+    "place_sum": 1055,
+    "wins": 51,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 79,
+     "avg_similarity": 0.1721,
+     "lpChange": 98
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 60,
+     "num_played": 60,
+     "wins": 10,
+     "place_sum": 234,
+     "avg_similarity": null,
+     "lpChange": 339
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "309809341",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 828 LP",
+   "rating_numeric": 3628,
+   "num_played": 388,
+   "rank": 19,
+   "stats": {
+    "num_played": 388,
+    "place_sum": 1647,
+    "wins": 55,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 79,
+     "avg_similarity": 0.2124,
+     "lpChange": 49
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 99,
+     "num_played": 99,
+     "wins": 20,
+     "place_sum": 387,
+     "avg_similarity": 0.2715,
+     "lpChange": 665
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "3250596",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 815 LP",
+   "rating_numeric": 3615,
+   "num_played": 415,
+   "rank": 20,
+   "stats": {
+    "num_played": 415,
+    "place_sum": 1717,
+    "wins": 65,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 81,
+     "avg_similarity": 0.242,
+     "lpChange": 132
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 117,
+     "num_played": 117,
+     "wins": 15,
+     "place_sum": 524,
+     "avg_similarity": 0.2475,
+     "lpChange": -94
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "1821779",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 803 LP",
+   "rating_numeric": 3603,
+   "num_played": 169,
+   "rank": 21,
+   "stats": {
+    "num_played": 169,
+    "place_sum": 627,
+    "wins": 39,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 72,
+     "avg_similarity": 0.2941,
+     "lpChange": 227
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 22,
+     "num_played": 22,
+     "wins": 5,
+     "place_sum": 81,
+     "avg_similarity": 0.2958,
+     "lpChange": 220
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "137861197",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 798 LP",
+   "rating_numeric": 3598,
+   "num_played": 241,
+   "rank": 22,
+   "stats": {
+    "num_played": 241,
+    "place_sum": 991,
+    "wins": 36,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 2,
+     "place_sum": 73,
+     "avg_similarity": 0.1747,
+     "lpChange": 217
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 48,
+     "num_played": 48,
+     "wins": 7,
+     "place_sum": 193,
+     "avg_similarity": 0.1862,
+     "lpChange": 285
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "574486534",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 797 LP",
+   "rating_numeric": 3597,
+   "num_played": 403,
+   "rank": 23,
+   "stats": {
+    "num_played": 402,
+    "place_sum": 1705,
+    "wins": 59,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 78,
+     "avg_similarity": 0.1227,
+     "lpChange": 122
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 82,
+     "num_played": 82,
+     "wins": 12,
+     "place_sum": 337,
+     "avg_similarity": 0.1557,
+     "lpChange": 271
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4674430",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 787 LP",
+   "rating_numeric": 3587,
+   "num_played": 335,
+   "rank": 24,
+   "stats": {
+    "num_played": 335,
+    "place_sum": 1407,
+    "wins": 52,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 1,
+     "place_sum": 68,
+     "avg_similarity": 0.2761,
+     "lpChange": 247
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 50,
+     "num_played": 50,
+     "wins": 4,
+     "place_sum": 198,
+     "avg_similarity": 0.2496,
+     "lpChange": 297
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "429392919",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 786 LP",
+   "rating_numeric": 3586,
+   "num_played": 245,
+   "rank": 25,
+   "stats": {
+    "num_played": 245,
+    "place_sum": 985,
+    "wins": 48,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 6,
+     "place_sum": 70,
+     "avg_similarity": 0.21,
+     "lpChange": 221
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 24,
+     "num_played": 24,
+     "wins": 6,
+     "place_sum": 84,
+     "avg_similarity": 0.2024,
+     "lpChange": 282
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "143424399",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 786 LP",
+   "rating_numeric": 3586,
+   "num_played": 190,
+   "rank": 26,
+   "stats": {
+    "num_played": 190,
+    "place_sum": 728,
+    "wins": 41,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 67,
+     "avg_similarity": 0.1034,
+     "lpChange": 303
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 42,
+     "num_played": 42,
+     "wins": 11,
+     "place_sum": 156,
+     "avg_similarity": 0.1749,
+     "lpChange": 433
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "2099351",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 780 LP",
+   "rating_numeric": 3580,
+   "num_played": 228,
+   "rank": 27,
+   "stats": {
+    "num_played": 228,
+    "place_sum": 913,
+    "wins": 41,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 69,
+     "avg_similarity": 0.2688,
+     "lpChange": 264
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 48,
+     "num_played": 48,
+     "wins": 11,
+     "place_sum": 178,
+     "avg_similarity": 0.2474,
+     "lpChange": 492
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4575972",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 772 LP",
+   "rating_numeric": 3572,
+   "num_played": 176,
+   "rank": 28,
+   "stats": {
+    "num_played": 176,
+    "place_sum": 676,
+    "wins": 35,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 6,
+     "place_sum": 63,
+     "avg_similarity": 0.2231,
+     "lpChange": 370
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 26,
+     "num_played": 26,
+     "wins": 8,
+     "place_sum": 82,
+     "avg_similarity": 0.1919,
+     "lpChange": 478
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4383165",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 765 LP",
+   "rating_numeric": 3565,
+   "num_played": 237,
+   "rank": 29,
+   "stats": {
+    "num_played": 237,
+    "place_sum": 954,
+    "wins": 36,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 74,
+     "avg_similarity": 0.2449,
+     "lpChange": 221
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 18,
+     "num_played": 18,
+     "wins": 4,
+     "place_sum": 65,
+     "avg_similarity": 0.2569,
+     "lpChange": 228
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "254589",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 757 LP",
+   "rating_numeric": 3557,
+   "num_played": 281,
+   "rank": 30,
+   "stats": {
+    "num_played": 281,
+    "place_sum": 1141,
+    "wins": 52,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 2,
+     "place_sum": 75,
+     "avg_similarity": 0.3455,
+     "lpChange": 145
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 29,
+     "num_played": 29,
+     "wins": 5,
+     "place_sum": 108,
+     "avg_similarity": 0.3846,
+     "lpChange": 233
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4595759",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 753 LP",
+   "rating_numeric": 3553,
+   "num_played": 230,
+   "rank": 31,
+   "stats": {
+    "num_played": 230,
+    "place_sum": 881,
+    "wins": 44,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 83,
+     "avg_similarity": 0.2347,
+     "lpChange": 66
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 16,
+     "num_played": 16,
+     "wins": 2,
+     "place_sum": 67,
+     "avg_similarity": 0.236,
+     "lpChange": 44
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "3437717",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 745 LP",
+   "rating_numeric": 3545,
+   "num_played": 251,
+   "rank": 32,
+   "stats": {
+    "num_played": 251,
+    "place_sum": 1008,
+    "wins": 45,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 69,
+     "avg_similarity": 0.3237,
+     "lpChange": 302
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 77,
+     "num_played": 77,
+     "wins": 12,
+     "place_sum": 318,
+     "avg_similarity": 0.2784,
+     "lpChange": 358
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "272666",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 744 LP",
+   "rating_numeric": 3544,
+   "num_played": 203,
+   "rank": 33,
+   "stats": {
+    "num_played": 203,
+    "place_sum": 799,
+    "wins": 42,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 73,
+     "avg_similarity": 0.2556,
+     "lpChange": 240
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 68,
+     "num_played": 68,
+     "wins": 13,
+     "place_sum": 268,
+     "avg_similarity": 0.2672,
+     "lpChange": 539
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4275914",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 735 LP",
+   "rating_numeric": 3535,
+   "num_played": 287,
+   "rank": 34,
+   "stats": {
+    "num_played": 287,
+    "place_sum": 1196,
+    "wins": 49,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 1,
+     "place_sum": 79,
+     "avg_similarity": 0.3094,
+     "lpChange": 129
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 81,
+     "num_played": 81,
+     "wins": 10,
+     "place_sum": 348,
+     "avg_similarity": 0.3066,
+     "lpChange": 258
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "478796428",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 732 LP",
+   "rating_numeric": 3532,
+   "num_played": 227,
+   "rank": 35,
+   "stats": {
+    "num_played": 227,
+    "place_sum": 909,
+    "wins": 50,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 6,
+     "place_sum": 79,
+     "avg_similarity": 0.1761,
+     "lpChange": 158
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 61,
+     "num_played": 61,
+     "wins": 17,
+     "place_sum": 235,
+     "avg_similarity": 0.2031,
+     "lpChange": 531
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "1847856",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 725 LP",
+   "rating_numeric": 3525,
+   "num_played": 221,
+   "rank": 36,
+   "stats": {
+    "num_played": 221,
+    "place_sum": 879,
+    "wins": 37,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 71,
+     "avg_similarity": 0.2292,
+     "lpChange": 275
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 67,
+     "num_played": 67,
+     "wins": 8,
+     "place_sum": 283,
+     "avg_similarity": 0.2177,
+     "lpChange": 215
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "397787722",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 723 LP",
+   "rating_numeric": 3523,
+   "num_played": 235,
+   "rank": 37,
+   "stats": {
+    "num_played": 235,
+    "place_sum": 968,
+    "wins": 45,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 8,
+     "place_sum": 63,
+     "avg_similarity": 0.2284,
+     "lpChange": 371
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 50,
+     "num_played": 50,
+     "wins": 13,
+     "place_sum": 179,
+     "avg_similarity": 0.2409,
+     "lpChange": 627
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "3423457",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 722 LP",
+   "rating_numeric": 3522,
+   "num_played": 198,
+   "rank": 38,
+   "stats": {
+    "num_played": 198,
+    "place_sum": 789,
+    "wins": 31,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 1,
+     "place_sum": 72,
+     "avg_similarity": 0.1848,
+     "lpChange": 262
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 54,
+     "num_played": 54,
+     "wins": 5,
+     "place_sum": 213,
+     "avg_similarity": 0.2305,
+     "lpChange": 423
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4617051",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 714 LP",
+   "rating_numeric": 3514,
+   "num_played": 117,
+   "rank": 39,
+   "stats": {
+    "num_played": 117,
+    "place_sum": 386,
+    "wins": 33,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 74,
+     "avg_similarity": 0.2436,
+     "lpChange": 153
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 14,
+     "num_played": 14,
+     "wins": 2,
+     "place_sum": 54,
+     "avg_similarity": 0.2458,
+     "lpChange": 73
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "1562903",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 712 LP",
+   "rating_numeric": 3512,
+   "num_played": 270,
+   "rank": 40,
+   "stats": {
+    "num_played": 270,
+    "place_sum": 1080,
+    "wins": 44,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 1,
+     "place_sum": 85,
+     "avg_similarity": 0.2352,
+     "lpChange": -19
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 58,
+     "num_played": 58,
+     "wins": 6,
+     "place_sum": 236,
+     "avg_similarity": 0.2956,
+     "lpChange": 223
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4423703",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 709 LP",
+   "rating_numeric": 3509,
+   "num_played": 290,
+   "rank": 41,
+   "stats": {
+    "num_played": 290,
+    "place_sum": 1206,
+    "wins": 50,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 71,
+     "avg_similarity": 0.2164,
+     "lpChange": 263
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 41,
+     "num_played": 41,
+     "wins": 10,
+     "place_sum": 143,
+     "avg_similarity": null,
+     "lpChange": 576
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "3476358",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 709 LP",
+   "rating_numeric": 3509,
+   "num_played": 216,
+   "rank": 42,
+   "stats": {
+    "num_played": 216,
+    "place_sum": 848,
+    "wins": 49,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 2,
+     "place_sum": 83,
+     "avg_similarity": 0.2324,
+     "lpChange": 53
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 51,
+     "num_played": 51,
+     "wins": 9,
+     "place_sum": 197,
+     "avg_similarity": 0.177,
+     "lpChange": 346
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "3907123",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 708 LP",
+   "rating_numeric": 3508,
+   "num_played": 184,
+   "rank": 43,
+   "stats": {
+    "num_played": 184,
+    "place_sum": 688,
+    "wins": 45,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 3,
+     "place_sum": 72,
+     "avg_similarity": 0.2388,
+     "lpChange": 188
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 27,
+     "num_played": 27,
+     "wins": 5,
+     "place_sum": 99,
+     "avg_similarity": 0.2208,
+     "lpChange": 230
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "255012",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 696 LP",
+   "rating_numeric": 3496,
+   "num_played": 205,
+   "rank": 44,
+   "stats": {
+    "num_played": 205,
+    "place_sum": 819,
+    "wins": 42,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 5,
+     "place_sum": 60,
+     "avg_similarity": 0.1563,
+     "lpChange": 433
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 50,
+     "num_played": 50,
+     "wins": 9,
+     "place_sum": 193,
+     "avg_similarity": 0.2029,
+     "lpChange": 478
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "4432309",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 696 LP",
+   "rating_numeric": 3496,
+   "num_played": 292,
+   "rank": 45,
+   "stats": {
+    "num_played": 292,
+    "place_sum": 1209,
+    "wins": 66,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 6,
+     "place_sum": 79,
+     "avg_similarity": 0.5551,
+     "lpChange": 131
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 78,
+     "num_played": 78,
+     "wins": 24,
+     "place_sum": 316,
+     "avg_similarity": 0.4579,
+     "lpChange": 474
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "593975",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 690 LP",
+   "rating_numeric": 3490,
+   "num_played": 258,
+   "rank": 46,
+   "stats": {
+    "num_played": 258,
+    "place_sum": 1032,
+    "wins": 42,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 1,
+     "place_sum": 78,
+     "avg_similarity": 0.2716,
+     "lpChange": 149
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 53,
+     "num_played": 53,
+     "wins": 7,
+     "place_sum": 226,
+     "avg_similarity": 0.2896,
+     "lpChange": 134
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "4275922",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 663 LP",
+   "rating_numeric": 3463,
+   "num_played": 252,
+   "rank": 47,
+   "stats": {
+    "num_played": 252,
+    "place_sum": 1020,
+    "wins": 57,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 7,
+     "place_sum": 76,
+     "avg_similarity": 0.2812,
+     "lpChange": 200
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 73,
+     "num_played": 73,
+     "wins": 21,
+     "place_sum": 309,
+     "avg_similarity": 0.2836,
+     "lpChange": 190
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "104374",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 662 LP",
+   "rating_numeric": 3462,
+   "num_played": 252,
+   "rank": 48,
+   "stats": {
+    "num_played": 252,
+    "place_sum": 1032,
+    "wins": 37,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 83,
+     "avg_similarity": 0.1259,
+     "lpChange": 135
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 60,
+     "num_played": 60,
+     "wins": 11,
+     "place_sum": 251,
+     "avg_similarity": 0.1606,
+     "lpChange": 335
+    },
+    "appMatches": true
+   }
+  },
+  {
+   "player_id": "312293636",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 653 LP",
+   "rating_numeric": 3453,
+   "num_played": 163,
+   "rank": 49,
+   "stats": {
+    "num_played": 163,
+    "place_sum": 610,
+    "wins": 34,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 1,
+     "place_sum": 95,
+     "avg_similarity": 0.1623,
+     "lpChange": -180
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 29,
+     "num_played": 29,
+     "wins": 1,
+     "place_sum": 125,
+     "avg_similarity": 0.16,
+     "lpChange": -65
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "1044680",
+   "summoner_region": "na1",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 653 LP",
+   "rating_numeric": 3453,
+   "num_played": 392,
+   "rank": 50,
+   "stats": {
+    "num_played": 391,
+    "place_sum": 1659,
+    "wins": 52,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 83,
+     "avg_similarity": 0.3161,
+     "lpChange": 99
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 118,
+     "num_played": 118,
+     "wins": 20,
+     "place_sum": 497,
+     "avg_similarity": 0.2518,
+     "lpChange": 476
+    },
+    "appMatches": true
+   }
+  }
+ ]
+}

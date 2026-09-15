@@ -1,0 +1,64 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "5f63f34a-da93-4e73-b1cc-36ca40170611",
+ "data": [
+  {
+   "avg_rank": "3.91",
+   "avg_rank_delta": "-0.022",
+   "top1_cnt": "112231",
+   "top4_cnt": "336466",
+   "total": "1348678",
+   "trait_id": "DA_Juggernaut18,2",
+   "trait_rate": "0.414",
+   "trait_s": "558506",
+   "tier": "A"
+  },
+  {
+   "avg_rank": "3.853",
+   "avg_rank_delta": "-0.079",
+   "top1_cnt": "94630",
+   "top4_cnt": "272035",
+   "total": "1348678",
+   "trait_id": "DA_18_Vanguard,2",
+   "trait_rate": "0.33",
+   "trait_s": "444677",
+   "tier": "A"
+  },
+  {
+   "avg_rank": "3.557",
+   "avg_rank_delta": "-0.375",
+   "top1_cnt": "101568",
+   "top4_cnt": "271288",
+   "total": "1348678",
+   "trait_id": "DA_Emerald18,1",
+   "trait_rate": "0.303",
+   "trait_s": "408516",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.698",
+   "avg_rank_delta": "-0.234",
+   "top1_cnt": "91776",
+   "top4_cnt": "243423",
+   "total": "1348678",
+   "trait_id": "DA_18_Maokai_UniqueTrait,1",
+   "trait_rate": "0.284",
+   "trait_s": "383040",
+   "tier": "A"
+  },
+  {
+   "avg_rank": "3.876",
+   "avg_rank_delta": "-0.056",
+   "top1_cnt": "69059",
+   "top4_cnt": "204423",
+   "total": "1348678",
+   "trait_id": "DA_Riftbeast18,3",
+   "trait_rate": "0.249",
+   "trait_s": "336065",
+   "tier": "A"
+  }
+ ],
+ "_note": "trimmed to 5 rows of 87"
+}

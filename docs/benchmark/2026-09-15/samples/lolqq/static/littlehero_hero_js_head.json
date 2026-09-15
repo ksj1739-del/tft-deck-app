@@ -1,0 +1,57 @@
+{
+ "version": "16.18",
+ "season": "2026.S18",
+ "modeId": "1",
+ "time": "2026-09-09 19:07:12",
+ "data": [
+  {
+   "heroId": "47",
+   "name": "宇航员河灵",
+   "typeId": "109",
+   "miniId": "28",
+   "star": "3",
+   "imagePath": "https://game.gtimg.cn/images/lol/companion/Loot_TFTAvatar_Astronaut_Astronaut_Tier1.LL_TFTAvatar_Astronaut.png",
+   "quality": "稀有",
+   "video": "",
+   "shape": "绿色三星",
+   "contentid": "7d799647-b5fc-4a04-a71c-3abac37bd2f1",
+   "attrType": "1",
+   "id": "517064",
+   "type": "宇航员",
+   "mini": "小河灵"
+  },
+  {
+   "heroId": "140002",
+   "name": "星之守护者 小小辛德拉",
+   "typeId": "130",
+   "miniId": "218",
+   "star": "1",
+   "imagePath": "https://game.gtimg.cn/images/lol/companion/Loot_ChibiSyndra_StarGuardian_StarGuardian_Tier1.CHIBI_Syndra_StarGuardian.png",
+   "quality": "传说",
+   "video": "",
+   "shape": "紫色一星",
+   "contentid": "9b88b65d-e22f-4566-8c81-2a959963061c",
+   "attrType": "1",
+   "id": "517065",
+   "type": "星之守护者",
+   "mini": "辛德拉"
+  },
+  {
+   "heroId": "140001",
+   "name": "小小辛德拉",
+   "typeId": "197",
+   "miniId": "218",
+   "star": "1",
+   "imagePath": "https://game.gtimg.cn/images/lol/companion/Loot_ChibiSyndra_Base_Classic_Tier1.CHIBI_Syndra_Base.png",
+   "quality": "史诗",
+   "video": "",
+   "shape": "蓝色一星",
+   "contentid": "8616ffe4-3f6e-413f-aa85-21880ffc8b85",
+   "attrType": "1",
+   "id": "517066",
+   "type": "小小",
+   "mini": "辛德拉"
+  }
+ ],
+ "_note": "trimmed to 3 rows of 2014"
+}

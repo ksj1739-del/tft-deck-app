@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Date: Tue, 15 Sep 2026 11:49:50 GMT
+Content-Type: application/json
+Content-Length: 1478
+Connection: keep-alive
+Accept-Ranges: bytes
+last-modified: Tue, 15 Sep 2026 10:08:29 GMT
+x-rgw-object-type: Normal
+etag: "4feb756c1cd86143136aad8591c69b2c"
+Cache-Control: public, max-age=120
+Content-Encoding: gzip
+x-amz-request-id: tx00000b6eb982aeefac63f-006aa9191e-1affd2a64-fra1b
+access-control-allow-origin: *
+access-control-allow-methods: GET
+access-control-max-age: 60
+vary: Origin, Access-Control-Request-Headers, Access-Control-Request-Method
+vary: accept-encoding
+strict-transport-security: max-age=15552000; includeSubDomains; preload
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Age: 0
+cf-cache-status: HIT
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=ZJ%2FTR9TtV8hgcb6DfTXph2WNyEck%2BmtNkJ0JC8w5l1Gn%2BaCy%2B%2BkefvvL4gvtUkXgQ8SiDfUhQhJ%2FF%2Fn1iZMv886Gi8vdWfXRzabs5w5gM3RjBXIE5XzkKLM%2Ff5eSzygkgTY%3D"}]}
+Server: cloudflare
+CF-RAY: a3b7690ddeda9801-NRT
+

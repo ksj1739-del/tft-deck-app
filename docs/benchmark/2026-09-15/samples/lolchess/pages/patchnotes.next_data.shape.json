@@ -1,0 +1,84 @@
+{
+ "props": {
+  "initialProps": {
+   "locale": "<str>",
+   "notifications": [],
+   "viewOriginalSkin": "<bool>",
+   "isDakggMobile": "<bool>",
+   "isNoBannerToShow": "<bool>",
+   "desktopScale": "<int>",
+   "hasCookieBannerNoticeBarKey": "<bool>",
+   "isLegacyMobile": "<bool>",
+   "isDakggDesktop": "<bool>",
+   "isMobile": "<bool>",
+   "onReleaseTime": "<bool>",
+   "serverTime": "<str>",
+   "notificationKey": "<str>",
+   "bannerKey": "<str>",
+   "isVenatusV4": "<bool>",
+   "theme": "<str>",
+   "showAdOnMobile": "<bool>",
+   "isRnMobileApp": "<bool>",
+   "seasonReleaseInfo": {
+    "season": "<str>",
+    "isReleased": "<bool>"
+   },
+   "embargoExceptionInfo": {
+    "season": "<str>",
+    "isReleased": "<bool>"
+   }
+  },
+  "pageProps": {
+   "dehydratedState": {
+    "mutations": [],
+    "queries": [
+     {
+      "state": {
+       "data": {
+        "meta": {
+         "locale": "<str>"
+        },
+        "patchNotes": [
+         {
+          "id": "<int>",
+          "patchVersion": "<str>",
+          "registeredAt": "<int>",
+          "season": "<str>"
+         }
+        ]
+       },
+       "dataUpdateCount": "<int>",
+       "dataUpdatedAt": "<int>",
+       "error": null,
+       "errorUpdateCount": "<int>",
+       "errorUpdatedAt": "<int>",
+       "fetchFailureCount": "<int>",
+       "fetchFailureReason": null,
+       "fetchMeta": null,
+       "isInvalidated": "<bool>",
+       "status": "<str>",
+       "fetchStatus": "<str>"
+      },
+      "queryKey": [
+       "<str>"
+      ],
+      "queryHash": "<str>"
+     }
+    ]
+   },
+   "category": "<str>",
+   "id": "<int>",
+   "season": "<str>",
+   "theme": "<str>"
+  },
+  "__N_SSP": "<bool>"
+ },
+ "page": "<str>",
+ "query": {},
+ "buildId": "<str>",
+ "assetPrefix": "<str>",
+ "isFallback": "<bool>",
+ "gssp": "<bool>",
+ "appGip": "<bool>",
+ "scriptLoader": []
+}

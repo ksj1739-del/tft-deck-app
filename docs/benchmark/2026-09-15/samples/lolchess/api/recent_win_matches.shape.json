@@ -1,0 +1,70 @@
+{
+ "meta": {
+  "updatedAt": "<int>"
+ },
+ "matches": [
+  {
+   "season": "<str>",
+   "shard": "<str>",
+   "matchId": "<int>",
+   "gameCreatedAt": "<int>",
+   "gameLength": "<int>",
+   "gameVersion": "<str>",
+   "patchVersion": "<str>",
+   "queueId": "<int>",
+   "participants": [
+    {
+     "augments": [],
+     "companionId": "<str>",
+     "companionImageUrl": "<str>",
+     "goldLeft": "<int>",
+     "lastRound": "<int>",
+     "level": "<int>",
+     "placement": "<int>",
+     "playersEliminated": "<int>",
+     "puuid": "<str>",
+     "timeEliminated": "<int>",
+     "totalDamageToPlayers": "<int>",
+     "traits": [
+      {
+       "name": "DA_18_Brawler",
+       "num_units": "<int>",
+       "style": "<int>",
+       "tier_current": "<int>",
+       "tier_total": "<int>"
+      }
+     ],
+     "units": [
+      {
+       "character_id": "DA_Amumu18",
+       "name": "<str>",
+       "rarity": "<int>",
+       "tier": "<int>",
+       "items": [
+        "DA_GargoyleStoneplate"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "summoners": [
+  {
+   "puuid": "<str>",
+   "shard": "<str>",
+   "gameName": "<str>",
+   "tagLine": "<str>",
+   "summonerLevel": "<int>",
+   "profileIconUrl": "<str>"
+  }
+ ],
+ "summonerLeagues": [
+  {
+   "queueId": "<int>",
+   "puuid": "<str>",
+   "tier": "<str>",
+   "rank": "<str>"
+  }
+ ]
+}

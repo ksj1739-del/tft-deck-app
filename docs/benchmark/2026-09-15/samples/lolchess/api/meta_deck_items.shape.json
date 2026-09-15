@@ -1,0 +1,54 @@
+{
+ "patchRevisions": [
+  {
+   "patch": "<int>",
+   "revision": "<int>",
+   "patchVersion": "<str>"
+  }
+ ],
+ "season": "<str>",
+ "metaDeckItem": {
+  "updatedAt": "<int>",
+  "shard": "<str>",
+  "queueId": "<int>",
+  "dt": "<int>",
+  "patch": "<int>",
+  "revision": "<int>",
+  "tierId": "<int>",
+  "plays": "<int>",
+  "matchCount": "<int>",
+  "metaDeckItemStats": [
+   {
+    "key": "DA_GargoyleStoneplate",
+    "plays": "<int>",
+    "wins": "<int>",
+    "tops": "<int>",
+    "placements": "<int>",
+    "pickRate": "<float>",
+    "avgPlacement": "<str>",
+    "itemChampionStats": [
+     {
+      "key": "DA_18_Malphite",
+      "plays": "<int>",
+      "wins": "<int>",
+      "tops": "<int>",
+      "placements": "<int>",
+      "pickRate": "<float>",
+      "avgPlacement": "<str>"
+     }
+    ],
+    "itemSynergyStats": [
+     {
+      "key": "DA_WarmogsArmor",
+      "plays": "<int>",
+      "wins": "<int>",
+      "tops": "<int>",
+      "placements": "<int>",
+      "pickRate": "<float>",
+      "avgPlacement": "<str>"
+     }
+    ]
+   }
+  ]
+ }
+}

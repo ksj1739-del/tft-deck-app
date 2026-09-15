@@ -1,0 +1,490 @@
+{
+ "content_id": "52bba346-1af9-45cf-9ae7-960c297fbcaa",
+ "author": {
+  "puuid": "<가림>",
+  "region": "euw1",
+  "riotid": "<가림>"
+ },
+ "metadata": {
+  "title": "SOLOGESANG Tierlist Set 18 Enchanting Wilds  ",
+  "description": "SOLOGESANG Tierlist Set 18 Enchanting Wilds  "
+ },
+ "tags": [],
+ "visibility": "public",
+ "created_at": "2026-07-30T11:12:45.476Z",
+ "updated_at": "2026-09-15T08:23:30.240Z",
+ "content": {
+  "comps": [
+   {
+    "data": {
+     "$ref": "#/comp/fddd9511-c879-47cb-a02c-b090abc38f94"
+    },
+    "tier": "S"
+   },
+   {
+    "data": {
+     "$ref": "#/comp/0f4c0cbf-b303-48ad-8611-ed023e779639"
+    },
+    "tier": "S"
+   },
+   "... 외 19개"
+  ],
+  "tier_list": true
+ },
+ "ranked": {
+  "rating": "GRANDMASTER I 350 LP",
+  "num_played": 212
+ },
+ "refs": [
+  {
+   "content_id": "034d3180-d2d7-41af-837a-74aa2a6803e2",
+   "author": {
+    "puuid": "<가림>",
+    "region": "euw1",
+    "riotid": "<가림>"
+   },
+   "metadata": {
+    "type": "team-builder",
+    "title": "APHELIOS > Elderwood OR Vanguard> Lvl 8 push"
+   },
+   "tags": [
+    "TFTSet18",
+    "team-builder"
+   ],
+   "visibility": "public",
+   "created_at": "2026-08-24T12:25:19.685Z",
+   "updated_at": "2026-09-15T08:41:51.679Z",
+   "content": {
+    "setKey": "TFTSet18",
+    "unit_positions": {
+     "2": {
+      "apiName": "DA_Amumu18",
+      "type": "unit"
+     },
+     "3": {
+      "apiName": "DA_18_Diana",
+      "type": "unit"
+     },
+     "4": {
+      "apiName": "DA_Sentinel18",
+      "type": "unit",
+      "items": [
+       {
+        "apiName": "DA_ProtectorsVow",
+        "type": "item"
+       },
+       {
+        "apiName": "DA_AdaptiveHelm",
+        "type": "item"
+       },
+       "... 외 1개"
+      ]
+     },
+     "19": {
+      "apiName": "DA_Vi18",
+      "type": "unit"
+     },
+     "21": {
+      "apiName": "DA_18_Varus",
+      "type": "unit"
+     },
+     "25": {
+      "apiName": "DA_KogMaw18_AD",
+      "type": "unit",
+      "items": []
+     },
+     "26": {
+      "apiName": "DA_Nidalee18_AP",
+      "type": "unit",
+      "items": [
+       {
+        "apiName": "DA_EdgeOfNight",
+        "type": "item"
+       }
+      ]
+     },
+     "27": {
+      "apiName": "DA_18_Aphelios",
+      "type": "unit",
+      "items": [
+       {
+        "apiName": "DA_KrakensFury",
+        "type": "item"
+       },
+       {
+        "apiName": "DA_Deathblade",
+        "type": "item"
+       },
+       "... 외 1개"
+      ]
+     }
+    },
+    "notes": "- BRONZE FOR LIFE augment -> can angle this variation;\n- PRIMAL: Attack Speed;",
+    "default_variation_name": "Lvl 8 Nidalee",
+    "variations": [
+     {
+      "id": "var_1788428766589",
+      "title": "Lvl 9 Nidalee",
+      "type": "comp",
+      "unit_positions": {
+       "2": {
+        "apiName": "DA_Amumu18",
+        "type": "unit"
+       },
+       "3": {
+        "apiName": "DA_18_Diana",
+        "type": "unit"
+       },
+       "4": {
+        "apiName": "DA_Sentinel18",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_ProtectorsVow",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_AdaptiveHelm",
+          "type": "item"
+         },
+         "... 외 1개"
+        ]
+       },
+       "9": {
+        "apiName": "DA_Vi18",
+        "type": "unit"
+       },
+       "19": {
+        "apiName": "DA_Taric18",
+        "type": "unit"
+       },
+       "21": {
+        "apiName": "DA_18_Varus",
+        "type": "unit"
+       },
+       "25": {
+        "apiName": "DA_KogMaw18_AD",
+        "type": "unit",
+        "items": []
+       },
+       "26": {
+        "apiName": "DA_Nidalee18_AP",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_EdgeOfNight",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_SpearOfShojin",
+          "type": "item"
+         },
+         "... 외 1개"
+        ]
+       },
+       "27": {
+        "apiName": "DA_18_Aphelios",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_KrakensFury",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_Deathblade",
+          "type": "item"
+         },
+         "... 외 1개"
+        ]
+       }
+      },
+      "augments": [],
+      "augments2": [],
+      "legend": 0,
+      "headliner": null,
+      "headlinerTraitIndex": 0,
+      "notes": "- BRONZE FOR LIFE augment -> can angle this variation;\n- PRIMAL: Attack Speed;\n- TARIC: Bind NIDALEE;",
+      "images": []
+     },
+     {
+      "id": "var_1789461610229_tvegs",
+      "title": "Augments",
+      "type": "tierlist",
+      "tiers": [
+       {
+        "label": "S",
+        "color": "#ff7e83",
+        "content": [
+         {
+          "apiName": "DA_BandOfThieves",
+          "type": "augment"
+         },
+         {
+          "apiName": "DA_ChampDeliveryPlus",
+          "type": "augment"
+         },
+         "... 외 42개"
+        ]
+       },
+       {
+        "label": "A",
+        "color": "#ffbf7f",
+        "content": [
+         {
+          "apiName": "DA_BackupBows",
+          "type": "augment"
+         },
+         {
+          "apiName": "DA_18_CaretakersAlly",
+          "type": "augment"
+         },
+         "... 외 46개"
+        ]
+       },
+       "... 외 3개"
+      ],
+      "images": []
+     },
+     "... 외 8개"
+    ],
+    "titleImages": [
+     {
+      "apiName": "TFT_Custom_Econ_Fast8",
+      "type": "custom"
+     },
+     {
+      "apiName": "TFT_Custom_Difficulty_Medium",
+      "type": "custom"
+     }
+    ]
+   }
+  },
+  {
+   "content_id": "0f4c0cbf-b303-48ad-8611-ed023e779639",
+   "author": {
+    "puuid": "<가림>",
+    "region": "euw1",
+    "riotid": "<가림>"
+   },
+   "metadata": {
+    "type": "team-builder",
+    "title": "DRAVEN > Legendaries > Lvl 9"
+   },
+   "tags": [
+    "TFTSet18",
+    "team-builder"
+   ],
+   "visibility": "public",
+   "created_at": "2026-08-25T19:04:01.822Z",
+   "updated_at": "2026-09-15T08:34:50.703Z",
+   "content": {
+    "setKey": "TFTSet18",
+    "unit_positions": {
+     "2": {
+      "apiName": "DA_Taric18",
+      "type": "unit"
+     },
+     "3": {
+      "apiName": "DA_Sentinel18",
+      "type": "unit",
+      "items": []
+     },
+     "4": {
+      "apiName": "DA_Amumu18",
+      "type": "unit"
+     },
+     "5": {
+      "apiName": "DA_18_Maokai",
+      "type": "unit",
+      "items": [
+       {
+        "apiName": "DA_WarmogsArmor",
+        "type": "item"
+       },
+       {
+        "apiName": "DA_GargoyleStoneplate",
+        "type": "item"
+       },
+       "... 외 1개"
+      ]
+     },
+     "10": {
+      "apiName": "DA_18_Morgana",
+      "type": "unit"
+     },
+     "12": {
+      "apiName": "DA_18_Kennen",
+      "type": "unit"
+     },
+     "19": {
+      "apiName": "DA_18_ElderDragon",
+      "type": "unit",
+      "items": [
+       {
+        "apiName": "DA_InfinityEdge",
+        "type": "item"
+       },
+       {
+        "apiName": "DA_StrikersFlail",
+        "type": "item"
+       }
+      ]
+     },
+     "27": {
+      "apiName": "DA_Draven18",
+      "type": "unit",
+      "items": [
+       {
+        "apiName": "DA_Guinsoos<플레이어>blade",
+        "type": "item"
+       },
+       {
+        "apiName": "DA_KrakensFury",
+        "type": "item"
+       },
+       "... 외 1개"
+      ]
+     }
+    },
+    "notes": "- WINSTREAK, gold augment needed and early Maokai & Draven needed for scaling;\n- RIFTBEAST: Buff on Elder Dragon;\n- TARIC: Buff on Maokai;",
+    "default_variation_name": "Lvl 9 w/ Elder Dragon",
+    "variations": [
+     {
+      "id": "var_1789049258515",
+      "title": "Lvl 10 w/ Elder Dragon",
+      "type": "comp",
+      "unit_positions": {
+       "2": {
+        "apiName": "DA_Taric18",
+        "type": "unit"
+       },
+       "3": {
+        "apiName": "DA_Sentinel18",
+        "type": "unit",
+        "items": []
+       },
+       "4": {
+        "apiName": "DA_Amumu18",
+        "type": "unit"
+       },
+       "5": {
+        "apiName": "DA_18_Maokai",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_WarmogsArmor",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_GargoyleStoneplate",
+          "type": "item"
+         },
+         "... 외 1개"
+        ]
+       },
+       "10": {
+        "apiName": "DA_18_Morgana",
+        "type": "unit"
+       },
+       "12": {
+        "apiName": "DA_18_Kennen",
+        "type": "unit"
+       },
+       "19": {
+        "apiName": "DA_18_ElderDragon",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_InfinityEdge",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_StrikersFlail",
+          "type": "item"
+         }
+        ]
+       },
+       "21": {
+        "apiName": "DA_18_Zyra",
+        "type": "unit"
+       },
+       "27": {
+        "apiName": "DA_Draven18",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_Guinsoos<플레이어>blade",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_KrakensFury",
+          "type": "item"
+         },
+         "... 외 1개"
+        ]
+       }
+      },
+      "augments": [],
+      "augments2": [],
+      "legend": 0,
+      "headliner": null,
+      "headlinerTraitIndex": 0,
+      "notes": "- WINSTREAK, gold augment needed and early Maokai & Draven needed for scaling;\n- RIFTBEAST: Buff on Elder Dragon;\n- TARIC: Buff on Maokai;",
+      "images": []
+     },
+     {
+      "id": "var_1789461206614_5gg6d",
+      "title": "Augments",
+      "type": "tierlist",
+      "tiers": [
+       {
+        "label": "S",
+        "color": "#ff7e83",
+        "content": [
+         {
+          "apiName": "DA_BandOfThieves",
+          "type": "augment"
+         },
+         {
+          "apiName": "DA_CarveAPath",
+          "type": "augment"
+         },
+         "... 외 51개"
+        ]
+       },
+       {
+        "label": "A",
+        "color": "#ffbf7f",
+        "content": [
+         {
+          "apiName": "DA_ChampDelivery",
+          "type": "augment"
+         },
+         {
+          "apiName": "DA_CognitiveTaxPlus",
+          "type": "augment"
+         },
+         "... 외 32개"
+        ]
+       },
+       "... 외 3개"
+      ],
+      "images": []
+     },
+     "... 외 7개"
+    ],
+    "titleImages": [
+     {
+      "apiName": "TFT_Custom_Econ_Fast9",
+      "type": "custom"
+     },
+     {
+      "apiName": "TFT_Custom_Difficulty_Hard",
+      "type": "custom"
+     }
+    ]
+   }
+  },
+  "... 외 19개"
+ ]
+}

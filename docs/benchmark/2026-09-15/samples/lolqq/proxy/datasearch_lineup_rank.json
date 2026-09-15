@@ -1,0 +1,793 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "3ce2219e-5904-4b49-9010-399edf4f17d3",
+ "data": [
+  {
+   "id": "winlineup_MTEwMCNEQV9SaWZ0YmVhc3QxOCREQV9EcmF2ZW4xODtEQV8xOF9FbGRlckRyYWdvbiQ4",
+   "lineup_tag": "稳健运营",
+   "avg_rank": "3.439",
+   "avg_rank_delta": "-0.624",
+   "comp_rate": "0.03",
+   "comp_s": "39914",
+   "lineup": {
+    "traits": [
+     {
+      "trait_id": "DA_18_ApexPredator",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_18_Greenfather",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_18_Inferno",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Maokai_UniqueTrait",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_18_Vanguard",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_DravenUniqueTrait18",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_Emerald18",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_Juggernaut18",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_Riftbeast18",
+      "chess_num": "3"
+     }
+    ],
+    "main_c_chess_id": "DA_Draven18",
+    "chess_ids": [
+     "DA_18_ElderDragon",
+     "DA_18_Ivern",
+     "DA_18_Kennen",
+     "DA_18_Maokai",
+     "DA_Amumu18",
+     "DA_Draven18",
+     "DA_Sentinel18",
+     "DA_Taric18"
+    ],
+    "emblems": [
+     {
+      "trait_id": "DA_Riftbeast18",
+      "chess_num": "1"
+     }
+    ]
+   },
+   "champion_content_id_num": [
+    "100350",
+    "100353",
+    "100356",
+    "100358",
+    "100359",
+    "100367",
+    "100368",
+    "100372"
+   ],
+   "main_traits": [
+    {
+     "trait_id": "DA_Riftbeast18",
+     "chess_num": "3"
+    }
+   ],
+   "main_traits_num": [
+    {
+     "trait_id": "10414",
+     "chess_num": "3"
+    }
+   ],
+   "minor_traits": [
+    {
+     "trait_id": "DA_18_ApexPredator",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_18_Greenfather",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_18_Inferno",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Maokai_UniqueTrait",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_18_Vanguard",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_DravenUniqueTrait18",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_Emerald18",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_Juggernaut18",
+     "chess_num": "2"
+    }
+   ],
+   "minor_traits_num": [
+    {
+     "trait_id": "10394",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10406",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10412",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10380",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "10392",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "10398",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "10409",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "10410",
+     "chess_num": "1"
+    }
+   ],
+   "assist_chess_id": "DA_18_ElderDragon",
+   "second_assist_chess_id": "DA_18_Maokai",
+   "mc_champion_id_num": "100368",
+   "main_c_chess_equip": [
+    "DA_Deathblade",
+    "DA_Guinsoos<플레이어>blade",
+    "DA_KrakensFury"
+   ],
+   "assist_chess_equip": [
+    "DA_HandOfJustice",
+    "DA_InfinityEdge",
+    "DA_SteraksGage"
+   ],
+   "second_assist_chess_equip": [
+    "DA_GargoyleStoneplate",
+    "DA_SpiritVisage",
+    "DA_WarmogsArmor"
+   ],
+   "top1_cnt": "10035",
+   "top4_cnt": "27441",
+   "total": "1348678",
+   "final_level": "9",
+   "tier": "A"
+  },
+  {
+   "id": "winlineup_MTEwMCNEQV8xOF9FbGRlcndvb2Q7REFfMThfU29sYXIkREFfMThfS2F5bGU7REFfMThfT3JubiQ3",
+   "lineup_tag": "低费快D",
+   "avg_rank": "5.23",
+   "avg_rank_delta": "1.167",
+   "comp_rate": "0.009",
+   "comp_s": "11471",
+   "lineup": {
+    "traits": [
+     {
+      "trait_id": "DA_18_Defender",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Elderwood",
+      "chess_num": "3"
+     },
+     {
+      "trait_id": "DA_18_Fae",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Rapidfire",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Solar",
+      "chess_num": "3"
+     },
+     {
+      "trait_id": "DA_Juggernaut18",
+      "chess_num": "2"
+     }
+    ],
+    "main_c_chess_id": "DA_18_Kayle",
+    "chess_ids": [
+     "DA_18_Kayle",
+     "DA_18_LeBlanc",
+     "DA_18_Leona",
+     "DA_18_Ornn",
+     "DA_18_Rakan",
+     "DA_18_Sejuani",
+     "DA_18_Xayah"
+    ],
+    "emblems": []
+   },
+   "champion_content_id_num": [
+    "100302",
+    "100303",
+    "100304",
+    "100309",
+    "100316",
+    "100317",
+    "100318"
+   ],
+   "main_traits": [
+    {
+     "trait_id": "DA_18_Elderwood",
+     "chess_num": "3"
+    },
+    {
+     "trait_id": "DA_18_Solar",
+     "chess_num": "3"
+    }
+   ],
+   "main_traits_num": [
+    {
+     "trait_id": "10389",
+     "chess_num": "3"
+    },
+    {
+     "trait_id": "10402",
+     "chess_num": "3"
+    }
+   ],
+   "minor_traits": [
+    {
+     "trait_id": "DA_18_Defender",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Fae",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Rapidfire",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_Juggernaut18",
+     "chess_num": "2"
+    }
+   ],
+   "minor_traits_num": [
+    {
+     "trait_id": "10387",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10391",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10399",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10412",
+     "chess_num": "2"
+    }
+   ],
+   "assist_chess_id": "DA_18_Ornn",
+   "second_assist_chess_id": "DA_18_Xayah",
+   "mc_champion_id_num": "100316",
+   "main_c_chess_equip": [
+    "DA_GiantSlayer",
+    "DA_Guinsoos<플레이어>blade",
+    "DA_JeweledGauntlet"
+   ],
+   "assist_chess_equip": [
+    "DA_GargoyleStoneplate",
+    "DA_SpiritVisage",
+    "DA_WarmogsArmor"
+   ],
+   "second_assist_chess_equip": [
+    "DA_Deathblade",
+    "DA_Guinsoos<플레이어>blade",
+    "DA_KrakensFury"
+   ],
+   "top1_cnt": "294",
+   "top4_cnt": "3960",
+   "total": "1348678",
+   "final_level": "7",
+   "tier": "C"
+  },
+  {
+   "id": "winlineup_MTEwMCNEQV8xOF9Tb2xhciREQV8xOF9Ba2FsaV9BRDtEQV8xOF9DYW1pbGxlJDc=",
+   "lineup_tag": "低费快D",
+   "avg_rank": "4.813",
+   "avg_rank_delta": "0.75",
+   "comp_rate": "0.007",
+   "comp_s": "9576",
+   "lineup": {
+    "traits": [
+     {
+      "trait_id": "DA_18_Defender",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Inferno",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Rapidfire",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Slayer",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Solar",
+      "chess_num": "3"
+     }
+    ],
+    "main_c_chess_id": "DA_18_Akali_AD",
+    "chess_ids": [
+     "DA_18_Akali_AD",
+     "DA_18_Camille",
+     "DA_18_Kayle",
+     "DA_18_Leona",
+     "DA_18_Ornn",
+     "DA_18_Sejuani",
+     "DA_18_Varus"
+    ],
+    "emblems": []
+   },
+   "champion_content_id_num": [
+    "100299",
+    "100300",
+    "100302",
+    "100303",
+    "100307",
+    "100316",
+    "100318"
+   ],
+   "main_traits": [
+    {
+     "trait_id": "DA_18_Solar",
+     "chess_num": "3"
+    }
+   ],
+   "main_traits_num": [
+    {
+     "trait_id": "10402",
+     "chess_num": "3"
+    }
+   ],
+   "minor_traits": [
+    {
+     "trait_id": "DA_18_Defender",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Inferno",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Rapidfire",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Slayer",
+     "chess_num": "2"
+    }
+   ],
+   "minor_traits_num": [
+    {
+     "trait_id": "10387",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10394",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10399",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10401",
+     "chess_num": "2"
+    }
+   ],
+   "assist_chess_id": "DA_18_Camille",
+   "second_assist_chess_id": "DA_18_Ornn",
+   "mc_champion_id_num": "100299",
+   "main_c_chess_equip": [
+    "DA_EdgeOfNight",
+    "DA_HandOfJustice",
+    "DA_JeweledGauntlet"
+   ],
+   "assist_chess_equip": [
+    "DA_InfinityEdge",
+    "DA_Quicksilver",
+    "DA_SteraksGage"
+   ],
+   "second_assist_chess_equip": [
+    "DA_GargoyleStoneplate",
+    "DA_SpiritVisage",
+    "DA_WarmogsArmor"
+   ],
+   "top1_cnt": "285",
+   "top4_cnt": "4166",
+   "total": "1348678",
+   "final_level": "7",
+   "tier": "C"
+  },
+  {
+   "id": "winlineup_MTEwMCNEQV8xOF9FbGRlcndvb2QkREFfRHJhdmVuMTg7REFfMThfTWFva2FpJDk=",
+   "lineup_tag": "稳健运营",
+   "avg_rank": "3.39",
+   "avg_rank_delta": "-0.673",
+   "comp_rate": "0.006",
+   "comp_s": "7908",
+   "lineup": {
+    "traits": [
+     {
+      "trait_id": "DA_18_Brawler",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Elderwood",
+      "chess_num": "3"
+     },
+     {
+      "trait_id": "DA_18_Executioner",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Greenfather",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_18_Inferno",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Maokai_UniqueTrait",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_DravenUniqueTrait18",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_Emerald18",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_Juggernaut18",
+      "chess_num": "2"
+     }
+    ],
+    "main_c_chess_id": "DA_Draven18",
+    "chess_ids": [
+     "DA_18_Alistar",
+     "DA_18_Ezreal",
+     "DA_18_GnarSmall",
+     "DA_18_Ivern",
+     "DA_18_Kennen",
+     "DA_18_Maokai",
+     "DA_Amumu18",
+     "DA_Draven18",
+     "DA_Taric18"
+    ],
+    "emblems": []
+   },
+   "champion_content_id_num": [
+    "100313",
+    "100342",
+    "100350",
+    "100357",
+    "100358",
+    "100359",
+    "100367",
+    "100368",
+    "100372"
+   ],
+   "main_traits": [
+    {
+     "trait_id": "DA_18_Elderwood",
+     "chess_num": "3"
+    }
+   ],
+   "main_traits_num": [
+    {
+     "trait_id": "10389",
+     "chess_num": "3"
+    }
+   ],
+   "minor_traits": [
+    {
+     "trait_id": "DA_18_Brawler",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Executioner",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Greenfather",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_18_Inferno",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Maokai_UniqueTrait",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_DravenUniqueTrait18",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_Emerald18",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_Juggernaut18",
+     "chess_num": "2"
+    }
+   ],
+   "minor_traits_num": [
+    {
+     "trait_id": "10384",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10390",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10394",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10412",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10392",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "10398",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "10409",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "10410",
+     "chess_num": "1"
+    }
+   ],
+   "assist_chess_id": "DA_18_Maokai",
+   "second_assist_chess_id": "DA_18_Ezreal",
+   "mc_champion_id_num": "100368",
+   "main_c_chess_equip": [
+    "DA_Guinsoos<플레이어>blade",
+    "DA_InfinityEdge",
+    "DA_KrakensFury"
+   ],
+   "assist_chess_equip": [
+    "DA_GargoyleStoneplate",
+    "DA_SpiritVisage",
+    "DA_WarmogsArmor"
+   ],
+   "second_assist_chess_equip": [
+    "DA_Deathblade",
+    "DA_LastWhisper",
+    "DA_SpearOfShojin"
+   ],
+   "top1_cnt": "1916",
+   "top4_cnt": "5564",
+   "total": "1348678",
+   "final_level": "9",
+   "tier": "B"
+  },
+  {
+   "id": "winlineup_MTEwMCNEQV9SaWZ0YmVhc3QxOCREQV9OaWRhbGVlMThfQVA7REFfMThfTWFscGhpdGUkOA==",
+   "lineup_tag": "8级D牌",
+   "avg_rank": "5.039",
+   "avg_rank_delta": "0.976",
+   "comp_rate": "0.004",
+   "comp_s": "5934",
+   "lineup": {
+    "traits": [
+     {
+      "trait_id": "DA_18_Adaptor",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Battlemage",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_18_Blackthorn",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Brawler",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Caustic",
+      "chess_num": "1"
+     },
+     {
+      "trait_id": "DA_18_Hunter",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_18_Invoker",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_Primal18",
+      "chess_num": "2"
+     },
+     {
+      "trait_id": "DA_Riftbeast18",
+      "chess_num": "3"
+     }
+    ],
+    "main_c_chess_id": "DA_Nidalee18_AP",
+    "chess_ids": [
+     "DA_18_Malphite",
+     "DA_18_RekSai",
+     "DA_18_Sivir",
+     "DA_Cinderling18",
+     "DA_KogMaw18_AD",
+     "DA_Krug18",
+     "DA_Nidalee18_AP",
+     "DA_Sentinel18"
+    ],
+    "emblems": []
+   },
+   "champion_content_id_num": [
+    "100305",
+    "100311",
+    "100337",
+    "100338",
+    "100344",
+    "100347",
+    "100352",
+    "100353"
+   ],
+   "main_traits": [
+    {
+     "trait_id": "DA_Riftbeast18",
+     "chess_num": "3"
+    }
+   ],
+   "main_traits_num": [
+    {
+     "trait_id": "10414",
+     "chess_num": "3"
+    }
+   ],
+   "minor_traits": [
+    {
+     "trait_id": "DA_18_Adaptor",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Battlemage",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_18_Blackthorn",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Brawler",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Caustic",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "DA_18_Hunter",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_18_Invoker",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "DA_Primal18",
+     "chess_num": "2"
+    }
+   ],
+   "minor_traits_num": [
+    {
+     "trait_id": "10379",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10382",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10384",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10393",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10395",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10413",
+     "chess_num": "2"
+    },
+    {
+     "trait_id": "10381",
+     "chess_num": "1"
+    },
+    {
+     "trait_id": "10385",
+     "chess_num": "1"
+    }
+   ],
+   "assist_chess_id": "DA_18_Malphite",
+   "second_assist_chess_id": "DA_18_Sivir",
+   "mc_champion_id_num": "100352",
+   "main_c_chess_equip": [
+    "DA_InfinityEdge",
+    "DA_SpearOfShojin",
+    "DA_SteraksGage"
+   ],
+   "assist_chess_equip": [
+    "DA_Crownguard",
+    "DA_GargoyleStoneplate",
+    "DA_WarmogsArmor"
+   ],
+   "second_assist_chess_equip": [
+    "DA_Deathblade",
+    "DA_InfinityEdge",
+    "DA_RedBuff"
+   ],
+   "top1_cnt": "277",
+   "top4_cnt": "2317",
+   "total": "1348678",
+   "final_level": "8",
+   "tier": "C"
+  }
+ ],
+ "_note": "trimmed to 5 rows of 100"
+}

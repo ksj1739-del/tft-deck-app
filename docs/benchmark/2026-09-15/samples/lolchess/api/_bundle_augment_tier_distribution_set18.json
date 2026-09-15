@@ -1,0 +1,19 @@
+{
+ "set": "<str>",
+ "name": "<str>",
+ "rounds": [
+  "<str>"
+ ],
+ "data": [
+  {
+   "tiers": [
+    {
+     "type": "<str>",
+     "chance": "<int>",
+     "rowSpan": "<int>"
+    }
+   ],
+   "chance": "<float>"
+  }
+ ]
+}

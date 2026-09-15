@@ -1,0 +1,79 @@
+{
+ "summoner": {
+  "puuid": "<str>",
+  "shard": "<str>",
+  "gameName": "<str>",
+  "tagLine": "<str>",
+  "summonerLevel": "<int>",
+  "profileIconUrl": "<str>",
+  "syncedAt": "<str>"
+ },
+ "summonerSeasons": [
+  {
+   "season": "<str>",
+   "tier": "<str>",
+   "rank": "<str>"
+  }
+ ],
+ "summonerLeagues": [
+  {
+   "season": "<str>",
+   "queue": "<str>",
+   "queueId": "<int>",
+   "tier": "<str>",
+   "rank": "<str>",
+   "leaguePoints": "<int>",
+   "plays": "<int>",
+   "wins": "<int>",
+   "tops": "<int>",
+   "avgPlacement": "<str>",
+   "rating": {
+    "tier": {
+     "rank": "<int>",
+     "total": "<int>",
+     "percent": "<float>"
+    },
+    "plays": {
+     "rank": "<int>",
+     "total": "<int>",
+     "percent": "<float>"
+    },
+    "wins": {
+     "rank": "<int>",
+     "total": "<int>",
+     "percent": "<float>"
+    },
+    "tops": {
+     "rank": "<int>",
+     "total": "<int>",
+     "percent": "<float>"
+    },
+    "winrate": {
+     "rank": "<int>",
+     "total": "<int>",
+     "percent": "<float>"
+    },
+    "winrate_10": {
+     "rank": "<int>",
+     "total": "<int>",
+     "percent": "<float>"
+    },
+    "toprate": {
+     "rank": "<int>",
+     "total": "<int>",
+     "percent": "<float>"
+    }
+   }
+  }
+ ],
+ "summonerSeasonPlacements": [
+  {
+   "queue": "<str>",
+   "queueId": "<int>",
+   "values": [
+    "<int>"
+   ]
+  }
+ ],
+ "summonerVariationStats": []
+}

@@ -1,0 +1,64 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "5ad77913-c10b-45be-8e66-71118a7d1214",
+ "data": [
+  {
+   "avg_rank": "3.922",
+   "avg_rank_delta": "-0.144",
+   "top1_cnt": "106542",
+   "top4_cnt": "318647",
+   "total": "1348678",
+   "unit_id": "DA_Amumu18",
+   "unit_rate": "0.394",
+   "unit_s": "531650",
+   "tier": "A"
+  },
+  {
+   "avg_rank": "4.004",
+   "avg_rank_delta": "-0.062",
+   "top1_cnt": "89364",
+   "top4_cnt": "282710",
+   "total": "1348678",
+   "unit_id": "DA_Sentinel18",
+   "unit_rate": "0.358",
+   "unit_s": "482755",
+   "tier": "A"
+  },
+  {
+   "avg_rank": "3.57",
+   "avg_rank_delta": "-0.496",
+   "top1_cnt": "100452",
+   "top4_cnt": "272974",
+   "total": "1348678",
+   "unit_id": "DA_18_Kennen",
+   "unit_rate": "0.306",
+   "unit_s": "412233",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.554",
+   "avg_rank_delta": "-0.512",
+   "top1_cnt": "101838",
+   "top4_cnt": "272148",
+   "total": "1348678",
+   "unit_id": "DA_Taric18",
+   "unit_rate": "0.304",
+   "unit_s": "409418",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.695",
+   "avg_rank_delta": "-0.371",
+   "top1_cnt": "92068",
+   "top4_cnt": "244369",
+   "total": "1348678",
+   "unit_id": "DA_18_Maokai",
+   "unit_rate": "0.285",
+   "unit_s": "384058",
+   "tier": "A"
+  }
+ ],
+ "_note": "trimmed to 5 rows of 69"
+}

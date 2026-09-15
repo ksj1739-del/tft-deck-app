@@ -1,0 +1,68 @@
+[
+ {
+  "name": "<str>",
+  "name_es": "<str>",
+  "name_pt": "<str>",
+  "name_de": "<str>",
+  "name_ru": "<str>",
+  "name_ch": "<str>",
+  "name_tr": "<str>",
+  "name_vi": "<str>",
+  "name_fr": "<str>",
+  "name_pl": "<str>",
+  "name_it": "<str>",
+  "shadow_name": "<str>",
+  "id": "<int>",
+  "set": [
+   "<int>"
+  ],
+  "tier_up": "<bool>",
+  "tier_down": "<bool>",
+  "tier": "<int>",
+  "shadow": "<bool>",
+  "radiant": "<bool>",
+  "artifact": "<bool>",
+  "bonus": [
+   "<str>"
+  ],
+  "bonus_es": [
+   "<str>"
+  ],
+  "bonus_pt": [
+   "<str>"
+  ],
+  "bonus_de": [
+   "<str>"
+  ],
+  "bonus_ru": [
+   "<str>"
+  ],
+  "bonus_ch": [
+   "<str>"
+  ],
+  "bonus_tr": [
+   "<str>"
+  ],
+  "bonus_vi": [
+   "<str>"
+  ],
+  "bonus_fr": [
+   "<str>"
+  ],
+  "bonus_pl": [
+   "<str>"
+  ],
+  "bonus_it": [
+   "<str>"
+  ],
+  "into": [
+   "<str>"
+  ],
+  "stats": [
+   {
+    "name": "<str>",
+    "value": "<str>"
+   }
+  ]
+ }
+]

@@ -1,0 +1,81 @@
+{
+ "season": "<str>",
+ "refs": {
+  "champions": [
+   {
+    "key": "<str>",
+    "ingameKey": "DA_18_Ahri",
+    "name": "<str>",
+    "imageUrl": "<str>",
+    "originalImageUrl": "<str>",
+    "traits": [
+     "<str>"
+    ],
+    "cost": "<int>",
+    "attackRange": "<int>",
+    "skill": {
+     "name": "<str>",
+     "imageUrl": "<str>",
+     "desc": "<str>",
+     "startingMana": "<int>",
+     "skillMana": "<int>",
+     "stats": [
+      "<str>"
+     ]
+    },
+    "recommendItems": [
+     "<str>"
+    ],
+    "role": "<str>"
+   }
+  ],
+  "traits": [
+   {
+    "key": "<str>",
+    "name": "<str>",
+    "desc": "<str>",
+    "imageUrl": "<str>",
+    "blackImageUrl": "<str>",
+    "whiteImageUrl": "<str>",
+    "type": "<str>",
+    "styles": [
+     {
+      "style": "<str>",
+      "min": "<int>",
+      "max": "<int>"
+     }
+    ],
+    "stats": {
+     "2": "<str>",
+     "3": "<str>",
+     "4": "<str>"
+    }
+   }
+  ],
+  "items": [
+   {
+    "key": "<str>",
+    "ingameKey": "TFT11_Item_ThiefsGlovesSupport",
+    "name": "<str>",
+    "desc": "<str>",
+    "fromDesc": "<str>",
+    "imageUrl": "<str>",
+    "isHidden": "<bool>",
+    "isSupport": "<bool>"
+   }
+  ],
+  "augments": [
+   {
+    "key": "<str>",
+    "name": "<str>",
+    "desc": "<str>",
+    "imageUrl": "<str>",
+    "tier": "<int>",
+    "isHidden": "<bool>",
+    "tags": [
+     "TFT_Augment_Trait"
+    ]
+   }
+  ]
+ }
+}

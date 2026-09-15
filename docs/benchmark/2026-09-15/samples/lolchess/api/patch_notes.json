@@ -1,0 +1,13 @@
+{
+ "meta": {
+  "locale": "<str>"
+ },
+ "patchNotes": [
+  {
+   "id": "<int>",
+   "patchVersion": "<str>",
+   "registeredAt": "<int>",
+   "season": "<str>"
+  }
+ ]
+}

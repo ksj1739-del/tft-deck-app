@@ -1,0 +1,1477 @@
+{
+ "cluster_info": {
+  "cluster_id": 423,
+  "state": "published",
+  "created_at": "2026-09-11T15:48:16.167Z",
+  "updated_at": "2026-09-11T16:24:33.953Z",
+  "is_failed": false,
+  "is_deleted": false,
+  "tft_set": "TFTSet18",
+  "is_default": true,
+  "cluster_details": {
+   "tft_set": "TFTSet18",
+   "clusters": [
+    {
+     "Cluster": 423000,
+     "centroid": [
+      0.0009,
+      0.0183,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Varus, DA_KogMaw18_AD, DA_18_Diana, DA_Vi18, DA_Sentinel18, DA_Nidalee18_AP, DA_Amumu18, DA_18_Alune, DA_18_Aphelios",
+     "traits_string": "DA_18_Adaptor_1, DA_18_Inferno_1, DA_18_Invoker_1, DA_18_Lunar_2, DA_Primal18_1, DA_18_Rapidfire_1, DA_18_Vanguard_1, DA_Juggernaut18_1",
+     "name": [
+      {
+       "name": "DA_18_Lunar",
+       "score": 0.9017231768497198,
+       "type": "trait"
+      },
+      {
+       "name": "DA_18_Aphelios",
+       "score": 3.8169094302125495,
+       "type": "unit"
+      },
+      "... 외 1개"
+     ],
+     "name_string": "DA_18_Lunar, DA_18_Aphelios, DA_Nidalee18_AP"
+    },
+    {
+     "Cluster": 423001,
+     "centroid": [
+      0.0252,
+      0.0472,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Shen, DA_18_Tristana, DA_Amumu18, DA_18_Lillia, DA_18_Sivir, DA_Vi18, DA_18_Kennen, DA_18_Ivern, DA_18_Ashe",
+     "traits_string": "DA_18_Defender_1, DA_18_Fae_1, DA_18_Hunter_2, DA_18_Inferno_2, DA_Primal18_1, DA_Juggernaut18_1",
+     "name": [
+      {
+       "name": "DA_18_Hunter",
+       "score": 1.0694030568106023,
+       "type": "trait"
+      },
+      {
+       "name": "DA_18_Sivir",
+       "score": 3.5247284437181583,
+       "type": "unit"
+      }
+     ],
+     "name_string": "DA_18_Hunter, DA_18_Sivir"
+    },
+    "... 외 52개"
+   ],
+   "columns": 95,
+   "constants": {
+    "units": {
+     "num_items": 1,
+     "tier": 0.5,
+     "constant": 0
+    },
+    "traits": {
+     "num_units": 0.4,
+     "tier": 0,
+     "constant": 0
+    },
+    "augments": {
+     "num_units": 0,
+     "tier": 0,
+     "constant": 10
+    }
+   },
+   "trait_lookup": {
+    "DA_AluneUniqueTrait18": {
+     "apiName": "DA_AluneUniqueTrait18",
+     "name": "Attuned",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_DravenUniqueTrait18": {
+     "apiName": "DA_DravenUniqueTrait18",
+     "name": "Bounty Seeker",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_ApexPredator": {
+     "apiName": "DA_18_ApexPredator",
+     "name": "Apex Predator",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_Greenfather": {
+     "apiName": "DA_18_Greenfather",
+     "name": "Greenfather",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_LuxUniqueTrait": {
+     "apiName": "DA_18_LuxUniqueTrait",
+     "name": "Avatar",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_Maokai_UniqueTrait": {
+     "apiName": "DA_18_Maokai_UniqueTrait",
+     "name": "Old Growth",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_ZyraUniqueTrait": {
+     "apiName": "DA_18_ZyraUniqueTrait",
+     "name": "Thornmaiden",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_Adaptor": {
+     "apiName": "DA_18_Adaptor",
+     "name": "Adaptor",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 3,
+       "style": 3
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_Battlemage": {
+     "apiName": "DA_18_Battlemage",
+     "name": "Monolith",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_Blackthorn": {
+     "apiName": "DA_18_Blackthorn",
+     "name": "Blackthorn",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 4,
+       "style": 3
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_Blossom": {
+     "apiName": "DA_18_Blossom",
+     "name": "Blossom",
+     "levels": [
+      {
+       "level": 1,
+       "num": 3,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 5,
+       "style": 3
+      },
+      "... 외 3개"
+     ]
+    },
+    "DA_18_Brawler": {
+     "apiName": "DA_18_Brawler",
+     "name": "Brawler",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 4,
+       "style": 3
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_Caustic": {
+     "apiName": "DA_18_Caustic",
+     "name": "Caustic",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_Coven": {
+     "apiName": "DA_18_Coven",
+     "name": "Coven",
+     "levels": [
+      {
+       "level": 1,
+       "num": 3,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 4,
+       "style": 3
+      },
+      "... 외 2개"
+     ]
+    },
+    "DA_18_Defender": {
+     "apiName": "DA_18_Defender",
+     "name": "Defender",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 4,
+       "style": 3
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_Eclipse": {
+     "apiName": "DA_18_Eclipse",
+     "name": "Eclipse",
+     "levels": [
+      {
+       "level": 6,
+       "num": 0,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_Elderwood": {
+     "apiName": "DA_18_Elderwood",
+     "name": "Elderwood",
+     "levels": [
+      {
+       "level": 1,
+       "num": 3,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 5,
+       "style": 3
+      },
+      "... 외 3개"
+     ]
+    },
+    "DA_Emerald18": {
+     "apiName": "DA_Emerald18",
+     "name": "Emerald Aspect",
+     "levels": [
+      {
+       "level": 6,
+       "num": 1,
+       "style": 6
+      }
+     ]
+    },
+    "DA_18_Executioner": {
+     "apiName": "DA_18_Executioner",
+     "name": "Executioner",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 3,
+       "style": 3
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_Fae": {
+     "apiName": "DA_18_Fae",
+     "name": "Fae",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 4,
+       "num": 4,
+       "style": 4
+      }
+     ]
+    },
+    "DA_FloraFatalis18": {
+     "apiName": "DA_FloraFatalis18",
+     "name": "Flora Fatalis",
+     "levels": [
+      {
+       "level": 1,
+       "num": 1,
+       "style": 1
+      },
+      {
+       "level": 4,
+       "num": 2,
+       "style": 4
+      }
+     ]
+    },
+    "DA_18_Hunter": {
+     "apiName": "DA_18_Hunter",
+     "name": "Hunter",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 3,
+       "style": 3
+      },
+      "... 외 2개"
+     ]
+    },
+    "DA_18_Inferno": {
+     "apiName": "DA_18_Inferno",
+     "name": "Inferno",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 3,
+       "style": 3
+      },
+      "... 외 2개"
+     ]
+    },
+    "DA_18_Invoker": {
+     "apiName": "DA_18_Invoker",
+     "name": "Invoker",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 3,
+       "style": 3
+      },
+      "... 외 2개"
+     ]
+    },
+    "DA_Juggernaut18": {
+     "apiName": "DA_Juggernaut18",
+     "name": "Juggernaut",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 4,
+       "style": 3
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_Lunar": {
+     "apiName": "DA_18_Lunar",
+     "name": "Lunar",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 3,
+       "style": 3
+      },
+      "... 외 2개"
+     ]
+    },
+    "DA_Primal18": {
+     "apiName": "DA_Primal18",
+     "name": "Primal",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 4,
+       "num": 4,
+       "style": 4
+      }
+     ]
+    },
+    "DA_18_Rapidfire": {
+     "apiName": "DA_18_Rapidfire",
+     "name": "Rapidfire",
+     "levels": [
+      {
+       "level": 1,
+       "num": 2,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 3,
+       "style": 3
+      },
+      "... 외 2개"
+     ]
+    },
+    "DA_Riftbeast18": {
+     "apiName": "DA_Riftbeast18",
+     "name": "Riftbeast",
+     "levels": [
+      {
+       "level": 1,
+       "num": 3,
+       "style": 1
+      },
+      {
+       "level": 3,
+       "num": 5,
+       "style": 3
+      },
+      "... 외 2개"
+     ]
+    },
+    "DA_18_Rival": {
+     "apiName": "DA_18_Rival",
+     "name": "Rival",
+     "levels": [
+      {
+       "level": 4,
+       "num": 1,
+       "style": 4
+      },
+      {
+       "level": 1,
+       "num": 1,
+       "style": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "...": "외 6개 키"
+   },
+   "unit_lookup": {
+    "DA_GoldenEggCharacter": {
+     "apiName": "TFT_GoldenEgg",
+     "assetName": "DA_GoldenEggCharacter",
+     "name": "The Golden Egg",
+     "unit_cost": 0,
+     "traits": [],
+     "trait_bonus": []
+    },
+    "DA_MagicEggCharacter": {
+     "apiName": "TFT_GoldenEgg",
+     "assetName": "DA_GoldenEggCharacter",
+     "name": "The Golden Egg",
+     "unit_cost": 0,
+     "traits": [],
+     "trait_bonus": []
+    },
+    "DA_TheTower_TrainingDummy": {
+     "apiName": "TFT_TrainingDummy",
+     "assetName": "DA_TheTower_TrainingDummy",
+     "name": "The Tower",
+     "unit_cost": 0,
+     "traits": [],
+     "trait_bonus": []
+    },
+    "DA_TrainingDummy": {
+     "apiName": "TFT_TrainingDummy",
+     "assetName": "DA_TheTower_TrainingDummy",
+     "name": "The Tower",
+     "unit_cost": 0,
+     "traits": [],
+     "trait_bonus": []
+    },
+    "DA_Golem": {
+     "apiName": "TFT_BlueGolem",
+     "assetName": "DA_Golem",
+     "name": "Golem",
+     "unit_cost": 1,
+     "traits": [],
+     "trait_bonus": []
+    },
+    "DA_18_Ahri": {
+     "apiName": "TFT18_Ahri",
+     "assetName": "DA_18_Ahri",
+     "name": "Ahri",
+     "unit_cost": 4,
+     "traits": [
+      "Blossom",
+      "Spellweaver"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Blossom",
+       "apiName": "DA_18_Blossom",
+       "value": 1
+      },
+      {
+       "trait": "Spellweaver",
+       "apiName": "DA_18_Spellweaver",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Akali_AD": {
+     "apiName": "TFT18_Akali",
+     "assetName": "DA_18_Akali_AD",
+     "name": "Akali",
+     "unit_cost": 1,
+     "traits": [
+      "Inferno",
+      "Adaptor",
+      "... 외 1개"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Inferno",
+       "apiName": "DA_18_Inferno",
+       "value": 1
+      },
+      {
+       "trait": "Adaptor",
+       "apiName": "DA_18_Adaptor",
+       "value": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_Akali_AP": {
+     "apiName": "TFT18_Akali",
+     "assetName": "DA_18_Akali_AD",
+     "name": "Akali",
+     "unit_cost": 1,
+     "traits": [
+      "Inferno",
+      "Adaptor",
+      "... 외 1개"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Inferno",
+       "apiName": "DA_18_Inferno",
+       "value": 1
+      },
+      {
+       "trait": "Adaptor",
+       "apiName": "DA_18_Adaptor",
+       "value": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_Alistar": {
+     "apiName": "TFT18_Alistar",
+     "assetName": "DA_18_Alistar",
+     "name": "Alistar",
+     "unit_cost": 2,
+     "traits": [
+      "Elderwood",
+      "Brawler"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Elderwood",
+       "apiName": "DA_18_Elderwood",
+       "value": 1
+      },
+      {
+       "trait": "Brawler",
+       "apiName": "DA_18_Brawler",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Alune": {
+     "apiName": "TFT18_Alune",
+     "assetName": "DA_18_Alune",
+     "name": "Alune",
+     "unit_cost": 5,
+     "traits": [
+      "Attuned",
+      "Lunar",
+      "... 외 1개"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Attuned",
+       "apiName": "DA_AluneUniqueTrait18",
+       "value": 1
+      },
+      {
+       "trait": "Lunar",
+       "apiName": "DA_18_Lunar",
+       "value": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_Amumu18": {
+     "apiName": "TFT18_Amumu",
+     "assetName": "DA_Amumu18",
+     "name": "Amumu",
+     "unit_cost": 4,
+     "traits": [
+      "Inferno",
+      "Juggernaut"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Inferno",
+       "apiName": "DA_18_Inferno",
+       "value": 1
+      },
+      {
+       "trait": "Juggernaut",
+       "apiName": "DA_Juggernaut18",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Aphelios": {
+     "apiName": "TFT18_Aphelios",
+     "assetName": "DA_18_Aphelios",
+     "name": "Aphelios",
+     "unit_cost": 4,
+     "traits": [
+      "Lunar",
+      "Rapidfire"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Lunar",
+       "apiName": "DA_18_Lunar",
+       "value": 1
+      },
+      {
+       "trait": "Rapidfire",
+       "apiName": "DA_18_Rapidfire",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Ashe": {
+     "apiName": "TFT18_Ashe",
+     "assetName": "DA_18_Ashe",
+     "name": "Ashe",
+     "unit_cost": 5,
+     "traits": [
+      "Blossom",
+      "Hunter"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Blossom",
+       "apiName": "DA_18_Blossom",
+       "value": 1
+      },
+      {
+       "trait": "Hunter",
+       "apiName": "DA_18_Hunter",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_AzirSoldier": {
+     "apiName": "TFT18_AzirSoldier",
+     "assetName": "DA_18_AzirSoldier",
+     "name": "Azir",
+     "unit_cost": 1,
+     "traits": [],
+     "trait_bonus": []
+    },
+    "DA_18_Azir": {
+     "apiName": "TFT18_Azir",
+     "assetName": "DA_18_Azir",
+     "name": "Azir",
+     "unit_cost": 3,
+     "traits": [
+      "Blackthorn",
+      "Executioner",
+      "... 외 1개"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Blackthorn",
+       "apiName": "DA_18_Blackthorn",
+       "value": 1
+      },
+      {
+       "trait": "Executioner",
+       "apiName": "DA_18_Executioner",
+       "value": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_Brambleback18": {
+     "apiName": "TFT18_Brambleback",
+     "assetName": "DA_Brambleback18",
+     "name": "Brambleback",
+     "unit_cost": 4,
+     "traits": [
+      "Riftbeast",
+      "Ravager"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Riftbeast",
+       "apiName": "DA_Riftbeast18",
+       "value": 1
+      },
+      {
+       "trait": "Ravager",
+       "apiName": "DA_18_Slayer",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Caitlyn": {
+     "apiName": "TFT18_Caitlyn",
+     "assetName": "DA_18_Caitlyn",
+     "name": "Caitlyn",
+     "unit_cost": 2,
+     "traits": [
+      "Coven",
+      "Hunter"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Coven",
+       "apiName": "DA_18_Coven",
+       "value": 1
+      },
+      {
+       "trait": "Hunter",
+       "apiName": "DA_18_Hunter",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Camille": {
+     "apiName": "TFT18_Camille",
+     "assetName": "DA_18_Camille",
+     "name": "Camille",
+     "unit_cost": 1,
+     "traits": [
+      "Coven",
+      "Ravager"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Coven",
+       "apiName": "DA_18_Coven",
+       "value": 1
+      },
+      {
+       "trait": "Ravager",
+       "apiName": "DA_18_Slayer",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Cassiopeia": {
+     "apiName": "TFT18_Cassiopeia",
+     "assetName": "DA_18_Cassiopeia",
+     "name": "Cassiopeia",
+     "unit_cost": 3,
+     "traits": [
+      "Coven",
+      "Spellweaver"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Coven",
+       "apiName": "DA_18_Coven",
+       "value": 1
+      },
+      {
+       "trait": "Spellweaver",
+       "apiName": "DA_18_Spellweaver",
+       "value": 1
+      }
+     ]
+    },
+    "DA_Cinderling18": {
+     "apiName": "TFT18_Cinderling",
+     "assetName": "DA_Cinderling18",
+     "name": "Cinderling",
+     "unit_cost": 1,
+     "traits": [
+      "Riftbeast",
+      "Hunter"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Riftbeast",
+       "apiName": "DA_Riftbeast18",
+       "value": 1
+      },
+      {
+       "trait": "Hunter",
+       "apiName": "DA_18_Hunter",
+       "value": 1
+      }
+     ]
+    },
+    "DA_CrimsonRaptor18": {
+     "apiName": "TFT18_MamaBeak",
+     "assetName": "DA_CrimsonRaptor18",
+     "name": "Mama Beak",
+     "unit_cost": 3,
+     "traits": [
+      "Riftbeast",
+      "Summoner",
+      "... 외 1개"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Riftbeast",
+       "apiName": "DA_Riftbeast18",
+       "value": 1
+      },
+      {
+       "trait": "Summoner",
+       "apiName": "DA_18_Summoner",
+       "value": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_CrimsonRaptor_Mini": {
+     "apiName": "TFT18_CrimsonRaptor_Mini",
+     "assetName": "DA_18_CrimsonRaptor_Mini",
+     "name": "Tiny Beak",
+     "unit_cost": 0,
+     "traits": [],
+     "trait_bonus": []
+    },
+    "DA_18_Diana": {
+     "apiName": "TFT18_Diana",
+     "assetName": "DA_18_Diana",
+     "name": "Diana",
+     "unit_cost": 3,
+     "traits": [
+      "Lunar",
+      "Ravager",
+      "... 외 1개"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Lunar",
+       "apiName": "DA_18_Lunar",
+       "value": 1
+      },
+      {
+       "trait": "Ravager",
+       "apiName": "DA_18_Slayer",
+       "value": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_Draven18": {
+     "apiName": "TFT18_Draven",
+     "assetName": "DA_Draven18",
+     "name": "Draven",
+     "unit_cost": 5,
+     "traits": [
+      "Bounty Seeker"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Bounty Seeker",
+       "apiName": "DA_DravenUniqueTrait18",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_ElderDragon": {
+     "apiName": "TFT18_ElderDragon",
+     "assetName": "DA_18_ElderDragon",
+     "name": "Elder Dragon",
+     "unit_cost": 5,
+     "traits": [
+      "Apex Predator",
+      "Riftbeast"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Apex Predator",
+       "apiName": "DA_18_ApexPredator",
+       "value": 1
+      },
+      {
+       "trait": "Riftbeast",
+       "apiName": "DA_Riftbeast18",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Elise": {
+     "apiName": "TFT18_Elise",
+     "assetName": "DA_18_Elise",
+     "name": "Elise",
+     "unit_cost": 2,
+     "traits": [
+      "Coven",
+      "Vanguard"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Coven",
+       "apiName": "DA_18_Coven",
+       "value": 1
+      },
+      {
+       "trait": "Vanguard",
+       "apiName": "DA_18_Vanguard",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_EliseSpider": {
+     "apiName": "TFT18_EliseSpider",
+     "assetName": "DA_18_EliseSpider",
+     "name": "Elise",
+     "unit_cost": 2,
+     "traits": [
+      "Coven",
+      "Vanguard"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Coven",
+       "apiName": "DA_18_Coven",
+       "value": 1
+      },
+      {
+       "trait": "Vanguard",
+       "apiName": "DA_18_Vanguard",
+       "value": 1
+      }
+     ]
+    },
+    "DA_18_Ezreal": {
+     "apiName": "TFT18_Ezreal",
+     "assetName": "DA_18_Ezreal",
+     "name": "Ezreal",
+     "unit_cost": 4,
+     "traits": [
+      "Elderwood",
+      "Executioner"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Elderwood",
+       "apiName": "DA_18_Elderwood",
+       "value": 1
+      },
+      {
+       "trait": "Executioner",
+       "apiName": "DA_18_Executioner",
+       "value": 1
+      }
+     ]
+    },
+    "DA_Fiddlesticks18": {
+     "apiName": "TFT18_Fiddlesticks",
+     "assetName": "DA_Fiddlesticks18",
+     "name": "Fiddlesticks",
+     "unit_cost": 3,
+     "traits": [
+      "Flora Fatalis",
+      "Defender",
+      "... 외 1개"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Flora Fatalis",
+       "apiName": "DA_FloraFatalis18",
+       "value": 1
+      },
+      {
+       "trait": "Defender",
+       "apiName": "DA_18_Defender",
+       "value": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "DA_18_GnarSmall": {
+     "apiName": "TFT18_Gnar",
+     "assetName": "DA_18_GnarSmall",
+     "name": "Gnar",
+     "unit_cost": 5,
+     "traits": [
+      "Elderwood",
+      "Sprykin",
+      "... 외 1개"
+     ],
+     "trait_bonus": [
+      {
+       "trait": "Elderwood",
+       "apiName": "DA_18_Elderwood",
+       "value": 1
+      },
+      {
+       "trait": "Sprykin",
+       "apiName": "DA_18_Sprykin",
+       "value": 1
+      },
+      "... 외 1개"
+     ]
+    },
+    "...": "외 68개 키"
+   },
+   "emblem_lookup": {
+    "T_TraitItemIcon_18_Blackthorn_Emblem": "DA_18_Blackthorn",
+    "DA_18_EmblemBlackthorn_Emblem": "DA_18_Blackthorn",
+    "T_TraitItemIcon_18_Blossom_Emblem": "DA_18_Blossom",
+    "DA_18_EmblemBlossom_Emblem": "DA_18_Blossom",
+    "T_TraitItemIcon_18_Brawler_Emblem": "DA_18_Brawler",
+    "DA_18_EmblemBrawler_Emblem": "DA_18_Brawler",
+    "T_TraitItemIcon_18_Coven_Emblem": "DA_18_Coven",
+    "DA_18_EmblemCoven_Emblem": "DA_18_Coven",
+    "T_TraitItemIcon_18_Defender_Emblem": "DA_18_Defender",
+    "DA_18_EmblemDefender_Emblem": "DA_18_Defender",
+    "T_TraitItemIcon_18_Elderwood_Emblem": "DA_18_Elderwood",
+    "DA_18_EmblemElderwood_Emblem": "DA_18_Elderwood",
+    "T_TraitItemIcon_18_Executioner_Emblem": "DA_18_Executioner",
+    "DA_18_EmblemExecutioner_Emblem": "DA_18_Executioner",
+    "T_TraitItemIcon_18_Fae_Emblem": "DA_18_Fae",
+    "DA_18_EmblemFae_Emblem": "DA_18_Fae",
+    "T_TraitItemIcon_Augment_18_FloraFatalis_Emblem": "DA_FloraFatalis18",
+    "DA_18_EmblemFloraFatalisAugment_Emblem": "DA_FloraFatalis18",
+    "T_TraitItemIcon_18_FloraFatalis_Emblem": "DA_FloraFatalis18",
+    "DA_18_EmblemFloraFatalis_Emblem": "DA_FloraFatalis18",
+    "T_TraitItemIcon_18_Hunter_Emblem": "DA_18_Hunter",
+    "DA_18_EmblemHunter_Emblem": "DA_18_Hunter",
+    "T_TraitItemIcon_18_Inferno_Emblem": "DA_18_Inferno",
+    "DA_18_EmblemInferno_Emblem": "DA_18_Inferno",
+    "T_TraitItemIcon_18_Invoker_Emblem": "DA_18_Invoker",
+    "DA_18_EmblemInvoker_Emblem": "DA_18_Invoker",
+    "T_TraitItemIcon_18_Juggernaut_Emblem": "DA_Juggernaut18",
+    "DA_18_EmblemJuggernaut_Emblem": "DA_Juggernaut18",
+    "T_TraitItemIcon_18_Lunar_Emblem": "DA_18_Lunar",
+    "DA_18_EmblemLunar_Emblem": "DA_18_Lunar",
+    "...": "외 12개 키"
+   },
+   "counters": [
+    {
+     "against": 423009,
+     "place_change": 0.1476,
+     "cluster_num": 423009,
+     "similarity": 1
+    },
+    {
+     "against": 423005,
+     "place_change": 0.1075,
+     "cluster_num": 423009,
+     "similarity": 0.2595
+    },
+    "... 외 2914개"
+   ],
+   "players": {
+    "423000": {
+     "0.0": 93862,
+     "1.0": 30460,
+     "2.0": 4672,
+     "3.0": 437,
+     "4.0": 29
+    },
+    "423001": {
+     "0.0": 109885,
+     "1.0": 18401,
+     "2.0": 1131,
+     "3.0": 42,
+     "4.0": 1
+    },
+    "423002": {
+     "0.0": 127594,
+     "1.0": 1855,
+     "2.0": 11
+    },
+    "423003": {
+     "0.0": 124241,
+     "1.0": 5137,
+     "2.0": 80,
+     "3.0": 2
+    },
+    "423004": {
+     "0.0": 117211,
+     "1.0": 11787,
+     "2.0": 451,
+     "3.0": 10,
+     "4.0": 1
+    },
+    "423005": {
+     "0.0": 123336,
+     "1.0": 5978,
+     "2.0": 145,
+     "3.0": 1
+    },
+    "423006": {
+     "0.0": 94685,
+     "1.0": 29778,
+     "2.0": 4632,
+     "3.0": 346,
+     "4.0": 19
+    },
+    "423007": {
+     "0.0": 124836,
+     "1.0": 4548,
+     "2.0": 75,
+     "3.0": 1
+    },
+    "423008": {
+     "0.0": 100806,
+     "1.0": 25761,
+     "2.0": 2765,
+     "3.0": 126,
+     "4.0": 2
+    },
+    "423009": {
+     "1.0": 49913,
+     "0.0": 44652,
+     "2.0": 25810,
+     "3.0": 7600,
+     "4.0": 1339,
+     "5.0": 138,
+     "6.0": 8
+    },
+    "423010": {
+     "0.0": 124904,
+     "1.0": 4495,
+     "2.0": 61
+    },
+    "423011": {
+     "0.0": 125996,
+     "1.0": 3430,
+     "2.0": 34
+    },
+    "423012": {
+     "0.0": 115082,
+     "1.0": 14350,
+     "2.0": 28
+    },
+    "423013": {
+     "0.0": 113081,
+     "1.0": 15429,
+     "2.0": 924,
+     "3.0": 25,
+     "4.0": 1
+    },
+    "423014": {
+     "0.0": 115092,
+     "1.0": 13868,
+     "2.0": 490,
+     "3.0": 10
+    },
+    "423015": {
+     "0.0": 79048,
+     "1.0": 40818,
+     "2.0": 8672,
+     "3.0": 877,
+     "4.0": 45
+    },
+    "423016": {
+     "0.0": 119124,
+     "1.0": 10056,
+     "2.0": 278,
+     "3.0": 2
+    },
+    "423017": {
+     "0.0": 124150,
+     "1.0": 5227,
+     "2.0": 82,
+     "3.0": 1
+    },
+    "423018": {
+     "0.0": 63754,
+     "1.0": 49632,
+     "2.0": 13884,
+     "3.0": 2034,
+     "4.0": 146,
+     "5.0": 10
+    },
+    "423019": {
+     "0.0": 125500,
+     "1.0": 3913,
+     "2.0": 47
+    },
+    "423020": {
+     "0.0": 99860,
+     "1.0": 27084,
+     "2.0": 2392,
+     "3.0": 123,
+     "4.0": 1
+    },
+    "423021": {
+     "0.0": 105330,
+     "1.0": 22464,
+     "2.0": 1613,
+     "3.0": 52,
+     "4.0": 1
+    },
+    "423022": {
+     "0.0": 104405,
+     "1.0": 22830,
+     "2.0": 2117,
+     "3.0": 106,
+     "4.0": 2
+    },
+    "423023": {
+     "0.0": 91159,
+     "1.0": 34591,
+     "2.0": 3556,
+     "3.0": 152,
+     "4.0": 2
+    },
+    "423024": {
+     "0.0": 123381,
+     "1.0": 5971,
+     "2.0": 108
+    },
+    "423025": {
+     "0.0": 124619,
+     "1.0": 4749,
+     "2.0": 92
+    },
+    "423026": {
+     "0.0": 124961,
+     "1.0": 4430,
+     "2.0": 69
+    },
+    "423027": {
+     "0.0": 107730,
+     "1.0": 20230,
+     "2.0": 1444,
+     "3.0": 55,
+     "4.0": 1
+    },
+    "423028": {
+     "0.0": 121509,
+     "1.0": 7751,
+     "2.0": 194,
+     "3.0": 6
+    },
+    "423029": {
+     "0.0": 113424,
+     "1.0": 14730,
+     "2.0": 1246,
+     "3.0": 59,
+     "4.0": 1
+    },
+    "...": "외 24개 키"
+   },
+   "column_mappings": {
+    "DA_18_Ahri": {
+     "value": 0,
+     "type": "unit"
+    },
+    "DA_18_Akali_AD": {
+     "value": 1,
+     "type": "unit"
+    },
+    "DA_18_Alistar": {
+     "value": 2,
+     "type": "unit"
+    },
+    "DA_18_Alune": {
+     "value": 3,
+     "type": "unit"
+    },
+    "DA_18_Aphelios": {
+     "value": 4,
+     "type": "unit"
+    },
+    "DA_18_Ashe": {
+     "value": 5,
+     "type": "unit"
+    },
+    "DA_18_Azir": {
+     "value": 6,
+     "type": "unit"
+    },
+    "DA_18_Caitlyn": {
+     "value": 7,
+     "type": "unit"
+    },
+    "DA_18_Camille": {
+     "value": 8,
+     "type": "unit"
+    },
+    "DA_18_Cassiopeia": {
+     "value": 9,
+     "type": "unit"
+    },
+    "DA_18_Diana": {
+     "value": 10,
+     "type": "unit"
+    },
+    "DA_18_ElderDragon": {
+     "value": 11,
+     "type": "unit"
+    },
+    "DA_18_Elise": {
+     "value": 12,
+     "type": "unit"
+    },
+    "DA_18_Ezreal": {
+     "value": 13,
+     "type": "unit"
+    },
+    "DA_18_GnarSmall": {
+     "value": 14,
+     "type": "unit"
+    },
+    "DA_18_Hecarim": {
+     "value": 15,
+     "type": "unit"
+    },
+    "DA_18_Ivern": {
+     "value": 16,
+     "type": "unit"
+    },
+    "DA_18_Kayle": {
+     "value": 17,
+     "type": "unit"
+    },
+    "DA_18_Kennen": {
+     "value": 18,
+     "type": "unit"
+    },
+    "DA_18_KhaZix": {
+     "value": 19,
+     "type": "unit"
+    },
+    "DA_18_Kobuko": {
+     "value": 20,
+     "type": "unit"
+    },
+    "DA_18_LeBlanc": {
+     "value": 21,
+     "type": "unit"
+    },
+    "DA_18_Leona": {
+     "value": 22,
+     "type": "unit"
+    },
+    "DA_18_Lillia": {
+     "value": 23,
+     "type": "unit"
+    },
+    "DA_18_Malphite": {
+     "value": 24,
+     "type": "unit"
+    },
+    "DA_18_Maokai": {
+     "value": 25,
+     "type": "unit"
+    },
+    "DA_18_MasterYi_AD": {
+     "value": 26,
+     "type": "unit"
+    },
+    "DA_18_Morgana": {
+     "value": 27,
+     "type": "unit"
+    },
+    "DA_18_Ornn": {
+     "value": 28,
+     "type": "unit"
+    },
+    "DA_18_Rakan": {
+     "value": 29,
+     "type": "unit"
+    },
+    "...": "외 65개 키"
+   },
+   "hero_augment_builds": {},
+   "special_units": [
+    "TFT15_Smolder",
+    "TFT15_Rammus",
+    "... 외 2개"
+   ],
+   "hero_augment_units": {},
+   "additions": {}
+  }
+ },
+ "updated": 1789473059483,
+ "tft_set": "TFTSet18",
+ "cluster_id": 423
+}

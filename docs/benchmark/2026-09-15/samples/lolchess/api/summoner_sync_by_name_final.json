@@ -1,0 +1,4 @@
+{
+ "done": "<bool>",
+ "redirect_url": "<str>"
+}

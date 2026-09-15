@@ -1,0 +1,10 @@
+{
+ "summonerTierCutoffs": [
+  {
+   "tier": "<str>",
+   "leaguePoints": {
+    "20260826": "<int>"
+   }
+  }
+ ]
+}

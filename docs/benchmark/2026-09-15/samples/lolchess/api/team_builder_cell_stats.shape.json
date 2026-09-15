@@ -1,0 +1,17 @@
+{
+ "teamBuilderCellStat": {
+  "updatedAt": "<int>",
+  "count": "<int>",
+  "championCellStats": [
+   {
+    "key": "DA_18_Ornn",
+    "count": "<int>",
+    "cellStats": [
+     [
+      "<str>"
+     ]
+    ]
+   }
+  ]
+ }
+}

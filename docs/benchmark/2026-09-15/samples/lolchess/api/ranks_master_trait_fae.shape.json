@@ -1,0 +1,40 @@
+{
+ "summonerTraitRankingSnapshot": {
+  "updatedAt": "<int>",
+  "season": "<str>",
+  "shard": "<str>",
+  "queueId": "<int>",
+  "traitKey": "DA_18_Fae",
+  "tierId": "<int>",
+  "sortKey": "<str>",
+  "summonerTraitRankings": [
+   {
+    "summoner": {
+     "puuid": "<str>",
+     "shard": "<str>",
+     "gameName": "<str>",
+     "tagLine": "<str>",
+     "profileUrl": "<str>",
+     "profileIconUrl": "<str>"
+    },
+    "summonerSeasonStat": {
+     "tier": "<str>",
+     "rank": "<str>",
+     "leaguePoints": "<int>"
+    },
+    "plays": "<int>",
+    "wins": "<int>",
+    "tops": "<int>",
+    "placements": "<int>",
+    "scores": "<int>",
+    "chromatics": "<int>",
+    "championStats": [
+     {
+      "key": "DA_18_Lillia",
+      "plays": "<int>"
+     }
+    ]
+   }
+  ]
+ }
+}

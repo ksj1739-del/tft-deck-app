@@ -1,0 +1,57 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "f5daf412-1298-4c35-91cc-c50cb7f0f12f",
+ "data": {
+  "date": "20260915",
+  "list": [
+   {
+    "puuid": "<가림>",
+    "index": 1,
+    "nick": "<가림>",
+    "icon": "<redacted>",
+    "intent": "<redacted>",
+    "point": 1381,
+    "tier_text": "最强王者"
+   },
+   {
+    "puuid": "<가림>",
+    "index": 2,
+    "nick": "<가림>",
+    "icon": "<redacted>",
+    "intent": "<redacted>",
+    "point": 1365,
+    "tier_text": "最强王者"
+   },
+   {
+    "puuid": "<가림>",
+    "index": 3,
+    "nick": "<가림>",
+    "icon": "<redacted>",
+    "intent": "<redacted>",
+    "point": 1342,
+    "tier_text": "最强王者"
+   },
+   {
+    "puuid": "<가림>",
+    "index": 4,
+    "nick": "<가림>",
+    "icon": "<redacted>",
+    "intent": "<redacted>",
+    "point": 1293,
+    "tier_text": "最强王者"
+   },
+   {
+    "puuid": "<가림>",
+    "index": 5,
+    "nick": "<가림>",
+    "icon": "<redacted>",
+    "intent": "<redacted>",
+    "point": 1240,
+    "tier_text": "最强王者"
+   }
+  ],
+  "_note": "trimmed to 5 rows; personal fields redacted"
+ }
+}

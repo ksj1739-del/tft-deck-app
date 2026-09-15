@@ -1,0 +1,153 @@
+{
+ "props": {
+  "initialProps": {
+   "locale": "<str>",
+   "notifications": [],
+   "viewOriginalSkin": "<bool>",
+   "isDakggMobile": "<bool>",
+   "isNoBannerToShow": "<bool>",
+   "desktopScale": "<int>",
+   "hasCookieBannerNoticeBarKey": "<bool>",
+   "isLegacyMobile": "<bool>",
+   "isDakggDesktop": "<bool>",
+   "isMobile": "<bool>",
+   "onReleaseTime": "<bool>",
+   "serverTime": "<str>",
+   "notificationKey": "<str>",
+   "bannerKey": "<str>",
+   "isVenatusV4": "<bool>",
+   "theme": "<str>",
+   "showAdOnMobile": "<bool>",
+   "isRnMobileApp": "<bool>",
+   "seasonReleaseInfo": {
+    "season": "<str>",
+    "isReleased": "<bool>"
+   },
+   "embargoExceptionInfo": {
+    "season": "<str>",
+    "isReleased": "<bool>"
+   }
+  },
+  "pageProps": {
+   "name": "<str>",
+   "dehydratedState": {
+    "mutations": [],
+    "queries": [
+     {
+      "state": {
+       "data": {
+        "summoner": {
+         "puuid": "<str>",
+         "shard": "<str>",
+         "gameName": "<str>",
+         "tagLine": "<str>",
+         "summonerLevel": "<int>",
+         "profileIconUrl": "<str>",
+         "syncedAt": "<str>"
+        },
+        "summonerSeasons": [
+         {
+          "season": "<str>",
+          "tier": "<str>",
+          "rank": "<str>"
+         }
+        ],
+        "summonerLeagues": [
+         {
+          "season": "<str>",
+          "queue": "<str>",
+          "queueId": "<int>",
+          "tier": "<str>",
+          "rank": "<str>",
+          "leaguePoints": "<int>",
+          "plays": "<int>",
+          "wins": "<int>",
+          "tops": "<int>",
+          "avgPlacement": "<str>",
+          "rating": {
+           "tier": {
+            "rank": "<int>",
+            "total": "<int>",
+            "percent": "<float>"
+           },
+           "plays": {
+            "rank": "<int>",
+            "total": "<int>",
+            "percent": "<float>"
+           },
+           "wins": {
+            "rank": "<int>",
+            "total": "<int>",
+            "percent": "<float>"
+           },
+           "tops": {
+            "rank": "<int>",
+            "total": "<int>",
+            "percent": "<float>"
+           },
+           "winrate": {
+            "rank": "<int>",
+            "total": "<int>",
+            "percent": "<float>"
+           },
+           "winrate_10": {
+            "rank": "<int>",
+            "total": "<int>",
+            "percent": "<float>"
+           },
+           "toprate": {
+            "rank": "<int>",
+            "total": "<int>",
+            "percent": "<float>"
+           }
+          }
+         }
+        ],
+        "summonerSeasonPlacements": [
+         {
+          "queue": "<str>",
+          "queueId": "<int>",
+          "values": [
+           "<int>"
+          ]
+         }
+        ],
+        "summonerVariationStats": []
+       },
+       "dataUpdateCount": "<int>",
+       "dataUpdatedAt": "<int>",
+       "error": null,
+       "errorUpdateCount": "<int>",
+       "errorUpdatedAt": "<int>",
+       "fetchFailureCount": "<int>",
+       "fetchFailureReason": null,
+       "fetchMeta": null,
+       "isInvalidated": "<bool>",
+       "status": "<str>",
+       "fetchStatus": "<str>"
+      },
+      "queryKey": [
+       "<str>"
+      ],
+      "queryHash": "<str>"
+     }
+    ]
+   },
+   "isMobile": "<bool>",
+   "theme": "<str>"
+  },
+  "__N_SSP": "<bool>"
+ },
+ "page": "<str>",
+ "query": {
+  "shard": "<str>",
+  "nickname": "<str>",
+  "season": "<str>"
+ },
+ "buildId": "<str>",
+ "assetPrefix": "<str>",
+ "isFallback": "<bool>",
+ "gssp": "<bool>",
+ "appGip": "<bool>",
+ "scriptLoader": []
+}

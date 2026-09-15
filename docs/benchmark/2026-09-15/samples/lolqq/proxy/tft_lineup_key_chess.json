@@ -1,0 +1,313 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "22eb426e-25bb-463b-b9e1-1e95840839c3",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "20260914",
+  "v_version_id": "",
+  "key_champion_data": [
+   {
+    "chess_id": "100331",
+    "info": {
+     "1_star_percent": "0.00507",
+     "2_star_percent": "0.262099",
+     "3_star_percent": "0.732831",
+     "avg_rank": "3.714856",
+     "avg_rank_cycle": "0.076992",
+     "chess_rank": "1",
+     "equip_num": "2.961438",
+     "top_1_rate": "0.114303",
+     "top_4_rate": "0.670149",
+     "use_rate": "1"
+    }
+   },
+   {
+    "chess_id": "100337",
+    "info": {
+     "1_star_percent": "0.021083",
+     "2_star_percent": "0.506617",
+     "3_star_percent": "0.472299",
+     "avg_rank": "3.711296",
+     "avg_rank_cycle": "0.078232",
+     "chess_rank": "2",
+     "equip_num": "2.33518",
+     "top_1_rate": "0.114497",
+     "top_4_rate": "0.670668",
+     "use_rate": "0.99831"
+    }
+   },
+   {
+    "chess_id": "100352",
+    "info": {
+     "1_star_percent": "0.321412",
+     "2_star_percent": "0.668525",
+     "3_star_percent": "0.010063",
+     "avg_rank": "3.698096",
+     "avg_rank_cycle": "0.076982",
+     "chess_rank": "3",
+     "equip_num": "2.0048",
+     "top_1_rate": "0.114878",
+     "top_4_rate": "0.673324",
+     "use_rate": "0.992318"
+    }
+   },
+   {
+    "chess_id": "100346",
+    "info": {
+     "1_star_percent": "0.325885",
+     "2_star_percent": "0.661998",
+     "3_star_percent": "0.012116",
+     "avg_rank": "3.671125",
+     "avg_rank_cycle": "0.070947",
+     "chess_rank": "4",
+     "equip_num": "1.497561",
+     "top_1_rate": "0.116758",
+     "top_4_rate": "0.67915",
+     "use_rate": "0.97634"
+    }
+   },
+   {
+    "chess_id": "100310",
+    "info": {
+     "1_star_percent": "0.114395",
+     "2_star_percent": "0.863203",
+     "3_star_percent": "0.021608",
+     "avg_rank": "3.675564",
+     "avg_rank_cycle": "0.084346",
+     "chess_rank": "5",
+     "equip_num": "0.127264",
+     "top_1_rate": "0.117255",
+     "top_4_rate": "0.679059",
+     "use_rate": "0.966969"
+    }
+   },
+   {
+    "chess_id": "100339",
+    "info": {
+     "1_star_percent": "0.029563",
+     "2_star_percent": "0.667416",
+     "3_star_percent": "0.303021",
+     "avg_rank": "3.638335",
+     "avg_rank_cycle": "0.078841",
+     "chess_rank": "6",
+     "equip_num": "1.424647",
+     "top_1_rate": "0.118252",
+     "top_4_rate": "0.686375",
+     "use_rate": "0.956214"
+    }
+   },
+   {
+    "chess_id": "100323",
+    "info": {
+     "1_star_percent": "0.201022",
+     "2_star_percent": "0.762533",
+     "3_star_percent": "0.036115",
+     "avg_rank": "3.70564",
+     "avg_rank_cycle": "0.088359",
+     "chess_rank": "7",
+     "equip_num": "0.264182",
+     "top_1_rate": "0.11593",
+     "top_4_rate": "0.672493",
+     "use_rate": "0.931633"
+    }
+   },
+   {
+    "chess_id": "100338",
+    "info": {
+     "1_star_percent": "0.026405",
+     "2_star_percent": "0.599465",
+     "3_star_percent": "0.37413",
+     "avg_rank": "3.60446",
+     "avg_rank_cycle": "0.054918",
+     "chess_rank": "8",
+     "equip_num": "1.95736",
+     "top_1_rate": "0.12025",
+     "top_4_rate": "0.692774",
+     "use_rate": "0.861115"
+    }
+   },
+   {
+    "chess_id": "100333",
+    "info": {
+     "1_star_percent": "0.005059",
+     "2_star_percent": "0.172007",
+     "3_star_percent": "0.822934",
+     "avg_rank": "2.925801",
+     "avg_rank_cycle": "0.189711",
+     "chess_rank": "9",
+     "equip_num": "2.82968",
+     "top_1_rate": "0.202361",
+     "top_4_rate": "0.824621",
+     "use_rate": "0.091105"
+    }
+   },
+   {
+    "chess_id": "100299",
+    "info": {
+     "1_star_percent": "0.394118",
+     "2_star_percent": "0.576471",
+     "3_star_percent": "0.029412",
+     "avg_rank": "4.090196",
+     "avg_rank_cycle": "-0.110664",
+     "chess_rank": "10",
+     "equip_num": "0.201961",
+     "top_1_rate": "0.084314",
+     "top_4_rate": "0.594118",
+     "use_rate": "0.078353"
+    }
+   },
+   {
+    "chess_id": "100357",
+    "info": {
+     "1_star_percent": "0.73743",
+     "2_star_percent": "0.26257",
+     "3_star_percent": "0",
+     "avg_rank": "2.916201",
+     "avg_rank_cycle": "0.322823",
+     "chess_rank": "11",
+     "equip_num": "1.24581",
+     "top_1_rate": "0.223464",
+     "top_4_rate": "0.810056",
+     "use_rate": "0.0275"
+    }
+   },
+   {
+    "chess_id": "100340",
+    "info": {
+     "1_star_percent": "0.542373",
+     "2_star_percent": "0.449153",
+     "3_star_percent": "0.008475",
+     "avg_rank": "5.118644",
+     "avg_rank_cycle": "0.085438",
+     "chess_rank": "12",
+     "equip_num": "1.025424",
+     "top_1_rate": "0.050847",
+     "top_4_rate": "0.364407",
+     "use_rate": "0.018129"
+    }
+   },
+   {
+    "chess_id": "100358",
+    "info": {
+     "1_star_percent": "0.584071",
+     "2_star_percent": "0.415929",
+     "3_star_percent": "0",
+     "avg_rank": "2.876106",
+     "avg_rank_cycle": "-0.398399",
+     "chess_rank": "13",
+     "equip_num": "0.893805",
+     "top_1_rate": "0.230088",
+     "top_4_rate": "0.840708",
+     "use_rate": "0.017361"
+    }
+   },
+   {
+    "chess_id": "100355",
+    "info": {
+     "1_star_percent": "0.767677",
+     "2_star_percent": "0.232323",
+     "3_star_percent": "0",
+     "avg_rank": "3.929293",
+     "avg_rank_cycle": "-0.302427",
+     "chess_rank": "14",
+     "equip_num": "1.363636",
+     "top_1_rate": "0.10101",
+     "top_4_rate": "0.59596",
+     "use_rate": "0.01521"
+    }
+   },
+   {
+    "chess_id": "100372",
+    "info": {
+     "1_star_percent": "0.767677",
+     "2_star_percent": "0.222222",
+     "3_star_percent": "0.010101",
+     "avg_rank": "2.838384",
+     "avg_rank_cycle": "-0.263163",
+     "chess_rank": "15",
+     "equip_num": "1.020202",
+     "top_1_rate": "0.222222",
+     "top_4_rate": "0.808081",
+     "use_rate": "0.01521"
+    }
+   },
+   {
+    "chess_id": "100312",
+    "info": {
+     "1_star_percent": "0.291667",
+     "2_star_percent": "0.638889",
+     "3_star_percent": "0.069444",
+     "avg_rank": "5.791667",
+     "avg_rank_cycle": "-0.225878",
+     "chess_rank": "16",
+     "equip_num": "0.125",
+     "top_1_rate": "0",
+     "top_4_rate": "0.263889",
+     "use_rate": "0.011062"
+    }
+   },
+   {
+    "chess_id": "100350",
+    "info": {
+     "1_star_percent": "0.460317",
+     "2_star_percent": "0.539683",
+     "3_star_percent": "0",
+     "avg_rank": "3.777778",
+     "avg_rank_cycle": "0.499145",
+     "chess_rank": "17",
+     "equip_num": "1.190476",
+     "top_1_rate": "0.095238",
+     "top_4_rate": "0.650794",
+     "use_rate": "0.009679"
+    }
+   },
+   {
+    "chess_id": "100349",
+    "info": {
+     "1_star_percent": "0.416667",
+     "2_star_percent": "0.583333",
+     "3_star_percent": "0",
+     "avg_rank": "3.183333",
+     "avg_rank_cycle": "-0.183333",
+     "chess_rank": "18",
+     "equip_num": "1.15",
+     "top_1_rate": "0.133333",
+     "top_4_rate": "0.816667",
+     "use_rate": "0.009218"
+    }
+   },
+   {
+    "chess_id": "100353",
+    "info": {
+     "1_star_percent": "0.542373",
+     "2_star_percent": "0.457627",
+     "3_star_percent": "0",
+     "avg_rank": "3.677966",
+     "avg_rank_cycle": "0.363701",
+     "chess_rank": "19",
+     "equip_num": "1",
+     "top_1_rate": "0.135593",
+     "top_4_rate": "0.677966",
+     "use_rate": "0.009064"
+    }
+   },
+   {
+    "chess_id": "100367",
+    "info": {
+     "1_star_percent": "0.653846",
+     "2_star_percent": "0.346154",
+     "3_star_percent": "0",
+     "avg_rank": "3.461538",
+     "avg_rank_cycle": "-0.245629",
+     "chess_rank": "20",
+     "equip_num": "1.596154",
+     "top_1_rate": "0.153846",
+     "top_4_rate": "0.692308",
+     "use_rate": "0.007989"
+    }
+   }
+  ]
+ }
+}

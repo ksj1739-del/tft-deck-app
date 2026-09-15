@@ -1,0 +1,11 @@
+{
+ "summoner": {
+  "puuid": "<str>",
+  "shard": "<str>",
+  "gameName": "<str>",
+  "tagLine": "<str>",
+  "summonerLevel": "<int>",
+  "profileIconUrl": "<str>",
+  "syncedAt": "<str>"
+ }
+}

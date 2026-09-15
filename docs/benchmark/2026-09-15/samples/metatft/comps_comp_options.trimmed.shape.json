@@ -1,0 +1,2760 @@
+{
+ "results": {
+  "options": {
+   "423000": {
+    "7": [
+     {
+      "cluster": "423000",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 98,
+      "avg": 6.0816,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 26.541
+     },
+     {
+      "cluster": "423000",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Varus&DA_Amumu18&DA_Nidalee18_AP&DA_Sentinel18&DA_Vi18",
+      "traits_list": "DA_18_Inferno_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 72,
+      "avg": 5.5,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 24.035
+     },
+     "... 외 2개"
+    ],
+    "8": [
+     {
+      "cluster": "423000",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Varus&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 54380,
+      "avg": 4.9813,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 199.951
+     },
+     {
+      "cluster": "423000",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Varus&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Rapidfire_2&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 2964,
+      "avg": 4.9197,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 83.533
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423000",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Varus&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 9920,
+      "avg": 3.2186,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 122.32
+     },
+     {
+      "cluster": "423000",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Varus&DA_Amumu18&DA_Brambleback18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 5217,
+      "avg": 3.0171,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 99.901
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423000",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_ElderDragon&DA_18_Varus&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_ApexPredator_1&DA_18_Caustic_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 718,
+      "avg": 2.1421,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 60.779
+     },
+     {
+      "cluster": "423000",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Varus&DA_Amumu18&DA_KogMaw18_AD&DA_Lux18_Base&DA_Nidalee18_AP&DA_Sentinel18&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Lunar_4&DA_18_LuxUniqueTrait_1&DA_18_Rapidfire_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 617,
+      "avg": 2.1815,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 53.753
+     },
+     "... 외 10개"
+    ]
+   },
+   "423001": {
+    "8": [
+     {
+      "cluster": "423001",
+      "units_list": "DA_18_Ashe&DA_18_Kennen&DA_18_Lillia&DA_18_Shen&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_1&DA_18_Hunter_2&DA_18_Inferno_2&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 1587,
+      "avg": 5.5911,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 54.24
+     },
+     {
+      "cluster": "423001",
+      "units_list": "DA_18_Ashe&DA_18_Ivern&DA_18_Lillia&DA_18_Shen&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_1&DA_18_Greenfather_1&DA_18_Hunter_2&DA_18_Inferno_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 867,
+      "avg": 5.4302,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 43.412
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423001",
+      "units_list": "DA_18_Ashe&DA_18_Ivern&DA_18_Kennen&DA_18_Lillia&DA_18_Shen&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_1&DA_18_Greenfather_1&DA_18_Hunter_2&DA_18_Inferno_2&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 5269,
+      "avg": 3.4957,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 82.569
+     },
+     {
+      "cluster": "423001",
+      "units_list": "DA_18_Ashe&DA_18_Ivern&DA_18_Kennen&DA_18_Lillia&DA_18_Shen&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_1&DA_18_Greenfather_1&DA_18_Hunter_3&DA_18_Inferno_2&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 524,
+      "avg": 3.4389,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 41.314
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423001",
+      "units_list": "DA_18_Ashe&DA_18_Ivern&DA_18_Kennen&DA_18_Lillia&DA_18_Shen&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Taric18&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_1&DA_18_Greenfather_1&DA_18_Hunter_2&DA_18_Inferno_2&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 236,
+      "avg": 2.0127,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 33.616
+     },
+     {
+      "cluster": "423001",
+      "units_list": "DA_18_Ashe&DA_18_Ivern&DA_18_Kennen&DA_18_Lillia&DA_18_Shen&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Lux18_Base&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_1&DA_18_Greenfather_1&DA_18_Hunter_2&DA_18_Inferno_3&DA_18_LuxUniqueTrait_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 220,
+      "avg": 1.6045,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 32.86
+     },
+     "... 외 10개"
+    ]
+   },
+   "423002": {
+    "6": [],
+    "7": [
+     {
+      "cluster": "423002",
+      "units_list": "DA_18_Azir&DA_18_Kobuko&DA_18_Malphite&DA_18_RekSai&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_2&DA_18_Brawler_1&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_FloraFatalis18_1",
+      "count": 122,
+      "avg": 6.4016,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 24.324
+     },
+     {
+      "cluster": "423002",
+      "units_list": "DA_18_Azir&DA_18_Kobuko&DA_18_Malphite&DA_18_RekSai&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_2&DA_18_Brawler_1&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_FloraFatalis18_2",
+      "count": 101,
+      "avg": 6.2277,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 22.984
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423002",
+      "units_list": "DA_18_Azir&DA_18_Kobuko&DA_18_Malphite&DA_18_Rammus&DA_18_RekSai&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_2&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_FloraFatalis18_1",
+      "count": 449,
+      "avg": 5.412,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 40.956
+     },
+     {
+      "cluster": "423002",
+      "units_list": "DA_18_Azir&DA_18_Kobuko&DA_18_Malphite&DA_18_Rammus&DA_18_RekSai&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_2&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_FloraFatalis18_2",
+      "count": 285,
+      "avg": 4.9123,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 35.735
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423002",
+      "units_list": "DA_18_Azir&DA_18_GnarSmall&DA_18_Kobuko&DA_18_Malphite&DA_18_Rammus&DA_18_RekSai&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_2&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Spellweaver_1&DA_18_Sprykin_2&DA_FloraFatalis18_1",
+      "count": 564,
+      "avg": 3.1738,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 47.01
+     },
+     {
+      "cluster": "423002",
+      "units_list": "DA_18_Azir&DA_18_GnarSmall&DA_18_Kobuko&DA_18_Malphite&DA_18_Rammus&DA_18_RekSai&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_2&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Spellweaver_1&DA_18_Sprykin_2&DA_FloraFatalis18_2",
+      "count": 385,
+      "avg": 2.4883,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 41.923
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423002",
+      "units_list": "DA_18_Azir&DA_18_GnarSmall&DA_18_Kobuko&DA_18_Malphite&DA_18_Rammus&DA_18_RekSai&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18&DA_Lux18_Base",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_3&DA_18_Brawler_1&DA_18_Defender_1&DA_18_LuxUniqueTrait_1&DA_18_Spellweaver_1&DA_18_Sprykin_2&DA_FloraFatalis18_1",
+      "count": 51,
+      "avg": 1.4902,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 23.266
+     },
+     {
+      "cluster": "423002",
+      "units_list": "DA_18_Azir&DA_18_GnarSmall&DA_18_Kobuko&DA_18_Malphite&DA_18_Rammus&DA_18_RekSai&DA_18_Sett&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_2&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Spellweaver_1&DA_18_Sprykin_2&DA_FloraFatalis18_1",
+      "count": 39,
+      "avg": 2.1538,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 21.336
+     },
+     "... 외 10개"
+    ]
+   },
+   "423003": {
+    "7": [
+     {
+      "cluster": "423003",
+      "units_list": "DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_Ornn&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Rival_1&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_FloraFatalis18_2",
+      "count": 848,
+      "avg": 4.1073,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 39.785
+     },
+     {
+      "cluster": "423003",
+      "units_list": "DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_Ornn&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Rival_1&DA_18_Slayer_1&DA_18_Vanguard_1&DA_FloraFatalis18_2",
+      "count": 564,
+      "avg": 6.3067,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 35.204
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423003",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_Ornn&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Rival_1&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_FloraFatalis18_2",
+      "count": 710,
+      "avg": 1.8085,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 41.182
+     },
+     {
+      "cluster": "423003",
+      "units_list": "DA_18_Alune&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_Ornn&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Lunar_1&DA_18_Rival_1&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_2",
+      "count": 687,
+      "avg": 2.8151,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 38.926
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423003",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_Ornn&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Rival_1&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_2",
+      "count": 208,
+      "avg": 1.7885,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 29.595
+     },
+     {
+      "cluster": "423003",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_Kennen&DA_18_KhaZix&DA_18_Ornn&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Rival_1&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_FloraFatalis18_2",
+      "count": 122,
+      "avg": 1.6066,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 24.785
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423003",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_Kennen&DA_18_KhaZix&DA_18_Ornn&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Rival_1&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_2",
+      "count": 19,
+      "avg": 1.3158,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 14.725
+     }
+    ]
+   },
+   "423004": {
+    "8": [
+     {
+      "cluster": "423004",
+      "units_list": "DA_18_Ahri&DA_18_Ashe&DA_18_Sett&DA_18_Sivir&DA_18_Yorick&DA_18_Zyra&DA_Karma18&DA_Vi18",
+      "traits_list": "DA_18_Blossom_2&DA_18_Hunter_1&DA_18_Spellweaver_1&DA_18_Summoner_1&DA_18_ZyraUniqueTrait_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 1760,
+      "avg": 5.9415,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 57.714
+     },
+     {
+      "cluster": "423004",
+      "units_list": "DA_18_Ahri&DA_18_Ashe&DA_18_GnarSmall&DA_18_Sett&DA_18_Sivir&DA_18_Yorick&DA_Karma18&DA_Vi18",
+      "traits_list": "DA_18_Blossom_2&DA_18_Brawler_1&DA_18_Hunter_1&DA_18_Spellweaver_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 1395,
+      "avg": 5.286,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 55.936
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423004",
+      "units_list": "DA_18_Ahri&DA_18_Ashe&DA_18_GnarSmall&DA_18_Sett&DA_18_Sivir&DA_18_Yorick&DA_18_Zyra&DA_Karma18&DA_Vi18",
+      "traits_list": "DA_18_Blossom_2&DA_18_Brawler_1&DA_18_Hunter_1&DA_18_Spellweaver_1&DA_18_Summoner_1&DA_18_ZyraUniqueTrait_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 5757,
+      "avg": 3.522,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 90.605
+     },
+     {
+      "cluster": "423004",
+      "units_list": "DA_18_Ahri&DA_18_Ashe&DA_18_GnarSmall&DA_18_Sett&DA_18_Sivir&DA_18_Yorick&DA_Karma18&DA_Lux18_Base&DA_Vi18",
+      "traits_list": "DA_18_Blossom_3&DA_18_Brawler_1&DA_18_Hunter_1&DA_18_LuxUniqueTrait_1&DA_18_Spellweaver_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 908,
+      "avg": 3.0419,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 50.672
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423004",
+      "units_list": "DA_18_Ahri&DA_18_Ashe&DA_18_GnarSmall&DA_18_Sett&DA_18_Sivir&DA_18_Yorick&DA_18_Zyra&DA_Karma18&DA_Lux18_Base&DA_Vi18",
+      "traits_list": "DA_18_Blossom_3&DA_18_Brawler_1&DA_18_Hunter_1&DA_18_LuxUniqueTrait_1&DA_18_Spellweaver_1&DA_18_Summoner_1&DA_18_ZyraUniqueTrait_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 399,
+      "avg": 1.8822,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 41.85
+     },
+     {
+      "cluster": "423004",
+      "units_list": "DA_18_Ahri&DA_18_Ashe&DA_18_GnarSmall&DA_18_Ivern&DA_18_Sett&DA_18_Sivir&DA_18_Yorick&DA_18_Zyra&DA_Karma18&DA_Vi18",
+      "traits_list": "DA_18_Blossom_2&DA_18_Brawler_1&DA_18_Greenfather_1&DA_18_Hunter_1&DA_18_Spellweaver_1&DA_18_Summoner_1&DA_18_ZyraUniqueTrait_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 320,
+      "avg": 2.1125,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 38.801
+     },
+     "... 외 10개"
+    ]
+   },
+   "423005": {
+    "7": [
+     {
+      "cluster": "423005",
+      "units_list": "DA_18_Aphelios&DA_18_Rakan&DA_18_Varus&DA_Amumu18&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18",
+      "traits_list": "DA_18_Inferno_1&DA_18_Rapidfire_3&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 11,
+      "avg": 5.7273,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 12.218
+     }
+    ],
+    "8": [
+     {
+      "cluster": "423005",
+      "units_list": "DA_18_Aphelios&DA_18_Rakan&DA_18_Varus&DA_18_Xayah&DA_Amumu18&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18",
+      "traits_list": "DA_18_Fae_1&DA_18_Inferno_1&DA_18_Rapidfire_4&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 4708,
+      "avg": 5.2417,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 84.222
+     },
+     {
+      "cluster": "423005",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Varus&DA_18_Xayah&DA_Amumu18&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18",
+      "traits_list": "DA_18_Inferno_1&DA_18_Lunar_1&DA_18_Rapidfire_4&DA_18_Slayer_1&DA_18_Vanguard_1&DA_Riftbeast18_1",
+      "count": 1111,
+      "avg": 5.3906,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 54.344
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423005",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Rakan&DA_18_Varus&DA_18_Xayah&DA_Amumu18&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18",
+      "traits_list": "DA_18_Fae_1&DA_18_Inferno_1&DA_18_Lunar_1&DA_18_Rapidfire_4&DA_18_Slayer_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 1377,
+      "avg": 3.4357,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 63.149
+     },
+     {
+      "cluster": "423005",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Maokai&DA_18_Varus&DA_18_Xayah&DA_Amumu18&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18",
+      "traits_list": "DA_18_Inferno_1&DA_18_Lunar_1&DA_18_Maokai_UniqueTrait_1&DA_18_Rapidfire_4&DA_18_Slayer_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 513,
+      "avg": 3.1813,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 44.15
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423005",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Rakan&DA_18_Varus&DA_18_Xayah&DA_Amumu18&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Fae_1&DA_18_Inferno_1&DA_18_Lunar_1&DA_18_Rapidfire_4&DA_18_Slayer_1&DA_18_Vanguard_2&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 332,
+      "avg": 1.9337,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 42.193
+     },
+     {
+      "cluster": "423005",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Rakan&DA_18_Varus&DA_18_Xayah&DA_Amumu18&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18",
+      "traits_list": "DA_18_Fae_1&DA_18_Inferno_1&DA_18_Lunar_2&DA_18_Rapidfire_4&DA_18_Slayer_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 51,
+      "avg": 2.4706,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 23.801
+     },
+     "... 외 10개"
+    ]
+   },
+   "423006": {
+    "7": [
+     {
+      "cluster": "423006",
+      "units_list": "DA_18_Ahri&DA_18_Morgana&DA_18_Sentry&DA_18_Sett&DA_Karma18&DA_Krug18&DA_Sentinel18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Invoker_2&DA_18_Spellweaver_1&DA_Riftbeast18_1",
+      "count": 221,
+      "avg": 5.8009,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 32.405
+     },
+     {
+      "cluster": "423006",
+      "units_list": "DA_18_Ahri&DA_18_Morgana&DA_18_Sentry&DA_18_Sett&DA_Karma18&DA_Krug18&DA_Sentinel18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Invoker_3&DA_18_Spellweaver_1&DA_Riftbeast18_1",
+      "count": 79,
+      "avg": 5.9367,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 23.8
+     }
+    ],
+    "8": [
+     {
+      "cluster": "423006",
+      "units_list": "DA_18_Ahri&DA_18_Morgana&DA_18_Sentry&DA_18_Sett&DA_Karma18&DA_Krug18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Invoker_2&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 16204,
+      "avg": 5.0784,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 127.382
+     },
+     {
+      "cluster": "423006",
+      "units_list": "DA_18_Ahri&DA_18_Morgana&DA_18_Sentry&DA_18_Sett&DA_Karma18&DA_Krug18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Invoker_3&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 5769,
+      "avg": 4.9185,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 93.444
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423006",
+      "units_list": "DA_18_Ahri&DA_18_Morgana&DA_18_Sentry&DA_18_Sett&DA_Karma18&DA_KogMaw18_AD&DA_Krug18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Invoker_3&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 5473,
+      "avg": 3.2938,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 94.494
+     },
+     {
+      "cluster": "423006",
+      "units_list": "DA_18_Ahri&DA_18_Ivern&DA_18_Morgana&DA_18_Sentry&DA_18_Sett&DA_Karma18&DA_Krug18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Greenfather_1&DA_18_Invoker_2&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 5357,
+      "avg": 3.2638,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 93.25
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423006",
+      "units_list": "DA_18_Ahri&DA_18_Ivern&DA_18_Morgana&DA_18_Sentry&DA_18_Sett&DA_Karma18&DA_KogMaw18_AD&DA_Krug18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Greenfather_1&DA_18_Invoker_3&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 457,
+      "avg": 2.1904,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 45.754
+     },
+     {
+      "cluster": "423006",
+      "units_list": "DA_18_Ahri&DA_18_Ivern&DA_18_Morgana&DA_18_Sentry&DA_18_Sett&DA_Karma18&DA_KogMaw18_AD&DA_Krug18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Greenfather_1&DA_18_Invoker_4&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 427,
+      "avg": 1.8829,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 44.832
+     },
+     "... 외 10개"
+    ]
+   },
+   "423007": {
+    "7": [
+     {
+      "cluster": "423007",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_LeBlanc&DA_18_Ornn&DA_18_Sett&DA_Fiddlesticks18&DA_Karma18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Spellweaver_2&DA_FloraFatalis18_1",
+      "count": 4,
+      "avg": 5.5,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 5.751
+     }
+    ],
+    "8": [
+     {
+      "cluster": "423007",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Ezreal&DA_18_Ornn&DA_18_Sett&DA_18_Soraka&DA_18_Yunara&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 1483,
+      "avg": 5.3641,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 52.638
+     },
+     {
+      "cluster": "423007",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Ezreal&DA_18_Ornn&DA_18_Sett&DA_18_Soraka&DA_18_Yunara&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 803,
+      "avg": 5.056,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 43.79
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423007",
+      "units_list": "DA_18_Ahri&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Kennen&DA_18_Ornn&DA_18_Sett&DA_18_Soraka&DA_18_Yunara&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 851,
+      "avg": 3.2538,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 46.767
+     },
+     {
+      "cluster": "423007",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Ezreal&DA_18_Kennen&DA_18_Ornn&DA_18_Sett&DA_18_Soraka&DA_18_Yunara&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 597,
+      "avg": 3.6064,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 42.478
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423007",
+      "units_list": "DA_18_Ahri&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Ornn&DA_18_Sett&DA_18_Soraka&DA_18_Yunara&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Greenfather_1&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 41,
+      "avg": 2.1707,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 19.09
+     },
+     {
+      "cluster": "423007",
+      "units_list": "DA_18_Ahri&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Kennen&DA_18_Ornn&DA_18_Sett&DA_18_Soraka&DA_18_Yunara&DA_Fiddlesticks18&DA_Lux18_Base",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_2&DA_18_Executioner_3&DA_18_LuxUniqueTrait_1&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 27,
+      "avg": 2.2963,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 16.918
+     },
+     "... 외 10개"
+    ]
+   },
+   "423008": {
+    "7": [
+     {
+      "cluster": "423008",
+      "units_list": "DA_18_Malphite&DA_18_RekSai&DA_18_Sivir&DA_Cinderling18&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Hunter_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 83,
+      "avg": 6.4096,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 24.108
+     },
+     {
+      "cluster": "423008",
+      "units_list": "DA_18_Malphite&DA_18_RekSai&DA_18_Sivir&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Invoker_1&DA_Primal18_1",
+      "count": 39,
+      "avg": 6.5128,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 19.485
+     },
+     "... 외 2개"
+    ],
+    "8": [
+     {
+      "cluster": "423008",
+      "units_list": "DA_18_Malphite&DA_18_RekSai&DA_18_Sivir&DA_Cinderling18&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Invoker_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 25681,
+      "avg": 5.4053,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 153.611
+     },
+     {
+      "cluster": "423008",
+      "units_list": "DA_18_Malphite&DA_18_RekSai&DA_18_Sivir&DA_Cinderling18&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Hunter_2&DA_18_Invoker_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 6892,
+      "avg": 5.3926,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 103.524
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423008",
+      "units_list": "DA_18_Ashe&DA_18_Malphite&DA_18_RekSai&DA_18_Sivir&DA_Cinderling18&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Hunter_2&DA_18_Invoker_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 8271,
+      "avg": 3.3211,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 114.486
+     },
+     {
+      "cluster": "423008",
+      "units_list": "DA_18_Malphite&DA_18_RekSai&DA_18_Sivir&DA_Cinderling18&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 6308,
+      "avg": 3.2619,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 103.461
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423008",
+      "units_list": "DA_18_Ashe&DA_18_Malphite&DA_18_RekSai&DA_18_Sivir&DA_Cinderling18&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Hunter_2&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 1395,
+      "avg": 2.0724,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 68.806
+     },
+     {
+      "cluster": "423008",
+      "units_list": "DA_18_Ashe&DA_18_Malphite&DA_18_RekSai&DA_18_Sivir&DA_Cinderling18&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Hunter_3&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 476,
+      "avg": 1.8761,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 49.835
+     },
+     "... 외 10개"
+    ]
+   },
+   "423009": {
+    "1": [],
+    "2": [],
+    "4": [],
+    "8": [
+     {
+      "cluster": "423009",
+      "units_list": "DA_18_Alistar&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Taric18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1",
+      "count": 408,
+      "avg": 5.4902,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 35.252
+     },
+     {
+      "cluster": "423009",
+      "units_list": "DA_18_Alistar&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_DravenUniqueTrait18_1&DA_Juggernaut18_1",
+      "count": 384,
+      "avg": 5.1432,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 34.211
+     },
+     "... 외 2개"
+    ],
+    "9": [
+     {
+      "cluster": "423009",
+      "units_list": "DA_18_Alistar&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Taric18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1",
+      "count": 69363,
+      "avg": 4.0118,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 185
+     },
+     {
+      "cluster": "423009",
+      "units_list": "DA_18_ElderDragon&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 43138,
+      "avg": 3.7632,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 156.255
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423009",
+      "units_list": "DA_18_Alistar&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Lux18_Base&DA_Taric18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_2&DA_18_Executioner_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_LuxUniqueTrait_1&DA_18_Maokai_UniqueTrait_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1",
+      "count": 7992,
+      "avg": 1.6742,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 99.649
+     },
+     {
+      "cluster": "423009",
+      "units_list": "DA_18_ElderDragon&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 6485,
+      "avg": 1.8143,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 97.184
+     },
+     "... 외 10개"
+    ]
+   },
+   "423010": {
+    "8": [
+     {
+      "cluster": "423010",
+      "units_list": "DA_18_Alistar&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_2&DA_18_Fae_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1",
+      "count": 467,
+      "avg": 6.0214,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 36.932
+     },
+     {
+      "cluster": "423010",
+      "units_list": "DA_18_Alistar&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_LeBlanc&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Elderwood_3&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1",
+      "count": 396,
+      "avg": 6.4015,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 36.837
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423010",
+      "units_list": "DA_18_Alistar&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Hecarim&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_3&DA_18_Fae_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1",
+      "count": 542,
+      "avg": 3.3469,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 43.223
+     },
+     {
+      "cluster": "423010",
+      "units_list": "DA_18_Alistar&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Hecarim&DA_18_LeBlanc&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_3&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1",
+      "count": 341,
+      "avg": 4.2669,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 39.227
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423010",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Hecarim&DA_18_LeBlanc&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_3&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1",
+      "count": 129,
+      "avg": 2.7442,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 30.577
+     },
+     {
+      "cluster": "423010",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_Aphelios&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Hecarim&DA_18_LeBlanc&DA_18_Ornn&DA_18_Xayah&DA_Lux18_Base",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_4&DA_18_Lunar_1&DA_18_LuxUniqueTrait_1&DA_18_Rapidfire_1&DA_18_Spellweaver_1&DA_AluneUniqueTrait18_1",
+      "count": 114,
+      "avg": 1.7895,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 28.34
+     },
+     "... 외 10개"
+    ]
+   },
+   "423011": {
+    "5": [],
+    "6": [],
+    "7": [
+     {
+      "cluster": "423011",
+      "units_list": "DA_18_Alistar&DA_18_Cassiopeia&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Spellweaver_2&DA_FloraFatalis18_1",
+      "count": 2834,
+      "avg": 5.1577,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 53.803
+     },
+     {
+      "cluster": "423011",
+      "units_list": "DA_18_Alistar&DA_18_Hecarim&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Teemo&DA_18_Veigar&DA_Sentinel18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Invoker_1&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_18_Vanguard_1",
+      "count": 829,
+      "avg": 5.6007,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 33.217
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423011",
+      "units_list": "DA_18_Alistar&DA_18_Hecarim&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Morgana&DA_18_Teemo&DA_18_Veigar&DA_Sentinel18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Invoker_2&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_18_Vanguard_1",
+      "count": 919,
+      "avg": 4.0033,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 35.317
+     },
+     {
+      "cluster": "423011",
+      "units_list": "DA_18_Alistar&DA_18_Cassiopeia&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Soraka&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Spellweaver_2&DA_FloraFatalis18_2",
+      "count": 250,
+      "avg": 3.328,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 26.081
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423011",
+      "units_list": "DA_18_Alistar&DA_18_Cassiopeia&DA_18_GnarSmall&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Spellweaver_2&DA_18_Sprykin_1&DA_FloraFatalis18_1",
+      "count": 253,
+      "avg": 2.2964,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 29.827
+     },
+     {
+      "cluster": "423011",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_GnarSmall&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Spellweaver_2&DA_18_Sprykin_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_1",
+      "count": 228,
+      "avg": 2.1272,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 28.086
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423011",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Alune&DA_18_Cassiopeia&DA_18_Ivern&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Greenfather_1&DA_18_Spellweaver_3&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_1",
+      "count": 14,
+      "avg": 1.2857,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 11.457
+     },
+     {
+      "cluster": "423011",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Greenfather_1&DA_18_Spellweaver_2&DA_18_Sprykin_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_1",
+      "count": 11,
+      "avg": 2.0909,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 11.423
+     },
+     "... 외 1개"
+    ]
+   },
+   "423012": {
+    "7": [
+     {
+      "cluster": "423012",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_LeBlanc&DA_18_Rengar",
+      "traits_list": "DA_18_Elderwood_1&DA_18_Executioner_1&DA_18_Lunar_1&DA_18_Rival_3&DA_18_Slayer_1&DA_18_Vanguard_1",
+      "count": 2201,
+      "avg": 6.622,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 62.973
+     },
+     {
+      "cluster": "423012",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_LeBlanc&DA_18_Rengar",
+      "traits_list": "DA_18_Elderwood_1&DA_18_Executioner_1&DA_18_Lunar_1&DA_18_Rival_3&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1",
+      "count": 1494,
+      "avg": 4.6499,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 56.063
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423012",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_LeBlanc&DA_18_Rengar&DA_18_Soraka",
+      "traits_list": "DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Lunar_1&DA_18_Rival_3&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_FloraFatalis18_1",
+      "count": 511,
+      "avg": 3.1115,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 41.638
+     },
+     {
+      "cluster": "423012",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_KhaZix&DA_18_LeBlanc&DA_18_Rengar&DA_18_Soraka",
+      "traits_list": "DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Rival_3&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_FloraFatalis18_1",
+      "count": 374,
+      "avg": 1.7701,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 37.916
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423012",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_Kennen&DA_18_KhaZix&DA_18_LeBlanc&DA_18_Rengar&DA_18_Soraka",
+      "traits_list": "DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Rival_3&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_FloraFatalis18_1",
+      "count": 209,
+      "avg": 1.5072,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 32.48
+     },
+     {
+      "cluster": "423012",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_Kennen&DA_18_KhaZix&DA_18_LeBlanc&DA_18_Rengar&DA_18_Soraka",
+      "traits_list": "DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Lunar_1&DA_18_Rival_3&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_FloraFatalis18_1",
+      "count": 120,
+      "avg": 2.325,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 27.499
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423012",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_Hecarim&DA_18_Kennen&DA_18_KhaZix&DA_18_LeBlanc&DA_18_Rengar&DA_18_Soraka",
+      "traits_list": "DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Rival_3&DA_18_Slayer_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_1",
+      "count": 24,
+      "avg": 1.4583,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 17.25
+     }
+    ]
+   },
+   "423013": {
+    "1": [],
+    "8": [
+     {
+      "cluster": "423013",
+      "units_list": "DA_18_ElderDragon&DA_18_Kennen&DA_18_Maokai&DA_18_Morgana&DA_Amumu18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 85,
+      "avg": 6.1412,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 23.627
+     },
+     {
+      "cluster": "423013",
+      "units_list": "DA_18_ElderDragon&DA_18_Ivern&DA_18_Maokai&DA_18_Morgana&DA_Amumu18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 60,
+      "avg": 6.0333,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 21.134
+     },
+     "... 외 8개"
+    ],
+    "9": [
+     {
+      "cluster": "423013",
+      "units_list": "DA_18_ElderDragon&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_18_Morgana&DA_Amumu18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 8057,
+      "avg": 3.8806,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 101.439
+     },
+     {
+      "cluster": "423013",
+      "units_list": "DA_18_ElderDragon&DA_18_Kennen&DA_18_Maokai&DA_18_Morgana&DA_Amumu18&DA_Draven18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 1817,
+      "avg": 4.131,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 61.304
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423013",
+      "units_list": "DA_18_ElderDragon&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_18_Morgana&DA_Amumu18&DA_Draven18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 1231,
+      "avg": 1.8863,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 59.675
+     },
+     {
+      "cluster": "423013",
+      "units_list": "DA_18_Ashe&DA_18_ElderDragon&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_18_Morgana&DA_Amumu18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 394,
+      "avg": 1.8071,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 41.72
+     },
+     "... 외 10개"
+    ],
+    "11": [
+     {
+      "cluster": "423013",
+      "units_list": "DA_18_ElderDragon&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_18_Morgana&DA_Amumu18&DA_Draven18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 24,
+      "avg": 1.8333,
+      "num_unit_slots": 11,
+      "num_units": 11,
+      "score": 18.548
+     }
+    ]
+   },
+   "423014": {
+    "6": [],
+    "7": [
+     {
+      "cluster": "423014",
+      "units_list": "DA_18_Caitlyn&DA_18_Rakan&DA_18_Sejuani&DA_18_Sivir&DA_18_Tristana&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Fae_1&DA_18_Hunter_2&DA_Juggernaut18_2&DA_Primal18_1",
+      "count": 4367,
+      "avg": 5.2226,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 76.985
+     },
+     {
+      "cluster": "423014",
+      "units_list": "DA_18_Caitlyn&DA_18_Rakan&DA_18_Sejuani&DA_18_Sivir&DA_18_Tristana&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Fae_1&DA_18_Hunter_3&DA_Juggernaut18_2&DA_Primal18_1",
+      "count": 457,
+      "avg": 5.2757,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 39.113
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423014",
+      "units_list": "DA_18_Ashe&DA_18_Caitlyn&DA_18_Rakan&DA_18_Sejuani&DA_18_Sivir&DA_18_Tristana&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Fae_1&DA_18_Hunter_3&DA_Juggernaut18_2&DA_Primal18_1",
+      "count": 2042,
+      "avg": 3.4809,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 64.44
+     },
+     {
+      "cluster": "423014",
+      "units_list": "DA_18_Caitlyn&DA_18_Rakan&DA_18_Sejuani&DA_18_Sivir&DA_18_Tristana&DA_Cinderling18&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Fae_1&DA_18_Hunter_3&DA_Juggernaut18_2&DA_Primal18_1",
+      "count": 1156,
+      "avg": 3.9291,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 53.232
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423014",
+      "units_list": "DA_18_Caitlyn&DA_18_Maokai&DA_18_Rakan&DA_18_Sejuani&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Fae_1&DA_18_Hunter_2&DA_18_Maokai_UniqueTrait_1&DA_Juggernaut18_3&DA_Primal18_1",
+      "count": 403,
+      "avg": 2.8164,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 40.761
+     },
+     {
+      "cluster": "423014",
+      "units_list": "DA_18_Ashe&DA_18_Caitlyn&DA_18_Maokai&DA_18_Rakan&DA_18_Sejuani&DA_18_Sivir&DA_Amumu18&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Hunter_2&DA_18_Maokai_UniqueTrait_1&DA_Juggernaut18_3&DA_Primal18_1",
+      "count": 472,
+      "avg": 2.3898,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 40.148
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423014",
+      "units_list": "DA_18_Ashe&DA_18_Caitlyn&DA_18_Maokai&DA_18_Rakan&DA_18_Sejuani&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Fae_1&DA_18_Hunter_3&DA_18_Maokai_UniqueTrait_1&DA_Juggernaut18_3&DA_Primal18_1",
+      "count": 186,
+      "avg": 1.8118,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 33.859
+     },
+     {
+      "cluster": "423014",
+      "units_list": "DA_18_Ashe&DA_18_Caitlyn&DA_18_Maokai&DA_18_Rakan&DA_18_Sejuani&DA_18_Sivir&DA_18_Tristana&DA_Amumu18&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Fae_1&DA_18_Hunter_4&DA_18_Maokai_UniqueTrait_1&DA_Juggernaut18_3&DA_Primal18_1",
+      "count": 30,
+      "avg": 2.1,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 19.587
+     },
+     "... 외 5개"
+    ]
+   },
+   "423015": {
+    "7": [
+     {
+      "cluster": "423015",
+      "units_list": "DA_18_Azir&DA_18_Malphite&DA_18_Soraka&DA_18_Yorick&DA_18_Zyra&DA_Amumu18&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Executioner_1&DA_18_Summoner_2&DA_18_ZyraUniqueTrait_1&DA_FloraFatalis18_2&DA_Juggernaut18_1",
+      "count": 386,
+      "avg": 6.3472,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 38.695
+     },
+     {
+      "cluster": "423015",
+      "units_list": "DA_18_Azir&DA_18_Malphite&DA_18_Soraka&DA_18_Yorick&DA_18_Zyra&DA_Amumu18&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Executioner_2&DA_18_Summoner_2&DA_18_ZyraUniqueTrait_1&DA_FloraFatalis18_2&DA_Juggernaut18_1",
+      "count": 87,
+      "avg": 6.1149,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 24.748
+     },
+     "... 외 2개"
+    ],
+    "8": [
+     {
+      "cluster": "423015",
+      "units_list": "DA_18_Azir&DA_18_Kennen&DA_18_Malphite&DA_18_Soraka&DA_18_Yorick&DA_18_Zyra&DA_Amumu18&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Executioner_2&DA_18_Inferno_1&DA_18_Summoner_2&DA_18_ZyraUniqueTrait_1&DA_FloraFatalis18_2&DA_Juggernaut18_1",
+      "count": 18853,
+      "avg": 5.0925,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 135.762
+     },
+     {
+      "cluster": "423015",
+      "units_list": "DA_18_Azir&DA_18_Kennen&DA_18_Malphite&DA_18_Soraka&DA_18_Yorick&DA_18_Zyra&DA_Amumu18&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Executioner_3&DA_18_Inferno_1&DA_18_Summoner_2&DA_18_ZyraUniqueTrait_1&DA_FloraFatalis18_2&DA_Juggernaut18_1",
+      "count": 7425,
+      "avg": 4.7316,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 102.653
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423015",
+      "units_list": "DA_18_Azir&DA_18_Ezreal&DA_18_Kennen&DA_18_Malphite&DA_18_Soraka&DA_18_Yorick&DA_18_Zyra&DA_Amumu18&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Executioner_3&DA_18_Inferno_1&DA_18_Summoner_2&DA_18_ZyraUniqueTrait_1&DA_FloraFatalis18_2&DA_Juggernaut18_1",
+      "count": 7997,
+      "avg": 3.2716,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 108.411
+     },
+     {
+      "cluster": "423015",
+      "units_list": "DA_18_Alune&DA_18_Azir&DA_18_Kennen&DA_18_Malphite&DA_18_Soraka&DA_18_Yorick&DA_18_Zyra&DA_Amumu18&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Executioner_2&DA_18_Inferno_1&DA_18_Spellweaver_1&DA_18_Summoner_2&DA_18_ZyraUniqueTrait_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_2&DA_Juggernaut18_1",
+      "count": 5516,
+      "avg": 3.0065,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 95.707
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423015",
+      "units_list": "DA_18_Alune&DA_18_Azir&DA_18_Ezreal&DA_18_Kennen&DA_18_Malphite&DA_18_Soraka&DA_18_Yorick&DA_18_Zyra&DA_Amumu18&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Executioner_3&DA_18_Inferno_1&DA_18_Spellweaver_1&DA_18_Summoner_2&DA_18_ZyraUniqueTrait_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_2&DA_Juggernaut18_1",
+      "count": 427,
+      "avg": 2.2201,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 45.852
+     },
+     {
+      "cluster": "423015",
+      "units_list": "DA_18_Azir&DA_18_Ezreal&DA_18_Ivern&DA_18_Kennen&DA_18_Malphite&DA_18_Soraka&DA_18_Yorick&DA_18_Zyra&DA_Amumu18&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Executioner_3&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Summoner_2&DA_18_ZyraUniqueTrait_1&DA_FloraFatalis18_2&DA_Juggernaut18_1",
+      "count": 215,
+      "avg": 2.2558,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 37.083
+     },
+     "... 외 10개"
+    ]
+   },
+   "423016": {
+    "7": [
+     {
+      "cluster": "423016",
+      "units_list": "DA_18_Kobuko&DA_18_Lillia&DA_18_Rakan&DA_18_Rammus&DA_18_Sivir&DA_18_Tristana&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_2&DA_18_Hunter_1&DA_18_Sprykin_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 1652,
+      "avg": 6.1108,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 53.992
+     },
+     {
+      "cluster": "423016",
+      "units_list": "DA_18_Lillia&DA_18_Rakan&DA_18_Rammus&DA_18_Sivir&DA_18_Tristana&DA_18_Xayah&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_2&DA_18_Hunter_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 602,
+      "avg": 6.5233,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 39.094
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423016",
+      "units_list": "DA_18_Kobuko&DA_18_Lillia&DA_18_Rakan&DA_18_Rammus&DA_18_Sivir&DA_18_Tristana&DA_18_Xayah&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_2&DA_18_Hunter_1&DA_18_Sprykin_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 927,
+      "avg": 4.9191,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 47.969
+     },
+     {
+      "cluster": "423016",
+      "units_list": "DA_18_GnarSmall&DA_18_Lillia&DA_18_Rakan&DA_18_Rammus&DA_18_Sivir&DA_18_Tristana&DA_18_Xayah&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_2&DA_18_Hunter_1&DA_18_Sprykin_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 405,
+      "avg": 4.4864,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 36.381
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423016",
+      "units_list": "DA_18_Ashe&DA_18_GnarSmall&DA_18_Lillia&DA_18_Rakan&DA_18_Rammus&DA_18_Sivir&DA_18_Tristana&DA_18_Xayah&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_2&DA_18_Hunter_2&DA_18_Sprykin_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 96,
+      "avg": 2.6563,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 24.519
+     },
+     {
+      "cluster": "423016",
+      "units_list": "DA_18_Ashe&DA_18_Kobuko&DA_18_Lillia&DA_18_Rakan&DA_18_Rammus&DA_18_Sivir&DA_18_Tristana&DA_18_Xayah&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_2&DA_18_Hunter_2&DA_18_Sprykin_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 86,
+      "avg": 2.7791,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 24.374
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423016",
+      "units_list": "DA_18_Ashe&DA_18_GnarSmall&DA_18_Lillia&DA_18_Rakan&DA_18_Rammus&DA_18_Sivir&DA_18_Tristana&DA_18_Xayah&DA_Taric18&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Fae_2&DA_18_Hunter_2&DA_18_Sprykin_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 29,
+      "avg": 1.931,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 17.417
+     },
+     {
+      "cluster": "423016",
+      "units_list": "DA_18_Ashe&DA_18_GnarSmall&DA_18_Hecarim&DA_18_Lillia&DA_18_Rakan&DA_18_Rammus&DA_18_Sivir&DA_18_Tristana&DA_18_Xayah&DA_Vi18",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Fae_2&DA_18_Hunter_2&DA_18_Sprykin_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 17,
+      "avg": 1.7059,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 14.744
+     },
+     "... 외 8개"
+    ]
+   },
+   "423017": {
+    "2": [],
+    "8": [
+     {
+      "cluster": "423017",
+      "units_list": "DA_18_Lillia&DA_18_Rakan&DA_18_Shen&DA_18_Sivir&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Defender_1&DA_18_Fae_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 84,
+      "avg": 6,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 14.959
+     },
+     {
+      "cluster": "423017",
+      "units_list": "DA_18_Maokai&DA_18_Sivir&DA_Amumu18&DA_Cinderling18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Scuttlecrab18&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Maokai_UniqueTrait_1&DA_Juggernaut18_2&DA_Primal18_1",
+      "count": 39,
+      "avg": 5.8974,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 14.491
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423017",
+      "units_list": "DA_18_Ashe&DA_18_Kennen&DA_18_Maokai&DA_18_Sivir&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 58,
+      "avg": 2.8103,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 16.86
+     },
+     {
+      "cluster": "423017",
+      "units_list": "DA_18_Ashe&DA_18_Lillia&DA_18_Rakan&DA_18_Shen&DA_18_Sivir&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Defender_1&DA_18_Fae_1&DA_18_Hunter_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 41,
+      "avg": 3.1463,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 13.752
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423017",
+      "units_list": "DA_18_Ashe&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_18_Sivir&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Greenfather_1&DA_18_Hunter_1&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 6,
+      "avg": 2,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 8.764
+     },
+     {
+      "cluster": "423017",
+      "units_list": "DA_18_Ashe&DA_18_GnarSmall&DA_18_Maokai&DA_18_Sett&DA_18_Sivir&DA_18_Yorick&DA_Amumu18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Maokai_UniqueTrait_1&DA_Juggernaut18_2&DA_Primal18_2",
+      "count": 4,
+      "avg": 1,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 8.321
+     },
+     "... 외 3개"
+    ]
+   },
+   "423018": {
+    "5": [],
+    "6": [],
+    "7": [
+     {
+      "cluster": "423018",
+      "units_list": "DA_18_Sentry&DA_Brambleback18&DA_Cinderling18&DA_Krug18&DA_Murkwolf18&DA_Scuttlecrab18&DA_Sentinel18",
+      "traits_list": "DA_18_Invoker_1&DA_18_Slayer_1&DA_Riftbeast18_3",
+      "count": 1469,
+      "avg": 6.2703,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 51.598
+     },
+     {
+      "cluster": "423018",
+      "units_list": "DA_18_Sentry&DA_Brambleback18&DA_Cinderling18&DA_Gromp18_AP&DA_Krug18&DA_Murkwolf18&DA_Scuttlecrab18",
+      "traits_list": "DA_18_Slayer_1&DA_Riftbeast18_3",
+      "count": 397,
+      "avg": 6.806,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 30.891
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423018",
+      "units_list": "DA_18_GnarSmall&DA_18_Sentry&DA_Brambleback18&DA_Cinderling18&DA_Krug18&DA_Murkwolf18&DA_Scuttlecrab18&DA_Sentinel18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Invoker_1&DA_18_Slayer_1&DA_Riftbeast18_3",
+      "count": 1477,
+      "avg": 4.8138,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 55.153
+     },
+     {
+      "cluster": "423018",
+      "units_list": "DA_18_Sentry&DA_18_Sett&DA_Brambleback18&DA_Cinderling18&DA_Krug18&DA_Murkwolf18&DA_Scuttlecrab18&DA_Sentinel18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Invoker_1&DA_18_Slayer_1&DA_Riftbeast18_3",
+      "count": 1105,
+      "avg": 4.5937,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 48.027
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423018",
+      "units_list": "DA_18_ElderDragon&DA_18_GnarSmall&DA_18_Sentry&DA_Brambleback18&DA_Krug18&DA_Murkwolf18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Brawler_1&DA_18_Invoker_1&DA_18_Slayer_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_3",
+      "count": 6318,
+      "avg": 3.2213,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 89.03
+     },
+     {
+      "cluster": "423018",
+      "units_list": "DA_18_ElderDragon&DA_18_GnarSmall&DA_18_Sentry&DA_Cinderling18&DA_Krug18&DA_Scuttlecrab18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Brawler_1&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_3",
+      "count": 1848,
+      "avg": 3.2219,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 60.026
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423018",
+      "units_list": "DA_18_ElderDragon&DA_18_GnarSmall&DA_18_Ivern&DA_18_Sentry&DA_Brambleback18&DA_Krug18&DA_Murkwolf18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Brawler_1&DA_18_Greenfather_1&DA_18_Invoker_1&DA_18_Slayer_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_3",
+      "count": 496,
+      "avg": 1.9012,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 41.592
+     },
+     {
+      "cluster": "423018",
+      "units_list": "DA_18_Ashe&DA_18_ElderDragon&DA_18_GnarSmall&DA_18_Sentry&DA_Cinderling18&DA_Krug18&DA_Scuttlecrab18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Brawler_1&DA_18_Hunter_1&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Riftbeast18_3",
+      "count": 175,
+      "avg": 1.7657,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 29.661
+     },
+     "... 외 10개"
+    ],
+    "12": []
+   },
+   "423019": {
+    "8": [
+     {
+      "cluster": "423019",
+      "units_list": "DA_18_Diana&DA_18_Hecarim&DA_18_Morgana&DA_18_Sentry&DA_Brambleback18&DA_KogMaw18_AD&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Caustic_1&DA_18_Invoker_3&DA_18_Slayer_1&DA_18_Vanguard_2&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 375,
+      "avg": 5.7547,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 34.132
+     },
+     {
+      "cluster": "423019",
+      "units_list": "DA_18_Diana&DA_18_Elise&DA_18_Hecarim&DA_18_Morgana&DA_18_Sentry&DA_Brambleback18&DA_KogMaw18_AD&DA_Sentinel18",
+      "traits_list": "DA_18_Caustic_1&DA_18_Invoker_3&DA_18_Slayer_1&DA_18_Vanguard_2&DA_Riftbeast18_1",
+      "count": 267,
+      "avg": 6.2397,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 29.207
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423019",
+      "units_list": "DA_18_Alune&DA_18_Diana&DA_18_Hecarim&DA_18_Morgana&DA_18_Sentry&DA_Brambleback18&DA_KogMaw18_AD&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Caustic_1&DA_18_Invoker_3&DA_18_Lunar_1&DA_18_Slayer_1&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 826,
+      "avg": 3.6441,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 47.286
+     },
+     {
+      "cluster": "423019",
+      "units_list": "DA_18_Alune&DA_18_Diana&DA_18_Hecarim&DA_18_Morgana&DA_18_Sentry&DA_Brambleback18&DA_KogMaw18_AD&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Caustic_1&DA_18_Invoker_4&DA_18_Lunar_1&DA_18_Slayer_1&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 296,
+      "avg": 3.527,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 34.756
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423019",
+      "units_list": "DA_18_Alune&DA_18_Diana&DA_18_Hecarim&DA_18_Ivern&DA_18_Morgana&DA_18_Sentry&DA_Brambleback18&DA_KogMaw18_AD&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Caustic_1&DA_18_Greenfather_1&DA_18_Invoker_3&DA_18_Lunar_1&DA_18_Slayer_1&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 52,
+      "avg": 2.25,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 21.066
+     },
+     {
+      "cluster": "423019",
+      "units_list": "DA_18_Alune&DA_18_Diana&DA_18_Hecarim&DA_18_Morgana&DA_18_Sentry&DA_18_Teemo&DA_Brambleback18&DA_KogMaw18_AD&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Caustic_1&DA_18_Invoker_4&DA_18_Lunar_1&DA_18_Slayer_1&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 23,
+      "avg": 2.1304,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 16.36
+     },
+     "... 외 10개"
+    ]
+   },
+   "423020": {
+    "7": [
+     {
+      "cluster": "423020",
+      "units_list": "DA_18_MasterYi_AD&DA_18_Sett&DA_18_Yorick&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_2&DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 5495,
+      "avg": 5.2559,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 80.118
+     },
+     {
+      "cluster": "423020",
+      "units_list": "DA_18_MasterYi_AD&DA_18_Rengar&DA_18_Sett&DA_18_Yorick&DA_Krug18&DA_Nidalee18_AP&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Rival_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 4054,
+      "avg": 5.7131,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 69.811
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423020",
+      "units_list": "DA_18_MasterYi_AD&DA_18_Rengar&DA_18_Sett&DA_18_Yorick&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_2&DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Rival_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 3322,
+      "avg": 3.2333,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 74.264
+     },
+     {
+      "cluster": "423020",
+      "units_list": "DA_18_MasterYi_AD&DA_18_Sett&DA_18_Yorick&DA_Gromp18_AP&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_3&DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 1215,
+      "avg": 3.3333,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 51.838
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423020",
+      "units_list": "DA_18_GnarSmall&DA_18_MasterYi_AD&DA_18_Rengar&DA_18_Sett&DA_18_Yorick&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_2&DA_18_Blossom_1&DA_18_Brawler_2&DA_18_Caustic_1&DA_18_Rival_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 179,
+      "avg": 2.0782,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 31.567
+     },
+     {
+      "cluster": "423020",
+      "units_list": "DA_18_MasterYi_AD&DA_18_Rengar&DA_18_Sett&DA_18_Yorick&DA_Gromp18_AP&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Vi18",
+      "traits_list": "DA_18_Adaptor_3&DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Rival_1&DA_Juggernaut18_1&DA_Primal18_1",
+      "count": 158,
+      "avg": 2.2848,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 30.265
+     },
+     "... 외 10개"
+    ]
+   },
+   "423021": {
+    "6": [],
+    "7": [
+     {
+      "cluster": "423021",
+      "units_list": "DA_18_Cassiopeia&DA_18_Leona&DA_18_Lillia&DA_18_Ornn&DA_18_Rammus&DA_18_Shen&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_3&DA_18_Spellweaver_1&DA_FloraFatalis18_1",
+      "count": 7280,
+      "avg": 5.6228,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 89.822
+     },
+     {
+      "cluster": "423021",
+      "units_list": "DA_18_Cassiopeia&DA_18_Leona&DA_18_Lillia&DA_18_Ornn&DA_18_Rammus&DA_18_Shen&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_3&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 2841,
+      "avg": 5.7226,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 67.73
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423021",
+      "units_list": "DA_18_Cassiopeia&DA_18_Leona&DA_18_Lillia&DA_18_Ornn&DA_18_Rammus&DA_18_Shen&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_3&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 5656,
+      "avg": 3.7263,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 87.72
+     },
+     {
+      "cluster": "423021",
+      "units_list": "DA_18_Cassiopeia&DA_18_Lillia&DA_18_Ornn&DA_18_Rammus&DA_18_Rengar&DA_18_Shen&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_3&DA_18_Rival_1&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 568,
+      "avg": 2.8063,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 40.199
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423021",
+      "units_list": "DA_18_Cassiopeia&DA_18_Kennen&DA_18_Leona&DA_18_Lillia&DA_18_Ornn&DA_18_Rammus&DA_18_Shen&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_3&DA_18_Executioner_1&DA_18_Inferno_1&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 435,
+      "avg": 2.4759,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 41.04
+     },
+     {
+      "cluster": "423021",
+      "units_list": "DA_18_Cassiopeia&DA_18_Ivern&DA_18_Leona&DA_18_Lillia&DA_18_Ornn&DA_18_Rammus&DA_18_Shen&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_3&DA_18_Greenfather_1&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 178,
+      "avg": 2.5506,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 31.386
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423021",
+      "units_list": "DA_18_Cassiopeia&DA_18_Ivern&DA_18_Kennen&DA_18_Leona&DA_18_Lillia&DA_18_Ornn&DA_18_Rammus&DA_18_Shen&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_3&DA_18_Executioner_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Spellweaver_1&DA_FloraFatalis18_2",
+      "count": 31,
+      "avg": 1.8065,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 18.763
+     },
+     {
+      "cluster": "423021",
+      "units_list": "DA_18_Ahri&DA_18_Alune&DA_18_Cassiopeia&DA_18_Leona&DA_18_Lillia&DA_18_Ornn&DA_18_Rammus&DA_18_Shen&DA_18_Soraka&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Defender_3&DA_18_Spellweaver_2&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_2",
+      "count": 17,
+      "avg": 2.0588,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 15.668
+     }
+    ]
+   },
+   "423022": {
+    "7": [
+     {
+      "cluster": "423022",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Hecarim&DA_18_Rengar&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18",
+      "traits_list": "DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Rival_1&DA_18_Slayer_1&DA_18_Vanguard_1&DA_Riftbeast18_1",
+      "count": 66,
+      "avg": 5.6818,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 19.03
+     },
+     {
+      "cluster": "423022",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Hecarim&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Vanguard_2&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 27,
+      "avg": 6.0741,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 15.916
+     },
+     "... 외 3개"
+    ],
+    "8": [
+     {
+      "cluster": "423022",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Hecarim&DA_18_Zyra&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Summoner_1&DA_18_Vanguard_2&DA_18_ZyraUniqueTrait_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 3604,
+      "avg": 5.1681,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 74.818
+     },
+     {
+      "cluster": "423022",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Elise&DA_18_Hecarim&DA_18_Zyra&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18",
+      "traits_list": "DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Summoner_1&DA_18_Vanguard_2&DA_18_ZyraUniqueTrait_1&DA_Riftbeast18_1",
+      "count": 1629,
+      "avg": 5.7944,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 55.598
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423022",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Hecarim&DA_18_Zyra&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Summoner_1&DA_18_Vanguard_2&DA_18_ZyraUniqueTrait_1&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 1590,
+      "avg": 3.2264,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 61.126
+     },
+     {
+      "cluster": "423022",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Hecarim&DA_18_Morgana&DA_18_Zyra&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Summoner_1&DA_18_Vanguard_2&DA_18_ZyraUniqueTrait_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 764,
+      "avg": 3.6217,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 48.167
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423022",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Hecarim&DA_18_Ivern&DA_18_Zyra&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Greenfather_1&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Summoner_1&DA_18_Vanguard_2&DA_18_ZyraUniqueTrait_1&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 92,
+      "avg": 2.2826,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 26.319
+     },
+     {
+      "cluster": "423022",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Hecarim&DA_18_Morgana&DA_18_Zyra&DA_Brambleback18&DA_CrimsonRaptor18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Invoker_1&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Summoner_1&DA_18_Vanguard_2&DA_18_ZyraUniqueTrait_1&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 85,
+      "avg": 2.1529,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 26.003
+     },
+     "... 외 8개"
+    ]
+   },
+   "423023": {
+    "5": [],
+    "6": [],
+    "7": [
+     {
+      "cluster": "423023",
+      "units_list": "DA_18_Alistar&DA_18_Cassiopeia&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Spellweaver_2&DA_FloraFatalis18_1",
+      "count": 11332,
+      "avg": 5.6782,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 78.807
+     },
+     {
+      "cluster": "423023",
+      "units_list": "DA_18_Kobuko&DA_18_Rammus&DA_18_RekSai&DA_18_Teemo&DA_18_Tristana&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Spellweaver_1&DA_18_Sprykin_2&DA_FloraFatalis18_1",
+      "count": 3428,
+      "avg": 5.773,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 52.972
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423023",
+      "units_list": "DA_18_GnarSmall&DA_18_Kobuko&DA_18_Rammus&DA_18_RekSai&DA_18_Sett&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Spellweaver_1&DA_18_Sprykin_2&DA_FloraFatalis18_1",
+      "count": 1743,
+      "avg": 4.0511,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 46.034
+     },
+     {
+      "cluster": "423023",
+      "units_list": "DA_18_GnarSmall&DA_18_Kobuko&DA_18_Rammus&DA_18_RekSai&DA_18_Sett&DA_18_Teemo&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Spellweaver_1&DA_18_Sprykin_2&DA_FloraFatalis18_2",
+      "count": 1350,
+      "avg": 3.5422,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 42.637
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423023",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_GnarSmall&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Spellweaver_2&DA_18_Sprykin_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_1",
+      "count": 2082,
+      "avg": 2.2584,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 55.519
+     },
+     {
+      "cluster": "423023",
+      "units_list": "DA_18_Alistar&DA_18_Cassiopeia&DA_18_GnarSmall&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Spellweaver_2&DA_18_Sprykin_1&DA_FloraFatalis18_1",
+      "count": 981,
+      "avg": 2.581,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 45.028
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423023",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_Greenfather_1&DA_18_Spellweaver_2&DA_18_Sprykin_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_1",
+      "count": 78,
+      "avg": 1.5385,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 20.955
+     },
+     {
+      "cluster": "423023",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_GnarSmall&DA_18_Kobuko&DA_18_LeBlanc&DA_18_Ornn&DA_18_RekSai&DA_18_Veigar&DA_Fiddlesticks18&DA_Lux18_Base",
+      "traits_list": "DA_18_Blackthorn_2&DA_18_Brawler_2&DA_18_Defender_1&DA_18_Elderwood_1&DA_18_LuxUniqueTrait_1&DA_18_Spellweaver_2&DA_18_Sprykin_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_1",
+      "count": 69,
+      "avg": 1.3043,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 20.194
+     },
+     "... 외 1개"
+    ]
+   },
+   "423024": {
+    "6": [],
+    "7": [
+     {
+      "cluster": "423024",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Ezreal&DA_18_LeBlanc&DA_18_Sett&DA_18_Soraka&DA_18_Yunara",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Spellweaver_1&DA_FloraFatalis18_1",
+      "count": 248,
+      "avg": 5.6089,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 28.179
+     },
+     {
+      "cluster": "423024",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Azir&DA_18_Ezreal&DA_18_LeBlanc&DA_18_Sett&DA_18_Yunara",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_2&DA_18_Spellweaver_1",
+      "count": 200,
+      "avg": 5.745,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 26.715
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423024",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Azir&DA_18_Ezreal&DA_18_LeBlanc&DA_18_Sett&DA_18_Soraka&DA_18_Yunara",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Spellweaver_1&DA_FloraFatalis18_1",
+      "count": 1045,
+      "avg": 3.8593,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 47.838
+     },
+     {
+      "cluster": "423024",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Ezreal&DA_18_Kennen&DA_18_LeBlanc&DA_18_Sett&DA_18_Soraka&DA_18_Yunara",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Spellweaver_1&DA_FloraFatalis18_1",
+      "count": 321,
+      "avg": 3.5607,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 31.591
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423024",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Azir&DA_18_Ezreal&DA_18_LeBlanc&DA_18_Malphite&DA_18_Sett&DA_18_Soraka&DA_18_Yunara",
+      "traits_list": "DA_18_Battlemage_1&DA_18_Blackthorn_1&DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Spellweaver_1&DA_FloraFatalis18_1",
+      "count": 142,
+      "avg": 2.8803,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 26.748
+     },
+     {
+      "cluster": "423024",
+      "units_list": "DA_18_Ahri&DA_18_Alistar&DA_18_Ezreal&DA_18_Ivern&DA_18_Kennen&DA_18_LeBlanc&DA_18_Sett&DA_18_Soraka&DA_18_Yunara",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Greenfather_1&DA_18_Spellweaver_1&DA_FloraFatalis18_1",
+      "count": 69,
+      "avg": 2.1739,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 20.125
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423024",
+      "units_list": "DA_18_Alistar&DA_18_Azir&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Kennen&DA_18_RekSai&DA_18_Sett&DA_18_Yorick&DA_18_Yunara&DA_Amumu18",
+      "traits_list": "DA_18_Blackthorn_1&DA_18_Blossom_1&DA_18_Brawler_2&DA_18_Elderwood_1&DA_18_Executioner_3&DA_18_Inferno_1&DA_18_Summoner_1&DA_Juggernaut18_1",
+      "count": 8,
+      "avg": 2,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 9.149
+     }
+    ]
+   },
+   "423025": {
+    "7": [
+     {
+      "cluster": "423025",
+      "units_list": "DA_18_Sivir&DA_Amumu18&DA_Cinderling18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Scuttlecrab18&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Invoker_1&DA_Juggernaut18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 17,
+      "avg": 5.5294,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 12.077
+     },
+     {
+      "cluster": "423025",
+      "units_list": "DA_18_Sett&DA_18_Sivir&DA_Cinderling18&DA_KogMaw18_AD&DA_Krug18&DA_Nidalee18_AP&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Brawler_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Invoker_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 11,
+      "avg": 5.9091,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 9.947
+     }
+    ],
+    "8": [
+     {
+      "cluster": "423025",
+      "units_list": "DA_18_Sivir&DA_Amumu18&DA_Cinderling18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Scuttlecrab18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 1247,
+      "avg": 5.0329,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 47.95
+     },
+     {
+      "cluster": "423025",
+      "units_list": "DA_18_Hecarim&DA_18_Sivir&DA_Amumu18&DA_Cinderling18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Scuttlecrab18&DA_Sentinel18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Hunter_1&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 391,
+      "avg": 5.4936,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 31.556
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423025",
+      "units_list": "DA_18_Ashe&DA_18_Sivir&DA_Amumu18&DA_Cinderling18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Scuttlecrab18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Hunter_2&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 803,
+      "avg": 2.8568,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 45.461
+     },
+     {
+      "cluster": "423025",
+      "units_list": "DA_18_Ashe&DA_18_Sivir&DA_Amumu18&DA_Cinderling18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Scuttlecrab18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Hunter_3&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 266,
+      "avg": 2.6015,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 32.635
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423025",
+      "units_list": "DA_18_Ashe&DA_18_Kennen&DA_18_Sivir&DA_Amumu18&DA_Cinderling18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Scuttlecrab18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Hunter_2&DA_18_Inferno_1&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 51,
+      "avg": 1.902,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 20.13
+     },
+     {
+      "cluster": "423025",
+      "units_list": "DA_18_Ashe&DA_18_Ivern&DA_18_Sivir&DA_Amumu18&DA_Cinderling18&DA_KogMaw18_AD&DA_Nidalee18_AP&DA_Scuttlecrab18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Adaptor_1&DA_18_Caustic_1&DA_18_Greenfather_1&DA_18_Hunter_2&DA_18_Invoker_1&DA_18_Vanguard_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Primal18_1&DA_Riftbeast18_1",
+      "count": 36,
+      "avg": 1.8333,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 18.194
+     },
+     "... 외 10개"
+    ]
+   },
+   "423026": {
+    "7": [
+     {
+      "cluster": "423026",
+      "units_list": "DA_18_Alune&DA_18_Cassiopeia&DA_18_Diana&DA_18_Elise&DA_18_Hecarim&DA_18_Morgana&DA_Sentinel18",
+      "traits_list": "DA_18_Coven_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Spellweaver_1&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1",
+      "count": 9,
+      "avg": 5,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 9.735
+     }
+    ],
+    "8": [
+     {
+      "cluster": "423026",
+      "units_list": "DA_18_Ahri&DA_18_Alune&DA_18_Cassiopeia&DA_18_Diana&DA_18_Elise&DA_18_Morgana&DA_Fiddlesticks18&DA_Sentinel18",
+      "traits_list": "DA_18_Coven_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Spellweaver_2&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_FloraFatalis18_1",
+      "count": 283,
+      "avg": 6.318,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 32.73
+     },
+     {
+      "cluster": "423026",
+      "units_list": "DA_18_Ahri&DA_18_Cassiopeia&DA_18_Diana&DA_18_Elise&DA_18_Morgana&DA_Fiddlesticks18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Coven_1&DA_18_Invoker_1&DA_18_Spellweaver_1&DA_18_Vanguard_2&DA_Emerald18_1&DA_FloraFatalis18_1",
+      "count": 279,
+      "avg": 6.5125,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 32.067
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423026",
+      "units_list": "DA_18_Ahri&DA_18_Alune&DA_18_Cassiopeia&DA_18_Diana&DA_18_Elise&DA_18_Morgana&DA_Fiddlesticks18&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Coven_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Spellweaver_2&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_FloraFatalis18_1",
+      "count": 1072,
+      "avg": 3.9216,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 53.785
+     },
+     {
+      "cluster": "423026",
+      "units_list": "DA_18_Alune&DA_18_Cassiopeia&DA_18_Diana&DA_18_ElderDragon&DA_18_Elise&DA_18_Morgana&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Coven_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Spellweaver_1&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 652,
+      "avg": 3.8727,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 43.15
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423026",
+      "units_list": "DA_18_Alune&DA_18_Cassiopeia&DA_18_Diana&DA_18_ElderDragon&DA_18_Elise&DA_18_Ivern&DA_18_Morgana&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Coven_1&DA_18_Greenfather_1&DA_18_Invoker_1&DA_18_Lunar_1&DA_18_Spellweaver_1&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Riftbeast18_1",
+      "count": 76,
+      "avg": 1.8158,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 22.999
+     },
+     {
+      "cluster": "423026",
+      "units_list": "DA_18_Ahri&DA_18_Alune&DA_18_Cassiopeia&DA_18_Diana&DA_18_Elise&DA_18_Morgana&DA_Fiddlesticks18&DA_Lux18_Base&DA_Sentinel18&DA_Taric18",
+      "traits_list": "DA_18_Coven_1&DA_18_Invoker_1&DA_18_Lunar_3&DA_18_LuxUniqueTrait_1&DA_18_Spellweaver_2&DA_18_Vanguard_2&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_FloraFatalis18_1",
+      "count": 50,
+      "avg": 1.92,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 22.086
+     },
+     "... 외 10개"
+    ]
+   },
+   "423027": {
+    "7": [
+     {
+      "cluster": "423027",
+      "units_list": "DA_18_Alistar&DA_18_Hecarim&DA_18_Rakan&DA_18_Xayah&DA_CrimsonRaptor18&DA_Krug18&DA_Scuttlecrab18",
+      "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Fae_1&DA_18_Rapidfire_1&DA_18_Vanguard_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 12,
+      "avg": 5.1667,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 5.625
+     }
+    ],
+    "8": [
+     {
+      "cluster": "423027",
+      "units_list": "DA_18_Alistar&DA_18_Aphelios&DA_18_Diana&DA_18_GnarSmall&DA_18_Hecarim&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_2&DA_18_Fae_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1",
+      "count": 765,
+      "avg": 5.719,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 46.601
+     },
+     {
+      "cluster": "423027",
+      "units_list": "DA_18_Alistar&DA_18_Aphelios&DA_18_Diana&DA_18_Hecarim&DA_18_LeBlanc&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Defender_1&DA_18_Elderwood_2&DA_18_Fae_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Vanguard_1",
+      "count": 446,
+      "avg": 6.4753,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 38.501
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423027",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_GnarSmall&DA_18_Hecarim&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_2&DA_18_Fae_1&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1",
+      "count": 1194,
+      "avg": 3.8652,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 57.324
+     },
+     {
+      "cluster": "423027",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_Aphelios&DA_18_GnarSmall&DA_18_Ivern&DA_18_LeBlanc&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_2&DA_18_Fae_1&DA_18_Greenfather_1&DA_18_Lunar_1&DA_18_Rapidfire_1&DA_18_Spellweaver_1&DA_AluneUniqueTrait18_1",
+      "count": 472,
+      "avg": 3.714,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 38.498
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423027",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_GnarSmall&DA_18_Hecarim&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah&DA_Lux18_Base",
+      "traits_list": "DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_3&DA_18_Fae_1&DA_18_Lunar_2&DA_18_LuxUniqueTrait_1&DA_18_Rapidfire_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1",
+      "count": 111,
+      "avg": 2.1351,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 28.971
+     },
+     {
+      "cluster": "423027",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_GnarSmall&DA_18_Hecarim&DA_18_LeBlanc&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_3&DA_18_Fae_1&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1",
+      "count": 84,
+      "avg": 2.1071,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 27.437
+     },
+     "... 외 10개"
+    ],
+    "11": [
+     {
+      "cluster": "423027",
+      "units_list": "DA_18_Alistar&DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Hecarim&DA_18_LeBlanc&DA_18_Lillia&DA_18_Ornn&DA_18_Xayah",
+      "traits_list": "DA_18_Brawler_1&DA_18_Defender_1&DA_18_Elderwood_3&DA_18_Fae_1&DA_18_Lunar_2&DA_18_Rapidfire_1&DA_18_Spellweaver_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1",
+      "count": 8,
+      "avg": 2,
+      "num_unit_slots": 11,
+      "num_units": 11,
+      "score": 13.95
+     }
+    ]
+   },
+   "423028": {
+    "5": [],
+    "6": [],
+    "7": [
+     {
+      "cluster": "423028",
+      "units_list": "DA_18_Akali_AD&DA_18_Camille&DA_18_Kayle&DA_18_Leona&DA_18_Sejuani&DA_18_Shen&DA_18_Varus",
+      "traits_list": "DA_18_Defender_1&DA_18_Inferno_2&DA_18_Rapidfire_1&DA_18_Slayer_1&DA_18_Solar_1",
+      "count": 194,
+      "avg": 5.3608,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 25.752
+     },
+     {
+      "cluster": "423028",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Kayle&DA_18_Leona&DA_18_Sejuani&DA_18_Shen&DA_18_Varus",
+      "traits_list": "DA_18_Defender_1&DA_18_Inferno_1&DA_18_Lunar_1&DA_18_Rapidfire_2&DA_18_Solar_1",
+      "count": 94,
+      "avg": 5.5957,
+      "num_unit_slots": 7,
+      "num_units": 7,
+      "score": 20.735
+     },
+     "... 외 10개"
+    ],
+    "8": [
+     {
+      "cluster": "423028",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Kayle&DA_18_Leona&DA_18_Sejuani&DA_18_Shen&DA_18_Varus",
+      "traits_list": "DA_18_Defender_1&DA_18_Eclipse_1&DA_18_Inferno_1&DA_18_Lunar_2&DA_18_Rapidfire_2&DA_18_Solar_1&DA_AluneUniqueTrait18_1",
+      "count": 85,
+      "avg": 3.4118,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 20.429
+     },
+     {
+      "cluster": "423028",
+      "units_list": "DA_18_Aphelios&DA_18_Diana&DA_18_Kayle&DA_18_Leona&DA_18_Sejuani&DA_18_Shen&DA_18_Varus&DA_Amumu18",
+      "traits_list": "DA_18_Defender_1&DA_18_Inferno_2&DA_18_Lunar_1&DA_18_Rapidfire_2&DA_18_Solar_1&DA_Juggernaut18_1",
+      "count": 73,
+      "avg": 3.6986,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 20.178
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423028",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Kayle&DA_18_Leona&DA_18_Sejuani&DA_18_Shen&DA_18_Varus&DA_Amumu18",
+      "traits_list": "DA_18_Defender_1&DA_18_Eclipse_1&DA_18_Inferno_2&DA_18_Lunar_2&DA_18_Rapidfire_2&DA_18_Solar_1&DA_AluneUniqueTrait18_1&DA_Juggernaut18_1",
+      "count": 56,
+      "avg": 2.375,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 18.91
+     },
+     {
+      "cluster": "423028",
+      "units_list": "DA_18_Akali_AD&DA_18_Aphelios&DA_18_Kayle&DA_18_Kennen&DA_18_Leona&DA_18_Sejuani&DA_18_Shen&DA_18_Varus&DA_Amumu18",
+      "traits_list": "DA_18_Defender_1&DA_18_Inferno_3&DA_18_Rapidfire_2&DA_18_Solar_1&DA_Juggernaut18_1",
+      "count": 12,
+      "avg": 2.5,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 12.237
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423028",
+      "units_list": "DA_18_Alune&DA_18_Aphelios&DA_18_Diana&DA_18_Kayle&DA_18_Leona&DA_18_Sejuani&DA_18_Shen&DA_18_Varus&DA_Amumu18&DA_Taric18",
+      "traits_list": "DA_18_Defender_1&DA_18_Eclipse_1&DA_18_Inferno_2&DA_18_Lunar_2&DA_18_Rapidfire_2&DA_18_Solar_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1",
+      "count": 4,
+      "avg": 1.75,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 8.6
+     }
+    ]
+   },
+   "423029": {
+    "1": [],
+    "2": [],
+    "8": [
+     {
+      "cluster": "423029",
+      "units_list": "DA_18_Ahri&DA_18_Alune&DA_18_Ashe&DA_18_Diana&DA_18_Lillia&DA_18_Rammus&DA_18_Sett&DA_18_Tristana",
+      "traits_list": "DA_18_Blossom_1&DA_18_Defender_1&DA_18_Fae_1&DA_18_Hunter_1&DA_18_Lunar_1&DA_18_Spellweaver_1&DA_AluneUniqueTrait18_1",
+      "count": 236,
+      "avg": 6.5085,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 26.036
+     },
+     {
+      "cluster": "423029",
+      "units_list": "DA_18_Ahri&DA_18_Ashe&DA_18_Diana&DA_18_GnarSmall&DA_18_Lillia&DA_18_Rammus&DA_18_Sett&DA_18_Tristana",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Fae_1&DA_18_Hunter_1&DA_18_Sprykin_1",
+      "count": 153,
+      "avg": 6.4771,
+      "num_unit_slots": 8,
+      "num_units": 8,
+      "score": 23.382
+     },
+     "... 외 10개"
+    ],
+    "9": [
+     {
+      "cluster": "423029",
+      "units_list": "DA_18_Ahri&DA_18_Alune&DA_18_Ashe&DA_18_Diana&DA_18_GnarSmall&DA_18_Lillia&DA_18_Rammus&DA_18_Sett&DA_18_Tristana",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Fae_1&DA_18_Hunter_1&DA_18_Lunar_1&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_AluneUniqueTrait18_1",
+      "count": 3499,
+      "avg": 4.0729,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 67.169
+     },
+     {
+      "cluster": "423029",
+      "units_list": "DA_18_Ashe&DA_18_ElderDragon&DA_18_GnarSmall&DA_18_Kennen&DA_18_Sett&DA_18_Yorick&DA_Amumu18&DA_Cinderling18",
+      "traits_list": "DA_18_ApexPredator_1&DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Hunter_1&DA_18_Inferno_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+      "count": 1355,
+      "avg": 4.8376,
+      "num_unit_slots": 9,
+      "num_units": 9,
+      "score": 33.648
+     },
+     "... 외 10개"
+    ],
+    "10": [
+     {
+      "cluster": "423029",
+      "units_list": "DA_18_Ahri&DA_18_Alune&DA_18_Ashe&DA_18_Diana&DA_18_GnarSmall&DA_18_Lillia&DA_18_Rammus&DA_18_Sett&DA_18_Tristana&DA_Taric18",
+      "traits_list": "DA_18_Blossom_1&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Fae_1&DA_18_Hunter_1&DA_18_Lunar_1&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_18_Vanguard_1&DA_AluneUniqueTrait18_1&DA_Emerald18_1",
+      "count": 493,
+      "avg": 2.0081,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 39.126
+     },
+     {
+      "cluster": "423029",
+      "units_list": "DA_18_Ahri&DA_18_Alune&DA_18_Ashe&DA_18_Diana&DA_18_GnarSmall&DA_18_Lillia&DA_18_Rammus&DA_18_Sett&DA_18_Tristana&DA_Lux18_Base",
+      "traits_list": "DA_18_Blossom_2&DA_18_Brawler_1&DA_18_Defender_1&DA_18_Fae_1&DA_18_Hunter_1&DA_18_Lunar_1&DA_18_LuxUniqueTrait_1&DA_18_Spellweaver_1&DA_18_Sprykin_1&DA_AluneUniqueTrait18_1",
+      "count": 108,
+      "avg": 2.1852,
+      "num_unit_slots": 10,
+      "num_units": 10,
+      "score": 24.543
+     },
+     "... 외 10개"
+    ]
+   },
+   "...": "외 24개 키"
+  },
+  "overall": {
+   "423000": [
+    {
+     "count": 176106,
+     "avg": 4.2738
+    }
+   ],
+   "423001": [
+    {
+     "count": 75813,
+     "avg": 4.2981
+    }
+   ],
+   "423002": [
+    {
+     "count": 9510,
+     "avg": 4.07
+    }
+   ],
+   "423003": [
+    {
+     "count": 27510,
+     "avg": 4.4425
+    }
+   ],
+   "423004": [
+    {
+     "count": 68418,
+     "avg": 4.3706
+    }
+   ],
+   "423005": [
+    {
+     "count": 35664,
+     "avg": 4.53
+    }
+   ],
+   "423006": [
+    {
+     "count": 193860,
+     "avg": 4.2493
+    }
+   ],
+   "423007": [
+    {
+     "count": 18925,
+     "avg": 4.5133
+    }
+   ],
+   "423008": [
+    {
+     "count": 113822,
+     "avg": 4.4893
+    }
+   ],
+   "423009": [
+    {
+     "count": 554806,
+     "avg": 4.2229
+    }
+   ],
+   "423010": [
+    {
+     "count": 39438,
+     "avg": 4.4443
+    }
+   ],
+   "423011": [
+    {
+     "count": 28648,
+     "avg": 4.6026
+    }
+   ],
+   "423012": [
+    {
+     "count": 32986,
+     "avg": 4.6391
+    }
+   ],
+   "423013": [
+    {
+     "count": 68788,
+     "avg": 4.608
+    }
+   ],
+   "423014": [
+    {
+     "count": 34403,
+     "avg": 4.4964
+    }
+   ],
+   "423015": [
+    {
+     "count": 202952,
+     "avg": 4.4991
+    }
+   ],
+   "423016": [
+    {
+     "count": 24517,
+     "avg": 4.8072
+    }
+   ],
+   "423017": [
+    {
+     "count": 14953,
+     "avg": 4.5557
+    }
+   ],
+   "423018": [
+    {
+     "count": 90255,
+     "avg": 4.5616
+    }
+   ],
+   "423019": [
+    {
+     "count": 18501,
+     "avg": 4.5653
+    }
+   ],
+   "423020": [
+    {
+     "count": 55476,
+     "avg": 4.5508
+    }
+   ],
+   "423021": [
+    {
+     "count": 46668,
+     "avg": 4.6093
+    }
+   ],
+   "423022": [
+    {
+     "count": 55583,
+     "avg": 4.7843
+    }
+   ],
+   "423023": [
+    {
+     "count": 124812,
+     "avg": 4.6669
+    }
+   ],
+   "423024": [
+    {
+     "count": 11664,
+     "avg": 4.6436
+    }
+   ],
+   "423025": [
+    {
+     "count": 31768,
+     "avg": 4.3927
+    }
+   ],
+   "423026": [
+    {
+     "count": 23292,
+     "avg": 4.6931
+    }
+   ],
+   "423027": [
+    {
+     "count": 22946,
+     "avg": 4.7476
+    }
+   ],
+   "423028": [
+    {
+     "count": 6222,
+     "avg": 5.077
+    }
+   ],
+   "423029": [
+    {
+     "count": 32882,
+     "avg": 4.5194
+    }
+   ],
+   "...": "외 26개 키"
+  }
+ },
+ "updated": 1789473369432,
+ "tft_set": "TFTSet18",
+ "queue_id": 1100,
+ "cluster_id": 423
+}

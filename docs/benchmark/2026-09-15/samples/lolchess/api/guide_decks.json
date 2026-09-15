@@ -1,0 +1,35 @@
+{
+ "meta": {
+  "q": "<str>"
+ },
+ "guides": [
+  {
+   "key": "<str>",
+   "name": "<str>"
+  }
+ ],
+ "guideDecks": [
+  {
+   "teamBuilderKey": "<str>",
+   "name": "<str>",
+   "cost": "<int>",
+   "data": {
+    "slots": [
+     {
+      "index": "<int>",
+      "champion": "<str>",
+      "star": "<int>",
+      "items": [
+       "<str>"
+      ]
+     }
+    ],
+    "augments": [
+     "<str>"
+    ],
+    "set": "<str>"
+   },
+   "season": "<str>"
+  }
+ ]
+}

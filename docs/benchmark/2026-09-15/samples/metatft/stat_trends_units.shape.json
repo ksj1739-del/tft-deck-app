@@ -1,0 +1,50 @@
+{
+ "results": [
+  {
+   "day": 1,
+   "patch": "18.2",
+   "b_patch_version": "",
+   "places": [
+    36555,
+    40215,
+    "... 외 6개"
+   ],
+   "unit": "DA_18_Ahri",
+   "day_unix": 1789383600
+  },
+  {
+   "day": 1,
+   "patch": "18.2",
+   "b_patch_version": "",
+   "places": [
+    8821,
+    12656,
+    "... 외 6개"
+   ],
+   "unit": "DA_18_Akali_AD",
+   "day_unix": 1789383600
+  },
+  "... 외 566개"
+ ],
+ "games": [
+  {
+   "day": 1,
+   "patch": "18.2",
+   "b_patch_version": "",
+   "count": 2261928,
+   "day_unix": 1789383600
+  },
+  {
+   "day": 2,
+   "patch": "18.2",
+   "b_patch_version": "",
+   "count": 2228704,
+   "day_unix": 1789297200
+  },
+  "... 외 6개"
+ ],
+ "target": "units",
+ "updated": 1789473345398,
+ "tft_set": "TFTSet18",
+ "queue_id": 1100
+}

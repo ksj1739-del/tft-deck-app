@@ -1,0 +1,19 @@
+HTTP/1.1 403 Forbidden
+Date: Tue, 15 Sep 2026 11:51:41 GMT
+Content-Type: application/xml
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-amz-request-id: tx00000105a1982551979a5-006aa9314d-1b007895e-fra1b
+access-control-allow-origin: *
+access-control-allow-methods: GET
+access-control-max-age: 60
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=DVARUWmuHWnPwmw4Wz6czBpYCqfkKGyaU1Id71UHtMeEtjwnNdEg5bupgbZJC3c6sPXRUAZ3juD%2Blem%2BxK1tbG8KbINNIsabSJ%2Fna5z3Chaxw4InzmJfvUgYH%2FZW1eV7Fpc%3D"}]}
+vary: Origin, Access-Control-Request-Headers, Access-Control-Request-Method
+Cache-Control: max-age=120
+strict-transport-security: max-age=15552000; includeSubDomains; preload
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cf-cache-status: EXPIRED
+Content-Encoding: br
+Server: cloudflare
+CF-RAY: a3b76bc41ad8a5e1-NRT
+

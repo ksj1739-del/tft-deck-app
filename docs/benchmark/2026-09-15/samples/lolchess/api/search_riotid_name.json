@@ -1,0 +1,23 @@
+{
+ "meta": {
+  "totalCount": "<int>"
+ },
+ "summoners": [
+  {
+   "puuid": "<str>",
+   "shard": "<str>",
+   "gameName": "<str>",
+   "tagLine": "<str>",
+   "summonerLevel": "<int>",
+   "profileIconUrl": "<str>",
+   "summonerLeagues": [
+    {
+     "queueId": "<int>",
+     "tier": "<str>",
+     "rank": "<str>",
+     "leaguePoints": "<int>"
+    }
+   ]
+  }
+ ]
+}

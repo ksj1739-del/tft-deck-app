@@ -1,0 +1,52 @@
+{
+ "patchRevisions": [
+  {
+   "patch": "<int>",
+   "revision": "<int>",
+   "patchVersion": "<str>"
+  }
+ ],
+ "season": "<str>",
+ "metaDeckItemDetail": {
+  "updatedAt": "<int>",
+  "shard": "<str>",
+  "queueId": "<int>",
+  "dt": "<int>",
+  "patch": "<int>",
+  "revision": "<int>",
+  "tierId": "<int>",
+  "plays": "<int>",
+  "matchCount": "<int>",
+  "metaDeckItemStat": {
+   "key": "DA_InfinityEdge",
+   "plays": "<int>",
+   "wins": "<int>",
+   "tops": "<int>",
+   "placements": "<int>",
+   "pickRate": "<float>",
+   "avgPlacement": "<str>",
+   "itemChampionStats": [
+    {
+     "key": "DA_18_ElderDragon",
+     "plays": "<int>",
+     "wins": "<int>",
+     "tops": "<int>",
+     "placements": "<int>",
+     "pickRate": "<float>",
+     "avgPlacement": "<str>"
+    }
+   ],
+   "itemSynergyStats": [
+    {
+     "key": "DA_Guinsoos<플레이어>blade",
+     "plays": "<int>",
+     "wins": "<int>",
+     "tops": "<int>",
+     "placements": "<int>",
+     "pickRate": "<float>",
+     "avgPlacement": "<str>"
+    }
+   ]
+  }
+ }
+}

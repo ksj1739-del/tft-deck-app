@@ -1,0 +1,5257 @@
+{
+ "results": {
+  "data": {
+   "cluster_id": 423,
+   "tft_set": "TFTSet18",
+   "cluster_details": {
+    "423000": {
+     "Cluster": 423000,
+     "centroid": [
+      0.0009,
+      0.0183,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Aphelios, DA_18_Diana, DA_18_Varus, DA_Amumu18, DA_KogMaw18_AD, DA_Nidalee18_AP, DA_Sentinel18, DA_Vi18",
+     "traits_string": "DA_18_Adaptor_1, DA_18_Caustic_1, DA_18_Inferno_1, DA_18_Invoker_1, DA_18_Lunar_1, DA_18_Rapidfire_1, DA_18_Vanguard_1, DA_Juggernaut18_1, DA_Primal18_1",
+     "name": [
+      {
+       "name": "DA_18_Lunar",
+       "type": "trait",
+       "score": 1.238345087617685
+      },
+      {
+       "name": "DA_18_Aphelios",
+       "type": "unit",
+       "score": 4.282111342032639
+      },
+      "... 외 1개"
+     ],
+     "name_string": "DA_18_Lunar, DA_18_Aphelios, DA_Nidalee18_AP",
+     "top_headliner": [],
+     "overall": {
+      "count": 176106,
+      "avg": 4.2738
+     },
+     "stars": [
+      "DA_18_Kobuko",
+      "DA_18_Veigar",
+      "... 외 2개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423000",
+       "count": 19438,
+       "avg": 3.9778,
+       "unit": "DA_18_Aphelios",
+       "buildName": [
+        "DA_Deathblade",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4543,
+       "place_change": -0.296,
+       "unit_numitems_count": 160826
+      },
+      {
+       "cluster": "423000",
+       "count": 34264,
+       "avg": 3.9019,
+       "unit": "DA_Nidalee18_AP",
+       "buildName": [
+        "DA_InfinityEdge",
+        "DA_SpearOfShojin",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5258,
+       "place_change": -0.372,
+       "unit_numitems_count": 151701
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 184047,
+       "avg": 4.1146,
+       "pcnt": 1.04509
+      },
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 162712,
+       "avg": 4.2523,
+       "pcnt": 0.92394
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 141571,
+       "avg": 4.1325,
+       "pcnt": 0.8039
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 119859,
+       "avg": 4.0415,
+       "pcnt": 0.68061
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 109947,
+       "avg": 4.0247,
+       "pcnt": 0.62432
+      },
+      "DA_KrakensFury": {
+       "itemNames": "DA_KrakensFury",
+       "count": 109368,
+       "avg": 4.1166,
+       "pcnt": 0.62104
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 102452,
+       "avg": 4.09,
+       "pcnt": 0.58176
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 99504,
+       "avg": 3.958,
+       "pcnt": 0.56502
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 75247,
+       "avg": 4.0505,
+       "pcnt": 0.42728
+      },
+      "DA_Crownguard": {
+       "itemNames": "DA_Crownguard",
+       "count": 57665,
+       "avg": 3.9729,
+       "pcnt": 0.32744
+      },
+      "DA_AdaptiveHelm": {
+       "itemNames": "DA_AdaptiveHelm",
+       "count": 54856,
+       "avg": 3.8905,
+       "pcnt": 0.31149
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 184047,
+       "avg": 4.1146,
+       "pcnt": 1.04509
+      },
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 162712,
+       "avg": 4.2523,
+       "pcnt": 0.92394
+      },
+      "... 외 6개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 708,
+       "avg": 4.3884,
+       "pick": 0.0042380997988698405
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 6113,
+       "avg": 4.2999,
+       "pick": 0.010999055373127615
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.069,
+     "diff_place": 0.083,
+     "difficulty": -0.014,
+     "levelling": "Fast 8"
+    },
+    "423001": {
+     "Cluster": 423001,
+     "centroid": [
+      0.0252,
+      0.0472,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Ashe, DA_18_Ivern, DA_18_Kennen, DA_18_Lillia, DA_18_Shen, DA_18_Sivir, DA_18_Tristana, DA_Amumu18, DA_Vi18",
+     "traits_string": "DA_18_Defender_1, DA_18_Fae_1, DA_18_Greenfather_1, DA_18_Hunter_2, DA_18_Inferno_2, DA_Juggernaut18_1, DA_Primal18_1",
+     "name": [
+      {
+       "name": "DA_18_Hunter",
+       "type": "trait",
+       "score": 1.574598024085579
+      },
+      {
+       "name": "DA_18_Sivir",
+       "type": "unit",
+       "score": 3.5700605437062243
+      }
+     ],
+     "name_string": "DA_18_Hunter, DA_18_Sivir",
+     "top_headliner": [],
+     "overall": {
+      "count": 75813,
+      "avg": 4.2981
+     },
+     "stars": [
+      "DA_18_Rengar",
+      "DA_18_Veigar"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423001",
+       "count": 1056,
+       "avg": 3.7869,
+       "unit": "DA_18_Sivir",
+       "buildName": [
+        "DA_BlueBuff",
+        "DA_InfinityEdge",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3472,
+       "place_change": -0.511,
+       "unit_numitems_count": 54008
+      },
+      {
+       "cluster": "423001",
+       "count": 4844,
+       "avg": 3.2514,
+       "unit": "DA_18_Ashe",
+       "buildName": [
+        "DA_LastWhisper",
+        "DA_RedBuff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.6361,
+       "place_change": -1.047,
+       "unit_numitems_count": 47697
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 74968,
+       "avg": 4.1738,
+       "pcnt": 0.98885
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 74032,
+       "avg": 4.0116,
+       "pcnt": 0.97651
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 65164,
+       "avg": 4.1051,
+       "pcnt": 0.85954
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 50717,
+       "avg": 4.0224,
+       "pcnt": 0.66897
+      },
+      "DA_LastWhisper": {
+       "itemNames": "DA_LastWhisper",
+       "count": 39862,
+       "avg": 4.0328,
+       "pcnt": 0.52579
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 36605,
+       "avg": 3.8882,
+       "pcnt": 0.48283
+      },
+      "DA_Crownguard": {
+       "itemNames": "DA_Crownguard",
+       "count": 27529,
+       "avg": 4.0311,
+       "pcnt": 0.36312
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 25459,
+       "avg": 3.9216,
+       "pcnt": 0.33581
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 24809,
+       "avg": 4.0159,
+       "pcnt": 0.32724
+      },
+      "DA_Evenshroud": {
+       "itemNames": "DA_Evenshroud",
+       "count": 19117,
+       "avg": 3.8684,
+       "pcnt": 0.25216
+      },
+      "DA_BlueBuff": {
+       "itemNames": "DA_BlueBuff",
+       "count": 14994,
+       "avg": 3.8258,
+       "pcnt": 0.19778
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 74968,
+       "avg": 4.1738,
+       "pcnt": 0.98885
+      },
+      {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 74032,
+       "avg": 4.0116,
+       "pcnt": 0.97651
+      },
+      "... 외 3개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 1534,
+       "avg": 4.6336,
+       "pick": 0.009182549564217986
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 5711,
+       "avg": 4.5258,
+       "pick": 0.010275741082272503
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.034,
+     "diff_place": 0.065,
+     "difficulty": -0.032,
+     "levelling": "Fast 9"
+    },
+    "423002": {
+     "Cluster": 423002,
+     "centroid": [
+      0.0727,
+      0.0011,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Azir, DA_18_GnarSmall, DA_18_Kobuko, DA_18_Malphite, DA_18_Rammus, DA_18_RekSai, DA_18_Teemo, DA_18_Veigar, DA_Fiddlesticks18",
+     "traits_string": "DA_18_Battlemage_1, DA_18_Blackthorn_2, DA_18_Brawler_1, DA_18_Defender_1, DA_18_Spellweaver_1, DA_18_Sprykin_2, DA_FloraFatalis18_1",
+     "name": [
+      {
+       "name": "DA_18_Blackthorn",
+       "type": "trait",
+       "score": 1.7975814931650893
+      },
+      {
+       "name": "DA_18_Malphite",
+       "type": "unit",
+       "score": 4.280126182965299
+      }
+     ],
+     "name_string": "DA_18_Sprykin, DA_18_Malphite",
+     "top_headliner": [],
+     "overall": {
+      "count": 9510,
+      "avg": 4.07
+     },
+     "stars": [
+      "DA_18_Veigar",
+      "DA_18_Kobuko",
+      "... 외 7개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423002",
+       "count": 118,
+       "avg": 3.4915,
+       "unit": "DA_18_Malphite",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4281,
+       "place_change": -0.579,
+       "unit_numitems_count": 8579
+      },
+      {
+       "cluster": "423002",
+       "count": 1202,
+       "avg": 3.6414,
+       "unit": "DA_18_Veigar",
+       "buildName": [
+        "DA_18_EmblemFloraFatalisAugment",
+        "DA_BlueBuff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5556,
+       "place_change": -0.429,
+       "unit_numitems_count": 8128
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 11207,
+       "avg": 3.9522,
+       "pcnt": 1.17844
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 9346,
+       "avg": 3.9186,
+       "pcnt": 0.98275
+      },
+      "DA_BlueBuff": {
+       "itemNames": "DA_BlueBuff",
+       "count": 6775,
+       "avg": 3.8934,
+       "pcnt": 0.71241
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 5474,
+       "avg": 3.9266,
+       "pcnt": 0.5756
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 5464,
+       "avg": 3.8106,
+       "pcnt": 0.57455
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 3398,
+       "avg": 3.6963,
+       "pcnt": 0.35731
+      },
+      "DA_Morellonomicon": {
+       "itemNames": "DA_Morellonomicon",
+       "count": 3226,
+       "avg": 3.7753,
+       "pcnt": 0.33922
+      },
+      "DA_SteadfastHeart": {
+       "itemNames": "DA_SteadfastHeart",
+       "count": 2347,
+       "avg": 3.752,
+       "pcnt": 0.24679
+      },
+      "DA_18_EmblemFloraFatalisAugment": {
+       "itemNames": "DA_18_EmblemFloraFatalisAugment",
+       "count": 1995,
+       "avg": 3.6596,
+       "pcnt": 0.20978
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 1260,
+       "avg": 3.4825,
+       "pcnt": 0.13249
+      },
+      "DA_Bloodthirster": {
+       "itemNames": "DA_Bloodthirster",
+       "count": 1140,
+       "avg": 3.5158,
+       "pcnt": 0.11987
+      },
+      "DA_TitansResolve": {
+       "itemNames": "DA_TitansResolve",
+       "count": 764,
+       "avg": 3.4332,
+       "pcnt": 0.08034
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 11207,
+       "avg": 3.9522,
+       "pcnt": 1.17844
+      },
+      {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 9346,
+       "avg": 3.9186,
+       "pcnt": 0.98275
+      },
+      "... 외 4개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 340,
+       "avg": 3.8088,
+       "pick": 0.0020352456661239344
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 977,
+       "avg": 3.8536,
+       "pick": 0.0017579056272772255
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.027,
+     "diff_place": -0.051,
+     "difficulty": 0.024,
+     "levelling": "Standard"
+    },
+    "423003": {
+     "Cluster": 423003,
+     "centroid": [
+      0.0253,
+      0.0199,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Aphelios, DA_18_Azir, DA_18_Diana, DA_18_Hecarim, DA_18_KhaZix, DA_18_Warwick, DA_KogMaw18_AD",
+     "traits_string": "DA_18_Blackthorn_1, DA_18_Caustic_1, DA_18_Lunar_1, DA_18_Rival_1, DA_18_Slayer_1, DA_18_Vanguard_1",
+     "name": [
+      {
+       "name": "DA_18_Executioner",
+       "type": "trait",
+       "score": 1.5415848782260997
+      },
+      {
+       "name": "DA_18_KhaZix",
+       "type": "unit",
+       "score": 4.335059978189749
+      }
+     ],
+     "name_string": "DA_18_Vanguard, DA_18_KhaZix",
+     "top_headliner": [],
+     "overall": {
+      "count": 27510,
+      "avg": 4.4425
+     },
+     "stars": [
+      "DA_18_KhaZix",
+      "DA_18_Hecarim",
+      "... 외 6개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423003",
+       "count": 8902,
+       "avg": 4.264,
+       "unit": "DA_18_KhaZix",
+       "buildName": [
+        "DA_EdgeOfNight",
+        "DA_HandOfJustice",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4497,
+       "place_change": -0.178,
+       "unit_numitems_count": 26049
+      },
+      {
+       "cluster": "423003",
+       "count": 68,
+       "avg": 3.1618,
+       "unit": "DA_18_Hecarim",
+       "buildName": [
+        "DA_SpiritVisage",
+        "DA_SteadfastHeart",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.315,
+       "place_change": -1.281,
+       "unit_numitems_count": 18428
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_HandOfJustice": {
+       "itemNames": "DA_HandOfJustice",
+       "count": 26948,
+       "avg": 4.2483,
+       "pcnt": 0.97957
+      },
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 23597,
+       "avg": 4.3236,
+       "pcnt": 0.85776
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 18360,
+       "avg": 4.2186,
+       "pcnt": 0.66739
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 16108,
+       "avg": 4.2778,
+       "pcnt": 0.58553
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 14871,
+       "avg": 4.2951,
+       "pcnt": 0.54057
+      },
+      "DA_IonicSpark": {
+       "itemNames": "DA_IonicSpark",
+       "count": 10902,
+       "avg": 4.0103,
+       "pcnt": 0.39629
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 10310,
+       "avg": 4.2318,
+       "pcnt": 0.37477
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 9312,
+       "avg": 3.801,
+       "pcnt": 0.3385
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 9223,
+       "avg": 3.9811,
+       "pcnt": 0.33526
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 3713,
+       "avg": 3.707,
+       "pcnt": 0.13497
+      },
+      "DA_SteadfastHeart": {
+       "itemNames": "DA_SteadfastHeart",
+       "count": 3544,
+       "avg": 3.9769,
+       "pcnt": 0.12883
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_HandOfJustice",
+       "count": 26948,
+       "avg": 4.2483,
+       "pcnt": 0.97957
+      },
+      {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 23597,
+       "avg": 4.3236,
+       "pcnt": 0.85776
+      },
+      "... 외 4개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 686,
+       "avg": 5.0758,
+       "pick": 0.0041064074322382915
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 2709,
+       "avg": 5.0144,
+       "pick": 0.004874274661508704
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.013,
+     "diff_place": 0.002,
+     "difficulty": 0.01,
+     "levelling": "lvl 7"
+    },
+    "423004": {
+     "Cluster": 423004,
+     "centroid": [
+      3.5127,
+      0.0034,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Ahri, DA_18_Ashe, DA_18_GnarSmall, DA_18_Sett, DA_18_Sivir, DA_18_Yorick, DA_18_Zyra, DA_Karma18, DA_Vi18",
+     "traits_string": "DA_18_Blossom_2, DA_18_Brawler_1, DA_18_Hunter_1, DA_18_Spellweaver_1, DA_18_Summoner_1, DA_18_ZyraUniqueTrait_1, DA_Juggernaut18_1, DA_Primal18_1",
+     "name": [
+      {
+       "name": "DA_18_Blossom",
+       "type": "trait",
+       "score": 1.8909497500657722
+      },
+      {
+       "name": "DA_18_Sett",
+       "type": "unit",
+       "score": 3.969065158291677
+      }
+     ],
+     "name_string": "DA_18_Blossom, DA_18_Sett, DA_18_Sivir",
+     "top_headliner": [],
+     "overall": {
+      "count": 68418,
+      "avg": 4.3706
+     },
+     "stars": [
+      "DA_18_Varus",
+      "DA_18_Rengar",
+      "... 외 4개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423004",
+       "count": 4196,
+       "avg": 4.0472,
+       "unit": "DA_18_Sett",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.406,
+       "place_change": -0.323,
+       "unit_numitems_count": 56128
+      },
+      {
+       "cluster": "423004",
+       "count": 1512,
+       "avg": 3.9028,
+       "unit": "DA_18_Ahri",
+       "buildName": [
+        "DA_BlueBuff",
+        "DA_JeweledGauntlet",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3153,
+       "place_change": -0.468,
+       "unit_numitems_count": 45494
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 79565,
+       "avg": 4.123,
+       "pcnt": 1.16292
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 70552,
+       "avg": 4.2434,
+       "pcnt": 1.03119
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 48341,
+       "avg": 4.2868,
+       "pcnt": 0.70655
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 43934,
+       "avg": 4.148,
+       "pcnt": 0.64214
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 33865,
+       "avg": 3.9072,
+       "pcnt": 0.49497
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 32121,
+       "avg": 4.0497,
+       "pcnt": 0.46948
+      },
+      "DA_LastWhisper": {
+       "itemNames": "DA_LastWhisper",
+       "count": 27077,
+       "avg": 3.9494,
+       "pcnt": 0.39576
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 26298,
+       "avg": 4.0778,
+       "pcnt": 0.38437
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 24391,
+       "avg": 4.1615,
+       "pcnt": 0.3565
+      },
+      "DA_BlueBuff": {
+       "itemNames": "DA_BlueBuff",
+       "count": 19424,
+       "avg": 3.9512,
+       "pcnt": 0.2839
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 17954,
+       "avg": 4.0899,
+       "pcnt": 0.26242
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 79565,
+       "avg": 4.123,
+       "pcnt": 1.16292
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 70552,
+       "avg": 4.2434,
+       "pcnt": 1.03119
+      },
+      "... 외 2개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 2485,
+       "avg": 4.6157,
+       "pick": 0.014875251412699932
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 7894,
+       "avg": 4.6165,
+       "pick": 0.014203589582115065
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.005,
+     "diff_place": 0.064,
+     "difficulty": -0.069,
+     "levelling": "Fast 9"
+    },
+    "423005": {
+     "Cluster": 423005,
+     "centroid": [
+      0.001,
+      0.0151,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Aphelios, DA_18_Rakan, DA_18_Varus, DA_18_Xayah, DA_Amumu18, DA_Brambleback18, DA_CrimsonRaptor18, DA_Sentinel18",
+     "traits_string": "DA_18_Fae_1, DA_18_Inferno_1, DA_18_Rapidfire_4, DA_18_Vanguard_1, DA_Juggernaut18_1, DA_Riftbeast18_1",
+     "name": [
+      {
+       "name": "DA_18_Rapidfire",
+       "type": "trait",
+       "score": 3.3255663974876626
+      },
+      {
+       "name": "DA_18_Aphelios",
+       "type": "unit",
+       "score": 4.295129542395693
+      }
+     ],
+     "name_string": "DA_18_Rapidfire, DA_18_Aphelios",
+     "top_headliner": [],
+     "overall": {
+      "count": 35664,
+      "avg": 4.53
+     },
+     "stars": [
+      "DA_18_Rengar",
+      "DA_18_Camille",
+      "... 외 2개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423005",
+       "count": 2495,
+       "avg": 3.9948,
+       "unit": "DA_18_Aphelios",
+       "buildName": [
+        "DA_InfinityEdge",
+        "DA_KrakensFury",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.592,
+       "place_change": -0.535,
+       "unit_numitems_count": 33078
+      },
+      {
+       "cluster": "423005",
+       "count": 4706,
+       "avg": 4.0574,
+       "unit": "DA_Brambleback18",
+       "buildName": [
+        "DA_18_EmblemRapidfire",
+        "DA_EdgeOfNight",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5272,
+       "place_change": -0.473,
+       "unit_numitems_count": 27615
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_18_EmblemRapidfire": {
+       "itemNames": "DA_18_EmblemRapidfire",
+       "count": 30062,
+       "avg": 4.336,
+       "pcnt": 0.84292
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 28966,
+       "avg": 4.3692,
+       "pcnt": 0.81219
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 24938,
+       "avg": 4.368,
+       "pcnt": 0.69925
+      },
+      "DA_KrakensFury": {
+       "itemNames": "DA_KrakensFury",
+       "count": 21437,
+       "avg": 4.3046,
+       "pcnt": 0.60108
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 20481,
+       "avg": 4.2613,
+       "pcnt": 0.57428
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 18306,
+       "avg": 4.366,
+       "pcnt": 0.51329
+      },
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 16104,
+       "avg": 4.2116,
+       "pcnt": 0.45155
+      },
+      "DA_Quicksilver": {
+       "itemNames": "DA_Quicksilver",
+       "count": 11416,
+       "avg": 4.2216,
+       "pcnt": 0.3201
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 9383,
+       "avg": 4.2237,
+       "pcnt": 0.26309
+      },
+      "DA_AdaptiveHelm": {
+       "itemNames": "DA_AdaptiveHelm",
+       "count": 9213,
+       "avg": 4.1528,
+       "pcnt": 0.25833
+      },
+      "DA_18_EmblemVanguard": {
+       "itemNames": "DA_18_EmblemVanguard",
+       "count": 2316,
+       "avg": 3.959,
+       "pcnt": 0.06494
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_18_EmblemRapidfire",
+       "count": 30062,
+       "avg": 4.336,
+       "pcnt": 0.84292
+      },
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 28966,
+       "avg": 4.3692,
+       "pcnt": 0.81219
+      },
+      "... 외 5개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 4237,
+       "avg": 4.1957,
+       "pick": 0.025362752609903266
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 14781,
+       "avg": 4.1486,
+       "pick": 0.02659529485853088
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.047,
+     "diff_place": 0.078,
+     "difficulty": -0.031,
+     "levelling": "Fast 8"
+    },
+    "423006": {
+     "Cluster": 423006,
+     "centroid": [
+      3.8223,
+      0.0009,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Ahri, DA_18_Morgana, DA_18_Sentry, DA_18_Sett, DA_Karma18, DA_Krug18, DA_Sentinel18, DA_Taric18",
+     "traits_string": "DA_18_Blossom_1, DA_18_Brawler_1, DA_18_Invoker_2, DA_18_Spellweaver_1, DA_18_Vanguard_1, DA_Emerald18_1, DA_Riftbeast18_1",
+     "name": [
+      {
+       "name": "DA_18_Invoker",
+       "type": "trait",
+       "score": 2.3216702775198597
+      },
+      {
+       "name": "DA_18_Ahri",
+       "type": "unit",
+       "score": 4.231460848034665
+      }
+     ],
+     "name_string": "DA_18_Invoker, DA_18_Ahri",
+     "top_headliner": [],
+     "overall": {
+      "count": 193860,
+      "avg": 4.2493
+     },
+     "stars": [
+      "DA_18_Ornn",
+      "DA_18_Akali_AD",
+      "... 외 4개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423006",
+       "count": 17484,
+       "avg": 3.8083,
+       "unit": "DA_18_Ahri",
+       "buildName": [
+        "DA_18_EmblemInvoker",
+        "DA_JeweledGauntlet",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5226,
+       "place_change": -0.441,
+       "unit_numitems_count": 177178
+      },
+      {
+       "cluster": "423006",
+       "count": 11590,
+       "avg": 3.6989,
+       "unit": "DA_18_Morgana",
+       "buildName": [
+        "DA_Morellonomicon",
+        "DA_RabadonsDeathcap",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4378,
+       "place_change": -0.55,
+       "unit_numitems_count": 144353
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 198102,
+       "avg": 4.1204,
+       "pcnt": 1.02188
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 194093,
+       "avg": 4.1494,
+       "pcnt": 1.0012
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 143753,
+       "avg": 4.0605,
+       "pcnt": 0.74153
+      },
+      "DA_Morellonomicon": {
+       "itemNames": "DA_Morellonomicon",
+       "count": 116634,
+       "avg": 4.0202,
+       "pcnt": 0.60164
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 116132,
+       "avg": 4.0082,
+       "pcnt": 0.59905
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 88378,
+       "avg": 3.8057,
+       "pcnt": 0.45589
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 85697,
+       "avg": 4.0836,
+       "pcnt": 0.44206
+      },
+      "DA_AdaptiveHelm": {
+       "itemNames": "DA_AdaptiveHelm",
+       "count": 79781,
+       "avg": 3.7728,
+       "pcnt": 0.41154
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 79341,
+       "avg": 3.8907,
+       "pcnt": 0.40927
+      },
+      "DA_18_EmblemInvoker": {
+       "itemNames": "DA_18_EmblemInvoker",
+       "count": 67430,
+       "avg": 3.9091,
+       "pcnt": 0.34783
+      },
+      "DA_BrambleVest": {
+       "itemNames": "DA_BrambleVest",
+       "count": 43813,
+       "avg": 3.891,
+       "pcnt": 0.226
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 198102,
+       "avg": 4.1204,
+       "pcnt": 1.02188
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 194093,
+       "avg": 4.1494,
+       "pcnt": 1.0012
+      },
+      "... 외 4개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 6903,
+       "avg": 4.339,
+       "pick": 0.04132147303898094
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 23535,
+       "avg": 4.3514,
+       "pick": 0.04234627322207728
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.108,
+     "diff_place": 0.046,
+     "difficulty": 0.062,
+     "levelling": "Fast 8"
+    },
+    "423007": {
+     "Cluster": 423007,
+     "centroid": [
+      2.9152,
+      0.001,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Ahri, DA_18_Alistar, DA_18_Ezreal, DA_18_Ornn, DA_18_Sett, DA_18_Soraka, DA_18_Yunara, DA_Fiddlesticks18",
+     "traits_string": "DA_18_Blossom_1, DA_18_Brawler_1, DA_18_Defender_1, DA_18_Elderwood_1, DA_18_Executioner_2, DA_18_Spellweaver_1, DA_FloraFatalis18_2",
+     "name": [
+      {
+       "name": "DA_18_Executioner",
+       "type": "trait",
+       "score": 2.124227212681638
+      },
+      {
+       "name": "DA_18_Sett",
+       "type": "unit",
+       "score": 3.707159841479524
+      }
+     ],
+     "name_string": "DA_18_Executioner, DA_18_Sett",
+     "top_headliner": [],
+     "overall": {
+      "count": 18925,
+      "avg": 4.5133
+     },
+     "stars": [
+      "DA_18_Veigar",
+      "DA_18_KhaZix",
+      "... 외 1개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423007",
+       "count": 1315,
+       "avg": 4.1103,
+       "unit": "DA_18_Sett",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_GargoyleStoneplate",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4828,
+       "place_change": -0.403,
+       "unit_numitems_count": 14456
+      },
+      {
+       "cluster": "423007",
+       "count": 1170,
+       "avg": 4.1863,
+       "unit": "DA_18_Ezreal",
+       "buildName": [
+        "DA_Deathblade",
+        "DA_LastWhisper",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3519,
+       "place_change": -0.327,
+       "unit_numitems_count": 11775
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 19999,
+       "avg": 4.286,
+       "pcnt": 1.05675
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 19263,
+       "avg": 4.3955,
+       "pcnt": 1.01786
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 11053,
+       "avg": 4.3449,
+       "pcnt": 0.58404
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 10330,
+       "avg": 4.3861,
+       "pcnt": 0.54584
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 7895,
+       "avg": 4.1644,
+       "pcnt": 0.41717
+      },
+      "DA_LastWhisper": {
+       "itemNames": "DA_LastWhisper",
+       "count": 6950,
+       "avg": 4.3335,
+       "pcnt": 0.36724
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 6112,
+       "avg": 4.2521,
+       "pcnt": 0.32296
+      },
+      "DA_BlueBuff": {
+       "itemNames": "DA_BlueBuff",
+       "count": 5842,
+       "avg": 4.1092,
+       "pcnt": 0.30869
+      },
+      "DA_18_EmblemExecutioner": {
+       "itemNames": "DA_18_EmblemExecutioner",
+       "count": 5699,
+       "avg": 4.2297,
+       "pcnt": 0.30114
+      },
+      "DA_ArchangelsStaff": {
+       "itemNames": "DA_ArchangelsStaff",
+       "count": 4196,
+       "avg": 4.1206,
+       "pcnt": 0.22172
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 19999,
+       "avg": 4.286,
+       "pcnt": 1.05675
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 19263,
+       "avg": 4.3955,
+       "pcnt": 1.01786
+      },
+      "... 외 2개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 751,
+       "avg": 4.7843,
+       "pick": 0.004495498515467867
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 2510,
+       "avg": 4.8247,
+       "pick": 0.004516216094642616
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.011,
+     "diff_place": 0.082,
+     "difficulty": -0.071,
+     "levelling": "Fast 8"
+    },
+    "423008": {
+     "Cluster": 423008,
+     "centroid": [
+      0.0035,
+      0.0051,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Malphite, DA_18_RekSai, DA_18_Sivir, DA_Cinderling18, DA_KogMaw18_AD, DA_Krug18, DA_Nidalee18_AP, DA_Sentinel18",
+     "traits_string": "DA_18_Adaptor_1, DA_18_Battlemage_1, DA_18_Blackthorn_1, DA_18_Brawler_1, DA_18_Caustic_1, DA_18_Hunter_1, DA_18_Invoker_1, DA_Primal18_1, DA_Riftbeast18_1",
+     "name": [
+      {
+       "name": "DA_18_Hunter",
+       "type": "trait",
+       "score": 1.4543585598566182
+      },
+      {
+       "name": "DA_18_Malphite",
+       "type": "unit",
+       "score": 4.178181722338388
+      }
+     ],
+     "name_string": "DA_Riftbeast18, DA_18_Malphite",
+     "top_headliner": [],
+     "overall": {
+      "count": 113822,
+      "avg": 4.4893
+     },
+     "stars": [
+      "DA_18_Ornn",
+      "DA_18_Rengar",
+      "... 외 4개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423008",
+       "count": 17134,
+       "avg": 4.0394,
+       "unit": "DA_18_Malphite",
+       "buildName": [
+        "DA_Crownguard",
+        "DA_GargoyleStoneplate",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5878,
+       "place_change": -0.45,
+       "unit_numitems_count": 100621
+      },
+      {
+       "cluster": "423008",
+       "count": 15403,
+       "avg": 4.1639,
+       "unit": "DA_Nidalee18_AP",
+       "buildName": [
+        "DA_InfinityEdge",
+        "DA_SpearOfShojin",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4873,
+       "place_change": -0.325,
+       "unit_numitems_count": 98056
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 137180,
+       "avg": 4.2771,
+       "pcnt": 1.20522
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 121989,
+       "avg": 4.3699,
+       "pcnt": 1.07175
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 96096,
+       "avg": 4.2459,
+       "pcnt": 0.84427
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 72710,
+       "avg": 4.1747,
+       "pcnt": 0.6388
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 69278,
+       "avg": 4.3057,
+       "pcnt": 0.60865
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 59383,
+       "avg": 4.1858,
+       "pcnt": 0.52172
+      },
+      "DA_Crownguard": {
+       "itemNames": "DA_Crownguard",
+       "count": 58962,
+       "avg": 4.1649,
+       "pcnt": 0.51802
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 43379,
+       "avg": 4.2028,
+       "pcnt": 0.38111
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 34201,
+       "avg": 4.0525,
+       "pcnt": 0.30048
+      },
+      "DA_AdaptiveHelm": {
+       "itemNames": "DA_AdaptiveHelm",
+       "count": 26650,
+       "avg": 4.0217,
+       "pcnt": 0.23414
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 137180,
+       "avg": 4.2771,
+       "pcnt": 1.20522
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 121989,
+       "avg": 4.3699,
+       "pcnt": 1.07175
+      },
+      "... 외 5개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 12464,
+       "avg": 4.3444,
+       "pick": 0.07460971171343742
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 39817,
+       "avg": 4.2966,
+       "pick": 0.07164230129099006
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.109,
+     "diff_place": 0.082,
+     "difficulty": 0.027,
+     "levelling": "Fast 8"
+    },
+    "423009": {
+     "Cluster": 423009,
+     "centroid": [
+      0.0049,
+      0.0152,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Alistar, DA_18_Ezreal, DA_18_GnarSmall, DA_18_Ivern, DA_18_Kennen, DA_18_Maokai, DA_Amumu18, DA_Draven18, DA_Taric18",
+     "traits_string": "DA_18_Brawler_1, DA_18_Elderwood_1, DA_18_Executioner_1, DA_18_Greenfather_1, DA_18_Inferno_1, DA_18_Maokai_UniqueTrait_1, DA_DravenUniqueTrait18_1, DA_Emerald18_1, DA_Juggernaut18_1",
+     "name": [
+      {
+       "name": "DA_18_Inferno",
+       "type": "trait",
+       "score": 0.8973424944935707
+      },
+      {
+       "name": "DA_Draven18",
+       "type": "unit",
+       "score": 3.2410085687609724
+      }
+     ],
+     "name_string": "DA_18_Elderwood, DA_18_Ezreal, DA_Draven18",
+     "top_headliner": [],
+     "overall": {
+      "count": 554806,
+      "avg": 4.2229
+     },
+     "stars": [],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423009",
+       "count": 53836,
+       "avg": 3.7322,
+       "unit": "DA_Draven18",
+       "buildName": [
+        "DA_Deathblade",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4279,
+       "place_change": -0.491,
+       "unit_numitems_count": 373952
+      },
+      {
+       "cluster": "423009",
+       "count": 29754,
+       "avg": 3.4486,
+       "unit": "DA_18_Maokai",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4008,
+       "place_change": -0.774,
+       "unit_numitems_count": 306603
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 488400,
+       "avg": 4.1166,
+       "pcnt": 0.88031
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 440504,
+       "avg": 4.0849,
+       "pcnt": 0.79398
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 356799,
+       "avg": 3.9201,
+       "pcnt": 0.64311
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 315732,
+       "avg": 3.9469,
+       "pcnt": 0.56909
+      },
+      "DA_KrakensFury": {
+       "itemNames": "DA_KrakensFury",
+       "count": 267193,
+       "avg": 3.9883,
+       "pcnt": 0.4816
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 258493,
+       "avg": 4.0319,
+       "pcnt": 0.46592
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 245946,
+       "avg": 3.8521,
+       "pcnt": 0.4433
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 129795,
+       "avg": 3.6256,
+       "pcnt": 0.23395
+      },
+      "DA_HandOfJustice": {
+       "itemNames": "DA_HandOfJustice",
+       "count": 116287,
+       "avg": 3.5853,
+       "pcnt": 0.2096
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 110608,
+       "avg": 3.548,
+       "pcnt": 0.19936
+      },
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 100418,
+       "avg": 3.3979,
+       "pcnt": 0.181
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 83109,
+       "avg": 3.5972,
+       "pcnt": 0.1498
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 488400,
+       "avg": 4.1166,
+       "pcnt": 0.88031
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 440504,
+       "avg": 4.0849,
+       "pcnt": 0.79398
+      },
+      "... 외 2개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 18239,
+       "avg": 4.426,
+       "pick": 0.10917895795421895
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 62600,
+       "avg": 4.4081,
+       "pick": 0.11263550897395529
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.058,
+     "diff_place": -0.071,
+     "difficulty": 0.129,
+     "levelling": "Fast 9"
+    },
+    "423010": {
+     "Cluster": 423010,
+     "centroid": [
+      0.0104,
+      0.0012,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Alistar, DA_18_Aphelios, DA_18_Diana, DA_18_Ezreal, DA_18_GnarSmall, DA_18_Hecarim, DA_18_Lillia, DA_18_Ornn, DA_18_Xayah",
+     "traits_string": "DA_18_Brawler_1, DA_18_Defender_1, DA_18_Elderwood_3, DA_18_Fae_1, DA_18_Lunar_1, DA_18_Rapidfire_1, DA_18_Vanguard_1",
+     "name": [
+      {
+       "name": "DA_18_Elderwood",
+       "type": "trait",
+       "score": 2.668568385820782
+      },
+      {
+       "name": "DA_18_Aphelios",
+       "type": "unit",
+       "score": 3.647155028145444
+      }
+     ],
+     "name_string": "DA_18_Elderwood, DA_18_Aphelios, DA_18_Ezreal",
+     "top_headliner": [],
+     "overall": {
+      "count": 39438,
+      "avg": 4.4443
+     },
+     "stars": [
+      "DA_18_Leona",
+      "DA_18_Rengar",
+      "... 외 1개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423010",
+       "count": 1809,
+       "avg": 3.8541,
+       "unit": "DA_18_Aphelios",
+       "buildName": [
+        "DA_18_EmblemElderwood",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.504,
+       "place_change": -0.59,
+       "unit_numitems_count": 30878
+      },
+      {
+       "cluster": "423010",
+       "count": 139,
+       "avg": 3.4388,
+       "unit": "DA_18_Ezreal",
+       "buildName": [
+        "DA_InfinityEdge",
+        "DA_LastWhisper",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3068,
+       "place_change": -1.006,
+       "unit_numitems_count": 22739
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 32395,
+       "avg": 4.4553,
+       "pcnt": 0.82142
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 27354,
+       "avg": 4.2877,
+       "pcnt": 0.6936
+      },
+      "DA_18_EmblemElderwood": {
+       "itemNames": "DA_18_EmblemElderwood",
+       "count": 23654,
+       "avg": 3.9418,
+       "pcnt": 0.59978
+      },
+      "DA_LastWhisper": {
+       "itemNames": "DA_LastWhisper",
+       "count": 16607,
+       "avg": 4.3244,
+       "pcnt": 0.42109
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 13170,
+       "avg": 4.2396,
+       "pcnt": 0.33394
+      },
+      "DA_SunfireCape": {
+       "itemNames": "DA_SunfireCape",
+       "count": 12596,
+       "avg": 3.9694,
+       "pcnt": 0.31939
+      },
+      "DA_Evenshroud": {
+       "itemNames": "DA_Evenshroud",
+       "count": 11951,
+       "avg": 4.0322,
+       "pcnt": 0.30303
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 8273,
+       "avg": 4.1419,
+       "pcnt": 0.20977
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 5323,
+       "avg": 3.6808,
+       "pcnt": 0.13497
+      },
+      "DA_Bloodthirster": {
+       "itemNames": "DA_Bloodthirster",
+       "count": 4353,
+       "avg": 3.7266,
+       "pcnt": 0.11038
+      },
+      "DA_TitansResolve": {
+       "itemNames": "DA_TitansResolve",
+       "count": 2937,
+       "avg": 3.7491,
+       "pcnt": 0.07447
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 32395,
+       "avg": 4.4553,
+       "pcnt": 0.82142
+      },
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 27354,
+       "avg": 4.2877,
+       "pcnt": 0.6936
+      },
+      "... 외 3개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 2404,
+       "avg": 4.433,
+       "pick": 0.01439038406282923
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 8514,
+       "avg": 4.4887,
+       "pick": 0.015319148936170212
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.016,
+     "diff_place": 0.059,
+     "difficulty": -0.043,
+     "levelling": "Fast 8"
+    },
+    "423011": {
+     "Cluster": 423011,
+     "centroid": [
+      0.0147,
+      0.0023,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Alistar, DA_18_Hecarim, DA_18_Kobuko, DA_18_LeBlanc, DA_18_Morgana, DA_18_Teemo, DA_18_Veigar, DA_Sentinel18",
+     "traits_string": "DA_18_Brawler_1, DA_18_Elderwood_1, DA_18_Invoker_2, DA_18_Spellweaver_1, DA_18_Sprykin_1, DA_18_Vanguard_1",
+     "name": [
+      {
+       "name": "DA_18_Spellweaver",
+       "type": "trait",
+       "score": 1.3832030159173416
+      },
+      {
+       "name": "DA_18_LeBlanc",
+       "type": "unit",
+       "score": 3.5789409382853954
+      }
+     ],
+     "name_string": "DA_18_Sprykin, DA_18_Teemo",
+     "top_headliner": [],
+     "overall": {
+      "count": 28648,
+      "avg": 4.6026
+     },
+     "stars": [
+      "DA_18_Veigar",
+      "DA_18_Alistar",
+      "... 외 12개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423011",
+       "count": 376,
+       "avg": 3.8298,
+       "unit": "DA_18_LeBlanc",
+       "buildName": [
+        "DA_RedBuff",
+        "DA_SpearOfShojin",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.45,
+       "place_change": -0.773,
+       "unit_numitems_count": 19661
+      },
+      {
+       "cluster": "423011",
+       "count": 980,
+       "avg": 4.1408,
+       "unit": "DA_18_Alistar",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4077,
+       "place_change": -0.462,
+       "unit_numitems_count": 19463
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 35060,
+       "avg": 4.4535,
+       "pcnt": 1.22382
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 31028,
+       "avg": 4.4766,
+       "pcnt": 1.08308
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 20510,
+       "avg": 4.4449,
+       "pcnt": 0.71593
+      },
+      "DA_BlueBuff": {
+       "itemNames": "DA_BlueBuff",
+       "count": 19094,
+       "avg": 4.4173,
+       "pcnt": 0.6665
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 18753,
+       "avg": 4.3414,
+       "pcnt": 0.6546
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 17778,
+       "avg": 4.3413,
+       "pcnt": 0.62057
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 11031,
+       "avg": 4.2367,
+       "pcnt": 0.38505
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 6704,
+       "avg": 4.3126,
+       "pcnt": 0.23401
+      },
+      "DA_18_EmblemFloraFatalis": {
+       "itemNames": "DA_18_EmblemFloraFatalis",
+       "count": 737,
+       "avg": 4.2334,
+       "pcnt": 0.02573
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 35060,
+       "avg": 4.4535,
+       "pcnt": 1.22382
+      },
+      {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 31028,
+       "avg": 4.4766,
+       "pcnt": 1.08308
+      },
+      "... 외 4개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 840,
+       "avg": 4.669,
+       "pick": 0.005028253998659132
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 2904,
+       "avg": 4.6581,
+       "pick": 0.005225136071251855
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.018,
+     "diff_place": 0.054,
+     "difficulty": -0.035,
+     "levelling": "lvl 6"
+    },
+    "423012": {
+     "Cluster": 423012,
+     "centroid": [
+      0.0157,
+      0.0145,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Aphelios, DA_18_Diana, DA_18_Ezreal, DA_18_Hecarim, DA_18_KhaZix, DA_18_LeBlanc, DA_18_Rengar",
+     "traits_string": "DA_18_Elderwood_1, DA_18_Lunar_1, DA_18_Rival_3, DA_18_Slayer_1, DA_18_Vanguard_1",
+     "name": [
+      {
+       "name": "DA_18_Rival",
+       "type": "trait",
+       "score": 2.8249257260656035
+      },
+      {
+       "name": "DA_18_Rengar",
+       "type": "unit",
+       "score": 4.182956405747893
+      }
+     ],
+     "name_string": "DA_18_Elderwood, DA_18_Rengar",
+     "top_headliner": [],
+     "overall": {
+      "count": 32986,
+      "avg": 4.6391
+     },
+     "stars": [
+      "DA_18_Rengar",
+      "DA_18_KhaZix",
+      "... 외 5개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423012",
+       "count": 7954,
+       "avg": 4.2525,
+       "unit": "DA_18_Rengar",
+       "buildName": [
+        "DA_EdgeOfNight",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5508,
+       "place_change": -0.387,
+       "unit_numitems_count": 29361
+      },
+      {
+       "cluster": "423012",
+       "count": 8068,
+       "avg": 4.2626,
+       "unit": "DA_18_KhaZix",
+       "buildName": [
+        "DA_EdgeOfNight",
+        "DA_HandOfJustice",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5343,
+       "place_change": -0.377,
+       "unit_numitems_count": 28724
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 42984,
+       "avg": 4.4726,
+       "pcnt": 1.3031
+      },
+      "DA_HandOfJustice": {
+       "itemNames": "DA_HandOfJustice",
+       "count": 30023,
+       "avg": 4.4246,
+       "pcnt": 0.91017
+      },
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 28368,
+       "avg": 4.5215,
+       "pcnt": 0.86
+      },
+      "DA_TitansResolve": {
+       "itemNames": "DA_TitansResolve",
+       "count": 18178,
+       "avg": 4.3817,
+       "pcnt": 0.55108
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 17953,
+       "avg": 4.3294,
+       "pcnt": 0.54426
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 15802,
+       "avg": 4.3938,
+       "pcnt": 0.47905
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 15458,
+       "avg": 4.333,
+       "pcnt": 0.46862
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 12017,
+       "avg": 4.3868,
+       "pcnt": 0.36431
+      },
+      "DA_Evenshroud": {
+       "itemNames": "DA_Evenshroud",
+       "count": 8088,
+       "avg": 4.1936,
+       "pcnt": 0.24519
+      },
+      "DA_SunfireCape": {
+       "itemNames": "DA_SunfireCape",
+       "count": 6905,
+       "avg": 4.0356,
+       "pcnt": 0.20933
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 42984,
+       "avg": 4.4726,
+       "pcnt": 1.3031
+      },
+      {
+       "itemNames": "DA_HandOfJustice",
+       "count": 30023,
+       "avg": 4.4246,
+       "pcnt": 0.91017
+      },
+      "... 외 3개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 2842,
+       "avg": 4.6875,
+       "pick": 0.017012259362130064
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 9341,
+       "avg": 4.6085,
+       "pick": 0.01680716117133732
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.012,
+     "diff_place": 0.09,
+     "difficulty": -0.103,
+     "levelling": "lvl 7"
+    },
+    "423013": {
+     "Cluster": 423013,
+     "centroid": [
+      0.0279,
+      0.0155,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_ElderDragon, DA_18_Ivern, DA_18_Kennen, DA_18_Maokai, DA_18_Morgana, DA_Amumu18, DA_Sentinel18, DA_Taric18",
+     "traits_string": "DA_18_ApexPredator_1, DA_18_Greenfather_1, DA_18_Inferno_1, DA_18_Invoker_1, DA_18_Maokai_UniqueTrait_1, DA_18_Vanguard_1, DA_Emerald18_1, DA_Juggernaut18_1, DA_Riftbeast18_1",
+     "name": [
+      {
+       "name": "DA_18_Vanguard",
+       "type": "trait",
+       "score": 0.9426498807931616
+      },
+      {
+       "name": "DA_18_ElderDragon",
+       "type": "unit",
+       "score": 3.3067250101761934
+      }
+     ],
+     "name_string": "DA_18_Invoker, DA_18_Morgana, DA_Taric18",
+     "top_headliner": [],
+     "overall": {
+      "count": 68788,
+      "avg": 4.608
+     },
+     "stars": [
+      "DA_18_Teemo",
+      "DA_18_Veigar",
+      "... 외 2개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423013",
+       "count": 4590,
+       "avg": 3.849,
+       "unit": "DA_18_ElderDragon",
+       "buildName": [
+        "DA_Deathblade",
+        "DA_InfinityEdge",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5364,
+       "place_change": -0.759,
+       "unit_numitems_count": 45891
+      },
+      {
+       "cluster": "423013",
+       "count": 1880,
+       "avg": 3.4447,
+       "unit": "DA_18_Maokai",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3121,
+       "place_change": -1.163,
+       "unit_numitems_count": 24167
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 59143,
+       "avg": 4.439,
+       "pcnt": 0.85979
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 48063,
+       "avg": 4.4246,
+       "pcnt": 0.69871
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 37941,
+       "avg": 4.3126,
+       "pcnt": 0.55156
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 27392,
+       "avg": 4.2972,
+       "pcnt": 0.39821
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 25582,
+       "avg": 4.3893,
+       "pcnt": 0.3719
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 25061,
+       "avg": 4.2926,
+       "pcnt": 0.36432
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 23497,
+       "avg": 4.1851,
+       "pcnt": 0.34159
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 21495,
+       "avg": 4.1538,
+       "pcnt": 0.31248
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 17728,
+       "avg": 4.0607,
+       "pcnt": 0.25772
+      },
+      "DA_Morellonomicon": {
+       "itemNames": "DA_Morellonomicon",
+       "count": 16059,
+       "avg": 4.0953,
+       "pcnt": 0.23346
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 59143,
+       "avg": 4.439,
+       "pcnt": 0.85979
+      },
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 48063,
+       "avg": 4.4246,
+       "pcnt": 0.69871
+      },
+      "... 외 1개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 2015,
+       "avg": 4.7459,
+       "pick": 0.012061823580116846
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 7003,
+       "avg": 4.7862,
+       "pick": 0.012600422832980972
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.042,
+     "diff_place": 0.062,
+     "difficulty": -0.019,
+     "levelling": "Fast 9"
+    },
+    "423014": {
+     "Cluster": 423014,
+     "centroid": [
+      0.001,
+      0.0017,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Ashe, DA_18_Caitlyn, DA_18_Rakan, DA_18_Sejuani, DA_18_Sivir, DA_18_Tristana, DA_Scuttlecrab18, DA_Vi18",
+     "traits_string": "DA_18_Fae_1, DA_18_Hunter_3, DA_Juggernaut18_2, DA_Primal18_1",
+     "name": [
+      {
+       "name": "DA_18_Hunter",
+       "type": "trait",
+       "score": 2.1480975496322996
+      },
+      {
+       "name": "DA_18_Caitlyn",
+       "type": "unit",
+       "score": 4.1423422375955585
+      }
+     ],
+     "name_string": "DA_Juggernaut18, DA_18_Caitlyn",
+     "top_headliner": [],
+     "overall": {
+      "count": 34403,
+      "avg": 4.4964
+     },
+     "stars": [
+      "DA_18_Caitlyn",
+      "DA_Scuttlecrab18",
+      "... 외 10개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423014",
+       "count": 8987,
+       "avg": 4.1903,
+       "unit": "DA_18_Caitlyn",
+       "buildName": [
+        "DA_Guinsoos<플레이어>blade",
+        "DA_HextechGunblade",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5117,
+       "place_change": -0.306,
+       "unit_numitems_count": 31197
+      },
+      {
+       "cluster": "423014",
+       "count": 3889,
+       "avg": 4.2821,
+       "unit": "DA_Scuttlecrab18",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.252,
+       "place_change": -0.214,
+       "unit_numitems_count": 20501
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 37641,
+       "avg": 4.3727,
+       "pcnt": 1.09412
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 34360,
+       "avg": 4.2899,
+       "pcnt": 0.99875
+      },
+      "DA_KrakensFury": {
+       "itemNames": "DA_KrakensFury",
+       "count": 28033,
+       "avg": 4.3381,
+       "pcnt": 0.81484
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 26197,
+       "avg": 4.2911,
+       "pcnt": 0.76147
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 22386,
+       "avg": 4.2574,
+       "pcnt": 0.6507
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 22057,
+       "avg": 4.2803,
+       "pcnt": 0.64114
+      },
+      "DA_LastWhisper": {
+       "itemNames": "DA_LastWhisper",
+       "count": 20223,
+       "avg": 4.1682,
+       "pcnt": 0.58783
+      },
+      "DA_HextechGunblade": {
+       "itemNames": "DA_HextechGunblade",
+       "count": 17913,
+       "avg": 4.1934,
+       "pcnt": 0.52068
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 12502,
+       "avg": 4.0086,
+       "pcnt": 0.3634
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 37641,
+       "avg": 4.3727,
+       "pcnt": 1.09412
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 34360,
+       "avg": 4.2899,
+       "pcnt": 0.99875
+      },
+      "... 외 6개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 2663,
+       "avg": 4.3229,
+       "pick": 0.015940762379082464
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 8307,
+       "avg": 4.3827,
+       "pick": 0.014946696055058252
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.003,
+     "diff_place": 0.043,
+     "difficulty": -0.045,
+     "levelling": "lvl 6"
+    },
+    "423015": {
+     "Cluster": 423015,
+     "centroid": [
+      0.0735,
+      0.0086,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Azir, DA_18_Kennen, DA_18_Malphite, DA_18_Soraka, DA_18_Yorick, DA_18_Zyra, DA_Amumu18, DA_Fiddlesticks18",
+     "traits_string": "DA_18_Battlemage_1, DA_18_Blackthorn_1, DA_18_Executioner_2, DA_18_Inferno_1, DA_18_Summoner_2, DA_18_ZyraUniqueTrait_1, DA_FloraFatalis18_2, DA_Juggernaut18_1",
+     "name": [
+      {
+       "name": "DA_18_Executioner",
+       "type": "trait",
+       "score": 2.0965252867673145
+      },
+      {
+       "name": "DA_18_Malphite",
+       "type": "unit",
+       "score": 4.06730655524459
+      }
+     ],
+     "name_string": "DA_18_Executioner, DA_18_Malphite",
+     "top_headliner": [],
+     "overall": {
+      "count": 202952,
+      "avg": 4.4991
+     },
+     "stars": [
+      "DA_18_KhaZix",
+      "DA_18_Kobuko",
+      "... 외 2개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423015",
+       "count": 21268,
+       "avg": 3.9548,
+       "unit": "DA_18_Malphite",
+       "buildName": [
+        "DA_Crownguard",
+        "DA_GargoyleStoneplate",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.6059,
+       "place_change": -0.544,
+       "unit_numitems_count": 175110
+      },
+      {
+       "cluster": "423015",
+       "count": 6332,
+       "avg": 4.0662,
+       "unit": "DA_18_Soraka",
+       "buildName": [
+        "DA_ArchangelsStaff",
+        "DA_RabadonsDeathcap",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4055,
+       "place_change": -0.433,
+       "unit_numitems_count": 167142
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 241355,
+       "avg": 4.3864,
+       "pcnt": 1.18922
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 198063,
+       "avg": 4.2755,
+       "pcnt": 0.97591
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 137613,
+       "avg": 4.2337,
+       "pcnt": 0.67806
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 135239,
+       "avg": 4.3124,
+       "pcnt": 0.66636
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 115656,
+       "avg": 4.1802,
+       "pcnt": 0.56987
+      },
+      "DA_ArchangelsStaff": {
+       "itemNames": "DA_ArchangelsStaff",
+       "count": 90085,
+       "avg": 4.123,
+       "pcnt": 0.44387
+      },
+      "DA_Crownguard": {
+       "itemNames": "DA_Crownguard",
+       "count": 67510,
+       "avg": 4.0433,
+       "pcnt": 0.33264
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 57536,
+       "avg": 4.2142,
+       "pcnt": 0.2835
+      },
+      "DA_18_EmblemExecutioner": {
+       "itemNames": "DA_18_EmblemExecutioner",
+       "count": 56824,
+       "avg": 4.1287,
+       "pcnt": 0.27999
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 241355,
+       "avg": 4.3864,
+       "pcnt": 1.18922
+      },
+      {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 198063,
+       "avg": 4.2755,
+       "pcnt": 0.97591
+      },
+      "... 외 4개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 24841,
+       "avg": 4.389,
+       "pick": 0.14869863997701369
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 81227,
+       "avg": 4.4001,
+       "pick": 0.14615087040618954
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.113,
+     "diff_place": 0.067,
+     "difficulty": 0.045,
+     "levelling": "Fast 8"
+    },
+    "423016": {
+     "Cluster": 423016,
+     "centroid": [
+      0.0061,
+      0.0053,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Kobuko, DA_18_Lillia, DA_18_Rakan, DA_18_Rammus, DA_18_Sivir, DA_18_Tristana, DA_18_Xayah, DA_Vi18",
+     "traits_string": "DA_18_Defender_1, DA_18_Fae_2, DA_18_Hunter_1, DA_18_Sprykin_1, DA_Juggernaut18_1, DA_Primal18_1",
+     "name": [
+      {
+       "name": "DA_18_Fae",
+       "type": "trait",
+       "score": 1.7541705755190276
+      },
+      {
+       "name": "DA_18_Tristana",
+       "type": "unit",
+       "score": 4.0664640861443075
+      }
+     ],
+     "name_string": "DA_18_Fae, DA_18_Tristana, DA_18_Sivir",
+     "top_headliner": [],
+     "overall": {
+      "count": 24517,
+      "avg": 4.8072
+     },
+     "stars": [
+      "DA_18_Tristana",
+      "DA_18_Rammus",
+      "... 외 5개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423016",
+       "count": 3129,
+       "avg": 4.4078,
+       "unit": "DA_18_Tristana",
+       "buildName": [
+        "DA_GiantSlayer",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5369,
+       "place_change": -0.399,
+       "unit_numitems_count": 20907
+      },
+      {
+       "cluster": "423016",
+       "count": 1189,
+       "avg": 3.6375,
+       "unit": "DA_18_Sivir",
+       "buildName": [
+        "DA_18_EmblemFae",
+        "DA_LastWhisper",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5916,
+       "place_change": -1.17,
+       "unit_numitems_count": 15060
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 25336,
+       "avg": 4.6983,
+       "pcnt": 1.03341
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 22243,
+       "avg": 4.6394,
+       "pcnt": 0.90725
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 13432,
+       "avg": 4.5208,
+       "pcnt": 0.54786
+      },
+      "DA_LastWhisper": {
+       "itemNames": "DA_LastWhisper",
+       "count": 12972,
+       "avg": 4.4807,
+       "pcnt": 0.5291
+      },
+      "DA_18_EmblemFae": {
+       "itemNames": "DA_18_EmblemFae",
+       "count": 12658,
+       "avg": 4.4832,
+       "pcnt": 0.51629
+      },
+      "DA_HextechGunblade": {
+       "itemNames": "DA_HextechGunblade",
+       "count": 11005,
+       "avg": 4.5522,
+       "pcnt": 0.44887
+      },
+      "DA_GiantSlayer": {
+       "itemNames": "DA_GiantSlayer",
+       "count": 9526,
+       "avg": 4.4228,
+       "pcnt": 0.38855
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 9063,
+       "avg": 4.3206,
+       "pcnt": 0.36966
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 7692,
+       "avg": 4.2544,
+       "pcnt": 0.31374
+      },
+      "DA_AdaptiveHelm": {
+       "itemNames": "DA_AdaptiveHelm",
+       "count": 5535,
+       "avg": 4.2463,
+       "pcnt": 0.22576
+      },
+      "DA_18_EmblemBrawler": {
+       "itemNames": "DA_18_EmblemBrawler",
+       "count": 1187,
+       "avg": 3.7624,
+       "pcnt": 0.04842
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 25336,
+       "avg": 4.6983,
+       "pcnt": 1.03341
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 22243,
+       "avg": 4.6394,
+       "pcnt": 0.90725
+      },
+      "... 외 5개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 2145,
+       "avg": 4.6918,
+       "pick": 0.012840005746575999
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 6709,
+       "avg": 4.7177,
+       "pick": 0.012071431784445145
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.003,
+     "diff_place": 0.102,
+     "difficulty": -0.105,
+     "levelling": "lvl 7"
+    },
+    "423017": {
+     "Cluster": 423017,
+     "centroid": [
+      0.0349,
+      0.156,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Lillia, DA_18_Rakan, DA_18_Shen, DA_18_Sivir, DA_Amumu18, DA_KogMaw18_AD, DA_Nidalee18_AP, DA_Sentinel18",
+     "traits_string": "DA_18_Adaptor_1, DA_18_Caustic_1, DA_18_Defender_1, DA_18_Fae_1, DA_18_Inferno_1, DA_18_Invoker_1, DA_18_Vanguard_1, DA_Juggernaut18_1, DA_Primal18_1",
+     "name": [
+      {
+       "name": "DA_Primal18",
+       "type": "trait",
+       "score": 1.4618471209790678
+      },
+      {
+       "name": "DA_Nidalee18_AP",
+       "type": "unit",
+       "score": 4.2565371497358395
+      }
+     ],
+     "name_string": "DA_Primal18, DA_Nidalee18_AP",
+     "top_headliner": [],
+     "overall": {
+      "count": 14953,
+      "avg": 4.5557
+     },
+     "stars": [
+      "DA_18_Rengar",
+      "DA_18_KhaZix"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423017",
+       "count": 42,
+       "avg": 3.2857,
+       "unit": "DA_Nidalee18_AP",
+       "buildName": [
+        "DA_Deathblade",
+        "DA_EdgeOfNight",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5956,
+       "place_change": -1.27,
+       "unit_numitems_count": 13073
+      },
+      {
+       "cluster": "423017",
+       "count": 422,
+       "avg": 4.0237,
+       "unit": "DA_18_Sivir",
+       "buildName": [
+        "DA_InfinityEdge",
+        "DA_RedBuff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.488,
+       "place_change": -0.532,
+       "unit_numitems_count": 11580
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 14825,
+       "avg": 4.3196,
+       "pcnt": 0.99144
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 13026,
+       "avg": 4.4036,
+       "pcnt": 0.87113
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 11908,
+       "avg": 4.2241,
+       "pcnt": 0.79636
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 6683,
+       "avg": 4.142,
+       "pcnt": 0.44693
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 6431,
+       "avg": 4.2054,
+       "pcnt": 0.43008
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 5099,
+       "avg": 4.181,
+       "pcnt": 0.341
+      },
+      "DA_Crownguard": {
+       "itemNames": "DA_Crownguard",
+       "count": 4824,
+       "avg": 4.2765,
+       "pcnt": 0.32261
+      },
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 4125,
+       "avg": 4.0427,
+       "pcnt": 0.27586
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 4058,
+       "avg": 4.2553,
+       "pcnt": 0.27138
+      },
+      "DA_SteadfastHeart": {
+       "itemNames": "DA_SteadfastHeart",
+       "count": 2238,
+       "avg": 4.0715,
+       "pcnt": 0.14967
+      },
+      "DA_18_EmblemInferno": {
+       "itemNames": "DA_18_EmblemInferno",
+       "count": 1712,
+       "avg": 4.0555,
+       "pcnt": 0.11449
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 14825,
+       "avg": 4.3196,
+       "pcnt": 0.99144
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 13026,
+       "avg": 4.4036,
+       "pcnt": 0.87113
+      },
+      "... 외 3개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 755,
+       "avg": 4.5311,
+       "pick": 0.004519442582128149
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 2488,
+       "avg": 4.5744,
+       "pick": 0.004476631730466466
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.019,
+     "diff_place": 0.053,
+     "difficulty": -0.034,
+     "levelling": "Fast 8"
+    },
+    "423018": {
+     "Cluster": 423018,
+     "centroid": [
+      0.0045,
+      0.0073,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_ElderDragon, DA_18_GnarSmall, DA_18_Sentry, DA_Brambleback18, DA_Krug18, DA_Murkwolf18, DA_Sentinel18, DA_Taric18",
+     "traits_string": "DA_18_ApexPredator_1, DA_18_Brawler_1, DA_18_Invoker_1, DA_18_Slayer_1, DA_18_Vanguard_1, DA_Emerald18_1, DA_Riftbeast18_3",
+     "name": [
+      {
+       "name": "DA_Riftbeast18",
+       "type": "trait",
+       "score": 3.0049747936402413
+      },
+      {
+       "name": "DA_18_Sentry",
+       "type": "unit",
+       "score": 2.7300814359315275
+      }
+     ],
+     "name_string": "DA_Riftbeast18, DA_18_Sentry",
+     "top_headliner": [],
+     "overall": {
+      "count": 90255,
+      "avg": 4.5616
+     },
+     "stars": [
+      "DA_18_Sentry",
+      "DA_Scuttlecrab18",
+      "... 외 11개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423018",
+       "count": 7408,
+       "avg": 3.9808,
+       "unit": "DA_18_Sentry",
+       "buildName": [
+        "DA_BlueBuff",
+        "DA_JeweledGauntlet",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3917,
+       "place_change": -0.581,
+       "unit_numitems_count": 46727
+      },
+      {
+       "cluster": "423018",
+       "count": 5338,
+       "avg": 3.4116,
+       "unit": "DA_18_ElderDragon",
+       "buildName": [
+        "DA_InfinityEdge",
+        "DA_LastWhisper",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5252,
+       "place_change": -1.15,
+       "unit_numitems_count": 43823
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 83190,
+       "avg": 4.4223,
+       "pcnt": 0.92172
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 65466,
+       "avg": 4.3308,
+       "pcnt": 0.72534
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 55538,
+       "avg": 4.3209,
+       "pcnt": 0.61535
+      },
+      "DA_BlueBuff": {
+       "itemNames": "DA_BlueBuff",
+       "count": 45303,
+       "avg": 4.2719,
+       "pcnt": 0.50194
+      },
+      "DA_LastWhisper": {
+       "itemNames": "DA_LastWhisper",
+       "count": 44205,
+       "avg": 4.2304,
+       "pcnt": 0.48978
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 37653,
+       "avg": 4.342,
+       "pcnt": 0.41718
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 33347,
+       "avg": 4.1669,
+       "pcnt": 0.36948
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 27422,
+       "avg": 4.2126,
+       "pcnt": 0.30383
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 23898,
+       "avg": 4.0877,
+       "pcnt": 0.26478
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 83190,
+       "avg": 4.4223,
+       "pcnt": 0.92172
+      },
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 65466,
+       "avg": 4.3308,
+       "pcnt": 0.72534
+      },
+      "... 외 2개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 8364,
+       "avg": 4.4607,
+       "pick": 0.05006704338664879
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 26625,
+       "avg": 4.5043,
+       "pick": 0.04790607709954568
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.104,
+     "diff_place": 0.038,
+     "difficulty": -0.142,
+     "levelling": "lvl 5"
+    },
+    "423019": {
+     "Cluster": 423019,
+     "centroid": [
+      0.0985,
+      0.0165,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Alune, DA_18_Diana, DA_18_Hecarim, DA_18_Morgana, DA_18_Sentry, DA_Brambleback18, DA_KogMaw18_AD, DA_Sentinel18, DA_Taric18",
+     "traits_string": "DA_18_Caustic_1, DA_18_Invoker_3, DA_18_Lunar_1, DA_18_Slayer_1, DA_18_Vanguard_2, DA_AluneUniqueTrait18_1, DA_Emerald18_1, DA_Riftbeast18_1",
+     "name": [
+      {
+       "name": "DA_18_Invoker",
+       "type": "trait",
+       "score": 2.2769580022701477
+      },
+      {
+       "name": "DA_Sentinel18",
+       "type": "unit",
+       "score": 3.6028863304686234
+      }
+     ],
+     "name_string": "DA_18_Invoker, DA_18_Morgana, DA_Brambleback18",
+     "top_headliner": [],
+     "overall": {
+      "count": 18501,
+      "avg": 4.5653
+     },
+     "stars": [
+      "DA_18_Rengar",
+      "DA_18_KhaZix",
+      "... 외 1개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423019",
+       "count": 168,
+       "avg": 3.9107,
+       "unit": "DA_18_Morgana",
+       "buildName": [
+        "DA_RabadonsDeathcap",
+        "DA_RedBuff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3895,
+       "place_change": -0.655,
+       "unit_numitems_count": 13604
+      },
+      {
+       "cluster": "423019",
+       "count": 719,
+       "avg": 4.1335,
+       "unit": "DA_Sentinel18",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_ProtectorsVow",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4083,
+       "place_change": -0.432,
+       "unit_numitems_count": 13212
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 14688,
+       "avg": 4.392,
+       "pcnt": 0.7939
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 10973,
+       "avg": 4.2061,
+       "pcnt": 0.5931
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 10218,
+       "avg": 4.4748,
+       "pcnt": 0.55229
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 10202,
+       "avg": 4.3087,
+       "pcnt": 0.55143
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 9768,
+       "avg": 4.3313,
+       "pcnt": 0.52797
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 6953,
+       "avg": 4.2922,
+       "pcnt": 0.37582
+      },
+      "DA_GiantSlayer": {
+       "itemNames": "DA_GiantSlayer",
+       "count": 5940,
+       "avg": 4.333,
+       "pcnt": 0.32106
+      },
+      "DA_18_EmblemInvoker": {
+       "itemNames": "DA_18_EmblemInvoker",
+       "count": 4458,
+       "avg": 4.1976,
+       "pcnt": 0.24096
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 4396,
+       "avg": 4.3428,
+       "pcnt": 0.23761
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 3849,
+       "avg": 4.1863,
+       "pcnt": 0.20804
+      },
+      "DA_Quicksilver": {
+       "itemNames": "DA_Quicksilver",
+       "count": 3556,
+       "avg": 4.5352,
+       "pcnt": 0.19221
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 14688,
+       "avg": 4.392,
+       "pcnt": 0.7939
+      },
+      {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 10973,
+       "avg": 4.2061,
+       "pcnt": 0.5931
+      },
+      "... 외 4개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 1933,
+       "avg": 4.6487,
+       "pick": 0.011570970213581075
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 5793,
+       "avg": 4.642,
+       "pick": 0.010423282803292699
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0,
+     "diff_place": 0.068,
+     "difficulty": -0.067,
+     "levelling": "Fast 8"
+    },
+    "423020": {
+     "Cluster": 423020,
+     "centroid": [
+      0.0814,
+      0.0711,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_MasterYi_AD, DA_18_Sett, DA_18_Yorick, DA_KogMaw18_AD, DA_Krug18, DA_Nidalee18_AP, DA_Vi18",
+     "traits_string": "DA_18_Adaptor_2, DA_18_Blossom_1, DA_18_Brawler_1, DA_18_Caustic_1, DA_Juggernaut18_1, DA_Primal18_1",
+     "name": [
+      {
+       "name": "DA_18_Adaptor",
+       "type": "trait",
+       "score": 1.6934349989184512
+      },
+      {
+       "name": "DA_18_MasterYi_AD",
+       "type": "unit",
+       "score": 4.334360804672291
+      }
+     ],
+     "name_string": "DA_18_Adaptor, DA_18_MasterYi_AD",
+     "top_headliner": [],
+     "overall": {
+      "count": 55476,
+      "avg": 4.5508
+     },
+     "stars": [
+      "DA_18_MasterYi_AD",
+      "DA_Vi18",
+      "... 외 11개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423020",
+       "count": 10461,
+       "avg": 4.5617,
+       "unit": "DA_18_MasterYi_AD",
+       "buildName": [
+        "DA_18_EmblemBrawler",
+        "DA_EdgeOfNight",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3223,
+       "place_change": 0.011,
+       "unit_numitems_count": 52222
+      },
+      {
+       "cluster": "423020",
+       "count": 264,
+       "avg": 3.6061,
+       "unit": "DA_Vi18",
+       "buildName": [
+        "DA_Evenshroud",
+        "DA_SunfireCape",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.234,
+       "place_change": -0.945,
+       "unit_numitems_count": 26790
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 71841,
+       "avg": 4.4576,
+       "pcnt": 1.29499
+      },
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 52408,
+       "avg": 4.3856,
+       "pcnt": 0.9447
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 29453,
+       "avg": 4.2694,
+       "pcnt": 0.53091
+      },
+      "DA_18_EmblemBrawler": {
+       "itemNames": "DA_18_EmblemBrawler",
+       "count": 26356,
+       "avg": 4.4636,
+       "pcnt": 0.47509
+      },
+      "DA_TitansResolve": {
+       "itemNames": "DA_TitansResolve",
+       "count": 25064,
+       "avg": 4.3472,
+       "pcnt": 0.4518
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 23970,
+       "avg": 4.2453,
+       "pcnt": 0.43208
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 20504,
+       "avg": 4.2208,
+       "pcnt": 0.3696
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 14542,
+       "avg": 3.9849,
+       "pcnt": 0.26213
+      },
+      "DA_SunfireCape": {
+       "itemNames": "DA_SunfireCape",
+       "count": 13863,
+       "avg": 4.0233,
+       "pcnt": 0.24989
+      },
+      "DA_Evenshroud": {
+       "itemNames": "DA_Evenshroud",
+       "count": 13642,
+       "avg": 4.2531,
+       "pcnt": 0.24591
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 71841,
+       "avg": 4.4576,
+       "pcnt": 1.29499
+      },
+      {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 52408,
+       "avg": 4.3856,
+       "pcnt": 0.9447
+      },
+      "... 외 2개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 11660,
+       "avg": 4.0482,
+       "pick": 0.06979695431472081
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 37332,
+       "avg": 4.0413,
+       "pick": 0.0671710674283658
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.005,
+     "diff_place": 0.038,
+     "difficulty": -0.043,
+     "levelling": "lvl 7"
+    },
+    "423021": {
+     "Cluster": 423021,
+     "centroid": [
+      0.1447,
+      0.0076,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Cassiopeia, DA_18_Leona, DA_18_Lillia, DA_18_Ornn, DA_18_Rammus, DA_18_Shen, DA_Fiddlesticks18",
+     "traits_string": "DA_18_Defender_3, DA_18_Spellweaver_1, DA_FloraFatalis18_1",
+     "name": [
+      {
+       "name": "DA_18_Defender",
+       "type": "trait",
+       "score": 2.724672152224222
+      },
+      {
+       "name": "DA_18_Cassiopeia",
+       "type": "unit",
+       "score": 4.184173309334019
+      }
+     ],
+     "name_string": "DA_18_Defender, DA_18_Cassiopeia",
+     "top_headliner": [],
+     "overall": {
+      "count": 46668,
+      "avg": 4.6093
+     },
+     "stars": [
+      "DA_18_Cassiopeia",
+      "DA_18_Rammus",
+      "... 외 9개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423021",
+       "count": 5079,
+       "avg": 4.1618,
+       "unit": "DA_18_Cassiopeia",
+       "buildName": [
+        "DA_ArchangelsStaff",
+        "DA_ArchangelsStaff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5579,
+       "place_change": -0.447,
+       "unit_numitems_count": 42664
+      },
+      {
+       "cluster": "423021",
+       "count": 830,
+       "avg": 3.9301,
+       "unit": "DA_Fiddlesticks18",
+       "buildName": [
+        "DA_AdaptiveHelm",
+        "DA_ArchangelsStaff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3556,
+       "place_change": -0.679,
+       "unit_numitems_count": 31392
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_ArchangelsStaff": {
+       "itemNames": "DA_ArchangelsStaff",
+       "count": 50160,
+       "avg": 4.352,
+       "pcnt": 1.07483
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 35458,
+       "avg": 4.5373,
+       "pcnt": 0.75979
+      },
+      "DA_HextechGunblade": {
+       "itemNames": "DA_HextechGunblade",
+       "count": 34645,
+       "avg": 4.4511,
+       "pcnt": 0.74237
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 30613,
+       "avg": 4.4357,
+       "pcnt": 0.65597
+      },
+      "DA_SunfireCape": {
+       "itemNames": "DA_SunfireCape",
+       "count": 21044,
+       "avg": 4.2881,
+       "pcnt": 0.45093
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 19150,
+       "avg": 4.2479,
+       "pcnt": 0.41035
+      },
+      "DA_AdaptiveHelm": {
+       "itemNames": "DA_AdaptiveHelm",
+       "count": 17821,
+       "avg": 4.1539,
+       "pcnt": 0.38187
+      },
+      "DA_TitansResolve": {
+       "itemNames": "DA_TitansResolve",
+       "count": 16358,
+       "avg": 4.322,
+       "pcnt": 0.35052
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_ArchangelsStaff",
+       "count": 50160,
+       "avg": 4.352,
+       "pcnt": 1.07483
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 35458,
+       "avg": 4.5373,
+       "pcnt": 0.75979
+      },
+      "... 외 2개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 6170,
+       "avg": 4.4739,
+       "pick": 0.03693372282348434
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 19824,
+       "avg": 4.4985,
+       "pick": 0.035669110701272995
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.026,
+     "diff_place": 0.04,
+     "difficulty": -0.066,
+     "levelling": "lvl 7"
+    },
+    "423022": {
+     "Cluster": 423022,
+     "centroid": [
+      0.0191,
+      0.0179,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Aphelios, DA_18_Diana, DA_18_Hecarim, DA_18_Zyra, DA_Brambleback18, DA_CrimsonRaptor18, DA_Sentinel18, DA_Taric18",
+     "traits_string": "DA_18_Lunar_1, DA_18_Rapidfire_1, DA_18_Slayer_1, DA_18_Summoner_1, DA_18_Vanguard_2, DA_18_ZyraUniqueTrait_1, DA_Emerald18_1, DA_Riftbeast18_1",
+     "name": [
+      {
+       "name": "DA_18_Vanguard",
+       "type": "trait",
+       "score": 1.761096018566828
+      },
+      {
+       "name": "DA_18_Aphelios",
+       "type": "unit",
+       "score": 4.220714966806398
+      }
+     ],
+     "name_string": "DA_18_Vanguard, DA_18_Aphelios",
+     "top_headliner": [],
+     "overall": {
+      "count": 55583,
+      "avg": 4.7843
+     },
+     "stars": [
+      "DA_18_Rengar",
+      "DA_18_KhaZix",
+      "... 외 3개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423022",
+       "count": 519,
+       "avg": 4.2909,
+       "unit": "DA_18_Aphelios",
+       "buildName": [
+        "DA_Deathblade",
+        "DA_InfinityEdge",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3922,
+       "place_change": -0.493,
+       "unit_numitems_count": 49973
+      },
+      {
+       "cluster": "423022",
+       "count": 508,
+       "avg": 4.0531,
+       "unit": "DA_Sentinel18",
+       "buildName": [
+        "DA_ProtectorsVow",
+        "DA_ProtectorsVow",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3532,
+       "place_change": -0.731,
+       "unit_numitems_count": 36464
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 37048,
+       "avg": 4.6724,
+       "pcnt": 0.66653
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 33956,
+       "avg": 4.5494,
+       "pcnt": 0.61091
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 23675,
+       "avg": 4.5564,
+       "pcnt": 0.42594
+      },
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 15683,
+       "avg": 4.4094,
+       "pcnt": 0.28215
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 15213,
+       "avg": 4.4146,
+       "pcnt": 0.2737
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 15042,
+       "avg": 4.4511,
+       "pcnt": 0.27062
+      },
+      "DA_Evenshroud": {
+       "itemNames": "DA_Evenshroud",
+       "count": 14978,
+       "avg": 4.336,
+       "pcnt": 0.26947
+      },
+      "DA_18_EmblemRapidfire": {
+       "itemNames": "DA_18_EmblemRapidfire",
+       "count": 12121,
+       "avg": 4.4165,
+       "pcnt": 0.21807
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 43937,
+       "avg": 4.7525,
+       "pcnt": 0.79048
+      },
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 37048,
+       "avg": 4.6724,
+       "pcnt": 0.66653
+      },
+      "... 외 3개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 7600,
+       "avg": 4.7509,
+       "pick": 0.04549372665453501
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 24472,
+       "avg": 4.7946,
+       "pick": 0.04403220727812514
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.041,
+     "diff_place": 0.125,
+     "difficulty": -0.084,
+     "levelling": "Fast 8"
+    },
+    "423023": {
+     "Cluster": 423023,
+     "centroid": [
+      0.0896,
+      0.0015,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_GnarSmall, DA_18_Kobuko, DA_18_Rammus, DA_18_RekSai, DA_18_Sett, DA_18_Teemo, DA_18_Veigar, DA_Fiddlesticks18",
+     "traits_string": "DA_18_Blackthorn_1, DA_18_Brawler_2, DA_18_Defender_1, DA_18_Spellweaver_1, DA_18_Sprykin_2, DA_FloraFatalis18_1",
+     "name": [
+      {
+       "name": "DA_18_Spellweaver",
+       "type": "trait",
+       "score": 1.4417203474024933
+      },
+      {
+       "name": "DA_18_Veigar",
+       "type": "unit",
+       "score": 4.419575040861456
+      }
+     ],
+     "name_string": "DA_18_Sprykin, DA_18_Veigar",
+     "top_headliner": [],
+     "overall": {
+      "count": 124812,
+      "avg": 4.6669
+     },
+     "stars": [
+      "DA_18_Veigar",
+      "DA_18_RekSai",
+      "... 외 14개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423023",
+       "count": 11906,
+       "avg": 4.4373,
+       "unit": "DA_18_Veigar",
+       "buildName": [
+        "DA_18_EmblemFloraFatalisAugment",
+        "DA_BlueBuff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4968,
+       "place_change": -0.23,
+       "unit_numitems_count": 121401
+      },
+      {
+       "cluster": "423023",
+       "count": 271,
+       "avg": 3.6494,
+       "unit": "DA_18_RekSai",
+       "buildName": [
+        "DA_IonicSpark",
+        "DA_SpiritVisage",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.264,
+       "place_change": -1.018,
+       "unit_numitems_count": 66088
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 148580,
+       "avg": 4.4972,
+       "pcnt": 1.19043
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 129060,
+       "avg": 4.5489,
+       "pcnt": 1.03404
+      },
+      "DA_BlueBuff": {
+       "itemNames": "DA_BlueBuff",
+       "count": 104174,
+       "avg": 4.4964,
+       "pcnt": 0.83465
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 93682,
+       "avg": 4.44,
+       "pcnt": 0.75058
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 67071,
+       "avg": 4.3011,
+       "pcnt": 0.53738
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 52817,
+       "avg": 4.3336,
+       "pcnt": 0.42317
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 48657,
+       "avg": 4.2277,
+       "pcnt": 0.38984
+      },
+      "DA_Morellonomicon": {
+       "itemNames": "DA_Morellonomicon",
+       "count": 34760,
+       "avg": 4.1722,
+       "pcnt": 0.2785
+      },
+      "DA_SunfireCape": {
+       "itemNames": "DA_SunfireCape",
+       "count": 33572,
+       "avg": 4.2348,
+       "pcnt": 0.26898
+      },
+      "DA_IonicSpark": {
+       "itemNames": "DA_IonicSpark",
+       "count": 32250,
+       "avg": 4.1673,
+       "pcnt": 0.25839
+      },
+      "DA_Crownguard": {
+       "itemNames": "DA_Crownguard",
+       "count": 31119,
+       "avg": 4.0708,
+       "pcnt": 0.24933
+      },
+      "DA_18_EmblemFloraFatalisAugment": {
+       "itemNames": "DA_18_EmblemFloraFatalisAugment",
+       "count": 21717,
+       "avg": 4.3849,
+       "pcnt": 0.174
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 148580,
+       "avg": 4.4972,
+       "pcnt": 1.19043
+      },
+      {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 129060,
+       "avg": 4.5489,
+       "pcnt": 1.03404
+      },
+      "... 외 3개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 6264,
+       "avg": 4.247,
+       "pick": 0.03749640839000096
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 20675,
+       "avg": 4.2119,
+       "pick": 0.03720030587917773
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.018,
+     "diff_place": 0.009,
+     "difficulty": -0.027,
+     "levelling": "lvl 5"
+    },
+    "423024": {
+     "Cluster": 423024,
+     "centroid": [
+      1.0315,
+      0.0019,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Ahri, DA_18_Alistar, DA_18_Azir, DA_18_Ezreal, DA_18_LeBlanc, DA_18_Sett, DA_18_Soraka, DA_18_Yunara",
+     "traits_string": "DA_18_Blossom_1, DA_18_Brawler_1, DA_18_Elderwood_1, DA_18_Executioner_3, DA_18_Spellweaver_1, DA_FloraFatalis18_1",
+     "name": [
+      {
+       "name": "DA_18_Executioner",
+       "type": "trait",
+       "score": 2.182184499314129
+      },
+      {
+       "name": "DA_18_Yunara",
+       "type": "unit",
+       "score": 4.054398148148148
+      }
+     ],
+     "name_string": "DA_18_Executioner, DA_18_Yunara",
+     "top_headliner": [],
+     "overall": {
+      "count": 11664,
+      "avg": 4.6436
+     },
+     "stars": [
+      "DA_18_Yunara",
+      "DA_18_Alistar",
+      "... 외 8개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423024",
+       "count": 2161,
+       "avg": 4.4294,
+       "unit": "DA_18_Yunara",
+       "buildName": [
+        "DA_Deathblade",
+        "DA_SpearOfShojin",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4373,
+       "place_change": -0.214,
+       "unit_numitems_count": 10203
+      },
+      {
+       "cluster": "423024",
+       "count": 68,
+       "avg": 3.8088,
+       "unit": "DA_18_Alistar",
+       "buildName": [
+        "DA_Evenshroud",
+        "DA_GargoyleStoneplate",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3377,
+       "place_change": -0.835,
+       "unit_numitems_count": 8419
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 13546,
+       "avg": 4.4003,
+       "pcnt": 1.16135
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 12613,
+       "avg": 4.457,
+       "pcnt": 1.08136
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 7571,
+       "avg": 4.3648,
+       "pcnt": 0.64909
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 6509,
+       "avg": 4.4134,
+       "pcnt": 0.55804
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 4455,
+       "avg": 4.3495,
+       "pcnt": 0.38194
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 3355,
+       "avg": 4.386,
+       "pcnt": 0.28764
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 2967,
+       "avg": 4.275,
+       "pcnt": 0.25437
+      },
+      "DA_Evenshroud": {
+       "itemNames": "DA_Evenshroud",
+       "count": 2247,
+       "avg": 4.105,
+       "pcnt": 0.19264
+      },
+      "DA_18_EmblemExecutioner": {
+       "itemNames": "DA_18_EmblemExecutioner",
+       "count": 2081,
+       "avg": 4.2225,
+       "pcnt": 0.17841
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 13546,
+       "avg": 4.4003,
+       "pcnt": 1.16135
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 12613,
+       "avg": 4.457,
+       "pcnt": 1.08136
+      },
+      "... 외 3개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 328,
+       "avg": 4.8018,
+       "pick": 0.0019634134661430896
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 1058,
+       "avg": 4.8894,
+       "pick": 0.0019036480590166884
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.006,
+     "diff_place": 0.049,
+     "difficulty": -0.054,
+     "levelling": "lvl 6"
+    },
+    "423025": {
+     "Cluster": 423025,
+     "centroid": [
+      0.0143,
+      0.0289,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Sivir, DA_Amumu18, DA_Cinderling18, DA_KogMaw18_AD, DA_Nidalee18_AP, DA_Scuttlecrab18, DA_Sentinel18, DA_Taric18",
+     "traits_string": "DA_18_Adaptor_1, DA_18_Caustic_1, DA_18_Hunter_1, DA_18_Invoker_1, DA_18_Vanguard_1, DA_Emerald18_1, DA_Juggernaut18_1, DA_Primal18_1, DA_Riftbeast18_1",
+     "name": [
+      {
+       "name": "DA_18_Hunter",
+       "type": "trait",
+       "score": 1.427127927474188
+      },
+      {
+       "name": "DA_Nidalee18_AP",
+       "type": "unit",
+       "score": 3.9270177537144297
+      }
+     ],
+     "name_string": "DA_Primal18, DA_18_Sivir",
+     "top_headliner": [],
+     "overall": {
+      "count": 31768,
+      "avg": 4.3927
+     },
+     "stars": [
+      "DA_18_Rengar",
+      "DA_18_Xayah"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423025",
+       "count": 574,
+       "avg": 3.5296,
+       "unit": "DA_Nidalee18_AP",
+       "buildName": [
+        "DA_Bloodthirster",
+        "DA_EdgeOfNight",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.583,
+       "place_change": -0.863,
+       "unit_numitems_count": 25903
+      },
+      {
+       "cluster": "423025",
+       "count": 2391,
+       "avg": 3.9364,
+       "unit": "DA_18_Sivir",
+       "buildName": [
+        "DA_InfinityEdge",
+        "DA_RedBuff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5326,
+       "place_change": -0.456,
+       "unit_numitems_count": 25359
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 35172,
+       "avg": 4.1469,
+       "pcnt": 1.10715
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 23507,
+       "avg": 4.0981,
+       "pcnt": 0.73996
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 17634,
+       "avg": 4.0371,
+       "pcnt": 0.55509
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 16299,
+       "avg": 4.0426,
+       "pcnt": 0.51306
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 16116,
+       "avg": 4.0749,
+       "pcnt": 0.5073
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 10986,
+       "avg": 4.1077,
+       "pcnt": 0.34582
+      },
+      "DA_AdaptiveHelm": {
+       "itemNames": "DA_AdaptiveHelm",
+       "count": 10277,
+       "avg": 4.0033,
+       "pcnt": 0.3235
+      },
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 8749,
+       "avg": 3.9083,
+       "pcnt": 0.2754
+      },
+      "DA_Bloodthirster": {
+       "itemNames": "DA_Bloodthirster",
+       "count": 5454,
+       "avg": 3.9752,
+       "pcnt": 0.17168
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_InfinityEdge",
+       "count": 35172,
+       "avg": 4.1469,
+       "pcnt": 1.10715
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 26800,
+       "avg": 4.2499,
+       "pcnt": 0.84362
+      },
+      "... 외 5개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 1952,
+       "avg": 4.5779,
+       "pick": 0.011684704530217412
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 6502,
+       "avg": 4.5528,
+       "pick": 0.011698978903333183
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.065,
+     "diff_place": 0.017,
+     "difficulty": 0.048,
+     "levelling": "Fast 8"
+    },
+    "423026": {
+     "Cluster": 423026,
+     "centroid": [
+      3.75,
+      0.0019,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Ahri, DA_18_Alune, DA_18_Cassiopeia, DA_18_Diana, DA_18_Elise, DA_18_Morgana, DA_Fiddlesticks18, DA_Sentinel18, DA_Taric18",
+     "traits_string": "DA_18_Coven_1, DA_18_Invoker_1, DA_18_Lunar_1, DA_18_Spellweaver_2, DA_18_Vanguard_2, DA_AluneUniqueTrait18_1, DA_Emerald18_1, DA_FloraFatalis18_1",
+     "name": [
+      {
+       "name": "DA_18_Vanguard",
+       "type": "trait",
+       "score": 1.6524557788081744
+      },
+      {
+       "name": "DA_18_Morgana",
+       "type": "unit",
+       "score": 3.419822256568779
+      }
+     ],
+     "name_string": "DA_18_Vanguard, DA_18_Ahri",
+     "top_headliner": [],
+     "overall": {
+      "count": 23292,
+      "avg": 4.6931
+     },
+     "stars": [
+      "DA_18_Ornn",
+      "DA_18_Kobuko"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423026",
+       "count": 747,
+       "avg": 4.2075,
+       "unit": "DA_18_Morgana",
+       "buildName": [
+        "DA_HextechGunblade",
+        "DA_Morellonomicon",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3924,
+       "place_change": -0.486,
+       "unit_numitems_count": 15347
+      },
+      {
+       "cluster": "423026",
+       "count": 843,
+       "avg": 4.0403,
+       "unit": "DA_Sentinel18",
+       "buildName": [
+        "DA_GargoyleStoneplate",
+        "DA_ProtectorsVow",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4464,
+       "place_change": -0.653,
+       "unit_numitems_count": 14572
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 22488,
+       "avg": 4.5373,
+       "pcnt": 0.96548
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 22479,
+       "avg": 4.5177,
+       "pcnt": 0.9651
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 18533,
+       "avg": 4.4164,
+       "pcnt": 0.79568
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 15517,
+       "avg": 4.4594,
+       "pcnt": 0.66619
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 13124,
+       "avg": 4.3545,
+       "pcnt": 0.56346
+      },
+      "DA_Morellonomicon": {
+       "itemNames": "DA_Morellonomicon",
+       "count": 12938,
+       "avg": 4.4889,
+       "pcnt": 0.55547
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 10265,
+       "avg": 4.3091,
+       "pcnt": 0.44071
+      },
+      "DA_BlueBuff": {
+       "itemNames": "DA_BlueBuff",
+       "count": 6920,
+       "avg": 4.1905,
+       "pcnt": 0.2971
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 6213,
+       "avg": 4.473,
+       "pcnt": 0.26674
+      },
+      "DA_HextechGunblade": {
+       "itemNames": "DA_HextechGunblade",
+       "count": 5943,
+       "avg": 4.321,
+       "pcnt": 0.25515
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 22488,
+       "avg": 4.5373,
+       "pcnt": 0.96548
+      },
+      {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 22479,
+       "avg": 4.5177,
+       "pcnt": 0.9651
+      },
+      "... 외 4개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 1372,
+       "avg": 4.7697,
+       "pick": 0.008212814864476583
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 4607,
+       "avg": 4.7274,
+       "pick": 0.008289325716342045
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.003,
+     "diff_place": 0.05,
+     "difficulty": -0.047,
+     "levelling": "Fast 8"
+    },
+    "423027": {
+     "Cluster": 423027,
+     "centroid": [
+      0.0185,
+      0.0223,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Alistar, DA_18_Alune, DA_18_Aphelios, DA_18_Diana, DA_18_GnarSmall, DA_18_Hecarim, DA_18_Lillia, DA_18_Ornn, DA_18_Xayah",
+     "traits_string": "DA_18_Brawler_1, DA_18_Defender_1, DA_18_Elderwood_2, DA_18_Fae_1, DA_18_Lunar_2, DA_18_Rapidfire_1, DA_18_Vanguard_1, DA_AluneUniqueTrait18_1",
+     "name": [
+      {
+       "name": "DA_18_Elderwood",
+       "type": "trait",
+       "score": 1.9803451581975071
+      },
+      {
+       "name": "DA_18_Aphelios",
+       "type": "unit",
+       "score": 3.877473197942997
+      },
+      "... 외 1개"
+     ],
+     "name_string": "DA_18_Elderwood, DA_18_Aphelios, DA_18_Xayah",
+     "top_headliner": [],
+     "overall": {
+      "count": 22946,
+      "avg": 4.7476
+     },
+     "stars": [
+      "DA_18_Rengar",
+      "DA_18_Veigar",
+      "... 외 1개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423027",
+       "count": 1171,
+       "avg": 4.2425,
+       "unit": "DA_18_Aphelios",
+       "buildName": [
+        "DA_Deathblade",
+        "DA_Guinsoos<플레이어>blade",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4904,
+       "place_change": -0.505,
+       "unit_numitems_count": 18963
+      },
+      {
+       "cluster": "423027",
+       "count": 614,
+       "avg": 3.8681,
+       "unit": "DA_18_Lillia",
+       "buildName": [
+        "DA_Evenshroud",
+        "DA_ProtectorsVow",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4823,
+       "place_change": -0.88,
+       "unit_numitems_count": 15462
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 20289,
+       "avg": 4.6597,
+       "pcnt": 0.88421
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 13774,
+       "avg": 4.5733,
+       "pcnt": 0.60028
+      },
+      "DA_ProtectorsVow": {
+       "itemNames": "DA_ProtectorsVow",
+       "count": 10054,
+       "avg": 4.3986,
+       "pcnt": 0.43816
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 8755,
+       "avg": 4.3676,
+       "pcnt": 0.38155
+      },
+      "DA_Evenshroud": {
+       "itemNames": "DA_Evenshroud",
+       "count": 8694,
+       "avg": 4.2662,
+       "pcnt": 0.37889
+      },
+      "DA_Deathblade": {
+       "itemNames": "DA_Deathblade",
+       "count": 8600,
+       "avg": 4.5428,
+       "pcnt": 0.37479
+      },
+      "DA_SunfireCape": {
+       "itemNames": "DA_SunfireCape",
+       "count": 8545,
+       "avg": 4.2607,
+       "pcnt": 0.3724
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 3110,
+       "avg": 4.0916,
+       "pcnt": 0.13554
+      },
+      "DA_SteraksGage": {
+       "itemNames": "DA_SteraksGage",
+       "count": 3072,
+       "avg": 3.9395,
+       "pcnt": 0.13388
+      },
+      "DA_Bloodthirster": {
+       "itemNames": "DA_Bloodthirster",
+       "count": 2486,
+       "avg": 3.9634,
+       "pcnt": 0.10834
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 2483,
+       "avg": 3.855,
+       "pcnt": 0.10821
+      },
+      "DA_EdgeOfNight": {
+       "itemNames": "DA_EdgeOfNight",
+       "count": 2229,
+       "avg": 3.9412,
+       "pcnt": 0.09714
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 20289,
+       "avg": 4.6597,
+       "pcnt": 0.88421
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 14324,
+       "avg": 4.7827,
+       "pcnt": 0.62425
+      },
+      "... 외 1개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 2329,
+       "avg": 4.6728,
+       "pick": 0.013941432812948951
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 7625,
+       "avg": 4.7259,
+       "pick": 0.013719580765597589
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.014,
+     "diff_place": 0.097,
+     "difficulty": -0.11,
+     "levelling": "Fast 8"
+    },
+    "423028": {
+     "Cluster": 423028,
+     "centroid": [
+      0.0017,
+      0.9577,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Akali_AD, DA_18_Camille, DA_18_Kayle, DA_18_Leona, DA_18_Sejuani, DA_18_Shen, DA_18_Varus",
+     "traits_string": "DA_18_Defender_1, DA_18_Inferno_2, DA_18_Rapidfire_1, DA_18_Slayer_1, DA_18_Solar_1",
+     "name": [
+      {
+       "name": "DA_18_Rapidfire",
+       "type": "trait",
+       "score": 1.5178399228543877
+      },
+      {
+       "name": "DA_18_Kayle",
+       "type": "unit",
+       "score": 4.032545805207329
+      }
+     ],
+     "name_string": "DA_18_Inferno, DA_18_Kayle",
+     "top_headliner": [],
+     "overall": {
+      "count": 6222,
+      "avg": 5.077
+     },
+     "stars": [
+      "DA_18_Kayle",
+      "DA_18_Sejuani",
+      "... 외 15개"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423028",
+       "count": 329,
+       "avg": 4.4833,
+       "unit": "DA_18_Kayle",
+       "buildName": [
+        "DA_Guinsoos<플레이어>blade",
+        "DA_JeweledGauntlet",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.5972,
+       "place_change": -0.594,
+       "unit_numitems_count": 5298
+      },
+      {
+       "cluster": "423028",
+       "count": 67,
+       "avg": 4.0299,
+       "unit": "DA_18_Sejuani",
+       "buildName": [
+        "DA_DragonsClaw",
+        "DA_GargoyleStoneplate",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3063,
+       "place_change": -1.047,
+       "unit_numitems_count": 2641
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_Guinsoos<플레이어>blade": {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 7561,
+       "avg": 4.9504,
+       "pcnt": 1.2152
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 6206,
+       "avg": 4.8875,
+       "pcnt": 0.99743
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 4002,
+       "avg": 4.8363,
+       "pcnt": 0.6432
+      },
+      "DA_SpiritVisage": {
+       "itemNames": "DA_SpiritVisage",
+       "count": 3753,
+       "avg": 4.8473,
+       "pcnt": 0.60318
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 3460,
+       "avg": 4.8003,
+       "pcnt": 0.55609
+      },
+      "DA_InfinityEdge": {
+       "itemNames": "DA_InfinityEdge",
+       "count": 2662,
+       "avg": 4.8234,
+       "pcnt": 0.42784
+      },
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 2476,
+       "avg": 4.8667,
+       "pcnt": 0.39794
+      },
+      "DA_GiantSlayer": {
+       "itemNames": "DA_GiantSlayer",
+       "count": 2367,
+       "avg": 4.6882,
+       "pcnt": 0.38042
+      },
+      "DA_DragonsClaw": {
+       "itemNames": "DA_DragonsClaw",
+       "count": 1616,
+       "avg": 4.6361,
+       "pcnt": 0.25972
+      },
+      "DA_RabadonsDeathcap": {
+       "itemNames": "DA_RabadonsDeathcap",
+       "count": 1216,
+       "avg": 4.6587,
+       "pcnt": 0.19544
+      },
+      "DA_BrambleVest": {
+       "itemNames": "DA_BrambleVest",
+       "count": 1160,
+       "avg": 4.5716,
+       "pcnt": 0.18644
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_Guinsoos<플레이어>blade",
+       "count": 7561,
+       "avg": 4.9504,
+       "pcnt": 1.2152
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 6206,
+       "avg": 4.8875,
+       "pcnt": 0.99743
+      },
+      "... 외 3개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 362,
+       "avg": 5.0718,
+       "pick": 0.002166938032755483
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 1335,
+       "avg": 5.0876,
+       "pick": 0.002402051189780037
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": -0.122,
+     "diff_place": 0.073,
+     "difficulty": -0.194,
+     "levelling": "lvl 6"
+    },
+    "423029": {
+     "Cluster": 423029,
+     "centroid": [
+      3.1581,
+      0.0028,
+      "... 외 93개"
+     ],
+     "units_string": "DA_18_Ahri, DA_18_Alune, DA_18_Ashe, DA_18_Diana, DA_18_GnarSmall, DA_18_Lillia, DA_18_Rammus, DA_18_Sett, DA_18_Tristana",
+     "traits_string": "DA_18_Blossom_1, DA_18_Brawler_1, DA_18_Defender_1, DA_18_Fae_1, DA_18_Hunter_1, DA_18_Lunar_1, DA_18_Spellweaver_1, DA_18_Sprykin_1, DA_AluneUniqueTrait18_1",
+     "name": [
+      {
+       "name": "DA_18_Blossom",
+       "type": "trait",
+       "score": 0.9753360501186059
+      },
+      {
+       "name": "DA_18_Sett",
+       "type": "unit",
+       "score": 3.5300772459096166
+      },
+      "... 외 1개"
+     ],
+     "name_string": "DA_18_Blossom, DA_18_Sett, DA_18_Ashe",
+     "top_headliner": [],
+     "overall": {
+      "count": 32882,
+      "avg": 4.5194
+     },
+     "stars": [
+      "DA_18_Leona",
+      "DA_18_Rengar"
+     ],
+     "stars_4": [],
+     "builds": [
+      {
+       "cluster": "423029",
+       "count": 655,
+       "avg": 4.0794,
+       "unit": "DA_18_Sett",
+       "buildName": [
+        "DA_Crownguard",
+        "DA_GargoyleStoneplate",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.3323,
+       "place_change": -0.44,
+       "unit_numitems_count": 23217
+      },
+      {
+       "cluster": "423029",
+       "count": 3429,
+       "avg": 3.8816,
+       "unit": "DA_18_Ashe",
+       "buildName": [
+        "DA_LastWhisper",
+        "DA_RedBuff",
+        "... 외 1개"
+       ],
+       "build": [],
+       "num_items": 3,
+       "score": 0.4377,
+       "place_change": -0.638,
+       "unit_numitems_count": 18145
+      },
+      "... 외 2개"
+     ],
+     "build_items": {
+      "DA_SpearOfShojin": {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 33209,
+       "avg": 4.2833,
+       "pcnt": 1.00994
+      },
+      "DA_GargoyleStoneplate": {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 31905,
+       "avg": 4.4361,
+       "pcnt": 0.97029
+      },
+      "DA_JeweledGauntlet": {
+       "itemNames": "DA_JeweledGauntlet",
+       "count": 22194,
+       "avg": 4.3253,
+       "pcnt": 0.67496
+      },
+      "DA_WarmogsArmor": {
+       "itemNames": "DA_WarmogsArmor",
+       "count": 19240,
+       "avg": 4.3317,
+       "pcnt": 0.58512
+      },
+      "DA_RedBuff": {
+       "itemNames": "DA_RedBuff",
+       "count": 14526,
+       "avg": 4.1862,
+       "pcnt": 0.44176
+      },
+      "DA_LastWhisper": {
+       "itemNames": "DA_LastWhisper",
+       "count": 11745,
+       "avg": 4.3962,
+       "pcnt": 0.35719
+      },
+      "DA_VoidStaff": {
+       "itemNames": "DA_VoidStaff",
+       "count": 9836,
+       "avg": 4.0679,
+       "pcnt": 0.29913
+      },
+      "DA_StrikersFlail": {
+       "itemNames": "DA_StrikersFlail",
+       "count": 9641,
+       "avg": 4.2486,
+       "pcnt": 0.2932
+      },
+      "DA_Crownguard": {
+       "itemNames": "DA_Crownguard",
+       "count": 7160,
+       "avg": 4.1552,
+       "pcnt": 0.21775
+      },
+      "DA_ArchangelsStaff": {
+       "itemNames": "DA_ArchangelsStaff",
+       "count": 5448,
+       "avg": 4.0105,
+       "pcnt": 0.16568
+      }
+     },
+     "top_itemNames": [
+      {
+       "itemNames": "DA_SpearOfShojin",
+       "count": 33209,
+       "avg": 4.2833,
+       "pcnt": 1.00994
+      },
+      {
+       "itemNames": "DA_GargoyleStoneplate",
+       "count": 31905,
+       "avg": 4.4361,
+       "pcnt": 0.97029
+      },
+      "... 외 2개"
+     ],
+     "top_items": [],
+     "trends": [
+      {
+       "day": "2026-09-08T00:00:00.000Z",
+       "count": 555,
+       "avg": 4.4721,
+       "pick": 0.0033222392491140695
+      },
+      {
+       "day": "2026-09-09T00:00:00.000Z",
+       "count": 2032,
+       "avg": 4.5138,
+       "pick": 0.0036561558184517117
+      },
+      "... 외 6개"
+     ],
+     "top_augments": [],
+     "diff_pick": 0.022,
+     "diff_place": -0.007,
+     "difficulty": 0.029,
+     "levelling": "Fast 9"
+    },
+    "...": "외 24개 키"
+   },
+   "portals": []
+  },
+  "games": {
+   "423000": [
+    {
+     "count": 176106,
+     "avg": 4.2738
+    }
+   ],
+   "423001": [
+    {
+     "count": 75813,
+     "avg": 4.2981
+    }
+   ],
+   "423002": [
+    {
+     "count": 9510,
+     "avg": 4.07
+    }
+   ],
+   "423003": [
+    {
+     "count": 27510,
+     "avg": 4.4425
+    }
+   ],
+   "423004": [
+    {
+     "count": 68418,
+     "avg": 4.3706
+    }
+   ],
+   "423005": [
+    {
+     "count": 35664,
+     "avg": 4.53
+    }
+   ],
+   "423006": [
+    {
+     "count": 193860,
+     "avg": 4.2493
+    }
+   ],
+   "423007": [
+    {
+     "count": 18925,
+     "avg": 4.5133
+    }
+   ],
+   "423008": [
+    {
+     "count": 113822,
+     "avg": 4.4893
+    }
+   ],
+   "423009": [
+    {
+     "count": 554806,
+     "avg": 4.2229
+    }
+   ],
+   "423010": [
+    {
+     "count": 39438,
+     "avg": 4.4443
+    }
+   ],
+   "423011": [
+    {
+     "count": 28648,
+     "avg": 4.6026
+    }
+   ],
+   "423012": [
+    {
+     "count": 32986,
+     "avg": 4.6391
+    }
+   ],
+   "423013": [
+    {
+     "count": 68788,
+     "avg": 4.608
+    }
+   ],
+   "423014": [
+    {
+     "count": 34403,
+     "avg": 4.4964
+    }
+   ],
+   "423015": [
+    {
+     "count": 202952,
+     "avg": 4.4991
+    }
+   ],
+   "423016": [
+    {
+     "count": 24517,
+     "avg": 4.8072
+    }
+   ],
+   "423017": [
+    {
+     "count": 14953,
+     "avg": 4.5557
+    }
+   ],
+   "423018": [
+    {
+     "count": 90255,
+     "avg": 4.5616
+    }
+   ],
+   "423019": [
+    {
+     "count": 18501,
+     "avg": 4.5653
+    }
+   ],
+   "423020": [
+    {
+     "count": 55476,
+     "avg": 4.5508
+    }
+   ],
+   "423021": [
+    {
+     "count": 46668,
+     "avg": 4.6093
+    }
+   ],
+   "423022": [
+    {
+     "count": 55583,
+     "avg": 4.7843
+    }
+   ],
+   "423023": [
+    {
+     "count": 124812,
+     "avg": 4.6669
+    }
+   ],
+   "423024": [
+    {
+     "count": 11664,
+     "avg": 4.6436
+    }
+   ],
+   "423025": [
+    {
+     "count": 31768,
+     "avg": 4.3927
+    }
+   ],
+   "423026": [
+    {
+     "count": 23292,
+     "avg": 4.6931
+    }
+   ],
+   "423027": [
+    {
+     "count": 22946,
+     "avg": 4.7476
+    }
+   ],
+   "423028": [
+    {
+     "count": 6222,
+     "avg": 5.077
+    }
+   ],
+   "423029": [
+    {
+     "count": 32882,
+     "avg": 4.5194
+    }
+   ],
+   "...": "외 26개 키"
+  }
+ },
+ "updated": 1789473250769,
+ "tft_set": "TFTSet18",
+ "queue_id": 1100,
+ "cluster_id": 423
+}

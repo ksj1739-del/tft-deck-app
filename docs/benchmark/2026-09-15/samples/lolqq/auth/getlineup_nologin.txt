@@ -1,0 +1,1 @@
+var LWDFramework_Swoole={"code":-1,"msg":"\u60a8\u8fd8\u6ca1\u6709\u767b\u5f55\u6216\u767b\u5f55\u8d85\u65f6\uff0c\u8bf7\u91cd\u65b0\u767b\u5f55\uff01","data":[],"ams_serial":"AMS-LOL-0915195442-vB7TxM-295448-68125"}

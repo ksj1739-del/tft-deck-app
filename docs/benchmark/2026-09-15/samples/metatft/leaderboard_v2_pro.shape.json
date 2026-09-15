@@ -1,0 +1,66 @@
+{
+ "meta": {
+  "total": "<int>",
+  "offset": "<int>",
+  "limit": "<int>"
+ },
+ "data": [
+  {
+   "player_id": "<str>",
+   "summoner_region": "<str>",
+   "riot_id": "<str>",
+   "puuid": "<str>",
+   "rating": "<str>",
+   "rating_numeric": "<int>",
+   "num_played": "<int>",
+   "pro_name": "<str>",
+   "pro_points": [
+    {
+     "season": "<str>",
+     "region": "<str>",
+     "ranking": "<int>",
+     "points": "<int>"
+    }
+   ],
+   "rank": "<int>",
+   "stats": {
+    "num_played": "<int>",
+    "place_sum": "<int>",
+    "wins": "<int>",
+    "RecentResult": {
+     "ItemData": {
+      "Tank": "<int>",
+      "AD": "<int>",
+      "AP": "<int>"
+     },
+     "topCarries": [],
+     "damage_percentile_sum": "<int>",
+     "board_strength_percentile_sum": "<int>",
+     "percentile_count": "<int>",
+     "num_played": "<int>",
+     "wins": "<int>",
+     "place_sum": "<int>",
+     "avg_similarity": "<float>",
+     "lpChange": "<int>"
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": "<int>",
+      "AD": "<int>",
+      "AP": "<int>"
+     },
+     "topCarries": [],
+     "damage_percentile_sum": "<int>",
+     "board_strength_percentile_sum": "<int>",
+     "percentile_count": "<int>",
+     "num_played": "<int>",
+     "wins": "<int>",
+     "place_sum": "<int>",
+     "avg_similarity": "<float>",
+     "lpChange": "<int>"
+    },
+    "appMatches": "<bool>"
+   }
+  }
+ ]
+}

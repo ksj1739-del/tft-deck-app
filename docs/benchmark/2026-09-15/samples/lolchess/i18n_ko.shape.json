@@ -1,0 +1,4143 @@
+{
+ "anomalies": {
+  "title": "<str>",
+  "version": "<str>",
+  "intro": {
+   "title": "<str>",
+   "description1": "<str>",
+   "description2": "<str>",
+   "description3": "<str>"
+  },
+  "category": {
+   "all": "<str>"
+  }
+ },
+ "augments": {
+  "title": "<str>",
+  "revivalTitle": "<str>",
+  "disabled": "<str>",
+  "tab": {
+   "desktop": {
+    "statistics": "<str>",
+    "chance": "<str>",
+    "exclusive": "<str>",
+    "guide": "<str>",
+    "tier": "<str>"
+   },
+   "statistics": "<str>",
+   "chance": "<str>",
+   "exclusive": "<str>",
+   "guide": "<str>",
+   "tier": "<str>"
+  },
+  "augmentList": {
+   "title": "<str>",
+   "augment": "<str>",
+   "augmentAndEffect": "<str>",
+   "desc": "<str>"
+  },
+  "statistics": {
+   "table": {
+    "header": {
+     "augments": "<str>",
+     "placement": "<str>",
+     "pick-rate": "<str>",
+     "top4-rate": "<str>",
+     "win-rate": "<str>",
+     "plays": "<str>",
+     "first-pick-rate": "<str>",
+     "second-pick-rate": "<str>",
+     "third-pick-rate": "<str>"
+    }
+   },
+   "latestUpdated": "<str>"
+  },
+  "filter": {
+   "type": {
+    "all": "<str>",
+    "silver": "<str>",
+    "gold": "<str>",
+    "prismatic": "<str>"
+   },
+   "queue": {
+    "1100": "<str>",
+    "1130": "<str>",
+    "1160": "<str>"
+   },
+   "category": {
+    "all": "<str>",
+    "blackmarket": "<str>",
+    "buildaround": "<str>",
+    "combat": "<str>",
+    "economic": "<str>",
+    "formation": "<str>",
+    "grantsitems": "<str>",
+    "surprise": "<str>",
+    "trait": "<str>"
+   }
+  },
+  "round": {
+   "2-1": "<str>",
+   "3-2": "<str>",
+   "4-2": "<str>"
+  },
+  "tierDistribution": {
+   "chance": "<str>"
+  },
+  "exclusion": {
+   "description": "<str>",
+   "selected": "<str>",
+   "excluded": "<str>"
+  },
+  "type": {
+   "silver": "<str>",
+   "gold": "<str>",
+   "prismatic": "<str>"
+  },
+  "noData": "<str>"
+ },
+ "builder": {
+  "title": "<str>",
+  "recent-info": "<str>",
+  "selected": "<str>",
+  "reset": "<str>",
+  "starGrade": "<str>",
+  "set": "<str>",
+  "setRevival": "<str>",
+  "builder-tabs": {
+   "early-builder": "<str>",
+   "middle-builder": "<str>",
+   "final-builder": "<str>",
+   "level5-builder": "<str>",
+   "level6-builder": "<str>",
+   "level7-builder": "<str>",
+   "level8-builder": "<str>",
+   "level9-builder": "<str>",
+   "level10-builder": "<str>",
+   "emblem-builder": "<str>"
+  },
+  "active-synergy": {
+   "placeholder": "<str>"
+  },
+  "share": {
+   "clipboard-copy-message": "<str>",
+   "snsShareTitle": "<str>",
+   "snsShare": "<str>"
+  },
+  "buttons": {
+   "toggle": {
+    "starGrade": "<str>",
+    "trait": "<str>"
+   },
+   "share": "<str>",
+   "write-builder": "<str>",
+   "move-to-builder": "<str>",
+   "reset": "<str>",
+   "reset-batchTool": "<str>",
+   "reset-items": "<str>",
+   "apply": "<str>"
+  },
+  "champions": {
+   "title": "<str>"
+  },
+  "items": {
+   "title": "<str>"
+  },
+  "trait": {
+   "title": "<str>"
+  },
+  "empty": {
+   "synergy": "<str>",
+   "selected-items": "<str>",
+   "search": "<str>"
+  },
+  "search": {
+   "champions": {
+    "placeholder": "<str>"
+   },
+   "augments": {
+    "placeholder": "<str>"
+   }
+  },
+  "selectedStats": {
+   "augments": "<str>",
+   "items": "<str>"
+  },
+  "champion-list-filter": {
+   "name": "<str>",
+   "cost": "<str>",
+   "origin": "<str>",
+   "class": "<str>"
+  },
+  "item-list-filter": {
+   "normal": "<str>",
+   "trait": "<str>",
+   "inkshadow": "<str>",
+   "faerie": "<str>",
+   "storyweaver": "<str>",
+   "component": "<str>",
+   "chemBaron": "<str>",
+   "junkerKing": "<str>",
+   "exotech": "<str>",
+   "set14Traits": "<str>",
+   "set13Etc": "<str>",
+   "artifact": "<str>",
+   "radiant": "<str>",
+   "shimmerScale": "<str>",
+   "gadgeteen": "<str>",
+   "zaun": "<str>",
+   "turret": "<str>",
+   "shimmerscale": "<str>",
+   "support": "<str>",
+   "bilgewaterBlackMarket": "<str>",
+   "psionic": "<str>",
+   "piltoverModule": "<str>",
+   "mutation": "<str>",
+   "commander": "<str>",
+   "animaSquad": "<str>",
+   "etc": "<str>"
+  },
+  "augments": {
+   "controller": {
+    "title": "<str>"
+   },
+   "title": "<str>",
+   "addAugments": "<str>",
+   "empty": "<str>"
+  },
+  "augment-list-filter": {
+   "1": "<str>",
+   "2": "<str>",
+   "3": "<str>",
+   "4": "<str>",
+   "all": "<str>"
+  },
+  "guide": {
+   "title": "<str>",
+   "list": {
+    "pc": {
+     "1": "<str>",
+     "2": "<str>",
+     "3": "<str>"
+    },
+    "mobile": {
+     "1": "<str>",
+     "2": "<str>",
+     "3": "<str>"
+    }
+   }
+  },
+  "message": {
+   "kayleOnly": "<str>",
+   "kayleNotError": "<str>",
+   "faerieNotError": "<str>",
+   "turretItemOnly": "<str>",
+   "maxItemCountExceeded": "<str>",
+   "championAlreadyHasAttribute": "<str>",
+   "equipItemToEmptySlot": "<str>",
+   "onlySameOriginChampionAllowed": "<str>",
+   "needMoreSlots": "<str>",
+   "needMoreChampionSlots": "<str>",
+   "uniqueItemCannotEquipDuplicated": "<str>",
+   "elementAssignedRandomly": "<str>",
+   "thisUnitCannotBeRemoved": "<str>",
+   "championCannotEquipAnyItem": "<str>",
+   "hecarimTip": "<str>",
+   "batchGuide": "<str>",
+   "invalidSlotsToShare": "<str>",
+   "invalidSlotsDelete": "<str>",
+   "insufficientSlots": "<str>",
+   "exclusiveItemEquipped": "<str>",
+   "maxAugmentsExceeded": "<str>",
+   "uniqueAugmentsCannotEquipDuplicated": "<str>",
+   "notSupportedSet": "<str>",
+   "resetBuilderConfirmation": "<str>",
+   "resetItemsConfirmation": "<str>",
+   "resetAugmentsConfirmation": "<str>",
+   "noEmptySlots": "<str>",
+   "unusableChampion": "<str>",
+   "BlacksmithsGlovesExistError": "<str>",
+   "BlacksmithsAlreadyExitsError": "<str>",
+   "...": "<str>"
+  },
+  "usage": {
+   "title": "<str>",
+   "content": "<str>"
+  },
+  "attack_range_slot": "<str>",
+  "showItemRecipe": "<str>",
+  "hideItemRecipe": "<str>",
+  "showChampionName": "<str>",
+  "hideChampionName": "<str>",
+  "chosenChampion": {
+   "title": "<str>",
+   "tooltip": "<str>",
+   "errorMessageItemSynergy": "<str>"
+  },
+  "...": "<str>"
+ },
+ "champions": {
+  "title": "<str>",
+  "revivalTitle": "<str>",
+  "chonccTitle": "<str>",
+  "traits": "<str>",
+  "championList": {
+   "title": "<str>",
+   "desc": "<str>"
+  },
+  "skill": "<str>",
+  "name": "<str>",
+  "skillTab": {
+   "basicSkill": "<str>",
+   "skillHero": "<str>",
+   "skill": "<str>",
+   "skill2": "<str>",
+   "skill3": "<str>",
+   "skill4": "<str>",
+   "skill5": "<str>",
+   "skill6": "<str>",
+   "skill7": "<str>",
+   "skill8": "<str>",
+   "skill9": "<str>",
+   "skill10": "<str>",
+   "skill11": "<str>"
+  },
+  "itemBuild": {
+   "threeCores": "<str>",
+   "item": "<str>",
+   "avgRank": "<str>",
+   "pickPercent": "<str>",
+   "top4": "<str>",
+   "winRate": "<str>"
+  },
+  "heroAugments": "<str>",
+  "buyPrice": "<str>",
+  "sellPrice": "<str>",
+  "recommendItems": "<str>",
+  "search": {
+   "placeholder": "<str>"
+  },
+  "cost": "<str>",
+  "hp": "<str>",
+  "elements": "<str>",
+  "mana": "<str>",
+  "noManaCost": "<str>",
+  "active": "<str>",
+  "passive": "<str>",
+  "damage": "<str>",
+  "dps": "<str>",
+  "range": "<str>",
+  "attackSpeed": "<str>",
+  "armor": "<str>",
+  "mr": "<str>",
+  "origin": "<str>",
+  "class": "<str>",
+  "Ornn": "<str>",
+  "...": "<str>"
+ },
+ "champions_lagacy": {
+  "traits": "<str>",
+  "championList": {
+   "title": "<str>",
+   "desc": "<str>"
+  },
+  "skill": "<str>",
+  "name": "<str>",
+  "itemBuild": {
+   "threeCores": "<str>",
+   "item": "<str>",
+   "avgRank": "<str>",
+   "pickPercent": "<str>",
+   "top4": "<str>",
+   "winRate": "<str>"
+  },
+  "heroAugments": "<str>",
+  "buyPrice": "<str>",
+  "sellPrice": "<str>",
+  "recommendItems": "<str>",
+  "search": {
+   "placeholder": "<str>"
+  },
+  "cost": "<str>",
+  "hp": "<str>",
+  "elements": "<str>",
+  "mana": "<str>",
+  "noManaCost": "<str>",
+  "active": "<str>",
+  "passive": "<str>",
+  "damage": "<str>",
+  "dps": "<str>",
+  "range": "<str>",
+  "attackSpeed": "<str>",
+  "armor": "<str>",
+  "mr": "<str>",
+  "origin": "<str>",
+  "class": "<str>",
+  "Ornn": "<str>",
+  "Tahm Kench": "<str>",
+  "Veigar": "<str>",
+  "Draven": "<str>",
+  "Pengu": "<str>",
+  "...": "<str>"
+ },
+ "charms": {
+  "title": "<str>",
+  "type": "<str>",
+  "tier": "<str>",
+  "xerath": "<str>",
+  "tierMenu": {
+   "0": "<str>",
+   "1": "<str>",
+   "2": "<str>",
+   "3": "<str>",
+   "4": "<str>",
+   "5": "<str>",
+   "all": "<str>",
+   "2_5": "<str>"
+  },
+  "version": "<str>",
+  "intro": {
+   "title": "<str>",
+   "description1": "<str>",
+   "description2": "<str>"
+  },
+  "table": {
+   "title": "<str>",
+   "portalEffect": "<str>",
+   "header": {
+    "tier": "<str>",
+    "stage": "<str>"
+   }
+  }
+ },
+ "common": {
+  "score": "<str>",
+  "final-build": "<str>",
+  "shard": "<str>",
+  "confirm": "<str>",
+  "cancel": "<str>",
+  "items": "<str>",
+  "cost": "<str>",
+  "copy": "<str>",
+  "round": "<str>",
+  "mastery": "<str>",
+  "winrate": "<str>",
+  "pickrate": "<str>",
+  "shortWinrate": "<str>",
+  "shortPickrate": "<str>",
+  "avgPlacement": "<str>",
+  "avgRank": "<str>",
+  "wins": "<str>",
+  "wins2": "<str>",
+  "set": "<str>",
+  "games": "<str>",
+  "played": "<str>",
+  "3starUnit": "<str>",
+  "usedItems": "<str>",
+  "top3Champions": "<str>",
+  "top4": "<str>",
+  "topRate": "<str>",
+  "share": "<str>",
+  "top2rate": "<str>",
+  "top4rate": "<str>",
+  "queued": "<str>",
+  "...": "<str>"
+ },
+ "community": {
+  "seo": {
+   "title": "<str>"
+  },
+  "loginNotice": "<str>",
+  "toast": {
+   "needLogin": "<str>"
+  },
+  "category": {
+   "tft": "<str>",
+   "tip": "<str>",
+   "promotion": "<str>",
+   "set16_event": "<str>",
+   "forinternaluseonly": "<str>"
+  },
+  "button": {
+   "allPosts": "<str>",
+   "recomandedPosts": "<str>",
+   "myPosts": "<str>",
+   "login": "<str>",
+   "etcLogin": "<str>",
+   "logout": "<str>",
+   "post": "<str>",
+   "postComment": "<str>",
+   "reply": "<str>",
+   "postReply": "<str>",
+   "emoticon": "<str>",
+   "list": "<str>",
+   "edit": "<str>",
+   "delete": "<str>"
+  },
+  "recentPost": {
+   "title": "<str>"
+  },
+  "search": {
+   "placeholder": "<str>"
+  },
+  "comment": {
+   "loginNotice": "<str>",
+   "replyLoginNotice": "<str>",
+   "label": {
+    "nickname": "<str>",
+    "content": "<str>"
+   }
+  },
+  "post": {
+   "commentDeleted": "<str>",
+   "deleted": "<str>",
+   "deleteConfirm": "<str>",
+   "commentDeleteConfirm": "<str>",
+   "toast": {
+    "postFail": "<str>",
+    "postEditFail": "<str>",
+    "recommendSuccess": "<str>",
+    "aleadyRecommend": "<str>",
+    "recommendFail": "<str>",
+    "deleteSuccess": "<str>",
+    "deleteFail": "<str>",
+    "commentFail": "<str>",
+    "commentDeleteSuccess": "<str>",
+    "commentDeleteFail": "<str>",
+    "commentOverLength": "<str>",
+    "needComment": "<str>",
+    "needNickname": "<str>",
+    "needTitle": "<str>",
+    "needContent": "<str>",
+    "overLength": "<str>"
+   },
+   "table": {
+    "header": {
+     "title": "<str>",
+     "trait": "<str>",
+     "nickname": "<str>",
+     "createdAt": "<str>",
+     "hit": "<str>"
+    },
+    "empty": "<str>",
+    "searchNull": "<str>"
+   },
+   "list": {
+    "recommend": "<str>"
+   },
+   "detail": {
+    "recommend": "<str>",
+    "author": "<str>"
+   },
+   "writer": {
+    "label": {
+     "nickname": "<str>",
+     "title": "<str>",
+     "builder": "<str>",
+     "content": "<str>",
+     "sticky": "<str>",
+     "hideSeq": "<str>"
+    },
+    "button": {
+     "post": "<str>",
+     "edit": "<str>"
+    }
+   }
+  },
+  "login": {
+   "naver": "<str>",
+   "facebook": "<str>",
+   "google": "<str>"
+  }
+ },
+ "comp": {
+  "title": "<str>",
+  "menu": {
+   "youtuber": "<str>"
+  },
+  "banner": {
+   "comp": "<str>",
+   "youtuber": "<str>",
+   "exalted": "<str>"
+  },
+  "notice": {
+   "exalted": {
+    "first": "<str>",
+    "second": "<str>"
+   }
+  },
+  "youtuber": {
+   "filter": {
+    "all": "<str>"
+   }
+  },
+  "searchFilter": {
+   "placeholder": "<str>",
+   "noData": "<str>"
+  }
+ },
+ "encounter": {
+  "title": "<str>",
+  "stage": "<str>",
+  "round": "<str>",
+  "choiceLabel": "<str>",
+  "stageMenu": {
+   "all": "<str>",
+   "stage_1": "<str>",
+   "stage_2": "<str>",
+   "stage_3": "<str>",
+   "stage_4": "<str>",
+   "stage_5": "<str>",
+   "stage_6": "<str>"
+  },
+  "version": "<str>"
+ },
+ "exalted": {
+  "builder": "<str>",
+  "viewDetails": "<str>",
+  "copyBuilder": "<str>",
+  "label": {
+   "comp": "<str>",
+   "exalted": "<str>",
+   "stats": "<str>"
+  },
+  "three_exalted": "<str>",
+  "five_exalted": "<str>",
+  "filter": {
+   "champion": {
+    "title": "<str>",
+    "info": "<str>"
+   },
+   "init": "<str>",
+   "foldButton": {
+    "more": "<str>",
+    "fold": "<str>"
+   },
+   "tab": {
+    "three_exalted": "<str>",
+    "five_exalted": "<str>",
+    "stats": "<str>",
+    "comp": "<str>"
+   },
+   "sort": {
+    "name": "<str>",
+    "rank": "<str>",
+    "games": "<str>",
+    "win_rate": "<str>",
+    "top": "<str>"
+   }
+  },
+  "stats": {
+   "label": {
+    "games": "<str>",
+    "avgRank": "<str>",
+    "top": "<str>",
+    "winRate": "<str>"
+   }
+  },
+  "detail": {
+   "table": {
+    "tab": {
+     "champion": "<str>",
+     "trait": "<str>",
+     "item": "<str>",
+     "augment": "<str>",
+     "match": "<str>"
+    }
+   },
+   "summary": {
+    "label": {
+     "placement": "<str>",
+     "reachLevel": "<str>"
+    }
+   }
+  }
+ },
+ "favorites": {
+  "seo": {
+   "title": "<str>"
+  },
+  "alt": {
+   "profileIcon": "<str>"
+  },
+  "sharedInfo": {
+   "authorName": "<str>",
+   "link": "<str>"
+  },
+  "table": {
+   "header": {
+    "rank": "<str>",
+    "summoner": "<str>",
+    "tier": "<str>",
+    "lp": "<str>",
+    "winRate": "<str>",
+    "top4Rate": "<str>",
+    "plays": "<str>",
+    "wins": "<str>",
+    "top4": "<str>"
+   },
+   "unrankedNotice": "<str>",
+   "noUser": "<str>",
+   "noItems": "<str>",
+   "removeBookmark": "<str>"
+  },
+  "share": {
+   "button": "<str>",
+   "toast": {
+    "success": "<str>",
+    "failure": "<str>"
+   },
+   "createModal": {
+    "title": "<str>",
+    "description": "<str>",
+    "labelField": {
+     "required": "<str>",
+     "optional": "<str>",
+     "name": {
+      "label": "<str>",
+      "description": "<str>"
+     },
+     "author": {
+      "label": "<str>",
+      "description": "<str>"
+     }
+    },
+    "button": {
+     "close": "<str>",
+     "create": "<str>"
+    }
+   }
+  },
+  "delete": {
+   "toast": {
+    "confirm": "<str>",
+    "success": "<str>",
+    "failure": "<str>"
+   },
+   "confirm": "<str>",
+   "button": "<str>",
+   "modal": {
+    "title": "<str>",
+    "description": "<str>",
+    "labelField": {
+     "confirm": {
+      "label": "<str>",
+      "description": "<str>"
+     }
+    },
+    "button": {
+     "close": "<str>",
+     "delete": "<str>"
+    }
+   }
+  }
+ },
+ "front-page": {
+  "set18PbeQuickLinks": {
+   "eyebrow": "<str>",
+   "title": "<str>",
+   "rewards": "<str>",
+   "statistics": {
+    "title": "<str>",
+    "meta": "<str>",
+    "champions": "<str>",
+    "traits": "<str>",
+    "items": "<str>"
+   }
+  },
+  "set18PreviewVideo": {
+   "title": "<str>",
+   "thumbnailLabel": "<str>",
+   "previous": "<str>",
+   "next": "<str>",
+   "notice": {
+    "riot": "<str>",
+    "pbe": "<str>"
+   }
+  },
+  "rsoDescription": "<str>",
+  "spectate": {
+   "notice": "<str>",
+   "button": "<str>"
+  },
+  "meta": {
+   "title": "<str>",
+   "detail": "<str>",
+   "seeMore": "<str>",
+   "noData": "<str>",
+   "gold": "<str>",
+   "list": "<str>"
+  },
+  "leaderboard": {
+   "title": "<str>",
+   "table": {
+    "rank": "<str>",
+    "region": "<str>",
+    "summoner": "<str>",
+    "tier": "<str>",
+    "lp": "<str>",
+    "winRate": "<str>",
+    "win": "<str>",
+    "defeat": "<str>"
+   }
+  },
+  "pbePatchNote": {
+   "title": "<str>",
+   "intro": "<str>",
+   "more": "<str>"
+  },
+  "favorites": {
+   "goToFavorites": "<str>",
+   "registedOnly": "<str>",
+   "registed": "<str>"
+  }
+ },
+ "game-guide": {
+  "traitRewards": {
+   "version": "<str>",
+   "set12_tab": {
+    "sugarcraft": "<str>",
+    "anUpgradedAdventure": "<str>",
+    "aGoldenQuest": "<str>",
+    "fortuneFavorstheBold": "<str>"
+   },
+   "subMenus": {
+    "heartsteel": "<str>",
+    "8-bit": "<str>",
+    "super<플레이어>": "<str>",
+    "headliner": "<str>",
+    "exalted": "<str>",
+    "fortune": "<str>"
+   },
+   "headliner": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>",
+     "1": "<str>",
+     "2": "<str>"
+    },
+    "level": "<str>"
+   },
+   "super<플레이어>": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>",
+     "1": "<str>",
+     "2": "<str>"
+    },
+    "tier": "<str>"
+   },
+   "8-bit": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>",
+     "1": "<str>"
+    },
+    "dmgTable": {
+     "title": "<str>",
+     "stack": "<str>",
+     "totalDmg": "<str>"
+    },
+    "rewardTable": {
+     "title": "<str>",
+     "subTitle": "<str>",
+     "rate": "<str>",
+     "reward": "<str>"
+    }
+   },
+   "rewards": {
+    "pocket-recombobulator": "<str>",
+    "loss_one": "<str>",
+    "loss_other": "<str>",
+    "luck": "<str>",
+    "worth": "<str>",
+    "rate": "<str>",
+    "reward": "<str>",
+    "rateUnit": "<str>",
+    "gold": "<str>",
+    "1cost-unit": "<str>",
+    "2cost-unit": "<str>",
+    "3cost-unit": "<str>",
+    "4cost-unit": "<str>",
+    "5cost-unit": "<str>",
+    "6cost-unit": "<str>",
+    "1cost-yordle": "<str>",
+    "2cost-yordle": "<str>",
+    "3cost-yordle": "<str>",
+    "4cost-yordle": "<str>",
+    "5cost-yordle": "<str>",
+    "unstable-components": "<str>",
+    "random-loot": "<str>",
+    "silver-loot-orb": "<str>",
+    "blue-loot-orb": "<str>",
+    "gold-loot-orb": "<str>",
+    "prismatic-loot-orb": "<str>",
+    "thiefs-gloves": "<str>",
+    "spatula": "<str>",
+    "frying-pan": "<str>",
+    "diff-random-loot": "<str>",
+    "...": "<str>"
+   },
+   "heartsteel": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>",
+     "1": "<str>"
+    },
+    "heartGains": {
+     "title": "<str>",
+     "stage": "<str>",
+     "byKill": "<str>",
+     "byDefeat": "<str>"
+    }
+   },
+   "fortune": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>",
+     "1": "<str>"
+    }
+   },
+   "sugarcraft": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>",
+     "1": "<str>"
+    },
+    "rewardTable": {
+     "stack": "<str>",
+     "reward": "<str>"
+    }
+   },
+   "anUpgradedAdventure": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>",
+     "1": "<str>"
+    },
+    "rewardTable": {
+     "rate": "<str>",
+     "reward": "<str>"
+    }
+   },
+   "aGoldenQuest": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>"
+    },
+    "rewardTable": {
+     "rate": "<str>",
+     "reward": "<str>"
+    }
+   },
+   "fortuneFavorstheBold": {
+    "title": "<str>",
+    "desc": {
+     "0": "<str>",
+     "1": "<str>"
+    },
+    "rewardTable": {
+     "stack": "<str>",
+     "reward": "<str>"
+    }
+   }
+  },
+  "augments": {
+   "legacyTitle": "<str>",
+   "title": "<str>",
+   "chance": {
+    "round": "<str>",
+    "prism": "<str>",
+    "gold": "<str>",
+    "silver": "<str>"
+   },
+   "menu": {
+    "1": "<str>",
+    "2": "<str>",
+    "3": "<str>",
+    "4": "<str>",
+    "underground": "<str>",
+    "cheatsheet": "<str>",
+    "simulator": "<str>",
+    "builder": "<str>",
+    "meta": "<str>",
+    "metaPbe_3_5": "<str>",
+    "builder_3_5": "<str>",
+    "metaPbe_5_5": "<str>",
+    "decks_5_5": "<str>",
+    "champions_trends_5_5": "<str>",
+    "traits_trends_5_5": "<str>",
+    "items_trends_5_5": "<str>",
+    "augments_trends_5_5": "<str>",
+    "three_cores_5_5": "<str>",
+    "builder_5_5": "<str>",
+    "metaPbe": "<str>",
+    "anomalies": "<str>",
+    "openingEncounters": "<str>",
+    "champions": "<str>",
+    "synergies": "<str>",
+    "items": "<str>",
+    "augments": "<str>",
+    "legends": "<str>",
+    "portals": "<str>",
+    "traitRewards": "<str>",
+    "chance": "<str>",
+    "...": "<str>"
+   },
+   "no_data_pbe": "<str>"
+  },
+  "patchNotes": {
+   "patchDate": "<str>",
+   "buff": "<str>",
+   "nerf": "<str>",
+   "adjust": "<str>"
+  },
+  "role": {
+   "header": "<str>",
+   "item": "<str>",
+   "champion": "<str>"
+  },
+  "reroll": {
+   "header": "<str>",
+   "level": "<str>",
+   "tier": "<str>",
+   "maxUnits": "<str>",
+   "levelTable": "<str>"
+  },
+  "damage": {
+   "header": "<str>",
+   "sub1": "<str>",
+   "sub2": "<str>",
+   "description": "<str>",
+   "descriptionMobile": "<str>",
+   "stages": "<str>",
+   "tier": "<str>",
+   "gameMode": {
+    "0": "<str>",
+    "1": "<str>"
+   },
+   "tableTitle": {
+    "stage": "<str>",
+    "unit": "<str>"
+   },
+   "tableTitleMobile": {
+    "stage": "<str>",
+    "unit": "<str>"
+   },
+   "stage": "<str>",
+   "unit": "<str>",
+   "damage": "<str>"
+  },
+  "rounds": {
+   "header": "<str>",
+   "stage": "<str>",
+   "round": "<str>",
+   "encounters": "<str>",
+   "portals": "<str>",
+   "carousel": "<str>",
+   "realmOfTheGods": "<str>",
+   "godsReward": "<str>",
+   "blessingFromTheGods": "<str>",
+   "minions": "<str>",
+   "notilus": "<str>",
+   "renekton": "<str>",
+   "chogath": "<str>",
+   "xerath": "<str>",
+   "randomUser": "<str>",
+   "pvp": "<str>",
+   "creep": "<str>",
+   "krugs": "<str>",
+   "swarmkrug": "<str>",
+   "wolves": "<str>",
+   "swarmwolf": "<str>",
+   "raptors": "<str>",
+   "swarmraptor": "<str>",
+   "swarmreksai": "<str>",
+   "dragon": "<str>",
+   "herald": "<str>",
+   "thresh": "<str>",
+   "augmentsRound": "<str>",
+   "voidgrub": "<str>",
+   "gromp": "<str>",
+   "...": "<str>"
+  },
+  "expGold": {
+   "header": "<str>",
+   "exp": {
+    "header": "<str>",
+    "desc": "<str>"
+   },
+   "gold": {
+    "header": "<str>",
+    "desc": "<str>"
+   },
+   "revenue": {
+    "header": "<str>",
+    "divisionHeader": "<str>",
+    "earnHeader": "<str>",
+    "noteHeader": "<str>",
+    "division1": "<str>",
+    "division2": "<str>",
+    "division3": "<str>",
+    "division4": "<str>",
+    "earn1": "<str>",
+    "earn2": "<str>",
+    "earn3": "<str>",
+    "earn4": "<str>",
+    "note1": "<str>",
+    "note2": "<str>",
+    "note3": "<str>",
+    "note4": "<str>"
+   },
+   "rounds": {
+    "header": "<str>",
+    "roundHeader": "<str>",
+    "goldHeader": "<str>",
+    "round1": "<str>",
+    "round2": "<str>",
+    "round3": "<str>",
+    "round4": "<str>",
+    "round5": "<str>",
+    "round6": "<str>",
+    "gold1": "<str>",
+    "gold2": "<str>",
+    "gold3": "<str>",
+    "gold4": "<str>",
+    "gold5": "<str>",
+    "gold6": "<str>"
+   },
+   "streaks": {
+    "header": "<str>",
+    "streakHeader": "<str>",
+    "bonusHeader": "<str>",
+    "streak1": "<str>",
+    "streak2": "<str>",
+    "streak3": "<str>",
+    "streak4": "<str>",
+    "streak5": "<str>",
+    "streak6": "<str>",
+    "bonus1": "<str>",
+    "bonus2": "<str>",
+    "bonus3": "<str>",
+    "bonus4": "<str>",
+    "bonus5": "<str>",
+    "bonus6": "<str>"
+   },
+   "interests": {
+    "header": "<str>",
+    "amountHeader": "<str>",
+    "benefitHeader": "<str>",
+    "amount1": "<str>",
+    "amount2": "<str>",
+    "amount3": "<str>",
+    "amount4": "<str>",
+    "amount5": "<str>",
+    "amount6": "<str>",
+    "benefit1": "<str>",
+    "benefit2": "<str>",
+    "benefit3": "<str>",
+    "benefit4": "<str>",
+    "benefit5": "<str>",
+    "benefit6": "<str>"
+   },
+   "requirements": {
+    "header": "<str>",
+    "sub1": "<str>",
+    "sub2": "<str>",
+    "levelHeader": "<str>",
+    "expHeader": "<str>",
+    "level1": "<str>",
+    "level2": "<str>",
+    "level3": "<str>",
+    "level4": "<str>",
+    "level5": "<str>",
+    "level6": "<str>",
+    "level7": "<str>",
+    "level8": "<str>",
+    "level9": "<str>",
+    "exp1": "<str>",
+    "exp2": "<str>",
+    "exp3": "<str>",
+    "exp4": "<str>",
+    "exp5": "<str>",
+    "exp6": "<str>",
+    "exp7": "<str>",
+    "exp8": "<str>",
+    "exp9": "<str>"
+   }
+  },
+  "hotkeys": {
+   "descTitle": "<str>",
+   "w": "<str>",
+   "e": "<str>",
+   "d": "<str>",
+   "f": "<str>",
+   "n1q": "<str>",
+   "n3r": "<str>",
+   "n2space": "<str>"
+  },
+  "menu": {
+   "patchNotes": "<str>",
+   "pbe-patch-note": "<str>",
+   "role": "<str>",
+   "reroll": "<str>",
+   "rounds": "<str>",
+   "exp": "<str>",
+   "damage": "<str>",
+   "hotkeys": "<str>",
+   "littleLegends": "<str>",
+   "loadedDice": "<str>"
+  },
+  "loadedDice": {
+   "title": "<str>",
+   "description1": "<str>",
+   "description2": "<str>",
+   "options": {
+    "toGets": "<str>",
+    "usedOns": "<str>"
+   },
+   "search": {
+    "placeholder": "<str>"
+   },
+   "champions": {
+    "noChampions": "<str>",
+    "buttons": {
+     "more": "<str>",
+     "less": "<str>"
+    }
+   },
+   "table": {
+    "level": "<str>",
+    "usedOn": "<str>"
+   },
+   "seo": {
+    "title": "<str>",
+    "description": "<str>"
+   }
+  },
+  "littleLegends": {
+   "title": "<str>",
+   "description1": "<str>",
+   "description2": "<str>",
+   "search": {
+    "placeholder": "<str>"
+   },
+   "legends": {
+    "noLegends": "<str>",
+    "buttons": {
+     "more": "<str>",
+     "less": "<str>"
+    }
+   },
+   "seo": {
+    "title": "<str>",
+    "description": "<str>"
+   }
+  },
+  "tab": {
+   "guide": "<str>",
+   "trends": "<str>"
+  },
+  "pbeTab": {
+   "guide": "<str>",
+   "trends": "<str>"
+  },
+  "fortune": {
+   "title": {
+    "simulator": "<str>",
+    "rewardList": "<str>"
+   },
+   "simulator": {
+    "table": {
+     "header": {
+      "synergy": "<str>",
+      "round": "<str>",
+      "result": "<str>",
+      "startLuck": "<str>",
+      "increase": "<str>",
+      "dice": "<str>",
+      "reward": "<str>"
+     },
+     "content": {
+      "left": "<str>",
+      "leftOneRound": "<str>",
+      "receiveAble": "<str>",
+      "takeProfit": "<str>",
+      "health": "<str>",
+      "pve": "<str>"
+     }
+    },
+    "luck": "<str>",
+    "result": {
+     "win": "<str>",
+     "lose": "<str>"
+    }
+   }
+  },
+  "pbePatchNote": {
+   "warnNotice": "<str>",
+   "cPatchWarnNotice": "<str>",
+   "untranslateNotice": {
+    "1": "<str>",
+    "2": "<str>"
+   },
+   "banner": {
+    "title": "<str>",
+    "showStats": "<str>",
+    "latestUpdated": "<str>",
+    "notice": {
+     "1": "<str>",
+     "2": "<str>"
+    }
+   },
+   "sectionTitle": {
+    "champion": "<str>",
+    "trait": "<str>",
+    "item": "<str>",
+    "augment": "<str>",
+    "encounter": "<str>",
+    "fortune": "<str>",
+    "portal": "<str>",
+    "charm": "<str>",
+    "anomaly": "<str>",
+    "powerUps": "<str>",
+    "unlocks": "<str>",
+    "reroll": "<str>",
+    "xps": "<str>",
+    "wisps": "<str>"
+   },
+   "wisps": {
+    "tier": "<str>",
+    "cost": "<str>",
+    "appearance": "<str>",
+    "oncePerGame": "<str>"
+   },
+   "powerUps": {
+    "tag": {
+     "weight": "<str>",
+     "minstage": "<str>",
+     "maxstage": "<str>",
+     "minlevel": "<str>",
+     "maxlevel": "<str>",
+     "minHp": "<str>",
+     "percentage": "<str>"
+    }
+   },
+   "table": {
+    "title": {
+     "champion": "<str>",
+     "trait": "<str>",
+     "item": "<str>",
+     "augment": "<str>",
+     "encounter": "<str>",
+     "fortune": "<str>",
+     "portal": "<str>",
+     "charm": "<str>",
+     "anomaly": "<str>",
+     "powerUps": "<str>",
+     "level": "<str>",
+     "wisps": "<str>"
+    },
+    "patch": {
+     "cur": "<str>",
+     "pbe": "<str>"
+    },
+    "new": "<str>",
+    "reactivation": "<str>",
+    "deleted": "<str>"
+   },
+   "stats": {
+    "gold": "<str>",
+    "health": "<str>",
+    "trait": "<str>",
+    "role": "<str>",
+    "cost": "<str>",
+    "attackRange": "<str>",
+    "attackDamage": "<str>",
+    "omnivamp": "<str>",
+    "damageamp": "<str>",
+    "damagePerSecond": "<str>",
+    "attackSpeed": "<str>",
+    "armor": "<str>",
+    "magicalResistance": "<str>",
+    "mana": "<str>",
+    "abilityPower": "<str>",
+    "level": "<str>",
+    "manaregen": "<str>",
+    "damagereduction": "<str>"
+   },
+   "encounter": {
+    "stage": "<str>",
+    "round": "<str>",
+    "probability": "<str>"
+   },
+   "item": {
+    "stat": {
+     "AD": "<str>",
+     "AP": "<str>",
+     "Health": "<str>",
+     "Armor": "<str>",
+     "AS": "<str>",
+     "Mana": "<str>",
+     "MagicResist": "<str>",
+     "CritChance": "<str>",
+     "ManaRegen": "<str>",
+     "StatDurability": "<str>",
+     "StatDamageAmp": "<str>"
+    }
+   },
+   "augment": {
+    "name": "<str>",
+    "stat": {
+     "omnivamp": "<str>",
+     "damageamp": "<str>",
+     "attackdamage": "<str>",
+     "abilitypower": "<str>",
+     "healthscaling": "<str>",
+     "armor": "<str>",
+     "magicresist": "<str>",
+     "attackspeed": "<str>",
+     "mana": "<str>",
+     "choncc-stroke": "<str>",
+     "gold": "<str>",
+     "attackrange": "<str>",
+     "damagereduction": "<str>",
+     "set14amp": "<str>",
+     "level": "<str>",
+     "manaregen": "<str>"
+    },
+    "round": "<str>",
+    "deactivate": "<str>"
+   },
+   "fortune": "<str>",
+   "noneData": "<str>",
+   "loading": "<str>",
+   "unknown": "<str>"
+  },
+  "rewards": {
+   "title": "<str>"
+  },
+  "openingEncounters": {
+   "title": "<str>"
+  }
+ },
+ "gnb": {
+  "menu": {
+   "home": "<str>",
+   "meta": "<str>",
+   "guides": "<str>",
+   "set": "<str>",
+   "set3_5": "<str>",
+   "leaderboards": "<str>",
+   "set15": "<str>",
+   "pbeMeta": "<str>",
+   "set14": "<str>",
+   "set13": "<str>",
+   "set16": "<str>",
+   "set17": "<str>",
+   "set18": "<str>",
+   "set4_5_revival": "<str>",
+   "set10_revival": "<str>",
+   "set7.5_revival": "<str>",
+   "tools": "<str>",
+   "set12": "<str>",
+   "set12_meta": "<str>",
+   "set13_pbe": "<str>",
+   "community": "<str>",
+   "lfg": "<str>",
+   "lfg_community": "<str>",
+   "desktop_app": "<str>",
+   "rewards": "<str>",
+   "wispsTable": "<str>",
+   "powerUpsTable": "<str>",
+   "unlocksTable": "<str>",
+   "champions": "<str>",
+   "traits": "<str>",
+   "...": "<str>"
+  },
+  "familySiteGroup": {
+   "dakgg": "<str>",
+   "esports": "<str>",
+   "coach-contents": "<str>",
+   "esports-and-contents": "<str>"
+  },
+  "familySite": {
+   "pubg": "<str>",
+   "er": "<str>",
+   "val": "<str>",
+   "lol": "<str>",
+   "tft": "<str>",
+   "lor": "<str>",
+   "apex": "<str>",
+   "maple": "<str>",
+   "genshin": "<str>",
+   "deadlock": "<str>",
+   "lvup": "<str>",
+   "riot-league": "<str>",
+   "pubg-league": "<str>",
+   "esports": "<str>",
+   "gca": "<str>",
+   "gco": "<str>",
+   "gcl": "<str>"
+  },
+  "searchBar": {
+   "placeholder": "<str>"
+  }
+ },
+ "items": {
+  "title": "<str>",
+  "revivalTitle": "<str>",
+  "tab": {
+   "desktop": {
+    "statistics": "<str>",
+    "table": "<str>",
+    "guide": "<str>"
+   },
+   "statistics": "<str>",
+   "table": "<str>",
+   "guide": "<str>",
+   "three-cores": "<str>"
+  },
+  "recipe": "<str>",
+  "clear": "<str>",
+  "selectItem": "<str>",
+  "itemList": {
+   "shadow": "<str>",
+   "radiant": "<str>",
+   "title": "<str>",
+   "item": "<str>",
+   "itemAndEffect": "<str>",
+   "desc": "<str>",
+   "com<플레이어>ation": "<str>"
+  },
+  "itemsTable": {
+   "title": "<str>",
+   "byItems": "<str>",
+   "normalItem": "<str>",
+   "shadowItem": "<str>",
+   "highlightEffect": "<str>",
+   "showDesc": "<str>",
+   "seeMore": "<str>"
+  },
+  "statistics": {
+   "table": {
+    "header": {
+     "items": "<str>",
+     "placement": "<str>",
+     "pick-rate": "<str>",
+     "top4-rate": "<str>",
+     "win-rate": "<str>",
+     "plays": "<str>",
+     "item-synergy": "<str>",
+     "champion-top5": "<str>"
+    }
+   },
+   "latestUpdated": "<str>",
+   "detail": "<str>"
+  },
+  "detail": {
+   "title": "<str>",
+   "backToList": "<str>",
+   "championStatistics": "<str>",
+   "table": {
+    "header": {
+     "champion": "<str>"
+    }
+   }
+  },
+  "filter": {
+   "type": {
+    "all": "<str>",
+    "normal": "<str>",
+    "trait": "<str>",
+    "artifact": "<str>",
+    "radiant": "<str>",
+    "support": "<str>",
+    "etc": "<str>",
+    "inkshadow": "<str>",
+    "faerie": "<str>",
+    "storyweaver": "<str>",
+    "chemBaron": "<str>",
+    "junkerKing": "<str>",
+    "exotech": "<str>",
+    "animaSquad": "<str>",
+    "bilgewaterBlackMarket": "<str>",
+    "piltoverModule": "<str>",
+    "mutation": "<str>",
+    "psionic": "<str>",
+    "commander": "<str>"
+   },
+   "queue": {
+    "1100": "<str>",
+    "1130": "<str>",
+    "1160": "<str>"
+   }
+  }
+ },
+ "leaderboard": {
+  "sort": {
+   "wins": "<str>",
+   "tops": "<str>"
+  },
+  "leaderboards": "<str>",
+  "doubleUpComment": "<str>",
+  "tierChart": {
+   "title": "<str>"
+  },
+  "eventModeChartNotice": "<str>",
+  "playUint": "<str>",
+  "avgData": "<str>",
+  "avgPlays": "<str>",
+  "loadingData": "<str>",
+  "lastPageExtra1": "<str>",
+  "lastPageExtra2": "<str>",
+  "avgWinRate": "<str>",
+  "avgWins": "<str>",
+  "avgLoses": "<str>",
+  "lastUpdate": "<str>",
+  "mode": {
+   "ranked": "<str>",
+   "turbo": "<str>",
+   "doubleup": "<str>",
+   "set3.5": "<str>",
+   "set5.5": "<str>",
+   "tockersTrials": "<str>",
+   "aoShinsAscent": "<str>"
+  },
+  "ratio": "<str>",
+  "shard": "<str>",
+  "seo": {
+   "titlePrefix": "<str>",
+   "titleFixed": "<str>",
+   "titleSuffix": "<str>",
+   "title": "<str>",
+   "description": "<str>"
+  }
+ },
+ "legends": {
+  "title": "<str>",
+  "desc": {
+   "0": "<str>",
+   "1": "<str>",
+   "2": "<str>",
+   "title": "<str>"
+  }
+ },
+ "meta": {
+  "metStats": "<str>",
+  "latestUpdated": "<str>",
+  "noData": "<str>",
+  "reset": "<str>",
+  "bestAugments": "<str>",
+  "avgPlacement": "<str>",
+  "loading": {
+   "description": "<str>"
+  },
+  "filter": {
+   "champions": "<str>",
+   "traits": "<str>",
+   "items": "<str>"
+  },
+  "query": {
+   "sort": {
+    "rank": "<str>",
+    "win": "<str>",
+    "pick": "<str>",
+    "top": "<str>"
+   },
+   "tier": {
+    "master": "<str>",
+    "diamond": "<str>",
+    "emerald": "<str>",
+    "platinum": "<str>",
+    "gold": "<str>",
+    "all": "<str>"
+   },
+   "patch": {
+    "patch": "<str>",
+    "2days": "<str>",
+    "3days": "<str>",
+    "7days": "<str>"
+   }
+  },
+  "noChampionInDeck": "<str>",
+  "noTraitInDeck": "<str>",
+  "noItemInDeck": "<str>",
+  "deckDetail": {
+   "noData": "<str>",
+   "noFilteredData": "<str>",
+   "noDeckGuide": "<str>",
+   "shareButton": "<str>",
+   "deckGuide": {
+    "title": "<str>"
+   },
+   "matchHistory": {
+    "title": "<str>",
+    "matchDetail": {
+     "rank": "<str>",
+     "summoner": "<str>",
+     "round": "<str>",
+     "alive": "<str>",
+     "traits": "<str>",
+     "units": "<str>",
+     "leftGold": "<str>"
+    }
+   },
+   "champions": {
+    "title": "<str>",
+    "pickRate": "<str>",
+    "avgPlacement": "<str>",
+    "searchForm": {
+     "placeholder": "<str>"
+    },
+    "pickRates": {
+     "title": "<str>",
+     "desc": "<str>"
+    },
+    "selectedChampionInfo": {
+     "title": "<str>",
+     "cost": "<str>",
+     "origin": "<str>",
+     "class": "<str>"
+    },
+    "utilChampions": {
+     "title": "<str>",
+     "desc": "<str>",
+     "noData": "<str>"
+    },
+    "championTiers": {
+     "title": "<str>"
+    },
+    "championItemCountStat": {
+     "title": "<str>",
+     "numItems": "<str>"
+    },
+    "championsItemStats": {
+     "title": "<str>",
+     "desc": "<str>",
+     "noData": "<str>"
+    }
+   },
+   "augments": {
+    "title": "<str>"
+   },
+   "items": {
+    "title": "<str>",
+    "pickRate": "<str>",
+    "avgPlacement": "<str>",
+    "pickRates": {
+     "title": "<str>",
+     "desc": "<str>"
+    },
+    "searchForm": {
+     "placeholder": "<str>"
+    },
+    "selectedItemStats": {
+     "title": "<str>",
+     "baseItems": "<str>"
+    },
+    "ItemSynergyStats": {
+     "title": "<str>",
+     "desc": "<str>",
+     "noData": "<str>"
+    },
+    "ItemChampionsStats": {
+     "title": "<str>",
+     "desc": "<str>",
+     "noData": "<str>"
+    }
+   },
+   "snsShareTitle": "<str>",
+   "snsShare": "<str>"
+  },
+  "bestAugmentsTooltip": "<str>",
+  "deckVisible": {
+   "hide": "<str>",
+   "unHide": "<str>"
+  },
+  "deckPinned": {
+   "pin": "<str>",
+   "unPin": "<str>"
+  },
+  "searchAugment": "<str>",
+  "noDataAugment": "<str>",
+  "collectData": "<str>",
+  "banner": {
+   "title": "<str>"
+  },
+  "deck": {
+   "title": {
+    "highValue": "<str>"
+   }
+  }
+ },
+ "my-builder": {
+  "title": "<str>",
+  "editBuilder": "<str>",
+  "saveToMyBuilder": {
+   "label": "<str>",
+   "action": "<str>"
+  },
+  "rso": {
+   "login": "<str>",
+   "logout": "<str>"
+  },
+  "viewDetail": "<str>",
+  "loginNotice": {
+   "top": "<str>",
+   "descriptions": {
+    "1": "<str>",
+    "2": "<str>",
+    "3": "<str>",
+    "4": "<str>"
+   }
+  },
+  "maxContents": {
+   "top": "<str>",
+   "descriptions": {
+    "1": "<str>",
+    "2": "<str>"
+   },
+   "goToMyBuilder": "<str>"
+  },
+  "builderTypeSelector": {
+   "descriptions": {
+    "1": "<str>",
+    "2": "<str>"
+   },
+   "buttons": {
+    "self": "<str>",
+    "auto": "<str>"
+   }
+  },
+  "builderSaveNotice": {
+   "top": "<str>",
+   "confirm": "<str>"
+  },
+  "autoBuilderNotice": {
+   "top": "<str>",
+   "top2": "<str>",
+   "confirm": "<str>"
+  },
+  "regist": {
+   "title": "<str>",
+   "new": "<str>",
+   "builder": "<str>",
+   "teamBuilder": "<str>",
+   "comp": "<str>",
+   "meta": "<str>",
+   "recentWinDeck": "<str>"
+  },
+  "buttons": {
+   "edit": "<str>",
+   "editComplete": "<str>"
+  },
+  "toast": {
+   "emptyTitle": "<str>",
+   "emptySlots": "<str>",
+   "createFail": "<str>",
+   "editFail": "<str>",
+   "deleteFail": "<str>"
+  },
+  "nextSeason": {
+   "title": "<str>",
+   "notice": "<str>"
+  },
+  "pastSeason": {
+   "title": "<str>",
+   "notice": "<str>"
+  },
+  "noData": "<str>"
+ },
+ "portals": {
+  "setName": {
+   "set9": "<str>",
+   "set9_5": "<str>",
+   "set10": "<str>"
+  },
+  "title": "<str>",
+  "desc": {
+   "0": "<str>",
+   "1": "<str>",
+   "title": "<str>"
+  },
+  "originTitle": "<str>"
+ },
+ "profile": {
+  "tier": {
+   "hyper": "<str>",
+   "orange": "<str>",
+   "purple": "<str>",
+   "blue": "<str>",
+   "green": "<str>",
+   "gray": "<str>",
+   "challenger": "<str>",
+   "grandmaster": "<str>",
+   "master": "<str>",
+   "diamond": "<str>",
+   "emerald": "<str>",
+   "platinum": "<str>",
+   "gold": "<str>",
+   "silver": "<str>",
+   "bronze": "<str>",
+   "iron": "<str>",
+   "unranked": "<str>",
+   "unrated": "<str>"
+  },
+  "mode": {
+   "0": "<str>",
+   "1090": "<str>",
+   "1100": "<str>",
+   "1130": "<str>",
+   "1150": "<str>",
+   "1160": "<str>",
+   "1170": "<str>",
+   "1180": "<str>",
+   "1190": "<str>",
+   "1210": "<str>",
+   "1220": "<str>",
+   "2200": "<str>",
+   "6000": "<str>",
+   "6100": "<str>",
+   "6110": "<str>",
+   "6120": "<str>",
+   "6130": "<str>",
+   "SET_4_5_REVIVAL": "<str>",
+   "SET_7_5_REVIVAL": "<str>",
+   "SET_15_CHONCC": "<str>",
+   "SET_16_CHONCC": "<str>"
+  },
+  "header": {
+   "updateRecord": "<str>",
+   "recentRecord": "<str>",
+   "updateFail": "<str>",
+   "staleRecord": "<str>",
+   "dakggCard": "<str>",
+   "createDakggCard": "<str>",
+   "setReport": "<str>",
+   "latestUpdate": "<str>",
+   "updating": "<str>",
+   "season": "<str>",
+   "error": "<str>"
+  },
+  "tabMenu": {
+   "home": "<str>",
+   "matches": "<str>",
+   "lp_history": "<str>",
+   "calendar": "<str>",
+   "statistics": "<str>"
+  },
+  "legacyProfileButton": {
+   "description": "<str>",
+   "click": "<str>"
+  },
+  "rankGameStats": {
+   "title": "<str>",
+   "rateFromTop": "<str>",
+   "rate": "<str>",
+   "ratings": {
+    "wins": "<str>",
+    "winrate": "<str>",
+    "tops": "<str>",
+    "topsDesktop": "<str>",
+    "toprate": "<str>",
+    "toprateDesktop": "<str>",
+    "plays": "<str>",
+    "avgPlacement": "<str>"
+   }
+  },
+  "otherModes": {
+   "RANKED_TFT_TURBO": "<str>",
+   "RANKED_TFT_DOUBLE_UP": "<str>",
+   "RANKED_TFT_DOUBLE_UP_BE_FOR_SET7": "<str>",
+   "turboPoint": "<str>",
+   "doubleUpPoint": "<str>"
+  },
+  "tierGraph": {
+   "title": "<str>",
+   "noData": "<str>",
+   "noDataTooltip": "<str>",
+   "recentMatches": "<str>",
+   "entireSeason": "<str>",
+   "filter": {
+    "1100": "<str>",
+    "1130": "<str>",
+    "1150": "<str>",
+    "1160": "<str>",
+    "6120": "<str>"
+   }
+  },
+  "banners": {
+   "genshin": {
+    "title": "<str>",
+    "desc": "<str>"
+   },
+   "setReport": {
+    "title": "<str>",
+    "desc": "<str>"
+   }
+  },
+  "MatchStatistics": {
+   "last20": "<str>",
+   "all": "<str>",
+   "allSeason": "<str>",
+   "title": "<str>",
+   "rank": "<str>",
+   "viewAll": "<str>"
+  },
+  "matchHistory": {
+   "title": "<str>",
+   "eogTitle": "<str>",
+   "goProfile": "<str>",
+   "null": "<str>",
+   "loading": "<str>",
+   "tab": {
+    "total": "<str>",
+    "rank": "<str>",
+    "turbo": "<str>",
+    "doubleUp": "<str>",
+    "soulBrawl": "<str>",
+    "treasure": "<str>",
+    "normal": "<str>",
+    "set3.5": "<str>",
+    "set4.5": "<str>",
+    "set5.5": "<str>",
+    "set10": "<str>",
+    "set7.5": "<str>",
+    "pengusParty": "<str>",
+    "tockersTrials": "<str>",
+    "aoShinsAscent": "<str>",
+    "set15Choncc": "<str>",
+    "set16Choncc": "<str>"
+   },
+   "recentMatchHistory": {
+    "title": "<str>",
+    "mode": {
+     "total": "<str>",
+     "normal": "<str>",
+     "rank": "<str>",
+     "turbo": "<str>",
+     "doubleUp": "<str>",
+     "soulBrawl": "<str>",
+     "treasure": "<str>"
+    },
+    "avgGrade": "<str>",
+    "winCount": "<str>",
+    "topCount": "<str>"
+   },
+   "match": {
+    "header": {
+     "replayNotice": "<str>",
+     "outdatedNotice": "<str>",
+     "gameType": {
+      "RANKED_TFT_TURBO": "<str>",
+      "RANKED_TFT_DOUBLE_UP": "<str>",
+      "RANKED_TFT_DOUBLE_UP_BE_FOR_SET7": "<str>",
+      "RANKED_TFT_SOUL_BRAWL_ID": "<str>",
+      "RANKED_TFT_FORTUNES_FAVOR_ID": "<str>",
+      "RANKED_TFT": "<str>",
+      "NORMAL_TFT": "<str>",
+      "NORMAL_BOT_TFT": "<str>",
+      "LNY23_TFT": "<str>",
+      "TREASURE": "<str>",
+      "SET_3_5_REVIVAL": "<str>",
+      "SET_4_5_REVIVAL": "<str>",
+      "SET_15_CHONCC": "<str>",
+      "SET_17_NORMAL": "<str>",
+      "SET_16_CHONCC": "<str>",
+      "SET_5_5_REVIVAL": "<str>",
+      "SET_7_5_REVIVAL": "<str>",
+      "SET_10_REVIVAL": "<str>",
+      "PENGUS_PARTY": "<str>",
+      "TOCKERS_TRIALS": "<str>",
+      "AO_SHINS_ASCENT": "<str>"
+     }
+    },
+    "detail": {
+     "eogNotice": "<str>",
+     "gameTime": "<str>",
+     "tab": {
+      "rank": "<str>",
+      "round": "<str>",
+      "roundGraph": "<str>",
+      "shopAnalytics": "<str>"
+     }
+    },
+    "roundDetail": {
+     "exceptionUnit": {
+      "TFT_ArmoryKeyComponent": "<str>",
+      "TFT_ArmoryKeyOrnn": "<str>",
+      "TFT_ArmoryKeySupport": "<str>",
+      "TFT_ArmoryKeyCompleted": "<str>",
+      "TFT5_EmblemArmoryKey": "<str>",
+      "TFT11_ExaltedCore": "<str>"
+     },
+     "seeMore": "<str>",
+     "type": {
+      "carousel": "<str>"
+     },
+     "label": {
+      "bench": "<str>",
+      "shop": "<str>",
+      "augments": "<str>",
+      "damage": "<str>"
+     },
+     "shop": {
+      "label": {
+       "level": "<str>",
+       "gold": "<str>",
+       "refresh": "<str>"
+      },
+      "history": {
+       "title": "<str>"
+      }
+     },
+     "notFound": {
+      "title": "<str>",
+      "desc": "<str>"
+     },
+     "install": {
+      "macDetailNotice": "<str>",
+      "macGraphNotice": "<str>",
+      "macShopNotice": "<str>",
+      "description1": "<str>",
+      "description2": "<str>",
+      "description3": "<str>",
+      "description4": "<str>",
+      "download": "<str>",
+      "pcDownload": "<str>"
+     },
+     "roundTable": {
+      "header": {
+       "round": "<str>",
+       "board": "<str>",
+       "augments": "<str>",
+       "invest": "<str>",
+       "result": "<str>",
+       "previousRound": "<str>",
+       "nextRound": "<str>"
+      },
+      "body": {
+       "win": "<str>",
+       "lose": "<str>"
+      }
+     },
+     "traits": {
+      "placeholder": {
+       "title": "<str>",
+       "description": "<str>"
+      }
+     },
+     "damages": {
+      "placeholder": "<str>"
+     },
+     "shopHistory": {
+      "placeholder": "<str>"
+     }
+    },
+    "roundGraph": {
+     "tab": {
+      "hp": "<str>",
+      "gold": "<str>",
+      "level": "<str>",
+      "rank": "<str>"
+     },
+     "label": {
+      "gold": "<str>"
+     },
+     "gold": {
+      "notice": "<str>"
+     }
+    },
+    "shopAnalytics": {
+     "tab": {
+      "my": "<str>",
+      "all": "<str>"
+     },
+     "grade": "<str>",
+     "shop": {
+      "appearCount": "<str>",
+      "buyCount": "<str>",
+      "chart": {
+       "label": {
+        "appearCount": "<str>",
+        "possessionCount": "<str>"
+       }
+      }
+     }
+    },
+    "participants": {
+     "gameTime": "<str>",
+     "header": {
+      "summoner": "<str>",
+      "round": "<str>",
+      "traits": "<str>",
+      "augments": "<str>",
+      "champions": "<str>",
+      "stat": "<str>",
+      "leftGold": "<str>",
+      "kill": "<str>",
+      "damage": "<str>"
+     },
+     "inGame": "<str>",
+     "recording": "<str>",
+     "analyzing": "<str>",
+     "tooltip": {
+      "leftGold": "<str>",
+      "kill": "<str>",
+      "damage": "<str>"
+     }
+    }
+   },
+   "seeMore": "<str>",
+   "noData": "<str>"
+  },
+  "lpHistory": {
+   "tab": {
+    "rank": "<str>",
+    "turbo": "<str>",
+    "doubleUp": "<str>"
+   },
+   "title": "<str>",
+   "timeHelpTooltip": "<str>",
+   "win": "<str>",
+   "lose": "<str>",
+   "tier": "<str>",
+   "gamePlays": "<str>",
+   "gameLose": "<str>",
+   "gameWin": "<str>",
+   "gameWinRate": "<str>"
+  },
+  "overview": {
+   "myStats": {
+    "title": "<str>",
+    "myAccount": "<str>",
+    "userAvg": "<str>",
+    "sumLevel": "<str>",
+    "avgWin": "<str>",
+    "deckCost": "<str>",
+    "synergyCost": "<str>",
+    "sumLiveTime": "<str>"
+   },
+   "activeTimes": {
+    "title": "<str>",
+    "youPlayTimeFor": "<str>"
+   },
+   "statCalendar": {
+    "title": "<str>",
+    "mode": {
+     "rank": "<str>",
+     "turbo": "<str>",
+     "doubleUp": "<str>"
+    },
+    "notSupportedMode": "<str>",
+    "plays": "<str>",
+    "avgGrade": "<str>",
+    "week": {
+     "Sun": "<str>",
+     "Mon": "<str>",
+     "Tue": "<str>",
+     "Wed": "<str>",
+     "Thu": "<str>",
+     "Fri": "<str>",
+     "Sat": "<str>"
+    },
+    "day": {
+     "playHours": "<str>",
+     "plays": "<str>",
+     "avgGrade": "<str>",
+     "promotionDay": "<str>",
+     "demotionDay": "<str>"
+    }
+   },
+   "statistics": {
+    "viewByTier": "<str>",
+    "noData": "<str>",
+    "champions": {
+     "title": "<str>",
+     "label": "<str>"
+    },
+    "items": {
+     "title": "<str>",
+     "label": "<str>"
+    },
+    "traits": {
+     "title": "<str>",
+     "label": "<str>"
+    },
+    "augments": {
+     "title": "<str>",
+     "label": "<str>"
+    },
+    "plays": "<str>",
+    "avgRank": "<str>"
+   }
+  },
+  "calendar": {
+   "today": "<str>",
+   "buttonDisable": "<str>",
+   "rankMode": "<str>",
+   "doubleUpMode": "<str>",
+   "turboMode": "<str>",
+   "maxTier": "<str>",
+   "maxTurboModeMMR": "<str>",
+   "gamePlays": "<str>",
+   "winRate": "<str>",
+   "top4Rate": "<str>",
+   "top2Rate": "<str>",
+   "avgGrade": "<str>",
+   "mostChampions": "<str>",
+   "lpDisplay": "<str>",
+   "noData": "<str>",
+   "week": {
+    "Sun": "<str>",
+    "Mon": "<str>",
+    "Tue": "<str>",
+    "Wed": "<str>",
+    "Thu": "<str>",
+    "Fri": "<str>",
+    "Sat": "<str>"
+   },
+   "promotion": "<str>",
+   "demotion": "<str>",
+   "detail": {
+    "plays": "<str>",
+    "wins": "<str>",
+    "avgRank": "<str>"
+   },
+   "day": {
+    "playHours": "<str>",
+    "plays": "<str>",
+    "avgGrade": "<str>",
+    "promotionDay": "<str>",
+    "demotionDay": "<str>"
+   }
+  },
+  "statistics": {
+   "tab": {
+    "champions": "<str>",
+    "items": "<str>",
+    "traits": "<str>",
+    "augments": "<str>"
+   },
+   "table": {
+    "title": {
+     "champion": "<str>",
+     "item": "<str>",
+     "trait": "<str>",
+     "augment": "<str>",
+     "plays": "<str>",
+     "winRate": "<str>",
+     "topRate": "<str>",
+     "avgRank": "<str>",
+     "favorLegends": "<str>",
+     "favorItems": "<str>",
+     "favorTraits": "<str>",
+     "favorChampions": "<str>"
+    },
+    "noData": "<str>"
+   }
+  },
+  "ingameStatus": {
+   "recent10Match": "<str>",
+   "averageRank": "<str>",
+   "seeMore": "<str>",
+   "fold": "<str>"
+  },
+  "record": "<str>",
+  "recording": "<str>",
+  "spectate": "<str>",
+  "alreadyRecordNotice": "<str>",
+  "recordNotice": "<str>",
+  "recordingNotice": "<str>",
+  "syncWarn": "<str>",
+  "bot": "<str>",
+  "desktop": {
+   "title": "<str>",
+   "desc": "<str>"
+  }
+ },
+ "queue": {
+  "1090": "<str>",
+  "1100": "<str>",
+  "1130": "<str>",
+  "1150": "<str>",
+  "1160": "<str>",
+  "1190": "<str>",
+  "1210": "<str>",
+  "1220": "<str>",
+  "6000": "<str>",
+  "6100": "<str>",
+  "6110": "<str>",
+  "6120": "<str>",
+  "6130": "<str>",
+  "610075": "<str>",
+  "611010": "<str>",
+  "short": {
+   "1090": "<str>",
+   "1100": "<str>",
+   "1130": "<str>",
+   "1150": "<str>",
+   "1160": "<str>",
+   "1190": "<str>",
+   "1210": "<str>",
+   "1220": "<str>",
+   "2200": "<str>",
+   "6000": "<str>",
+   "6110": "<str>",
+   "6120": "<str>",
+   "6130": "<str>",
+   "610075": "<str>",
+   "611010": "<str>"
+  }
+ },
+ "ranks": {
+  "title": "<str>",
+  "championTitle": "<str>",
+  "traitTitle": "<str>",
+  "description": "<str>",
+  "champions": "<str>",
+  "trait": "<str>",
+  "lastUpdate": "<str>",
+  "championRanking": "<str>",
+  "synergyRanking": "<str>",
+  "mode": {
+   "ranked": "<str>",
+   "turbo": "<str>",
+   "doubleUp": "<str>"
+  },
+  "seo": {
+   "title": "<str>",
+   "description": "<str>"
+  }
+ },
+ "rewards": {
+  "desktopTitle": "<str>",
+  "title": "<str>",
+  "powerUps": "<str>",
+  "powerUpsTableTitle": "<str>",
+  "chonccTitle": "<str>",
+  "unlockConditionsTable": "<str>",
+  "rewardTitle": {
+   "chem-baron-black-market": "<str>",
+   "family-heist-rewards": "<str>",
+   "junkerking-items": "<str>",
+   "academy-sponsored-items": "<str>",
+   "conqueror-war-chest-rewards": "<str>",
+   "a-magic-roll": "<str>",
+   "warpath": "<str>",
+   "an-exalted-adventure": "<str>",
+   "prismatic-pipeline": "<str>",
+   "callto-chaos": "<str>",
+   "the-golden-egg": "<str>",
+   "slightly-magic-roll": "<str>",
+   "6-costs": "<str>",
+   "mels-blessing": "<str>",
+   "commingSoon": "<str>",
+   "opening-encounters": "<str>",
+   "booster-pack": "<str>",
+   "space-gods": "<str>",
+   "factory-new": "<str>",
+   "arbiter": "<str>",
+   "apotheotic-forge": "<str>",
+   "expedition": "<str>",
+   "loot-singularity": "<str>",
+   "wisps": "<str>",
+   "psionic": "<str>",
+   "commander": "<str>",
+   "anima": "<str>",
+   "anima-squad": "<str>",
+   "exotech": "<str>",
+   "cypher": "<str>",
+   "...": "<str>"
+  },
+  "set13": {
+   "chem-baron-black-market": {
+    "description": "<str>",
+    "tier": "<str>",
+    "itemList": "<str>",
+    "stackedShimmer": "<str>"
+   },
+   "family-heist-rewards": {
+    "description": "<str>",
+    "heistObjective": "<str>"
+   },
+   "junkerking-items": {
+    "description": "<str>"
+   },
+   "academy-sponsored-items": {
+    "description": "<str>"
+   },
+   "conqueror-war-chest-rewards": {
+    "description": "<str>",
+    "stackedConquest": "<str>"
+   },
+   "a-magic-roll": {
+    "description": "<str>"
+   },
+   "warpath": {
+    "description": "<str>"
+   },
+   "an-exalted-adventure": {
+    "description": "<str>"
+   },
+   "prismatic-pipeline": {
+    "description": "<str>",
+    "total-ratio": "<str>",
+    "gold-ratio": "<str>",
+    "prism-ratio-stage-2": "<str>",
+    "prism-ratio-stage-3+": "<str>"
+   },
+   "callto-chaos": {
+    "description": "<str>"
+   },
+   "the-golden-egg": {
+    "description": "<str>"
+   },
+   "mels-blessing": {
+    "description": "<str>"
+   }
+  },
+  "set14": {
+   "a-magic-roll": {
+    "description": "<str>",
+    "dice": "<str>",
+    "rewards": {
+     "hp": "<str>",
+     "component": "<str>",
+     "goldenEgg": "<str>"
+    }
+   },
+   "warpath": {
+    "description": "<str>"
+   },
+   "an-exalted-adventure": {
+    "description": "<str>"
+   },
+   "anima-squad": {
+    "description": "<str>"
+   },
+   "exotech": {
+    "description": "<str>",
+    "radiantTitle": "<str>"
+   },
+   "cypher": {
+    "description": "<str>",
+    "intel": "<str>",
+    "powerfulGolem": {
+     "title": "<str>",
+     "description": "<str>"
+    }
+   },
+   "expected-unexpectedness": {
+    "description": "<str>",
+    "sameNumbers": "<str>",
+    "rewardDetail": {
+     "1": "<str>",
+     "2": "<str>",
+     "3": "<str>",
+     "4": "<str>"
+    }
+   },
+   "treasure-dragon": {
+    "description": "<str>"
+   },
+   "egg-armory": {
+    "description": "<str>",
+    "label": {
+     "4round": "<str>",
+     "9round": "<str>",
+     "13round": "<str>"
+    }
+   },
+   "double-up": {
+    "label": {
+     "first": "<str>",
+     "second": "<str>"
+    },
+    "round": "<str>",
+    "name": {
+     "5Cost&Gold": "<str>",
+     "duplicator&Gold": "<str>"
+    }
+   },
+   "new-high-score": {
+    "description": "<str>",
+    "label": {
+     "highScore": "<str>",
+     "bonus": "<str>"
+    },
+    "round": "<str>"
+   },
+   "augment-hacks": {
+    "augmentList": "<str>",
+    "label": {
+     "hacksType": "<str>",
+     "silver": "<str>",
+     "gold": "<str>",
+     "prism": "<str>"
+    },
+    "round": "<str>"
+   },
+   "prismatic-pipeline": {
+    "description": "<str>",
+    "total-ratio": "<str>",
+    "gold-ratio": "<str>",
+    "prism-ratio-stage-2": "<str>",
+    "prism-ratio-stage-3+": "<str>"
+   },
+   "callto-chaos": {
+    "description": "<str>"
+   },
+   "mels-blessing": {
+    "description": "<str>"
+   }
+  },
+  "set15": {
+   "a-magic-roll": {
+    "description": "<str>",
+    "dice": "<str>",
+    "rewards": {
+     "hp": "<str>",
+     "component": "<str>",
+     "goldenEgg": "<str>"
+    }
+   },
+   "warpath": {
+    "description": "<str>"
+   },
+   "an-exalted-adventure": {
+    "description": "<str>"
+   },
+   "expected-unexpectedness": {
+    "description": "<str>",
+    "sameNumbers": "<str>",
+    "rewardDetail": {
+     "1": "<str>",
+     "2": "<str>",
+     "3": "<str>",
+     "4": "<str>"
+    }
+   },
+   "double-up": {
+    "label": {
+     "first": "<str>",
+     "second": "<str>"
+    },
+    "round": "<str>",
+    "name": {
+     "5Cost&Gold": "<str>",
+     "duplicator&Gold": "<str>"
+    }
+   },
+   "prismatic-pipeline": {
+    "description": "<str>",
+    "total-ratio": "<str>",
+    "gold-ratio": "<str>",
+    "prism-ratio-stage-2": "<str>",
+    "prism-ratio-stage-3+": "<str>"
+   },
+   "callto-chaos": {
+    "description": "<str>"
+   },
+   "power-ups": {
+    "description": "<str>",
+    "descriptionText": "<str>",
+    "type": {
+     "normal": "<str>",
+     "hero": "<str>"
+    },
+    "filter": {
+     "champion": "<str>",
+     "stage": "<str>",
+     "level": "<str>",
+     "all": "<str>",
+     "showChampion": "<str>"
+    },
+    "tag": {
+     "weight": "<str>",
+     "minStage": "<str>",
+     "maxStage": "<str>",
+     "minLevel": "<str>",
+     "maxLevel": "<str>",
+     "minHp": "<str>",
+     "percentage": "<str>"
+    },
+    "championList": "<str>"
+   },
+   "tournament-favorites": {
+    "description": "<str>"
+   },
+   "nine-lives": {
+    "description": "<str>",
+    "lives": "<str>"
+   },
+   "a-story-of-seven": {
+    "description": "<str>",
+    "wins": "<str>"
+   },
+   "care-package": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "treasure-hunt": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "a-golden-quest": {
+    "description": "<str>"
+   },
+   "the-golden-egg": {
+    "description": "<str>"
+   },
+   "rogue-captain": {
+    "description": "<str>",
+    "info": "<str>",
+    "basicReward": "<str>",
+    "round": "<str>",
+    "reward": {
+     "ThinkFast": {
+      "desc": "<str>"
+     },
+     "All4Cost": {
+      "desc": "<str>"
+     },
+     "All5Cost": {
+      "desc": "<str>"
+     },
+     "RocketUpgrade": {
+      "desc": "<str>",
+      "stats1": "<str>"
+     },
+     "ShipReinforcement": {
+      "desc": "<str>",
+      "stats1": "<str>"
+     },
+     "TwistedFateBuff": {
+      "desc": "<str>",
+      "stats1": "<str>",
+      "stats2": "<str>"
+     },
+     "GainShield": {
+      "desc": "<str>"
+     },
+     "TankBuff": {
+      "desc": "<str>",
+      "stats": "<str>"
+     },
+     "DealBuff": {
+      "desc": "<str>",
+      "stats": "<str>"
+     },
+     "CrewBuff": {
+      "desc": "<str>",
+      "stats": "<str>"
+     },
+     "CrewBuff2": {
+      "desc": "<str>",
+      "stats": "<str>"
+     },
+     "CrewGoldBuff": {
+      "desc": "<str>"
+     },
+     "1_CostCrew": {
+      "desc": "<str>"
+     }
+    }
+   },
+   "crystal-gambit": {
+    "description": "<str>",
+    "gem": "<str>",
+    "lootTable": "<str>",
+    "loot": "<str>",
+    "kills": "<str>",
+    "playerBuff": {
+     "label": "<str>",
+     "starGuardianTowerDefense": "<str>",
+     "monsterTrainerCashout": "<str>",
+     "mightyMechCashout": "<str>",
+     "kayleCashout": "<str>"
+    }
+   }
+  },
+  "set15-choncc": {
+   "rogue-captain": {
+    "description": "<str>",
+    "info": "<str>",
+    "basicReward": "<str>",
+    "round": "<str>",
+    "reward": {
+     "ThinkFast": {
+      "desc": "<str>"
+     },
+     "All4Cost": {
+      "desc": "<str>"
+     },
+     "All5Cost": {
+      "desc": "<str>"
+     },
+     "RocketUpgrade": {
+      "desc": "<str>",
+      "stats1": "<str>"
+     },
+     "ShipReinforcement": {
+      "desc": "<str>",
+      "stats1": "<str>"
+     },
+     "TwistedFateBuff": {
+      "desc": "<str>",
+      "stats1": "<str>",
+      "stats2": "<str>"
+     },
+     "GainShield": {
+      "desc": "<str>"
+     },
+     "TankBuff": {
+      "desc": "<str>",
+      "stats": "<str>"
+     },
+     "DealBuff": {
+      "desc": "<str>",
+      "stats": "<str>"
+     },
+     "CrewBuff": {
+      "desc": "<str>",
+      "stats": "<str>"
+     },
+     "CrewBuff2": {
+      "desc": "<str>",
+      "stats": "<str>"
+     },
+     "CrewGoldBuff": {
+      "desc": "<str>"
+     },
+     "1_CostCrew": {
+      "desc": "<str>"
+     }
+    }
+   },
+   "crystal-gambit": {
+    "description": "<str>",
+    "gem": "<str>",
+    "lootTable": "<str>",
+    "loot": "<str>",
+    "kills": "<str>",
+    "playerBuff": {
+     "label": "<str>",
+     "starGuardianTowerDefense": "<str>",
+     "monsterTrainerCashout": "<str>",
+     "mightyMechCashout": "<str>",
+     "kayleCashout": "<str>"
+    }
+   }
+  },
+  "set16-choncc": {
+   "unlock-conditions": {
+    "description": "<str>",
+    "filter": {
+     "all": "<str>",
+     "cost": "<str>",
+     "HeroAugment": "<str>"
+    }
+   },
+   "bilgewater": {
+    "description": "<str>",
+    "shop": "<str>",
+    "statBuffs": "<str>",
+    "champion": "<str>",
+    "item": "<str>",
+    "etc": "<str>",
+    "loot": {
+     "stat": {
+      "ADAP": "<str>",
+      "Health": "<str>",
+      "AS": "<str>"
+     },
+     "champion": "<str>",
+     "etc": {
+      "ShopRefresh": {
+       "title": "<str>",
+       "desc": "<str>"
+      },
+      "BWLesserDuplicator": {
+       "title": "<str>",
+       "desc": "<str>"
+      }
+     },
+     "IncreaseWithUpgrade": "<str>",
+     "IncreaseWithBuy": "<str>"
+    }
+   },
+   "ixtal": {
+    "description": "<str>",
+    "loot": "<str>",
+    "additionalLoot": "<str>",
+    "quest": "<str>",
+    "questNotice": "<str>",
+    "lowRiskQuests": "<str>",
+    "highRiskQuests": "<str>",
+    "reward": "<str>",
+    "table": {
+     "header": {
+      "type": "<str>",
+      "quest": "<str>",
+      "stage": "<str>"
+     },
+     "lowRisk": "<str>",
+     "highRisk": "<str>",
+     "seeAll": "<str>",
+     "fold": "<str>"
+    }
+   },
+   "piltover": {
+    "description": "<str>",
+    "piltoverModule": "<str>"
+   },
+   "void": {
+    "description": "<str>"
+   },
+   "ascendant": {
+    "description": "<str>"
+   },
+   "yordle-grab-bag": {
+    "description": "<str>"
+   },
+   "the-world-runes": {
+    "description": "<str>"
+   },
+   "lifting-competition": {
+    "description": "<str>",
+    "hp": "<str>"
+   }
+  },
+  "set16": {
+   "nine-lives": {
+    "description": "<str>",
+    "lives": "<str>"
+   },
+   "care-package": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "treasure-hunt": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "the-golden-egg": {
+    "description": "<str>"
+   },
+   "slightly-magic-roll": {
+    "description": "<str>"
+   },
+   "a-magic-roll": {
+    "description": "<str>",
+    "dice": "<str>",
+    "rewards": {
+     "hp": "<str>",
+     "component": "<str>",
+     "goldenEgg": "<str>"
+    }
+   },
+   "warpath": {
+    "description": "<str>"
+   },
+   "an-exalted-adventure": {
+    "description": "<str>"
+   },
+   "expected-unexpectedness": {
+    "description": "<str>",
+    "sameNumbers": "<str>",
+    "rewardDetail": {
+     "1": "<str>",
+     "2": "<str>",
+     "3": "<str>",
+     "4": "<str>"
+    }
+   },
+   "double-up": {
+    "label": {
+     "first": "<str>",
+     "second": "<str>"
+    },
+    "round": "<str>",
+    "name": {
+     "5Cost&Gold": "<str>",
+     "duplicator&Gold": "<str>"
+    }
+   },
+   "prismatic-pipeline": {
+    "description": "<str>",
+    "total-ratio": "<str>",
+    "gold-ratio": "<str>",
+    "prism-ratio-stage-2": "<str>",
+    "prism-ratio-stage-3+": "<str>"
+   },
+   "callto-chaos": {
+    "description": "<str>"
+   },
+   "unlock-conditions": {
+    "description": "<str>",
+    "filter": {
+     "all": "<str>",
+     "cost": "<str>",
+     "HeroAugment": "<str>"
+    }
+   },
+   "bilgewater": {
+    "description": "<str>",
+    "shop": "<str>",
+    "statBuffs": "<str>",
+    "champion": "<str>",
+    "item": "<str>",
+    "etc": "<str>",
+    "loot": {
+     "stat": {
+      "ADAP": "<str>",
+      "Health": "<str>",
+      "AS": "<str>"
+     },
+     "champion": "<str>",
+     "etc": {
+      "ShopRefresh": {
+       "title": "<str>",
+       "desc": "<str>"
+      },
+      "BWLesserDuplicator": {
+       "title": "<str>",
+       "desc": "<str>"
+      }
+     },
+     "IncreaseWithUpgrade": "<str>",
+     "IncreaseWithBuy": "<str>"
+    }
+   },
+   "ixtal": {
+    "description": "<str>",
+    "loot": "<str>",
+    "additionalLoot": "<str>",
+    "quest": "<str>",
+    "questNotice": "<str>",
+    "lowRiskQuests": "<str>",
+    "highRiskQuests": "<str>",
+    "reward": "<str>",
+    "table": {
+     "header": {
+      "type": "<str>",
+      "quest": "<str>",
+      "stage": "<str>"
+     },
+     "lowRisk": "<str>",
+     "highRisk": "<str>",
+     "seeAll": "<str>",
+     "fold": "<str>"
+    }
+   },
+   "piltover": {
+    "description": "<str>",
+    "piltoverModule": "<str>"
+   },
+   "void": {
+    "description": "<str>"
+   },
+   "ascendant": {
+    "description": "<str>"
+   },
+   "yordle-grab-bag": {
+    "description": "<str>"
+   },
+   "the-world-runes": {
+    "description": "<str>"
+   },
+   "lifting-competition": {
+    "description": "<str>",
+    "hp": "<str>"
+   }
+  },
+  "set17": {
+   "space-gods": {
+    "description": "<str>",
+    "weight": "<str>",
+    "stage": "<str>",
+    "stageRewardDisplay": "<str>",
+    "finalRewards": "<str>"
+   },
+   "booster-pack": {
+    "description": "<str>",
+    "bossterPack": "<str>",
+    "bossterPack+": "<str>",
+    "bossterPack++": "<str>"
+   },
+   "factory-new": {
+    "description": "<str>",
+    "seeDescription": "<str>"
+   },
+   "arbiter": {
+    "description": "<str>",
+    "detail": "<str>",
+    "summaryTable": "<str>",
+    "summaryNotice": "<str>",
+    "traits": "<str>",
+    "cause": "<str>",
+    "causeGroup": {
+     "continuous": "<str>",
+     "condition": "<str>",
+     "goldManagement": "<str>"
+    },
+    "effectGroup": {
+     "attack": "<str>",
+     "defense": "<str>",
+     "goldManagement": "<str>"
+    },
+    "tableNotice": "<str>"
+   },
+   "apotheotic-forge": {
+    "description": "<str>"
+   },
+   "loot-singularity": {
+    "description": "<str>",
+    "spaceMatter": "<str>"
+   },
+   "expedition": {
+    "description": "<str>"
+   },
+   "psionic": {
+    "description": "<str>"
+   },
+   "commander": {
+    "description": "<str>"
+   },
+   "anima": {
+    "description": "<str>",
+    "tech": "<str>",
+    "trait": "<str>",
+    "item": "<str>",
+    "tier": "<str>"
+   },
+   "nine-lives": {
+    "description": "<str>",
+    "lives": "<str>"
+   },
+   "care-package": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "treasure-hunt": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "the-golden-egg": {
+    "description": "<str>"
+   },
+   "slightly-magic-roll": {
+    "description": "<str>"
+   },
+   "a-magic-roll": {
+    "description": "<str>",
+    "dice": "<str>",
+    "rewards": {
+     "hp": "<str>",
+     "component": "<str>",
+     "goldenEgg": "<str>"
+    }
+   },
+   "warpath": {
+    "description": "<str>"
+   },
+   "an-exalted-adventure": {
+    "description": "<str>"
+   },
+   "expected-unexpectedness": {
+    "description": "<str>",
+    "sameNumbers": "<str>",
+    "rewardDetail": {
+     "1": "<str>",
+     "2": "<str>",
+     "3": "<str>",
+     "4": "<str>"
+    }
+   },
+   "double-up": {
+    "label": {
+     "first": "<str>",
+     "second": "<str>"
+    },
+    "round": "<str>",
+    "name": {
+     "5Cost&Gold": "<str>",
+     "duplicator&Gold": "<str>"
+    }
+   },
+   "prismatic-pipeline": {
+    "description": "<str>",
+    "total-ratio": "<str>",
+    "gold-ratio": "<str>",
+    "prism-ratio-stage-2": "<str>",
+    "prism-ratio-stage-3+": "<str>"
+   },
+   "callto-chaos": {
+    "description": "<str>"
+   },
+   "unlock-conditions": {
+    "description": "<str>",
+    "filter": {
+     "all": "<str>",
+     "cost": "<str>",
+     "HeroAugment": "<str>"
+    }
+   },
+   "yordle-grab-bag": {
+    "description": "<str>"
+   },
+   "the-world-runes": {
+    "description": "<str>"
+   },
+   "lifting-competition": {
+    "description": "<str>",
+    "hp": "<str>"
+   }
+  },
+  "set18": {
+   "blackthorn": {
+    "title": "<str>",
+    "set": "<str>",
+    "trait": "<str>",
+    "description": "<str>",
+    "descriptionExtra": "<str>",
+    "bonusStats": "<str>",
+    "cost": "<str>",
+    "scalingCost": "<str>",
+    "all": "<str>",
+    "synergy": "<str>",
+    "noResults": "<str>",
+    "costLabel": "<str>",
+    "championCount": "<str>",
+    "star": "<str>",
+    "starLabel": "<str>",
+    "tierLabel": "<str>",
+    "teamHp": "<str>",
+    "team": "<str>",
+    "role": "<str>",
+    "tank": "<str>",
+    "attack": "<str>",
+    "magic": "<str>",
+    "healthscaling": "<str>",
+    "armor": "<str>",
+    "magicresist": "<str>",
+    "attackdamage": "<str>",
+    "attackspeed": "<str>",
+    "manaregen": "<str>",
+    "damageamp": "<str>",
+    "tierMultiplier": "<str>",
+    "...": "<str>"
+   },
+   "wisps": {
+    "description": "<str>",
+    "hint": "<str>",
+    "oncePerGame": "<str>",
+    "nonAppearance": "<str>",
+    "blossom": {
+     "effect": "<str>",
+     "effectAccent": "<str>",
+     "effectSuffix": "<str>",
+     "effectCompactSuffix": "<str>",
+     "prismaticOnly": "<str>",
+     "prismaticOnlyAccent": "<str>",
+     "onlySuffix": "<str>",
+     "onlyCompactSuffix": "<str>",
+     "upgrade": "<str>",
+     "prismatic": "<str>",
+     "upgradeDefault": "<str>",
+     "prismaticDefault": "<str>"
+    },
+    "noResults": "<str>",
+    "category": {
+     "Champion": "<str>",
+     "Combat": "<str>",
+     "GoldXP": "<str>",
+     "Item": "<str>",
+     "Misc": "<str>",
+     "Risky": "<str>",
+     "Shop": "<str>"
+    },
+    "filter": {
+     "stage": "<str>",
+     "type": "<str>",
+     "search": "<str>",
+     "removeSearch": "<str>",
+     "category": "<str>",
+     "cost": "<str>",
+     "all": "<str>",
+     "count": "<str>"
+    }
+   },
+   "coven": {
+    "description": "<str>",
+    "essence": "<str>",
+    "value": "<str>"
+   },
+   "bounty-seeker": {
+    "description": "<str>",
+    "header": {
+     "difficulty": "<str>",
+     "mission": "<str>"
+    },
+    "difficulty": {
+     "EASY": "<str>",
+     "HARD": "<str>"
+    },
+    "reward": {
+     "reroll": "<str>",
+     "xp": "<str>",
+     "bf-sword": "<str>",
+     "gold": "<str>",
+     "random-4-cost": "<str>",
+     "random-5-cost": "<str>",
+     "random-completed-item": "<str>",
+     "random-component": "<str>"
+    }
+   },
+   "greenfather": {
+    "description": "<str>",
+    "bog": "<str>",
+    "creek": "<str>",
+    "forest": "<str>",
+    "mountainside": "<str>",
+    "waterfall": "<str>"
+   },
+   "riftbeast": {
+    "description": "<str>",
+    "shopOdds": {
+     "title": "<str>",
+     "subtitle": "<str>",
+     "champion": "<str>"
+    },
+    "slotOdds": {
+     "title": "<str>",
+     "playerLevel": "<str>"
+    },
+    "level": "<str>",
+    "slotList": "<str>"
+   },
+   "gold-subscription": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "pve": {
+    "highRoll": {
+     "title": "<str>",
+     "roll": "<str>",
+     "probability": "<str>",
+     "allBase": "<str>",
+     "allHigh": "<str>",
+     "highCount": "<str>"
+    },
+    "stageTabsLabel": "<str>",
+    "stageTab": "<str>",
+    "stageFivePlus": "<str>",
+    "rewardList": "<str>",
+    "orbStageRange": "<str>",
+    "monsterHealth": "<str>",
+    "orbTier": {
+     "SILVER": "<str>",
+     "BLUE": "<str>",
+     "GOLD": "<str>",
+     "PRISMATIC": "<str>"
+    },
+    "goldValue": "<str>"
+   },
+   "peddler": {
+    "description": "<str>",
+    "baseCost": "<str>",
+    "upgradeCost": "<str>",
+    "upgradeGoldGain": "<str>",
+    "products": "<str>"
+   },
+   "curio-cart": {
+    "baseCost": "<str>",
+    "upgradeCost": "<str>",
+    "upgradeGoldGain": "<str>",
+    "shop": "<str>"
+   },
+   "lost-travelers": {
+    "base": "<str>",
+    "upgrade": "<str>"
+   },
+   "bonus-gift": {
+    "description": "<str>",
+    "silverOrb": "<str>",
+    "value": "<str>"
+   },
+   "trait-ladder": {
+    "description": "<str>",
+    "sample": {
+     "title": "<str>",
+     "builder": "<str>"
+    },
+    "traits": "<str>"
+   },
+   "primal": {
+    "description": "<str>"
+   },
+   "booster-pack": {
+    "description": "<str>",
+    "bossterPack": "<str>",
+    "bossterPack+": "<str>",
+    "bossterPack++": "<str>"
+   },
+   "expedition": {
+    "description": "<str>"
+   },
+   "nine-lives": {
+    "description": "<str>",
+    "lives": "<str>"
+   },
+   "care-package": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "treasure-hunt": {
+    "description": "<str>",
+    "stage": "<str>"
+   },
+   "the-golden-egg": {
+    "description": "<str>"
+   },
+   "slightly-magic-roll": {
+    "description": "<str>",
+    "oneKind": "<str>",
+    "rewards": {
+     "hp": "<str>"
+    }
+   },
+   "a-magic-roll": {
+    "description": "<str>",
+    "dice": "<str>",
+    "oneKind": "<str>",
+    "rewards": {
+     "hp": "<str>",
+     "component": "<str>",
+     "goldenEgg": "<str>"
+    }
+   },
+   "warpath": {
+    "description": "<str>",
+    "completeReward": "<str>",
+    "oneKind": "<str>"
+   },
+   "an-exalted-adventure": {
+    "description": "<str>"
+   },
+   "expected-unexpectedness": {
+    "description": "<str>",
+    "sameNumbers": "<str>",
+    "rewardDetail": {
+     "1": "<str>",
+     "2": "<str>",
+     "3": "<str>",
+     "4": "<str>"
+    }
+   },
+   "double-up": {
+    "label": {
+     "first": "<str>",
+     "second": "<str>"
+    },
+    "round": "<str>",
+    "name": {
+     "5Cost&Gold": "<str>",
+     "duplicator&Gold": "<str>"
+    }
+   },
+   "prismatic-pipeline": {
+    "description": "<str>",
+    "total-ratio": "<str>",
+    "gold-ratio": "<str>",
+    "prism-ratio-stage-2": "<str>",
+    "prism-ratio-stage-3+": "<str>"
+   },
+   "callto-chaos": {
+    "description": "<str>",
+    "golemTitle": "<str>",
+    "itemSet": "<str>"
+   },
+   "unlock-conditions": {
+    "description": "<str>",
+    "filter": {
+     "all": "<str>",
+     "cost": "<str>",
+     "HeroAugment": "<str>"
+    }
+   },
+   "yordle-grab-bag": {
+    "description": "<str>"
+   },
+   "...": "<str>"
+  },
+  "table": {
+   "header": {
+    "rewards": "<str>",
+    "percentage": "<str>",
+    "stack": "<str>",
+    "objective": "<str>",
+    "diceTotal": "<str>",
+    "fame": "<str>",
+    "wins": "<str>",
+    "loot": "<str>",
+    "candidate": "<str>",
+    "shopSlots": "<str>"
+   }
+  },
+  "6-costs": {
+   "table": {
+    "title": {
+     "default": "<str>",
+     "viktor": "<str>"
+    },
+    "header": {
+     "stage": "<str>",
+     "defaultPercentage": "<str>",
+     "lv10_percentage": "<str>"
+    }
+   }
+  },
+  "worth": "<str>"
+ },
+ "search": {
+  "noResult": {
+   "title": "<str>",
+   "description": "<str>"
+  },
+  "result": {
+   "title": "<str>",
+   "description": "<str>",
+   "placeholder": "<str>",
+   "count": {
+    "description": "<str>"
+   }
+  },
+  "loading": {
+   "description": "<str>"
+  },
+  "rso": {
+   "logout": "<str>",
+   "login": "<str>"
+  }
+ },
+ "set-guide": {
+  "title": {
+   "text1": "<str>",
+   "text2": "<str>"
+  },
+  "menu": {
+   "builder": "<str>",
+   "champions": "<str>",
+   "synergies": "<str>",
+   "items": "<str>",
+   "augments": "<str>",
+   "underground": "<str>"
+  },
+  "underground": {
+   "title": "<str>",
+   "filter": {
+    "legend": "<str>",
+    "heist": "<str>"
+   },
+   "percent": "<str>",
+   "rewards": "<str>",
+   "heist": {
+    "heist1": {
+     "reward1": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>"
+     },
+     "reward2": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>"
+     },
+     "reward3": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>"
+     },
+     "reward4": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>"
+     }
+    },
+    "heist2": {
+     "reward1": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>"
+     },
+     "reward2": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>"
+     },
+     "reward3": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>"
+     },
+     "reward4": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>"
+     },
+     "reward5": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>"
+     },
+     "reward6": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>"
+     }
+    },
+    "heist3": {
+     "reward1": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward2": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward3": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward4": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward5": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward6": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward7": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     }
+    },
+    "heist4": {
+     "reward1": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward2": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward3": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward4": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward5": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward6": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward7": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward8": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward9": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward10": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     }
+    },
+    "heist5": {
+     "reward1": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward2": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward3": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward4": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward5": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward6": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward7": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward8": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward9": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward10": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     }
+    },
+    "heist6": {
+     "reward1": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward2": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward3": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward4": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward5": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward6": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward7": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward8": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward9": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward10": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     }
+    },
+    "heist7": {
+     "reward1": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward2": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward3": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward4": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward5": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward6": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward7": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     },
+     "reward8": {
+      "item1": "<str>",
+      "item2": "<str>",
+      "item3": "<str>",
+      "item4": "<str>",
+      "item5": "<str>",
+      "item6": "<str>"
+     }
+    }
+   }
+  }
+ },
+ "set-report": {
+  "setReport": "<str>",
+  "threeStarChampions": "<str>",
+  "tierAvg": "<str>",
+  "pengu": "<str>",
+  "levelups": "<str>",
+  "mainText1": "<str>",
+  "mainText2": "<str>",
+  "inputSummonerNamePlaceholder": "<str>",
+  "inputSummonerNamePlaceholderShort": "<str>",
+  "riotLogin": "<str>",
+  "seeReport": "<str>",
+  "summonerSearchIcon": "<str>",
+  "leaderboardTitle": "<str>",
+  "leaderboardNoData": "<str>",
+  "loading": {
+   "description": "<str>",
+   "queued": "<str>"
+  },
+  "notFoundIcon": "<str>",
+  "notFoundTitle": "<str>",
+  "notFoundDescription": "<str>",
+  "notFoundDescription2": "<str>",
+  "busy": {
+   "message": "<str>",
+   "description1": "<str>"
+  },
+  "pageSaveIcon": "<str>",
+  "loadingIcon": "<str>",
+  "shareIcon": "<str>",
+  "screenShotLoadingDescription": "<str>",
+  "shareDescription": "<str>",
+  "setSummary": "<str>",
+  "gameCount": {
+   "title": "<str>",
+   "subTitle": "<str>"
+  },
+  "timeEliminated": {
+   "title": "<str>",
+   "subTitle": "<str>"
+  },
+  "playRound": {
+   "title": "<str>",
+   "subTitle": "<str>"
+  },
+  "championsStarCreated": {
+   "title": "<str>",
+   "subTitle": "<str>"
+  },
+  "...": "<str>"
+ },
+ "simulator": {
+  "setFilter": {
+   "set": "<str>"
+  },
+  "search": {
+   "placeholder": "<str>",
+   "noChampions": "<str>"
+  },
+  "selectedChampion": "<str>",
+  "interaction": {
+   "init": "<str>",
+   "share": "<str>",
+   "viewByTrait": "<str>",
+   "viewBySearch": "<str>"
+  },
+  "share": {
+   "clipboard-copy-message": "<str>",
+   "snsShareTitle": "<str>",
+   "snsShare": "<str>"
+  }
+ },
+ "spectate": {
+  "seo": {
+   "title": "<str>"
+  },
+  "title": "<str>",
+  "viewIngame": "<str>",
+  "spectate": "<str>",
+  "mode": {
+   "ranked": "<str>",
+   "turbo": "<str>",
+   "doubleup": "<str>"
+  },
+  "queue": {
+   "1090": "<str>",
+   "1100": "<str>",
+   "1130": "<str>",
+   "1150": "<str>",
+   "1160": "<str>",
+   "1190": "<str>",
+   "1210": "<str>",
+   "2200": "<str>",
+   "6000": "<str>",
+   "6100": "<str>",
+   "6110": "<str>",
+   "6120": "<str>"
+  },
+  "outdatedNotice": "<str>",
+  "pcNotice": "<str>",
+  "activeNotice": "<str>",
+  "order": {
+   "notice": "<str>",
+   "ranking": "<str>",
+   "lp": "<str>",
+   "avgRank": "<str>"
+  },
+  "lastUpdated": "<str>",
+  "userInfo": {
+   "ranking": "<str>",
+   "avgRank": "<str>"
+  },
+  "seeMore": "<str>",
+  "noUser": "<str>",
+  "modal": {
+   "description": {
+    "mac": "<str>",
+    "windows": "<str>"
+   },
+   "copy": "<str>",
+   "download": "<str>",
+   "copySuccess": "<str>"
+  },
+  "type": {
+   "realTime": "<str>",
+   "replay": "<str>"
+  },
+  "windowsNotice": {
+   "title": "<str>",
+   "description": {
+    "topTier": "<str>",
+    "profile": "<str>",
+    "execution": "<str>",
+    "protect": "<str>",
+    "start": "<str>"
+   }
+  },
+  "view": {
+   "card": "<str>",
+   "table": "<str>"
+  },
+  "table": {
+   "header": {
+    "gameMode": "<str>",
+    "summoner": "<str>",
+    "tier": "<str>",
+    "lp": "<str>",
+    "spectate": "<str>"
+   }
+  }
+ },
+ "...": "<str>"
+}

@@ -1,0 +1,98 @@
+{
+ "summonerSeasonOverviews": [
+  {
+   "season": "<str>",
+   "summonerId": "<int>",
+   "queueId": "<int>",
+   "plays": "<int>",
+   "wins": "<int>",
+   "tops": "<int>",
+   "placements": [
+    "<int>"
+   ],
+   "matchStats": [
+    {
+     "key": "<str>",
+     "plays": "<int>",
+     "wins": "<int>",
+     "tops": "<int>",
+     "placements": [
+      "<int>"
+     ],
+     "companionStats": [
+      {
+       "key": "<str>",
+       "plays": "<int>",
+       "wins": "<int>",
+       "tops": "<int>",
+       "placements": "<int>"
+      }
+     ],
+     "championStats": [
+      {
+       "key": "DA_Sentinel18",
+       "plays": "<int>",
+       "wins": "<int>",
+       "tops": "<int>",
+       "placements": "<int>",
+       "championItemStats": [
+        {
+         "key": "DA_GargoyleStoneplate"
+        }
+       ]
+      }
+     ],
+     "traitStats": [
+      {
+       "key": [
+        "DA_18_Brawler"
+       ],
+       "plays": "<int>",
+       "wins": "<int>",
+       "tops": "<int>",
+       "placements": "<int>",
+       "traitChampionStats": [
+        {
+         "key": "DA_18_GnarSmall"
+        }
+       ]
+      }
+     ],
+     "traitStyleStats": [
+      {
+       "key": "DA_Juggernaut18",
+       "plays": "<int>",
+       "wins": "<int>",
+       "tops": "<int>",
+       "placements": "<int>",
+       "styles": {
+        "1": "<int>",
+        "2": "<int>",
+        "3": "<int>"
+       },
+       "traitChampionStats": [
+        {
+         "key": "DA_Vi18"
+        }
+       ]
+      }
+     ],
+     "itemStats": [
+      {
+       "key": "DA_GargoyleStoneplate",
+       "plays": "<int>",
+       "wins": "<int>",
+       "tops": "<int>",
+       "placements": "<int>",
+       "itemChampionStats": [
+        {
+         "key": "DA_Sentinel18"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

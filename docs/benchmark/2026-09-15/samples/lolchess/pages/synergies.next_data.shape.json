@@ -1,0 +1,102 @@
+{
+ "props": {
+  "initialProps": {
+   "locale": "<str>",
+   "notifications": [],
+   "viewOriginalSkin": "<bool>",
+   "isDakggMobile": "<bool>",
+   "isNoBannerToShow": "<bool>",
+   "desktopScale": "<int>",
+   "hasCookieBannerNoticeBarKey": "<bool>",
+   "isLegacyMobile": "<bool>",
+   "isDakggDesktop": "<bool>",
+   "isMobile": "<bool>",
+   "onReleaseTime": "<bool>",
+   "serverTime": "<str>",
+   "notificationKey": "<str>",
+   "bannerKey": "<str>",
+   "isVenatusV4": "<bool>",
+   "theme": "<str>",
+   "showAdOnMobile": "<bool>",
+   "isRnMobileApp": "<bool>",
+   "seasonReleaseInfo": {
+    "season": "<str>",
+    "isReleased": "<bool>"
+   },
+   "embargoExceptionInfo": {
+    "season": "<str>",
+    "isReleased": "<bool>"
+   }
+  },
+  "pageProps": {
+   "set": "<str>",
+   "originalSet": "<str>",
+   "isRevival": "<bool>",
+   "isChoncc": "<bool>",
+   "scale": "<int>",
+   "dehydratedState": {
+    "mutations": [],
+    "queries": [
+     {
+      "state": {
+       "data": {
+        "season": "<str>",
+        "traits": [
+         {
+          "key": "<str>",
+          "ingameKey": "DA_18_Adaptor",
+          "name": "<str>",
+          "desc": "<str>",
+          "imageUrl": "<str>",
+          "blackImageUrl": "<str>",
+          "whiteImageUrl": "<str>",
+          "type": "<str>",
+          "styles": [
+           {
+            "style": "<str>",
+            "min": "<int>",
+            "max": "<int>"
+           }
+          ],
+          "stats": {
+           "2": "<str>",
+           "3": "<str>",
+           "4": "<str>"
+          }
+         }
+        ]
+       },
+       "dataUpdateCount": "<int>",
+       "dataUpdatedAt": "<int>",
+       "error": null,
+       "errorUpdateCount": "<int>",
+       "errorUpdatedAt": "<int>",
+       "fetchFailureCount": "<int>",
+       "fetchFailureReason": null,
+       "fetchMeta": null,
+       "isInvalidated": "<bool>",
+       "status": "<str>",
+       "fetchStatus": "<str>"
+      },
+      "queryKey": [
+       "<str>"
+      ],
+      "queryHash": "<str>"
+     }
+    ]
+   },
+   "revivalSetPrefix": null
+  },
+  "__N_SSP": "<bool>"
+ },
+ "page": "<str>",
+ "query": {
+  "set": "<str>"
+ },
+ "buildId": "<str>",
+ "assetPrefix": "<str>",
+ "isFallback": "<bool>",
+ "gssp": "<bool>",
+ "appGip": "<bool>",
+ "scriptLoader": []
+}

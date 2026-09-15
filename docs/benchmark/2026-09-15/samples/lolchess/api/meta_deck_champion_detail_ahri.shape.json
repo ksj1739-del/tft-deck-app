@@ -1,0 +1,66 @@
+{
+ "patchRevisions": [
+  {
+   "patch": "<int>",
+   "revision": "<int>",
+   "patchVersion": "<str>"
+  }
+ ],
+ "season": "<str>",
+ "metaDeckChampionDetail": {
+  "updatedAt": "<int>",
+  "shard": "<str>",
+  "queueId": "<int>",
+  "dt": "<int>",
+  "patch": "<int>",
+  "revision": "<int>",
+  "tierId": "<int>",
+  "plays": "<int>",
+  "matchCount": "<int>",
+  "metaDeckChampionStat": {
+   "key": "DA_18_Ahri",
+   "plays": "<int>",
+   "wins": "<int>",
+   "tops": "<int>",
+   "placements": "<int>",
+   "pickRate": "<float>",
+   "avgPlacement": "<str>",
+   "championTierStats": [
+    {
+     "key": "<int>",
+     "plays": "<int>",
+     "wins": "<int>",
+     "tops": "<int>",
+     "placements": "<int>",
+     "pickRate": "<float>",
+     "avgPlacement": "<str>"
+    }
+   ],
+   "championItemStats": [
+    {
+     "key": "DA_JeweledGauntlet",
+     "plays": "<int>",
+     "wins": "<int>",
+     "tops": "<int>",
+     "placements": "<int>",
+     "pickRate": "<float>",
+     "avgPlacement": "<str>"
+    }
+   ],
+   "championItemPairStats": [
+    {
+     "keys": [
+      "DA_JeweledGauntlet"
+     ],
+     "plays": "<int>",
+     "wins": "<int>",
+     "tops": "<int>",
+     "placements": "<int>",
+     "pickRate": "<float>",
+     "avgPlacement": "<str>"
+    }
+   ],
+   "championAugmentStats": []
+  }
+ }
+}

@@ -1,0 +1,2076 @@
+{
+ "units": [
+  {
+   "apiName": "TFT_GoldenEgg",
+   "characterName": "TFT_GoldenEgg",
+   "assetNames": [
+    "DA_GoldenEggCharacter",
+    "DA_MagicEggCharacter"
+   ],
+   "name": "The Golden Egg",
+   "cost": 0,
+   "icon": null,
+   "tileIcon": "T_TheGoldenEgg_Mobile",
+   "squareIcon": "T_TheGoldenEgg_Mobile",
+   "traits": [],
+   "traitApiNames": [],
+   "role": "DA_Role_MagicTank",
+   "roleTags": [
+    "Role.Magic.Tank",
+    "Role.Magic",
+    "... 외 1개"
+   ],
+   "stats": {
+    "critChance": 0.25,
+    "critMultiplier": 1.4,
+    "range": 0,
+    "initialMana": 0,
+    "mana": 0,
+    "hp": 11,
+    "damage": null
+   },
+   "ability": {
+    "name": "Hatching",
+    "desc": "This egg will soon hatch into tons of loot! Victorious player combats accelerate the hatch timer by an additional turn.",
+    "icon": "T_TheGoldenEgg_Mobile",
+    "variables": [],
+    "attributeValues": {
+     "TFTCalculationAttributes.GenericCalc1": [
+      11,
+      11,
+      "... 외 2개"
+     ]
+    },
+    "attributeCalcs": {
+     "TFTCalculationAttributes.GenericCalc1": {
+      "terms": [
+       {
+        "op": "override",
+        "type": "scaled",
+        "scaling": "Health",
+        "coefficient": [
+         1,
+         1,
+         "... 외 2개"
+        ]
+       }
+      ],
+      "values": [
+       11,
+       11,
+       "... 외 2개"
+      ],
+      "resolved": true
+     }
+    },
+    "footer": [
+     {
+      "desc": "Remaining Rounds: <TFTAttribute style=\"bright\" attributeId=\"TFTCalculationAttributes.GenericCalc1\"/> ",
+      "row": "Rounds",
+      "values": [
+       [
+        1,
+        11
+       ]
+      ],
+      "precision": null,
+      "show": false,
+      "en_desc": "Remaining Rounds: <TFTAttribute style=\"bright\" attributeId=\"TFTCalculationAttributes.GenericCalc1\"/> "
+     }
+    ]
+   },
+   "shopTier": 0,
+   "poolCount": null,
+   "shopUnit": false,
+   "skin": "TFT_GoldenEgg_Base",
+   "recommendedItems": null,
+   "curve": "CT_GoldenEgg",
+   "curveValues": {},
+   "curveTable": {
+    "Rounds": [
+     [
+      1,
+      11
+     ]
+    ]
+   },
+   "attributeValues": {
+    "TFTCalculationAttributes.GenericCalc1": [
+     11,
+     11,
+     "... 외 2개"
+    ]
+   },
+   "attributeCalcs": {
+    "TFTCalculationAttributes.GenericCalc1": {
+     "terms": [
+      {
+       "op": "override",
+       "type": "scaled",
+       "scaling": "Health",
+       "coefficient": [
+        1,
+        1,
+        "... 외 2개"
+       ]
+      }
+     ],
+     "values": [
+      11,
+      11,
+      "... 외 2개"
+     ],
+     "resolved": true
+    }
+   },
+   "extraAbilities": {
+    "DA_MagicEggCharacter": {
+     "apiName": "DA_MagicEggCharacter",
+     "variant": "MagicEggCharacter",
+     "name": "Hatching",
+     "desc": "This egg will soon hatch into tons of loot!",
+     "icon": "T_TheGoldenEgg_Mobile",
+     "stats": {
+      "critChance": 0.25,
+      "critMultiplier": 1.4,
+      "range": 0,
+      "initialMana": 0,
+      "mana": 0,
+      "hp": 3,
+      "damage": null
+     },
+     "curveValues": {},
+     "curveTable": {
+      "RewardHP": [
+       [
+        1,
+        250
+       ]
+      ],
+      "EggTurns": [
+       [
+        1,
+        3
+       ]
+      ],
+      "RewardScale": [
+       [
+        1,
+        0.15
+       ]
+      ]
+     },
+     "attributeValues": {
+      "TFTCalculationAttributes.GenericCalc1": [
+       3,
+       3,
+       "... 외 2개"
+      ]
+     },
+     "attributeCalcs": {
+      "TFTCalculationAttributes.GenericCalc1": {
+       "terms": [
+        {
+         "op": "override",
+         "type": "scaled",
+         "scaling": "Health",
+         "coefficient": [
+          1,
+          1,
+          "... 외 2개"
+         ]
+        }
+       ],
+       "values": [
+        3,
+        3,
+        "... 외 2개"
+       ],
+       "resolved": true
+      }
+     },
+     "en_name": "Hatching"
+    }
+   },
+   "code": null,
+   "en_name": "The Golden Egg"
+  },
+  {
+   "apiName": "TFT_TrainingDummy",
+   "characterName": "TFT_TrainingDummy",
+   "assetNames": [
+    "DA_TheTower_TrainingDummy",
+    "DA_TrainingDummy"
+   ],
+   "name": "The Tower",
+   "cost": 0,
+   "icon": "TFTTrainingDummy",
+   "tileIcon": "TFT_TrainingDummy_DoNothing",
+   "squareIcon": "TFT_TrainingDummy_DoNothing",
+   "traits": [],
+   "traitApiNames": [],
+   "role": "DA_Role_MagicTank_Manaless",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Tank"
+   ],
+   "stats": {
+    "critChance": 0.25,
+    "critMultiplier": 1.4,
+    "range": 1,
+    "initialMana": 0,
+    "mana": 0,
+    "armor": 30,
+    "attackSpeed": 0.4,
+    "hp": 600,
+    "magicResist": 30,
+    "damage": null
+   },
+   "ability": {
+    "name": "Lightning Strike",
+    "desc": "Every <TFTCurveTable row=\"TowerAttackInterval\"/> seconds, deal <TFTCurveTable format=\"percent\" row=\"MaxHealthDamageMultiplier\"/> max Health true damage to the <TFTCurveTable row=\"TowerNumTargets\"/> ne...(214자)",
+    "icon": "T_TheTower_P",
+    "variables": []
+   },
+   "shopTier": 0,
+   "poolCount": null,
+   "shopUnit": false,
+   "skin": "TFTDebug_Dummy_Base",
+   "recommendedItems": null,
+   "curve": "CT_TheTower",
+   "curveValues": {
+    "TowerAttackInterval": [
+     [
+      1,
+      4
+     ]
+    ],
+    "MaxHealthDamageMultiplier": [
+     [
+      1,
+      0.05
+     ]
+    ],
+    "TowerNumTargets": [
+     [
+      1,
+      3
+     ]
+    ]
+   },
+   "curveTable": {
+    "TowerAttackInterval": [
+     [
+      1,
+      4
+     ]
+    ],
+    "TowerNumTargets": [
+     [
+      1,
+      3
+     ]
+    ],
+    "MaxHealthDamageMultiplier": [
+     [
+      1,
+      0.05
+     ]
+    ],
+    "BrokenMagicShieldMagicResistValue": [
+     [
+      1,
+      0
+     ]
+    ]
+   },
+   "extraAbilities": {
+    "DA_TrainingDummy": {
+     "apiName": "DA_TrainingDummy",
+     "variant": "DA_TrainingDummy",
+     "name": "On Duty!",
+     "desc": "The Training Dummy cannot move or attack. It is also dressed like a devilishly handsome Yordle.",
+     "icon": "TFT_TrainingDummy_DoNothing",
+     "unitName": "Training Dummy",
+     "stats": {
+      "critChance": 0.25,
+      "critMultiplier": 1.4,
+      "range": 1,
+      "initialMana": 0,
+      "mana": 0,
+      "armor": 30,
+      "attackSpeed": 0.4,
+      "hp": 550,
+      "magicResist": 30,
+      "damage": 50,
+      "damageByStar": [
+       50,
+       75,
+       "... 외 2개"
+      ]
+     },
+     "curveValues": {},
+     "curveTable": {
+      "AutoAttackDamage": [
+       [
+        1,
+        50
+       ],
+       [
+        2,
+        75
+       ],
+       "... 외 2개"
+      ]
+     },
+     "en_name": "On Duty!"
+    }
+   },
+   "sharedApiName": true,
+   "code": null,
+   "en_name": "The Tower"
+  },
+  "... 외 10개"
+ ],
+ "traits": [
+  {
+   "apiName": "DA_AluneUniqueTrait18",
+   "name": "Attuned",
+   "desc": "Your strongest Alune cycles to a new phase of the moon after each cast. While the moon is at or below half full, your team gains <TFTCurveTable row=\"Durability\" format=\"invertedPercent\"/> Durabilty. W...(344자)",
+   "icon": "T_AluneUniqueTrait18_Icon",
+   "type": "unique",
+   "effects": [
+    {
+     "minUnits": 1,
+     "maxUnits": 300,
+     "style": 6,
+     "variables": {}
+    }
+   ],
+   "effectsSource": "asset",
+   "units": [
+    {
+     "unit": "TFT18_Alune",
+     "unit_cost": 5
+    }
+   ],
+   "curve": "CT_AluneUniqueTrait18",
+   "curveValues": {
+    "Durability": [
+     [
+      1,
+      0.93
+     ]
+    ],
+    "DamageAmp": [
+     [
+      1,
+      0.07
+     ]
+    ]
+   },
+   "curveTable": {
+    "Durability": [
+     [
+      1,
+      0.93
+     ]
+    ],
+    "DamageAmp": [
+     [
+      1,
+      0.07
+     ]
+    ]
+   },
+   "en_name": "Attuned"
+  },
+  {
+   "apiName": "DA_DravenUniqueTrait18",
+   "name": "Bounty Seeker",
+   "desc": "Choose a bounty. Your strongest Draven can progress on the bounty to earn its reward. Upon completing a bounty, choose another.\r\n\r\n{TraitTags.DravenUniqueTrait.BountyDescription}{TraitTags.DravenUniqu...(215자)",
+   "icon": "T_DravenUniqueTrait18_Icon",
+   "type": "unique",
+   "effects": [
+    {
+     "minUnits": 1,
+     "maxUnits": 300,
+     "style": 6,
+     "variables": {}
+    }
+   ],
+   "effectsSource": "asset",
+   "units": [
+    {
+     "unit": "TFT18_Draven",
+     "unit_cost": 5
+    }
+   ],
+   "curve": "CT_DravenUniqueTrait",
+   "curveValues": {},
+   "curveTable": {
+    "CastAmount_CastsRequired": [
+     [
+      1,
+      5
+     ]
+    ],
+    "DamageAmount_DamageRequired": [
+     [
+      1,
+      8000
+     ]
+    ],
+    "CastAmount_NumRandom4Costs": [
+     [
+      1,
+      2
+     ]
+    ],
+    "CastAmountHard_CastsRequired": [
+     [
+      1,
+      8
+     ]
+    ],
+    "CastAmountHard_NumRerolls": [
+     [
+      1,
+      10
+     ]
+    ],
+    "AttackAmount_AttacksRequired": [
+     [
+      1,
+      50
+     ]
+    ],
+    "AttackAmount_NumRandom5Costs": [
+     [
+      1,
+      1
+     ]
+    ],
+    "Kills_GoldReward": [
+     [
+      1,
+      12
+     ]
+    ],
+    "DamageAmount_GoldReward": [
+     [
+      1,
+      7
+     ]
+    ],
+    "DamageAmountHard_DamageRequired": [
+     [
+      1,
+      35000
+     ]
+    ],
+    "DamageAmountHard_GoldReward": [
+     [
+      1,
+      15
+     ]
+    ],
+    "DamageAmountSingleCombat_DamageRequired": [
+     [
+      1,
+      10000
+     ]
+    ],
+    "DamageAmountSingleCombat_NumBFSwordReward": [
+     [
+      1,
+      1
+     ]
+    ],
+    "KillsHard_NumRandomCompletedItemsReward": [
+     [
+      1,
+      1
+     ]
+    ],
+    "Kills_KillsRequired": [
+     [
+      1,
+      6
+     ]
+    ],
+    "SurviveHard_NumRandomComponentsReward": [
+     [
+      1,
+      2
+     ]
+    ],
+    "KillsHard_KillsRequired": [
+     [
+      1,
+      15
+     ]
+    ],
+    "MostDamage_RerollsReward": [
+     [
+      1,
+      2
+     ]
+    ],
+    "Takedowns_TakedownsRequired": [
+     [
+      1,
+      14
+     ]
+    ],
+    "SurviveHard_NumCombats": [
+     [
+      1,
+      3
+     ]
+    ],
+    "Takedowns_XPReward": [
+     [
+      1,
+      10
+     ]
+    ],
+    "DamageAmountHard_NumBFSwordReward": [
+     [
+      1,
+      1
+     ]
+    ]
+   },
+   "en_name": "Bounty Seeker"
+  },
+  "... 외 10개"
+ ],
+ "items": [
+  {
+   "id": null,
+   "apiName": "DA_AdaptiveHelm",
+   "name": "Adaptive Helm",
+   "desc": "Gain an additional <TFTCurveTable row=\"ManaMultiplierFromAllSources\" format=\"percentMinusOne\"/> Mana from all sources. The wearer gains an additional bonus based on their Role:\r\n\r\nTanks and Fighters: ...(386자)",
+   "statLine": "<TFTCurveTable row=\"MagicResistBase\" type=\"stat\" icon=\"Icon.MR\"/> <TFTCurveTable row=\"ManaRegenBase\" type=\"stat\" icon=\"Icon.ManaRegen\"/>",
+   "icon": "T_AdaptiveHelm",
+   "unique": false,
+   "composition": [
+    "DA_Component_TearOfTheGoddess",
+    "DA_Component_NegatronCloak"
+   ],
+   "associatedTraits": [],
+   "incompatibleTraits": [],
+   "effects": {},
+   "tags": [
+    "Item.Equippable.Item.Craftable",
+    "Item.Equippable.Category.Magic",
+    "... 외 1개"
+   ],
+   "itemTags": [
+    "Item.Equippable.Item.Craftable",
+    "Item.Equippable.Category.Magic",
+    "... 외 1개"
+   ],
+   "overlays": [],
+   "from": null,
+   "upgrade": "DA_AdaptiveHelm_Radiant",
+   "curve": "CT_AdaptiveHelm",
+   "curveValues": {
+    "ManaMultiplierFromAllSources": [
+     [
+      1,
+      1.15
+     ]
+    ],
+    "ArmorForTanksAndFighters": [
+     [
+      1,
+      80
+     ]
+    ],
+    "ADForOthers": [
+     [
+      1,
+      0.1
+     ]
+    ],
+    "MagicResistBase": [
+     [
+      1,
+      20
+     ]
+    ],
+    "ManaRegenBase": [
+     [
+      1,
+      3
+     ]
+    ]
+   },
+   "curveTable": {
+    "ManaMultiplierFromAllSources": [
+     [
+      1,
+      1.15
+     ]
+    ],
+    "ManaRegenBase": [
+     [
+      1,
+      3
+     ]
+    ],
+    "ArmorForTanksandFighters": [
+     [
+      1,
+      30
+     ]
+    ],
+    "MRForTanksandFighters": [
+     [
+      1,
+      30
+     ]
+    ],
+    "ADForOthers": [
+     [
+      1,
+      0.1
+     ]
+    ],
+    "APForOthers": [
+     [
+      1,
+      0.1
+     ]
+    ],
+    "MagicResistBase": [
+     [
+      1,
+      20
+     ]
+    ]
+   },
+   "en_name": "Adaptive Helm"
+  },
+  {
+   "id": null,
+   "apiName": "DA_AdaptiveHelm_Radiant",
+   "name": "Radiant Adaptive Helm",
+   "desc": "Gain an additional <TFTCurveTable row=\"ManaMultiplierFromAllSources\" format=\"percentMinusOne\" style=\"colorRadiant\"/> Mana from all sources. The wearer gains an additional bonus based on their Role:\r\n\r...(449자)",
+   "statLine": "<TFTCurveTable row=\"MagicResistBase\" type=\"stat\" icon=\"Icon.MR\"/> <TFTCurveTable row=\"ManaRegenBase\" type=\"stat\" icon=\"Icon.ManaRegen\"/>",
+   "icon": "T_AdaptiveHelm",
+   "unique": false,
+   "composition": [],
+   "associatedTraits": [],
+   "incompatibleTraits": [],
+   "effects": {},
+   "tags": [
+    "Radiant",
+    "Item.Equippable.Item.Radiant",
+    "... 외 2개"
+   ],
+   "itemTags": [
+    "Item.Equippable.Item.Radiant",
+    "Item.Equippable.Category.Magic",
+    "... 외 1개"
+   ],
+   "overlays": [
+    {
+     "id": "Radiant",
+     "texture": "T_Item_Frame_Radiant",
+     "url": "itemframes/t_item_frame_radiant.png"
+    }
+   ],
+   "from": "DA_AdaptiveHelm",
+   "upgrade": null,
+   "curve": "CT_AdaptiveHelm_Radiant",
+   "curveValues": {
+    "ManaMultiplierFromAllSources": [
+     [
+      1,
+      1.3
+     ]
+    ],
+    "ArmorForTanksAndFighters": [
+     [
+      1,
+      80
+     ]
+    ],
+    "ADForOthers": [
+     [
+      1,
+      0.4
+     ]
+    ],
+    "MagicResistBase": [
+     [
+      1,
+      40
+     ]
+    ],
+    "ManaRegenBase": [
+     [
+      1,
+      7
+     ]
+    ]
+   },
+   "curveTable": {
+    "MagicResistBase": [
+     [
+      1,
+      40
+     ]
+    ],
+    "ManaMultiplierFromAllSources": [
+     [
+      1,
+      1.3
+     ]
+    ],
+    "ArmorForTanksAndFighters": [
+     [
+      1,
+      80
+     ]
+    ],
+    "MRForTanksAndFighters": [
+     [
+      1,
+      80
+     ]
+    ],
+    "ADForOthers": [
+     [
+      1,
+      0.4
+     ]
+    ],
+    "APForOthers": [
+     [
+      1,
+      0.4
+     ]
+    ],
+    "ManaRegenBase": [
+     [
+      1,
+      7
+     ]
+    ]
+   },
+   "en_name": "Radiant Adaptive Helm"
+  },
+  "... 외 10개"
+ ],
+ "augments": [
+  {
+   "id": null,
+   "apiName": "DA_AdvancedLoan",
+   "name": "Advanced Loan",
+   "desc": "Gain <TFTCurveTable row=\"GoldInstantBasic\"/> Gold. Your next augment is one tier lower.",
+   "icon": "T_AugmentIcon_AdvancedLoan",
+   "unique": false,
+   "composition": [],
+   "associatedTraits": [],
+   "incompatibleTraits": [],
+   "effects": {},
+   "tags": [
+    "Augment.Category.Economic",
+    "Augment.Variant.AdvancedLoan"
+   ],
+   "manual_tags": [
+    "econ",
+    "misc"
+   ],
+   "from": null,
+   "rarity": "Gold",
+   "roundVariants": [],
+   "rounds": [],
+   "type": "regular",
+   "curve": "CT_AdvancedLoan",
+   "curveValues": {
+    "GoldInstantBasic": [
+     [
+      1,
+      20
+     ]
+    ]
+   },
+   "curveTable": {
+    "GoldInstantPlus": [
+     [
+      1,
+      33
+     ]
+    ],
+    "GoldInstantBasic": [
+     [
+      1,
+      20
+     ]
+    ]
+   },
+   "en_name": "Advanced Loan"
+  },
+  {
+   "id": null,
+   "apiName": "DA_AdvancedLoanPlus",
+   "name": "Advanced Loan+",
+   "desc": "Gain <TFTCurveTable row=\"GoldInstantPlus\"/> Gold. Your next augment is one tier lower.",
+   "icon": "T_AugmentIcon_AdvancedLoanPlus",
+   "unique": false,
+   "composition": [],
+   "associatedTraits": [],
+   "incompatibleTraits": [],
+   "effects": {},
+   "tags": [
+    "Augment.Category.Economic",
+    "Augment.Variant.AdvancedLoan"
+   ],
+   "manual_tags": [
+    "econ",
+    "misc"
+   ],
+   "from": null,
+   "rarity": "Gold",
+   "roundVariants": [
+    "Mid"
+   ],
+   "rounds": [
+    "3-2"
+   ],
+   "type": "regular",
+   "curve": "CT_AdvancedLoan",
+   "curveValues": {
+    "GoldInstantPlus": [
+     [
+      1,
+      33
+     ]
+    ]
+   },
+   "curveTable": {
+    "GoldInstantPlus": [
+     [
+      1,
+      33
+     ]
+    ],
+    "GoldInstantBasic": [
+     [
+      1,
+      20
+     ]
+    ]
+   },
+   "en_name": "Advanced Loan+"
+  },
+  "... 외 10개"
+ ],
+ "armory_items": [
+  {
+   "id": null,
+   "apiName": "DA_Consumable_ChampionDuplicator",
+   "name": "Champion Duplicator",
+   "desc": "Use on a champion to create a 1-star copy on your bench.\r\n\r\n<Rules>Consumable - This item disappears when used.</>",
+   "statLine": null,
+   "icon": "T_Consumable_ChampionDuplicator",
+   "unique": false,
+   "composition": [],
+   "associatedTraits": [],
+   "incompatibleTraits": [],
+   "effects": {},
+   "tags": [
+    "Consumable",
+    "Item.Equippable.Consumable",
+    "... 외 1개"
+   ],
+   "itemTags": [
+    "Item.Equippable.Consumable",
+    "Item.Equippable.Item.Duplicator"
+   ],
+   "overlays": [],
+   "from": null,
+   "upgrade": null,
+   "curve": null,
+   "curveValues": {},
+   "en_name": "Champion Duplicator"
+  },
+  {
+   "id": null,
+   "apiName": "DA_Consumable_LesserChampionDuplicator",
+   "name": "Lesser Champion Duplicator",
+   "desc": "Use on a 3-cost champion or less to create a 1-star copy on your bench.\r\n\r\n<rules>Consumable: This item disappears when used.</>",
+   "statLine": null,
+   "icon": "T_Consumable_LesserChampionDuplicator",
+   "unique": false,
+   "composition": [],
+   "associatedTraits": [],
+   "incompatibleTraits": [],
+   "effects": {},
+   "tags": [
+    "Consumable",
+    "Item.Equippable.Consumable",
+    "... 외 1개"
+   ],
+   "itemTags": [
+    "Item.Equippable.Consumable",
+    "Item.Equippable.Item.Duplicator"
+   ],
+   "overlays": [],
+   "from": null,
+   "upgrade": null,
+   "curve": null,
+   "curveValues": {},
+   "en_name": "Lesser Champion Duplicator"
+  },
+  "... 외 10개"
+ ],
+ "charms": [
+  {
+   "apiName": "DA_AbandonShip18_Upgrade",
+   "name": "Abandon Ship",
+   "desc": "Sell your board and bench, gain <TFTCurveTable row=\"GoldUpgrade\" style=\"Set18CharmUpgrade\"/> gold and <TFTCurveTable row=\"RerollsUpgrade\" style=\"Set18CharmUpgrade\"/> rerolls. ",
+   "icon": "T_SetMechanic18_Icon",
+   "tier": 3,
+   "category": "Risky",
+   "round": "EarlyMid",
+   "rounds": [
+    "EarlyMid"
+   ],
+   "roundBounds": {
+    "EarlyMid": {
+     "start": "3-1",
+     "end": "3-4",
+     "startStage": 3,
+     "startRound": 1,
+     "endStage": 3,
+     "endRound": 4
+    }
+   },
+   "roundSpan": {
+    "start": "3-1",
+    "end": "3-4",
+    "contiguous": true
+   },
+   "cost": 0,
+   "categoryIcon": "T_ShopCardsIcon18_Risky_Tier3",
+   "categoryApiName": "DA_18_CharmCategory_Risky_Tier3",
+   "upgradeOf": "DA_AbandonShip18",
+   "isUpgrade": true,
+   "availability": {
+    "stopsAppearingAfterSeconds": 10,
+    "minArmyValue": 15,
+    "maxArmyValue": 24
+   },
+   "requirements": [
+    {
+     "type": "ArmyExcludeByAugments",
+     "rawType": "DF_ArmyExcludeByAugments_C"
+    },
+    {
+     "type": "MustNotHave3StarChampion",
+     "rawType": "DF_Charms18_MustNotHave3StarChampion_C"
+    },
+    "... 외 2개"
+   ],
+   "shopTables": [
+    "DA_18_CharmsTable_Base"
+   ],
+   "tags": [
+    "Charm.Category.Risky",
+    "Charm.Round.EarlyMid",
+    "... 외 1개"
+   ],
+   "curve": "CT_AbandonShip18",
+   "curveValues": {
+    "GoldUpgrade": [
+     [
+      1,
+      10
+     ]
+    ],
+    "RerollsUpgrade": [
+     [
+      1,
+      10
+     ]
+    ]
+   },
+   "curveTable": {
+    "RerollsUpgrade": [
+     [
+      1,
+      10
+     ]
+    ],
+    "Cost": [
+     [
+      1,
+      0
+     ]
+    ],
+    "Rerolls": [
+     [
+      1,
+      8
+     ]
+    ],
+    "Gold": [
+     [
+      1,
+      6
+     ]
+    ],
+    "XP": [
+     [
+      1,
+      8
+     ]
+    ],
+    "XPUpgrade": [
+     [
+      1,
+      10
+     ]
+    ],
+    "GoldUpgrade": [
+     [
+      1,
+      10
+     ]
+    ],
+    "StopsAppearingAfterThisManySeconds": [
+     [
+      1,
+      10
+     ]
+    ],
+    "MinArmyValueToSee": [
+     [
+      1,
+      15
+     ]
+    ],
+    "MaxArmyValueToSee": [
+     [
+      1,
+      24
+     ]
+    ]
+   },
+   "en_name": "Abandon Ship"
+  },
+  {
+   "apiName": "DA_AbandonShip18",
+   "name": "Abandon Ship",
+   "desc": "Sell your board and bench, gain <TFTCurveTable row=\"Gold\"/> gold and <TFTCurveTable row=\"Rerolls\"/> rerolls. ",
+   "icon": "T_SetMechanic18_Icon",
+   "tier": 3,
+   "category": "Risky",
+   "round": "EarlyMid",
+   "rounds": [
+    "EarlyMid"
+   ],
+   "roundBounds": {
+    "EarlyMid": {
+     "start": "3-1",
+     "end": "3-4",
+     "startStage": 3,
+     "startRound": 1,
+     "endStage": 3,
+     "endRound": 4
+    }
+   },
+   "roundSpan": {
+    "start": "3-1",
+    "end": "3-4",
+    "contiguous": true
+   },
+   "cost": 0,
+   "categoryIcon": "T_ShopCardsIcon18_Risky_Tier3",
+   "categoryApiName": "DA_18_CharmCategory_Risky_Tier3",
+   "upgrade": "DA_AbandonShip18_Upgrade",
+   "availability": {
+    "stopsAppearingAfterSeconds": 10,
+    "minArmyValue": 15,
+    "maxArmyValue": 24
+   },
+   "requirements": [
+    {
+     "type": "ArmyExcludeByAugments",
+     "rawType": "DF_ArmyExcludeByAugments_C"
+    },
+    {
+     "type": "MustNotHave3StarChampion",
+     "rawType": "DF_Charms18_MustNotHave3StarChampion_C"
+    },
+    "... 외 2개"
+   ],
+   "shopTables": [
+    "DA_18_CharmsTable_Base"
+   ],
+   "tags": [
+    "Charm.Category.Risky",
+    "Charm.Round.EarlyMid",
+    "... 외 1개"
+   ],
+   "curve": "CT_AbandonShip18",
+   "curveValues": {
+    "Gold": [
+     [
+      1,
+      6
+     ]
+    ],
+    "Rerolls": [
+     [
+      1,
+      8
+     ]
+    ]
+   },
+   "curveTable": {
+    "RerollsUpgrade": [
+     [
+      1,
+      10
+     ]
+    ],
+    "Cost": [
+     [
+      1,
+      0
+     ]
+    ],
+    "Rerolls": [
+     [
+      1,
+      8
+     ]
+    ],
+    "Gold": [
+     [
+      1,
+      6
+     ]
+    ],
+    "XP": [
+     [
+      1,
+      8
+     ]
+    ],
+    "XPUpgrade": [
+     [
+      1,
+      10
+     ]
+    ],
+    "GoldUpgrade": [
+     [
+      1,
+      10
+     ]
+    ],
+    "StopsAppearingAfterThisManySeconds": [
+     [
+      1,
+      10
+     ]
+    ],
+    "MinArmyValueToSee": [
+     [
+      1,
+      15
+     ]
+    ],
+    "MaxArmyValueToSee": [
+     [
+      1,
+      24
+     ]
+    ]
+   },
+   "en_name": "Abandon Ship"
+  },
+  "... 외 10개"
+ ],
+ "encounters": [
+  {
+   "apiName": "DA_18_GoldenGala",
+   "name": "Golden Gala",
+   "desc": "Leona changes all augments to gold tier this game.",
+   "postSpawnDesc": "All augments offered this game will be gold tier.",
+   "icon": null,
+   "tags": [
+    "Encounter.Round.Early"
+   ],
+   "curve": null,
+   "curveValues": {},
+   "en_name": "Golden Gala"
+  },
+  {
+   "apiName": "DA_18_PrismaticParty",
+   "name": "Prismatic Party",
+   "desc": "Elder Dragon changes all augments to prismatic tier this game.",
+   "postSpawnDesc": "All augments offered this game will be prismatic tier.",
+   "icon": null,
+   "tags": [
+    "Encounter.Round.Early"
+   ],
+   "curve": null,
+   "curveValues": {},
+   "en_name": "Prismatic Party"
+  },
+  "... 외 10개"
+ ],
+ "unitAssetNames": {
+  "DA_GoldenEggCharacter": "TFT_GoldenEgg",
+  "DA_MagicEggCharacter": "TFT_GoldenEgg",
+  "DA_TheTower_TrainingDummy": "TFT_TrainingDummy",
+  "DA_TrainingDummy": "TFT_TrainingDummy",
+  "DA_Golem": "TFT_BlueGolem",
+  "DA_18_Ahri": "TFT18_Ahri",
+  "DA_18_Akali_AD": "TFT18_Akali",
+  "DA_18_Akali_AP": "TFT18_Akali",
+  "DA_18_Alistar": "TFT18_Alistar",
+  "DA_18_Alune": "TFT18_Alune",
+  "DA_Amumu18": "TFT18_Amumu",
+  "DA_18_Aphelios": "TFT18_Aphelios",
+  "DA_18_Ashe": "TFT18_Ashe",
+  "DA_18_AzirSoldier": "TFT18_AzirSoldier",
+  "DA_18_Azir": "TFT18_Azir",
+  "DA_Brambleback18": "TFT18_Brambleback",
+  "DA_18_Caitlyn": "TFT18_Caitlyn",
+  "DA_18_Camille": "TFT18_Camille",
+  "DA_18_Cassiopeia": "TFT18_Cassiopeia",
+  "DA_Cinderling18": "TFT18_Cinderling",
+  "DA_CrimsonRaptor18": "TFT18_MamaBeak",
+  "DA_18_CrimsonRaptor_Mini": "TFT18_CrimsonRaptor_Mini",
+  "DA_18_Diana": "TFT18_Diana",
+  "DA_Draven18": "TFT18_Draven",
+  "DA_18_ElderDragon": "TFT18_ElderDragon",
+  "DA_18_Elise": "TFT18_Elise",
+  "DA_18_EliseSpider": "TFT18_EliseSpider",
+  "DA_18_Ezreal": "TFT18_Ezreal",
+  "DA_Fiddlesticks18": "TFT18_Fiddlesticks",
+  "DA_18_GnarBig": "TFT18_Gnar",
+  "...": "외 30개 키"
+ },
+ "extras": {
+  "augmentTooltips": [
+   {
+    "apiName": "DA_FeelingLucky_HeadsTooltip",
+    "type": "TFTAugmentTooltipData",
+    "owner": "DA_FeelingLucky",
+    "name": null,
+    "desc": "Heads!",
+    "icon": null,
+    "tags": [],
+    "curve": "CT_FeelingLucky",
+    "curveValues": {},
+    "curveTable": {
+     "GoldUpFront": [
+      [
+       1,
+       12
+      ]
+     ],
+     "GoldIfHeads": [
+      [
+       1,
+       4
+      ]
+     ],
+     "HeadsChance": [
+      [
+       1,
+       0.5
+      ]
+     ]
+    },
+    "en_name": null
+   },
+   {
+    "apiName": "DA_FeelingLucky_TailsTooltip",
+    "type": "TFTAugmentTooltipData",
+    "owner": "DA_FeelingLucky",
+    "name": null,
+    "desc": "Tails!",
+    "icon": null,
+    "tags": [],
+    "curve": "CT_FeelingLucky",
+    "curveValues": {},
+    "curveTable": {
+     "GoldUpFront": [
+      [
+       1,
+       12
+      ]
+     ],
+     "GoldIfHeads": [
+      [
+       1,
+       4
+      ]
+     ],
+     "HeadsChance": [
+      [
+       1,
+       0.5
+      ]
+     ]
+    },
+    "en_name": null
+   },
+   "... 외 10개"
+  ],
+  "loot": [
+   {
+    "apiName": "DA_CaretakersFavorLoot",
+    "type": "TFTLootData",
+    "owner": "DA_CaretakersFavor",
+    "name": null,
+    "desc": null,
+    "icon": null,
+    "tags": [],
+    "curve": null,
+    "curveValues": {},
+    "en_name": null
+   },
+   {
+    "apiName": "DA_CookingPot_Loot",
+    "type": "TFTLootData",
+    "owner": "DA_CookingPot",
+    "name": null,
+    "desc": null,
+    "icon": null,
+    "tags": [],
+    "curve": "CT_CookingPot",
+    "curveValues": {},
+    "curveTable": {
+     "HealthIncrease": [
+      [
+       1,
+       60
+      ]
+     ]
+    },
+    "en_name": null
+   },
+   "... 외 10개"
+  ],
+  "payloads": [
+   {
+    "apiName": "DA_DeadlierBlades_StackTooltip",
+    "type": "TFTGameplayAbilityPayloadData",
+    "owner": "DA_DeadlierBlades",
+    "name": "Deathblade Stacks",
+    "desc": "\r\n\r\n<colorRadiant>Bonus Attack Damage: </><TFTAttribute style=\"colorRadiant\" format=\"percent\" attributeId=\"TFTItemAttributes.Stack\"/>",
+    "icon": null,
+    "tags": [],
+    "curve": "CT_DeadlierBlades",
+    "curveValues": {},
+    "curveTable": {
+     "AttackDamagePercent": [
+      [
+       1,
+       0.01
+      ]
+     ],
+     "NumItemsToGrant": [
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "en_name": "Deathblade Stacks"
+   },
+   {
+    "apiName": "DA_DeadlierCaps_StackTooltip",
+    "type": "TFTGameplayAbilityPayloadData",
+    "owner": "DA_DeadlierCaps",
+    "name": null,
+    "desc": "\r\n\r\n<colorRadiant>Bonus Ability Power: </><TFTAttribute style=\"colorRadiant\" format=\"percent\" attributeId=\"TFTItemAttributes.Stack\"/>",
+    "icon": null,
+    "tags": [],
+    "curve": "CT_DeadlierCaps",
+    "curveValues": {},
+    "curveTable": {
+     "NumItemsToGrant": [
+      [
+       1,
+       1
+      ]
+     ],
+     "AbilityPowerPercent": [
+      [
+       1,
+       0.01
+      ]
+     ],
+     "ManaGen": [
+      [
+       1,
+       1
+      ]
+     ]
+    },
+    "en_name": null
+   },
+   "... 외 10개"
+  ],
+  "armoryKeys": [
+   {
+    "apiName": "DA_AnvilArtifact",
+    "type": "TFTArmoryKeyData",
+    "owner": null,
+    "name": "Artifact Item Anvil",
+    "desc": "Drag this to the Shop to open an Armory full of Artifact items!",
+    "icon": "T_ArmoryKeyOrnn",
+    "tags": [],
+    "curve": null,
+    "curveValues": {},
+    "en_name": "Artifact Item Anvil"
+   },
+   {
+    "apiName": "DA_AnvilCompletedItems",
+    "type": "TFTArmoryKeyData",
+    "owner": null,
+    "name": "Completed Item Anvil",
+    "desc": "Drag this to the Shop to open an Armory full of completed items!",
+    "icon": "T_ArmoryKeyCompleted",
+    "tags": [],
+    "curve": null,
+    "curveValues": {},
+    "en_name": "Completed Item Anvil"
+   },
+   "... 외 1개"
+  ],
+  "traitTooltips": [
+   {
+    "apiName": "DA_AluneUniqueTrait18_Tooltip_Phase1",
+    "type": "TFTTraitTooltipData",
+    "owner": "DA_AluneUniqueTrait18",
+    "name": null,
+    "desc": "New Moon <TFTCurveTable row=\"Durability\" format=\"invertedPercent\"/> <img id=\"icon.dura\"/>",
+    "icon": null,
+    "tags": [],
+    "curve": "CT_AluneUniqueTrait18",
+    "curveValues": {
+     "Durability": [
+      [
+       1,
+       0.93
+      ]
+     ]
+    },
+    "curveTable": {
+     "Durability": [
+      [
+       1,
+       0.93
+      ]
+     ],
+     "DamageAmp": [
+      [
+       1,
+       0.07
+      ]
+     ]
+    },
+    "en_name": null
+   },
+   {
+    "apiName": "DA_AluneUniqueTrait18_Tooltip_Phase2",
+    "type": "TFTTraitTooltipData",
+    "owner": "DA_AluneUniqueTrait18",
+    "name": null,
+    "desc": "Waxing Crescent <TFTCurveTable row=\"Durability\" format=\"invertedPercent\"/> <img id=\"icon.dura\"/>",
+    "icon": null,
+    "tags": [],
+    "curve": "CT_AluneUniqueTrait18",
+    "curveValues": {
+     "Durability": [
+      [
+       1,
+       0.93
+      ]
+     ]
+    },
+    "curveTable": {
+     "Durability": [
+      [
+       1,
+       0.93
+      ]
+     ],
+     "DamageAmp": [
+      [
+       1,
+       0.07
+      ]
+     ]
+    },
+    "en_name": null
+   },
+   "... 외 10개"
+  ],
+  "charmCategories": [
+   {
+    "apiName": "DA_18_CharmCategory_Champion_Tier2",
+    "type": "TFTCharmCategoryData",
+    "owner": null,
+    "name": "Champion",
+    "desc": null,
+    "icon": "T_ShopCardsIcon18_Champion_Tier2",
+    "tags": [
+     "Charm.Category.Champion",
+     "Charm.Tier.2"
+    ],
+    "curve": null,
+    "curveValues": {},
+    "en_name": "Champion"
+   },
+   {
+    "apiName": "DA_18_CharmCategory_Champion_Tier3",
+    "type": "TFTCharmCategoryData",
+    "owner": null,
+    "name": "Champion",
+    "desc": null,
+    "icon": "T_ShopCardsIcon18_Champion_Tier3",
+    "tags": [
+     "Charm.Category.Champion",
+     "Charm.Tier.3"
+    ],
+    "curve": null,
+    "curveValues": {},
+    "en_name": "Champion"
+   },
+   "... 외 10개"
+  ],
+  "props": [
+   {
+    "apiName": "DA_18_Coven_Prop",
+    "type": "TFTPropData",
+    "owner": "DA_18_Coven",
+    "name": "Coven Gloombriar",
+    "desc": "<TFTAttribute precision=\"0\" attributeId=\"TFTTraitAttributes.Stack\"/> / <TFTAttribute precision=\"0\" attributeId=\"TFTTraitAttributes.Stack4\"/> Essence for the next reward\r\n\r\nEstimated Value: <TFTAttribu...(259자)",
+    "icon": "T_TraitIcon_18_Coven",
+    "tags": [],
+    "curve": "CT_18_Coven_ArmoryLevels",
+    "curveValues": {},
+    "curveTable": {
+     "ArmoryToPoint": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       40
+      ],
+      "... 외 8개"
+     ],
+     "GoldValues_PleaseRememberToStillUpdateCashoutDAs": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       4
+      ],
+      "... 외 8개"
+     ]
+    },
+    "en_name": "Coven Gloombriar"
+   }
+  ]
+ },
+ "augmentTiers": {
+  "Gold": {
+   "big": {
+    "outerGlow": "#34300F",
+    "innerGlow": "#FFB466",
+    "highlight": "#AC8521",
+    "highlightStrength": 0.75,
+    "gradientRotation": null,
+    "overlayTexture": null,
+    "overlayUrl": null,
+    "maskTexture": "T_TFT_AugmentIcon",
+    "maskUrl": "augments/tiers/t_tft_augmenticon.png"
+   },
+   "small": {
+    "outerGlow": "#403A06",
+    "innerGlow": "#FFB466",
+    "highlight": "#FFC540",
+    "highlightStrength": 0,
+    "gradientRotation": 180,
+    "overlayTexture": null,
+    "overlayUrl": null,
+    "maskTexture": "T_TFT_AugmentIcon",
+    "maskUrl": "augments/tiers/t_tft_augmenticon.png"
+   }
+  },
+  "Prismatic": {
+   "big": {
+    "outerGlow": "#7F4921AF",
+    "innerGlow": "#FFFFFF",
+    "highlight": null,
+    "highlightStrength": 0,
+    "gradientRotation": 360,
+    "overlayTexture": "Tier3",
+    "overlayUrl": "augments/tiers/tier3.png",
+    "maskTexture": "T_TFT_AugmentIcon",
+    "maskUrl": "augments/tiers/t_tft_augmenticon.png"
+   },
+   "small": {
+    "outerGlow": "#673EE8",
+    "innerGlow": "#FFFFFF",
+    "highlight": null,
+    "highlightStrength": 0,
+    "gradientRotation": 360,
+    "overlayTexture": "Tier3_Hexcore",
+    "overlayUrl": "augments/tiers/tier3_hexcore.png",
+    "maskTexture": "T_TFT_AugmentIcon",
+    "maskUrl": "augments/tiers/t_tft_augmenticon.png"
+   }
+  },
+  "Silver": {
+   "big": {
+    "outerGlow": "#203556",
+    "innerGlow": "#8E9AAA",
+    "highlight": "#7AB3E9",
+    "highlightStrength": 0.85,
+    "gradientRotation": null,
+    "overlayTexture": null,
+    "overlayUrl": null,
+    "maskTexture": "T_TFT_AugmentIcon",
+    "maskUrl": "augments/tiers/t_tft_augmenticon.png"
+   },
+   "small": {
+    "outerGlow": "#214271",
+    "innerGlow": "#D6E8FF",
+    "highlight": "#4EA0FF",
+    "highlightStrength": 1.5,
+    "gradientRotation": 180,
+    "overlayTexture": null,
+    "overlayUrl": null,
+    "maskTexture": "T_TFT_AugmentIcon",
+    "maskUrl": "augments/tiers/t_tft_augmenticon.png"
+   }
+  }
+ },
+ "roles": {
+  "DA_Role_AttackAssassin": "Attack Assassin",
+  "DA_Role_HybridAssassin": "Hybrid Assassin",
+  "DA_Role_MagicAssassin": "Magic Assassin",
+  "DA_Role_AttackCaster": "Attack Caster",
+  "DA_Role_HybridCaster": "Hybrid Caster",
+  "DA_Role_MagicCaster": "Magic Caster",
+  "DA_Role_AttackFighter": "Attack Fighter",
+  "DA_Role_HybridFighter": "Hybrid Fighter",
+  "DA_Role_MagicFighter": "Magic Fighter",
+  "DA_Role_AttackMarksman": "Attack Marksman",
+  "DA_Role_HybridMarksman": "Hybrid Marksman",
+  "DA_Role_MagicMarksman": "Magic Marksman",
+  "DA_Role_AttackSpecialist_Ammo": "Attack Specialist",
+  "DA_Role_HybridSpecialist_Ammo": "Hybrid Specialist",
+  "DA_Role_MagicSpecialist_Ammo": "Magic Specialist",
+  "DA_Role_AttackSpecialist": "Attack Specialist",
+  "DA_Role_HybridSpecialist": "Hybrid Specialist",
+  "DA_Role_MagicSpecialist": "Magic Specialist",
+  "DA_Role_AttackTank_Manaless": "Attack Tank",
+  "DA_Role_MagicSpecialist_Manaless": "Magic Specialist",
+  "DA_Role_MagicTank_Manaless": "Magic Tank",
+  "DA_Role_AttackSpecialist_<플레이어>": "Attack Specialist",
+  "DA_Role_HybridSpecialist_<플레이어>": "Hybrid Specialist",
+  "DA_Role_MagicSpecialist_<플레이어>": "Magic Specialist",
+  "DA_Role_AttackSpecialist_Time": "Attack Specialist",
+  "DA_Role_HybridSpecialist_Time": "Hybrid Specialist",
+  "DA_Role_MagicSpecialist_Time": "Magic Specialist",
+  "DA_Role_AttackTank": "Attack Tank",
+  "DA_Role_HybridTank": "Hybrid Tank",
+  "DA_Role_MagicTank": "Magic Tank"
+ },
+ "roleData": {
+  "DA_Role_AttackAssassin": {
+   "name": "Attack Assassin",
+   "desc": "Attacks grant 10 Mana.\r\nTake 15% less damage from all enemies except the current target. ",
+   "icon": "T_Icon_Role_AttackReaper",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Assassin"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Attack Assassin"
+  },
+  "DA_Role_HybridAssassin": {
+   "name": "Hybrid Assassin",
+   "desc": "Attacks grant 10 Mana.\r\nTake 15% less damage from all enemies except the current target. ",
+   "icon": "T_Icon_Role_HybridReaper",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Assassin"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Hybrid Assassin"
+  },
+  "DA_Role_MagicAssassin": {
+   "name": "Magic Assassin",
+   "desc": "Attacks grant 10 Mana.\r\nTake 15% less damage from all enemies except the current target. ",
+   "icon": "T_Icon_Role_MagicReaper",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Assassin"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Magic Assassin"
+  },
+  "DA_Role_AttackCaster": {
+   "name": "Attack Caster",
+   "desc": "Attacks grant 7 Mana.\r\nGain 2 Mana Regen.",
+   "icon": "T_Icon_Role_AttackCaster",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Caster"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Attack Caster"
+  },
+  "DA_Role_HybridCaster": {
+   "name": "Hybrid Caster",
+   "desc": "Attacks grant 7 Mana.\r\nGain 2 Mana Regen.",
+   "icon": "T_Icon_Role_HybridCaster",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Caster"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Hybrid Caster"
+  },
+  "DA_Role_MagicCaster": {
+   "name": "Magic Caster",
+   "desc": "Attacks grant 7 Mana.\r\nGain 2 Mana Regen.",
+   "icon": "T_Icon_Role_MagicCaster",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Caster"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Magic Caster"
+  },
+  "DA_Role_AttackFighter": {
+   "name": "Attack Fighter",
+   "desc": "Attacks grant 10 Mana.\r\nGain 5-30% Attack Speed (based on Stage).",
+   "icon": "T_Icon_Role_AttackFighter",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Fighter"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Attack Fighter"
+  },
+  "DA_Role_HybridFighter": {
+   "name": "Hybrid Fighter",
+   "desc": "Attacks grant 10 Mana.\r\nGain 5-30% Attack Speed (based on Stage).",
+   "icon": "T_Icon_Role_HybridFighter",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Fighter"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Hybrid Fighter"
+  },
+  "DA_Role_MagicFighter": {
+   "name": "Magic Fighter",
+   "desc": "Attacks grant 10 Mana.\r\nGain 5-30% Attack Speed (based on Stage).",
+   "icon": "T_Icon_Role_MagicFighter",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Fighter"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Magic Fighter"
+  },
+  "DA_Role_AttackMarksman": {
+   "name": "Attack Marksman",
+   "desc": "Attacks grant 10 Mana.",
+   "icon": "T_Icon_Role_AttackCarry",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Marksman"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Attack Marksman"
+  },
+  "DA_Role_HybridMarksman": {
+   "name": "Hybrid Marksman",
+   "desc": "Attacks grant 10 Mana.",
+   "icon": "T_Icon_Role_HybridCarry",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Marksman"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Hybrid Marksman"
+  },
+  "DA_Role_MagicMarksman": {
+   "name": "Magic Marksman",
+   "desc": "Attacks grant 10 Mana.",
+   "icon": "T_Icon_Role_MagicCarry",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Marksman"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Magic Marksman"
+  },
+  "DA_Role_AttackSpecialist_Ammo": {
+   "name": "Attack Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_AttackSpecialist",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Ammo",
+   "curve": null,
+   "en_name": "Attack Specialist"
+  },
+  "DA_Role_HybridSpecialist_Ammo": {
+   "name": "Hybrid Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_HybridSpecialist",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Ammo",
+   "curve": null,
+   "en_name": "Hybrid Specialist"
+  },
+  "DA_Role_MagicSpecialist_Ammo": {
+   "name": "Magic Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_MagicSpecialist",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Ammo",
+   "curve": null,
+   "en_name": "Magic Specialist"
+  },
+  "DA_Role_AttackSpecialist": {
+   "name": "Attack Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_AttackSpecialist",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Attack Specialist"
+  },
+  "DA_Role_HybridSpecialist": {
+   "name": "Hybrid Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_HybridSpecialist",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Hybrid Specialist"
+  },
+  "DA_Role_MagicSpecialist": {
+   "name": "Magic Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_MagicSpecialist",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Magic Specialist"
+  },
+  "DA_Role_AttackTank_Manaless": {
+   "name": "Attack Tank",
+   "desc": "Does not gain Mana.\r\nMore likely to be targeted. ",
+   "icon": "T_Icon_Role_AttackTank",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Manaless",
+    "... 외 1개"
+   ],
+   "resourceType": "Mana.ResourceType.None",
+   "curve": null,
+   "en_name": "Attack Tank"
+  },
+  "DA_Role_MagicSpecialist_Manaless": {
+   "name": "Magic Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_MagicSpecialist",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Specialist",
+    "... 외 1개"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Magic Specialist"
+  },
+  "DA_Role_MagicTank_Manaless": {
+   "name": "Magic Tank",
+   "desc": "Does not gain Mana.\r\nMore likely to be targeted. ",
+   "icon": "T_Icon_Role_MagicTank",
+   "roleTags": [
+    "Role.Manaless",
+    "Role.Tank",
+    "... 외 1개"
+   ],
+   "resourceType": "Mana.ResourceType.None",
+   "curve": null,
+   "en_name": "Magic Tank"
+  },
+  "DA_Role_AttackSpecialist_<플레이어>": {
+   "name": "Attack Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_AttackSpecialist",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.<플레이어>",
+   "curve": null,
+   "en_name": "Attack Specialist"
+  },
+  "DA_Role_HybridSpecialist_<플레이어>": {
+   "name": "Hybrid Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_HybridSpecialist",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.<플레이어>",
+   "curve": null,
+   "en_name": "Hybrid Specialist"
+  },
+  "DA_Role_MagicSpecialist_<플레이어>": {
+   "name": "Magic Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_MagicSpecialist",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.<플레이어>",
+   "curve": null,
+   "en_name": "Magic Specialist"
+  },
+  "DA_Role_AttackSpecialist_Time": {
+   "name": "Attack Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_AttackSpecialist",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Time",
+   "curve": null,
+   "en_name": "Attack Specialist"
+  },
+  "DA_Role_HybridSpecialist_Time": {
+   "name": "Hybrid Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_HybridSpecialist",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Time",
+   "curve": null,
+   "en_name": "Hybrid Specialist"
+  },
+  "DA_Role_MagicSpecialist_Time": {
+   "name": "Magic Specialist",
+   "desc": "Specialists generate resources in a unique way. ",
+   "icon": "T_Icon_Role_MagicSpecialist",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Specialist"
+   ],
+   "resourceType": "Mana.ResourceType.Time",
+   "curve": null,
+   "en_name": "Magic Specialist"
+  },
+  "DA_Role_AttackTank": {
+   "name": "Attack Tank",
+   "desc": "Attacks grant 5 Mana.\r\nGain Mana from taking damage.\r\nMore likely to be targeted. ",
+   "icon": "T_Icon_Role_AttackTank",
+   "roleTags": [
+    "Role.Attack",
+    "Role.Tank"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Attack Tank"
+  },
+  "DA_Role_HybridTank": {
+   "name": "Hybrid Tank",
+   "desc": "Attacks grant 5 Mana.\r\nGain Mana from taking damage.\r\nMore likely to be targeted. ",
+   "icon": "T_Icon_Role_HybridTank",
+   "roleTags": [
+    "Role.Hybrid",
+    "Role.Tank"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Hybrid Tank"
+  },
+  "DA_Role_MagicTank": {
+   "name": "Magic Tank",
+   "desc": "Attacks grant 5 Mana.\r\nGain Mana from taking damage.\r\nMore likely to be targeted. ",
+   "icon": "T_Icon_Role_MagicTank",
+   "roleTags": [
+    "Role.Magic",
+    "Role.Tank"
+   ],
+   "resourceType": "Mana.ResourceType.Mana",
+   "curve": null,
+   "en_name": "Magic Tank"
+  }
+ },
+ "_metadata": {
+  "set": "TFTSet18",
+  "setName": "Enchanted Wilds",
+  "patch": "pbe",
+  "generated": "2026-09-11T09:39:23.463Z",
+  "coreHash": "ccee3f1e362438afba5c6be67f4a8104b248e960",
+  "tooltips": "curvetable"
+ }
+}

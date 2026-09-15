@@ -1,0 +1,188 @@
+{
+ "shard": "<str>",
+ "name": "<str>",
+ "season": "<str>",
+ "setReport": {
+  "summoner": {
+   "puuid": "<str>",
+   "shard": "<str>",
+   "name": null,
+   "gameName": "<str>",
+   "tagLine": "<str>",
+   "summonerLevel": "<int>",
+   "profileIconUrl": "<str>",
+   "syncedAt": "<str>"
+  },
+  "summonerLeagues": [
+   {
+    "season": "<str>",
+    "queueId": "<int>",
+    "tier": "<str>",
+    "rank": "<str>",
+    "leaguePoints": "<int>",
+    "plays": "<int>",
+    "wins": "<int>",
+    "tops": "<int>",
+    "avgPlacement": "<str>",
+    "rating": {
+     "tier": {
+      "rank": "<int>",
+      "total": "<int>",
+      "percent": "<float>"
+     },
+     "plays": {
+      "rank": "<int>",
+      "total": "<int>",
+      "percent": "<float>"
+     },
+     "wins": {
+      "rank": "<int>",
+      "total": "<int>",
+      "percent": "<float>"
+     },
+     "tops": {
+      "rank": "<int>",
+      "total": "<int>",
+      "percent": "<float>"
+     },
+     "winrate": {
+      "rank": "<int>",
+      "total": "<int>",
+      "percent": "<int>"
+     },
+     "winrate_10": {
+      "rank": "<int>",
+      "total": "<int>",
+      "percent": "<int>"
+     },
+     "toprate": {
+      "rank": "<int>",
+      "total": "<int>",
+      "percent": "<int>"
+     }
+    }
+   }
+  ],
+  "seasons": [
+   "<str>"
+  ],
+  "setReports": [
+   {
+    "queueId": "<int>",
+    "games": "<int>",
+    "wins": "<int>",
+    "tops": "<int>",
+    "avgPlacement": "<float>",
+    "rounds": "<int>",
+    "playersEliminated": "<int>",
+    "timeEliminated": "<int>",
+    "levels": "<int>",
+    "levelOver9s": "<int>",
+    "items": "<int>",
+    "emblemItems": "<int>",
+    "totalDamageToPlayers": "<int>",
+    "champion3Stars": "<int>",
+    "champion3Star4Costs": "<int>",
+    "champion7Cost": "<int>",
+    "goldOrHigherTraits": "<int>",
+    "augmentPicks": "<int>",
+    "avgGoldLefts": "<int>",
+    "avgGold": "<int>",
+    "uniqueTraits": "<int>",
+    "tacticiansItems": "<int>",
+    "spatulaFryingPanItems": "<int>",
+    "thiefGlovesItems": "<int>",
+    "set13ChemBaronItems": "<int>",
+    "set13Sions": "<int>",
+    "set14Nitros": "<int>",
+    "set15Galios": "<int>",
+    "set17BiaBayins": "<int>",
+    "psRerolls": "<int>",
+    "...": "<str>"
+   }
+  ],
+  "refs": {
+   "companions": [
+    {
+     "id": "<str>",
+     "name": "<str>",
+     "imageUrl": "<str>"
+    }
+   ],
+   "augments": [],
+   "champions": [
+    {
+     "id": "TFT17_Aatrox",
+     "name": "<str>",
+     "imageUrl": "<str>",
+     "cost": "<int>"
+    }
+   ],
+   "traits": [
+    {
+     "id": "TFT17_ADMIN",
+     "name": "<str>",
+     "imageUrl": "<str>",
+     "whiteImageUrl": "<str>",
+     "blackImageUrl": "<str>"
+    }
+   ],
+   "items": [
+    {
+     "id": "TFT17_AnimaSquadItem_Tier0_LeakyPrototype",
+     "name": "<str>",
+     "imageUrl": "<str>"
+    }
+   ],
+   "matches": [
+    {
+     "id": "<str>",
+     "shard": "<str>",
+     "matchId": "<int>",
+     "gameCreatedAt": "<int>",
+     "gameLength": "<int>",
+     "gameVersion": "<str>",
+     "queueId": "<int>",
+     "tftSetCoreName": "<str>",
+     "tftSetNumber": "<int>",
+     "participants": [
+      {
+       "augments": [],
+       "companionId": "<str>",
+       "companionImageUrl": "<str>",
+       "gold_left": "<int>",
+       "last_round": "<int>",
+       "level": "<int>",
+       "placement": "<int>",
+       "players_eliminated": "<int>",
+       "puuid": "<str>",
+       "gameName": "<str>",
+       "tagLine": "<str>",
+       "time_eliminated": "<int>",
+       "total_damage_to_players": "<int>",
+       "traits": [
+        {
+         "name": "TFT17_AnimaSquad",
+         "num_units": "<int>",
+         "style": "<int>",
+         "tier_current": "<int>",
+         "tier_total": "<int>",
+         "style2": "<int>"
+        }
+       ],
+       "units": [
+        {
+         "character_id": "TFT17_IvernMinion",
+         "name": "<str>",
+         "rarity": "<int>",
+         "tier": "<int>",
+         "items": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

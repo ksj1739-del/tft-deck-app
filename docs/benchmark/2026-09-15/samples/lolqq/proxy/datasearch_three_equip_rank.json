@@ -1,0 +1,64 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "a128bc27-1669-4439-b892-b920219d1999",
+ "data": [
+  {
+   "avg_rank": "3.319",
+   "avg_rank_delta": "-0.523",
+   "build_rate": "0.018",
+   "build_s": "24427",
+   "item_id": "DA_Draven18#DA_Deathblade|DA_Guinsoos<플레이어>blade|DA_KrakensFury",
+   "top1_cnt": "7538",
+   "top4_cnt": "16924",
+   "total": "1348678",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.452",
+   "avg_rank_delta": "-0.39",
+   "build_rate": "0.017",
+   "build_s": "23601",
+   "item_id": "DA_Draven18#DA_Guinsoos<플레이어>blade|DA_InfinityEdge|DA_KrakensFury",
+   "top1_cnt": "6811",
+   "top4_cnt": "15837",
+   "total": "1348678",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.902",
+   "avg_rank_delta": "0.06",
+   "build_rate": "0.016",
+   "build_s": "20966",
+   "item_id": "DA_Amumu18#DA_GargoyleStoneplate|DA_SpiritVisage|DA_WarmogsArmor",
+   "top1_cnt": "3631",
+   "top4_cnt": "12769",
+   "total": "1348678",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "3.062",
+   "avg_rank_delta": "-0.78",
+   "build_rate": "0.015",
+   "build_s": "20592",
+   "item_id": "DA_18_Maokai#DA_GargoyleStoneplate|DA_SpiritVisage|DA_WarmogsArmor",
+   "top1_cnt": "7074",
+   "top4_cnt": "15312",
+   "total": "1348678",
+   "tier": "S"
+  },
+  {
+   "avg_rank": "4.218",
+   "avg_rank_delta": "0.376",
+   "build_rate": "0.013",
+   "build_s": "17106",
+   "item_id": "DA_18_Ornn#DA_GargoyleStoneplate|DA_SpiritVisage|DA_WarmogsArmor",
+   "top1_cnt": "2629",
+   "top4_cnt": "9303",
+   "total": "1348678",
+   "tier": "B"
+  }
+ ],
+ "_note": "trimmed to 5 rows of 2000"
+}

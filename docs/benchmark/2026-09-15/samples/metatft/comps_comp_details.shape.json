@@ -1,0 +1,1242 @@
+{
+ "results": {
+  "cluster": "423009",
+  "placements": [
+   {
+    "count": 554806,
+    "avg": 4.2229
+   }
+  ],
+  "counters": [
+   {
+    "against": 423009,
+    "place_change": 0.1476,
+    "similarity": 1
+   },
+   {
+    "against": 423005,
+    "place_change": 0.1075,
+    "similarity": 0.2595
+   },
+   "... 외 52개"
+  ],
+  "players": {
+   "1.0": 49913,
+   "0.0": 44652,
+   "2.0": 25810,
+   "3.0": 7600,
+   "4.0": 1339,
+   "5.0": 138,
+   "6.0": 8
+  },
+  "headliner_traits": [],
+  "headliner_units": [],
+  "final_levels": [
+   {
+    "level": "10",
+    "count": 132143,
+    "avg": 1.8273
+   },
+   {
+    "level": "4",
+    "count": 688,
+    "avg": 7.9927
+   },
+   "... 외 5개"
+  ],
+  "unit_stats": [
+   {
+    "unit": "DA_Amumu18",
+    "tiers": [
+     {
+      "tier": 1,
+      "avg": 5.215,
+      "count": 201986,
+      "pcnt": 0.42404
+     },
+     {
+      "tier": 2,
+      "avg": 3.197,
+      "count": 274138,
+      "pcnt": 0.57552
+     },
+     "... 외 1개"
+    ],
+    "num_items": [
+     {
+      "num_items": 0,
+      "avg": 3.983,
+      "count": 325862,
+      "pcnt": 0.68411
+     },
+     {
+      "num_items": 1,
+      "avg": 3.772,
+      "count": 59659,
+      "pcnt": 0.12525
+     },
+     "... 외 2개"
+    ],
+    "count": 476333,
+    "avg": 4.052,
+    "pcnt": 0.85856
+   },
+   {
+    "unit": "DA_18_Kennen",
+    "tiers": [
+     {
+      "tier": 1,
+      "avg": 5.336,
+      "count": 202667,
+      "pcnt": 0.42668
+     },
+     {
+      "tier": 2,
+      "avg": 2.908,
+      "count": 271657,
+      "pcnt": 0.57193
+     },
+     "... 외 1개"
+    ],
+    "num_items": [
+     {
+      "num_items": 0,
+      "avg": 4.7,
+      "count": 148096,
+      "pcnt": 0.31179
+     },
+     {
+      "num_items": 1,
+      "avg": 3.8,
+      "count": 156316,
+      "pcnt": 0.3291
+     },
+     "... 외 2개"
+    ],
+    "count": 474982,
+    "avg": 3.941,
+    "pcnt": 0.85612
+   },
+   "... 외 63개"
+  ],
+  "builds": [
+   {
+    "cluster": "423009",
+    "count": 53836,
+    "avg": 3.7322,
+    "unit": "DA_Draven18",
+    "buildName": [
+     "DA_Deathblade",
+     "DA_Guinsoos<플레이어>blade",
+     "... 외 1개"
+    ],
+    "build": [],
+    "num_items": 3,
+    "score": 0.4279,
+    "place_change": -0.491,
+    "unit_numitems_count": 373952
+   },
+   {
+    "cluster": "423009",
+    "count": 29754,
+    "avg": 3.4486,
+    "unit": "DA_18_Maokai",
+    "buildName": [
+     "DA_GargoyleStoneplate",
+     "DA_SpiritVisage",
+     "... 외 1개"
+    ],
+    "build": [],
+    "num_items": 3,
+    "score": 0.4008,
+    "place_change": -0.774,
+    "unit_numitems_count": 306603
+   },
+   "... 외 297개"
+  ],
+  "overall": {
+   "count": 554806,
+   "avg": 4.2229
+  },
+  "itemNames": [
+   {
+    "itemNames": "DA_Guinsoos<플레이어>blade",
+    "count": 488400,
+    "avg": 4.1166,
+    "pcnt": 0.88031,
+    "units": [
+     {
+      "count": 392814,
+      "avg": 3.985,
+      "units": "DA_Draven18",
+      "place_change": -0.063,
+      "unit_pick": 0.9028,
+      "item_pick": 0.8043
+     },
+     {
+      "count": 21063,
+      "avg": 5.3634,
+      "units": "DA_18_Ezreal",
+      "place_change": 1.014,
+      "unit_pick": 0.0692,
+      "item_pick": 0.0431
+     },
+     "... 외 3개"
+    ]
+   },
+   {
+    "itemNames": "DA_GargoyleStoneplate",
+    "count": 440504,
+    "avg": 4.0849,
+    "pcnt": 0.79398,
+    "units": [
+     {
+      "count": 252187,
+      "avg": 3.6853,
+      "units": "DA_18_Maokai",
+      "place_change": -0.334,
+      "unit_pick": 0.5339,
+      "item_pick": 0.5725
+     },
+     {
+      "count": 61636,
+      "avg": 4.0059,
+      "units": "DA_Taric18",
+      "place_change": 0.059,
+      "unit_pick": 0.1407,
+      "item_pick": 0.1399
+     },
+     "... 외 3개"
+    ]
+   },
+   "... 외 140개"
+  ],
+  "items": [],
+  "options": {
+   "1": [],
+   "2": [],
+   "4": [],
+   "8": [
+    {
+     "units_list": "DA_18_Alistar&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Taric18",
+     "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1",
+     "score": 35.252,
+     "avg": 5.4902,
+     "count": 408
+    },
+    {
+     "units_list": "DA_18_Alistar&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18",
+     "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_DravenUniqueTrait18_1&DA_Juggernaut18_1",
+     "score": 34.211,
+     "avg": 5.1432,
+     "count": 384
+    },
+    "... 외 2개"
+   ],
+   "9": [
+    {
+     "units_list": "DA_18_Alistar&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Taric18",
+     "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_1&DA_18_Executioner_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1",
+     "score": 185,
+     "avg": 4.0118,
+     "count": 69363
+    },
+    {
+     "units_list": "DA_18_ElderDragon&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Sentinel18&DA_Taric18",
+     "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+     "score": 156.255,
+     "avg": 3.7632,
+     "count": 43138
+    },
+    "... 외 151개"
+   ],
+   "10": [
+    {
+     "units_list": "DA_18_Alistar&DA_18_Ezreal&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Lux18_Base&DA_Taric18",
+     "traits_list": "DA_18_Brawler_1&DA_18_Elderwood_2&DA_18_Executioner_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_LuxUniqueTrait_1&DA_18_Maokai_UniqueTrait_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1",
+     "score": 99.649,
+     "avg": 1.6742,
+     "count": 7992
+    },
+    {
+     "units_list": "DA_18_ElderDragon&DA_18_GnarSmall&DA_18_Ivern&DA_18_Kennen&DA_18_Maokai&DA_Amumu18&DA_Draven18&DA_Sentinel18&DA_Taric18",
+     "traits_list": "DA_18_ApexPredator_1&DA_18_Greenfather_1&DA_18_Inferno_1&DA_18_Maokai_UniqueTrait_1&DA_18_Vanguard_1&DA_DravenUniqueTrait18_1&DA_Emerald18_1&DA_Juggernaut18_1&DA_Riftbeast18_1",
+     "score": 97.184,
+     "avg": 1.8143,
+     "count": 6485
+    },
+    "... 외 82개"
+   ]
+  },
+  "trends": [
+   {
+    "day": "2026-09-08T00:00:00.000Z",
+    "count": 18239,
+    "avg": 4.426,
+    "pick": 0.10917895795421895
+   },
+   {
+    "day": "2026-09-09T00:00:00.000Z",
+    "count": 62600,
+    "avg": 4.4081,
+    "pick": 0.11263550897395529
+   },
+   "... 외 6개"
+  ],
+  "traits": [
+   {
+    "trait": "DA_18_Inferno",
+    "score": 0.8973424944935707,
+    "count": 439719,
+    "place_sum": 1707545,
+    "weighted_count": 497851,
+    "levels": [
+     {
+      "level": 1,
+      "count": 390382,
+      "avg": 3.8511
+     },
+     {
+      "level": 2,
+      "count": 41285,
+      "avg": 4.3942
+     },
+     "... 외 2개"
+    ]
+   },
+   {
+    "trait": "DA_Juggernaut18",
+    "score": 0.8400071376300905,
+    "count": 454595,
+    "place_sum": 1796864,
+    "weighted_count": 466041,
+    "levels": [
+     {
+      "level": 1,
+      "count": 444487,
+      "avg": 3.9444
+     },
+     {
+      "level": 2,
+      "count": 8770,
+      "avg": 4.3692
+     },
+     "... 외 1개"
+    ]
+   },
+   "... 외 35개"
+  ],
+  "augments": [
+   {
+    "aug": "",
+    "count": 1664415,
+    "avg": 4.223,
+    "orders": {
+     "0": {
+      "avg": 4.223,
+      "count": 554805
+     },
+     "1": {
+      "avg": 4.223,
+      "count": 554805
+     },
+     "2": {
+      "avg": 4.223,
+      "count": 554805
+     }
+    },
+    "pcnt": 2.99999
+   }
+  ],
+  "suggested_legends": [],
+  "first_carousel": [],
+  "ranks": [
+   {
+    "rank": "RANKUNKNOWN",
+    "count": 7160,
+    "avg": 4.0975,
+    "pick": 0.12175007226785016,
+    "rank_sort": -1
+   },
+   {
+    "rank": "IRON",
+    "count": 3191,
+    "avg": 4.9148,
+    "pick": 0.08807617996135798,
+    "rank_sort": 0
+   },
+   "... 외 9개"
+  ],
+  "levels": [
+   {
+    "stage": "",
+    "round": "",
+    "count": 977,
+    "level": 4
+   },
+   {
+    "stage": "2",
+    "round": "5",
+    "count": 94546,
+    "level": 5
+   },
+   "... 외 5개"
+  ],
+  "rerolls": {
+   "1": {
+    "rerolls": -2579,
+    "matches": 2542,
+    "count": 2579
+   },
+   "2": {
+    "rerolls": -83,
+    "matches": 1567,
+    "count": 1658
+   },
+   "3": {
+    "rerolls": 18297,
+    "matches": 20091,
+    "count": 30947
+   },
+   "4": {
+    "rerolls": 32074,
+    "matches": 42027,
+    "count": 118056
+   },
+   "5": {
+    "rerolls": 8244,
+    "matches": 40981,
+    "count": 149045
+   },
+   "6": {
+    "rerolls": 13276,
+    "matches": 42171,
+    "count": 121851
+   },
+   "7": {
+    "rerolls": 21529,
+    "matches": 42802,
+    "count": 160372
+   },
+   "8": {
+    "rerolls": 134763,
+    "matches": 41716,
+    "count": 155939
+   },
+   "9": {
+    "rerolls": 1321691,
+    "matches": 41488,
+    "count": 316686
+   },
+   "10": {
+    "rerolls": 136120,
+    "matches": 11498,
+    "count": 39512
+   },
+   "-1": {
+    "rerolls": -44224,
+    "matches": 40555,
+    "count": 44248
+   }
+  },
+  "positioning": {
+   "positions": {
+    "cell_7": 838988,
+    "cell_1": 953409,
+    "cell_25": 1053160,
+    "cell_26": 923516,
+    "cell_24": 898865,
+    "cell_4": 356637,
+    "cell_17": 382848,
+    "cell_27": 548508,
+    "cell_18": 394794,
+    "cell_23": 560536,
+    "cell_3": 416786,
+    "cell_28": 236761,
+    "cell_2": 454864,
+    "cell_22": 242755,
+    "cell_6": 327811,
+    "cell_5": 307011,
+    "cell_19": 216519,
+    "cell_16": 199179,
+    "cell_12": 131546,
+    "cell_10": 139209,
+    "cell_20": 99995,
+    "cell_15": 98301,
+    "cell_11": 171991,
+    "cell_13": 96031,
+    "cell_9": 109779,
+    "cell_21": 59816,
+    "cell_8": 79037,
+    "cell_14": 82431
+   },
+   "units": {
+    "DA_Draven18": {
+     "unit": "DA_Draven18",
+     "positions": [
+      {
+       "cell": "cell_7",
+       "count": 308529
+      },
+      {
+       "cell": "cell_1",
+       "count": 288261
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Maokai": {
+     "unit": "DA_18_Maokai",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 230878
+      },
+      {
+       "cell": "cell_26",
+       "count": 178819
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Ivern": {
+     "unit": "DA_18_Ivern",
+     "positions": [
+      {
+       "cell": "cell_1",
+       "count": 173367
+      },
+      {
+       "cell": "cell_7",
+       "count": 121409
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_Amumu18": {
+     "unit": "DA_Amumu18",
+     "positions": [
+      {
+       "cell": "cell_26",
+       "count": 154510
+      },
+      {
+       "cell": "cell_24",
+       "count": 152191
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_Elderwood18_Lifeblossom": {
+     "unit": "DA_Elderwood18_Lifeblossom",
+     "positions": [
+      {
+       "cell": "cell_4",
+       "count": 150514
+      },
+      {
+       "cell": "cell_3",
+       "count": 97263
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_Taric18": {
+     "unit": "DA_Taric18",
+     "positions": [
+      {
+       "cell": "cell_24",
+       "count": 141395
+      },
+      {
+       "cell": "cell_26",
+       "count": 115664
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Kennen": {
+     "unit": "DA_18_Kennen",
+     "positions": [
+      {
+       "cell": "cell_17",
+       "count": 131245
+      },
+      {
+       "cell": "cell_18",
+       "count": 122852
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_Elderwood18_StonebarkTree": {
+     "unit": "DA_Elderwood18_StonebarkTree",
+     "positions": [
+      {
+       "cell": "cell_27",
+       "count": 131043
+      },
+      {
+       "cell": "cell_28",
+       "count": 95199
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_GnarSmall": {
+     "unit": "DA_18_GnarSmall",
+     "positions": [
+      {
+       "cell": "cell_18",
+       "count": 108051
+      },
+      {
+       "cell": "cell_17",
+       "count": 87420
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Alistar": {
+     "unit": "DA_18_Alistar",
+     "positions": [
+      {
+       "cell": "cell_23",
+       "count": 103770
+      },
+      {
+       "cell": "cell_24",
+       "count": 93518
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Ezreal": {
+     "unit": "DA_18_Ezreal",
+     "positions": [
+      {
+       "cell": "cell_1",
+       "count": 99422
+      },
+      {
+       "cell": "cell_7",
+       "count": 84385
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_Sentinel18": {
+     "unit": "DA_Sentinel18",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 92946
+      },
+      {
+       "cell": "cell_24",
+       "count": 68985
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Ashe": {
+     "unit": "DA_18_Ashe",
+     "positions": [
+      {
+       "cell": "cell_1",
+       "count": 48352
+      },
+      {
+       "cell": "cell_7",
+       "count": 44577
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Hecarim": {
+     "unit": "DA_18_Hecarim",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 37103
+      },
+      {
+       "cell": "cell_26",
+       "count": 30488
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Aphelios": {
+     "unit": "DA_18_Aphelios",
+     "positions": [
+      {
+       "cell": "cell_1",
+       "count": 35583
+      },
+      {
+       "cell": "cell_7",
+       "count": 22032
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Xayah": {
+     "unit": "DA_18_Xayah",
+     "positions": [
+      {
+       "cell": "cell_1",
+       "count": 33923
+      },
+      {
+       "cell": "cell_2",
+       "count": 23963
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Varus": {
+     "unit": "DA_18_Varus",
+     "positions": [
+      {
+       "cell": "cell_2",
+       "count": 31207
+      },
+      {
+       "cell": "cell_1",
+       "count": 23304
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Malphite": {
+     "unit": "DA_18_Malphite",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 27649
+      },
+      {
+       "cell": "cell_26",
+       "count": 9878
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Sett": {
+     "unit": "DA_18_Sett",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 26737
+      },
+      {
+       "cell": "cell_26",
+       "count": 18166
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Shen": {
+     "unit": "DA_18_Shen",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 26129
+      },
+      {
+       "cell": "cell_24",
+       "count": 25900
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Ornn": {
+     "unit": "DA_18_Ornn",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 25673
+      },
+      {
+       "cell": "cell_24",
+       "count": 24399
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_Vi18": {
+     "unit": "DA_Vi18",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 22789
+      },
+      {
+       "cell": "cell_24",
+       "count": 20856
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_Krug18": {
+     "unit": "DA_Krug18",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 21258
+      },
+      {
+       "cell": "cell_26",
+       "count": 17279
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Sivir": {
+     "unit": "DA_18_Sivir",
+     "positions": [
+      {
+       "cell": "cell_1",
+       "count": 19790
+      },
+      {
+       "cell": "cell_7",
+       "count": 15361
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Diana": {
+     "unit": "DA_18_Diana",
+     "positions": [
+      {
+       "cell": "cell_17",
+       "count": 18813
+      },
+      {
+       "cell": "cell_25",
+       "count": 18503
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Rakan": {
+     "unit": "DA_18_Rakan",
+     "positions": [
+      {
+       "cell": "cell_24",
+       "count": 18475
+      },
+      {
+       "cell": "cell_25",
+       "count": 16192
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_Scuttlecrab18": {
+     "unit": "DA_Scuttlecrab18",
+     "positions": [
+      {
+       "cell": "cell_25",
+       "count": 16816
+      },
+      {
+       "cell": "cell_26",
+       "count": 13604
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_KogMaw18_AD": {
+     "unit": "DA_KogMaw18_AD",
+     "positions": [
+      {
+       "cell": "cell_2",
+       "count": 16712
+      },
+      {
+       "cell": "cell_6",
+       "count": 10657
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Lux_Elderwood": {
+     "unit": "DA_18_Lux_Elderwood",
+     "positions": [
+      {
+       "cell": "cell_1",
+       "count": 16177
+      },
+      {
+       "cell": "cell_7",
+       "count": 12540
+      },
+      "... 외 4개"
+     ]
+    },
+    "DA_18_Yorick": {
+     "unit": "DA_18_Yorick",
+     "positions": [
+      {
+       "cell": "cell_24",
+       "count": 14876
+      },
+      {
+       "cell": "cell_25",
+       "count": 14294
+      },
+      "... 외 4개"
+     ]
+    },
+    "...": "외 50개 키"
+   }
+  },
+  "relative_positioning": [
+   {
+    "relative_positions": "",
+    "count": 2403155,
+    "avg": 3.8524
+   },
+   {
+    "relative_positions": "a|b",
+    "count": 22,
+    "avg": 2.8636
+   }
+  ],
+  "early_options": {
+   "4": [
+    {
+     "cluster": "423009",
+     "unit_list": "DA_18_Alistar&DA_18_Ornn&DA_18_Varus&DA_18_Xayah&DA_Elderwood18_Lifeblossom&DA_Elderwood18_StonebarkTree",
+     "count": 5201,
+     "level": 4.0254,
+     "avg": 4.4547,
+     "win": 0.5403
+    },
+    {
+     "cluster": "423009",
+     "unit_list": "DA_18_Rakan&DA_18_Yorick&DA_18_Yunara&DA_Karma18",
+     "count": 3632,
+     "level": 4.0402,
+     "avg": 4.2963,
+     "win": 0.5399
+    },
+    "... 외 8개"
+   ],
+   "5": [
+    {
+     "cluster": "423009",
+     "unit_list": "DA_18_Alistar&DA_18_Ornn&DA_18_Shen&DA_18_Varus&DA_18_Xayah&DA_Elderwood18_Lifeblossom&DA_Elderwood18_StonebarkTree",
+     "count": 5634,
+     "level": 5.0156,
+     "avg": 4.2158,
+     "win": 0.7741
+    },
+    {
+     "cluster": "423009",
+     "unit_list": "DA_18_Akali_AD&DA_18_Ornn&DA_18_Shen&DA_18_Varus&DA_18_Xayah",
+     "count": 3561,
+     "level": 5.0185,
+     "avg": 4.4252,
+     "win": 0.6793
+    },
+    "... 외 8개"
+   ],
+   "6": [
+    {
+     "cluster": "423009",
+     "unit_list": "DA_18_Akali_AD&DA_18_Alistar&DA_18_Ornn&DA_18_Shen&DA_18_Varus&DA_18_Xayah&DA_Elderwood18_Lifeblossom&DA_Elderwood18_StonebarkTree",
+     "count": 3388,
+     "level": 6.0165,
+     "avg": 4.5106,
+     "win": 0.5457
+    },
+    {
+     "cluster": "423009",
+     "unit_list": "DA_18_Hecarim&DA_18_Ornn&DA_18_Rakan&DA_18_Shen&DA_18_Varus&DA_18_Xayah&DA_Elderwood18_Lifeblossom&DA_Elderwood18_StonebarkTree",
+     "count": 1389,
+     "level": 6.0101,
+     "avg": 4.4816,
+     "win": 0.6443
+    },
+    "... 외 5개"
+   ],
+   "7": [
+    {
+     "cluster": "423009",
+     "unit_list": "DA_18_Alistar&DA_18_Hecarim&DA_18_LeBlanc&DA_18_Ornn&DA_18_Shen&DA_18_Varus&DA_18_Xayah&DA_Elderwood18_Lifeblossom&DA_Elderwood18_StonebarkTree&DA_Elderwood18_StonebarkTree",
+     "count": 1647,
+     "level": 6.9866,
+     "avg": 4.49,
+     "win": 0.6436
+    },
+    {
+     "cluster": "423009",
+     "unit_list": "DA_18_Sentry&DA_Cinderling18&DA_CrimsonRaptor18&DA_Gromp18_AP&DA_Krug18&DA_Murkwolf18&DA_Scuttlecrab18",
+     "count": 1001,
+     "level": 6.994,
+     "avg": 4.4046,
+     "win": 0.7802
+    }
+   ]
+  },
+  "portals": {
+   "overall": {
+    "avg": 0,
+    "pickrate": 0,
+    "count": 0
+   },
+   "portals": []
+  },
+  "proComps": [
+   {
+    "distance": 0.3863264549888809,
+    "content": {
+     "content_id": "0f4c0cbf-b303-48ad-8611-ed023e779639",
+     "author": {
+      "puuid": "<가림>",
+      "region": "euw1",
+      "riotid": "<가림>"
+     },
+     "metadata": {
+      "type": "team-builder",
+      "title": "DRAVEN > Legendaries > Lvl 9"
+     },
+     "tags": [
+      "TFTSet18",
+      "team-builder"
+     ],
+     "visibility": "public",
+     "created_at": "2026-08-25T19:04:01.822Z",
+     "updated_at": "2026-09-15T08:34:50.703Z",
+     "content": {
+      "setKey": "TFTSet18",
+      "unit_positions": {
+       "2": {
+        "apiName": "DA_Taric18",
+        "type": "unit"
+       },
+       "3": {
+        "apiName": "DA_Sentinel18",
+        "type": "unit",
+        "items": []
+       },
+       "4": {
+        "apiName": "DA_Amumu18",
+        "type": "unit"
+       },
+       "5": {
+        "apiName": "DA_18_Maokai",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_WarmogsArmor",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_GargoyleStoneplate",
+          "type": "item"
+         },
+         "... 외 1개"
+        ]
+       },
+       "10": {
+        "apiName": "DA_18_Morgana",
+        "type": "unit"
+       },
+       "12": {
+        "apiName": "DA_18_Kennen",
+        "type": "unit"
+       },
+       "19": {
+        "apiName": "DA_18_ElderDragon",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_InfinityEdge",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_StrikersFlail",
+          "type": "item"
+         }
+        ]
+       },
+       "27": {
+        "apiName": "DA_Draven18",
+        "type": "unit",
+        "items": [
+         {
+          "apiName": "DA_Guinsoos<플레이어>blade",
+          "type": "item"
+         },
+         {
+          "apiName": "DA_KrakensFury",
+          "type": "item"
+         },
+         "... 외 1개"
+        ]
+       }
+      },
+      "notes": "- WINSTREAK, gold augment needed and early Maokai & Draven needed for scaling;\n- RIFTBEAST: Buff on Elder Dragon;\n- TARIC: Buff on Maokai;",
+      "default_variation_name": "Lvl 9 w/ Elder Dragon",
+      "variations": [
+       {
+        "id": "var_1789049258515",
+        "title": "Lvl 10 w/ Elder Dragon",
+        "type": "comp",
+        "unit_positions": {
+         "2": {
+          "apiName": "DA_Taric18",
+          "type": "unit"
+         },
+         "3": {
+          "apiName": "DA_Sentinel18",
+          "type": "unit",
+          "items": []
+         },
+         "4": {
+          "apiName": "DA_Amumu18",
+          "type": "unit"
+         },
+         "5": {
+          "apiName": "DA_18_Maokai",
+          "type": "unit",
+          "items": [
+           {
+            "apiName": "DA_WarmogsArmor",
+            "type": "item"
+           },
+           {
+            "apiName": "DA_GargoyleStoneplate",
+            "type": "item"
+           },
+           "... 외 1개"
+          ]
+         },
+         "10": {
+          "apiName": "DA_18_Morgana",
+          "type": "unit"
+         },
+         "12": {
+          "apiName": "DA_18_Kennen",
+          "type": "unit"
+         },
+         "19": {
+          "apiName": "DA_18_ElderDragon",
+          "type": "unit",
+          "items": [
+           {
+            "apiName": "DA_InfinityEdge",
+            "type": "item"
+           },
+           {
+            "apiName": "DA_StrikersFlail",
+            "type": "item"
+           }
+          ]
+         },
+         "21": {
+          "apiName": "DA_18_Zyra",
+          "type": "unit"
+         },
+         "27": {
+          "apiName": "DA_Draven18",
+          "type": "unit",
+          "items": [
+           {
+            "apiName": "DA_Guinsoos<플레이어>blade",
+            "type": "item"
+           },
+           {
+            "apiName": "DA_KrakensFury",
+            "type": "item"
+           },
+           "... 외 1개"
+          ]
+         }
+        },
+        "augments": [],
+        "augments2": [],
+        "legend": 0,
+        "headliner": null,
+        "headlinerTraitIndex": 0,
+        "notes": "- WINSTREAK, gold augment needed and early Maokai & Draven needed for scaling;\n- RIFTBEAST: Buff on Elder Dragon;\n- TARIC: Buff on Maokai;",
+        "images": []
+       },
+       {
+        "id": "var_1789461206614_5gg6d",
+        "title": "Augments",
+        "type": "tierlist",
+        "tiers": [
+         {
+          "label": "S",
+          "color": "#ff7e83",
+          "content": [
+           {
+            "apiName": "DA_BandOfThieves",
+            "type": "augment"
+           },
+           {
+            "apiName": "DA_CarveAPath",
+            "type": "augment"
+           },
+           "... 외 51개"
+          ]
+         },
+         {
+          "label": "A",
+          "color": "#ffbf7f",
+          "content": [
+           {
+            "apiName": "DA_ChampDelivery",
+            "type": "augment"
+           },
+           {
+            "apiName": "DA_CognitiveTaxPlus",
+            "type": "augment"
+           },
+           "... 외 32개"
+          ]
+         },
+         "... 외 3개"
+        ],
+        "images": []
+       },
+       "... 외 7개"
+      ],
+      "titleImages": [
+       {
+        "apiName": "TFT_Custom_Econ_Fast9",
+        "type": "custom"
+       },
+       {
+        "apiName": "TFT_Custom_Difficulty_Hard",
+        "type": "custom"
+       }
+      ]
+     }
+    },
+    "augments": [
+     {
+      "id": "DA_BandOfThieves",
+      "tier": "S"
+     },
+     {
+      "id": "DA_CarveAPath",
+      "tier": "S"
+     },
+     "... 외 90개"
+    ],
+    "gods": []
+   }
+  ]
+ },
+ "updated": 1789473372970,
+ "tft_set": "TFTSet18",
+ "queue_id": 1100,
+ "cluster_id": 423
+}

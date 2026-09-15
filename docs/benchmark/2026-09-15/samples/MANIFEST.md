@@ -1,0 +1,639 @@
+# 응답 샘플 목록
+
+저장소에 영구히 남으므로 응답의 모양만 보존했다. 64KB 이하는 원본 그대로, 더 큰 JSON 은 구조 골격(.shape.json — 키 30개, 배열 앞 2개, 긴 문자열 200자), 더 큰 텍스트나 JSONP 는 앞 32KB(.head.txt). JS 번들 등은 목록만 남긴다. 원본이 필요하면 README 와 raw/ 의 엔드포인트로 다시 받으면 된다.
+
+## 원본 그대로 241개 (원본 합계 2197.5 KB)
+
+- `ingame/_bundle_ctx2.txt` — 원본 26.8 KB
+- `ingame/_bundle_ctx3.txt` — 원본 8.4 KB
+- `ingame/_bundle_ctx4.txt` — 원본 14.9 KB
+- `ingame/_bundle_spectate_ctx.txt` — 원본 4.9 KB
+- `ingame/lb_euw1_offset_0_limit_50.json` — 원본 38.3 KB
+- `ingame/lb_kr_offset_0_limit_50.json` — 원본 38.4 KB
+- `ingame/lb_na1_offset_0_limit_50.json` — 원본 38.1 KB
+- `ingame/live_poller_log.txt` — 원본 4.3 KB
+- `ingame/live_poller_stdout.txt` — 원본 4.8 KB
+- `ingame/lolchess_rpc_spectator_poll.txt` — 원본 0.6 KB
+- `ingame/lolchess_spectate_kr.html` — 원본 60.2 KB
+- `ingame/lolchess_spectate_matches_br1.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_eun1.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_euw.json` — 원본 0.0 KB
+- `ingame/lolchess_spectate_matches_euw1.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_euw_main.json` — 원본 0.0 KB
+- `ingame/lolchess_spectate_matches_jp.json` — 원본 0.0 KB
+- `ingame/lolchess_spectate_matches_jp1.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_jp_main.json` — 원본 0.0 KB
+- `ingame/lolchess_spectate_matches_kr.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_kr_main.json` — 원본 0.0 KB
+- `ingame/lolchess_spectate_matches_la1.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_na.json` — 원본 0.0 KB
+- `ingame/lolchess_spectate_matches_na1.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_na_main.json` — 원본 0.0 KB
+- `ingame/lolchess_spectate_matches_oc1.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_sg2.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_tr1.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_tw2.json` — 원본 0.1 KB
+- `ingame/lolchess_spectate_matches_vn2.json` — 원본 0.1 KB
+- `ingame/metatft_home.html` — 원본 4.1 KB
+- `ingame/mt_lookup_by_puuid_self.json` — 원본 61.5 KB
+- `ingame/mt_lookup_by_puuid_self_source_app_profile.json` — 원본 61.6 KB
+- `ingame/mt_lookup_by_riotid_self_nosource.json` — 원본 61.5 KB
+- `ingame/mt_match_data_sample.json` — 원본 24.4 KB
+- `ingame/mt_rating_changes_self_q1100.json` — 원본 17.0 KB
+- `ingame/mt_rating_changes_self_q1130.json` — 원본 0.0 KB
+- `ingame/mt_refresh_by_riotid_self_try0.json` — 원본 0.0 KB
+- `ingame/mt_refresh_by_riotid_self_try1.json` — 원본 0.0 KB
+- `ingame/mt_refresh_by_riotid_self_try2.json` — 원본 0.0 KB
+- `ingame/mt_refresh_by_riotid_self_try3.json` — 원본 0.0 KB
+- `ingame/mt_spectate_notingame_kr.json` — 원본 0.0 KB
+- `ingame/mt_spectate_notingame_kr_headers.txt` — 원본 0.2 KB
+- `ingame/riot_nokey_body.txt` — 원본 0.1 KB
+- `ingame/riot_nokey_responses.txt` — 원본 0.4 KB
+- `ingame/riot_status_euw1.json` — 원본 0.3 KB
+- `ingame/riot_status_kr1.json` — 원본 0.3 KB
+- `ingame/riot_status_na1.json` — 원본 0.3 KB
+- `judge_item/lc_item_detail_IE_tier0.json` — 원본 21.5 KB
+- `judge_item/lc_item_detail_IE_tier1.json` — 원본 19.0 KB
+- `judge_item/lc_item_detail_IE_tier3.json` — 원본 21.4 KB
+- `judge_item/mt_item_detail_IE.json` — 원본 12.1 KB
+- `judge_item/mt_item_detail_IE_master.json` — 원본 10.3 KB
+- `judge_item/mt_items_allranks_days1.json` — 원본 12.8 KB
+- `judge_item/mt_items_default.json` — 원본 13.1 KB
+- `judge_item/mt_items_kr_masterplus_adj.json` — 원본 10.7 KB
+- `judge_item/mt_items_kr_masterplus_noadj.json` — 원본 10.6 KB
+- `judge_item/mt_items_kr_platplus_noadj.json` — 원본 12.1 KB
+- `judge_item/mt_items_masterplus_noadj.json` — 원본 11.4 KB
+- `judge_item/mt_items_platplus_noadj.json` — 원본 13.0 KB
+- `judge_item/qq_ds_equip_2plus.json` — 원본 30.2 KB
+- `judge_item/qq_ds_equip_7plus.json` — 원본 28.2 KB
+- `judge_item/qq_ds_equip_notier.json` — 원본 30.3 KB
+- `judge_item/qq_equip_ranking_d.json` — 원본 58.3 KB
+- `judge_item/qq_equip_ranking_w.json` — 원본 0.1 KB
+- `judge_item/qq_recent_versions.json` — 원본 0.5 KB
+- `lolchess/api/_bundle_augment_tier_distribution_set18.json` — 원본 2.1 KB
+- `lolchess/api/_bundle_teamcode_map_set18.json` — 원본 1.6 KB
+- `lolchess/api/_headers_seasons.txt` — 원본 0.6 KB
+- `lolchess/api/_index.json` — 원본 12.0 KB
+- `lolchess/api/data_augment_tiers.json` — 원본 9.8 KB
+- `lolchess/api/data_landing.json` — 원본 0.0 KB
+- `lolchess/api/data_tier_cutoffs.json` — 원본 0.0 KB
+- `lolchess/api/guide_decks.json` — 원본 24.3 KB
+- `lolchess/api/lb_summoners_kr.json` — 원본 31.8 KB
+- `lolchess/api/lb_tier_dist_kr.json` — 원본 1.9 KB
+- `lolchess/api/match_detail.json` — 원본 19.8 KB
+- `lolchess/api/match_eog.json` — 원본 0.0 KB
+- `lolchess/api/match_round_details.json` — 원본 0.0 KB
+- `lolchess/api/meta_champion_daily_stats.json` — 원본 61.9 KB
+- `lolchess/api/meta_deck_augments.json` — 원본 0.0 KB
+- `lolchess/api/meta_deck_augments_patch.json` — 원본 0.0 KB
+- `lolchess/api/meta_deck_detail.json` — 원본 0.2 KB
+- `lolchess/api/meta_deck_detail_deckkey.json` — 원본 0.2 KB
+- `lolchess/api/meta_deck_detail_min.json` — 원본 0.2 KB
+- `lolchess/api/meta_deck_detail_nopatch.json` — 원본 0.2 KB
+- `lolchess/api/meta_deck_exalted.json` — 원본 24.8 KB
+- `lolchess/api/meta_deck_item_detail_stoneplate.json` — 원본 20.7 KB
+- `lolchess/api/meta_decks_kr.json` — 원본 0.2 KB
+- `lolchess/api/patch_notes.json` — 원본 21.3 KB
+- `lolchess/api/ranks_master_champ_ahri.json` — 원본 0.0 KB
+- `lolchess/api/recent_bbs.json` — 원본 1.5 KB
+- `lolchess/api/rpc_spectator_final.json` — 원본 0.1 KB
+- `lolchess/api/rpc_spectator_self.json` — 원본 0.0 KB
+- `lolchess/api/rpc_spectator_self_retry.json` — 원본 0.0 KB
+- `lolchess/api/search_riotid.json` — 원본 0.0 KB
+- `lolchess/api/search_riotid_dash.json` — 원본 0.3 KB
+- `lolchess/api/search_riotid_name.json` — 원본 0.3 KB
+- `lolchess/api/seasons.json` — 원본 3.0 KB
+- `lolchess/api/spectate_matches_euw1.json` — 원본 0.1 KB
+- `lolchess/api/spectate_matches_global.json` — 원본 0.0 KB
+- `lolchess/api/spectate_matches_jp1.json` — 원본 0.1 KB
+- `lolchess/api/spectate_matches_kr.json` — 원본 0.1 KB
+- `lolchess/api/spectate_matches_na1.json` — 원본 0.1 KB
+- `lolchess/api/streamer_decks.json` — 원본 9.4 KB
+- `lolchess/api/summoner.json` — 원본 0.3 KB
+- `lolchess/api/summoner_league_logs.json` — 원본 1.0 KB
+- `lolchess/api/summoner_profile.json` — 원본 2.1 KB
+- `lolchess/api/summoner_sync_by_name.json` — 원본 0.0 KB
+- `lolchess/api/summoner_sync_by_name_final.json` — 원본 0.1 KB
+- `lolchess/api/tier_cutoffs_kr.json` — 원본 0.1 KB
+- `lolchess/pages/builder.next_data.json` — 원본 0.9 KB
+- `lolchess/pages/champ_stats.next_data.json` — 원본 0.9 KB
+- `lolchess/pages/desktop_dakgg.html` — 원본 47.8 KB
+- `lolchess/pages/leaderboards.next_data.json` — 원본 3.8 KB
+- `lolchess/pages/portals.html` — 원본 57.4 KB
+- `lolchess/pages/portals.next_data.json` — 원본 0.8 KB
+- `lolchess/pages/power_ups.next_data.json` — 원본 0.9 KB
+- `lolchess/pages/profile.next_data.json` — 원본 3.7 KB
+- `lolchess/pages/recent_win.next_data.json` — 원본 0.9 KB
+- `lolchess/pages/rewards.next_data.json` — 원본 0.9 KB
+- `lolchess/pages/set_report.html` — 원본 59.0 KB
+- `lolchess/pages/set_report.next_data.json` — 원본 0.8 KB
+- `lolchess/pages/spectate.html` — 원본 60.0 KB
+- `lolchess/pages/spectate.next_data.json` — 원본 1.3 KB
+- `lolchess/pages/three_cores.next_data.json` — 원본 1.0 KB
+- `lolqq/auth/getlineup_nologin.txt` — 원본 0.2 KB
+- `lolqq/auth/mobileplayerinfo_nologin.txt` — 원본 0.1 KB
+- `lolqq/auth/verify_nologin.txt` — 원본 0.1 KB
+- `lolqq/legacy/_raw_fightlist.txt` — 원본 21.0 KB
+- `lolqq/legacy/_raw_info.txt` — 원본 0.2 KB
+- `lolqq/legacy/_raw_master.txt` — 원본 0.2 KB
+- `lolqq/legacy/fightdetail_sample_redacted.json` — 원본 44.0 KB
+- `lolqq/legacy/fightlist_sample_redacted.json` — 원본 32.7 KB
+- `lolqq/lineup/lineupType.json` — 원본 0.0 KB
+- `lolqq/lineup/operate.json` — 원본 4.0 KB
+- `lolqq/lineup/plat.json` — 원본 0.6 KB
+- `lolqq/lineup/s18_6_14266.json` — 원본 22.0 KB
+- `lolqq/lineup/s18_lineup_detail_total_2items.json` — 원본 46.4 KB
+- `lolqq/lineup/speciality.json` — 원본 3.5 KB
+- `lolqq/lineup/tag.json` — 원본 1.1 KB
+- `lolqq/lineup/ugc_recomm_list.json` — 원본 0.1 KB
+- `lolqq/news/cmc_latest_news.json` — 원본 10.6 KB
+- `lolqq/news/cmc_strategy_122120_122122.json` — 원본 18.0 KB
+- `lolqq/proxy/datasearch_equip_rank.json` — 원본 1.4 KB
+- `lolqq/proxy/datasearch_equip_rank_showhero.json` — 원본 1.5 KB
+- `lolqq/proxy/datasearch_hero_rank.json` — 원본 1.3 KB
+- `lolqq/proxy/datasearch_hero_rank_with_itemcnt.json` — 원본 1.3 KB
+- `lolqq/proxy/datasearch_hero_rank_with_level.json` — 원본 1.3 KB
+- `lolqq/proxy/datasearch_lineup_rank.json` — 원본 15.1 KB
+- `lolqq/proxy/datasearch_tft_augment_rank_7d_tier2plus.json` — 원본 0.2 KB
+- `lolqq/proxy/datasearch_tft_equip_rank_7d_tier2plus.json` — 원본 0.1 KB
+- `lolqq/proxy/datasearch_tft_hero_rank_7d_tier2plus.json` — 원본 0.1 KB
+- `lolqq/proxy/datasearch_tft_lineup_rank_7d_tier2plus.json` — 원본 0.1 KB
+- `lolqq/proxy/datasearch_tft_match_overview.json` — 원본 0.5 KB
+- `lolqq/proxy/datasearch_tft_match_overview_7d_tier2plus.json` — 원본 0.1 KB
+- `lolqq/proxy/datasearch_tft_trait_rank_7d_tier2plus.json` — 원본 0.1 KB
+- `lolqq/proxy/datasearch_tft_two_equip_rank_7d_tier2plus.json` — 원본 0.1 KB
+- `lolqq/proxy/datasearch_three_equip_rank.json` — 원본 1.6 KB
+- `lolqq/proxy/datasearch_trait_rank.json` — 원본 1.4 KB
+- `lolqq/proxy/datasearch_two_equip_rank.json` — 원본 1.5 KB
+- `lolqq/proxy/equip_ranking_d.json` — 원본 58.3 KB
+- `lolqq/proxy/hero_ranking_v.json` — 원본 0.1 KB
+- `lolqq/proxy/lineup_group_list.json` — 원본 0.1 KB
+- `lolqq/proxy/recent_versions.json` — 원본 0.5 KB
+- `lolqq/proxy/tft_equip_ranking_d.json` — 원본 3.9 KB
+- `lolqq/proxy/tft_hero_ranking_d.json` — 원본 7.2 KB
+- `lolqq/proxy/tft_hero_ranking_v.json` — 원본 1.8 KB
+- `lolqq/proxy/tft_lineup_all_detail.json` — 원본 26.6 KB
+- `lolqq/proxy/tft_lineup_change_list.json` — 원본 0.3 KB
+- `lolqq/proxy/tft_lineup_key_chess.json` — 원본 7.7 KB
+- `lolqq/proxy/tft_lineup_key_chess_equip.json` — 원본 27.0 KB
+- `lolqq/proxy/tft_main_trait_lineup.json` — 원본 12.3 KB
+- `lolqq/proxy/tft_trait_strength_trend.json` — 원본 3.9 KB
+- `lolqq/proxy/trait_strength_trend.json` — 원본 25.3 KB
+- `lolqq/rank/tier_rank_1000_area1.json` — 원본 1.2 KB
+- `lolqq/req/equip_ranking_d.json` — 원본 0.1 KB
+- `lolqq/req/hero_ranking_d.json` — 원본 0.1 KB
+- `lolqq/req/hero_ranking_v.json` — 원본 0.1 KB
+- `lolqq/req/lineup_group_list.json` — 원본 0.2 KB
+- `lolqq/req/recent_versions.json` — 원본 0.1 KB
+- `lolqq/req/trait_strength_trend.json` — 원본 0.1 KB
+- `lolqq/static/littlehero_hero_js_head.json` — 원본 1.6 KB
+- `lolqq/static/versionconfig.json` — 원본 17.5 KB
+- `metatft/GUESS_stat_augments.json` — 원본 0.0 KB
+- `metatft/api_augments.txt` — 원본 0.5 KB
+- `metatft/api_updated.headers.txt` — 원본 0.2 KB
+- `metatft/api_updated.json` — 원본 0.5 KB
+- `metatft/comps_comp_augment_tiers_cluster.json` — 원본 0.0 KB
+- `metatft/comps_latest_cluster_id.headers.txt` — 원본 0.2 KB
+- `metatft/comps_latest_cluster_id.json` — 원본 0.1 KB
+- `metatft/comps_latest_cluster_info.headers.txt` — 원본 0.3 KB
+- `metatft/data_unit_descriptions.json` — 원본 30.3 KB
+- `metatft/explorer_total.json` — 원본 0.3 KB
+- `metatft/explorer_units_unique.json` — 원본 46.9 KB
+- `metatft/home.html` — 원본 4.1 KB
+- `metatft/lookups_latest_TFTSet18_tables.full.json` — 원본 0.2 KB
+- `metatft/lookups_latest_TFTSet18_tables.headers.txt` — 원본 0.9 KB
+- `metatft/lookups_trait_mapping.json` — 원본 3.6 KB
+- `metatft/match_KR_8382256353.json` — 원본 24.4 KB
+- `metatft/player_page_html.txt` — 원본 4.1 KB
+- `metatft/profile_rating_changes_KR.json` — 원본 17.0 KB
+- `metatft/promotion_thresholds_latest.json` — 원본 2.8 KB
+- `metatft/public_search.json` — 원본 0.4 KB
+- `metatft/robots.txt` — 원본 0.1 KB
+- `metatft/sitemap.xml` — 원본 39.3 KB
+- `metatft/spectate_record_latest_matches.json` — 원본 0.0 KB
+- `metatft/spectate_summoner_by_puuid_kr.json` — 원본 0.0 KB
+- `metatft/spectate_top_players_global.json` — 원본 0.0 KB
+- `metatft/spectate_top_players_kr.json` — 원본 0.0 KB
+- `metatft/stat_augment_unit_detail.json` — 원본 0.2 KB
+- `metatft/stat_augment_unit_detail_aug.json` — 원본 0.2 KB
+- `metatft/stat_augments_tiers.json` — 원본 59.0 KB
+- `metatft/stat_charms.json` — 원본 0.2 KB
+- `metatft/stat_games_days7.headers.txt` — 원본 0.3 KB
+- `metatft/stat_item_detail.json` — 원본 12.4 KB
+- `metatft/stat_item_stage_detail.json` — 원본 35.8 KB
+- `metatft/stat_items_bare.json` — 원본 13.9 KB
+- `metatft/stat_items_matches.json` — 원본 13.1 KB
+- `metatft/stat_patch.headers.txt` — 원본 0.2 KB
+- `metatft/stat_patch.json` — 원본 0.1 KB
+- `metatft/stat_tft_set_config.headers.txt` — 원본 0.2 KB
+- `metatft/stat_tft_set_config.json` — 원본 0.2 KB
+- `metatft/stat_trait_detail.json` — 원본 22.4 KB
+- `metatft/stat_traits.json` — 원본 8.0 KB
+- `metatft/stat_unit_augments.json` — 원본 0.3 KB
+- `metatft/stat_unit_detail_items.json` — 원본 35.0 KB
+- `metatft/stat_unit_detail_overall_DA.json` — 원본 4.4 KB
+- `metatft/stat_unit_detail_overall_TFT18.json` — 원본 0.7 KB
+- `metatft/stat_unit_positions2.json` — 원본 13.4 KB
+- `metatft/stat_unit_trends.json` — 원본 15.1 KB
+- `metatft/stat_units.json` — 원본 6.2 KB
+- `metatft/stat_units_days1.json` — 원본 5.8 KB
+- `metatft/stat_units_distribution.json` — 원본 23.3 KB
+- `metatft/stat_units_doubleup_1160.json` — 원본 5.7 KB
+- `metatft/stat_units_masterplus_noadj.json` — 원본 5.1 KB
+- `metatft/stat_units_patch_18_1.json` — 원본 6.3 KB
+- `metatft/stat_units_patch_18_1_bd.json` — 원본 5.9 KB
+- `metatft/stat_units_refetch.json` — 원본 6.2 KB
+- `metatft/trait_mapping.headers.txt` — 원본 1.1 KB
+- `metatft/usercontent_tierlist_id.json` — 원본 11.8 KB
+
+## 구조 골격 80개 (원본 합계 46508.4 KB)
+
+- `cdragon_ko_kr.json` — 원본 24057.2 KB
+- `ingame/gh_devrel_spectator.json` — 원본 66.6 KB
+- `ingame/lb_pro_offset_0_limit_200.json` — 원본 74.7 KB
+- `ingame/mt_lookup_by_puuid_self_source_full_profile.json` — 원본 206.2 KB
+- `ingame/mt_lookup_by_puuid_self_source_full_profile_tft_set_TFTSet18.json` — 원본 206.2 KB
+- `judge_item/lc_items_tier0.json` — 원본 170.8 KB
+- `judge_item/lc_items_tier1.json` — 원본 164.6 KB
+- `judge_item/lc_items_tier2.json` — 원본 167.5 KB
+- `judge_item/lc_items_tier3.json` — 원본 170.3 KB
+- `judge_item/lc_items_tier4.json` — 원본 167.1 KB
+- `judge_item/lc_items_tier5.json` — 원본 169.4 KB
+- `judge_item/mt_unit_items_processed.json` — 원본 66.1 KB
+- `judge_item/qq_ds_equip_7plus_showhero.json` — 원본 408.1 KB
+- `judge_item/qq_ds_three_7plus.json` — 원본 233.4 KB
+- `judge_item/qq_equip_ranking_v.json` — 원본 612.6 KB
+- `lolchess/api/data_augments.json` — 원본 374.3 KB
+- `lolchess/api/data_champions.json` — 원본 203.0 KB
+- `lolchess/api/data_companions.json` — 원본 436.1 KB
+- `lolchess/api/data_items.json` — 원본 138.3 KB
+- `lolchess/api/data_traits.json` — 원본 90.4 KB
+- `lolchess/api/meta_champion_carry_scores.json` — 원본 66.7 KB
+- `lolchess/api/meta_deck_champion_detail_ahri.json` — 원본 218.1 KB
+- `lolchess/api/meta_deck_champions.json` — 원본 170.6 KB
+- `lolchess/api/meta_deck_champions_plat.json` — 원본 177.6 KB
+- `lolchess/api/meta_deck_items.json` — 원본 164.6 KB
+- `lolchess/api/meta_deck_traits.json` — 원본 64.5 KB
+- `lolchess/api/meta_decks.json` — 원본 501.7 KB
+- `lolchess/api/ranks_master_champ_da.json` — 원본 554.4 KB
+- `lolchess/api/ranks_master_trait_fae.json` — 원본 548.5 KB
+- `lolchess/api/recent_win_matches.json` — 원본 212.9 KB
+- `lolchess/api/recent_win_matches_q_DA_18_Ahri.json` — 원본 190.1 KB
+- `lolchess/api/rpc_set_report_set17.json` — 원본 131.1 KB
+- `lolchess/api/summoner_matches.json` — 원본 385.7 KB
+- `lolchess/api/summoner_overviews.json` — 원본 133.7 KB
+- `lolchess/api/team_builder_cell_stats.json` — 원본 77.9 KB
+- `lolchess/api/team_builder_refs.json` — 원본 712.3 KB
+- `lolchess/i18n_ko.json` — 원본 406.4 KB
+- `lolchess/pages/augments.next_data.json` — 원본 390.4 KB
+- `lolchess/pages/champion_ahri.next_data.json` — 원본 842.3 KB
+- `lolchess/pages/champions.next_data.json` — 원본 842.3 KB
+- `lolchess/pages/deck_detail.next_data.json` — 원본 538.5 KB
+- `lolchess/pages/deck_detail_items.next_data.json` — 원본 538.5 KB
+- `lolchess/pages/decks.next_data.json` — 원본 538.5 KB
+- `lolchess/pages/exalted.next_data.json` — 원본 508.0 KB
+- `lolchess/pages/guide_aug.next_data.json` — 원본 390.4 KB
+- `lolchess/pages/home.next_data.json` — 원본 487.2 KB
+- `lolchess/pages/items.next_data.json` — 원본 145.0 KB
+- `lolchess/pages/meta.next_data.json` — 원본 507.9 KB
+- `lolchess/pages/meta_youtuber.next_data.json` — 원본 479.9 KB
+- `lolchess/pages/patchnotes.next_data.json` — 원본 336.0 KB
+- `lolchess/pages/synergies.next_data.json` — 원본 95.7 KB
+- `lolchess/pages/tft18.next_data.json` — 원본 842.1 KB
+- `lolqq/lineup/author.json` — 원본 206.7 KB
+- `lolqq/lineup/s18_author_886_head.json` — 원본 69.0 KB
+- `lolqq/proxy/hero_ranking_d.json` — 원본 84.7 KB
+- `lolqq/proxy/tft_key_equip_recommend_chess.json` — 원본 64.3 KB
+- `lolqq/proxy/tft_lineup_group_list_tier2.json` — 원본 496.9 KB
+- `lolqq/proxy/tft_lineup_position.json` — 원본 443.8 KB
+- `metatft/GUESSARG_model_lookupsEA_TFTSet18.json` — 원본 70.7 KB
+- `metatft/app_match_json.trimmed.json` — 원본 621.0 KB
+- `metatft/comps_comp_augment_tiers.json` — 원본 83.7 KB
+- `metatft/comps_comp_builds.trimmed.json` — 원본 205.3 KB
+- `metatft/comps_comp_details.json` — 원본 314.6 KB
+- `metatft/comps_comp_options.trimmed.json` — 원본 796.8 KB
+- `metatft/comps_comps_data.json` — 원본 236.0 KB
+- `metatft/comps_comps_data_noparams.json` — 원본 235.9 KB
+- `metatft/comps_latest_cluster_info.full.json` — 원본 334.9 KB
+- `metatft/comps_rising.json` — 원본 81.2 KB
+- `metatft/comps_unit_items_processed.json` — 원본 66.0 KB
+- `metatft/data_locales_ko_kr.json` — 원본 174.7 KB
+- `metatft/leaderboard_v2_kr.json` — 원본 76.6 KB
+- `metatft/leaderboard_v2_pro.json` — 원본 74.7 KB
+- `metatft/lookups_TFTSet18_latest_en_us.trimmed.json` — 원본 170.4 KB
+- `metatft/lookups_TFTSet18_latest_ko_kr.trimmed.json` — 원본 176.1 KB
+- `metatft/lookups_pbe_TFTSet18_tables.trimmed.json` — 원본 295.6 KB
+- `metatft/profile_lookup_by_riotid_KR.json` — 원본 206.2 KB
+- `metatft/stat_games_days7.json` — 원본 205.6 KB
+- `metatft/stat_percentiles.json` — 원본 90.4 KB
+- `metatft/stat_pro_comps.json` — 원본 162.2 KB
+- `metatft/stat_trends_units.json` — 원본 82.0 KB
+
+## 앞부분만 27개 (원본 합계 12325.5 KB)
+
+- `lolchess/home.html` — 원본 595.1 KB
+- `lolchess/pages/augments.html` — 원본 672.0 KB
+- `lolchess/pages/builder.html` — 원본 71.5 KB
+- `lolchess/pages/champ_stats.html` — 원본 85.2 KB
+- `lolchess/pages/champion_ahri.html` — 원본 903.2 KB
+- `lolchess/pages/champions.html` — 원본 898.0 KB
+- `lolchess/pages/deck_detail.html` — 원본 665.1 KB
+- `lolchess/pages/deck_detail_items.html` — 원본 665.1 KB
+- `lolchess/pages/decks.html` — 원본 665.1 KB
+- `lolchess/pages/exalted.html` — 원본 988.0 KB
+- `lolchess/pages/guide_aug.html` — 원본 672.0 KB
+- `lolchess/pages/home.html` — 원본 595.1 KB
+- `lolchess/pages/items.html` — 원본 219.6 KB
+- `lolchess/pages/leaderboards.html` — 원본 79.1 KB
+- `lolchess/pages/meta.html` — 원본 568.9 KB
+- `lolchess/pages/meta_youtuber.html` — 원본 543.7 KB
+- `lolchess/pages/patchnotes.html` — 원본 408.0 KB
+- `lolchess/pages/power_ups.html` — 원본 774.3 KB
+- `lolchess/pages/profile.html` — 원본 113.3 KB
+- `lolchess/pages/recent_win.html` — 원본 77.3 KB
+- `lolchess/pages/rewards.html` — 원본 365.1 KB
+- `lolchess/pages/synergies.html` — 원본 163.9 KB
+- `lolchess/pages/terms.html` — 원본 70.9 KB
+- `lolchess/pages/tft18.html` — 원본 945.5 KB
+- `lolchess/pages/three_cores.html` — 원본 64.7 KB
+- `lolqq/index.html` — 원본 309.1 KB
+- `lolqq/lineup/s18_lineup_detail_total_head.json` — 원본 146.5 KB
+
+## 제외 265개 (20.6 MB)
+
+- `ingame/mt_main_current.js` — 4924.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__rewards__[set]__[category]-2f83dcf984f59481.js` — 2085.1 KB, JS 번들
+- `ingame/lolchess_js/_app-eb2d384cc4e471b6.js` — 1490.7 KB, JS 번들
+- `lolchess/js/_app.js` — 1490.7 KB, JS 번들
+- `lolqq/static/s18_wisps.js` — 775.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft__[set]-b2c9fb9bd5792c68.js` — 699.1 KB, JS 번들
+- `lolqq/js/lib/tftdatalib.es5.umd.js` — 426.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__9177-63f2a995df9dbcb9.js` — 374.9 KB, JS 번들
+- `lolqq/js/lib/tftlib_v1.es5.umd.js` — 370.4 KB, JS 번들
+- `lolqq/js/lib/tftlib_lolqq.es5.umd.js` — 351.6 KB, JS 번들
+- `ingame/lolchess_js/static_chunks_pages_profile__shard___nickname___season____...tab__-c452cc366cb7fc51.js` — 348.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__profile__[shard]__[nickname]__[season]__[[...tab]]-c452cc366cb7fc51.js` — 348.3 KB, JS 번들
+- `lolqq/static/s18_equip.js` — 295.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft__revival__[set]-fc09732883112cc6.js` — 253.2 KB, JS 번들
+- `ingame/aosp_ActivityManager.java` — 251.5 KB, 형식 제외
+- `lolchess/js/all/static__chunks__8962-8f60f56ef2eabd2a.js` — 231.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__6162-22a787eb130fcd2e.js` — 192.4 KB, JS 번들
+- `lolqq/js/lib/tftlib_v1.umd.js` — 180.6 KB, JS 번들
+- `lolchess/js/all/static__chunks__8327-ff5779d7c0788259.js` — 173.0 KB, JS 번들
+- `lolqq/static/s18_chess.js` — 170.1 KB, JS 번들
+- `ingame/aosp_UsageStatsService.java` — 155.3 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__set-report__[shard]__[name]-5b4b7075add26404.js` — 153.8 KB, JS 번들
+- `ingame/mt_overlaywidget.js` — 153.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__3fff1979-2c29ca00015005e3.js` — 151.9 KB, JS 번들
+- `lolqq/js/component/page-datasearch.js` — 147.7 KB, JS 번들
+- `lolqq/static/s18_hex.js` — 143.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__3733-83579d403e44a593.js` — 108.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__3972-a0bd392bb4266ef8.js` — 107.1 KB, JS 번들
+- `lolqq/js/component/global-component.js` — 95.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__index-73bd6bc5b7883e83.js` — 87.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__leaderboards-38439c082ccb2768.js` — 86.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__board__[category]__[type]-f54030480ee06f13.js` — 81.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__exalted__statistics__[key]-ecdc21753c6491f8.js` — 74.3 KB, JS 번들
+- `ingame/aosp_UsageStatsManager.java` — 72.3 KB, 형식 제외
+- `lolqq/js/component/page-master-detail.js` — 72.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft__event__pengus-party__[anniversary]-a068b73e140e0a94.js` — 71.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft__choncc__[set]-05079ea65a97de7d.js` — 71.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__recent-win-decks-55cd3eeb481fb97c.js` — 70.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__712-b9e86fa4bc21a8db.js` — 70.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__3397-2a84f5fdc42d2ac4.js` — 68.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__7017-e48c0bf4cb7cffb3.js` — 68.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__my-builder-855ad64d9e480825.js` — 66.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__9650-bb9b6b4788b453f4.js` — 65.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__guide__rewards__[category]-09384be9ebfe9223.js` — 63.4 KB, JS 번들
+- `ingame/aosp_NetworkStatsManager.java` — 61.8 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__items__[set]__[[...tab]]-7c628cd856cfe1e2.js` — 61.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__leaderboards__[category]__[set]__[key]-ef09d1531ad89bbe.js` — 60.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__encounters__[set]-04805d911ff79304.js` — 60.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__7665-0d7cb5c7e1044dcb.js` — 59.9 KB, JS 번들
+- `ingame/aosp_UserUsageStatsService.java` — 59.6 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__meta__[category]-9b3213bd475d2589.js` — 56.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__5865-f6bb586b2035d001.js` — 55.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__2866-97df8405730ff5dc.js` — 54.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__decks__[...tab]-8d44a2da54d3d373.js` — 52.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__1743-0e38db2a311f105d.js` — 52.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__4774-98efe10fe6952dac.js` — 49.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__meta-b6c055e6b2480862.js` — 49.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__8788-8fe980d2d730ac77.js` — 47.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft__event__[name]-dd94da574f1672f2.js` — 46.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__simulator__[set]-a85b7f6c94db2cac.js` — 46.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__board__[category]__view__[id]__[title]-46b295df6e6d7d90.js` — 46.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__synergies__[set]__[[...tab]]-0f05996733a18e1b.js` — 45.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__about__terms_and_service-ea5f34fa6129c2fd.js` — 44.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__1543-c7ec2727f73adb42.js` — 44.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__charms__[set]-d452042f8ff62039.js` — 42.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft__event__set16-9d55dd0471e93370.js` — 41.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__open-run__[set]-63900bcfd4d1d8bf.js` — 40.4 KB, JS 번들
+- `ingame/aosp_UsageEvents.java` — 40.3 KB, 형식 제외
+- `lolchess/js/all/static__chunks__4814-53e0da297723b3a9.js` — 39.6 KB, JS 번들
+- `lolqq/js/api.js` — 39.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__5389-17ec28d254d30e4e.js` — 38.2 KB, JS 번들
+- `lolqq/js/util.js` — 37.4 KB, JS 번들
+- `ingame/lolchess_js/6416-6ce3e0e371389141.js` — 37.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__6416-6ce3e0e371389141.js` — 37.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__1674-9d9d30dec79a3e44.js` — 36.8 KB, JS 번들
+- `ingame/lolchess_js/9387-39c0fdc733aaf64a.js` — 36.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__9387-39c0fdc733aaf64a.js` — 36.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__9297-1797b0ee48f3086c.js` — 35.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__4917-002e4b2f91eb3bb0.js` — 35.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__underground__[set]-7dc07468fdce3a7b.js` — 35.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__meta__youtuber-616cf4274e7b4cbf.js` — 35.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__about__privacy-7bf9fac153cbe3de.js` — 34.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__augments__[set]__[[...tab]]-d46175d5b872a281.js` — 32.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__9388-764abd735fbac0e7.js` — 32.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__1831-980fc9bbfb588136.js` — 30.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__decks-d12fd4ca807219e5.js` — 30.5 KB, JS 번들
+- `lolqq/js/component/page-rank.js` — 30.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__power-ups__[set]__[[...tab]]-3ae3a9cb180e63ac.js` — 30.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__builder__guide__[id]-20becca0e742248e.js` — 29.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__portals__[set]-473c39188e566bfa.js` — 28.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__1588-296febfc8875364e.js` — 26.8 KB, JS 번들
+- `lolqq/js/main.js` — 25.2 KB, JS 번들
+- `lolqq/static/s18_race.js` — 25.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__5679-d752e67a98787d46.js` — 24.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__9265-a0c47bbd0010e0ac.js` — 24.2 KB, JS 번들
+- `ingame/lolchess_js/spectate-4eae5487b535c3c3.js` — 24.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__spectate-4eae5487b535c3c3.js` — 24.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft__event__set16__winner-shipping-info-66d03b522cc419ba.js` — 23.0 KB, JS 번들
+- `lolqq/js/component/page-lineup.js` — 22.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__1131-c4a8abfeedabba66.js` — 22.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__legends__[set]-5775b85863c6dc41.js` — 22.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__9714-65a2a5d0c19bc4ea.js` — 22.7 KB, JS 번들
+- `lolqq/js/component/page-hex.js` — 22.4 KB, JS 번들
+- `lolqq/js/component/page-lineup-detail.js` — 22.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__search-0b11ef78c944e7d9.js` — 22.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__builder-612fd06d5ec6a751.js` — 21.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__6942-8b6fc78b09b0b13d.js` — 21.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__about__app__privacy-a63a9c7dc9c23aea.js` — 21.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__4489-88d3bf4d2770cf15.js` — 20.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__builder__[season]-da237e0ebee6c030.js` — 20.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__3314-1a371322459ff2b8.js` — 19.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__2454-e546e6e8c65575ee.js` — 19.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__1469-be0c50db9fae9704.js` — 19.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__6723-4cfe01751c97ba8c.js` — 19.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__set-report-540a5364afdd0bd6.js` — 18.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__8933-a50997e7517fb303.js` — 18.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tools__little-legends-0b595712b66fd305.js` — 18.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__8552-45f3c6d33195e327.js` — 18.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__9805-73572f1ff8e0f1ed.js` — 17.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__7947-8beb57c0a472f89d.js` — 17.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tools__loaded-dice-4efcec7b73e778fc.js` — 17.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__9348-bf15f533412292e8.js` — 16.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__6038-25a0435705bb35a7.js` — 16.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__3028-b0118c28530f0129.js` — 15.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__167-8d08d0c457d1abb4.js` — 15.2 KB, JS 번들
+- `ingame/lolchess_js/_buildManifest.js` — 14.9 KB, JS 번들
+- `lolchess/buildManifest.js` — 14.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__my-builder__edit__[id]-15f2b7ae3c5eef5d.js` — 14.9 KB, JS 번들
+- `lolqq/js/component/page-overview.js` — 14.8 KB, JS 번들
+- `ingame/lolchess_js/1813-581f7d6244f3f626.js` — 14.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__1813-581f7d6244f3f626.js` — 14.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__7417-07419b8a6de2d391.js` — 14.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__8600-f90265fb05279edf.js` — 14.1 KB, JS 번들
+- `lolchess/js/all/static__chunks__3678-d45472861e12184b.js` — 13.6 KB, JS 번들
+- `lolchess/js/all/static__chunks__5038-0cc47143b2b886dd.js` — 13.4 KB, JS 번들
+- `lolqq/js/lib/fetch.js` — 12.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__5387-fd7da28bc9a46a1d.js` — 12.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__opening-encounters__[set]-1140b9d7e3fa7936.js` — 12.6 KB, JS 번들
+- `lolchess/js/all/static__chunks__5693-17a107f48ebb8610.js` — 12.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__5-df4a0ba148b77e02.js` — 12.0 KB, JS 번들
+- `lolqq/js/component/page-wr-lineup.js` — 12.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__member__login-44da9155e92d234f.js` — 11.8 KB, JS 번들
+- `ingame/lolchess_js/6492-101484a74501a2dc.js` — 11.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__6492-101484a74501a2dc.js` — 11.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__3310-e5b267a3c34b99db.js` — 11.6 KB, JS 번들
+- `lolqq/js/component/page-equipment.js` — 11.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__8587-d8addd93adf81e86.js` — 10.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__anomalies__[set]-4dfb3cbe3bae3889.js` — 10.3 KB, JS 번들
+- `lolqq/legacy/equiprank_t1_tierall.jsonp` — 10.3 KB, 형식 제외
+- `judge_item/qq_legacy_equiprank_t1_tier255.jsonp` — 10.3 KB, 형식 제외
+- `metatft/_endpoints.tsv` — 10.3 KB, 형식 제외
+- `judge_item/qq_legacy_equiprank_t1_tier1.jsonp` — 10.3 KB, 형식 제외
+- `judge_item/qq_legacy_equiprank_t7_tier255.jsonp` — 10.2 KB, 형식 제외
+- `lolqq/js/tft-mode-registry.js` — 10.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__7882-d0c84ff2ae670d61.js` — 9.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__4972-c0228355a75ed207.js` — 9.6 KB, JS 번들
+- `lolchess/js/all/static__chunks__8256-eb40b8e6bbfe3471.js` — 9.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__3219-ea92f69d211c0e5b.js` — 9.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__365-a3c7ea7848715bfb.js` — 9.2 KB, JS 번들
+- `lolqq/static/s18_job.js` — 9.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__1926-e28e2ff67a9247bb.js` — 8.9 KB, JS 번들
+- `lolchess/js/all/static__chunks__9559-bc3f575009606037.js` — 8.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__9334-1e38d4b9cf9a5518.js` — 8.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__5259-173de7325b7a8dea.js` — 8.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__4887-f52329c1916ff0f7.js` — 8.1 KB, JS 번들
+- `lolchess/make_index.py` — 8.1 KB, 형식 제외
+- `lolchess/js/all/static__chunks__5585-db9a2a46a7eeb118.js` — 7.3 KB, JS 번들
+- `lolqq/js/component/page-champion-detail.js` — 7.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__8749-fd407b55bce1b72e.js` — 7.0 KB, JS 번들
+- `lolchess/js/all/static__chunks__6943-e1dad0706875d7a6.js` — 6.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__8270-8ed3844caf674edc.js` — 6.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__42-1c83a8a6fd57c0e7.js` — 6.6 KB, JS 번들
+- `lolqq/js/component/page-champion.js` — 6.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__5628-98395dce32b80dfa.js` — 6.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__builder__widget__deckPreview-f432450b8f16dee4.js` — 6.3 KB, JS 번들
+- `ingame/live_poller.py` — 5.9 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__favorites-803f709e5c1e7b5c.js` — 5.8 KB, JS 번들
+- `lolqq/js/component/page-tier-rank.js` — 5.7 KB, JS 번들
+- `judge_item/cmp1.py` — 5.6 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__exalted__[set]-9695f75da7eabf1e.js` — 5.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__champions__[set]__[championKey]-aac9c5e8081be889.js` — 5.1 KB, JS 번들
+- `judge_item/qq_ds.py` — 5.0 KB, 형식 제외
+- `lolchess/js/all/static__chunks__3381-5f2d434b0b1756d9.js` — 4.8 KB, JS 번들
+- `lolqq/js/component/page-news.js` — 4.8 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__PopupModal-aaa0ad7cf7bfbbed.js` — 4.8 KB, JS 번들
+- `judge_item/mt_live.py` — 4.7 KB, 형식 제외
+- `lolqq/js/component/page-strategy.js` — 4.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__mobile-helpscout-1bc0fe45aa9b914a.js` — 4.5 KB, JS 번들
+- `lolqq/js/component/page-little-hero.js` — 4.3 KB, JS 번들
+- `lolqq/fx.py` — 3.9 KB, 형식 제외
+- `judge_item/lc_live.py` — 3.8 KB, 형식 제외
+- `lolqq/legacy/herorank_t7_master.jsonp` — 3.6 KB, 형식 제외
+- `lolchess/js/all/static__chunks__1697-b3fb7f8a9dd54dbc.js` — 3.5 KB, JS 번들
+- `lolqq/rank/lol_server_select.js` — 3.5 KB, JS 번들
+- `lolqq/legacy/herorank_t1_tierall.jsonp` — 3.5 KB, 형식 제외
+- `lolchess/__pycache__/probe.cpython-313.pyc` — 3.4 KB, 형식 제외
+- `lolqq/js/component/page-author-detail.js` — 3.3 KB, JS 번들
+- `lolqq/legacy/mbrank_t1_tierall.jsonp` — 3.3 KB, 형식 제외
+- `judge_item/qq_live1.py` — 3.2 KB, 형식 제외
+- `judge_item/qq_ds2.py` — 3.1 KB, 형식 제외
+- `lolchess/js/all/static__chunks__8720-2cec8b5fdca1b8e1.js` — 3.0 KB, JS 번들
+- `judge_item/join.py` — 3.0 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__guide__[category]-2d4226396fe858e9.js` — 2.9 KB, JS 번들
+- `judge_item/qq_ds3.py` — 2.8 KB, 형식 제외
+- `lolqq/js/component/page-hexplaybook-details.js` — 2.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__champions__[set]__stats-582dcde58799cf1e.js` — 2.4 KB, JS 번들
+- `judge_item/lc_mt_window.py` — 2.4 KB, 형식 제외
+- `lolqq/js/component/page-synergy.js` — 2.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__champions__[set]-78abf2251f95e42b.js` — 2.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__guide__pbe-patch-note-e079677f77c205c6.js` — 2.0 KB, JS 번들
+- `lolqq/legacy/sbc_t1_10383_9.jsonp` — 2.0 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__guide__patch-notes__[[...id]]-2f3caaff0d4df586.js` — 1.8 KB, JS 번들
+- `ingame/lolchess_js/static_chunks_pages_profile-ef9b62121a35dbef.js` — 1.6 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__profile-ef9b62121a35dbef.js` — 1.6 KB, JS 번들
+- `lolchess/nd.py` — 1.6 KB, 형식 제외
+- `lolchess/probe.py` — 1.4 KB, 형식 제외
+- `ingame/poll_lolchess_rpc.py` — 1.3 KB, 형식 제외
+- `ingame/scan_live.py` — 1.3 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__champions__[set]__three-cores-57e6fe299b53b4aa.js` — 1.3 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages___error-55e85434c1afa260.js` — 1.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__error__500-388bb6a3b7a8602a.js` — 1.2 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__404-cfad6e1c7fde1d2c.js` — 1.0 KB, JS 번들
+- `judge_item/lc_bundle.py` — 0.7 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__board__[category]__write-8da1a3630b57f37f.js` — 0.7 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__board__[category]__edit__[id]-faf6901646394d5a.js` — 0.7 KB, JS 번들
+- `lolqq/legacy/mbrl_t1_10383_9.jsonp` — 0.6 KB, 형식 제외
+- `lolchess/home.headers` — 0.6 KB, 형식 제외
+- `ingame/_list_lolchess_api.py` — 0.5 KB, 형식 제외
+- `lolchess/js/all/static__chunks__pages__meta__three-cores-25c2aef64247b7c8.js` — 0.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__meta__champions-9385732d87867971.js` — 0.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__meta__augments-dd741c0310b2da77.js` — 0.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__meta__traits-f50713957c9f040b.js` — 0.5 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__meta__items-23eff2c0daa06deb.js` — 0.4 KB, JS 번들
+- `ingame/lolchess_js/static_chunks_pages_profile__shard___nickname_-f40014693c3a6de5.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__board__[category]__view__[id]-6a5a84b17e6e9e4f.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__profile__[shard]__[nickname]-f40014693c3a6de5.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft__event__pengus-party-f204f1bbcacdb3db.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__champions__[set]__[championKey]__revival-3722f2ded7472335.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__opening-encounters-d4ef477542cafa00.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__rewards__[set]-a6bd17b78c26cc62.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__member__oauth-2b22dd158afb8ba9.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__guide__augments__[set]__revival-6cd43b5507ac6539.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__leaderboards__[category]__[set]-c7eca6d526001669.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__encounters-96f9457408f9e4ad.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__anomalies-2ddf8a5f8144d7d6.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__redirect-420bcd7512fc411f.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__portals-1456ce8d743cbb10.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__rewards-e652e79c604c1175.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__simulator-0c07cad9e37d66c4.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__synergies__[set]__revival-4a1e9ebf55594a09.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__board-649b1fcb20829051.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__exalted-ca905b1064a1d76f.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__charms-2dca8795eef58a12.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__patch-notes__[[...id]]-fe18a8ad5e1ff519.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__guide__augments__[set]-e9b7f2716fabc715.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__items__[set]__revival-944c2b06fcd6662f.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__tft-ebf7dee2431a7366.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__guide__rewards-194b1fbc4aad8fda.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__champions-3dff1d0f0e66ef99.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__synergies-a1f18632265f5b95.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__augments-4347d9b70f1b3bc1.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__power-ups-b5af3a430a8170c2.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__guide-51bd94e0baf220ea.js` — 0.4 KB, JS 번들
+- `lolchess/js/all/static__chunks__pages__items-92027f05c0e85827.js` — 0.4 KB, JS 번들
+- `lolchess/nextdata_probe.tmp` — 0.0 KB, 형식 제외
+
+## 공개 전 정리 (2026-09-15)
+
+공개 저장소에 올리기 전에 샘플과 원본 결과를 정리했다.
+
+- 제3자 사이트 페이지 사본(HTML, 페이지 앞부분)은 지웠다. 주소는 이 문서와 README 에 남아 있다.
+- lolchess.gg(약관상 복제·제3자 제공 금지)와 tftactics.gg(편집 콘텐츠) 샘플은 값을 지우고 키와 타입만 남겼다. 게임 데이터 id(DA_*, TFT*)만 형식 참고용으로 둔다.
+- 다른 플레이어의 라이엇 ID, puuid, 소환사명은 `<플레이어>#<태그>`, `<puuid>`, `<가림>` 으로 바꿨다. 사용자 본인 테스트 계정 이름만 남겼다.
+- HTTP 헤더의 쿠키 값은 가렸다.
+
+그래서 목록에 있어도 파일이 없거나 값이 가려진 샘플이 있다. 응답 모양을 다시 봐야 하면 README 의 엔드포인트를 직접 호출하라.

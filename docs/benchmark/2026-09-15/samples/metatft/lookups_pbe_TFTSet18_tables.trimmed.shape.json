@@ -1,0 +1,6438 @@
+{
+ "CT_Round_MatchupScores": {
+  "ScoresPerRoundNotPlayed": [
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    2
+   ],
+   "... 외 3개"
+  ]
+ },
+ "lossStreakIncome": {
+  "LossStreakCount": [
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   "... 외 2개"
+  ]
+ },
+ "passiveIncome": {
+  "IncomeBasedOnRoundIndex": [
+   [
+    0,
+    0
+   ],
+   [
+    2,
+    2
+   ],
+   "... 외 3개"
+  ]
+ },
+ "winStreakIncome": {
+  "WinStreakCount": [
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   "... 외 2개"
+  ]
+ },
+ "expPerLevelLegacy": {
+  "ExpBreakpoints": [
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    6
+   ],
+   "... 외 6개"
+  ]
+ },
+ "expPerLevel": {
+  "ExpBreakpoints": [
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    6
+   ],
+   "... 외 7개"
+  ]
+ },
+ "shopOdds": {
+  "OneCostOdds": [
+   [
+    1,
+    1
+   ],
+   [
+    3,
+    0.75
+   ],
+   "... 외 8개"
+  ],
+  "FourCostOdds": [
+   [
+    1,
+    0
+   ],
+   [
+    5,
+    0.02
+   ],
+   "... 외 6개"
+  ],
+  "TwoCostOdds": [
+   [
+    1,
+    0
+   ],
+   [
+    3,
+    0.25
+   ],
+   "... 외 8개"
+  ],
+  "FiveCostOdds": [
+   [
+    1,
+    0
+   ],
+   [
+    7,
+    0.01
+   ],
+   "... 외 4개"
+  ],
+  "ThreeCostOdds": [
+   [
+    1,
+    0
+   ],
+   [
+    4,
+    0.15
+   ],
+   "... 외 7개"
+  ]
+ },
+ "critChanceConversion": {
+  "ExcessCritChanceConversionRatio": [
+   [
+    1,
+    0.5
+   ]
+  ]
+ },
+ "spellCritConversion": {
+  "SpellCritToCritDamageConversion": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   "... 외 1개"
+  ]
+ },
+ "debuffLevels": {
+  "ShredSunderChill": [
+   [
+    0,
+    1
+   ],
+   [
+    100,
+    0
+   ]
+  ],
+  "ManaReave": [
+   [
+    0,
+    0
+   ],
+   [
+    100,
+    100
+   ]
+  ],
+  "BurnWound": [
+   [
+    0,
+    0
+   ],
+   [
+    100,
+    1
+   ]
+  ]
+ },
+ "overtimeStats": {
+  "AttackSpeed": [
+   [
+    0,
+    1.1
+   ],
+   [
+    1,
+    1.21
+   ],
+   "... 외 10개"
+  ],
+  "Tenacity": [
+   [
+    0,
+    0.1
+   ],
+   [
+    1,
+    0.2
+   ],
+   "... 외 2개"
+  ],
+  "MovementSpeed": [
+   [
+    0,
+    700
+   ],
+   [
+    30,
+    700
+   ]
+  ],
+  "FinalDamageMultiplier": [
+   [
+    0,
+    1.1
+   ],
+   [
+    1,
+    1.21
+   ],
+   "... 외 10개"
+  ],
+  "HealShieldMultiplier": [
+   [
+    0,
+    0.9
+   ],
+   [
+    1,
+    0.8
+   ],
+   "... 외 2개"
+  ]
+ },
+ "threeStarBonuses": {
+  "FiveCostScaleMult": [
+   [
+    1,
+    1.5
+   ]
+  ],
+  "FourCostHealth": [
+   [
+    1,
+    1000
+   ]
+  ],
+  "FiveCostHealth": [
+   [
+    1,
+    5000
+   ]
+  ],
+  "FiveCostManaRegen": [
+   [
+    1,
+    25
+   ]
+  ]
+ },
+ "unitCost": {
+  "OneCost": [
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   "... 외 2개"
+  ],
+  "TwoCost": [
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    5
+   ],
+   "... 외 2개"
+  ],
+  "ThreeCost": [
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    8
+   ],
+   "... 외 2개"
+  ],
+  "FourCost": [
+   [
+    1,
+    4
+   ],
+   [
+    2,
+    11
+   ],
+   "... 외 2개"
+  ],
+  "FiveCost": [
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    14
+   ],
+   "... 외 2개"
+  ],
+  "SixCost": [
+   [
+    1,
+    6
+   ],
+   [
+    2,
+    17
+   ],
+   "... 외 2개"
+  ],
+  "SevenCost": [
+   [
+    1,
+    7
+   ],
+   [
+    2,
+    20
+   ],
+   "... 외 2개"
+  ]
+ },
+ "starMultipliers": {
+  "Size": [
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    1.15
+   ],
+   "... 외 2개"
+  ],
+  "Health": [
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    1.8
+   ],
+   "... 외 2개"
+  ]
+ },
+ "boardAoeRange": {
+  "AOERangeForHex": [
+   [
+    0,
+    107
+   ],
+   [
+    10,
+    2247
+   ]
+  ]
+ },
+ "abilityLevel": {
+  "Curve": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    1
+   ],
+   "... 외 9개"
+  ]
+ },
+ "charmShop": {
+  "CharmCastLimit": [
+   [
+    1,
+    1
+   ],
+   [
+    3,
+    1
+   ]
+  ],
+  "ChanceOfTwoCharms": [
+   [
+    1,
+    0
+   ],
+   [
+    3,
+    0
+   ]
+  ],
+  "ChanceOfZeroCharms": [
+   [
+    1,
+    0
+   ],
+   [
+    3,
+    0
+   ]
+  ],
+  "ChanceOfOneCharm": [
+   [
+    1,
+    1
+   ],
+   [
+    3,
+    1
+   ]
+  ],
+  "ShopsPerCharm": [
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    2
+   ]
+  ]
+ },
+ "locales": {
+  "ar": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "ar-AE": {
+   "entries": 17515,
+   "namespaces": 18
+  },
+  "cs-CZ": {
+   "entries": 17516,
+   "namespaces": 18
+  },
+  "de": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "de-DE": {
+   "entries": 17514,
+   "namespaces": 18
+  },
+  "el-GR": {
+   "entries": 17279,
+   "namespaces": 13
+  },
+  "en": {
+   "entries": 16743,
+   "namespaces": 2234
+  },
+  "en-US": {
+   "entries": 17527,
+   "namespaces": 18
+  },
+  "es": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "es-ES": {
+   "entries": 17518,
+   "namespaces": 18
+  },
+  "es-MX": {
+   "entries": 17524,
+   "namespaces": 19
+  },
+  "fr": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "fr-FR": {
+   "entries": 17514,
+   "namespaces": 18
+  },
+  "hu-HU": {
+   "entries": 17521,
+   "namespaces": 18
+  },
+  "id-ID": {
+   "entries": 17279,
+   "namespaces": 13
+  },
+  "it": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "it-IT": {
+   "entries": 17516,
+   "namespaces": 18
+  },
+  "ja": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "ja-JP": {
+   "entries": 17519,
+   "namespaces": 18
+  },
+  "ko": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "ko-KR": {
+   "entries": 17521,
+   "namespaces": 18
+  },
+  "pl": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "pl-PL": {
+   "entries": 17516,
+   "namespaces": 18
+  },
+  "pt-BR": {
+   "entries": 34218,
+   "namespaces": 2244
+  },
+  "ro-RO": {
+   "entries": 17279,
+   "namespaces": 13
+  },
+  "ru": {
+   "entries": 16702,
+   "namespaces": 2228
+  },
+  "ru-RU": {
+   "entries": 17520,
+   "namespaces": 18
+  },
+  "th-TH": {
+   "entries": 17516,
+   "namespaces": 18
+  },
+  "tr": {
+   "entries": 16674,
+   "namespaces": 2225
+  },
+  "tr-TR": {
+   "entries": 17520,
+   "namespaces": 18
+  },
+  "...": "외 5개 키"
+ },
+ "stages": [
+  {
+   "stage": 1,
+   "asset": "DA_Stage_1",
+   "rounds": [
+    {
+     "round": 1,
+     "id": "1-1",
+     "type": "encounter"
+    },
+    {
+     "round": 2,
+     "id": "1-2",
+     "type": "intro1"
+    },
+    "... 외 2개"
+   ]
+  },
+  {
+   "stage": 2,
+   "asset": "DA_Stage_2",
+   "rounds": [
+    {
+     "round": 1,
+     "id": "2-1",
+     "type": "augment"
+    },
+    {
+     "round": 2,
+     "id": "2-2",
+     "type": "combat"
+    },
+    "... 외 5개"
+   ]
+  },
+  "... 외 6개"
+ ],
+ "augmentRounds": [
+  "2-1",
+  "3-2",
+  "... 외 1개"
+ ],
+ "carouselRounds": [
+  "2-4",
+  "3-4",
+  "... 외 5개"
+ ],
+ "charmRoundBounds": {
+  "Early": {
+   "start": "2-1",
+   "end": "2-7",
+   "startStage": 2,
+   "startRound": 1,
+   "endStage": 2,
+   "endRound": 7
+  },
+  "EarlyMid": {
+   "start": "3-1",
+   "end": "3-4",
+   "startStage": 3,
+   "startRound": 1,
+   "endStage": 3,
+   "endRound": 4
+  },
+  "Mid": {
+   "start": "3-5",
+   "end": "4-1",
+   "startStage": 3,
+   "startRound": 5,
+   "endStage": 4,
+   "endRound": 1
+  },
+  "MidLate": {
+   "start": "4-2",
+   "end": "4-7",
+   "startStage": 4,
+   "startRound": 2,
+   "endStage": 4,
+   "endRound": 7
+  },
+  "Late": {
+   "start": "5-1",
+   "end": "5-7",
+   "startStage": 5,
+   "startRound": 1,
+   "endStage": 5,
+   "endRound": 7
+  },
+  "VeryLate": {
+   "start": "6-1",
+   "end": "10-1",
+   "startStage": 6,
+   "startRound": 1,
+   "endStage": 10,
+   "endRound": 1
+  }
+ },
+ "charmAppearanceCooldowns": {
+  "default": 5,
+  "byTag": {
+   "Charm.Lockout.OncePerGame": 200,
+   "Charm.Category.Item": 20,
+   "Charm.PlayerHealing": 10,
+   "Charm.Growth": 2
+  }
+ },
+ "augmentTierDistribution": {
+  "rows": [
+   {
+    "tiers": [
+     "Silver",
+     "Silver",
+     "... 외 1개"
+    ],
+    "weight": 5,
+    "chance": 0.0459
+   },
+   {
+    "tiers": [
+     "Silver",
+     "Silver",
+     "... 외 1개"
+    ],
+    "weight": 5,
+    "chance": 0.0459
+   },
+   "... 외 10개"
+  ],
+  "totalWeight": 109
+ },
+ "encounterPool": {
+  "entries": {
+   "DA_ComponentAnvils18": {
+    "apiName": "DA_ComponentAnvils18",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Sivir"
+   },
+   "DA_PrismaticFinale18": {
+    "apiName": "DA_PrismaticFinale18",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Karma"
+   },
+   "DA_18_GoldenGala": {
+    "apiName": "DA_18_GoldenGala",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Leona"
+   },
+   "DA_18_PrismaticParty": {
+    "apiName": "DA_18_PrismaticParty",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_ElderDragon"
+   },
+   "DA_18_GoldSubscription": {
+    "apiName": "DA_18_GoldSubscription",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Kobuko"
+   },
+   "DA_18_HowlingAbyss": {
+    "apiName": "DA_18_HowlingAbyss",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": null
+   },
+   "DA_18_NoEncounter": {
+    "apiName": "DA_18_NoEncounter",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": null
+   },
+   "DA_18_PrismaticOpener": {
+    "apiName": "DA_18_PrismaticOpener",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Morgana"
+   },
+   "DA_18_ScoutingParty": {
+    "apiName": "DA_18_ScoutingParty",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": null
+   },
+   "DA_FinalShowdown18": {
+    "apiName": "DA_FinalShowdown18",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": null
+   },
+   "DA_18_UpgradedStart": {
+    "apiName": "DA_18_UpgradedStart",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_LeBlanc"
+   },
+   "DA_18_2CostStart": {
+    "apiName": "DA_18_2CostStart",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": null
+   },
+   "DA_18_3CostStart": {
+    "apiName": "DA_18_3CostStart",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": null
+   },
+   "DA_18_ItemForge": {
+    "apiName": "DA_18_ItemForge",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": null
+   },
+   "DA_18_CheaperLevels": {
+    "apiName": "DA_18_CheaperLevels",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Ashe"
+   },
+   "DA_18_GoldenPrelude": {
+    "apiName": "DA_18_GoldenPrelude",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Amumu"
+   },
+   "DA_18_GoldenFinale": {
+    "apiName": "DA_18_GoldenFinale",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Ivern"
+   },
+   "DA_18_EmblemEnsemble": {
+    "apiName": "DA_18_EmblemEnsemble",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Lux_Base"
+   },
+   "DA_18_CompletedAnvil": {
+    "apiName": "DA_18_CompletedAnvil",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Yunara"
+   },
+   "DA_18_RerollSubscription": {
+    "apiName": "DA_18_RerollSubscription",
+    "weight": null,
+    "pickCount": 1,
+    "championHint": "TFT18_Kayle"
+   }
+  },
+  "count": 20,
+  "weighted": false,
+  "roundBounds": {
+   "Early": {
+    "start": "1-1",
+    "end": "3-5"
+   },
+   "Late": {
+    "start": "3-6",
+    "end": "10-1"
+   }
+  },
+  "rounds": [
+   "1-1"
+  ],
+  "championHintsResolved": 13
+ },
+ "shopPool": {
+  "copiesByCost": {
+   "1": 30,
+   "2": 25,
+   "3": 18,
+   "4": 10,
+   "5": 9
+  },
+  "unitsByCost": {
+   "1": 14,
+   "2": 13,
+   "3": 14,
+   "4": 14,
+   "5": 10
+  },
+  "poolByCost": {
+   "1": 420,
+   "2": 325,
+   "3": 252,
+   "4": 140,
+   "5": 90
+  },
+  "totalUnits": 65,
+  "totalCopies": 1227
+ },
+ "lootTables": {
+  "named": {
+   "DA_CaretakersFavorLoot": {
+    "apiName": "DA_CaretakersFavorLoot",
+    "type": "loot",
+    "dropTable": null,
+    "hasDropTable": false
+   },
+   "DA_CookingPot_Loot": {
+    "apiName": "DA_CookingPot_Loot",
+    "type": "loot",
+    "dropTable": null,
+    "hasDropTable": false
+   },
+   "DA_ItemGrabBagLoot": {
+    "apiName": "DA_ItemGrabBagLoot",
+    "type": "loot",
+    "dropTable": null,
+    "hasDropTable": false
+   },
+   "DA_Tockers18_LootOrb_Round02": {
+    "apiName": "DA_Tockers18_LootOrb_Round02",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round02",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 2,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Consumable_GoldenItemRemover",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round03": {
+    "apiName": "DA_Tockers18_LootOrb_Round03",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round03",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_Components",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 2,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_LesserDupe1TwoCost",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_Consumable_LesserChampionDuplicator",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       {
+        "apiName": "DA_18_2CostChampions",
+        "type": "table",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 4개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round04": {
+    "apiName": "DA_Tockers18_LootOrb_Round04",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round04",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_Components",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_18_3CostChampions",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round05": {
+    "apiName": "DA_Tockers18_LootOrb_Round05",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round05",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_Components",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_18_3CostChampions",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round06": {
+    "apiName": "DA_Tockers18_LootOrb_Round06",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round06",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round07": {
+    "apiName": "DA_Tockers18_LootOrb_Round07",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round07",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 7,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round08": {
+    "apiName": "DA_Tockers18_LootOrb_Round08",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round08",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 7,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round09": {
+    "apiName": "DA_Tockers18_LootOrb_Round09",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round09",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 7,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round10": {
+    "apiName": "DA_Tockers18_LootOrb_Round10",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round10",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 7,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round11": {
+    "apiName": "DA_Tockers18_LootOrb_Round11",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round11",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 13,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 2,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round12": {
+    "apiName": "DA_Tockers18_LootOrb_Round12",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round22",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round13": {
+    "apiName": "DA_Tockers18_LootOrb_Round13",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round13",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 9,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round14": {
+    "apiName": "DA_Tockers18_LootOrb_Round14",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round14",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 9,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round15": {
+    "apiName": "DA_Tockers18_LootOrb_Round15",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round15",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 9,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round16": {
+    "apiName": "DA_Tockers18_LootOrb_Round16",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round16",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 15,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round17": {
+    "apiName": "DA_Tockers18_LootOrb_Round17",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round17",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 9,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 2개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round18": {
+    "apiName": "DA_Tockers18_LootOrb_Round18",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round18",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 15,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 2,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round19": {
+    "apiName": "DA_Tockers18_LootOrb_Round19",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round19",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 9,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round20": {
+    "apiName": "DA_Tockers18_LootOrb_Round20",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round20",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 9,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round21": {
+    "apiName": "DA_Tockers18_LootOrb_Round21",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round21",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 20,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 3,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 2개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round22": {
+    "apiName": "DA_Tockers18_LootOrb_Round22",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round22",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round23": {
+    "apiName": "DA_Tockers18_LootOrb_Round23",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round23",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round24": {
+    "apiName": "DA_Tockers18_LootOrb_Round24",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round24",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round25": {
+    "apiName": "DA_Tockers18_LootOrb_Round25",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round25",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round26": {
+    "apiName": "DA_Tockers18_LootOrb_Round26",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round26",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 4,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round27": {
+    "apiName": "DA_Tockers18_LootOrb_Round27",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round27",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 12,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 3,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 2개"
+    ]
+   },
+   "DA_Tockers18_LootOrb_Round28": {
+    "apiName": "DA_Tockers18_LootOrb_Round28",
+    "type": "loot",
+    "dropTable": "DA_Tockers18_Loot_DT_Round28",
+    "hasDropTable": true,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 18,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_OneShopRerollTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 3,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 2개"
+    ]
+   },
+   "...": "외 30개 키"
+  },
+  "stageTables": {
+   "DT_GlobalStageTables": {
+    "apiName": "DT_GlobalStageTables",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_LootDistributionNoHigh",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_Stage1PayloadBase",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       {
+        "apiName": "DA_Stage2PayloadBase",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 2개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 63,
+      "chance": 0.63
+     },
+     {
+      "apiName": "DT_LootDistributionOneHigh",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_LootDistributionStage1High",
+        "type": "table",
+        "contents": [
+         {
+          "apiName": "DA_Stage1PayloadHigh",
+          "strategy": "Normal",
+          "count": 1,
+          "weight": null
+         },
+         {
+          "apiName": "DA_Stage2PayloadBase",
+          "strategy": "Normal",
+          "count": 1,
+          "weight": null
+         },
+         "... 외 2개"
+        ],
+        "strategy": "All",
+        "count": 1,
+        "weight": null
+       },
+       {
+        "apiName": "DT_LootDistributionStage2High",
+        "type": "table",
+        "contents": [
+         {
+          "apiName": "DA_Stage1PayloadBase",
+          "strategy": "Normal",
+          "count": 1,
+          "weight": null
+         },
+         {
+          "apiName": "DA_Stage2PayloadHigh",
+          "strategy": "Normal",
+          "count": 1,
+          "weight": null
+         },
+         "... 외 2개"
+        ],
+        "strategy": "All",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 2개"
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 30,
+      "chance": 0.3
+     },
+     "... 외 3개"
+    ]
+   },
+   "DT_Stage1_TablesBase": {
+    "apiName": "DT_Stage1_TablesBase",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Stage1_Base1",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage12",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_SilverOrb_Stage12",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 4개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 35,
+      "chance": 0.35
+     },
+     {
+      "apiName": "DT_Stage1_Base2",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_BlueOrb_Stage123",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_ItemComponentOrb",
+        "type": "loot",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 2개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 35,
+      "chance": 0.35
+     },
+     "... 외 3개"
+    ]
+   },
+   "DT_Stage1_TablesHigh": {
+    "apiName": "DT_Stage1_TablesHigh",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Stage1_High1",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage12",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_SilverOrb_Stage12",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 6개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 25,
+      "chance": 0.25
+     },
+     {
+      "apiName": "DT_Stage1_High2",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_BlueOrb_Stage123",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_ItemComponentOrb",
+        "type": "loot",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 4개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 25,
+      "chance": 0.25
+     },
+     "... 외 3개"
+    ]
+   },
+   "DT_Stage2_TablesBase": {
+    "apiName": "DT_Stage2_TablesBase",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Stage2_Base1",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_BlueOrb_Stage123",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_ItemComponentOrb",
+        "type": "loot",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 1개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 20,
+      "chance": 0.2
+     },
+     {
+      "apiName": "DT_Stage2_Base2",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage12",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_ItemComponentOrb",
+        "type": "loot",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 1개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 20,
+      "chance": 0.2
+     },
+     "... 외 5개"
+    ]
+   },
+   "DT_Stage2_TablesHigh": {
+    "apiName": "DT_Stage2_TablesHigh",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Stage2_High1",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage12",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_SilverOrb_Stage12",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 4개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 44,
+      "chance": 0.44
+     },
+     {
+      "apiName": "DT_Stage2_High2",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage12",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_GoldOrb_Stage23",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 2개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 44,
+      "chance": 0.44
+     },
+     "... 외 1개"
+    ]
+   },
+   "DT_Stage3_TablesBase": {
+    "apiName": "DT_Stage3_TablesBase",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Stage3_Base1",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_ItemComponentOrb",
+        "type": "loot",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 3개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 20,
+      "chance": 0.2
+     },
+     {
+      "apiName": "DT_Stage3_Base2",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_BlueOrb_Stage123",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 3개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 20,
+      "chance": 0.2
+     },
+     "... 외 5개"
+    ]
+   },
+   "DT_Stage3_TablesHigh": {
+    "apiName": "DT_Stage3_TablesHigh",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Stage3_High1",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_GoldOrb_Stage23",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 3개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 31,
+      "chance": 0.31
+     },
+     {
+      "apiName": "DT_Stage3_High2",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_ItemComponentOrb",
+        "type": "loot",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 4개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 29,
+      "chance": 0.29
+     },
+     "... 외 3개"
+    ]
+   },
+   "DT_Stage4_TablesBase": {
+    "apiName": "DT_Stage4_TablesBase",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Stage4_Base1",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_BlueOrb_Stage4+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 3개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 20,
+      "chance": 0.2
+     },
+     {
+      "apiName": "DT_Stage4_Base2",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 4개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 20,
+      "chance": 0.2
+     },
+     "... 외 5개"
+    ]
+   },
+   "DT_Stage4_TablesHigh": {
+    "apiName": "DT_Stage4_TablesHigh",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Stage4_High1",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_GoldOrb_Stage4+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 3개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 32,
+      "chance": 0.32
+     },
+     {
+      "apiName": "DT_Stage4_High2",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_SilverOrb_Stage3+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_BlueOrb_Stage4+",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       },
+       "... 외 4개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 30,
+      "chance": 0.3
+     },
+     "... 외 3개"
+    ]
+   }
+  },
+  "orbs": {
+   "DA_BlueOrb_Stage123": {
+    "apiName": "DA_BlueOrb_Stage123",
+    "type": "loot",
+    "dropTable": "DT_BlueOrb_Stage123Table",
+    "tags": [
+     "Loot.Type.Orb.Blue"
+    ],
+    "goldValue": 6,
+    "contents": [
+     {
+      "apiName": "DA_3g1ThreeCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 31,
+      "chance": 0.31,
+      "ref": true
+     },
+     {
+      "apiName": "DT_Shared_ChampionsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 2,
+      "weight": 33,
+      "chance": 0.33,
+      "filters": [
+       {
+        "type": "TFTShopTierDataTableFilter",
+        "costs": [
+         3
+        ]
+       }
+      ],
+      "costs": [
+       3
+      ],
+      "dynamic": true
+     },
+     "... 외 4개"
+    ]
+   },
+   "DA_BlueOrb_Stage4+": {
+    "apiName": "DA_BlueOrb_Stage4+",
+    "type": "loot",
+    "dropTable": "DT_BlueOrb18_Stage4+Table",
+    "tags": [
+     "Loot.Type.Orb.Blue"
+    ],
+    "goldValue": 8,
+    "contents": [
+     {
+      "apiName": "DA_4g1FourCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 49,
+      "chance": 0.49,
+      "ref": true
+     },
+     {
+      "apiName": "DA_2g2ThreeCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 47,
+      "chance": 0.47,
+      "ref": true
+     },
+     "... 외 2개"
+    ]
+   },
+   "DA_GoldOrb_Stage23": {
+    "apiName": "DA_GoldOrb_Stage23",
+    "type": "loot",
+    "dropTable": "DT_GoldOrb18_Stage23Table",
+    "tags": [
+     "Loot.Type.Orb.Gold"
+    ],
+    "goldValue": 15,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 15,
+      "weight": 20,
+      "chance": 0.2,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Spatorpan4gReforger",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 15,
+      "chance": 0.15,
+      "ref": true
+     },
+     "... 외 7개"
+    ]
+   },
+   "DA_GoldOrb_Stage4+": {
+    "apiName": "DA_GoldOrb_Stage4+",
+    "type": "loot",
+    "dropTable": "DT_GoldOrb18_Stage4+Table",
+    "tags": [
+     "Loot.Type.Gold"
+    ],
+    "goldValue": 18,
+    "contents": [
+     {
+      "apiName": "DA_10g2FourCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 15,
+      "chance": 0.1579,
+      "ref": true
+     },
+     {
+      "apiName": "DA_13g1FiveCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 20,
+      "chance": 0.2105,
+      "ref": true
+     },
+     "... 외 6개"
+    ]
+   },
+   "DA_PrismOrb_GoldLuckyChest": {
+    "apiName": "DA_PrismOrb_GoldLuckyChest",
+    "type": "loot",
+    "dropTable": "DT_10gLuckyChest",
+    "tags": [
+     "Loot.Type.Orb.Prismatic"
+    ],
+    "goldValue": 40,
+    "contents": [
+     {
+      "apiName": "DA_RadiantLuckyItemChest",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_PrismOrb_GoldRemoverArtifact": {
+    "apiName": "DA_PrismOrb_GoldRemoverArtifact",
+    "type": "loot",
+    "dropTable": "DA_25gRemoverArtifactAnvil",
+    "tags": [
+     "Loot.Type.Orb.Prismatic"
+    ],
+    "goldValue": 40,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 25,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Consumable_ItemRemover",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_PrismOrb_MasterworkAnvil": {
+    "apiName": "DA_PrismOrb_MasterworkAnvil",
+    "type": "loot",
+    "dropTable": "DA_RemoverAnvilMasterwork",
+    "tags": [
+     "Loot.Type.Orb.Prismatic"
+    ],
+    "goldValue": 40,
+    "contents": [
+     {
+      "apiName": "DA_MasterworkUpgrade",
+      "type": "item",
+      "strategy": "Repeat",
+      "count": 24,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Consumable_ItemRemover",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_PrismOrb_MasterworkGold": {
+    "apiName": "DA_PrismOrb_MasterworkGold",
+    "type": "loot",
+    "dropTable": "DA_24gMasterwork",
+    "tags": [
+     "Loot.Type.Orb.Prismatic"
+    ],
+    "goldValue": 40,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 24,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_MasterworkUpgrade",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_PrismOrb_Pan2AnvilsReforger": {
+    "apiName": "DA_PrismOrb_Pan2AnvilsReforger",
+    "type": "loot",
+    "dropTable": "DA_18gPan2AnvilsReforger",
+    "tags": [
+     "Loot.Type.Orb.Prismatic"
+    ],
+    "goldValue": 40,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 18,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Reforger",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_PrismOrb_Remover2Artifacts": {
+    "apiName": "DA_PrismOrb_Remover2Artifacts",
+    "type": "loot",
+    "dropTable": "DA_Remover2ArtifactAnvil",
+    "tags": [
+     "Loot.Type.Orb.Prismatic"
+    ],
+    "goldValue": 40,
+    "contents": [
+     {
+      "apiName": "DA_Consumable_ItemRemover",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_AnvilArtifact",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_PrismOrb_Spat2AnvilsReforger": {
+    "apiName": "DA_PrismOrb_Spat2AnvilsReforger",
+    "type": "loot",
+    "dropTable": "DA_18gSpat2AnvilsReforger",
+    "tags": [
+     "Loot.Type.Orb.Prismatic"
+    ],
+    "goldValue": 40,
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 18,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Reforger",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_SilverOrb_Stage12": {
+    "apiName": "DA_SilverOrb_Stage12",
+    "type": "loot",
+    "dropTable": "DT_SilverOrb_Stage12Table",
+    "tags": [
+     "Loot.Type.Orb.Silver"
+    ],
+    "goldValue": 2,
+    "contents": [
+     {
+      "apiName": "DT_Shared_ChampionsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 2,
+      "weight": 48,
+      "chance": 0.48,
+      "filters": [
+       {
+        "type": "TFTShopTierDataTableFilter",
+        "costs": [
+         1
+        ]
+       }
+      ],
+      "costs": [
+       1
+      ],
+      "dynamic": true
+     },
+     {
+      "apiName": "DT_Shared_ChampionsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 47,
+      "chance": 0.47,
+      "filters": [
+       {
+        "type": "TFTShopTierDataTableFilter",
+        "costs": [
+         2
+        ]
+       }
+      ],
+      "costs": [
+       2
+      ],
+      "dynamic": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_SilverOrb_Stage3+": {
+    "apiName": "DA_SilverOrb_Stage3+",
+    "type": "loot",
+    "dropTable": "DT_SilverOrb18_Stage3+Table",
+    "tags": [
+     "Loot.Type.Orb.Silver"
+    ],
+    "goldValue": 3,
+    "contents": [
+     {
+      "apiName": "DT_Shared_ChampionsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 49,
+      "chance": 0.49,
+      "filters": [
+       {
+        "type": "TFTShopTierDataTableFilter",
+        "costs": [
+         3
+        ]
+       }
+      ],
+      "costs": [
+       3
+      ],
+      "dynamic": true
+     },
+     {
+      "apiName": "DA_1g1TwoCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 46,
+      "chance": 0.46,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DT_BlueOrb18_Stage4+Table": {
+    "apiName": "DT_BlueOrb18_Stage4+Table",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_4g1FourCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 49,
+      "chance": 0.49,
+      "ref": true
+     },
+     {
+      "apiName": "DA_2g2ThreeCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 47,
+      "chance": 0.47,
+      "ref": true
+     },
+     "... 외 2개"
+    ]
+   },
+   "DT_BlueOrb_Stage123Table": {
+    "apiName": "DT_BlueOrb_Stage123Table",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_3g1ThreeCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 31,
+      "chance": 0.31,
+      "ref": true
+     },
+     {
+      "apiName": "DT_Shared_ChampionsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 2,
+      "weight": 33,
+      "chance": 0.33,
+      "filters": [
+       {
+        "type": "TFTShopTierDataTableFilter",
+        "costs": [
+         3
+        ]
+       }
+      ],
+      "costs": [
+       3
+      ],
+      "dynamic": true
+     },
+     "... 외 4개"
+    ]
+   },
+   "DT_GoldOrb18_Stage23Table": {
+    "apiName": "DT_GoldOrb18_Stage23Table",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 15,
+      "weight": 20,
+      "chance": 0.2,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Spatorpan4gReforger",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 15,
+      "chance": 0.15,
+      "ref": true
+     },
+     "... 외 7개"
+    ]
+   },
+   "DT_GoldOrb18_Stage4+Table": {
+    "apiName": "DT_GoldOrb18_Stage4+Table",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_10g2FourCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 15,
+      "chance": 0.1579,
+      "ref": true
+     },
+     {
+      "apiName": "DA_13g1FiveCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 20,
+      "chance": 0.2105,
+      "ref": true
+     },
+     "... 외 6개"
+    ]
+   },
+   "DT_SilverOrb18_Stage3+Table": {
+    "apiName": "DT_SilverOrb18_Stage3+Table",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Shared_ChampionsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 49,
+      "chance": 0.49,
+      "filters": [
+       {
+        "type": "TFTShopTierDataTableFilter",
+        "costs": [
+         3
+        ]
+       }
+      ],
+      "costs": [
+       3
+      ],
+      "dynamic": true
+     },
+     {
+      "apiName": "DA_1g1TwoCost",
+      "type": "table",
+      "strategy": "All",
+      "count": 1,
+      "weight": 46,
+      "chance": 0.46,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DT_SilverOrb_Stage12Table": {
+    "apiName": "DT_SilverOrb_Stage12Table",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Shared_ChampionsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 2,
+      "weight": 48,
+      "chance": 0.48,
+      "filters": [
+       {
+        "type": "TFTShopTierDataTableFilter",
+        "costs": [
+         1
+        ]
+       }
+      ],
+      "costs": [
+       1
+      ],
+      "dynamic": true
+     },
+     {
+      "apiName": "DT_Shared_ChampionsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 47,
+      "chance": 0.47,
+      "filters": [
+       {
+        "type": "TFTShopTierDataTableFilter",
+        "costs": [
+         2
+        ]
+       }
+      ],
+      "costs": [
+       2
+      ],
+      "dynamic": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_18gPan2AnvilsReforger": {
+    "apiName": "DA_18gPan2AnvilsReforger",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 18,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Reforger",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_18gSpat2AnvilsReforger": {
+    "apiName": "DA_18gSpat2AnvilsReforger",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 18,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Reforger",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_24gMasterwork": {
+    "apiName": "DA_24gMasterwork",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 24,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_MasterworkUpgrade",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_25gRemoverArtifactAnvil": {
+    "apiName": "DA_25gRemoverArtifactAnvil",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 25,
+      "weight": null,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Consumable_ItemRemover",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_Remover2ArtifactAnvil": {
+    "apiName": "DA_Remover2ArtifactAnvil",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Consumable_ItemRemover",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_AnvilArtifact",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_RemoverAnvilMasterwork": {
+    "apiName": "DA_RemoverAnvilMasterwork",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_MasterworkUpgrade",
+      "type": "item",
+      "strategy": "Repeat",
+      "count": 24,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Consumable_ItemRemover",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DT_10gLuckyChest": {
+    "apiName": "DT_10gLuckyChest",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_RadiantLuckyItemChest",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 10,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   }
+  },
+  "boosterPacks": {
+   "DT_BoosterPack_LootDistribution": {
+    "apiName": "DT_BoosterPack_LootDistribution",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_BoosterPack_LootA",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           3
+          ]
+         }
+        ],
+        "costs": [
+         3
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           1
+          ]
+         }
+        ],
+        "costs": [
+         1
+        ],
+        "dynamic": true
+       },
+       "... 외 1개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.08,
+      "chance": 0.08
+     },
+     {
+      "apiName": "DT_BoosterPack_LootB",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           3
+          ]
+         }
+        ],
+        "costs": [
+         3
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           1
+          ]
+         }
+        ],
+        "costs": [
+         1
+        ],
+        "dynamic": true
+       },
+       "... 외 1개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.08,
+      "chance": 0.08
+     },
+     "... 외 8개"
+    ]
+   },
+   "DT_BoosterPackPlus_LootDistribution": {
+    "apiName": "DT_BoosterPackPlus_LootDistribution",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_BoosterPackPlus_LootA",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           1
+          ]
+         }
+        ],
+        "costs": [
+         1
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           2
+          ]
+         }
+        ],
+        "costs": [
+         2
+        ],
+        "dynamic": true
+       },
+       "... 외 3개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.08,
+      "chance": 0.08
+     },
+     {
+      "apiName": "DT_BoosterPackPlus_LootB",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           2
+          ]
+         }
+        ],
+        "costs": [
+         2
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           3
+          ]
+         }
+        ],
+        "costs": [
+         3
+        ],
+        "dynamic": true
+       },
+       "... 외 2개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.08,
+      "chance": 0.08
+     },
+     "... 외 10개"
+    ]
+   },
+   "DT_BoosterPackPlusPlus_LootDistribution": {
+    "apiName": "DT_BoosterPackPlusPlus_LootDistribution",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_BoosterPackPlusPlus_LootA",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           5
+          ]
+         }
+        ],
+        "costs": [
+         5
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Repeat",
+        "count": 3,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           3
+          ]
+         }
+        ],
+        "costs": [
+         3
+        ],
+        "dynamic": true
+       },
+       "... 외 1개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.04,
+      "chance": 0.04
+     },
+     {
+      "apiName": "DT_BoosterPackPlusPlus_LootB",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           3
+          ]
+         }
+        ],
+        "costs": [
+         3
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           5
+          ]
+         }
+        ],
+        "costs": [
+         5
+        ],
+        "dynamic": true
+       },
+       "... 외 2개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.03,
+      "chance": 0.03
+     },
+     "... 외 10개"
+    ]
+   }
+  },
+  "thiefsGloves": {
+   "DA_ThiefsGloves_Stage1": {
+    "apiName": "DA_ThiefsGloves_Stage1",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_ThiefsGloves_LootTier1",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "dynamic": true
+     },
+     {
+      "apiName": "DA_ThiefsGloves_LootTier2",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 100,
+      "chance": 1,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_ThiefsGloves_Stage2": {
+    "apiName": "DA_ThiefsGloves_Stage2",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_ThiefsGloves_LootTier1",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "dynamic": true
+     },
+     {
+      "apiName": "DA_ThiefsGloves_LootTier2",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 100,
+      "chance": 1,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_ThiefsGloves_Stage3": {
+    "apiName": "DA_ThiefsGloves_Stage3",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_ThiefsGloves_LootTier1",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "dynamic": true
+     },
+     {
+      "apiName": "DA_ThiefsGloves_LootTier2",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 60,
+      "chance": 0.6,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_ThiefsGloves_Stage4": {
+    "apiName": "DA_ThiefsGloves_Stage4",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_ThiefsGloves_LootTier1",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "dynamic": true
+     },
+     {
+      "apiName": "DA_ThiefsGloves_LootTier2",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_ThiefsGloves_Stage5": {
+    "apiName": "DA_ThiefsGloves_Stage5",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_ThiefsGloves_LootTier1",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "dynamic": true
+     },
+     {
+      "apiName": "DA_ThiefsGloves_LootTier2",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   },
+   "DA_ThiefsGloves_Stage6": {
+    "apiName": "DA_ThiefsGloves_Stage6",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_ThiefsGloves_LootTier1",
+      "type": "table",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "dynamic": true
+     },
+     {
+      "apiName": "DA_ThiefsGloves_LootTier2",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "weightUnset": true,
+      "ref": true
+     },
+     "... 외 3개"
+    ]
+   }
+  },
+  "traitLadder": {
+   "DT_TraitLadder_Loot10": {
+    "apiName": "DT_TraitLadder_Loot10",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 25,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot11": {
+    "apiName": "DT_TraitLadder_Loot11",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_TraitLadder_Loot11A",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_AnvilCompletedItems",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       {
+        "apiName": "DA_AnvilCompletedItems",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.5,
+      "chance": 0.6667
+     },
+     {
+      "apiName": "DT_TraitLadder_Loot11B",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Repeat",
+        "count": 3,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           4
+          ]
+         }
+        ],
+        "costs": [
+         4
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Repeat",
+        "count": 3,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           4
+          ]
+         }
+        ],
+        "costs": [
+         4
+        ],
+        "dynamic": true
+       },
+       "... 외 1개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.25,
+      "chance": 0.3333
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot12": {
+    "apiName": "DT_TraitLadder_Loot12",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_TacticiansCrown",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 0.34,
+      "chance": 0.3366
+     },
+     {
+      "apiName": "DA_TacticiansCape",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 0.34,
+      "chance": 0.3366
+     },
+     "... 외 1개"
+    ]
+   },
+   "DT_TraitLadder_Loot13": {
+    "apiName": "DT_TraitLadder_Loot13",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_TraitLadder_Loot13A",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_ThiefsGlovesRadiant",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       {
+        "apiName": "DA_Consumable_ItemRemover",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.5,
+      "chance": 0.5
+     },
+     {
+      "apiName": "DT_TraitLadder_Loot13B",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_RadiantLuckyItemChest",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       {
+        "apiName": "DA_Consumable_ItemRemover",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.5,
+      "chance": 0.5
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot14": {
+    "apiName": "DT_TraitLadder_Loot14",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_TraitLadder_Loot14A",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_MasterworkUpgrade",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 100,
+        "weight": null
+       },
+       {
+        "apiName": "DA_MasterworkUpgrade",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 100,
+        "weight": null
+       },
+       "... 외 1개"
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot2": {
+    "apiName": "DT_TraitLadder_Loot2",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Reforger",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot3": {
+    "apiName": "DT_TraitLadder_Loot3",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 1,
+      "chance": 1,
+      "ref": true
+     },
+     {
+      "apiName": "DA_Consumable_ItemRemover",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot4": {
+    "apiName": "DT_TraitLadder_Loot4",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 3,
+      "weight": 1,
+      "chance": 1,
+      "ref": true
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot5": {
+    "apiName": "DT_TraitLadder_Loot5",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Components",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 1,
+      "chance": 1,
+      "ref": true
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot6": {
+    "apiName": "DT_TraitLadder_Loot6",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Normal",
+      "count": 9,
+      "weight": 0.5,
+      "chance": 0.5,
+      "ref": true
+     },
+     {
+      "apiName": "DT_TraitLadder_Loot6B",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 2,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           3
+          ]
+         }
+        ],
+        "costs": [
+         3
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DA_GoldTable",
+        "type": "table",
+        "strategy": "Normal",
+        "count": 2,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.5,
+      "chance": 0.5
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot7": {
+    "apiName": "DT_TraitLadder_Loot7",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_ThiefsGloves",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 0.45,
+      "chance": 0.5
+     },
+     {
+      "apiName": "DT_TraitLadder_Loot7C",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_AnvilComponent",
+        "strategy": "Normal",
+        "count": 3,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           3
+          ]
+         }
+        ],
+        "costs": [
+         3
+        ]
+       },
+       {
+        "apiName": "DA_GoldTable",
+        "type": "table",
+        "strategy": "Normal",
+        "count": 5,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.45,
+      "chance": 0.5
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot8": {
+    "apiName": "DT_TraitLadder_Loot8",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_AnvilCompletedItems",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_AnvilCompletedItems",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 0.3,
+      "chance": 0.4286
+     },
+     {
+      "apiName": "DT_TraitLadder_Loot8D",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_Components",
+        "type": "table",
+        "strategy": "Unique",
+        "count": 2,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_Reforger",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.4,
+      "chance": 0.5714
+     }
+    ]
+   },
+   "DT_TraitLadder_Loot9": {
+    "apiName": "DT_TraitLadder_Loot9",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_TraitLadder_Loot9A",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DT_Shared_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Normal",
+        "count": 3,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           5
+          ]
+         }
+        ],
+        "costs": [
+         5
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DA_GoldTable",
+        "type": "table",
+        "strategy": "Normal",
+        "count": 5,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.5,
+      "chance": 0.5
+     },
+     {
+      "apiName": "DT_TraitLadder_Loot9B",
+      "type": "table",
+      "contents": [
+       {
+        "apiName": "DA_AnvilCompletedItems",
+        "strategy": "Normal",
+        "count": 4,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           5
+          ]
+         }
+        ],
+        "costs": [
+         5
+        ]
+       },
+       {
+        "apiName": "DA_GoldTable",
+        "type": "table",
+        "strategy": "Normal",
+        "count": 2,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "All",
+      "count": 1,
+      "weight": 0.5,
+      "chance": 0.5
+     }
+    ]
+   }
+  },
+  "callToChaos": {
+   "DT_CallToChaosLootA": {
+    "apiName": "DT_CallToChaosLootA",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_ThiefsGloves",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_ThiefsGloves",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 2개"
+    ]
+   },
+   "DT_CallToChaosLootB": {
+    "apiName": "DT_CallToChaosLootB",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_RadiantLuckyItemChest",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 3,
+      "weight": null
+     },
+     {
+      "apiName": "DA_GoldTable",
+      "type": "table",
+      "strategy": "Repeat",
+      "count": 8,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 1개"
+    ]
+   },
+   "DT_CallToChaosLootC": {
+    "apiName": "DT_CallToChaosLootC",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_LuckyItemChest",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_LuckyItemChest",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 2개"
+    ]
+   },
+   "DT_CallToChaosLootD": {
+    "apiName": "DT_CallToChaosLootD",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DT_Shared_ItemsTable",
+      "type": "table",
+      "contents": [],
+      "strategy": "Unique",
+      "count": 6,
+      "weight": null,
+      "filters": [
+       {
+        "type": "TFTItemTagDataTableFilter",
+        "requiredTags": [
+         "Item.Equippable.Item.Component"
+        ],
+        "excludedTags": [
+         "Item.Equippable.Item.Component.SpatOrPan"
+        ]
+       }
+      ],
+      "dynamic": true
+     }
+    ]
+   },
+   "DT_CallToChaosLootE": {
+    "apiName": "DT_CallToChaosLootE",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Component_Spatula",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Component_FryingPan",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 2개"
+    ]
+   },
+   "DT_CallToChaosLootEgg": {
+    "apiName": "DT_CallToChaosLootEgg",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_AnvilCompletedItems",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_AnvilCompletedItems",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DT_CallToChaos_GolemItemsA": {
+    "apiName": "DT_CallToChaos_GolemItemsA",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Guinsoos<플레이어>blade",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Artifact_RapidFireCannon",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DT_CallToChaos_GolemItemsB": {
+    "apiName": "DT_CallToChaos_GolemItemsB",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_SpiritVisage",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Artifact_TheIndomitable",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DT_CallToChaos_GolemItemsC": {
+    "apiName": "DT_CallToChaos_GolemItemsC",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_WarmogsArmor",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Artifact_LightshieldCrest",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   }
+  },
+  "doubleUpArmory": {
+   "DA_GATable_Early": {
+    "apiName": "DA_GATable_Early",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GiftArmory_Early_SmallA",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 13,
+      "chance": 0.13
+     },
+     {
+      "apiName": "DA_GiftArmory_Early_SmallB",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 13,
+      "chance": 0.13
+     },
+     "... 외 8개"
+    ]
+   },
+   "DA_GATable_Early_LargeA": {
+    "apiName": "DA_GATable_Early_LargeA",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_18g",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldCoin",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_CompletedItemAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_GATable_Early_LargeB": {
+    "apiName": "DA_GATable_Early_LargeB",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_10gDuplicator",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldTable",
+        "type": "table",
+        "strategy": "Repeat",
+        "count": 10,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DA_Consumable_ChampionDuplicator",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_RandomArtifact",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_GATable_Early_MediumA": {
+    "apiName": "DA_GATable_Early_MediumA",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_15g",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldCoin",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_2RandomComponent",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_Component_BFSword",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "weightUnset": true
+       },
+       {
+        "apiName": "DA_Component_NeedlesslyLargeRod",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "weightUnset": true
+       },
+       "... 외 10개"
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Early_MediumB": {
+    "apiName": "DA_GATable_Early_MediumB",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_10g1x1Star5Cost",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldTable",
+        "type": "table",
+        "strategy": "Repeat",
+        "count": 10,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DT_18_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Repeat",
+        "count": 1,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           5
+          ]
+         }
+        ],
+        "costs": [
+         5
+        ],
+        "dynamic": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_ThiefsGloves",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Early_MediumC": {
+    "apiName": "DA_GATable_Early_MediumC",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_7g1x3Star1Cost",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldTable",
+        "type": "table",
+        "strategy": "Repeat",
+        "count": 7,
+        "weight": null,
+        "ref": true
+       },
+       {
+        "apiName": "DT_18_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Repeat",
+        "count": 9,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           1
+          ]
+         }
+        ],
+        "costs": [
+         1
+        ],
+        "dynamic": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_CompletedItemAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Early_SmallA": {
+    "apiName": "DA_GATable_Early_SmallA",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_9g",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldCoin",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_RandomComponent",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_GATable_Early_SmallB": {
+    "apiName": "DA_GATable_Early_SmallB",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_2x1Star4Cost",
+      "type": "loot",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_ItemComponentAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Early_SmallC": {
+    "apiName": "DA_GATable_Early_SmallC",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_2LesserDuplicator",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_Consumable_LesserChampionDuplicator",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       {
+        "apiName": "DA_Consumable_LesserChampionDuplicator",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_ItemComponentAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Early_SmallD": {
+    "apiName": "DA_GATable_Early_SmallD",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_8ShopRerolls",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_OneShopRerollPayload",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_RandomComponent",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_GATable_Early_SmallE": {
+    "apiName": "DA_GATable_Early_SmallE",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_2x2Star2Cost",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DT_18_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Repeat",
+        "count": 3,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           2
+          ]
+         }
+        ],
+        "costs": [
+         2
+        ],
+        "dynamic": true
+       },
+       {
+        "apiName": "DT_18_ChampionsTable",
+        "type": "table",
+        "contents": [],
+        "strategy": "Repeat",
+        "count": 3,
+        "weight": null,
+        "filters": [
+         {
+          "type": "TFTShopTierDataTableFilter",
+          "costs": [
+           2
+          ]
+         }
+        ],
+        "costs": [
+         2
+        ],
+        "dynamic": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_ItemComponentAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Late": {
+    "apiName": "DA_GATable_Late",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_GiftArmory_Late_SmallA",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 12,
+      "chance": 0.12
+     },
+     {
+      "apiName": "DA_GiftArmory_Late_SmallB",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": 12,
+      "chance": 0.12
+     },
+     "... 외 8개"
+    ]
+   },
+   "DA_GATable_Late_LargeA": {
+    "apiName": "DA_GATable_Late_LargeA",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_ArtifactAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_30g",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldCoin",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Late_LargeB": {
+    "apiName": "DA_GATable_Late_LargeB",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_TacticiansCrown",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_TacticiansCape",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     "... 외 1개"
+    ]
+   },
+   "DA_GATable_Late_MediumA": {
+    "apiName": "DA_GATable_Late_MediumA",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_3x1Star5Cost",
+      "type": "loot",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_ThiefsGloves",
+      "type": "item",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Late_MediumB": {
+    "apiName": "DA_GATable_Late_MediumB",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_5x1Star4Cost",
+      "type": "loot",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_CompletedItemAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Late_MediumC": {
+    "apiName": "DA_GATable_Late_MediumC",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_25g",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldCoin",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_RandomArtifact",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_GATable_Late_SmallA": {
+    "apiName": "DA_GATable_Late_SmallA",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_12g",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_GoldCoin",
+        "type": "loot",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null,
+        "ref": true
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_ItemComponentAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Late_SmallB": {
+    "apiName": "DA_GATable_Late_SmallB",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_3x1Star4Cost",
+      "type": "loot",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_ItemComponentAnvil",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     }
+    ]
+   },
+   "DA_GATable_Late_SmallC": {
+    "apiName": "DA_GATable_Late_SmallC",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_3LesserDuplicator",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_Consumable_LesserChampionDuplicator",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       {
+        "apiName": "DA_Consumable_LesserChampionDuplicator",
+        "type": "item",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       },
+       "... 외 1개"
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_RandomCompletedItem",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_GATable_Late_SmallD": {
+    "apiName": "DA_GATable_Late_SmallD",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_2x1Star5Cost",
+      "type": "loot",
+      "contents": [],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_RandomCompletedItem",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   },
+   "DA_GATable_Late_SmallE": {
+    "apiName": "DA_GATable_Late_SmallE",
+    "type": "table",
+    "contents": [
+     {
+      "apiName": "DA_Gift_11ShopRerolls",
+      "type": "loot",
+      "contents": [
+       {
+        "apiName": "DA_OneShopRerollPayload",
+        "strategy": "Normal",
+        "count": 1,
+        "weight": null
+       }
+      ],
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null
+     },
+     {
+      "apiName": "DA_Gift_RandomCompletedItem",
+      "type": "loot",
+      "strategy": "Normal",
+      "count": 1,
+      "weight": null,
+      "ref": true
+     }
+    ]
+   }
+  },
+  "shared": {
+   "DA_GoldTable": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    }
+   ],
+   "DA_GoldCoin": [
+    {
+     "apiName": "DA_GoldCoinPayload",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null
+    }
+   ],
+   "DA_OneShopRerollTable": [
+    {
+     "apiName": "DA_OneShopRerollPayload",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null
+    }
+   ],
+   "DA_Components": [
+    {
+     "apiName": "DA_Component_BFSword",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "weightUnset": true
+    },
+    {
+     "apiName": "DA_Component_ChainVest",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "weightUnset": true
+    },
+    "... 외 6개"
+   ],
+   "DA_18_2CostChampions": [
+    {
+     "apiName": "DA_18_Caitlyn",
+     "type": "champion",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "weightUnset": true
+    },
+    {
+     "apiName": "DA_18_Elise",
+     "type": "champion",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "weightUnset": true
+    },
+    "... 외 10개"
+   ],
+   "DA_18_3CostChampions": [
+    {
+     "apiName": "DA_18_Cassiopeia",
+     "type": "champion",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "weightUnset": true
+    },
+    {
+     "apiName": "DA_CrimsonRaptor18",
+     "type": "champion",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "weightUnset": true
+    },
+    "... 외 10개"
+   ],
+   "DA_Radiants": [
+    {
+     "apiName": "DA_AdaptiveHelm_Radiant",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": 1,
+     "chance": 0.0278
+    },
+    {
+     "apiName": "DA_ArchangelsStaffRadiant",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": 1,
+     "chance": 0.0278
+    },
+    "... 외 10개"
+   ],
+   "DA_4g1FourCost": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 3개"
+   ],
+   "DA_2g2ThreeCost": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 1개"
+   ],
+   "DA_GreaterDupe3g": [
+    {
+     "apiName": "DA_Consumable_ChampionDuplicator",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 2개"
+   ],
+   "DA_8gReforger": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 7개"
+   ],
+   "DA_2gRemover": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 1개"
+   ],
+   "DA_2gReforger": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 1개"
+   ],
+   "DA_1g1TwoCost": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_18_2CostChampions",
+     "type": "table",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    }
+   ],
+   "DA_3gRemover": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 2개"
+   ],
+   "DA_3gReforger": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 2개"
+   ],
+   "DT_18_Coven_GoldCoinTable": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    }
+   ],
+   "DA_18_ItemsTable": [
+    {
+     "apiName": "DA_Component_BFSword",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "weightUnset": true
+    },
+    {
+     "apiName": "DA_Component_NeedlesslyLargeRod",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "weightUnset": true
+    },
+    "... 외 10개"
+   ],
+   "DA_SilverOrb_Stage12": [
+    {
+     "apiName": "DT_Shared_ChampionsTable",
+     "type": "table",
+     "contents": [],
+     "strategy": "Normal",
+     "count": 2,
+     "weight": 48,
+     "chance": 0.48,
+     "filters": [
+      {
+       "type": "TFTShopTierDataTableFilter",
+       "costs": [
+        1
+       ]
+      }
+     ],
+     "costs": [
+      1
+     ],
+     "dynamic": true
+    },
+    {
+     "apiName": "DT_Shared_ChampionsTable",
+     "type": "table",
+     "contents": [],
+     "strategy": "Normal",
+     "count": 1,
+     "weight": 47,
+     "chance": 0.47,
+     "filters": [
+      {
+       "type": "TFTShopTierDataTableFilter",
+       "costs": [
+        2
+       ]
+      }
+     ],
+     "costs": [
+      2
+     ],
+     "dynamic": true
+    },
+    "... 외 3개"
+   ],
+   "DA_BlueOrb_Stage123": [
+    {
+     "apiName": "DA_3g1ThreeCost",
+     "type": "table",
+     "strategy": "All",
+     "count": 1,
+     "weight": 31,
+     "chance": 0.31,
+     "ref": true
+    },
+    {
+     "apiName": "DT_Shared_ChampionsTable",
+     "type": "table",
+     "contents": [],
+     "strategy": "Normal",
+     "count": 2,
+     "weight": 33,
+     "chance": 0.33,
+     "filters": [
+      {
+       "type": "TFTShopTierDataTableFilter",
+       "costs": [
+        3
+       ]
+      }
+     ],
+     "costs": [
+      3
+     ],
+     "dynamic": true
+    },
+    "... 외 4개"
+   ],
+   "DA_3g1ThreeCost": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 2개"
+   ],
+   "DA_LesserDupe2TwoCost": [
+    {
+     "apiName": "DA_Consumable_LesserChampionDuplicator",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null
+    },
+    {
+     "apiName": "DT_Shared_ChampionsTable",
+     "type": "table",
+     "contents": [],
+     "strategy": "Normal",
+     "count": 2,
+     "weight": null,
+     "filters": [
+      {
+       "type": "TFTShopTierDataTableFilter",
+       "costs": [
+        2
+       ]
+      }
+     ],
+     "costs": [
+      2
+     ],
+     "dynamic": true
+    }
+   ],
+   "DA_GreaterDupe1ThreeCost": [
+    {
+     "apiName": "DA_Consumable_ChampionDuplicator",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null
+    },
+    {
+     "apiName": "DT_Shared_ChampionsTable",
+     "type": "table",
+     "contents": [],
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "filters": [
+      {
+       "type": "TFTShopTierDataTableFilter",
+       "costs": [
+        3
+       ]
+      }
+     ],
+     "costs": [
+      3
+     ],
+     "dynamic": true
+    }
+   ],
+   "DA_6gReforger": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    "... 외 5개"
+   ],
+   "DA_GoldOrb_Stage23": [
+    {
+     "apiName": "DA_GoldTable",
+     "type": "table",
+     "strategy": "Normal",
+     "count": 15,
+     "weight": 20,
+     "chance": 0.2,
+     "ref": true
+    },
+    {
+     "apiName": "DA_Spatorpan4gReforger",
+     "type": "table",
+     "strategy": "All",
+     "count": 1,
+     "weight": 15,
+     "chance": 0.15,
+     "ref": true
+    },
+    "... 외 7개"
+   ],
+   "DA_Spatorpan4gReforger": [
+    {
+     "apiName": "DA_GoldTable",
+     "type": "table",
+     "strategy": "Normal",
+     "count": 4,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DT_Shared_ItemsTable",
+     "type": "table",
+     "contents": [],
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "filters": [
+      {
+       "type": "TFTItemTagDataTableFilter",
+       "requiredTags": [
+        "Item.Equippable.Item.Component.SpatOrPan"
+       ]
+      }
+     ],
+     "dynamic": true
+    },
+    "... 외 1개"
+   ],
+   "DA_GreaterDupe6g": [
+    {
+     "apiName": "DA_Consumable_ChampionDuplicator",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null
+    },
+    {
+     "apiName": "DA_GoldTable",
+     "type": "table",
+     "strategy": "Normal",
+     "count": 6,
+     "weight": null,
+     "ref": true
+    }
+   ],
+   "DA_6g2FourCost": [
+    {
+     "apiName": "DA_GoldTable",
+     "type": "table",
+     "strategy": "Normal",
+     "count": 6,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DT_Shared_ChampionsTable",
+     "type": "table",
+     "contents": [],
+     "strategy": "Normal",
+     "count": 2,
+     "weight": null,
+     "filters": [
+      {
+       "type": "TFTShopTierDataTableFilter",
+       "costs": [
+        4
+       ]
+      }
+     ],
+     "costs": [
+      4
+     ],
+     "dynamic": true
+    }
+   ],
+   "DA_2g4ThreeCost": [
+    {
+     "apiName": "DA_GoldTable",
+     "type": "table",
+     "strategy": "Normal",
+     "count": 2,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DT_Shared_ChampionsTable",
+     "type": "table",
+     "contents": [],
+     "strategy": "Normal",
+     "count": 4,
+     "weight": null,
+     "filters": [
+      {
+       "type": "TFTShopTierDataTableFilter",
+       "costs": [
+        3
+       ]
+      }
+     ],
+     "costs": [
+      3
+     ],
+     "dynamic": true
+    }
+   ],
+   "DA_1gThiefsGloves": [
+    {
+     "apiName": "DA_GoldCoin",
+     "type": "loot",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null,
+     "ref": true
+    },
+    {
+     "apiName": "DA_ThiefsGloves",
+     "type": "item",
+     "strategy": "Normal",
+     "count": 1,
+     "weight": null
+    }
+   ],
+   "...": "외 30개 키"
+  }
+ },
+ "armory": {
+  "DA_ArmoryArtifacts": {
+   "apiName": "DA_ArmoryArtifacts",
+   "choices": [
+    {
+     "requiredTags": [
+      "Item.Equippable.Item.Artifact"
+     ],
+     "pick": "Unique",
+     "items": [
+      "DA_Artifact_AegisOfDawn",
+      "DA_Artifact_AegisOfDusk",
+      "... 외 10개"
+     ]
+    }
+   ],
+   "usedBy": [
+    "DA_AnvilArtifact"
+   ]
+  },
+  "DA_ArmoryCompletedItems": {
+   "apiName": "DA_ArmoryCompletedItems",
+   "choices": [
+    {
+     "requiredTags": [
+      "Item.Equippable.Item.Craftable",
+      "Item.Equippable.Category.Attack"
+     ],
+     "excludedTags": [
+      "Item.Equippable.Item.Emblem",
+      "Item.Equippable.Item.Tacticians"
+     ],
+     "pick": "Unique",
+     "items": [
+      "DA_Bloodthirster",
+      "DA_Deathblade",
+      "... 외 10개"
+     ]
+    },
+    {
+     "requiredTags": [
+      "Item.Equippable.Item.Craftable",
+      "Item.Equippable.Category.Magic"
+     ],
+     "excludedTags": [
+      "Item.Equippable.Item.Emblem",
+      "Item.Equippable.Item.Tacticians"
+     ],
+     "pick": "Unique",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_ArchangelsStaff",
+      "... 외 10개"
+     ]
+    },
+    "... 외 2개"
+   ],
+   "usedBy": [
+    "DA_AnvilCompletedItems"
+   ]
+  },
+  "DA_ArmoryFiveRadiantItems": {
+   "apiName": "DA_ArmoryFiveRadiantItems",
+   "choices": [
+    {
+     "requiredTags": [
+      "Item.Equippable.Category.Attack",
+      "Item.Equippable.Item.Radiant"
+     ],
+     "excludedTags": [
+      "Item.Equippable.Item.Emblem",
+      "Item.Equippable.Item.Tacticians",
+      "... 외 1개"
+     ],
+     "pick": "Unique",
+     "items": [
+      "DA_BloodthirsterRadiant",
+      "DA_DeathbladeRadiant",
+      "... 외 10개"
+     ]
+    },
+    {
+     "requiredTags": [
+      "Item.Equippable.Category.Magic",
+      "Item.Equippable.Item.Radiant"
+     ],
+     "excludedTags": [
+      "Item.Equippable.Item.Emblem",
+      "Item.Equippable.Item.Tacticians",
+      "... 외 1개"
+     ],
+     "pick": "Unique",
+     "items": [
+      "DA_AdaptiveHelm_Radiant",
+      "DA_ArchangelsStaffRadiant",
+      "... 외 10개"
+     ]
+    },
+    "... 외 2개"
+   ]
+  },
+  "DA_ArmoryItemComponents": {
+   "apiName": "DA_ArmoryItemComponents",
+   "choices": [
+    {
+     "requiredTags": [
+      "Item.Equippable.Item.Component"
+     ],
+     "excludedTags": [
+      "Item.Equippable.Item.Component.SpatOrPan"
+     ],
+     "pick": "Unique",
+     "items": [
+      "DA_Component_BFSword",
+      "DA_Component_ChainVest",
+      "... 외 6개"
+     ]
+    }
+   ],
+   "usedBy": [
+    "DA_AnvilComponent"
+   ]
+  },
+  "DA_GiftArmory_Early_LargeA": {
+   "apiName": "DA_GiftArmory_Early_LargeA",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_LargeB": {
+   "apiName": "DA_GiftArmory_Early_LargeB",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_MediumA": {
+   "apiName": "DA_GiftArmory_Early_MediumA",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_MediumB": {
+   "apiName": "DA_GiftArmory_Early_MediumB",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_MediumC": {
+   "apiName": "DA_GiftArmory_Early_MediumC",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_SmallA": {
+   "apiName": "DA_GiftArmory_Early_SmallA",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_SmallB": {
+   "apiName": "DA_GiftArmory_Early_SmallB",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_SmallC": {
+   "apiName": "DA_GiftArmory_Early_SmallC",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_SmallD": {
+   "apiName": "DA_GiftArmory_Early_SmallD",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Early_SmallE": {
+   "apiName": "DA_GiftArmory_Early_SmallE",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_LargeA": {
+   "apiName": "DA_GiftArmory_Late_LargeA",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_LargeB": {
+   "apiName": "DA_GiftArmory_Late_LargeB",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_MediumA": {
+   "apiName": "DA_GiftArmory_Late_MediumA",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_MediumB": {
+   "apiName": "DA_GiftArmory_Late_MediumB",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_MediumC": {
+   "apiName": "DA_GiftArmory_Late_MediumC",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_SmallA": {
+   "apiName": "DA_GiftArmory_Late_SmallA",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_SmallB": {
+   "apiName": "DA_GiftArmory_Late_SmallB",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_SmallC": {
+   "apiName": "DA_GiftArmory_Late_SmallC",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_SmallD": {
+   "apiName": "DA_GiftArmory_Late_SmallD",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  },
+  "DA_GiftArmory_Late_SmallE": {
+   "apiName": "DA_GiftArmory_Late_SmallE",
+   "choices": [
+    {
+     "pick": "All",
+     "items": [
+      "DA_AdaptiveHelm",
+      "DA_AdaptiveHelm_Radiant",
+      "... 외 10개"
+     ]
+    }
+   ]
+  }
+ },
+ "mechanics": {
+  "dravenBounties": {
+   "DA_DravenUniqueTrait18_BountyAttackAmount": {
+    "apiName": "DA_DravenUniqueTrait18_BountyAttackAmount",
+    "bounty": "AttackAmount",
+    "pool": "easy",
+    "hard": false,
+    "requirement": {
+     "AttackAmount_AttacksRequired": 50
+    },
+    "reward": {
+     "AttackAmount_NumRandom5Costs": 1
+    },
+    "values": {
+     "AttackAmount_AttacksRequired": 50,
+     "AttackAmount_NumRandom5Costs": 1
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyCastAmount": {
+    "apiName": "DA_DravenUniqueTrait18_BountyCastAmount",
+    "bounty": "CastAmount",
+    "pool": "easy",
+    "hard": false,
+    "requirement": {
+     "CastAmount_CastsRequired": 5
+    },
+    "reward": {
+     "CastAmount_NumRandom4Costs": 2
+    },
+    "values": {
+     "CastAmount_CastsRequired": 5,
+     "CastAmount_NumRandom4Costs": 2
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyCastAmountHard": {
+    "apiName": "DA_DravenUniqueTrait18_BountyCastAmountHard",
+    "bounty": "CastAmountHard",
+    "pool": "hard",
+    "hard": true,
+    "requirement": {
+     "CastAmountHard_CastsRequired": 8
+    },
+    "reward": {
+     "CastAmountHard_NumRerolls": 10
+    },
+    "values": {
+     "CastAmountHard_CastsRequired": 8,
+     "CastAmountHard_NumRerolls": 10
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyDamageAmount": {
+    "apiName": "DA_DravenUniqueTrait18_BountyDamageAmount",
+    "bounty": "DamageAmount",
+    "pool": "easy",
+    "hard": false,
+    "requirement": {
+     "DamageAmount_DamageRequired": 8000
+    },
+    "reward": {
+     "DamageAmount_GoldReward": 7
+    },
+    "values": {
+     "DamageAmount_DamageRequired": 8000,
+     "DamageAmount_GoldReward": 7
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyDamageAmountHard": {
+    "apiName": "DA_DravenUniqueTrait18_BountyDamageAmountHard",
+    "bounty": "DamageAmountHard",
+    "pool": "hard",
+    "hard": true,
+    "requirement": {
+     "DamageAmountHard_DamageRequired": 35000
+    },
+    "reward": {
+     "DamageAmountHard_NumBFSwordReward": 1
+    },
+    "values": {
+     "DamageAmountHard_DamageRequired": 35000,
+     "DamageAmountHard_NumBFSwordReward": 1
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyDamageAmountSingleCombat": {
+    "apiName": "DA_DravenUniqueTrait18_BountyDamageAmountSingleCombat",
+    "bounty": "DamageAmountSingleCombat",
+    "pool": "easy",
+    "hard": false,
+    "requirement": {
+     "DamageAmountSingleCombat_DamageRequired": 10000
+    },
+    "reward": {
+     "DamageAmountHard_GoldReward": 15
+    },
+    "values": {
+     "DamageAmountSingleCombat_DamageRequired": 10000,
+     "DamageAmountHard_GoldReward": 15
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyKills": {
+    "apiName": "DA_DravenUniqueTrait18_BountyKills",
+    "bounty": "Kills",
+    "pool": "easy",
+    "hard": false,
+    "requirement": {
+     "Kills_KillsRequired": 6
+    },
+    "reward": {
+     "Kills_GoldReward": 12
+    },
+    "values": {
+     "Kills_KillsRequired": 6,
+     "Kills_GoldReward": 12
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyKillsHard": {
+    "apiName": "DA_DravenUniqueTrait18_BountyKillsHard",
+    "bounty": "KillsHard",
+    "pool": "hard",
+    "hard": true,
+    "requirement": {
+     "KillsHard_KillsRequired": 15
+    },
+    "reward": {
+     "KillsHard_NumRandomCompletedItemsReward": 1
+    },
+    "values": {
+     "KillsHard_KillsRequired": 15,
+     "KillsHard_NumRandomCompletedItemsReward": 1
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyMostDamage": {
+    "apiName": "DA_DravenUniqueTrait18_BountyMostDamage",
+    "bounty": "MostDamage",
+    "pool": "easy",
+    "hard": false,
+    "requirement": null,
+    "reward": {
+     "MostDamage_RerollsReward": 2
+    },
+    "values": {
+     "MostDamage_RerollsReward": 2
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountySurviveHard": {
+    "apiName": "DA_DravenUniqueTrait18_BountySurviveHard",
+    "bounty": "SurviveHard",
+    "pool": "hard",
+    "hard": true,
+    "requirement": {
+     "SurviveHard_NumCombats": 3
+    },
+    "reward": {
+     "SurviveHard_NumRandomComponentsReward": 2
+    },
+    "values": {
+     "SurviveHard_NumCombats": 3,
+     "SurviveHard_NumRandomComponentsReward": 2
+    },
+    "curve": "CT_DravenUniqueTrait"
+   },
+   "DA_DravenUniqueTrait18_BountyTakedowns": {
+    "apiName": "DA_DravenUniqueTrait18_BountyTakedowns",
+    "bounty": "Takedowns",
+    "pool": "easy",
+    "hard": false,
+    "requirement": {
+     "Takedowns_TakedownsRequired": 14
+    },
+    "reward": {
+     "Takedowns_XPReward": 10
+    },
+    "values": {
+     "Takedowns_TakedownsRequired": 14,
+     "Takedowns_XPReward": 10
+    },
+    "curve": "CT_DravenUniqueTrait"
+   }
+  },
+  "coven": {
+   "levels": [
+    {
+     "level": 1,
+     "essence": 40,
+     "estimatedGold": 4,
+     "cashout": "DA_18_Coven_Level1_CashoutPayload",
+     "contents": [
+      {
+       "apiName": "DT_18_Coven_GoldCoinTable",
+       "type": "table",
+       "contents": [
+        {
+         "apiName": "DA_GoldCoin",
+         "type": "loot",
+         "contents": [
+          {
+           "apiName": "DA_GoldCoinPayload",
+           "strategy": "Normal",
+           "count": 1,
+           "weight": null
+          }
+         ],
+         "strategy": "Normal",
+         "count": 1,
+         "weight": null
+        }
+       ],
+       "strategy": "Repeat",
+       "count": 4,
+       "weight": null
+      },
+      {
+       "apiName": "DT_18_ChampionsTable",
+       "type": "table",
+       "contents": [],
+       "strategy": "Unique",
+       "count": 2,
+       "weight": null,
+       "filters": [
+        {
+         "type": "DF_ChampionDataOfCost_C"
+        }
+       ],
+       "dynamic": true
+      },
+      "... 외 1개"
+     ],
+     "pass": "DA_18_Coven_Level1_PassPayload",
+     "loot": "DA_18_CovenCashout1_Loot"
+    },
+    {
+     "level": 2,
+     "essence": 85,
+     "estimatedGold": 10,
+     "cashout": "DA_18_Coven_Level2_CashoutPayload",
+     "contents": [
+      {
+       "apiName": "DT_18_Coven_B1",
+       "type": "table",
+       "contents": [
+        {
+         "apiName": "DT_18_Coven_GoldCoinTable",
+         "type": "table",
+         "contents": [
+          {
+           "apiName": "DA_GoldCoin",
+           "type": "loot",
+           "contents": [
+            {
+             "apiName": "DA_GoldCoinPayload",
+             "strategy": "Normal",
+             "count": 1,
+             "weight": null
+            }
+           ],
+           "strategy": "Normal",
+           "count": 1,
+           "weight": null
+          }
+         ],
+         "strategy": "Repeat",
+         "count": 2,
+         "weight": null
+        },
+        {
+         "apiName": "DT_Shared_ItemsTable",
+         "type": "table",
+         "contents": [],
+         "strategy": "Normal",
+         "count": 1,
+         "weight": null,
+         "filters": [
+          {
+           "type": "TFTItemTagDataTableFilter",
+           "requiredTags": [
+            "Item.Equippable.Item.Component"
+           ],
+           "excludedTags": [
+            "Item.Equippable.Item.Component.SpatOrPan"
+           ]
+          }
+         ],
+         "dynamic": true
+        }
+       ],
+       "strategy": "All",
+       "count": 1,
+       "weight": null
+      },
+      {
+       "apiName": "DT_18_Coven_GoldCoinTable",
+       "type": "table",
+       "contents": [
+        {
+         "apiName": "DA_GoldCoin",
+         "type": "loot",
+         "contents": [
+          {
+           "apiName": "DA_GoldCoinPayload",
+           "strategy": "Normal",
+           "count": 1,
+           "weight": null
+          }
+         ],
+         "strategy": "Normal",
+         "count": 1,
+         "weight": null
+        }
+       ],
+       "strategy": "Repeat",
+       "count": 10,
+       "weight": null
+      },
+      "... 외 1개"
+     ],
+     "pass": "DA_18_Coven_Level2_PassPayload",
+     "loot": "DA_18_CovenCashout2_Loot"
+    },
+    "... 외 7개"
+   ],
+   "essenceThresholds": [
+    40,
+    85,
+    "... 외 7개"
+   ],
+   "curve": "CT_18_Coven_ArmoryLevels"
+  },
+  "goldenEgg": {
+   "apiName": "DA_GoldenEgg",
+   "table": "DT_EggReward",
+   "hatchRounds": 11,
+   "outcomes": {
+    "DT_GoldenEggLootA": {
+     "apiName": "DT_GoldenEggLootA",
+     "type": "table",
+     "contents": [
+      {
+       "apiName": "DA_GoldTable",
+       "type": "table",
+       "contents": [
+        {
+         "apiName": "DA_GoldCoin",
+         "type": "loot",
+         "contents": [
+          {
+           "apiName": "DA_GoldCoinPayload",
+           "strategy": "Normal",
+           "count": 1,
+           "weight": null
+          }
+         ],
+         "strategy": "Normal",
+         "count": 1,
+         "weight": null
+        }
+       ],
+       "strategy": "Repeat",
+       "count": 88,
+       "weight": null
+      },
+      {
+       "apiName": "DA_TacticiansCrown",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      }
+     ],
+     "strategy": "All",
+     "count": 1,
+     "weight": 0.15,
+     "chance": 0.15
+    },
+    "DT_GoldenEggLootB": {
+     "apiName": "DT_GoldenEggLootB",
+     "type": "table",
+     "contents": [
+      {
+       "apiName": "DA_TacticiansCrown",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      {
+       "apiName": "DA_TacticiansCrown",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      "... 외 2개"
+     ],
+     "strategy": "All",
+     "count": 1,
+     "weight": 0.15,
+     "chance": 0.15
+    },
+    "DT_GoldenEggLootc": {
+     "apiName": "DT_GoldenEggLootc",
+     "type": "table",
+     "contents": [
+      {
+       "apiName": "DA_Artifact_InfinityForce",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      {
+       "apiName": "DA_Artifact_ZhonyasParadox",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      "... 외 5개"
+     ],
+     "strategy": "All",
+     "count": 1,
+     "weight": 0.1,
+     "chance": 0.1
+    },
+    "DT_GoldenEggLootD": {
+     "apiName": "DT_GoldenEggLootD",
+     "type": "table",
+     "contents": [
+      {
+       "apiName": "DA_TacticiansCrown",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      {
+       "apiName": "DA_ThiefsGlovesRadiant",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      "... 외 2개"
+     ],
+     "strategy": "All",
+     "count": 1,
+     "weight": 0.15,
+     "chance": 0.15
+    },
+    "DT_GoldenEggLootE": {
+     "apiName": "DT_GoldenEggLootE",
+     "type": "table",
+     "contents": [
+      {
+       "apiName": "DA_CompletedItems",
+       "type": "table",
+       "contents": [
+        {
+         "apiName": "DA_AdaptiveHelm",
+         "type": "item",
+         "strategy": "Normal",
+         "count": 1,
+         "weight": 1,
+         "chance": 0.0278
+        },
+        {
+         "apiName": "DA_ArchangelsStaff",
+         "type": "item",
+         "strategy": "Normal",
+         "count": 1,
+         "weight": 1,
+         "chance": 0.0278
+        },
+        "... 외 10개"
+       ],
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      {
+       "apiName": "DA_Artifacts",
+       "type": "table",
+       "contents": [],
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null,
+       "dynamic": true
+      },
+      "... 외 4개"
+     ],
+     "strategy": "All",
+     "count": 1,
+     "weight": 0.1,
+     "chance": 0.1
+    },
+    "DT_GoldenEggLootF": {
+     "apiName": "DT_GoldenEggLootF",
+     "type": "table",
+     "contents": [
+      {
+       "apiName": "DA_TacticiansCrown",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      {
+       "apiName": "DA_Consumable_ChampionDuplicator",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      "... 외 3개"
+     ],
+     "strategy": "All",
+     "count": 1,
+     "weight": 0.1,
+     "chance": 0.1
+    },
+    "DT_GoldenEggLootG": {
+     "apiName": "DT_GoldenEggLootG",
+     "type": "table",
+     "contents": [
+      {
+       "apiName": "DA_Radiants",
+       "type": "table",
+       "contents": [
+        {
+         "apiName": "DA_AdaptiveHelm_Radiant",
+         "type": "item",
+         "strategy": "Normal",
+         "count": 1,
+         "weight": 1,
+         "chance": 0.0278
+        },
+        {
+         "apiName": "DA_ArchangelsStaffRadiant",
+         "type": "item",
+         "strategy": "Normal",
+         "count": 1,
+         "weight": 1,
+         "chance": 0.0278
+        },
+        "... 외 10개"
+       ],
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      {
+       "apiName": "DA_Radiants",
+       "type": "table",
+       "contents": [
+        {
+         "apiName": "DA_AdaptiveHelm_Radiant",
+         "type": "item",
+         "strategy": "Normal",
+         "count": 1,
+         "weight": 1,
+         "chance": 0.0278
+        },
+        {
+         "apiName": "DA_ArchangelsStaffRadiant",
+         "type": "item",
+         "strategy": "Normal",
+         "count": 1,
+         "weight": 1,
+         "chance": 0.0278
+        },
+        "... 외 10개"
+       ],
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      "... 외 2개"
+     ],
+     "strategy": "All",
+     "count": 1,
+     "weight": 0.15,
+     "chance": 0.15
+    },
+    "DT_GoldenEggLootH": {
+     "apiName": "DT_GoldenEggLootH",
+     "type": "table",
+     "contents": [
+      {
+       "apiName": "DA_InfinityEdge",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      {
+       "apiName": "DA_JeweledGauntlet",
+       "type": "item",
+       "strategy": "Normal",
+       "count": 1,
+       "weight": null
+      },
+      "... 외 6개"
+     ],
+     "strategy": "All",
+     "count": 1,
+     "weight": 0.1,
+     "chance": 0.1
+    }
+   }
+  },
+  "otherCashouts": {
+   "DA_Expedition": {
+    "apiName": "DA_Expedition",
+    "kind": "augment",
+    "values": {
+     "CashoutCost": 33
+    }
+   },
+   "DA_ExtraBuckles": {
+    "apiName": "DA_ExtraBuckles",
+    "kind": "augment",
+    "values": {
+     "DamageTakenReq": 75000,
+     "NumCashoutLoot": 2
+    }
+   }
+  },
+  "note": "Language-neutral index of the set mechanics whose payloads live in the per-language lookups under `extras`. dravenBounties and otherCashouts are keyed by apiName; coven.levels is an array because it i...(294자)"
+ },
+ "_metadata": {
+  "set": "TFTSet18",
+  "patch": "pbe",
+  "curveTables": 17,
+  "schemaVersion": 2,
+  "unitApiNameScheme": "TFT18_*",
+  "curveTableKeys": [
+   "CT_18_Charms",
+   "CT_Round_MatchupScores",
+   "... 외 10개"
+  ]
+ }
+}

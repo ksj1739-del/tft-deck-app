@@ -1,0 +1,106 @@
+{
+ "meta": {
+  "total": 1000,
+  "offset": 0,
+  "limit": 100
+ },
+ "data": [
+  {
+   "player_id": "4445703",
+   "summoner_region": "kr",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 1730 LP",
+   "rating_numeric": 4530,
+   "num_played": 347,
+   "rank": 1,
+   "stats": {
+    "num_played": 347,
+    "place_sum": 1240,
+    "wins": 88,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 8,
+     "place_sum": 54,
+     "avg_similarity": 0.2881,
+     "lpChange": 312
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 85,
+     "num_played": 85,
+     "wins": 22,
+     "place_sum": 300,
+     "avg_similarity": 0.2056,
+     "lpChange": 279
+    },
+    "appMatches": false
+   }
+  },
+  {
+   "player_id": "4229335",
+   "summoner_region": "kr",
+   "riot_id": "<가림>",
+   "puuid": "<가림>",
+   "rating": "CHALLENGER I 1730 LP",
+   "rating_numeric": 4530,
+   "num_played": 310,
+   "rank": 2,
+   "stats": {
+    "num_played": 310,
+    "place_sum": 1116,
+    "wins": 68,
+    "RecentResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 20,
+     "num_played": 20,
+     "wins": 4,
+     "place_sum": 62,
+     "avg_similarity": 0.2551,
+     "lpChange": 169
+    },
+    "currentPatchResult": {
+     "ItemData": {
+      "Tank": 0,
+      "AD": 0,
+      "AP": 0
+     },
+     "topCarries": [],
+     "damage_percentile_sum": 0,
+     "board_strength_percentile_sum": 0,
+     "percentile_count": 67,
+     "num_played": 67,
+     "wins": 17,
+     "place_sum": 223,
+     "avg_similarity": 0.2197,
+     "lpChange": 379
+    },
+    "appMatches": false
+   }
+  },
+  "... 외 98개"
+ ]
+}

@@ -1,0 +1,4335 @@
+{
+ "summoner": {
+  "id": 4109603,
+  "puuid": "<가림>",
+  "summoner_region": "kr",
+  "profile_icon_id": 4574,
+  "summoner_level": 274,
+  "revision_date": 1789030066000,
+  "riot_id": "랄라붕#KR1",
+  "account": {
+   "summoner_id": "",
+   "account_id": ""
+  },
+  "last_refreshed": 1789398706,
+  "last_name_fetch": "2026-09-11T10:55:24.651086",
+  "is_profile_hidden": false
+ },
+ "ranked": {
+  "num_games": 112,
+  "rating_text": "DIAMOND IV 0 LP",
+  "rating_numeric": 2400,
+  "peak_rating": "DIAMOND III 29 LP",
+  "peak_rating_numeric": 2529,
+  "timestamp": "2026-09-15T11:22:19.493500"
+ },
+ "rating_history": {
+  "TFTSet10": {
+   "1100": {
+    "num_games": 242,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "peak_rating": "MASTER I 56 LP",
+    "peak_rating_numeric": 2856,
+    "timestamp": "2024-01-31T15:31:14.675914"
+   }
+  },
+  "TFTSet11": {
+   "1100": {
+    "num_games": 212,
+    "rating_text": "DIAMOND IV 0 LP",
+    "rating_numeric": 2400,
+    "peak_rating": "DIAMOND II 1 LP",
+    "peak_rating_numeric": 2601,
+    "timestamp": "2024-07-17T15:25:08.295879"
+   }
+  },
+  "TFTSet12": {
+   "1100": {
+    "num_games": 401,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "peak_rating": "MASTER I 2 LP",
+    "peak_rating_numeric": 2802,
+    "timestamp": "2024-10-24T11:37:55.140250"
+   }
+  },
+  "TFTSet13": {
+   "1100": {
+    "num_games": 345,
+    "rating_text": "MASTER I 83 LP",
+    "rating_numeric": 2883,
+    "peak_rating": "MASTER I 335 LP",
+    "peak_rating_numeric": 3135,
+    "timestamp": "2025-01-29T05:46:33.397745"
+   }
+  },
+  "TFTSet14": {
+   "1100": {
+    "num_games": 241,
+    "rating_text": "DIAMOND I 83 LP",
+    "rating_numeric": 2783,
+    "peak_rating": "DIAMOND I 96 LP",
+    "peak_rating_numeric": 2796,
+    "timestamp": "2025-06-13T10:03:57.808394"
+   }
+  },
+  "TFTSet15": {
+   "1100": {
+    "num_games": 362,
+    "rating_text": "MASTER I 45 LP",
+    "rating_numeric": 2845,
+    "peak_rating": "MASTER I 212 LP",
+    "peak_rating_numeric": 3012,
+    "timestamp": "2025-11-29T04:06:50.608523"
+   }
+  },
+  "TFTSet16": {
+   "1100": {
+    "num_games": 163,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "peak_rating": "MASTER I 80 LP",
+    "peak_rating_numeric": 2880,
+    "timestamp": "2026-03-15T14:15:04.518761"
+   }
+  },
+  "TFTSet17": {
+   "1100": {
+    "num_games": 250,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "peak_rating": "MASTER I 197 LP",
+    "peak_rating_numeric": 2997,
+    "timestamp": "2026-08-21T14:35:48.689"
+   }
+  },
+  "TFTSet8_2": {
+   "1100": {
+    "num_games": 122,
+    "rating_text": "DIAMOND IV 39 LP",
+    "rating_numeric": 2439,
+    "timestamp": "1970-01-01T00:00:00"
+   }
+  },
+  "TFTSet9": {
+   "1100": {
+    "num_games": 221,
+    "rating_text": "MASTER I 0 LP",
+    "rating_numeric": 2800,
+    "timestamp": "1970-01-01T00:00:00"
+   }
+  },
+  "TFTSet9_2": {
+   "1100": {
+    "num_games": 16,
+    "rating_text": "DIAMOND III 0 LP",
+    "rating_numeric": 2500,
+    "peak_rating": "EMERALD III 81 LP",
+    "peak_rating_numeric": 2181,
+    "timestamp": "2023-11-08T15:04:51.084225"
+   }
+  }
+ },
+ "matches": [
+  {
+   "placement": 6,
+   "riot_match_id": "KR_8382256353",
+   "match_timestamp": 1789471371596,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 28 LP",
+   "avg_rating_numeric": 2428,
+   "patch": "18.2",
+   "game_duration": 2326,
+   "match_data_url": "https://matches3.metatft.com/KR_8382256353.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1767,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 2,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_LastWhisper",
+       "DA_RedBuff"
+      ]
+     },
+     {
+      "character_id": "DA_18_Tristana",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpiritVisage",
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_ElderDragon",
+      "tier": 1,
+      "itemNames": [
+       "DA_Bloodthirster",
+       "DA_TitansResolve",
+       "DA_Morellonomicon"
+      ]
+     },
+     {
+      "character_id": "DA_18_Kennen",
+      "tier": 1,
+      "itemNames": [
+       "DA_AdaptiveHelm",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Hunter_1",
+     "DA_18_Inferno_1",
+     "DA_Primal18_1",
+     "DA_Riftbeast18_1",
+     "DA_18_Vanguard_1",
+     "DA_Emerald18_1",
+     "DA_Juggernaut18_1",
+     "DA_18_ApexPredator_1"
+    ],
+    "player_rating": "DIAMOND IV 1 LP",
+    "player_rating_numeric": 2401,
+    "headliner_traits": null,
+    "player_ids": [
+     328161922,
+     3085012,
+     225349938,
+     86778875,
+     426576407,
+     4109603,
+     2842091,
+     400389
+    ]
+   }
+  },
+  {
+   "placement": 7,
+   "riot_match_id": "KR_8382126779",
+   "match_timestamp": 1789464051118,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 42 LP",
+   "avg_rating_numeric": 2442,
+   "patch": "18.2",
+   "game_duration": 2322,
+   "match_data_url": "https://matches3.metatft.com/KR_8382126779.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1601,
+    "last_round": 27,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 1,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_18_EmblemCoven",
+       "DA_ProtectorsVow"
+      ]
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_EdgeOfNight",
+       "DA_LastWhisper"
+      ]
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemCoven"
+      ]
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemSprykin"
+      ]
+     },
+     {
+      "character_id": "DA_18_Morgana",
+      "tier": 2,
+      "itemNames": [
+       "DA_JeweledGauntlet",
+       "DA_NashorsTooth",
+       "DA_Morellonomicon"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ivern",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Coven_1",
+     "DA_18_Adaptor_1",
+     "DA_18_Greenfather_1",
+     "DA_18_Invoker_3",
+     "DA_Primal18_1",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1"
+    ],
+    "player_rating": "DIAMOND IV 36 LP",
+    "player_rating_numeric": 2436,
+    "headliner_traits": null,
+    "player_ids": [
+     1460820,
+     235899631,
+     74468651,
+     212373998,
+     4502613,
+     2605997,
+     4109603,
+     3794443
+    ]
+   }
+  },
+  {
+   "placement": 2,
+   "riot_match_id": "KR_8381553124",
+   "match_timestamp": 1789398102072,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 50 LP",
+   "avg_rating_numeric": 2450,
+   "patch": "18.2",
+   "game_duration": 2374,
+   "match_data_url": "https://matches3.metatft.com/KR_8381553124.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 2369,
+    "last_round": 38,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Yunara",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ahri",
+      "tier": 2,
+      "itemNames": [
+       "DA_NashorsTooth",
+       "DA_18_EmblemExecutioner",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemElderwood",
+       "DA_IonicSpark",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ezreal",
+      "tier": 2,
+      "itemNames": [
+       "DA_StrikersFlail",
+       "DA_RedBuff",
+       "DA_NashorsTooth"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sett",
+      "tier": 2,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_WarmogsArmor",
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_18_Alistar",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Soraka",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemSpellweaver",
+       "DA_Artifact_Dawncore",
+       "DA_StrikersFlail"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ezreal",
+      "tier": 2,
+      "itemNames": [
+       "DA_BlueBuff"
+      ]
+     },
+     {
+      "character_id": "DA_18_Alune",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Blossom_1",
+     "DA_18_Brawler_1",
+     "DA_18_Elderwood_1",
+     "DA_18_Executioner_3",
+     "DA_18_Spellweaver_2",
+     "DA_FloraFatalis18_2",
+     "DA_AluneUniqueTrait18_1"
+    ],
+    "player_rating": "DIAMOND IV 0 LP",
+    "player_rating_numeric": 2400,
+    "headliner_traits": null,
+    "player_ids": [
+     297677063,
+     4109603,
+     1540498,
+     292051944,
+     725334,
+     1677570,
+     2697991,
+     417678927
+    ]
+   }
+  },
+  {
+   "placement": 7,
+   "riot_match_id": "KR_8381503023",
+   "match_timestamp": 1789396223427,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 84 LP",
+   "avg_rating_numeric": 2384,
+   "patch": "18.2",
+   "game_duration": 2336,
+   "match_data_url": "https://matches3.metatft.com/KR_8381503023.json",
+   "summary": {
+    "level": 7,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1767,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_KhaZix",
+      "tier": 2,
+      "itemNames": [
+       "DA_Bloodthirster",
+       "DA_RabadonsDeathcap",
+       "DA_EdgeOfNight"
+      ]
+     },
+     {
+      "character_id": "DA_18_Hecarim",
+      "tier": 3,
+      "itemNames": [
+       "DA_SpiritVisage",
+       "DA_GargoyleStoneplate",
+       "DA_NashorsTooth"
+      ]
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": [
+       "DA_Artifact_WitsEnd",
+       "DA_18_EmblemRapidfire",
+       "DA_Guinsoos<플레이어>blade"
+      ]
+     },
+     {
+      "character_id": "DA_18_Azir",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Warwick",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Aphelios",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Blackthorn_1",
+     "DA_18_Lunar_1",
+     "DA_18_Rapidfire_2",
+     "DA_18_Rival_1",
+     "DA_18_Slayer_1",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1"
+    ],
+    "player_rating": "DIAMOND IV 0 LP",
+    "player_rating_numeric": 2400,
+    "headliner_traits": null,
+    "player_ids": [
+     148552818,
+     3513904,
+     142559808,
+     3779699,
+     3208639,
+     4053804,
+     4109603,
+     4687716
+    ]
+   }
+  },
+  {
+   "placement": 7,
+   "riot_match_id": "KR_8381441345",
+   "match_timestamp": 1789394178616,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 51 LP",
+   "avg_rating_numeric": 2351,
+   "patch": "18.2",
+   "game_duration": 2140,
+   "match_data_url": "https://matches3.metatft.com/KR_8381441345.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1777,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Hecarim",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ezreal",
+      "tier": 1,
+      "itemNames": [
+       "DA_RedBuff"
+      ]
+     },
+     {
+      "character_id": "DA_Draven18",
+      "tier": 2,
+      "itemNames": [
+       "DA_KrakensFury",
+       "DA_Guinsoos<플레이어>blade",
+       "DA_Artifact_NavoriFlickerblade"
+      ]
+     },
+     {
+      "character_id": "DA_18_Alistar",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Kennen",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_Component_GiantsBelt"
+      ]
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": [
+       "DA_18_EmblemVanguard",
+       "DA_HandOfJustice"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ivern",
+      "tier": 1,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_Artifact_LichBane"
+      ]
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Brawler_1",
+     "DA_18_Elderwood_1",
+     "DA_18_Greenfather_1",
+     "DA_18_Executioner_1",
+     "DA_18_Vanguard_2",
+     "DA_Emerald18_1",
+     "DA_DravenUniqueTrait18_1"
+    ],
+    "player_rating": "DIAMOND IV 0 LP",
+    "player_rating_numeric": 2400,
+    "headliner_traits": null,
+    "player_ids": [
+     208062046,
+     479096,
+     2138546,
+     566645367,
+     4070538,
+     3308541,
+     4109603,
+     454577
+    ]
+   }
+  },
+  {
+   "placement": 7,
+   "riot_match_id": "KR_8381208821",
+   "match_timestamp": 1789386454612,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND III 19 LP",
+   "avg_rating_numeric": 2519,
+   "patch": "18.2",
+   "game_duration": 2504,
+   "match_data_url": "https://matches3.metatft.com/KR_8381208821.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1666,
+    "last_round": 26,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Scuttlecrab18",
+      "tier": 3,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_SunfireCape",
+       "DA_WarmogsArmor"
+      ]
+     },
+     {
+      "character_id": "DA_Cinderling18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 2,
+      "itemNames": [
+       "DA_LastWhisper",
+       "DA_StrikersFlail",
+       "DA_InfinityEdge"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor"
+      ]
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 1,
+      "itemNames": [
+       "DA_Artifact_HellfireHatchet",
+       "DA_EdgeOfNight",
+       "DA_SteraksGage"
+      ]
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Adaptor_1",
+     "DA_18_Hunter_1",
+     "DA_18_Invoker_1",
+     "DA_Primal18_1",
+     "DA_Riftbeast18_1",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "DIAMOND IV 15 LP",
+    "player_rating_numeric": 2415,
+    "headliner_traits": null,
+    "player_ids": [
+     569235288,
+     220210888,
+     4497559,
+     1801135,
+     136826379,
+     3202523,
+     4109603,
+     232325169
+    ]
+   }
+  },
+  {
+   "placement": 5,
+   "riot_match_id": "KR_8381073887",
+   "match_timestamp": 1789378890831,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 2 LP",
+   "avg_rating_numeric": 2302,
+   "patch": "18.2",
+   "game_duration": 2346,
+   "match_data_url": "https://matches3.metatft.com/KR_8381073887.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1795,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Yorick",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Karma18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_MasterYi_AD",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ivern",
+      "tier": 1,
+      "itemNames": [
+       "DA_18_EmblemBlossom",
+       "DA_18_EmblemJuggernaut",
+       "DA_Component_RecurveBow"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ahri",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_JeweledGauntlet",
+       "DA_TacticiansCrown"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sett",
+      "tier": 2,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_WarmogsArmor",
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ashe",
+      "tier": 1,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_Guinsoos<플레이어>blade"
+      ]
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Blossom_3",
+     "DA_18_Brawler_1",
+     "DA_18_Greenfather_1",
+     "DA_18_Hunter_1",
+     "DA_Primal18_1",
+     "DA_18_Spellweaver_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "DIAMOND IV 25 LP",
+    "player_rating_numeric": 2425,
+    "headliner_traits": null,
+    "player_ids": [
+     95340,
+     156491418,
+     255122962,
+     136826379,
+     4109603,
+     2865998,
+     169588,
+     565597134
+    ]
+   }
+  },
+  {
+   "placement": 4,
+   "riot_match_id": "KR_8380173880",
+   "match_timestamp": 1789303738743,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND III 10 LP",
+   "avg_rating_numeric": 2510,
+   "patch": "18.2",
+   "game_duration": 2164,
+   "match_data_url": "https://matches3.metatft.com/KR_8380173880.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 2100,
+    "last_round": 34,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_MasterYi_AD",
+      "tier": 3,
+      "itemNames": [
+       "DA_EdgeOfNight",
+       "DA_JeweledGauntletRadiant",
+       "DA_Guinsoos<플레이어>blade"
+      ]
+     },
+     {
+      "character_id": "DA_18_Yorick",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 3,
+      "itemNames": [
+       "DA_RedBuff",
+       "DA_SpearOfShojin",
+       "DA_AdaptiveHelm"
+      ]
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 3,
+      "itemNames": [
+       "DA_BrambleVest",
+       "DA_WarmogsArmor",
+       "DA_DragonsClaw"
+      ]
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_Bloodthirster",
+       "DA_EdgeOfNight"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sett",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Gromp18_AP",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Blossom_1",
+     "DA_18_Brawler_1",
+     "DA_18_Adaptor_3",
+     "DA_Primal18_1",
+     "DA_18_Caustic_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "DIAMOND IV 15 LP",
+    "player_rating_numeric": 2415,
+    "headliner_traits": null,
+    "player_ids": [
+     3081193,
+     403452,
+     120419686,
+     4109603,
+     223684469,
+     565740396,
+     4203833,
+     236273744
+    ]
+   }
+  },
+  {
+   "placement": 4,
+   "riot_match_id": "KR_8380110811",
+   "match_timestamp": 1789301762937,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 35 LP",
+   "avg_rating_numeric": 2335,
+   "patch": "18.2",
+   "game_duration": 2113,
+   "match_data_url": "https://matches3.metatft.com/KR_8380110811.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1854,
+    "last_round": 30,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Cinderling18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Scuttlecrab18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_SteraksGage",
+       "DA_GiantSlayer",
+       "DA_HandOfJustice"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 1,
+      "itemNames": [
+       "DA_SteadfastHeart",
+       "DA_GargoyleStoneplate",
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_Lux18_Base",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_BlueBuff",
+       "DA_ArchangelsStaff"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 1,
+      "itemNames": [
+       "DA_ProtectorsVow",
+       "DA_Component_GiantsBelt"
+      ]
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Adaptor_1",
+     "DA_18_Hunter_1",
+     "DA_18_Invoker_1",
+     "DA_18_LuxUniqueTrait_1",
+     "DA_Primal18_2",
+     "DA_Riftbeast18_1",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1",
+     "DA_Emerald18_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "DIAMOND IV 5 LP",
+    "player_rating_numeric": 2405,
+    "headliner_traits": null,
+    "player_ids": [
+     4368618,
+     235795940,
+     2574898,
+     4109603,
+     314212681,
+     291018,
+     4499156,
+     462361
+    ]
+   }
+  },
+  {
+   "placement": 6,
+   "riot_match_id": "KR_8380058300",
+   "match_timestamp": 1789299851837,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 26 LP",
+   "avg_rating_numeric": 2426,
+   "patch": "18.2",
+   "game_duration": 2189,
+   "match_data_url": "https://matches3.metatft.com/KR_8380058300.json",
+   "summary": {
+    "level": 7,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1866,
+    "last_round": 30,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Veigar",
+      "tier": 3,
+      "itemNames": [
+       "DA_NashorsTooth",
+       "DA_JeweledGauntlet",
+       "DA_NashorsToothRadiant"
+      ]
+     },
+     {
+      "character_id": "DA_18_Kobuko",
+      "tier": 3,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_RekSai",
+      "tier": 3,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate",
+       "DA_BrambleVest"
+      ]
+     },
+     {
+      "character_id": "DA_18_Rammus",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemBlackthorn",
+       "DA_Component_GiantsBelt"
+      ]
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Azir",
+      "tier": 2,
+      "itemNames": [
+       "DA_RedBuff",
+       "DA_VoidStaff",
+       "DA_HextechGunblade"
+      ]
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Blackthorn_2",
+     "DA_18_Brawler_1",
+     "DA_18_Defender_1",
+     "DA_18_Spellweaver_1",
+     "DA_18_Sprykin_1",
+     "DA_18_Caustic_1",
+     "DA_FloraFatalis18_1"
+    ],
+    "player_rating": "DIAMOND IV 24 LP",
+    "player_rating_numeric": 2424,
+    "headliner_traits": null,
+    "player_ids": [
+     222467704,
+     255339536,
+     509052,
+     3226105,
+     4082638,
+     4109603,
+     349739,
+     218033928
+    ]
+   }
+  },
+  {
+   "placement": 8,
+   "riot_match_id": "KR_8380010220",
+   "match_timestamp": 1789297989348,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND III 19 LP",
+   "avg_rating_numeric": 2519,
+   "patch": "18.2",
+   "game_duration": 2037,
+   "match_data_url": "https://matches3.metatft.com/KR_8380010220.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1648,
+    "last_round": 27,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Varus",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 1,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_StrikersFlail"
+      ]
+     },
+     {
+      "character_id": "DA_18_Aphelios",
+      "tier": 1,
+      "itemNames": [
+       "DA_KrakensFury",
+       "DA_Guinsoos<플레이어>blade",
+       "DA_LastWhisper"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_WarmogsArmor",
+       "DA_SpiritVisage"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Adaptor_1",
+     "DA_18_Inferno_1",
+     "DA_18_Invoker_1",
+     "DA_18_Lunar_1",
+     "DA_Primal18_1",
+     "DA_18_Rapidfire_1",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "DIAMOND IV 75 LP",
+    "player_rating_numeric": 2475,
+    "headliner_traits": null,
+    "player_ids": [
+     4167458,
+     833653,
+     4499112,
+     232325169,
+     822515,
+     3773344,
+     4095871,
+     4109603
+    ]
+   }
+  },
+  {
+   "placement": 8,
+   "riot_match_id": "KR_8379393259",
+   "match_timestamp": 1789271321099,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 94 LP",
+   "avg_rating_numeric": 2494,
+   "patch": "18.2",
+   "game_duration": 2105,
+   "match_data_url": "https://matches3.metatft.com/KR_8379393259.json",
+   "summary": {
+    "level": 7,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1823,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Shen",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ornn",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": [
+       "DA_AdaptiveHelm",
+       "DA_ArchangelsStaff",
+       "DA_WarmogsArmor"
+      ]
+     },
+     {
+      "character_id": "DA_18_Leona",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Cassiopeia",
+      "tier": 3,
+      "itemNames": [
+       "DA_Artifact_NavoriFlickerblade",
+       "DA_18_EmblemFloraFatalis",
+       "DA_JeweledGauntlet"
+      ]
+     },
+     {
+      "character_id": "DA_18_Rammus",
+      "tier": 2,
+      "itemNames": [
+       "DA_SteadfastHeart"
+      ]
+     },
+     {
+      "character_id": "DA_18_Lillia",
+      "tier": 2,
+      "itemNames": [
+       "DA_SunfireCape",
+       "DA_IonicSpark",
+       "DA_DragonsClaw"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Defender_3",
+     "DA_18_Spellweaver_1",
+     "DA_FloraFatalis18_2"
+    ],
+    "player_rating": "DIAMOND III 0 LP",
+    "player_rating_numeric": 2500,
+    "headliner_traits": null,
+    "player_ids": [
+     186640,
+     3455382,
+     416604348,
+     410364,
+     4581275,
+     396023172,
+     98612309,
+     4109603
+    ]
+   }
+  },
+  {
+   "placement": 7,
+   "riot_match_id": "KR_8379362541",
+   "match_timestamp": 1789269735796,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 98 LP",
+   "avg_rating_numeric": 2498,
+   "patch": "18.2",
+   "game_duration": 2262,
+   "match_data_url": "https://matches3.metatft.com/KR_8379362541.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "fa3013eb-30e6-45e5-b5a8-ef8b2dc94ef0",
+    "time_eliminated": 1691,
+    "last_round": 27,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Scuttlecrab18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ashe",
+      "tier": 1,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_Deathblade",
+       "DA_BlueBuff"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 2,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_StrikersFlail",
+       "DA_LastWhisper"
+      ]
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Lillia",
+      "tier": 2,
+      "itemNames": [
+       "DA_Morellonomicon"
+      ]
+     },
+     {
+      "character_id": "DA_18_Tristana",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 1,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_18_Maokai",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Fae_1",
+     "DA_18_Hunter_2",
+     "DA_18_Maokai_UniqueTrait_1",
+     "DA_Primal18_1",
+     "DA_Juggernaut18_2"
+    ],
+    "player_rating": "DIAMOND III 29 LP",
+    "player_rating_numeric": 2529,
+    "headliner_traits": null,
+    "player_ids": [
+     2585298,
+     4342969,
+     1901724,
+     185935,
+     440707104,
+     219412016,
+     4109603,
+     3455382
+    ]
+   }
+  },
+  {
+   "placement": 2,
+   "riot_match_id": "KR_8379259220",
+   "match_timestamp": 1789256157095,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND II 63 LP",
+   "avg_rating_numeric": 2663,
+   "patch": "18.2",
+   "game_duration": 2383,
+   "match_data_url": "https://matches3.metatft.com/KR_8379259220.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2378,
+    "last_round": 37,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Rakan",
+      "tier": 2,
+      "itemNames": [
+       "DA_Component_NegatronCloak"
+      ]
+     },
+     {
+      "character_id": "DA_18_Caitlyn",
+      "tier": 3,
+      "itemNames": [
+       "DA_KrakensFury",
+       "DA_Guinsoos<플레이어>blade",
+       "DA_HextechGunblade"
+      ]
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SunfireCape",
+       "DA_WarmogsArmor",
+       "DA_DragonsClaw"
+      ]
+     },
+     {
+      "character_id": "DA_Scuttlecrab18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 2,
+      "itemNames": [
+       "DA_Deathblade",
+       "DA_LastWhisper",
+       "DA_GiantSlayer"
+      ]
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_Crownguard",
+       "DA_DragonsClaw"
+      ]
+     },
+     {
+      "character_id": "DA_18_Yorick",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Maokai",
+      "tier": 1,
+      "itemNames": [
+       "DA_TacticiansCape",
+       "DA_18_EmblemElderwood"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ashe",
+      "tier": 1,
+      "itemNames": [
+       "DA_HextechGunblade",
+       "DA_StrikersFlail",
+       "DA_Deathblade"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Hunter_2",
+     "DA_18_Maokai_UniqueTrait_1",
+     "DA_Primal18_1",
+     "DA_Juggernaut18_3"
+    ],
+    "player_rating": "DIAMOND IV 89 LP",
+    "player_rating_numeric": 2489,
+    "headliner_traits": null,
+    "player_ids": [
+     3181032,
+     4109603,
+     4305762,
+     4190623,
+     4337090,
+     3870569,
+     1901724,
+     566066966
+    ]
+   }
+  },
+  {
+   "placement": 2,
+   "riot_match_id": "KR_8379241556",
+   "match_timestamp": 1789253609628,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND III 10 LP",
+   "avg_rating_numeric": 2510,
+   "patch": "18.2",
+   "game_duration": 2082,
+   "match_data_url": "https://matches3.metatft.com/KR_8379241556.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2077,
+    "last_round": 35,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Krug18",
+      "tier": 3,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_VoidStaff",
+       "DA_Deathblade"
+      ]
+     },
+     {
+      "character_id": "DA_Murkwolf18",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_Bloodthirster",
+       "DA_DragonsClaw"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 3,
+      "itemNames": [
+       "DA_ArchangelsStaff",
+       "DA_ArchangelsStaff",
+       "DA_ArchangelsStaff"
+      ]
+     },
+     {
+      "character_id": "DA_18_ElderDragon",
+      "tier": 2,
+      "itemNames": [
+       "DA_Deathblade",
+       "DA_GiantSlayer",
+       "DA_InfinityEdge"
+      ]
+     },
+     {
+      "character_id": "DA_Brambleback18",
+      "tier": 1,
+      "itemNames": [
+       "DA_SteraksGage",
+       "DA_Bloodthirster",
+       "DA_AdaptiveHelm"
+      ]
+     },
+     {
+      "character_id": "DA_18_Morgana",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_JeweledGauntlet",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate",
+       "DA_WarmogsArmor"
+      ]
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Brawler_1",
+     "DA_18_Invoker_2",
+     "DA_Riftbeast18_3",
+     "DA_18_Slayer_1",
+     "DA_18_ApexPredator_1"
+    ],
+    "player_rating": "DIAMOND IV 52 LP",
+    "player_rating_numeric": 2452,
+    "headliner_traits": null,
+    "player_ids": [
+     4190623,
+     4109603,
+     275996529,
+     3439106,
+     117105327,
+     3621786,
+     571284379,
+     4368618
+    ]
+   }
+  },
+  {
+   "placement": 7,
+   "riot_match_id": "KR_8378916724",
+   "match_timestamp": 1789228467231,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 6 LP",
+   "avg_rating_numeric": 2406,
+   "patch": "18.2",
+   "game_duration": 2285,
+   "match_data_url": "https://matches3.metatft.com/KR_8378916724.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 1704,
+    "last_round": 27,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Aphelios",
+      "tier": 2,
+      "itemNames": [
+       "DA_Artifact_Mittens",
+       "DA_LastWhisper",
+       "DA_Deathblade"
+      ]
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": [
+       "DA_VoidStaff",
+       "DA_Component_NeedlesslyLargeRod"
+      ]
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 1,
+      "itemNames": [
+       "DA_SteraksGage",
+       "DA_SpearOfShojin",
+       "DA_InfinityEdge"
+      ]
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 2,
+      "itemNames": [
+       "DA_ProtectorsVow",
+       "DA_AdaptiveHelm",
+       "DA_SunfireCape"
+      ]
+     },
+     {
+      "character_id": "DA_18_Varus",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Adaptor_1",
+     "DA_18_Inferno_1",
+     "DA_18_Invoker_1",
+     "DA_18_Lunar_1",
+     "DA_Primal18_1",
+     "DA_18_Rapidfire_1",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "DIAMOND IV 85 LP",
+    "player_rating_numeric": 2485,
+    "headliner_traits": null,
+    "player_ids": [
+     1039925,
+     320096957,
+     2899108,
+     500803,
+     46102106,
+     221236519,
+     4109603,
+     4547906
+    ]
+   }
+  },
+  {
+   "placement": 3,
+   "riot_match_id": "KR_8378837589",
+   "match_timestamp": 1789226072048,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 26 LP",
+   "avg_rating_numeric": 2426,
+   "patch": "18.2",
+   "game_duration": 2286,
+   "match_data_url": "https://matches3.metatft.com/KR_8378837589.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2281,
+    "last_round": 37,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 3,
+      "itemNames": [
+       "DA_BlueBuff",
+       "DA_JeweledGauntlet",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_Murkwolf18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Brambleback18",
+      "tier": 2,
+      "itemNames": [
+       "DA_Guinsoos<플레이어>blade",
+       "DA_TitansResolve",
+       "DA_NashorsTooth"
+      ]
+     },
+     {
+      "character_id": "DA_18_ElderDragon",
+      "tier": 2,
+      "itemNames": [
+       "DA_SteraksGage",
+       "DA_Deathblade",
+       "DA_LastWhisper"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_GargoyleStoneplate",
+       "DA_ProtectorsVow"
+      ]
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SunfireCape"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Brawler_1",
+     "DA_18_Invoker_1",
+     "DA_Riftbeast18_3",
+     "DA_18_Slayer_1",
+     "DA_18_Vanguard_1",
+     "DA_Emerald18_1",
+     "DA_18_ApexPredator_1"
+    ],
+    "player_rating": "DIAMOND IV 63 LP",
+    "player_rating_numeric": 2463,
+    "headliner_traits": null,
+    "player_ids": [
+     1039925,
+     3999330,
+     4109603,
+     4225023,
+     259083782,
+     64465059,
+     4229711,
+     274838
+    ]
+   }
+  },
+  {
+   "placement": 3,
+   "riot_match_id": "KR_8378753932",
+   "match_timestamp": 1789223812555,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 35 LP",
+   "avg_rating_numeric": 2335,
+   "patch": "18.2",
+   "game_duration": 2190,
+   "match_data_url": "https://matches3.metatft.com/KR_8378753932.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2063,
+    "last_round": 33,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Morgana",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemSpellweaver",
+       "DA_RedBuff",
+       "DA_HextechGunblade"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ahri",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_RabadonsDeathcap",
+       "DA_GiantSlayer"
+      ]
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor"
+      ]
+     },
+     {
+      "character_id": "DA_18_Cassiopeia",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpiritVisage",
+       "DA_SpiritVisage",
+       "DA_ProtectorsVow"
+      ]
+     },
+     {
+      "character_id": "DA_18_LeBlanc",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpiritVisage",
+       "DA_18_EmblemSpellweaver",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemVanguard",
+       "DA_ProtectorsVow",
+       "DA_IonicSpark"
+      ]
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Invoker_2",
+     "DA_18_Spellweaver_3",
+     "DA_18_Vanguard_2",
+     "DA_18_Caustic_1",
+     "DA_FloraFatalis18_1",
+     "DA_Emerald18_1"
+    ],
+    "player_rating": "DIAMOND IV 40 LP",
+    "player_rating_numeric": 2440,
+    "headliner_traits": null,
+    "player_ids": [
+     216203752,
+     1334360,
+     4109603,
+     1562060,
+     141805406,
+     173961,
+     225359837,
+     61896774
+    ]
+   }
+  },
+  {
+   "placement": 5,
+   "riot_match_id": "KR_8378695365",
+   "match_timestamp": 1789221868320,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND III 55 LP",
+   "avg_rating_numeric": 2555,
+   "patch": "18.2",
+   "game_duration": 2160,
+   "match_data_url": "https://matches3.metatft.com/KR_8378695365.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 1855,
+    "last_round": 30,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Yorick",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Azir",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Soraka",
+      "tier": 2,
+      "itemNames": [
+       "DA_RedBuff",
+       "DA_SpearOfShojin",
+       "DA_Deathblade"
+      ]
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Malphite",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_18_Kennen",
+      "tier": 1,
+      "itemNames": [
+       "DA_Crownguard",
+       "DA_ProtectorsVow",
+       "DA_EdgeOfNight"
+      ]
+     },
+     {
+      "character_id": "DA_18_Zyra",
+      "tier": 2,
+      "itemNames": [
+       "DA_Artifact_StatikkShiv",
+       "DA_18_EmblemExecutioner",
+       "DA_Guinsoos<플레이어>blade"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Battlemage_1",
+     "DA_18_Blackthorn_1",
+     "DA_18_Inferno_1",
+     "DA_18_Executioner_3",
+     "DA_18_Summoner_2",
+     "DA_FloraFatalis18_2",
+     "DA_Juggernaut18_1",
+     "DA_18_ZyraUniqueTrait_1"
+    ],
+    "player_rating": "DIAMOND IV 50 LP",
+    "player_rating_numeric": 2450,
+    "headliner_traits": null,
+    "player_ids": [
+     4340476,
+     213981877,
+     165579,
+     4499112,
+     4109603,
+     438612836,
+     23000279,
+     3008142
+    ]
+   }
+  },
+  {
+   "placement": 5,
+   "riot_match_id": "KR_8378276185",
+   "match_timestamp": 1789207486752,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND III 1 LP",
+   "avg_rating_numeric": 2501,
+   "patch": "18.2",
+   "game_duration": 2629,
+   "match_data_url": "https://matches3.metatft.com/KR_8378276185.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2000,
+    "last_round": 30,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 2,
+      "itemNames": [
+       "DA_Evenshroud",
+       "DA_GargoyleStoneplate",
+       "DA_SunfireCape"
+      ]
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemRapidfire",
+       "DA_Component_RecurveBow"
+      ]
+     },
+     {
+      "character_id": "DA_18_Varus",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_GiantSlayer",
+       "DA_SteraksGage"
+      ]
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_GargoyleStoneplate",
+       "DA_WarmogsArmor"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 1,
+      "itemNames": [
+       "DA_ProtectorsVow",
+       "DA_ProtectorsVow",
+       "DA_AdaptiveHelm"
+      ]
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_Crownguard",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_18_Aphelios",
+      "tier": 2,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_Guinsoos<플레이어>blade",
+       "DA_Deathblade"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Adaptor_1",
+     "DA_18_Inferno_1",
+     "DA_18_Invoker_1",
+     "DA_18_Lunar_1",
+     "DA_Primal18_1",
+     "DA_18_Rapidfire_2",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "DIAMOND IV 60 LP",
+    "player_rating_numeric": 2460,
+    "headliner_traits": null,
+    "player_ids": [
+     1963730,
+     374079034,
+     4492841,
+     361892843,
+     4109603,
+     4223893,
+     165579,
+     2735301
+    ]
+   }
+  },
+  {
+   "placement": 3,
+   "riot_match_id": "KR_8378208958",
+   "match_timestamp": 1789204928165,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 45 LP",
+   "avg_rating_numeric": 2445,
+   "patch": "18.2",
+   "game_duration": 2283,
+   "match_data_url": "https://matches3.metatft.com/KR_8378208958.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2139,
+    "last_round": 34,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 3,
+      "itemNames": [
+       "DA_JeweledGauntlet",
+       "DA_GiantSlayer",
+       "DA_BlueBuff"
+      ]
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SunfireCape",
+       "DA_AdaptiveHelm",
+       "DA_Component_GiantsBelt"
+      ]
+     },
+     {
+      "character_id": "DA_Brambleback18",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_Quicksilver",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_Murkwolf18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_AdaptiveHelm",
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_ElderDragon",
+      "tier": 1,
+      "itemNames": [
+       "DA_GiantSlayer",
+       "DA_InfinityEdge",
+       "DA_Bloodthirster"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Brawler_1",
+     "DA_18_Invoker_1",
+     "DA_Riftbeast18_3",
+     "DA_18_Slayer_1",
+     "DA_18_Vanguard_1",
+     "DA_Emerald18_1",
+     "DA_18_ApexPredator_1"
+    ],
+    "player_rating": "DIAMOND IV 38 LP",
+    "player_rating_numeric": 2438,
+    "headliner_traits": null,
+    "player_ids": [
+     285587308,
+     4058942,
+     4109603,
+     786189,
+     3195842,
+     301306956,
+     141156374,
+     1147737
+    ]
+   }
+  },
+  {
+   "placement": 3,
+   "riot_match_id": "KR_8377686919",
+   "match_timestamp": 1789168701215,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 30 LP",
+   "avg_rating_numeric": 2430,
+   "patch": "18.2",
+   "game_duration": 2204,
+   "match_data_url": "https://matches3.metatft.com/KR_8377686919.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2134,
+    "last_round": 34,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Ornn",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ezreal",
+      "tier": 2,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_RedBuff",
+       "DA_Deathblade"
+      ]
+     },
+     {
+      "character_id": "DA_18_Hecarim",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_Evenshroud",
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_18_Soraka",
+      "tier": 2,
+      "itemNames": [
+       "DA_RabadonsDeathcap",
+       "DA_NashorsTooth",
+       "DA_BlueBuff"
+      ]
+     },
+     {
+      "character_id": "DA_18_Alistar",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Xayah",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": [
+       "DA_Component_GiantsBelt"
+      ]
+     },
+     {
+      "character_id": "DA_18_LeBlanc",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": [
+       "DA_TitansResolve",
+       "DA_18_EmblemSlayer"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Brawler_1",
+     "DA_18_Defender_1",
+     "DA_18_Elderwood_3",
+     "DA_18_Executioner_1",
+     "DA_18_Spellweaver_1",
+     "DA_FloraFatalis18_2"
+    ],
+    "player_rating": "DIAMOND IV 17 LP",
+    "player_rating_numeric": 2417,
+    "headliner_traits": null,
+    "player_ids": [
+     2108637,
+     3942000,
+     4109603,
+     334390373,
+     369784,
+     1333723,
+     98717326,
+     66873384
+    ]
+   }
+  },
+  {
+   "placement": 4,
+   "riot_match_id": "KR_8377678858",
+   "match_timestamp": 1789166740637,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD II 63 LP",
+   "avg_rating_numeric": 2263,
+   "patch": "18.2",
+   "game_duration": 2277,
+   "match_data_url": "https://matches3.metatft.com/KR_8377678858.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 1854,
+    "last_round": 30,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Scuttlecrab18",
+      "tier": 3,
+      "itemNames": [
+       "DA_SpiritVisage",
+       "DA_WarmogsArmor",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_18_Caitlyn",
+      "tier": 3,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_Deathblade",
+       "DA_Guinsoos<플레이어>blade"
+      ]
+     },
+     {
+      "character_id": "DA_18_Rakan",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Tristana",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ashe",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 1,
+      "itemNames": [
+       "DA_LastWhisper",
+       "DA_RedBuff",
+       "DA_SpearOfShojin"
+      ]
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Fae_1",
+     "DA_18_Hunter_3",
+     "DA_Primal18_1",
+     "DA_Juggernaut18_2"
+    ],
+    "player_rating": "DIAMOND IV 7 LP",
+    "player_rating_numeric": 2407,
+    "headliner_traits": null,
+    "player_ids": [
+     248313774,
+     243820444,
+     4330337,
+     4109603,
+     76832364,
+     106399,
+     4591406,
+     3635053
+    ]
+   }
+  },
+  {
+   "placement": 7,
+   "riot_match_id": "KR_8377691057",
+   "match_timestamp": 1789165025550,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 24 LP",
+   "avg_rating_numeric": 2324,
+   "patch": "18.2",
+   "game_duration": 2466,
+   "match_data_url": "https://matches3.metatft.com/KR_8377691057.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 1789,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_RekSai",
+      "tier": 3,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_BrambleVest",
+       "DA_SteadfastHeart"
+      ]
+     },
+     {
+      "character_id": "DA_18_Veigar",
+      "tier": 3,
+      "itemNames": [
+       "DA_HextechGunblade",
+       "DA_BlueBuff",
+       "DA_JeweledGauntlet"
+      ]
+     },
+     {
+      "character_id": "DA_18_Kobuko",
+      "tier": 3,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Teemo",
+      "tier": 2,
+      "itemNames": [
+       "DA_VoidStaff",
+       "DA_RedBuff"
+      ]
+     },
+     {
+      "character_id": "DA_18_Azir",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Malphite",
+      "tier": 2,
+      "itemNames": [
+       "DA_Component_ChainVest"
+      ]
+     },
+     {
+      "character_id": "DA_18_Rammus",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Battlemage_1",
+     "DA_18_Blackthorn_2",
+     "DA_18_Brawler_1",
+     "DA_18_Sprykin_2"
+    ],
+    "player_rating": "DIAMOND IV 42 LP",
+    "player_rating_numeric": 2442,
+    "headliner_traits": null,
+    "player_ids": [
+     303138,
+     3416800,
+     216296533,
+     2036261,
+     4113573,
+     141818,
+     4109603,
+     76832364
+    ]
+   }
+  },
+  {
+   "placement": 1,
+   "riot_match_id": "KR_8377288157",
+   "match_timestamp": 1789138773728,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD II 41 LP",
+   "avg_rating_numeric": 2241,
+   "patch": "18.2",
+   "game_duration": 2094,
+   "match_data_url": "https://matches3.metatft.com/KR_8377288157.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2094,
+    "last_round": 34,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Varus",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Aphelios",
+      "tier": 2,
+      "itemNames": [
+       "DA_Artifact_InfinityForce",
+       "DA_Deathblade",
+       "DA_LastWhisper"
+      ]
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_InfinityEdge",
+       "DA_StrikersFlail"
+      ]
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": [
+       "DA_Component_GiantsBelt"
+      ]
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_ArchangelsStaff",
+       "DA_Morellonomicon"
+      ]
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpiritVisage",
+       "DA_BrambleVest",
+       "DA_SunfireCape"
+      ]
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": [
+       "DA_HextechGunblade"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpiritVisage",
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Adaptor_1",
+     "DA_18_Inferno_1",
+     "DA_18_Invoker_1",
+     "DA_18_Lunar_1",
+     "DA_Primal18_1",
+     "DA_18_Rapidfire_1",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "EMERALD I 85 LP",
+    "player_rating_numeric": 2385,
+    "headliner_traits": null,
+    "player_ids": [
+     4109603,
+     232095586,
+     2899784,
+     141117857,
+     221645228,
+     4579390,
+     199172,
+     1562060
+    ]
+   }
+  },
+  {
+   "placement": 2,
+   "riot_match_id": "KR_8377188676",
+   "match_timestamp": 1789136327262,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 2 LP",
+   "avg_rating_numeric": 2402,
+   "patch": "18.2",
+   "game_duration": 2174,
+   "match_data_url": "https://matches3.metatft.com/KR_8377188676.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2169,
+    "last_round": 35,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Karma18",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemLunar"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ahri",
+      "tier": 2,
+      "itemNames": [
+       "DA_BlueBuff",
+       "DA_JeweledGauntlet",
+       "DA_StrikersFlail"
+      ]
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": [
+       "DA_SunfireCape"
+      ]
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Sett",
+      "tier": 2,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_Bloodthirster",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_18_ElderDragon",
+      "tier": 2,
+      "itemNames": [
+       "DA_StrikersFlail",
+       "DA_TacticiansCrown",
+       "DA_Bloodthirster"
+      ]
+     },
+     {
+      "character_id": "DA_Lux18_Base",
+      "tier": 1,
+      "itemNames": [
+       "DA_VoidStaff",
+       "DA_SpearOfShojin"
+      ]
+     },
+     {
+      "character_id": "DA_18_LeBlanc",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Malphite",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Battlemage_1",
+     "DA_18_Blossom_1",
+     "DA_18_Lunar_3",
+     "DA_18_LuxUniqueTrait_1",
+     "DA_18_Spellweaver_2",
+     "DA_FloraFatalis18_1",
+     "DA_18_ApexPredator_1"
+    ],
+    "player_rating": "EMERALD I 48 LP",
+    "player_rating_numeric": 2348,
+    "headliner_traits": null,
+    "player_ids": [
+     3323932,
+     4109603,
+     138385174,
+     4598501,
+     4143906,
+     3756882,
+     1358542,
+     655670
+    ]
+   }
+  },
+  {
+   "placement": 3,
+   "riot_match_id": "KR_8377113206",
+   "match_timestamp": 1789134195823,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 0 LP",
+   "avg_rating_numeric": 2400,
+   "patch": "18.2",
+   "game_duration": 2542,
+   "match_data_url": "https://matches3.metatft.com/KR_8377113206.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2258,
+    "last_round": 35,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_MasterYi_AD",
+      "tier": 3,
+      "itemNames": [
+       "DA_Artifact_Mittens",
+       "DA_Guinsoos<플레이어>blade",
+       "DA_EdgeOfNight"
+      ]
+     },
+     {
+      "character_id": "DA_18_Yorick",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_LastWhisper",
+       "DA_StrikersFlail"
+      ]
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_RedBuff",
+       "DA_RabadonsDeathcap",
+       "DA_VoidStaff"
+      ]
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 3,
+      "itemNames": [
+       "DA_SteadfastHeart",
+       "DA_DragonsClaw",
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sett",
+      "tier": 2,
+      "itemNames": [
+       "DA_SunfireCape",
+       "DA_DragonsClaw",
+       "DA_SunfireCape"
+      ]
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": [
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_Gromp18_AP",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Blossom_1",
+     "DA_18_Brawler_1",
+     "DA_18_Adaptor_3",
+     "DA_Primal18_1",
+     "DA_18_Caustic_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "EMERALD I 26 LP",
+    "player_rating_numeric": 2326,
+    "headliner_traits": null,
+    "player_ids": [
+     2036261,
+     332196,
+     4109603,
+     3959753,
+     67836117,
+     4253883,
+     220447941,
+     4007622
+    ]
+   }
+  },
+  {
+   "placement": 5,
+   "riot_match_id": "KR_8376843686",
+   "match_timestamp": 1789124003954,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD II 46 LP",
+   "avg_rating_numeric": 2246,
+   "patch": "18.2",
+   "game_duration": 2223,
+   "match_data_url": "https://matches3.metatft.com/KR_8376843686.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 1988,
+    "last_round": 33,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_BrambleVest",
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_18_Diana",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Vi18",
+      "tier": 2,
+      "itemNames": [
+       "DA_SunfireCape"
+      ]
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": [
+       "DA_JeweledGauntlet"
+      ]
+     },
+     {
+      "character_id": "DA_18_Aphelios",
+      "tier": 2,
+      "itemNames": [
+       "DA_LastWhisper",
+       "DA_KrakensFury",
+       "DA_Guinsoos<플레이어>blade"
+      ]
+     },
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_SpearOfShojin",
+       "DA_SteraksGage",
+       "DA_InfinityEdge"
+      ]
+     },
+     {
+      "character_id": "DA_18_Varus",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 1,
+      "itemNames": [
+       "DA_SteraksGage",
+       "DA_SunfireCape",
+       "DA_Crownguard"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Adaptor_1",
+     "DA_18_Inferno_1",
+     "DA_18_Invoker_1",
+     "DA_18_Lunar_1",
+     "DA_Primal18_1",
+     "DA_18_Rapidfire_1",
+     "DA_18_Vanguard_1",
+     "DA_18_Caustic_1",
+     "DA_Juggernaut18_1"
+    ],
+    "player_rating": "EMERALD I 36 LP",
+    "player_rating_numeric": 2336,
+    "headliner_traits": null,
+    "player_ids": [
+     2278334,
+     205598966,
+     555645,
+     60450,
+     4109603,
+     235266613,
+     4082846,
+     232325169
+    ]
+   }
+  },
+  {
+   "placement": 4,
+   "riot_match_id": "KR_8376809306",
+   "match_timestamp": 1789121549716,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 21 LP",
+   "avg_rating_numeric": 2421,
+   "patch": "18.2",
+   "game_duration": 2238,
+   "match_data_url": "https://matches3.metatft.com/KR_8376809306.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 2169,
+    "last_round": 34,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_ProtectorsVow",
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 2,
+      "itemNames": [
+       "DA_JeweledGauntlet",
+       "DA_BlueBuff",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Murkwolf18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Brambleback18",
+      "tier": 1,
+      "itemNames": [
+       "DA_18_EmblemInvoker",
+       "DA_Evenshroud"
+      ]
+     },
+     {
+      "character_id": "DA_18_ElderDragon",
+      "tier": 2,
+      "itemNames": [
+       "DA_Artifact_SilvermereDawn",
+       "DA_Deathblade",
+       "DA_StrikersFlail"
+      ]
+     },
+     {
+      "character_id": "DA_18_Morgana",
+      "tier": 1,
+      "itemNames": [
+       "DA_Morellonomicon",
+       "DA_VoidStaff"
+      ]
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Brawler_1",
+     "DA_18_Invoker_3",
+     "DA_Riftbeast18_3",
+     "DA_18_Slayer_1",
+     "DA_18_ApexPredator_1"
+    ],
+    "player_rating": "EMERALD I 26 LP",
+    "player_rating_numeric": 2326,
+    "headliner_traits": null,
+    "player_ids": [
+     3670789,
+     2982103,
+     80368302,
+     4109603,
+     440025292,
+     218299507,
+     3352351,
+     232418826
+    ]
+   }
+  },
+  {
+   "placement": 5,
+   "riot_match_id": "KR_8376391678",
+   "match_timestamp": 1789082592115,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "DIAMOND IV 69 LP",
+   "avg_rating_numeric": 2469,
+   "patch": "18.2",
+   "game_duration": 2126,
+   "match_data_url": "https://matches3.metatft.com/KR_8376391678.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 1903,
+    "last_round": 31,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Cinderling18",
+      "tier": 2,
+      "itemNames": [
+       "DA_LastWhisper",
+       "DA_SpearOfShojin",
+       "DA_Component_SparringGloves"
+      ]
+     },
+     {
+      "character_id": "DA_Murkwolf18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemVanguard",
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_18_Morgana",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemFloraFatalis",
+       "DA_BlueBuff",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_Brambleback18",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_HextechGunblade",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 1,
+      "itemNames": [
+       "DA_AdaptiveHelm",
+       "DA_GargoyleStoneplate",
+       "DA_ProtectorsVow"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_ElderDragon",
+      "tier": 2,
+      "itemNames": [
+       "DA_Artifact_HellfireHatchet",
+       "DA_Artifact_SilvermereDawn",
+       "DA_18_EmblemHunter"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Hunter_1",
+     "DA_18_Invoker_2",
+     "DA_Riftbeast18_3",
+     "DA_18_Slayer_1",
+     "DA_18_Vanguard_1",
+     "DA_FloraFatalis18_1",
+     "DA_18_ApexPredator_1"
+    ],
+    "player_rating": "EMERALD I 36 LP",
+    "player_rating_numeric": 2336,
+    "headliner_traits": null,
+    "player_ids": [
+     213981877,
+     3081193,
+     227680677,
+     574618004,
+     4109603,
+     4591055,
+     282904670,
+     4302013
+    ]
+   }
+  },
+  {
+   "placement": 3,
+   "riot_match_id": "KR_8375643302",
+   "match_timestamp": 1789032286901,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 7 LP",
+   "avg_rating_numeric": 2307,
+   "patch": "18.2",
+   "game_duration": 2212,
+   "match_data_url": "https://matches3.metatft.com/KR_8375643302.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "299e3507-70be-4c9e-a90f-73e288121b91",
+    "time_eliminated": 1975,
+    "last_round": 33,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Yorick",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Soraka",
+      "tier": 2,
+      "itemNames": [
+       "DA_RedBuff",
+       "DA_SpearOfShojin",
+       "DA_GiantSlayer"
+      ]
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Zyra",
+      "tier": 2,
+      "itemNames": [
+       "DA_BlueBuff",
+       "DA_NashorsTooth"
+      ]
+     },
+     {
+      "character_id": "DA_18_Azir",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Malphite",
+      "tier": 2,
+      "itemNames": [
+       "DA_Artifact_TheIndomitable",
+       "DA_IonicSpark",
+       "DA_WarmogsArmor"
+      ]
+     },
+     {
+      "character_id": "DA_18_Kennen",
+      "tier": 1,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_BlueBuff",
+       "DA_EdgeOfNight"
+      ]
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 2,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Battlemage_1",
+     "DA_18_Blackthorn_1",
+     "DA_18_Inferno_1",
+     "DA_18_Executioner_2",
+     "DA_18_Summoner_2",
+     "DA_FloraFatalis18_2",
+     "DA_Emerald18_1",
+     "DA_Juggernaut18_1",
+     "DA_18_ZyraUniqueTrait_1"
+    ],
+    "player_rating": "EMERALD I 10 LP",
+    "player_rating_numeric": 2310,
+    "headliner_traits": null,
+    "player_ids": [
+     4539104,
+     227471058,
+     4109603,
+     4218258,
+     1253410,
+     163937812,
+     569434447,
+     247502121
+    ]
+   }
+  },
+  {
+   "placement": 4,
+   "riot_match_id": "KR_8375327304",
+   "match_timestamp": 1788996372621,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD III 46 LP",
+   "avg_rating_numeric": 2146,
+   "patch": "18.2",
+   "game_duration": 2280,
+   "match_data_url": "https://matches3.metatft.com/KR_8375327304.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "cf3fd06c-be46-4f7f-ad71-c4cf8b3bc2b3",
+    "time_eliminated": 1885,
+    "last_round": 30,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Scuttlecrab18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Murkwolf18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Gromp18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_BlueBuff",
+       "DA_GiantSlayer",
+       "DA_JeweledGauntlet"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_WarmogsArmor",
+       "DA_IonicSpark"
+      ]
+     },
+     {
+      "character_id": "DA_Brambleback18",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_NashorsTooth",
+       "DA_HandOfJustice"
+      ]
+     },
+     {
+      "character_id": "DA_18_Morgana",
+      "tier": 1,
+      "itemNames": [
+       "DA_Morellonomicon"
+      ]
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Invoker_2",
+     "DA_Riftbeast18_3",
+     "DA_18_Slayer_1",
+     "DA_18_Vanguard_1",
+     "DA_Emerald18_1"
+    ],
+    "player_rating": "EMERALD I 0 LP",
+    "player_rating_numeric": 2300,
+    "headliner_traits": null,
+    "player_ids": [
+     406524570,
+     711262,
+     4012001,
+     4109603,
+     2552025,
+     141595202,
+     449202900,
+     3637256
+    ]
+   }
+  },
+  {
+   "placement": 6,
+   "riot_match_id": "KR_8374217524",
+   "match_timestamp": 1788906520048,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD II 89 LP",
+   "avg_rating_numeric": 2289,
+   "patch": "18.1",
+   "game_duration": 2007,
+   "match_data_url": "https://matches3.metatft.com/KR_8374217524.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "f9c14581-74e2-4005-9d13-726ff4f9f994",
+    "time_eliminated": 1741,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Alistar",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Hecarim",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ezreal",
+      "tier": 2,
+      "itemNames": [
+       "DA_LastWhisper",
+       "DA_AdaptiveHelm",
+       "DA_AdaptiveHelm"
+      ]
+     },
+     {
+      "character_id": "DA_Draven18",
+      "tier": 1,
+      "itemNames": [
+       "DA_Guinsoos<플레이어>blade",
+       "DA_KrakensFury",
+       "DA_InfinityEdge"
+      ]
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Maokai",
+      "tier": 1,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_Amumu18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Kennen",
+      "tier": 1,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_Quicksilver",
+       "DA_SteadfastHeart"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ivern",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Brawler_1",
+     "DA_18_Elderwood_1",
+     "DA_18_Greenfather_1",
+     "DA_18_Inferno_1",
+     "DA_18_Maokai_UniqueTrait_1",
+     "DA_18_Executioner_1",
+     "DA_18_Sprykin_1",
+     "DA_18_Vanguard_1",
+     "DA_Juggernaut18_1",
+     "DA_DravenUniqueTrait18_1"
+    ],
+    "player_rating": "EMERALD I 4 LP",
+    "player_rating_numeric": 2304,
+    "headliner_traits": null,
+    "player_ids": [
+     432105365,
+     217046243,
+     567675649,
+     229723657,
+     1071271,
+     4109603,
+     497961,
+     1801135
+    ]
+   }
+  },
+  {
+   "placement": 1,
+   "riot_match_id": "KR_8374203964",
+   "match_timestamp": 1788904191739,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 17 LP",
+   "avg_rating_numeric": 2317,
+   "patch": "18.1",
+   "game_duration": 2239,
+   "match_data_url": "https://matches3.metatft.com/KR_8374203964.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "f9c14581-74e2-4005-9d13-726ff4f9f994",
+    "time_eliminated": 2239,
+    "last_round": 37,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_RekSai",
+      "tier": 3,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_18_Kobuko",
+      "tier": 3,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Veigar",
+      "tier": 3,
+      "itemNames": [
+       "DA_BlueBuff",
+       "DA_JeweledGauntlet",
+       "DA_NashorsTooth"
+      ]
+     },
+     {
+      "character_id": "DA_18_Teemo",
+      "tier": 3,
+      "itemNames": [
+       "DA_RedBuff",
+       "DA_VoidStaff",
+       "DA_SpearOfShojin"
+      ]
+     },
+     {
+      "character_id": "DA_18_Rammus",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Sett",
+      "tier": 2,
+      "itemNames": [
+       "DA_AdaptiveHelm",
+       "DA_GargoyleStoneplate",
+       "DA_ProtectorsVow"
+      ]
+     },
+     {
+      "character_id": "DA_18_Morgana",
+      "tier": 1,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Blackthorn_1",
+     "DA_18_Brawler_2",
+     "DA_18_Defender_1",
+     "DA_18_Invoker_1",
+     "DA_18_Spellweaver_1",
+     "DA_18_Sprykin_2",
+     "DA_FloraFatalis18_1"
+    ],
+    "player_rating": "EMERALD II 46 LP",
+    "player_rating_numeric": 2246,
+    "headliner_traits": null,
+    "player_ids": [
+     4109603,
+     3857683,
+     2880843,
+     369784,
+     220210888,
+     636271,
+     4628535,
+     573453950
+    ]
+   }
+  },
+  {
+   "placement": 5,
+   "riot_match_id": "KR_8374198874",
+   "match_timestamp": 1788902409542,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD II 46 LP",
+   "avg_rating_numeric": 2246,
+   "patch": "18.1",
+   "game_duration": 2370,
+   "match_data_url": "https://matches3.metatft.com/KR_8374198874.json",
+   "summary": {
+    "level": 7,
+    "little_legend": "f9c14581-74e2-4005-9d13-726ff4f9f994",
+    "time_eliminated": 1791,
+    "last_round": 28,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Kobuko",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Rengar",
+      "tier": 2,
+      "itemNames": [
+       "DA_18_EmblemFae",
+       "DA_EdgeOfNight",
+       "DA_HandOfJustice"
+      ]
+     },
+     {
+      "character_id": "DA_18_Tristana",
+      "tier": 3,
+      "itemNames": [
+       "DA_GiantSlayer",
+       "DA_Artifact_GamblersBlade",
+       "DA_18_EmblemPrimal"
+      ]
+     },
+     {
+      "character_id": "DA_18_Rakan",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 1,
+      "itemNames": [
+       "DA_LastWhisper",
+       "DA_Morellonomicon",
+       "DA_18_EmblemBlackthorn"
+      ]
+     },
+     {
+      "character_id": "DA_18_Rammus",
+      "tier": 2,
+      "itemNames": [
+       "DA_ThiefsGloves",
+       "DA_SteraksGage",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_18_Lillia",
+      "tier": 2,
+      "itemNames": [
+       "DA_Artifact_AegisOfDusk",
+       "DA_SpiritVisage",
+       "DA_AdaptiveHelm"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Defender_1",
+     "DA_18_Fae_2",
+     "DA_18_Hunter_1",
+     "DA_Primal18_1",
+     "DA_18_Rival_1",
+     "DA_18_Sprykin_1"
+    ],
+    "player_rating": "EMERALD II 56 LP",
+    "player_rating_numeric": 2256,
+    "headliner_traits": null,
+    "player_ids": [
+     504410830,
+     4178780,
+     259125101,
+     235073,
+     4109603,
+     4679528,
+     3526079,
+     255141223
+    ]
+   }
+  },
+  {
+   "placement": 4,
+   "riot_match_id": "KR_8373550798",
+   "match_timestamp": 1788865301241,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD II 36 LP",
+   "avg_rating_numeric": 2236,
+   "patch": "18.1",
+   "game_duration": 2132,
+   "match_data_url": "https://matches3.metatft.com/KR_8373550798.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "f9c14581-74e2-4005-9d13-726ff4f9f994",
+    "time_eliminated": 1998,
+    "last_round": 33,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_Nidalee18_AP",
+      "tier": 2,
+      "itemNames": [
+       "DA_Bloodthirster",
+       "DA_InfinityEdge",
+       "DA_TitansResolve"
+      ]
+     },
+     {
+      "character_id": "DA_18_Sivir",
+      "tier": 2,
+      "itemNames": [
+       "DA_Deathblade",
+       "DA_LastWhisper",
+       "DA_KrakensFury"
+      ]
+     },
+     {
+      "character_id": "DA_KogMaw18_AD",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Malphite",
+      "tier": 2,
+      "itemNames": [
+       "DA_DragonsClaw",
+       "DA_GargoyleStoneplate",
+       "DA_SteraksGage"
+      ]
+     },
+     {
+      "character_id": "DA_Cinderling18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_RekSai",
+      "tier": 1,
+      "itemNames": [
+       "DA_18_EmblemSprykin"
+      ]
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Ashe",
+      "tier": 1,
+      "itemNames": [
+       "DA_Guinsoos<플레이어>blade",
+       "DA_EdgeOfNight",
+       "DA_Component_RecurveBow"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Battlemage_1",
+     "DA_18_Blackthorn_1",
+     "DA_18_Brawler_1",
+     "DA_18_Adaptor_1",
+     "DA_18_Hunter_2",
+     "DA_18_Invoker_1",
+     "DA_Primal18_1",
+     "DA_Riftbeast18_1",
+     "DA_18_Caustic_1"
+    ],
+    "player_rating": "EMERALD II 46 LP",
+    "player_rating_numeric": 2246,
+    "headliner_traits": null,
+    "player_ids": [
+     1013604,
+     604233,
+     4178906,
+     4109603,
+     4617756,
+     2944444,
+     209087649,
+     1971159
+    ]
+   }
+  },
+  {
+   "placement": 4,
+   "riot_match_id": "KR_8373465047",
+   "match_timestamp": 1788859449905,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD II 11 LP",
+   "avg_rating_numeric": 2211,
+   "patch": "18.1",
+   "game_duration": 2289,
+   "match_data_url": "https://matches3.metatft.com/KR_8373465047.json",
+   "summary": {
+    "level": 7,
+    "little_legend": "cb4fec1f-5617-447a-9b26-6b2bf9633b7c",
+    "time_eliminated": 1983,
+    "last_round": 31,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Rammus",
+      "tier": 3,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_GargoyleStoneplate",
+       "DA_SunfireCape"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ornn",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Cassiopeia",
+      "tier": 2,
+      "itemNames": [
+       "DA_ArchangelsStaff",
+       "DA_HextechGunblade",
+       "DA_ArchangelsStaff"
+      ]
+     },
+     {
+      "character_id": "DA_18_Shen",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Leona",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Lillia",
+      "tier": 1,
+      "itemNames": [
+       "DA_SteadfastHeart",
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": [
+       "DA_WarmogsArmor",
+       "DA_IonicSpark",
+       "DA_DragonsClaw"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Defender_3",
+     "DA_18_Spellweaver_1",
+     "DA_FloraFatalis18_1"
+    ],
+    "player_rating": "EMERALD II 36 LP",
+    "player_rating_numeric": 2236,
+    "headliner_traits": null,
+    "player_ids": [
+     4525669,
+     1221597,
+     3715982,
+     4109603,
+     4164408,
+     4592519,
+     4064172,
+     1678726
+    ]
+   }
+  },
+  {
+   "placement": 6,
+   "riot_match_id": "KR_8373122589",
+   "match_timestamp": 1788823722210,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 56 LP",
+   "avg_rating_numeric": 2356,
+   "patch": "18.1",
+   "game_duration": 2327,
+   "match_data_url": "https://matches3.metatft.com/KR_8373122589.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "cb4fec1f-5617-447a-9b26-6b2bf9633b7c",
+    "time_eliminated": 1934,
+    "last_round": 30,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Ornn",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Alistar",
+      "tier": 2,
+      "itemNames": [
+       "DA_Evenshroud",
+       "DA_SunfireCape",
+       "DA_AdaptiveHelm"
+      ]
+     },
+     {
+      "character_id": "DA_18_Xayah",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Soraka",
+      "tier": 2,
+      "itemNames": [
+       "DA_RabadonsDeathcap",
+       "DA_BlueBuff",
+       "DA_Artifact_BlightingJewel"
+      ]
+     },
+     {
+      "character_id": "DA_18_Aphelios",
+      "tier": 2,
+      "itemNames": [
+       "DA_InfinityEdge",
+       "DA_KrakensFury",
+       "DA_18_EmblemElderwood"
+      ]
+     },
+     {
+      "character_id": "DA_18_Ezreal",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_LeBlanc",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Hecarim",
+      "tier": 1,
+      "itemNames": [
+       "DA_18_EmblemDefender"
+      ]
+     },
+     {
+      "character_id": "DA_18_Hecarim",
+      "tier": 1,
+      "itemNames": [
+       "DA_GargoyleStoneplate",
+       "DA_Crownguard",
+       "DA_18_EmblemJuggernaut"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Defender_1",
+     "DA_18_Elderwood_3",
+     "DA_18_Rapidfire_1",
+     "DA_18_Executioner_1",
+     "DA_FloraFatalis18_1"
+    ],
+    "player_rating": "EMERALD II 57 LP",
+    "player_rating_numeric": 2257,
+    "headliner_traits": null,
+    "player_ids": [
+     801824,
+     449597,
+     314135231,
+     573971,
+     570102592,
+     4109603,
+     4353005,
+     213649295
+    ]
+   }
+  },
+  {
+   "placement": 5,
+   "riot_match_id": "KR_8372903906",
+   "match_timestamp": 1788795911333,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD I 74 LP",
+   "avg_rating_numeric": 2374,
+   "patch": "18.1",
+   "game_duration": 2303,
+   "match_data_url": "https://matches3.metatft.com/KR_8372903906.json",
+   "summary": {
+    "level": 8,
+    "little_legend": "cb4fec1f-5617-447a-9b26-6b2bf9633b7c",
+    "time_eliminated": 2057,
+    "last_round": 33,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Veigar",
+      "tier": 3,
+      "itemNames": [
+       "DA_NashorsTooth",
+       "DA_JeweledGauntlet",
+       "DA_BlueBuff"
+      ]
+     },
+     {
+      "character_id": "DA_18_Kobuko",
+      "tier": 3,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_RekSai",
+      "tier": 3,
+      "itemNames": [
+       "DA_SteadfastHeart",
+       "DA_WarmogsArmor",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_Fiddlesticks18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_Rammus",
+      "tier": 2,
+      "itemNames": [
+       "DA_SteadfastHeart"
+      ]
+     },
+     {
+      "character_id": "DA_18_Azir",
+      "tier": 2,
+      "itemNames": [
+       "DA_RedBuff",
+       "DA_VoidStaff",
+       "DA_18_EmblemSprykin"
+      ]
+     },
+     {
+      "character_id": "DA_18_Malphite",
+      "tier": 2,
+      "itemNames": [
+       "DA_Crownguard",
+       "DA_SteadfastHeart",
+       "DA_GargoyleStoneplate"
+      ]
+     },
+     {
+      "character_id": "DA_18_Tristana",
+      "tier": 2,
+      "itemNames": [
+       "DA_Deathblade"
+      ]
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Battlemage_1",
+     "DA_18_Blackthorn_2",
+     "DA_18_Brawler_1",
+     "DA_18_Defender_1",
+     "DA_18_Spellweaver_1",
+     "DA_18_Sprykin_2",
+     "DA_FloraFatalis18_1"
+    ],
+    "player_rating": "EMERALD II 67 LP",
+    "player_rating_numeric": 2267,
+    "headliner_traits": null,
+    "player_ids": [
+     3333666,
+     443790,
+     2106980,
+     1210186,
+     4109603,
+     4591197,
+     1656499,
+     72099486
+    ]
+   }
+  },
+  {
+   "placement": 1,
+   "riot_match_id": "KR_8372850481",
+   "match_timestamp": 1788793517379,
+   "queue_id": 1100,
+   "rating_queue_id": 1100,
+   "tft_set": "TFTSet18",
+   "avg_rating": "EMERALD II 88 LP",
+   "avg_rating_numeric": 2288,
+   "patch": "18.1",
+   "game_duration": 2267,
+   "match_data_url": "https://matches3.metatft.com/KR_8372850481.json",
+   "summary": {
+    "level": 9,
+    "little_legend": "cb4fec1f-5617-447a-9b26-6b2bf9633b7c",
+    "time_eliminated": 2267,
+    "last_round": 35,
+    "total_damage_to_players": 0,
+    "players_eliminated": 0,
+    "units": [
+     {
+      "character_id": "DA_18_Sentry",
+      "tier": 3,
+      "itemNames": [
+       "DA_BlueBuff",
+       "DA_JeweledGauntlet",
+       "DA_RabadonsDeathcap"
+      ]
+     },
+     {
+      "character_id": "DA_Krug18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Murkwolf18",
+      "tier": 2,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_Sentinel18",
+      "tier": 2,
+      "itemNames": [
+       "DA_Crownguard",
+       "DA_AdaptiveHelm",
+       "DA_SpiritVisage"
+      ]
+     },
+     {
+      "character_id": "DA_Taric18",
+      "tier": 2,
+      "itemNames": [
+       "DA_Evenshroud",
+       "DA_Crownguard"
+      ]
+     },
+     {
+      "character_id": "DA_18_GnarSmall",
+      "tier": 1,
+      "itemNames": []
+     },
+     {
+      "character_id": "DA_18_ElderDragon",
+      "tier": 2,
+      "itemNames": [
+       "DA_Deathblade",
+       "DA_GiantSlayer",
+       "DA_InfinityEdge"
+      ]
+     },
+     {
+      "character_id": "DA_Brambleback18",
+      "tier": 2,
+      "itemNames": []
+     }
+    ],
+    "augments": [],
+    "traits": [
+     "DA_18_Brawler_1",
+     "DA_18_Invoker_1",
+     "DA_Riftbeast18_3",
+     "DA_18_Slayer_1",
+     "DA_18_Vanguard_1",
+     "DA_Emerald18_1",
+     "DA_18_ApexPredator_1"
+    ],
+    "player_rating": "EMERALD II 11 LP",
+    "player_rating_numeric": 2211,
+    "headliner_traits": null,
+    "player_ids": [
+     4109603,
+     4099642,
+     249875111,
+     227333468,
+     4212835,
+     1349033,
+     1253410,
+     1107531
+    ]
+   }
+  }
+ ],
+ "ranked_season_stats": {
+  "1100": {
+   "total": 40,
+   "placements": [
+    3,
+    4,
+    6,
+    7,
+    7,
+    4,
+    7,
+    2
+   ]
+  }
+ }
+}

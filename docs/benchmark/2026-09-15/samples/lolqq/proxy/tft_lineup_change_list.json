@@ -1,0 +1,14 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "8d509e33-04ca-4f7f-8d05-023674aca4e3",
+ "data": {
+  "dtstatdate": "",
+  "period": "",
+  "v_version_id": "",
+  "lineup_data": [],
+  "lineup_add_data": [],
+  "level_change_lineup_data": []
+ }
+}

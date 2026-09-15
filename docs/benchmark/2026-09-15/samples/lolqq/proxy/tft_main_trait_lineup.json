@@ -1,0 +1,698 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "287b4c2d-9d58-4c37-a148-ea725ec09fdc",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "20260914",
+  "v_version_id": "",
+  "lineup_data": [
+   {
+    "assist_c_chess": "100333",
+    "assist_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "avg_rank": "1.7",
+    "avg_rank_diff": "0",
+    "child_trait_group": [
+     {
+      "id": "10396",
+      "num": "2"
+     },
+     {
+      "id": "10399",
+      "num": "2"
+     },
+     {
+      "id": "10400",
+      "num": "2"
+     },
+     {
+      "id": "10401",
+      "num": "2"
+     },
+     {
+      "id": "10403",
+      "num": "2"
+     },
+     {
+      "id": "10406",
+      "num": "2"
+     }
+    ],
+    "free_chess_group": [
+     "100359",
+     "100341",
+     "100317"
+    ],
+    "hero_id_lineup_group": [
+     "100317",
+     "100328",
+     "100329",
+     "100330",
+     "100333",
+     "100341",
+     "100342",
+     "100359"
+    ],
+    "key_chess_group": [
+     "100330",
+     "100333",
+     "100329",
+     "100342",
+     "100328"
+    ],
+    "lineup_rank_1": "1",
+    "main_c_chess": "100330",
+    "main_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_HandOfJustice",
+     "DA_RabadonsDeathcap"
+    ],
+    "top_1_rate": "0.4697",
+    "top_4_rate": "0.9899",
+    "use_num": "198",
+    "use_rate": "0.0001"
+   },
+   {
+    "assist_c_chess": "100333",
+    "assist_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "avg_rank": "1.8",
+    "avg_rank_diff": "0.1",
+    "child_trait_group": [
+     {
+      "id": "10396",
+      "num": "2"
+     },
+     {
+      "id": "10399",
+      "num": "2"
+     },
+     {
+      "id": "10400",
+      "num": "2"
+     },
+     {
+      "id": "10401",
+      "num": "2"
+     },
+     {
+      "id": "10403",
+      "num": "2"
+     },
+     {
+      "id": "10406",
+      "num": "2"
+     }
+    ],
+    "free_chess_group": [
+     "100348",
+     "100341",
+     "100317"
+    ],
+    "hero_id_lineup_group": [
+     "100317",
+     "100328",
+     "100329",
+     "100330",
+     "100333",
+     "100341",
+     "100342",
+     "100348"
+    ],
+    "key_chess_group": [
+     "100330",
+     "100333",
+     "100329",
+     "100342",
+     "100328"
+    ],
+    "lineup_rank_1": "2",
+    "main_c_chess": "100330",
+    "main_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_HandOfJustice",
+     "DA_JeweledGauntlet"
+    ],
+    "top_1_rate": "0.4468",
+    "top_4_rate": "0.9878",
+    "use_num": "329",
+    "use_rate": "0.0001"
+   },
+   {
+    "assist_c_chess": "100367",
+    "assist_c_chess_equip_group": [
+     "DA_GargoyleStoneplate",
+     "DA_SpiritVisage",
+     "DA_WarmogsArmor"
+    ],
+    "avg_rank": "1.8",
+    "avg_rank_diff": "0",
+    "child_trait_group": [
+     {
+      "id": "10384",
+      "num": "2"
+     },
+     {
+      "id": "10394",
+      "num": "2"
+     },
+     {
+      "id": "10412",
+      "num": "2"
+     },
+     {
+      "id": "10392",
+      "num": "1"
+     },
+     {
+      "id": "10398",
+      "num": "1"
+     },
+     {
+      "id": "10409",
+      "num": "1"
+     },
+     {
+      "id": "10410",
+      "num": "1"
+     }
+    ],
+    "free_chess_group": [
+     "100348"
+    ],
+    "hero_id_lineup_group": [
+     "100313",
+     "100342",
+     "100348",
+     "100350",
+     "100357",
+     "100358",
+     "100359",
+     "100367",
+     "100368",
+     "100372"
+    ],
+    "key_chess_group": [
+     "100368",
+     "100367",
+     "100342",
+     "100358",
+     "100359",
+     "100357",
+     "100372",
+     "100350",
+     "100313"
+    ],
+    "lineup_rank_1": "3",
+    "main_c_chess": "100368",
+    "main_c_chess_equip_group": [
+     "DA_Deathblade",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_KrakensFury"
+    ],
+    "top_1_rate": "0.5845",
+    "top_4_rate": "0.9612",
+    "use_num": "722",
+    "use_rate": "0.0002"
+   },
+   {
+    "assist_c_chess": "100333",
+    "assist_c_chess_equip_group": [
+     "DA_Bloodthirster",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "avg_rank": "2.7",
+    "avg_rank_diff": "0",
+    "child_trait_group": [
+     {
+      "id": "10396",
+      "num": "2"
+     },
+     {
+      "id": "10399",
+      "num": "2"
+     },
+     {
+      "id": "10400",
+      "num": "2"
+     },
+     {
+      "id": "10401",
+      "num": "2"
+     },
+     {
+      "id": "10406",
+      "num": "2"
+     }
+    ],
+    "free_chess_group": [
+     "100359",
+     "100357",
+     "100341"
+    ],
+    "hero_id_lineup_group": [
+     "100328",
+     "100329",
+     "100330",
+     "100333",
+     "100341",
+     "100342",
+     "100357",
+     "100359"
+    ],
+    "key_chess_group": [
+     "100330",
+     "100333",
+     "100329",
+     "100342",
+     "100328"
+    ],
+    "lineup_rank_1": "4",
+    "main_c_chess": "100330",
+    "main_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_HandOfJustice",
+     "DA_RabadonsDeathcap"
+    ],
+    "top_1_rate": "0.1908",
+    "top_4_rate": "0.9015",
+    "use_num": "325",
+    "use_rate": "0.0001"
+   },
+   {
+    "assist_c_chess": "100367",
+    "assist_c_chess_equip_group": [
+     "DA_GargoyleStoneplate",
+     "DA_SpiritVisage",
+     "DA_WarmogsArmor"
+    ],
+    "avg_rank": "2.7",
+    "avg_rank_diff": "0",
+    "child_trait_group": [
+     {
+      "id": "10384",
+      "num": "2"
+     },
+     {
+      "id": "10394",
+      "num": "2"
+     },
+     {
+      "id": "10412",
+      "num": "2"
+     },
+     {
+      "id": "10392",
+      "num": "1"
+     },
+     {
+      "id": "10398",
+      "num": "1"
+     },
+     {
+      "id": "10409",
+      "num": "1"
+     },
+     {
+      "id": "10410",
+      "num": "1"
+     }
+    ],
+    "free_chess_group": [],
+    "hero_id_lineup_group": [
+     "100313",
+     "100342",
+     "100350",
+     "100357",
+     "100358",
+     "100359",
+     "100367",
+     "100368",
+     "100372"
+    ],
+    "key_chess_group": [
+     "100368",
+     "100367",
+     "100342",
+     "100372",
+     "100357",
+     "100358",
+     "100359",
+     "100350",
+     "100313"
+    ],
+    "lineup_rank_1": "5",
+    "main_c_chess": "100368",
+    "main_c_chess_equip_group": [
+     "DA_18_EmblemExecutioner",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_KrakensFury"
+    ],
+    "top_1_rate": "0.3748",
+    "top_4_rate": "0.8089",
+    "use_num": "1230",
+    "use_rate": "0.0004"
+   },
+   {
+    "assist_c_chess": "100350",
+    "assist_c_chess_equip_group": [
+     "DA_GargoyleStoneplate",
+     "DA_SpiritVisage",
+     "DA_WarmogsArmor"
+    ],
+    "avg_rank": "2.8",
+    "avg_rank_diff": "0",
+    "child_trait_group": [
+     {
+      "id": "10384",
+      "num": "2"
+     },
+     {
+      "id": "10394",
+      "num": "2"
+     },
+     {
+      "id": "10412",
+      "num": "2"
+     },
+     {
+      "id": "10392",
+      "num": "1"
+     },
+     {
+      "id": "10398",
+      "num": "1"
+     },
+     {
+      "id": "10410",
+      "num": "1"
+     }
+    ],
+    "free_chess_group": [
+     "100358"
+    ],
+    "hero_id_lineup_group": [
+     "100313",
+     "100342",
+     "100348",
+     "100350",
+     "100357",
+     "100358",
+     "100359",
+     "100367",
+     "100372"
+    ],
+    "key_chess_group": [
+     "100342",
+     "100350",
+     "100359",
+     "100357",
+     "100372",
+     "100367",
+     "100348",
+     "100313"
+    ],
+    "lineup_rank_1": "6",
+    "main_c_chess": "100342",
+    "main_c_chess_equip_group": [
+     "DA_Deathblade",
+     "DA_LastWhisper",
+     "DA_SpearOfShojin"
+    ],
+    "top_1_rate": "0.2979",
+    "top_4_rate": "0.8047",
+    "use_num": "1541",
+    "use_rate": "0.0005"
+   },
+   {
+    "assist_c_chess": "100333",
+    "assist_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "avg_rank": "2.9",
+    "avg_rank_diff": "-0.2",
+    "child_trait_group": [
+     {
+      "id": "10396",
+      "num": "2"
+     },
+     {
+      "id": "10400",
+      "num": "2"
+     },
+     {
+      "id": "10401",
+      "num": "2"
+     },
+     {
+      "id": "10403",
+      "num": "2"
+     },
+     {
+      "id": "10406",
+      "num": "2"
+     }
+    ],
+    "free_chess_group": [
+     "100341",
+     "100348",
+     "100317"
+    ],
+    "hero_id_lineup_group": [
+     "100317",
+     "100328",
+     "100329",
+     "100330",
+     "100333",
+     "100341",
+     "100342",
+     "100348"
+    ],
+    "key_chess_group": [
+     "100330",
+     "100333",
+     "100329",
+     "100342",
+     "100328"
+    ],
+    "lineup_rank_1": "7",
+    "main_c_chess": "100330",
+    "main_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_HandOfJustice",
+     "DA_JeweledGauntlet"
+    ],
+    "top_1_rate": "0.1841",
+    "top_4_rate": "0.8494",
+    "use_num": "478",
+    "use_rate": "0.0002"
+   },
+   {
+    "assist_c_chess": "100333",
+    "assist_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "avg_rank": "3",
+    "avg_rank_diff": "0",
+    "child_trait_group": [
+     {
+      "id": "10396",
+      "num": "2"
+     },
+     {
+      "id": "10399",
+      "num": "2"
+     },
+     {
+      "id": "10400",
+      "num": "2"
+     },
+     {
+      "id": "10403",
+      "num": "2"
+     },
+     {
+      "id": "10406",
+      "num": "2"
+     }
+    ],
+    "free_chess_group": [
+     "100348",
+     "100341",
+     "100317"
+    ],
+    "hero_id_lineup_group": [
+     "100317",
+     "100328",
+     "100329",
+     "100330",
+     "100333",
+     "100341",
+     "100342",
+     "100348"
+    ],
+    "key_chess_group": [
+     "100330",
+     "100333",
+     "100329",
+     "100342",
+     "100328"
+    ],
+    "lineup_rank_1": "8",
+    "main_c_chess": "100330",
+    "main_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_HandOfJustice",
+     "DA_RabadonsDeathcap"
+    ],
+    "top_1_rate": "0.1726",
+    "top_4_rate": "0.8452",
+    "use_num": "168",
+    "use_rate": "0.0001"
+   },
+   {
+    "assist_c_chess": "100333",
+    "assist_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "avg_rank": "3",
+    "avg_rank_diff": "-0.1",
+    "child_trait_group": [
+     {
+      "id": "10396",
+      "num": "2"
+     },
+     {
+      "id": "10399",
+      "num": "2"
+     },
+     {
+      "id": "10400",
+      "num": "2"
+     },
+     {
+      "id": "10401",
+      "num": "2"
+     },
+     {
+      "id": "10406",
+      "num": "2"
+     }
+    ],
+    "free_chess_group": [
+     "100359",
+     "100341",
+     "100317"
+    ],
+    "hero_id_lineup_group": [
+     "100317",
+     "100328",
+     "100329",
+     "100330",
+     "100333",
+     "100341",
+     "100342",
+     "100359"
+    ],
+    "key_chess_group": [
+     "100330",
+     "100333",
+     "100329",
+     "100342",
+     "100328"
+    ],
+    "lineup_rank_1": "9",
+    "main_c_chess": "100330",
+    "main_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_HandOfJustice",
+     "DA_RabadonsDeathcap"
+    ],
+    "top_1_rate": "0.1401",
+    "top_4_rate": "0.8309",
+    "use_num": "207",
+    "use_rate": "0.0001"
+   },
+   {
+    "assist_c_chess": "100333",
+    "assist_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_Guinsoos<플레이어>blade",
+     "DA_TitansResolve"
+    ],
+    "avg_rank": "3.1",
+    "avg_rank_diff": "0.1",
+    "child_trait_group": [
+     {
+      "id": "10396",
+      "num": "2"
+     },
+     {
+      "id": "10399",
+      "num": "2"
+     },
+     {
+      "id": "10400",
+      "num": "2"
+     },
+     {
+      "id": "10403",
+      "num": "2"
+     },
+     {
+      "id": "10406",
+      "num": "2"
+     }
+    ],
+    "free_chess_group": [
+     "100359",
+     "100341",
+     "100317"
+    ],
+    "hero_id_lineup_group": [
+     "100317",
+     "100328",
+     "100329",
+     "100330",
+     "100333",
+     "100341",
+     "100342",
+     "100359"
+    ],
+    "key_chess_group": [
+     "100330",
+     "100333",
+     "100329",
+     "100342",
+     "100328"
+    ],
+    "lineup_rank_1": "10",
+    "main_c_chess": "100330",
+    "main_c_chess_equip_group": [
+     "DA_EdgeOfNight",
+     "DA_HandOfJustice",
+     "DA_JeweledGauntlet"
+    ],
+    "top_1_rate": "0.1094",
+    "top_4_rate": "0.8438",
+    "use_num": "128",
+    "use_rate": "0"
+   }
+  ]
+ }
+}

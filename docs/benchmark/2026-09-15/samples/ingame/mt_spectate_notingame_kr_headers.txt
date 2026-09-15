@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Date: Tue, 15 Sep 2026 11:51:09 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Connection: keep-alive
+access-control-allow-origin: *
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+

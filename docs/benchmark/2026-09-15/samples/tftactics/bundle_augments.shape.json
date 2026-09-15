@@ -1,0 +1,9 @@
+[
+ {
+  "id": "DA_AdvancedLoan",
+  "name": "<str>",
+  "tier": "<str>",
+  "bonus": "<str>",
+  "tierlist": "<int>"
+ }
+]

@@ -188,3 +188,9 @@ GitHub Actions가 매일 05:00 KST에 수집해 `data/`를 커밋한다.
 
 Riot Games가 보증하거나 후원하는 앱이 아니다.
 덱 통계는 lol.qq.com/tft, 대조는 metatft.com, 이름과 아이콘은 Community Dragon에서 가져온다.
+
+---
+
+## 문서
+
+- [TFT 통계 사이트 벤치마킹 (2026-09-15)](docs/benchmark/2026-09-15/README.md) — lol.qq.com/tft · lolchess.gg · metatft.com 을 카테고리 5개 × 관점 3개로 채점하고 Fable 이 최종 판정한 기록. 에이전트별 원본 결과(`raw/`)와 응답 샘플(`samples/`)을 함께 보관해 다음 설계에 재활용한다.

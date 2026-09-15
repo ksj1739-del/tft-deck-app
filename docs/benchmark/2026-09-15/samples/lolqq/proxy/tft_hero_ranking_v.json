@@ -1,0 +1,89 @@
+{
+ "result": 0,
+ "msg": "",
+ "err_msg": "",
+ "req_id": "1ab5cd70-c14f-4d96-b778-995f29b290a4",
+ "data": {
+  "dtstatdate": "20260914",
+  "period": "",
+  "v_version_id": "",
+  "details": [
+   {
+    "hero_id": "DA_18_Ahri",
+    "list": [
+     {
+      "avg_rank": "3.72817",
+      "cycle": "16.18",
+      "top_1_rate": "0.202516",
+      "top_4_rate": "0.64131",
+      "use_rate": "0.014869"
+     },
+     {
+      "avg_rank": "3.484636",
+      "cycle": "16.17",
+      "top_1_rate": "0.230732",
+      "top_4_rate": "0.687011",
+      "use_rate": "0.01701"
+     }
+    ]
+   },
+   {
+    "hero_id": "DA_18_Akali_AD",
+    "list": [
+     {
+      "avg_rank": "4.328872",
+      "cycle": "16.18",
+      "top_1_rate": "0.125212",
+      "top_4_rate": "0.539306",
+      "use_rate": "0.011932"
+     },
+     {
+      "avg_rank": "4.764419",
+      "cycle": "16.17",
+      "top_1_rate": "0.101093",
+      "top_4_rate": "0.452454",
+      "use_rate": "0.007105"
+     }
+    ]
+   },
+   {
+    "hero_id": "DA_18_Alistar",
+    "list": [
+     {
+      "avg_rank": "3.708193",
+      "cycle": "16.18",
+      "top_1_rate": "0.234058",
+      "top_4_rate": "0.637517",
+      "use_rate": "0.015877"
+     },
+     {
+      "avg_rank": "3.756381",
+      "cycle": "16.17",
+      "top_1_rate": "0.224912",
+      "top_4_rate": "0.628698",
+      "use_rate": "0.015277"
+     }
+    ]
+   },
+   {
+    "hero_id": "DA_18_Alune",
+    "list": [
+     {
+      "avg_rank": "2.871293",
+      "cycle": "16.18",
+      "top_1_rate": "0.321729",
+      "top_4_rate": "0.795262",
+      "use_rate": "0.019134"
+     },
+     {
+      "avg_rank": "2.817055",
+      "cycle": "16.17",
+      "top_1_rate": "0.333521",
+      "top_4_rate": "0.802891",
+      "use_rate": "0.018617"
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,333 @@
+{
+ "_bundle_augment_tier_distribution_set18.json": {
+  "url": "bundle js chunk",
+  "note": "augment appearance probability table embedded in bundle",
+  "bytes": 2200
+ },
+ "_bundle_teamcode_map_set18.json": {
+  "url": "bundle js chunk 1469",
+  "note": "team code hex to DA_* map embedded in bundle",
+  "bytes": 1618
+ },
+ "_headers_seasons.txt": {
+  "url": "https://tft.dakgg.io/api/v1/seasons",
+  "note": "response header sample",
+  "bytes": 596
+ },
+ "data_augment_tiers.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/augment-tiers?season=set18",
+  "note": "augment tier S/A/B (editorial)",
+  "bytes": 10026
+ },
+ "data_augments.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/augments?season=set18&hl=ko",
+  "note": "augment dictionary",
+  "bytes": 383309
+ },
+ "data_champions.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/champions?season=set18&hl=ko",
+  "note": "champion dictionary: key + ingameKey(DA_*) + ko name + stats + skill",
+  "bytes": 207825
+ },
+ "data_companions.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/companions?hl=ko",
+  "note": "little legends",
+  "bytes": 446558
+ },
+ "data_items.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/items?season=set18&hl=ko",
+  "note": "item dictionary",
+  "bytes": 141587
+ },
+ "data_landing.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/landing",
+  "note": "current season and release flag",
+  "bytes": 36
+ },
+ "data_tier_cutoffs.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/summoner-tier-cutoffs",
+  "note": "HTTP 400, shard required",
+  "bytes": 42
+ },
+ "data_traits.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/traits?season=set18&hl=ko",
+  "note": "trait dictionary",
+  "bytes": 92604
+ },
+ "guide_decks.json": {
+  "url": "https://tft.dakgg.io/api/v1/guide-decks?q=live&hl=ko&newSet=1",
+  "note": "editor guide decks, lolchess key system",
+  "bytes": 24892
+ },
+ "lb_summoners_kr.json": {
+  "url": "https://tft.dakgg.io/api/v1/leaderboards/summoners/kr?hl=ko&season=set18&tier=CHALLENGER&queueId=1100&page=1",
+  "note": "leaderboard 100 per page",
+  "bytes": 32529
+ },
+ "lb_tier_dist_kr.json": {
+  "url": "https://tft.dakgg.io/api/v1/leaderboards/tier-distributions/kr?hl=ko&queueId=1100",
+  "note": "tier distribution and per tier averages",
+  "bytes": 1897
+ },
+ "match_detail.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1/matches/kr/8382256353?season=set18",
+  "note": "match detail",
+  "bytes": 20248
+ },
+ "match_eog.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1/matches/kr/8382256353/eog?season=set18",
+  "note": "HTTP 404",
+  "bytes": 42
+ },
+ "match_round_details.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1/matches/kr/8382256353/details?season=set18",
+  "note": "HTTP 404",
+  "bytes": 45
+ },
+ "meta_champion_carry_scores.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-champion-carry-scores?tierId=1&from=web",
+  "note": "daily carry score + candle",
+  "bytes": 68317
+ },
+ "meta_champion_daily_stats.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-champion-daily-stats?tierId=1&from=web",
+  "note": "daily champion stats",
+  "bytes": 63364
+ },
+ "meta_deck_augments.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-augments?tierId=1&from=web",
+  "note": "empty, no set18 augment stats",
+  "bytes": 21
+ },
+ "meta_deck_augments_patch.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-augments?tierId=1&patch=1802&revision=0&queueId=1100&from=web",
+  "note": "empty",
+  "bytes": 21
+ },
+ "meta_deck_champion_detail_ahri.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-champions/DA_18_Ahri?tierId=3&patch=1802&revision=0&queueId=1100&from=web",
+  "note": "champion detail: items and 3 item sets",
+  "bytes": 223301
+ },
+ "meta_deck_champions.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-champions?tierId=1&from=web",
+  "note": "champion stats master+",
+  "bytes": 174663
+ },
+ "meta_deck_champions_plat.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-champions?tierId=3&patch=1802&revision=0&queueId=1100&from=web",
+  "note": "champion stats platinum+ (site default)",
+  "bytes": 181894
+ },
+ "meta_deck_detail.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-decks/4f3623fc0e2fa834f60708842c9ee9059f50576f7fd2f3f6f794c7d7447dad4d?shard=global&queueId=1100&dt=3&patch=1802&revision=0&tierId=1&hl=ko",
+  "note": "metaDeck null",
+  "bytes": 188
+ },
+ "meta_deck_detail_deckkey.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-decks/DA_18_Fae-DA_18_Tristana-37d5611cd8635cc0fd1c2a7ba7208b2c?shard=global&queueId=1100&dt=3&patch=1802&revision=0&tierId=1&hl=ko",
+  "note": "metaDeck null",
+  "bytes": 188
+ },
+ "meta_deck_detail_min.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-decks/4f3623fc0e2fa834f60708842c9ee9059f50576f7fd2f3f6f794c7d7447dad4d?hl=ko",
+  "note": "metaDeck null",
+  "bytes": 188
+ },
+ "meta_deck_detail_nopatch.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-decks/4f3623fc0e2fa834f60708842c9ee9059f50576f7fd2f3f6f794c7d7447dad4d?shard=global&queueId=1100&dt=3&tierId=1&hl=ko",
+  "note": "metaDeck null",
+  "bytes": 188
+ },
+ "meta_deck_exalted.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-exalted?tierId=0&dt=3&from=web",
+  "note": "stale set11 data",
+  "bytes": 25419
+ },
+ "meta_deck_item_detail_stoneplate.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-items/DA_GargoyleStoneplate?tierId=3&patch=1802&revision=0&queueId=1100&from=web",
+  "note": "item detail: per champion",
+  "bytes": 21203
+ },
+ "meta_deck_items.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-items?tierId=1&from=web",
+  "note": "item stats",
+  "bytes": 168502
+ },
+ "meta_deck_traits.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-deck-traits?tierId=1&from=web",
+  "note": "trait stats keys=[trait, style, numUnits]",
+  "bytes": 66069
+ },
+ "meta_decks.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-decks?shard=global&queueId=1100&dt=3&tierId=1&hl=ko&from=web",
+  "note": "meta deck list master+ global",
+  "bytes": 513709
+ },
+ "meta_decks_kr.json": {
+  "url": "https://tft.dakgg.io/api/v1/meta-decks?dt=3&hl=ko&from=web&shard=kr&queueId=1100&tierId=1",
+  "note": "empty, kr not provided",
+  "bytes": 186
+ },
+ "patch_notes.json": {
+  "url": "https://tft.dakgg.io/api/v1/patch-notes?hl=ko",
+  "note": "patch note list",
+  "bytes": 21823
+ },
+ "ranks_master_champ_ahri.json": {
+  "url": "https://tft.dakgg.io/api/v1/ranks/master/champions/Ahri?hl=ko&shard=kr&queueId=1100",
+  "note": "null with lolchess key",
+  "bytes": 40
+ },
+ "ranks_master_champ_da.json": {
+  "url": "https://tft.dakgg.io/api/v1/ranks/master/champions/DA_18_Ahri?hl=ko&shard=global&queueId=1100",
+  "note": "champion mastery ranking",
+  "bytes": 567715
+ },
+ "ranks_master_trait_fae.json": {
+  "url": "https://tft.dakgg.io/api/v1/ranks/master/traits/DA_18_Fae?hl=ko&shard=global&queueId=1100",
+  "note": "trait mastery ranking",
+  "bytes": 561691
+ },
+ "recent_bbs.json": {
+  "url": "https://tft.dakgg.io/api/v1/recent-bbs-articles?recommend=true",
+  "note": "board posts",
+  "bytes": 1504
+ },
+ "recent_win_matches.json": {
+  "url": "https://tft.dakgg.io/api/v1/recent-win-matches",
+  "note": "challenger/GM recent first place boards, 75",
+  "bytes": 218012
+ },
+ "recent_win_matches_q_DA_18_Ahri.json": {
+  "url": "https://tft.dakgg.io/api/v1/recent-win-matches?q=DA_18_Ahri",
+  "note": "DA key filter",
+  "bytes": 194681
+ },
+ "rpc_set_report_set17.json": {
+  "url": "https://tft.dakgg.io/api/v1/rpc/set-report/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1?season=set17&hl=ko&phase=prod",
+  "note": "season report card, second poll",
+  "bytes": 134259
+ },
+ "rpc_spectator_final.json": {
+  "url": "https://tft.dakgg.io/api/v1/rpc/spectator/kr/<puuid>",
+  "note": "not in game: shard and name only",
+  "bytes": 102
+ },
+ "rpc_spectator_self.json": {
+  "url": "https://tft.dakgg.io/api/v1/rpc/spectator/kr/<puuid>",
+  "note": "live game lookup first response retryAfter",
+  "bytes": 19
+ },
+ "rpc_spectator_self_retry.json": {
+  "url": "https://tft.dakgg.io/api/v1/rpc/spectator/kr/<puuid>",
+  "note": "retryAfter",
+  "bytes": 19
+ },
+ "search_riotid.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners-by-riotid/%EB%9E%84%EB%9D%BC%EB%B6%95%23KR1",
+  "note": "hash form returns 0",
+  "bytes": 40
+ },
+ "search_riotid_dash.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners-by-riotid/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1",
+  "note": "name-tag search",
+  "bytes": 351
+ },
+ "search_riotid_name.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners-by-riotid/%EB%9E%84%EB%9D%BC%EB%B6%95",
+  "note": "name only search",
+  "bytes": 351
+ },
+ "seasons.json": {
+  "url": "https://tft.dakgg.io/api/v1/seasons",
+  "note": "shard separate season list",
+  "bytes": 3108
+ },
+ "spectate_matches_euw1.json": {
+  "url": "https://tft.dakgg.io/api/v1/spectate-matches/euw1",
+  "note": "0",
+  "bytes": 56
+ },
+ "spectate_matches_global.json": {
+  "url": "https://tft.dakgg.io/api/v1/spectate-matches/global",
+  "note": "HTTP 400",
+  "bytes": 42
+ },
+ "spectate_matches_jp1.json": {
+  "url": "https://tft.dakgg.io/api/v1/spectate-matches/jp1",
+  "note": "0",
+  "bytes": 56
+ },
+ "spectate_matches_kr.json": {
+  "url": "https://tft.dakgg.io/api/v1/spectate-matches/kr",
+  "note": "top tier spectate list, 0 at test time",
+  "bytes": 56
+ },
+ "spectate_matches_na1.json": {
+  "url": "https://tft.dakgg.io/api/v1/spectate-matches/na1",
+  "note": "0",
+  "bytes": 56
+ },
+ "streamer_decks.json": {
+  "url": "https://tft.dakgg.io/api/v1/streamer-decks?hl=ko&page=1",
+  "note": "youtuber decks",
+  "bytes": 9647
+ },
+ "summoner.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1",
+  "note": "summoner basic",
+  "bytes": 279
+ },
+ "summoner_league_logs.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1/league-logs?queueId=1100&season=set18&page=1&size=20&sort=desc",
+  "note": "LP history log",
+  "bytes": 1039
+ },
+ "summoner_matches.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1/matches?season=set18&page=1&size=20",
+  "note": "match list with all 8 boards",
+  "bytes": 394930
+ },
+ "summoner_overviews.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1/overviews?season=set18",
+  "note": "season/last20 champion trait item stats",
+  "bytes": 136873
+ },
+ "summoner_profile.json": {
+  "url": "https://tft.dakgg.io/api/v1/summoners/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1/profile?season=set18",
+  "note": "tier + percentile ranks",
+  "bytes": 2123
+ },
+ "summoner_sync_by_name.json": {
+  "url": "https://tft.dakgg.io/api/v1/rpc/summoner-sync/by-name/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1?web=1",
+  "note": "sync first response retry_after",
+  "bytes": 20
+ },
+ "summoner_sync_by_name_final.json": {
+  "url": "https://tft.dakgg.io/api/v1/rpc/summoner-sync/by-name/kr/%EB%9E%84%EB%9D%BC%EB%B6%95-KR1?web=1",
+  "note": "sync done + redirect_url",
+  "bytes": 93
+ },
+ "team_builder_cell_stats.json": {
+  "url": "https://tft.dakgg.io/api/v1/team-builder-cell-stats?hl=ko&season=set18",
+  "note": "per champion hex placement frequency",
+  "bytes": 79813
+ },
+ "team_builder_refs.json": {
+  "url": "https://tft.dakgg.io/api/v1/team-builder-refs?hl=ko&season=set18",
+  "note": "team builder dictionary",
+  "bytes": 729434
+ },
+ "tier_cutoffs_kr.json": {
+  "url": "https://tft.dakgg.io/api/v1/data/summoner-tier-cutoffs?shard=kr&season=set18",
+  "note": "challenger/GM cutoff LP",
+  "bytes": 134
+ },
+ "_other_dirs": {
+  "../pages": "SSR HTML and __NEXT_DATA__ json per page",
+  "../js": "_app.js and all/ 179 chunks (buildId NCv2C6skfVd4bcmeejFMO)",
+  "../i18n_ko.json": "Korean UI strings embedded in bundle",
+  "../buildManifest.js": "route list"
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "patchRevisions": [
+  {
+   "patch": "<int>",
+   "revision": "<int>",
+   "patchVersion": "<str>"
+  }
+ ],
+ "season": "<str>",
+ "metaDeckTrait": {
+  "updatedAt": "<int>",
+  "shard": "<str>",
+  "queueId": "<int>",
+  "dt": "<int>",
+  "patch": "<int>",
+  "revision": "<int>",
+  "tierId": "<int>",
+  "plays": "<int>",
+  "matchCount": "<int>",
+  "metaDeckTraitStats": [
+   {
+    "keys": [
+     "DA_Juggernaut18"
+    ],
+    "plays": "<int>",
+    "wins": "<int>",
+    "tops": "<int>",
+    "placements": "<int>",
+    "pickRate": "<float>",
+    "avgPlacement": "<str>",
+    "traitChampionStats": [
+     {
+      "key": "DA_Amumu18",
+      "plays": "<int>",
+      "wins": "<int>",
+      "tops": "<int>",
+      "placements": "<int>",
+      "pickRate": "<float>",
+      "avgPlacement": "<str>"
+     }
+    ]
+   }
+  ]
+ }
+}
