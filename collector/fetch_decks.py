@@ -1936,8 +1936,9 @@ def main(argv=None):
                meta["listDate"], meta["detailDate"]))
         cuts = meta["gradeCuts"]
         grades = [g["stats"][key]["grade"] for g in groups.values() if key in g["stats"]]
-        log("        등급 %s S≤%.2f A≤%.2f B≤%.2f C≤%.2f · 표본≥%d · K %d → 등급 %d/%d %s"
+        log("        등급 %s S≤%.2f A≤%.2f B≤%.2f C≤%.2f · 표본≥%d · K %d · 수축 %.3f → 등급 %d/%d %s"
             % (cuts["method"], cuts["S"], cuts["A"], cuts["B"], cuts["C"], cuts["minSample"], cuts["shrinkK"],
+               cuts["shrinkTo"],
                sum(1 for g in grades if g), len(grades), " ".join("%s%d" % (x, grades.count(x)) for x in "SABCD")))
     log("덱 %d개 = 그룹 %d + 편집 독립 %d + metatft 전용 %d (편집 덱 %d개 중 그룹 첨부 %d, 파싱 실패 %d)"
         % (len(decks), diag["groups"], len(standalone), len(global_decks), len(editorials), attached, failed))

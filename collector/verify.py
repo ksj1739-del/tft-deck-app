@@ -57,7 +57,11 @@ WINRATE_TOLERANCE = 0.06
 PRECISE_TOLERANCE = 0.01
 # 胜率阵容 구간(앱 칩 순서)과 구간별 등급 기준(buckets[b].gradeCuts).
 BUCKET_ORDER = ("all", "master", "diamond", "goldem", "low")
-GRADE_CUT_KEYS = ("S", "A", "B", "C", "minSample", "shrinkK")
+GRADE_CUT_KEYS = ("S", "A", "B", "C", "minSample", "shrinkK", "shrinkTo")
+# adjAvg 를 실린 shrinkK·shrinkTo 로 다시 계산했을 때 허용 차이(avg 가 소수 둘째 자리로 반올림돼 실린다).
+ADJ_AVG_TOLERANCE = 0.02
+# 둘 다 등급이 있는데 원평균이 이만큼 이상 좋은 그룹의 등급이 더 낮으면 역전으로 센다.
+INVERSION_AVG_GAP = 0.3
 GRADE_METHODS = ("percentile", "absolute")
 # 통계가 있는 그룹 중 등급이 붙은 비율이 이보다 낮으면 경고한다(앱에 표본 부족 카드가 많아진다).
 MIN_GRADED_SHARE = 0.70
@@ -301,6 +305,23 @@ def main():
         mismatched = sum(1 for s in stats if s.get("grade") != expected_grade(s, cuts))
         if mismatched:
             problems.append("구간 %s 등급 %d건이 실린 기준(gradeCuts)으로 다시 매긴 등급과 다르다" % (key, mismatched))
+        # adjAvg 는 실린 shrinkK·shrinkTo 로 다시 계산한 값과 맞아야 한다(avg 반올림 몫만큼 허용).
+        off = [s for s in stats if s.get("avg") is not None and s.get("adjAvg") is not None and abs(
+            s["adjAvg"] - (s["n"] * s["avg"] + cuts["shrinkK"] * cuts["shrinkTo"]) / float(s["n"] + cuts["shrinkK"]))
+            > ADJ_AVG_TOLERANCE]
+        if off:
+            problems.append("구간 %s adjAvg %d건이 실린 shrinkK %s · shrinkTo %s 로 다시 계산한 값과 %.2f 넘게 다르다"
+                            % (key, len(off), cuts["shrinkK"], cuts["shrinkTo"], ADJ_AVG_TOLERANCE))
+        # 원평균이 0.3등 이상 좋은데 등급이 더 낮은 쌍(보정이 판수 적은 좋은 덱을 뒤집는 신호).
+        ranked = [s for s in stats if s.get("grade") and s.get("avg") is not None]
+        inverted = sum(1 for x in ranked for y in ranked
+                       if x["avg"] <= y["avg"] - INVERSION_AVG_GAP and "SABCD".index(x["grade"]) > "SABCD".index(y["grade"]))
+        if inverted:
+            text = "구간 %s 원평균이 %.1f등 이상 좋은데 등급이 더 낮은 쌍 %d개" % (key, INVERSION_AVG_GAP, inverted)
+            if key == "goldem":
+                problems.append(text)
+            else:
+                warnings.append(text)
         if with_grade:
             s_share = with_grade.count("S") / float(len(with_grade))
             if s_share > MAX_S_SHARE:

@@ -163,6 +163,8 @@ data class GradeCuts(
     @SerialName("C") val c: Double = 4.70,
     val minSample: Int = DeckKeys.MIN_SAMPLE,
     val shrinkK: Int = 200,
+    /** 보정 평균이 끌려가는 값. 그룹이 충분한 구간은 그 구간 그룹 평균(경험적 베이즈), 적은 구간은 4.5. */
+    val shrinkTo: Double = 4.5,
 )
 
 // ---------------------------------------------------------------------------
