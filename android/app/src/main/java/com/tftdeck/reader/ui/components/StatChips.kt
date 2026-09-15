@@ -96,8 +96,18 @@ fun sampleText(deck: Deck, bucket: String, buckets: Map<String, BucketMeta>): St
         parts += meta?.label?.takeIf { it.isNotBlank() } ?: bucketLabel(bucket)
         formatShortDate(meta?.listDate).takeIf { it.isNotBlank() }?.let { parts += it }
     }
+    // metatft 전용 덱은 네 수치가 글로벌 플래+ 값이다(등급도 이 값으로 매겼다). lol.qq 덱의 'n · 구간' 자리에 출처를 적는다.
+    val displayScope = if (deck.isGlobalOnly) deck.globalDisplayScope else null
+    displayScope?.let { scope ->
+        deck.global?.stats?.get(scope)?.let { stat ->
+            parts += "n=${formatCount(stat.n)}"
+            parts += scopeLabel(scope, short = true)
+        }
+    }
     deck.global?.let { global ->
-        val scope = listOf(DeckKeys.SCOPE_KR_PLAT, DeckKeys.SCOPE_GLOBAL_PLAT).firstOrNull { it in global.stats }
+        // 곁들이는 참고 수치(KR 플래+ 먼저). 네 수치와 같은 출처면 되풀이하지 않는다.
+        val scope = listOf(DeckKeys.SCOPE_KR_PLAT, DeckKeys.SCOPE_GLOBAL_PLAT)
+            .firstOrNull { it in global.stats && it != displayScope }
         if (scope != null) {
             val stat = global.stats.getValue(scope)
             parts += "${scopeLabel(scope, short = true)} ${formatAvg(stat.avg)}등 n=${formatCount(stat.n)}"

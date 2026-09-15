@@ -696,7 +696,7 @@ class DeckFeedV2Test {
     }
 
     @Test
-    fun `metatft 전용 덱은 어느 구간에나 보이고 글로벌 등급과 KR 수치로 lol_qq 덱 뒤에 선다`() {
+    fun `metatft 전용 덱은 어느 구간에나 보이고 글로벌 등급과 글로벌 플래+ 수치로 lol_qq 덱 뒤에 선다`() {
         val global = Deck(
             id = "m-423017",
             kind = "global",
@@ -714,8 +714,14 @@ class DeckFeedV2Test {
         assertTrue(global.listedIn("master"))
         assertFalse(global.isLowSample("goldem"))
         assertEquals("A", global.gradeFor("goldem"))
-        assertEquals(5000, global.displayStats("goldem")?.n)
-        assertEquals(4.1, global.displayStats("goldem")?.avg ?: 0.0, 1e-9)
+        // 네 수치는 글로벌 등급을 매긴 글로벌 플래+ 값이고, KR 플래+ 는 표본 줄에 참고로 붙는다.
+        assertEquals(90000, global.displayStats("goldem")?.n)
+        assertEquals(4.2, global.displayStats("goldem")?.avg ?: 0.0, 1e-9)
+        assertEquals("n=90,000 · 글로벌 플래+ · KR 플래+ 4.10등 n=5,000", sampleText(global, "goldem", feed.buckets))
+        // 글로벌 플래+ 가 없으면 KR 플래+ 가 네 수치가 되고, 같은 값을 표본 줄에 되풀이하지 않는다.
+        val krOnly = global.copy(global = global.global?.copy(stats = mapOf("kr_plat" to global.global!!.stats.getValue("kr_plat"))))
+        assertEquals(5000, krOnly.displayStats("goldem")?.n)
+        assertEquals("n=5,000 · KR 플래+", sampleText(krOnly, "goldem", feed.buckets))
         assertEquals(listOf(ELDER, "m-423017"), ids(DeckSearch.sort(listOf(global, deck(ELDER)), DeckSortMode.GRADE, "goldem")))
 
         // D→S 로 뒤집어도 metatft 전용 덱은 lol.qq 덱 뒤에서 자기들끼리만 뒤집힌다.

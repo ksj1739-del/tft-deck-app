@@ -247,15 +247,23 @@ data class Deck(
 
     /**
      * 카드·상세의 네 수치에 쓸 값. lol.qq 덱은 그 구간 통계이고,
-     * metatft 전용 덱은 lol.qq 구간이 없으므로 KR 플래+(없으면 글로벌 플래+) 값을 쓴다.
+     * metatft 전용 덱은 lol.qq 구간이 없으므로 [globalDisplayScope] 값을 쓴다.
      */
     fun displayStats(bucket: String): DeckStats? {
         if (!isGlobalOnly) return statsFor(bucket)
-        val stats = global?.stats ?: return null
-        val scope = listOf(DeckKeys.SCOPE_KR_PLAT, DeckKeys.SCOPE_GLOBAL_PLAT).firstOrNull { it in stats } ?: return null
-        val stat = stats.getValue(scope)
+        val scope = globalDisplayScope ?: return null
+        val stat = global?.stats?.get(scope) ?: return null
         return DeckStats(n = stat.n, avg = stat.avg, top4 = stat.top4, win = stat.win, grade = globalGrade)
     }
+
+    /**
+     * metatft 전용 덱의 네 수치 출처. 글로벌 등급을 글로벌 플래+ 평균 등수로 매기므로 그 값을 먼저 쓴다(없으면 KR 플래+).
+     * KR 값을 앞세우면 'KR 4.94등인데 글로벌 A' 처럼 수치와 등급이 어긋나 보인다.
+     */
+    val globalDisplayScope: String?
+        get() = global?.stats?.let { stats ->
+            listOf(DeckKeys.SCOPE_GLOBAL_PLAT, DeckKeys.SCOPE_KR_PLAT).firstOrNull { it in stats }
+        }
 
     /**
      * 이 구간에 통계는 있지만 표본이 작아 등급이 없는 덱. 카드·상세가 흐리게 하고 '표본 부족'을 붙인다.
