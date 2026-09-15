@@ -1,0 +1,55 @@
+{
+  "version": {"schemaVersion": 1, "generatedAt": "2026-09-16T20:07:40Z", "patchGlobal": "18.2", "patch": "16.18", "statDate": "2026-09-15", "contentHash": "9de271829304"},
+  "meta": {
+    "editorTier": {"source": "metatft", "author": "META Spencer", "updatedAt": "2026-09-15T11:11:58Z", "counts": {"S": 24, "A": 84, "B": 129, "C": 21, "D": 0}},
+    "cnStats": {"source": "lolqq", "bucket": "goldem", "label": "중국 골드~에메랄드", "detailDate": "20260914", "note": "덱별 상위 5개만 집계된다"}
+  },
+  "augments": [
+    {
+      "id": "DA_Ascension", "name": "초월", "nameEn": "Ascension", "rarity": "gold", "tags": ["combat"],
+      "icon": "assets/maps/tft/icons/augments/hexcore/ascension_ii.png",
+      "desc": "15초 후 아군이 주는 피해가 증가합니다.",
+      "editorTier": "A",
+      "deckStats": [
+        {"deck": "g-7f3a9c1b2d", "deckName": "장로 드래곤 · 3 협곡야수", "n": 634, "avg": 3.16, "rank": 1, "stage": [3.23, 2.68, 4.33], "stageLowSample": [false, false, true]},
+        {"deck": "g-2b3c4d5e6f", "deckName": "아리 · 3 개화", "n": 1646, "avg": 3.23, "rank": 2, "stage": [null, 3.24, 3.23], "stageLowSample": [true, false, false]}
+      ],
+      "summary": {"n": 2280, "avg": 3.21, "decks": 2},
+      "recommendedBy": {"editorial": ["g-7f3a9c1b2d"], "guide": [{"deck": "g-2b3c4d5e6f", "tier": "S", "source": "APHELIOS > Elderwood OR Vanguard"}]},
+      "decks": ["g-7f3a9c1b2d", "g-2b3c4d5e6f"]
+    },
+    {
+      "id": "DA_SilverSpoon", "name": "은수저", "nameEn": "Silver Spoon", "rarity": "silver", "tags": ["econ"],
+      "icon": "assets/maps/tft/icons/augments/hexcore/silver_spoon.png",
+      "desc": "경험치를 10 얻습니다.",
+      "editorTier": "B",
+      "deckStats": [
+        {"deck": "g-7f3a9c1b2d", "deckName": "장로 드래곤 · 3 협곡야수", "n": 306, "avg": 3.25, "rank": 5, "stage": [null, 3.24, 3.23], "stageLowSample": [true, false, false]}
+      ],
+      "summary": {"n": 306, "avg": 3.25, "decks": 1},
+      "recommendedBy": {"editorial": [], "guide": []},
+      "decks": ["g-7f3a9c1b2d"]
+    },
+    {
+      "id": "DA_LateGameScaling", "name": "후반 도약", "nameEn": "Late Game Specialist", "rarity": "prismatic", "tags": ["scaling", "econ"],
+      "icon": "assets/maps/tft/icons/augments/hexcore/late_game_specialist.png",
+      "desc": "9레벨에 도달하면 골드를 얻습니다.",
+      "editorTier": "S",
+      "deckStats": [],
+      "summary": {"n": 0, "avg": null, "decks": 0},
+      "recommendedBy": {"editorial": [], "guide": []},
+      "decks": []
+    },
+    {
+      "id": "DA_18_FaeCrest", "name": "요정의 문장", "nameEn": "Fae Crest", "rarity": "gold", "tags": ["trait"],
+      "icon": "assets/maps/tft/icons/augments/hexcore/fae_crest.png",
+      "desc": "요정 상징과 요정 챔피언 하나를 얻습니다.",
+      "editorTier": null,
+      "deckStats": [],
+      "summary": {"n": 0, "avg": null, "decks": 0},
+      "recommendedBy": {"editorial": [], "guide": []},
+      "decks": []
+    }
+  ],
+  "rounds": {}
+}

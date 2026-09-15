@@ -1,0 +1,83 @@
+{
+  "version": {"schemaVersion": 1, "generatedAt": "2026-09-16T20:07:40Z", "patchGlobal": "18.2", "patch": "16.18", "statDate": "2026-09-15", "contentHash": "b71c2d3e4f50"},
+  "scopes": {
+    "glob_plat": {"label": "글로벌 플래티넘+", "source": "metatft", "days": 3, "games": 5785016, "updatedAt": "2026-09-15T13:14:43Z"},
+    "kr_plat": {"label": "KR 플래티넘+", "source": "metatft", "days": 3, "games": 967672, "updatedAt": "2026-09-15T13:14:44Z"},
+    "kr_master": {"label": "KR 마스터+", "source": "metatft", "days": 3, "games": 38960, "updatedAt": "2026-09-15T13:14:45Z"},
+    "cn_plat": {"label": "중국 플래티넘+", "source": "lolqq", "days": 3, "games": 3534340, "statDate": "2026-09-15", "build": "", "meanAvg": 4.174},
+    "cn_master": {"label": "중국 마스터+", "source": "lolqq", "days": 3, "games": 97474, "statDate": "2026-09-15", "build": "", "meanAvg": 4.087}
+  },
+  "gradeCuts": {"S": 0.50, "A": 0.25, "B": 0.0, "C": -0.25, "minSample": 500},
+  "traits": [
+    {
+      "id": "DA_18_Fae", "name": "요정", "nameEn": "Fae", "type": "origin",
+      "icon": "assets/ux/traiticons/trait_icon_18_fae.png",
+      "desc": "요정은 전투 시작 시 보호막을 얻습니다.",
+      "breakpoints": [
+        {"units": 3, "style": 1, "desc": "보호막 150"},
+        {"units": 5, "style": 2, "desc": "보호막 300"},
+        {"units": 7, "style": 3, "desc": "보호막 500"},
+        {"units": 10, "style": 4, "desc": "보호막 1000"}
+      ],
+      "champions": [{"id": "DA_18_Yorick", "name": "요릭", "cost": 2}, {"id": "DA_18_Tristana", "name": "트리스타나", "cost": 1}],
+      "stats": {
+        "glob_plat": {"byUnits": {
+          "3": {"n": 900000, "places": [101000, 104000, 108000, 113000, 117000, 120000, 120000, 117000], "avg": 4.55, "top4": 0.473, "win": 0.112, "pick": 0.156, "delta": 0.05, "grade": "C"},
+          "5": {"n": 120000, "places": [18000, 17400, 16800, 16000, 14800, 13600, 12400, 11000], "avg": 4.10, "top4": 0.568, "win": 0.150, "pick": 0.021, "delta": -0.40, "grade": "A"},
+          "7": {"n": 300, "places": [90, 60, 45, 30, 25, 20, 15, 15], "avg": 3.20, "top4": 0.750, "win": 0.300, "pick": 0.0001, "delta": -1.30, "grade": null}
+        }},
+        "kr_plat": {"byUnits": {
+          "3": {"n": 150000, "avg": 4.50, "top4": 0.49, "win": 0.12, "pick": 0.155, "delta": 0.0, "grade": "C"},
+          "5": {"n": 21000, "avg": 4.05, "top4": 0.58, "win": 0.16, "pick": 0.022, "delta": -0.45, "grade": "A"}
+        }},
+        "cn_plat": {"byUnits": {
+          "3": {"n": 1620557, "top1": 304617, "top4": 953423, "avg": 4.00, "top4Rate": 0.588, "win": 0.188, "pick": 0.459, "delta": -0.17, "grade": "A"}
+        }}
+      },
+      "combos": [
+        {"with": {"id": "DA_18_Adaptor", "name": "적응가", "units": 3}, "units": 3, "top4": 0.61, "win": 0.14, "trend": [0.58, 0.60, null, 0.60, 0.61]}
+      ],
+      "decks": ["g-7f3a9c1b2d"]
+    },
+    {
+      "id": "DA_18_Adaptor", "name": "적응가", "nameEn": "Adaptor", "type": "class",
+      "icon": "assets/ux/traiticons/trait_icon_18_adaptor.png",
+      "desc": "적응가는 전투마다 능력치 하나를 고릅니다.",
+      "breakpoints": [
+        {"units": 2, "style": 1, "desc": "능력치 +10%"},
+        {"units": 3, "style": 3, "desc": "능력치 +25%"},
+        {"units": 4, "style": 4, "desc": "능력치 +45%"}
+      ],
+      "champions": [{"id": "DA_18_Tristana", "name": "트리스타나", "cost": 1}],
+      "stats": {
+        "glob_plat": {"byUnits": {
+          "2": {"n": 600000, "avg": 4.40, "top4": 0.51, "win": 0.12, "pick": 0.104, "delta": -0.10, "grade": "B"},
+          "3": {"n": 200000, "avg": 4.30, "top4": 0.53, "win": 0.13, "pick": 0.035, "delta": -0.20, "grade": "B"}
+        }},
+        "kr_plat": {"byUnits": {
+          "2": {"n": 90000, "avg": 4.42, "top4": 0.51, "win": 0.12, "pick": 0.093, "delta": -0.08, "grade": "B"},
+          "3": {"n": 30000, "avg": 4.20, "top4": 0.55, "win": 0.14, "pick": 0.031, "delta": -0.30, "grade": "A"}
+        }}
+      },
+      "combos": [],
+      "decks": []
+    },
+    {
+      "id": "DA_Riftbeast18", "name": "협곡야수", "nameEn": "Riftbeast", "type": "origin",
+      "icon": "assets/ux/traiticons/trait_icon_18_riftbeast.png",
+      "desc": "협곡야수는 처치할 때마다 강해집니다.",
+      "breakpoints": [
+        {"units": 3, "style": 1, "desc": "공격력 +15"},
+        {"units": 5, "style": 3, "desc": "공격력 +40"}
+      ],
+      "champions": [{"id": "DA_18_ElderDragon", "name": "장로 드래곤", "cost": 5}],
+      "stats": {
+        "glob_plat": {"byUnits": {
+          "3": {"n": 450, "avg": 3.90, "top4": 0.62, "win": 0.18, "pick": 0.0001, "delta": -0.60, "grade": null}
+        }}
+      },
+      "combos": [],
+      "decks": ["g-7f3a9c1b2d"]
+    }
+  ]
+}
