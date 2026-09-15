@@ -6,6 +6,7 @@ import com.tftdeck.reader.data.CatalogIndex
 import com.tftdeck.reader.data.Deck
 import com.tftdeck.reader.data.DeckFeed
 import com.tftdeck.reader.data.DeckSearch
+import com.tftdeck.reader.data.DeckSort
 import com.tftdeck.reader.data.DeckSortMode
 import com.tftdeck.reader.data.FeedFreshness
 import com.tftdeck.reader.data.FeedJson
@@ -530,6 +531,27 @@ class DeckFeedV2Test {
     }
 
     @Test
+    fun `고른 정렬을 다시 누르면 기준 값이 있는 덱끼리만 순서가 뒤집힌다`() {
+        val goldem = "goldem"
+        val all = feed.decks
+        // 등급 D→S: 등급 있는 덱만 거꾸로, 등급 없는 요릭과 편집 독립 덱은 그대로 뒤에 둔다.
+        assertEquals(listOf(APHELIOS, ELDER, YORICK, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.GRADE, goldem, reversed = true)))
+        // 픽률 낮은순·하락·표본 적은순. 통계가 없는 편집 독립 덱은 어느 방향이든 끝이다.
+        assertEquals(listOf(YORICK, ELDER, APHELIOS, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.PICK, goldem, reversed = true)))
+        assertEquals(listOf(ELDER, YORICK, APHELIOS, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.RISING, goldem, reversed = true)))
+        assertEquals(listOf(YORICK, APHELIOS, ELDER, EDITORIAL), ids(DeckSearch.sort(all, DeckSortMode.SAMPLE, goldem, reversed = true)))
+
+        // 칩 누름: 고른 칩은 방향만 바꾸고, 다른 칩은 그 정렬의 기본 방향으로 시작한다.
+        val start = DeckSort()
+        val gradeUp = start.tapped(DeckSortMode.GRADE)
+        assertEquals(DeckSort(DeckSortMode.GRADE, reversed = true), gradeUp)
+        assertEquals("등급 D→S", gradeUp.label)
+        assertEquals("등급 S→D", start.label)
+        assertEquals(start, gradeUp.tapped(DeckSortMode.GRADE))
+        assertEquals(DeckSort(DeckSortMode.PICK), gradeUp.tapped(DeckSortMode.PICK))
+    }
+
+    @Test
     fun `구간 등급·편집 덱·중국 한정·주 특성·레벨 필터`() {
         // 티어 필터는 그 구간의 등급(없으면 편집 등급)으로 본다.
         assertEquals(setOf(ELDER, EDITORIAL), ids(search.filter(tiers = setOf("S"), bucket = "goldem")).toSet())
@@ -695,6 +717,20 @@ class DeckFeedV2Test {
         assertEquals(5000, global.displayStats("goldem")?.n)
         assertEquals(4.1, global.displayStats("goldem")?.avg ?: 0.0, 1e-9)
         assertEquals(listOf(ELDER, "m-423017"), ids(DeckSearch.sort(listOf(global, deck(ELDER)), DeckSortMode.GRADE, "goldem")))
+
+        // D→S 로 뒤집어도 metatft 전용 덱은 lol.qq 덱 뒤에서 자기들끼리만 뒤집힌다.
+        val globalC = global.copy(id = "m-423018", globalGrade = "C")
+        assertEquals(
+            listOf(APHELIOS, ELDER, YORICK, "m-423018", "m-423017"),
+            ids(
+                DeckSearch.sort(
+                    listOf(global, deck(YORICK), globalC, deck(ELDER), deck(APHELIOS)),
+                    DeckSortMode.GRADE,
+                    "goldem",
+                    reversed = true,
+                ),
+            ),
+        )
     }
 
     @Test

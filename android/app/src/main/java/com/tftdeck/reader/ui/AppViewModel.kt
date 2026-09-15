@@ -10,6 +10,7 @@ import com.tftdeck.reader.data.DeckFeed
 import com.tftdeck.reader.data.DeckPrefs
 import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.DeckSearch
+import com.tftdeck.reader.data.DeckSort
 import com.tftdeck.reader.data.DeckSortMode
 import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.IconPack
@@ -100,10 +101,11 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         prefs.setBucket(key)
     }
 
-    val sortMode: StateFlow<DeckSortMode> = prefs.sortMode
+    val sort: StateFlow<DeckSort> = prefs.sort
 
-    fun setSortMode(mode: DeckSortMode) {
-        prefs.setSortMode(mode)
+    /** 다른 정렬 칩은 그 정렬의 기본 방향으로, 고른 칩을 다시 누르면 방향을 뒤집는다. */
+    fun tapSort(mode: DeckSortMode) {
+        prefs.setSort(prefs.sort.value.tapped(mode))
     }
 
     val pinnedSet: StateFlow<Set<String>> = prefs.pinned
@@ -151,7 +153,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     private data class ListPrefs(
         val bucket: String,
-        val sort: DeckSortMode,
+        val sort: DeckSort,
         val pinned: Set<String>,
         val hidden: Set<String>,
         val showHidden: Boolean,
@@ -161,7 +163,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         FilterSpec(t, l, c, e, m)
     }
 
-    private val listPrefs = combine(bucket, prefs.sortMode, prefs.pinned, prefs.hidden, prefs.showHidden) { b, s, p, h, sh ->
+    private val listPrefs = combine(bucket, prefs.sort, prefs.pinned, prefs.hidden, prefs.showHidden) { b, s, p, h, sh ->
         ListPrefs(b, s, p, h, sh)
     }
 
@@ -180,7 +182,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 bucket = list.bucket,
                 alwaysShow = list.pinned,
             )
-            DeckSearch.pinFirst(DeckSearch.sort(filtered, list.sort, list.bucket), list.pinned)
+            DeckSearch.pinFirst(DeckSearch.sort(filtered, list.sort.mode, list.bucket, list.sort.reversed), list.pinned)
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     /** 필터에 쓸 등급 목록. 선택 구간에서 실제로 나오는 것만 보여준다. */

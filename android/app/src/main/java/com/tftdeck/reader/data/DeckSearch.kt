@@ -196,8 +196,12 @@ class DeckSearch(private val feed: DeckFeed) {
          *  - PICK: 픽률 내림차순
          *  - RISING: 추세 up 먼저, 그다음 평균 등수 변화가 작은(좋아진) 순
          *  - SAMPLE: 표본 내림차순
+         *
+         * [reversed] 면 그 기준 값이 있는 덱끼리만 순서를 뒤집는다(등급 D→S, 픽률 낮은순, 하락, 표본 적은순).
+         * 기준 값이 없는 덱(등급 없는 편집 독립 덱·고정 덱 등)은 어느 방향이든 뒤에 두고,
+         * metatft 전용 덱은 lol.qq 덱과 섞지 않고 그 뒤에서 자기들끼리 뒤집는다.
          */
-        fun sort(decks: List<Deck>, mode: DeckSortMode, bucket: String): List<Deck> {
+        fun sort(decks: List<Deck>, mode: DeckSortMode, bucket: String, reversed: Boolean = false): List<Deck> {
             val byGrade = gradeComparator(bucket)
             val comparator: Comparator<Deck> = when (mode) {
                 DeckSortMode.GRADE -> byGrade
@@ -212,7 +216,26 @@ class DeckSearch(private val feed: DeckFeed) {
                     compareByDescending<Deck> { it.statsFor(bucket)?.n ?: 0 }
                         .then(byGrade)
             }
-            return decks.sortedWith(comparator)
+            val sorted = decks.sortedWith(comparator)
+            if (!reversed) return sorted
+            val (lolqq, globalOnly) = sorted.partition { !it.isGlobalOnly }
+            return flipRanked(lolqq, mode, bucket) + flipRanked(globalOnly, mode, bucket)
+        }
+
+        /** 기준 값이 있는 덱만 거꾸로 세우고, 값이 없는 덱은 원래 순서 그대로 뒤에 붙인다. */
+        private fun flipRanked(decks: List<Deck>, mode: DeckSortMode, bucket: String): List<Deck> {
+            val (ranked, unranked) = decks.partition { hasSortValue(it, mode, bucket) }
+            return ranked.asReversed() + unranked
+        }
+
+        private fun hasSortValue(deck: Deck, mode: DeckSortMode, bucket: String): Boolean {
+            val stats = deck.statsFor(bucket)
+            return when (mode) {
+                DeckSortMode.GRADE -> (if (deck.isGlobalOnly) deck.globalGrade else stats?.grade) != null
+                DeckSortMode.PICK -> stats?.pick != null
+                DeckSortMode.RISING -> stats?.avgDiff != null
+                DeckSortMode.SAMPLE -> stats != null
+            }
         }
 
         // lol.qq 덱(구간 등급·편집 등급)을 먼저, metatft 전용 덱은 그 뒤에 글로벌 등급·평균 등수 순으로.
@@ -307,14 +330,25 @@ class DeckSearch(private val feed: DeckFeed) {
     }
 }
 
-/** 덱 목록 정렬. key 는 기기 설정에 저장하는 값이다. */
-enum class DeckSortMode(val key: String, val label: String) {
-    GRADE("grade", "등급"),
-    PICK("pick", "픽률"),
-    RISING("rising", "상승"),
-    SAMPLE("sample", "표본");
+/**
+ * 덱 목록 정렬. key 는 기기 설정에 저장하는 값이다.
+ * [forwardLabel]·[reversedLabel] 은 고른 칩에 방향까지 적어 보여 줄 이름이다.
+ */
+enum class DeckSortMode(val key: String, val label: String, val forwardLabel: String, val reversedLabel: String) {
+    GRADE("grade", "등급", "등급 S→D", "등급 D→S"),
+    PICK("pick", "픽률", "픽률 높은순", "픽률 낮은순"),
+    RISING("rising", "상승", "상승", "하락"),
+    SAMPLE("sample", "표본", "표본 많은순", "표본 적은순");
 
     companion object {
         fun fromKey(key: String?): DeckSortMode = entries.firstOrNull { it.key == key } ?: GRADE
     }
+}
+
+/** 목록 정렬 설정. 고른 칩을 다시 누르면 방향만 뒤집고, 다른 칩을 누르면 그 정렬의 기본 방향으로 시작한다. */
+data class DeckSort(val mode: DeckSortMode = DeckSortMode.GRADE, val reversed: Boolean = false) {
+    val label: String get() = if (reversed) mode.reversedLabel else mode.forwardLabel
+
+    fun tapped(tappedMode: DeckSortMode): DeckSort =
+        if (tappedMode == mode) copy(reversed = !reversed) else DeckSort(tappedMode)
 }

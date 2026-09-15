@@ -19,6 +19,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.FilterAltOff
+import androidx.compose.material.icons.filled.SwapVert
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
@@ -182,7 +183,7 @@ private fun FeedBanner(state: FeedState.Ready) {
 
 @Composable
 private fun SortBar(viewModel: AppViewModel) {
-    val sortMode by viewModel.sortMode.collectAsState()
+    val sort by viewModel.sort.collectAsState()
     Row(
         Modifier
             .fillMaxWidth()
@@ -198,10 +199,23 @@ private fun SortBar(viewModel: AppViewModel) {
             modifier = Modifier.size(16.dp),
         )
         DeckSortMode.entries.forEach { mode ->
+            val selected = mode == sort.mode
             FilterChip(
-                selected = mode == sortMode,
-                onClick = { viewModel.setSortMode(mode) },
-                label = { Text(mode.label) },
+                selected = selected,
+                // 고른 칩을 다시 누르면 방향이 뒤집힌다. 고른 칩에는 방향을 글로 적고 뒤집기 표시를 단다.
+                onClick = { viewModel.tapSort(mode) },
+                label = { Text(if (selected) sort.label else mode.label) },
+                trailingIcon = if (selected) {
+                    {
+                        Icon(
+                            Icons.Default.SwapVert,
+                            contentDescription = "정렬 방향 바꾸기",
+                            modifier = Modifier.size(FilterChipDefaults.IconSize),
+                        )
+                    }
+                } else {
+                    null
+                },
             )
         }
     }

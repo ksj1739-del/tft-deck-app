@@ -19,8 +19,10 @@ class DeckPrefs private constructor(context: Context) {
     private val _bucket = MutableStateFlow(prefs.getString(KEY_BUCKET, null) ?: DeckKeys.DEFAULT_BUCKET)
     val bucket: StateFlow<String> = _bucket.asStateFlow()
 
-    private val _sortMode = MutableStateFlow(DeckSortMode.fromKey(prefs.getString(KEY_SORT, null)))
-    val sortMode: StateFlow<DeckSortMode> = _sortMode.asStateFlow()
+    private val _sort = MutableStateFlow(
+        DeckSort(DeckSortMode.fromKey(prefs.getString(KEY_SORT, null)), prefs.getBoolean(KEY_SORT_REVERSED, false)),
+    )
+    val sort: StateFlow<DeckSort> = _sort.asStateFlow()
 
     // getStringSet 이 돌려준 집합은 저장소 내부 객체라 고치면 안 된다. 복사해서 들고 있는다.
     private val _pinned = MutableStateFlow(prefs.getStringSet(KEY_PINNED, null)?.toSet().orEmpty())
@@ -37,9 +39,10 @@ class DeckPrefs private constructor(context: Context) {
         prefs.edit().putString(KEY_BUCKET, key).apply()
     }
 
-    fun setSortMode(mode: DeckSortMode) {
-        _sortMode.value = mode
-        prefs.edit().putString(KEY_SORT, mode.key).apply()
+    // 정렬과 방향은 한 값으로 바꾼다. 따로 바꾸면 목록이 '새 정렬 + 옛 방향'으로 한 번 더 그려진다.
+    fun setSort(sort: DeckSort) {
+        _sort.value = sort
+        prefs.edit().putString(KEY_SORT, sort.mode.key).putBoolean(KEY_SORT_REVERSED, sort.reversed).apply()
     }
 
     fun togglePinned(id: String) {
@@ -65,6 +68,7 @@ class DeckPrefs private constructor(context: Context) {
         private const val PREFS = "deck_prefs"
         private const val KEY_BUCKET = "bucket"
         private const val KEY_SORT = "sort_mode"
+        private const val KEY_SORT_REVERSED = "sort_reversed"
         private const val KEY_PINNED = "pinned"
         private const val KEY_HIDDEN = "hidden"
         private const val KEY_SHOW_HIDDEN = "show_hidden"
