@@ -427,6 +427,17 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         _syncMessage.value = null
     }
 
+    // -- 첫 실행 안내 -------------------------------------------------------
+
+    // 설치 뒤 첫 실행에 전적 연결·오버레이 권한을 한 번 묻는다. 한 번 닫으면 다시 묻지 않는다.
+    private val _firstRunPending = MutableStateFlow(!prefs.firstRunDone)
+    val firstRunPending: StateFlow<Boolean> = _firstRunPending.asStateFlow()
+
+    fun finishFirstRun() {
+        prefs.firstRunDone = true
+        _firstRunPending.value = false
+    }
+
     // -- 내 전적 -------------------------------------------------------------
 
     private val profiles = ProfileRepository.get(app)

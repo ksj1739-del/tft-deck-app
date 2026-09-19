@@ -51,6 +51,7 @@ import com.tftdeck.reader.data.SearchAxis
 import com.tftdeck.reader.ingame.IngamePrefs
 import com.tftdeck.reader.ingame.hasUsageStatsPermission
 import com.tftdeck.reader.overlay.OverlayService
+import com.tftdeck.reader.ui.components.FirstRunDialog
 import com.tftdeck.reader.overlay.OverlayState
 import com.tftdeck.reader.ui.AppViewModel
 import com.tftdeck.reader.ui.codex.AugmentDetailScreen
@@ -161,6 +162,20 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
 
     // 실제로 떠 있는지는 서비스가 알린다. 화면 변수로 들고 있으면 앱을 새로 열 때 꺼짐으로 초기화된다.
     val overlayRunning by OverlayState.running.collectAsState()
+
+    // 설치 뒤 첫 실행에만: 전적 연결·오버레이 권한 중 빠진 것이 있으면 묻는다. 둘 다 돼 있으면 조용히 넘어간다.
+    // 필요 여부는 처음 한 번만 본다 — 안내 도중 하나를 마쳐도 창이 사라지지 않고 확인 표시로 바뀐다.
+    val firstRunPending by viewModel.firstRunPending.collectAsState()
+    if (firstRunPending) {
+        val needsSetup = remember {
+            !viewModel.savedRiotId.value.contains("#") || !OverlayService.canDrawOverlays(context)
+        }
+        if (needsSetup) {
+            FirstRunDialog(viewModel, onDone = viewModel::finishFirstRun)
+        } else {
+            LaunchedEffect(Unit) { viewModel.finishFirstRun() }
+        }
+    }
 
     // Android 13+ 는 포그라운드 서비스 알림을 띄우려면 알림 권한이 필요하다.
     val notificationPermission = androidx.activity.compose.rememberLauncherForActivityResult(

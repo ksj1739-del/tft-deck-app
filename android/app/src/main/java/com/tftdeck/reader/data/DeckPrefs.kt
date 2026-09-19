@@ -153,6 +153,11 @@ class DeckPrefs private constructor(context: Context) {
         setShowHidden(false)
     }
 
+    /** 설치 뒤 첫 실행 안내(전적 연결·오버레이 권한)를 이미 보였는지. 앱을 지우면 함께 지워진다. */
+    var firstRunDone: Boolean
+        get() = prefs.getBoolean(KEY_FIRST_RUN_DONE, false)
+        set(value) = prefs.edit().putBoolean(KEY_FIRST_RUN_DONE, value).apply()
+
     fun setShowHidden(show: Boolean) {
         _showHidden.value = show
         prefs.edit().putBoolean(KEY_SHOW_HIDDEN, show).apply()
@@ -170,6 +175,7 @@ class DeckPrefs private constructor(context: Context) {
         private const val KEY_HIDDEN = "hidden"
         private const val KEY_SHOW_HIDDEN = "show_hidden"
         private const val KEY_GRADES = "grade_filter"
+        private const val KEY_FIRST_RUN_DONE = "first_run_done"
         private const val KEY_ONLY_CHINA = "filter_only_china"
         private const val KEY_EDITORIAL_ONLY = "filter_editorial_only"
         private const val KEY_MAIN_TRAIT = "filter_main_trait"
