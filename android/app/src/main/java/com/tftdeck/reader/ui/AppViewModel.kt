@@ -51,6 +51,19 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     init {
         // 저장해 둔 전적 요약을 먼저 올린다. 설정 화면이 빈 채로 뜨지 않도록.
         viewModelScope.launch { ProfileRepository.get(app).load() }
+        // 저장해 둔 조회 조건 중 새 데이터에 없는 시너지·레벨은 지운다. 칩이 보이지 않는 조건 때문에
+        // 목록만 비는 일을 막는다(검색 칩은 화면에 보이므로 그대로 둔다).
+        viewModelScope.launch {
+            repository.state.collect { state ->
+                val feed = (state as? FeedState.Ready)?.feed ?: return@collect
+                prefs.mainTrait.value?.let { id ->
+                    if (feed.decks.none { deck -> deck.mainTraits.any { it.id == id } }) prefs.setMainTrait(null)
+                }
+                val levels = feed.decks.mapNotNullTo(HashSet()) { it.finalLevel }
+                val kept = prefs.levels.value.filterTo(HashSet()) { it in levels }
+                if (kept != prefs.levels.value) prefs.setLevels(kept)
+            }
+        }
     }
 
     val feedState: StateFlow<FeedState> = repository.state
@@ -131,25 +144,16 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     // -- 덱 목록 필터 -------------------------------------------------------
 
-    private val _tierFilter = MutableStateFlow<Set<String>>(emptySet())
-    val tierFilter: StateFlow<Set<String>> = _tierFilter.asStateFlow()
+    // 조회 조건은 DeckPrefs 에 저장해 앱을 껐다 켜도 지난 조건으로 돌아온다(구간·정렬·등급과 같이).
+    val tierFilter: StateFlow<Set<String>> = prefs.tiers
+    val levelFilter: StateFlow<Set<Int>> = prefs.levels
+    val onlyChina: StateFlow<Boolean> = prefs.onlyChina
+    val editorialOnly: StateFlow<Boolean> = prefs.editorialOnly
+    val mainTraitFilter: StateFlow<String?> = prefs.mainTrait
 
-    private val _levelFilter = MutableStateFlow<Set<Int>>(emptySet())
-    val levelFilter: StateFlow<Set<Int>> = _levelFilter.asStateFlow()
-
-    private val _onlyChina = MutableStateFlow(false)
-    val onlyChina: StateFlow<Boolean> = _onlyChina.asStateFlow()
-
-    private val _editorialOnly = MutableStateFlow(false)
-    val editorialOnly: StateFlow<Boolean> = _editorialOnly.asStateFlow()
-
-    private val _mainTrait = MutableStateFlow<String?>(null)
-    val mainTraitFilter: StateFlow<String?> = _mainTrait.asStateFlow()
-
-    // 목록 검색 줄의 조건(칩)과 치는 중인 글자. 오버레이의 조건과는 따로 둔다(오버레이는 창 안에서 기억한다).
-    // [decks] 가 이 값을 읽으므로 그보다 먼저 선언한다.
-    private val _listTokens = MutableStateFlow<List<DeckToken>>(emptyList())
-    val listTokens: StateFlow<List<DeckToken>> = _listTokens.asStateFlow()
+    // 목록 검색 줄의 조건(칩)도 저장한다. 오버레이의 조건과는 따로 둔다(오버레이는 창 안에서 기억한다).
+    // 치는 중인 글자는 저장하지 않는다. [decks] 가 이 값을 읽으므로 그보다 먼저 선언한다.
+    val listTokens: StateFlow<List<DeckToken>> = prefs.listTokens
 
     private val _listQuery = MutableStateFlow("")
     val listQuery: StateFlow<String> = _listQuery.asStateFlow()
@@ -170,7 +174,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         val showHidden: Boolean,
     )
 
-    private val filterSpec = combine(_tierFilter, _levelFilter, _onlyChina, _editorialOnly, _mainTrait) { t, l, c, e, m ->
+    private val filterSpec = combine(prefs.tiers, prefs.levels, prefs.onlyChina, prefs.editorialOnly, prefs.mainTrait) { t, l, c, e, m ->
         FilterSpec(t, l, c, e, m)
     }
 
@@ -190,7 +194,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
      * 등급 조회 조건은 건너뛴다(직접 고른 덱이 기본 조건 때문에 사라지지 않게).
      */
     val decks: StateFlow<List<Deck>> =
-        combine(engine, filterSpec, listPrefs, _listTokens, prefs.grades) { search, filter, list, tokens, grades ->
+        combine(engine, filterSpec, listPrefs, prefs.listTokens, prefs.grades) { search, filter, list, tokens, grades ->
             if (search == null) return@combine emptyList()
             val filtered = search.filter(
                 tiers = filter.tiers,
@@ -210,7 +214,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     /** 검색 줄 후보. 후보마다 지금 목록에 그 조건을 더했을 때 남는 덱 수를 센다. */
     val listCandidates: StateFlow<List<TokenCandidate>> =
-        combine(engine, _listQuery, _listTokens, decks) { search, text, tokens, current ->
+        combine(engine, _listQuery, prefs.listTokens, decks) { search, text, tokens, current ->
             search?.suggestTokens(text, tokens, within = current, limit = LIST_CANDIDATES).orEmpty()
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
@@ -220,16 +224,17 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     /** 후보를 고르면 조건으로 쌓고 치던 글자를 비운다. 같은 조건은 두 번 쌓지 않는다. */
     fun addListToken(token: DeckToken) {
-        if (_listTokens.value.none { it.key == token.key }) _listTokens.value = _listTokens.value + token
+        val tokens = prefs.listTokens.value
+        if (tokens.none { it.key == token.key }) prefs.setListTokens(tokens + token)
         _listQuery.value = ""
     }
 
     fun removeListToken(token: DeckToken) {
-        _listTokens.value = _listTokens.value.filterNot { it.key == token.key }
+        prefs.setListTokens(prefs.listTokens.value.filterNot { it.key == token.key })
     }
 
     fun clearListTokens() {
-        _listTokens.value = emptyList()
+        prefs.setListTokens(emptyList())
         _listQuery.value = ""
     }
 
@@ -262,40 +267,36 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     fun toggleTier(tier: String) {
-        _tierFilter.value = _tierFilter.value.toggle(tier)
+        prefs.setTiers(prefs.tiers.value.toggle(tier))
     }
 
     fun toggleLevel(level: Int) {
-        _levelFilter.value = _levelFilter.value.toggle(level)
+        prefs.setLevels(prefs.levels.value.toggle(level))
     }
 
     fun toggleOnlyChina() {
-        _onlyChina.value = !_onlyChina.value
+        prefs.setOnlyChina(!prefs.onlyChina.value)
     }
 
     fun toggleEditorialOnly() {
-        _editorialOnly.value = !_editorialOnly.value
+        prefs.setEditorialOnly(!prefs.editorialOnly.value)
     }
 
     /** 주 특성은 하나만 고른다. 같은 칩을 다시 누르면 해제. */
     fun toggleMainTrait(id: String) {
-        _mainTrait.value = if (_mainTrait.value == id) null else id
+        prefs.setMainTrait(if (prefs.mainTrait.value == id) null else id)
     }
 
+    /** 조회 조건 초기화: 필터·등급(기본 S·A·B)·검색 칩·숨긴 덱 보기를 처음 상태로. 구간·정렬은 그대로다. */
     fun clearFilters() {
-        _tierFilter.value = emptySet()
-        _levelFilter.value = emptySet()
-        _onlyChina.value = false
-        _editorialOnly.value = false
-        _mainTrait.value = null
-        prefs.setShowHidden(false)
-        prefs.setGrades(DeckKeys.GRADE_FILTER_DEFAULT)
+        prefs.resetQuery()
+        _listQuery.value = ""
     }
 
     val hasActiveFilter: StateFlow<Boolean> =
-        combine(filterSpec, prefs.showHidden, prefs.grades) { f, showHidden, grades ->
+        combine(filterSpec, prefs.showHidden, prefs.grades, prefs.listTokens) { f, showHidden, grades, tokens ->
             f.tiers.isNotEmpty() || f.levels.isNotEmpty() || f.onlyChina || f.editorialOnly ||
-                f.mainTrait != null || showHidden || grades != DeckKeys.GRADE_FILTER_DEFAULT
+                f.mainTrait != null || showHidden || grades != DeckKeys.GRADE_FILTER_DEFAULT || tokens.isNotEmpty()
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     // -- 검색 ---------------------------------------------------------------

@@ -305,11 +305,13 @@ private fun FilterBar(viewModel: AppViewModel, feed: DeckFeed, assetBase: String
         horizontalArrangement = Arrangement.spacedBy(6.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        if (hasFilter) {
+        // 조회 조건 초기화. 늘 같은 자리에 두고, 되돌릴 조건이 없으면 흐리게 막아 둔다.
+        run {
             FilterChip(
                 selected = false,
+                enabled = hasFilter,
                 onClick = viewModel::clearFilters,
-                label = { Text("초기화") },
+                label = { Text("조건 초기화") },
                 leadingIcon = {
                     Icon(Icons.Default.FilterAltOff, null, Modifier.size(15.dp))
                 },
