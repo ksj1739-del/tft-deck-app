@@ -122,7 +122,8 @@ fun DeckCardV2(
                 UnitsLine(deck, assetBase, highlightUnit)
                 // v1 피드(구간 없음)에는 수치가 하나도 없어 '-' 네 칸만 남는다. 그때는 줄을 뺀다.
                 if (buckets.isNotEmpty()) StatsRow(stats)
-                SampleLabel(deck, bucket, buckets)
+                // 표본·출처 줄(n=… · 구간 · 출처 · KR 참고)은 카드에서 뺀다. 덱을 고르는 데 쓰지 않는 정보라
+                // 사용자가 '굳이 싶은 정보'로 짚었다. 상세 화면에는 남아 있다.
 
                 if (deck.variants.size >= 2) {
                     Text(
