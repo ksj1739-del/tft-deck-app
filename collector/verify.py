@@ -11,6 +11,7 @@ decks.json(v2)이 앱에 내보내도 되는 상태인지 검사한다.
 import io
 import json
 import os
+import re
 import sys
 
 # Windows 콘솔(cp949)에서 한글/기호 출력 시 죽지 않도록.
@@ -41,8 +42,9 @@ MIN_CLUSTERS = 30
 MIN_AUGMENT_SHARE = 0.5
 MIN_CHAMPION_JOIN = 0.90
 
-# 이 원본이 빠지면 목록 자체가 달라지므로 배포하지 않는다.
-REQUIRED_SOURCES = ("lolqq", "lolqqWinrate", "lolqqStatic", "namesKo")
+# 이 원본이 빠지면 목록 자체가 달라지므로 배포하지 않는다. 2026-09-19 부터 목록의 주는 metatft 조합 덱이라
+# metatft 클러스터·구간 통계도 필수다(빠지면 조합 덱 없이 lol.qq 덱만 남는다).
+REQUIRED_SOURCES = ("lolqq", "lolqqWinrate", "lolqqStatic", "namesKo", "metatft", "metatftBuckets")
 
 SCOPE_MEAN = 4.5
 SCOPE_MEAN_TOLERANCE = 0.05
@@ -68,6 +70,20 @@ MIN_GRADED_SHARE = 0.70
 # 기본 구간이 아닌 구간은 등급 붙은 그룹이 이만큼은 돼야 S 비율 초과를 실패로 본다.
 MIN_S_GATE_GROUPS = 10
 
+# metatft 조합 덱(kind=meta) 등급: 사이트 고정 컷('<'). 실린 avg(소수 넷째 자리)로 다시 매길 때 컷과의 차이가
+# 이보다 작으면 반올림 몫으로 보고 봐준다.
+META_GRADE_CUTS = (("S", 4.25), ("A", 4.5), ("B", 4.75), ("C", 5.0))
+META_CUT_TOLERANCE = 0.0001
+META_LOBBY_SIZE = 8
+META_ID = re.compile(r"^m-[0-9a-f]{10}(-\d+)?$")
+# 중국 한정 덱 등급(buckets[b].chinaGrade): 구간마다 대상(n ≥ lol.qq minSample)을 adjAvg 순으로 세워 앞 절반 S · 나머지 A.
+CHINA_GRADE_METHOD = "halfSA"
+# 편집 덱 등급 순서(deck_merge.EDITORIAL_TIER_ORDER). 통계 등급이 없는 중국 한정 덱의 tierOrder 다.
+EDITORIAL_TIER_ORDER = {"SS": 0, "S": 1, "A": 2, "B": 3, "C": 4, "D": 5}
+# 다른 플레이어를 알아볼 수 있는 식별자. 출력 어디에도 이 키가 있으면 안 된다(공개 저장소).
+PLAYER_KEYS = {"puuid", "riotid", "riot_id", "gamename", "game_name", "tagline", "tag_line", "summonername",
+               "summoner_name", "summonerid", "summoner_id", "procomps", "pro_comps"}
+
 
 def feasible(avg, win, top4, tolerance):
     """평균 등수가 1등·TOP4 비율로 가능한 범위 안인가(1등 외 TOP4 는 2~4등, 나머지는 5~8등)."""
@@ -84,6 +100,41 @@ def expected_grade(stat, cuts):
         if stat["adjAvg"] <= cuts[grade]:
             return grade
     return "D"
+
+
+def meta_grade_ok(stat, cuts):
+    """
+    조합 덱 구간 등급을 실린 기준(metaGradeCuts)으로 다시 매겨 맞는지. 표본 문턱·사이트 최소 픽률(로비당 인원) 미만이면
+    등급이 없어야 하고, 아니면 avg 에 '<' 컷. 실린 avg 가 컷과 META_CUT_TOLERANCE 안이면 이웃한 두 등급 모두 받는다.
+    반환 (맞음, 기대 등급).
+    """
+    n, avg, boards = stat.get("n") or 0, stat.get("avg"), cuts.get("boards") or 0
+    if avg is None or n < cuts["minSample"] or not boards or n * META_LOBBY_SIZE / float(boards) < cuts["minPlayrate"]:
+        return stat.get("grade") is None, None
+    expected = next((g for g, _ in META_GRADE_CUTS if avg < cuts[g]), "D")
+    if stat.get("grade") == expected:
+        return True, expected
+    near = [g for g, _ in META_GRADE_CUTS if abs(avg - cuts[g]) < META_CUT_TOLERANCE]
+    if near:
+        order = "SABCD"
+        allowed = {near[0], order[order.index(near[0]) + 1]}
+        return stat.get("grade") in allowed, expected
+    return False, expected
+
+
+def player_keys(node, path=""):
+    """출력 JSON 에서 다른 플레이어 식별자 키(PLAYER_KEYS)가 있는 경로들."""
+    found = []
+    if isinstance(node, dict):
+        for key, value in node.items():
+            child = "%s.%s" % (path, key) if path else str(key)
+            if str(key).lower() in PLAYER_KEYS:
+                found.append(child)
+            found.extend(player_keys(value, child))
+    elif isinstance(node, list):
+        for value in node:
+            found.extend(player_keys(value, path + "[]"))
+    return found
 
 
 def main():
@@ -124,6 +175,18 @@ def main():
     ids = [d.get("id") for d in decks]
     if len(set(ids)) != len(ids):
         problems.append("덱 id 가 중복된다")
+    # 목록에서 글만 읽고 덱을 고르므로 긴 이름·별칭이 겹치거나 비면 안 된다.
+    for field in ("name", "alias"):
+        values = [d.get(field) for d in decks]
+        empty = [d.get("id") for d in decks if not str(d.get(field) or "").strip()]
+        if empty:
+            problems.append("%s 가 빈 덱 %d개: %s" % (field, len(empty), empty[:5]))
+        dup = sorted({v for v in values if v and values.count(v) > 1})
+        if dup:
+            problems.append("%s 가 겹치는 덱: %s" % (field, dup[:5]))
+    no_summary = [d.get("id") for d in decks if not str(d.get("summary") or "").strip()]
+    if no_summary:
+        problems.append("summary 가 빈 덱 %d개: %s" % (len(no_summary), no_summary[:5]))
 
     for deck in decks:
         label = deck.get("name") or deck.get("id")
@@ -144,10 +207,17 @@ def main():
                 problems.append("덱 '%s' 코드 길이가 %d (기대 %d)"
                                 % (label, len(code), TEAM_CODE_LENGTH))
 
-    only_china = sum(1 for d in decks if (d.get("metatft") or {}).get("onlyInChina"))
+    # 앱과 같은 판정(sources.onlyInChina 또는 metatft.onlyInChina)으로 센다.
+    only_china = sum(1 for d in decks
+                     if (d.get("sources") or {}).get("onlyInChina") or (d.get("metatft") or {}).get("onlyInChina"))
     if only_china != version.get("onlyInChinaCount"):
         problems.append("onlyInChinaCount %s 와 실제 중국 한정 덱 %d개가 다르다"
                         % (version.get("onlyInChinaCount"), only_china))
+
+    # 출력에 다른 플레이어 식별자(puuid·riotId·gameName·tagLine 등)나 proComps 가 있으면 안 된다(공개 저장소).
+    leaked = player_keys(data)
+    if leaked:
+        problems.append("다른 플레이어 식별자 키가 출력에 있다: %s" % sorted(set(leaked))[:5])
 
     # --- 원본 상태 · 빈 응답 ------------------------------------------------
     sources = version.get("sources") or {}
@@ -164,10 +234,18 @@ def main():
     editorial_count = version.get("editorialCount") or 0
     if editorial_count < MIN_EDITORIAL:
         problems.append("편집 덱이 %d개뿐이다 (최소 %d)" % (editorial_count, MIN_EDITORIAL))
-    # 수집한 편집 덱은 전부 앱에서 닿아야 한다: 덱의 editorial 이거나 그룹의 moreEditorials.
+    # editorialCount 는 앱이 닿는 편집 덱 수(덱의 editorial + moreEditorials)다. 수집한 편집 덱은 전부 닿거나,
+    # 조합 덱에 합쳐진 대표 아닌 그룹의 것이라 잇지 않은 것(collector.editorialUnlinked)이어야 한다.
     reachable = sum((1 if d.get("editorial") else 0) + len(d.get("moreEditorials") or []) for d in decks)
     if reachable != editorial_count:
-        problems.append("편집 덱 %d개 중 앱이 닿는 것은 %d개(editorial + moreEditorials)" % (editorial_count, reachable))
+        problems.append("editorialCount %d 와 앱이 닿는 편집 덱 %d개(editorial + moreEditorials)가 다르다"
+                        % (editorial_count, reachable))
+    unlinked = diag.get("editorialUnlinked") or []
+    parsed = diag.get("editorialParsed")
+    if parsed is not None and reachable + len(unlinked) != parsed:
+        problems.append("수집한 편집 덱 %s개 = 앱 연결 %d + 잇지 않음 %d 가 맞지 않는다" % (parsed, reachable, len(unlinked)))
+    if unlinked:
+        warnings.append("조합 덱의 대표가 아닌 그룹에 붙어 잇지 않은 편집 덱 %d개: %s" % (len(unlinked), ", ".join(unlinked)))
     goldem_rows = ((diag.get("winrate") or {}).get("goldem") or {}).get("variants") or 0
     if goldem_rows < MIN_GOLDEM_VARIANTS:
         problems.append("胜率阵容 골드~에메랄드 조합이 %d개뿐이다 (최소 %d)" % (goldem_rows, MIN_GOLDEM_VARIANTS))
@@ -202,46 +280,127 @@ def main():
         if known / float(len(variant_units)) < MIN_CHAMPION_JOIN:
             problems.append("변형 유닛 중 catalog 챔피언으로 풀린 비율 %.0f%%" % (100.0 * known / len(variant_units)))
 
-    # --- metatft 전용 덱(kind=global) ---------------------------------------------
-    # lol.qq 에 매칭되지 않은 metatft 클러스터. 보드 유닛이 catalog 챔피언으로 풀리고 덱 코드와 글로벌 등급이 있어야
-    # 앱이 '글로벌' 표시로 그린다. 등급은 실린 기준(globalGradeCuts)으로 다시 매겨 맞춰 본다.
-    global_decks = [d for d in decks if d.get("kind") == "global"]
-    # 전용 덱은 lol.qq 에 없는 덱이다. 캐리·시너지 구성(이름)이 이미 있는 덱과 같으면 목록에 두 번 보인다.
-    deck_names = [d.get("name") for d in decks]
-    for deck in global_decks:
-        if deck_names.count(deck.get("name")) > 1:
-            problems.append("metatft 전용 덱 %s 이름이 다른 덱과 겹친다: %s" % (deck.get("id"), deck.get("name")))
-    if (version.get("globalOnlyCount") or 0) != len(global_decks):
-        problems.append("globalOnlyCount %s 와 실제 metatft 전용 덱 %d개가 다르다"
-                        % (version.get("globalOnlyCount"), len(global_decks)))
-    global_cuts = data.get("globalGradeCuts") or {}
-    if global_decks and any(not isinstance(global_cuts.get(k), (int, float)) for k in ("S", "A", "B", "C", "minSample")):
-        problems.append("metatft 전용 덱이 있는데 globalGradeCuts 가 없거나 깨졌다: %s" % global_cuts)
-        global_cuts = {}
-    for deck in global_decks:
+    # --- metatft 조합 덱(kind=meta) -------------------------------------------------
+    # 목록의 주. 구간별 수치·등급은 metatft comps_stats 이고, 등급은 사이트 고정 컷(반올림 전 평균 등수 '<')이다.
+    # 실린 기준(buckets[b].metaGradeCuts)으로 다시 매겨 맞춰 보고, 분포는 출력만 한다(고정 컷이라 구간마다 모양이 다르다).
+    meta_decks = [d for d in decks if d.get("kind") == "meta"]
+    china_decks = [d for d in decks if d.get("kind") != "meta"]
+    if any(d.get("kind") == "global" for d in decks) or (version.get("globalOnlyCount") or 0) != 0:
+        problems.append("예전 metatft 전용 덱(kind=global)이 남았거나 globalOnlyCount 가 0 이 아니다")
+    if data.get("globalGradeCuts") is not None:
+        problems.append("globalGradeCuts 는 더 싣지 않는다")
+    if not meta_decks:
+        problems.append("metatft 조합 덱(kind=meta)이 하나도 없다")
+    if version.get("metaCompCount") != len(meta_decks):
+        problems.append("metaCompCount %s 와 실제 조합 덱 %d개가 다르다" % (version.get("metaCompCount"), len(meta_decks)))
+
+    meta_cuts = {}
+    for key in BUCKET_ORDER:
+        cuts = (buckets.get(key) or {}).get("metaGradeCuts")
+        if cuts is None:
+            problems.append("구간 %s 에 metaGradeCuts 가 없다" % key)
+            continue
+        broken = (cuts.get("method") != "absolute"
+                  or any(cuts.get(g) != cut for g, cut in META_GRADE_CUTS)
+                  or not isinstance(cuts.get("minSample"), int) or not isinstance(cuts.get("minPlayrate"), (int, float))
+                  or not isinstance(cuts.get("boards"), int) or cuts["boards"] <= 0
+                  or not isinstance(cuts.get("ranks"), str))
+        if broken:
+            problems.append("구간 %s metaGradeCuts 가 깨졌다: %s" % (key, cuts))
+            continue
+        # permit_filter_adjustment=false 로 받았으니 서버가 필터를 넓힌 흔적이 있으면 안 된다. 응답에 블록이 없으면 None 으로 기록된다.
+        if "filterAdjustment" not in cuts:
+            problems.append("구간 %s 요청의 filter_adjustment 기록이 없다" % key)
+        else:
+            adjustment = cuts["filterAdjustment"]
+            if adjustment and (not isinstance(adjustment, dict) or adjustment.get("override_applied")
+                               or adjustment.get("adjusted") or adjustment.get("applied")):
+                problems.append("구간 %s metatft 요청이 넓혀졌다(filter_adjustment %s)" % (key, adjustment))
+        meta_cuts[key] = cuts
+
+    for deck in meta_decks:
         label = deck.get("id")
-        grade = deck.get("globalGrade")
-        stat = ((deck.get("global") or {}).get("stats") or {}).get("glob_plat") or {}
-        if grade not in ("S", "A", "B", "C", "D"):
-            problems.append("metatft 전용 덱 %s 에 globalGrade 가 없다(%s)" % (label, grade))
-        elif deck.get("tier") != grade:
-            problems.append("metatft 전용 덱 %s tier %s 가 globalGrade %s 와 다르다" % (label, deck.get("tier"), grade))
-        elif global_cuts:
-            if (stat.get("n") or 0) < global_cuts["minSample"] or stat.get("avg") is None:
-                problems.append("metatft 전용 덱 %s glob_plat 표본 %s 가 문턱 %s 미만이다"
-                                % (label, stat.get("n"), global_cuts["minSample"]))
-            elif grade != next((g for g in "SABC" if stat["avg"] <= global_cuts[g]), "D"):
-                problems.append("metatft 전용 덱 %s globalGrade %s 가 기준으로 다시 매긴 등급과 다르다(avg %s)"
-                                % (label, grade, stat["avg"]))
+        if not META_ID.match(str(label or "")):
+            problems.append("조합 덱 id 형식이 다르다: %s" % label)
+        cluster = deck.get("metaCluster")
+        if not isinstance(cluster, int) or (deck.get("global") or {}).get("cluster") != cluster:
+            problems.append("조합 덱 %s metaCluster %s 가 정수가 아니거나 global.cluster 와 다르다" % (label, cluster))
+        block = deck.get("metatft") or {}
+        if block.get("similarity") != 1.0 or block.get("onlyInChina") or not block.get("compared") or not block.get("matchedComp"):
+            problems.append("조합 덱 %s metatft 블록이 계약과 다르다: %s" % (label, block))
+        stats = deck.get("stats") or {}
+        graded = {key: s.get("grade") for key, s in stats.items() if s.get("grade")}
+        if not graded:
+            problems.append("조합 덱 %s 는 어느 구간에도 등급이 없다" % label)
+        for key, stat in stats.items():
+            cuts = meta_cuts.get(key)
+            if not cuts:
+                continue
+            ok, want = meta_grade_ok(stat, cuts)
+            if not ok:
+                problems.append("조합 덱 %s 구간 %s 등급 %s 가 metaGradeCuts 로 다시 매긴 %s 와 다르다(n %s · avg %s)"
+                                % (label, key, stat.get("grade"), want, stat.get("n"), stat.get("avg")))
+            if stat.get("adjAvg") != stat.get("avg"):
+                problems.append("조합 덱 %s 구간 %s adjAvg 가 avg 와 다르다" % (label, key))
+            if stat.get("pick") is None or abs(stat["pick"] - (stat.get("n") or 0) / float(cuts["boards"])) > 0.00006:
+                problems.append("조합 덱 %s 구간 %s pick %s 가 n/전체 보드와 다르다" % (label, key, stat.get("pick")))
+        if graded:
+            want_tier = graded.get("goldem") or min(graded.values(), key="SABCD".index)
+            if deck.get("tier") != want_tier or deck.get("tierOrder") != "SABCD".index(want_tier):
+                problems.append("조합 덱 %s tier %s/%s 가 기본 구간(없으면 최고) 등급 %s 와 다르다"
+                                % (label, deck.get("tier"), deck.get("tierOrder"), want_tier))
         units = deck.get("units") or []
-        unknown = sorted({str(u.get("id")) for u in units if u.get("id") not in champion_ids})
+        unknown = sorted({str(u.get("id")) for u in units if u.get("id") not in unit_ids})
         if not units or unknown:
-            problems.append("metatft 전용 덱 %s 보드가 비었거나 catalog 챔피언에 없는 유닛: %s" % (label, unknown))
+            problems.append("조합 덱 %s 보드가 비었거나 catalog 에 없는 유닛: %s" % (label, unknown))
         if not (deck.get("teamCode") or {}).get("code"):
-            problems.append("metatft 전용 덱 %s 에 덱 코드가 없다" % label)
-    if global_decks:
-        print("metatft 전용 덱 %d개 · 글로벌 등급 %s"
-              % (len(global_decks), {g: sum(1 for d in global_decks if d.get("globalGrade") == g) for g in "SABCD"}))
+            problems.append("조합 덱 %s 에 덱 코드가 없다" % label)
+    for key in BUCKET_ORDER:
+        grades = [((d.get("stats") or {}).get(key) or {}).get("grade") for d in meta_decks]
+        print("metatft 등급(%s): %s · 등급 %d/%d · rank %s · 보드 %s"
+              % (key, {g: grades.count(g) for g in "SABCD"}, sum(1 for g in grades if g), len(grades),
+                 (meta_cuts.get(key) or {}).get("ranks"), (meta_cuts.get(key) or {}).get("boards")))
+
+    # --- 중국 한정 덱 · lol.qq 그룹 배정 ---------------------------------------------
+    # 조합 덱에 합쳐지지 않은 lol.qq 그룹·편집 독립 덱. 다른 조합의 metatft 수치를 보여 주지 않도록 global 을 떼어 낸다.
+    compared = (version.get("sources") or {}).get("metatft") == "ok" and (version.get("sources") or {}).get("metatftBuckets") == "ok"
+    for deck in china_decks:
+        label = deck.get("id")
+        if deck.get("global") or (deck.get("buildup") or {}).get("global"):
+            problems.append("중국 한정 덱 %s 에 metatft global·buildup.global 이 남았다" % label)
+        block = deck.get("metatft") or {}
+        if block.get("matchedComp"):
+            problems.append("중국 한정 덱 %s 에 matchedComp 가 남았다: %s" % (label, block.get("matchedComp")))
+        if compared and not (block.get("onlyInChina") and (deck.get("sources") or {}).get("onlyInChina")):
+            problems.append("중국 한정 덱 %s 에 중국 한정 표시(onlyInChina)가 없다" % label)
+        # tier 는 기본 구간 등급(halfSA 라 S/A), 없으면 편집 등급, 둘 다 없으면 빈 문자열(deck_merge.tier_fields).
+        grade = ((deck.get("stats") or {}).get("goldem") or {}).get("grade")
+        editorial_tier = deck.get("editorialTier") or ""
+        want = (grade, "SABCD".index(grade)) if grade else (
+            editorial_tier, EDITORIAL_TIER_ORDER.get(editorial_tier, 9) if editorial_tier else 9)
+        if (deck.get("tier"), deck.get("tierOrder")) != want:
+            problems.append("중국 한정 덱 %s tier %s/%s 가 기본 구간 등급(없으면 편집 등급) %s/%s 와 다르다"
+                            % (label, deck.get("tier"), deck.get("tierOrder"), want[0], want[1]))
+    # 모든 lol.qq 그룹·편집 독립 덱이 정확히 한 덱(조합 덱의 mergedGroups 또는 중국 한정 덱 자신)에 있어야 한다.
+    universe = (diag.get("merge") or {}).get("lolqqDecks")
+    if not universe:
+        problems.append("collector.merge.lolqqDecks(수집한 lol.qq 덱 목록)가 없다")
+    else:
+        seen = [member for d in meta_decks for member in d.get("mergedGroups") or []] + [d.get("id") for d in china_decks]
+        missing_ids = sorted(set(universe) - set(seen))
+        extra_ids = sorted(set(seen) - set(universe))
+        twice = sorted({x for x in seen if seen.count(x) > 1})
+        if missing_ids or extra_ids or twice:
+            problems.append("lol.qq 덱 배정이 어긋난다: 빠짐 %s · 모르는 id %s · 두 번 %s" % (missing_ids[:5], extra_ids[:5], twice[:5]))
+        merged_count = sum(len(d.get("mergedGroups") or []) for d in meta_decks)
+        print("lol.qq 덱 %d개 = 조합 덱에 합침 %d(조합 덱 %d개) + 중국 한정 %d"
+              % (len(universe), merged_count, sum(1 for d in meta_decks if d.get("mergedGroups")), len(china_decks)))
+    # 상대 덱은 목록의 조합 덱만 가리킨다(목록에 없는 클러스터는 수집기가 뺀다).
+    known_ids = set(ids)
+    stray = [(d.get("id"), c.get("cluster")) for d in decks for c in ((d.get("global") or {}).get("counters") or [])
+             if c.get("deck") not in known_ids]
+    if stray:
+        problems.append("목록에 없는 덱을 가리키는 불리한 상대 %d건: %s" % (len(stray), stray[:3]))
 
     # --- metatft 비교 수치 ---------------------------------------------------
     for deck in decks:
@@ -269,10 +428,12 @@ def main():
         warnings.append("metatft comp_details 를 %s/%s 클러스터만 받았다" % (comp.get("fetched"), comp["clusters"]))
 
     # --- lol.qq 수치 가능 범위 -------------------------------------------------
+    # 조합 덱의 lol.qq 수치는 cnStats(대표 그룹 것)에 있다. 조합 덱 stats(metatft)는 등수 분포에서 계산해 늘 맞는다.
     impossible = 0
     for deck in decks:
-        blocks = [(s, WINRATE_TOLERANCE) for s in (deck.get("stats") or {}).values()]
-        blocks += [(s["precise"], PRECISE_TOLERANCE) for s in (deck.get("stats") or {}).values() if s.get("precise")]
+        lolqq = deck.get("cnStats") if deck.get("kind") == "meta" else deck.get("stats")
+        blocks = [(s, WINRATE_TOLERANCE) for s in (lolqq or {}).values()]
+        blocks += [(s["precise"], PRECISE_TOLERANCE) for s in (lolqq or {}).values() if s.get("precise")]
         for variant in deck.get("variants") or []:
             blocks += [(s, WINRATE_TOLERANCE) for s in (variant.get("stats") or {}).values()]
             blocks += [(s, PRECISE_TOLERANCE) for s in (variant.get("precise") or {}).values()]
@@ -289,12 +450,24 @@ def main():
     if no_pick:
         problems.append("픽률이 없는 변형 수치 %d건" % no_pick)
 
-    # --- 등급 분포 ---------------------------------------------------------
-    # 등급 기준은 구간마다 그 구간 분포로 잡아 buckets[b].gradeCuts 에 싣는다. 실린 기준으로 등급을 다시 매겨
-    # 맞춰 보고, 구간마다 S 비율과 '통계가 있는 그룹 중 등급이 붙은 비율'을 본다.
+    # --- lol.qq 등급 --------------------------------------------------------------
+    # lol.qq 기준(buckets[b].gradeCuts: 표본 문턱·보정 강도·백분위 컷)은 구간마다 lol.qq 그룹 전체 분포로 잡는다.
+    # 그 기준의 adjAvg 는 중국 한정 그룹 덱 stats 와 조합 덱 cnStats(대표 그룹 것)에 있고, 백분위 등급이 실리는 곳은
+    # cnStats(참고용)뿐이다. 중국 한정 덱 등급은 halfSA(buckets[b].chinaGrade)라 따로 다시 매겨 본다.
+    # 분포 검사(S 비율·역전·등급 비율)는 예전처럼 lol.qq 쪽 전체(중국 한정 + cnStats)의 백분위 등급으로 본다 —
+    # 중국 한정 덱의 백분위 등급은 실린 기준으로 다시 매긴 값이다(분포 검사는 lol.qq 쪽에만).
     group_decks = [d for d in decks if d.get("kind") == "group"]
-    if not any(((d.get("stats") or {}).get("goldem") or {}).get("grade") for d in group_decks):
-        problems.append("골드~에메랄드 등급이 하나도 없다")
+
+    def lolqq_rows(key):
+        """[(구간 수치, 실린 등급이 백분위인가)] — 중국 한정 그룹 덱 stats(halfSA) + 조합 덱 cnStats(백분위)."""
+        rows = [((d.get("stats") or {}).get(key), False) for d in group_decks]
+        rows += [((d.get("cnStats") or {}).get(key), True) for d in meta_decks]
+        return [(s, percentile_graded) for s, percentile_graded in rows if s]
+
+    if not any(s.get("grade") for s, _ in lolqq_rows("goldem")):
+        problems.append("lol.qq 골드~에메랄드 등급이 하나도 없다")
+    if not any(((d.get("stats") or {}).get("goldem") or {}).get("grade") for d in meta_decks):
+        problems.append("metatft 골드~에메랄드 등급이 하나도 없다")
     for key in BUCKET_ORDER:
         if key not in buckets:
             continue
@@ -304,12 +477,35 @@ def main():
                 not isinstance(cuts.get(k), (int, float)) for k in GRADE_CUT_KEYS):
             problems.append("구간 %s 등급 기준(gradeCuts)이 없거나 깨졌다: %s" % (key, cuts))
             continue
-        stats = [s for s in ((d.get("stats") or {}).get(key) for d in group_decks) if s]
-        grades = [s.get("grade") for s in stats]
+        rows = lolqq_rows(key)
+        stats = [s for s, _ in rows]
+        grades = [expected_grade(s, cuts) for s in stats]
         with_grade = [g for g in grades if g]
-        mismatched = sum(1 for s in stats if s.get("grade") != expected_grade(s, cuts))
+        mismatched = sum(1 for s, percentile_graded in rows if percentile_graded and s.get("grade") != expected_grade(s, cuts))
         if mismatched:
-            problems.append("구간 %s 등급 %d건이 실린 기준(gradeCuts)으로 다시 매긴 등급과 다르다" % (key, mismatched))
+            problems.append("구간 %s 조합 덱 cnStats 등급 %d건이 실린 기준(gradeCuts)으로 다시 매긴 등급과 다르다"
+                            % (key, mismatched))
+
+        # 중국 한정 덱 halfSA: 대상 = stats[b] 가 있고 n ≥ lol.qq minSample. adjAvg 오름차순(같으면 n 큰 쪽, 그다음 id)
+        # 앞 floor(k/2) 개 S, 나머지 A, 대상 밖 null. 편집 독립 덱은 lol.qq 수치가 없어 늘 대상 밖이다.
+        china = meta.get("chinaGrade") or {}
+        eligible = sorted((d for d in china_decks
+                           if ((d.get("stats") or {}).get(key) or {}).get("adjAvg") is not None
+                           and (d["stats"][key].get("n") or 0) >= cuts["minSample"]),
+                          key=lambda d: (d["stats"][key]["adjAvg"], -d["stats"][key]["n"], d.get("id") or ""))
+        k = len(eligible)
+        want_grade = dict((d.get("id"), "S" if rank < k // 2 else "A") for rank, d in enumerate(eligible))
+        if (china.get("method"), china.get("minSample"), china.get("eligible"), china.get("S"), china.get("A")) != (
+                CHINA_GRADE_METHOD, cuts["minSample"], k, k // 2, k - k // 2):
+            problems.append("구간 %s 중국 한정 등급 기록(chinaGrade) %s 가 규칙(halfSA · 표본≥%s · 대상 %d · S %d · A %d)과 다르다"
+                            % (key, china, cuts["minSample"], k, k // 2, k - k // 2))
+        wrong = [d.get("id") for d in china_decks if (d.get("stats") or {}).get(key)
+                 and d["stats"][key].get("grade") != want_grade.get(d.get("id"))]
+        if wrong:
+            problems.append("구간 %s 중국 한정 덱 등급 %d건이 halfSA(adjAvg 순 앞 절반 S · 나머지 A · 대상 밖 null)와 다르다: %s"
+                            % (key, len(wrong), wrong[:5]))
+        print("중국 한정 등급(%s): 대상 %d(표본≥%s) → S %d · A %d"
+              % (meta.get("label") or key, k, cuts["minSample"], k // 2, k - k // 2))
         # adjAvg 는 실린 shrinkK·shrinkTo 로 다시 계산한 값과 맞아야 한다(avg 반올림 몫만큼 허용).
         off = [s for s in stats if s.get("avg") is not None and s.get("adjAvg") is not None and abs(
             s["adjAvg"] - (s["n"] * s["avg"] + cuts["shrinkK"] * cuts["shrinkTo"]) / float(s["n"] + cuts["shrinkK"]))
@@ -317,10 +513,10 @@ def main():
         if off:
             problems.append("구간 %s adjAvg %d건이 실린 shrinkK %s · shrinkTo %s 로 다시 계산한 값과 %.2f 넘게 다르다"
                             % (key, len(off), cuts["shrinkK"], cuts["shrinkTo"], ADJ_AVG_TOLERANCE))
-        # 원평균이 0.3등 이상 좋은데 등급이 더 낮은 쌍(보정이 판수 적은 좋은 덱을 뒤집는 신호).
-        ranked = [s for s in stats if s.get("grade") and s.get("avg") is not None]
-        inverted = sum(1 for x in ranked for y in ranked
-                       if x["avg"] <= y["avg"] - INVERSION_AVG_GAP and "SABCD".index(x["grade"]) > "SABCD".index(y["grade"]))
+        # 원평균이 0.3등 이상 좋은데 (백분위) 등급이 더 낮은 쌍(보정이 판수 적은 좋은 덱을 뒤집는 신호).
+        ranked = [(s["avg"], g) for s, g in zip(stats, grades) if g and s.get("avg") is not None]
+        inverted = sum(1 for x_avg, x_grade in ranked for y_avg, y_grade in ranked
+                       if x_avg <= y_avg - INVERSION_AVG_GAP and "SABCD".index(x_grade) > "SABCD".index(y_grade))
         if inverted:
             text = "구간 %s 원평균이 %.1f등 이상 좋은데 등급이 더 낮은 쌍 %d개" % (key, INVERSION_AVG_GAP, inverted)
             if key == "goldem":
@@ -338,7 +534,7 @@ def main():
                 else:
                     warnings.append(text)
         coverage = len(with_grade) / float(len(grades)) if grades else None
-        print("등급 분포(%s): %s · 등급 %d/%d%s · %s S≤%s A≤%s B≤%s C≤%s · 표본≥%s · K %s"
+        print("lol.qq 백분위 등급 분포(%s): %s · 등급 %d/%d%s · %s S≤%s A≤%s B≤%s C≤%s · 표본≥%s · K %s"
               % (meta.get("label") or key, {g: with_grade.count(g) for g in "SABCD"}, len(with_grade), len(grades),
                  " (%.0f%%)" % (coverage * 100) if coverage is not None else "",
                  cuts["method"], cuts["S"], cuts["A"], cuts["B"], cuts["C"], cuts["minSample"], cuts["shrinkK"]))
@@ -497,10 +693,10 @@ def main():
         print("\n검증 실패: %d건" % len(problems), file=sys.stderr)
         return 1
 
-    print("검증 통과 — 덱 %d개(그룹 %d · 편집 독립 %d · metatft 전용 %d), 패치 %s, 아이템 인덱스 %d개, 덱 코드 %d개, %.0f KB"
-          % (len(decks), sum(1 for d in decks if d.get("kind") == "group"),
-             sum(1 for d in decks if d.get("kind") == "editorial"), len(global_decks), version.get("patch"),
-             len(index.get("item") or {}), version.get("teamCodeCount", 0), size / 1024.0))
+    print("검증 통과 — 덱 %d개(metatft 조합 %d · 그중 lol.qq 합침 %d · 중국 한정 %d), 패치 %s, 아이템 인덱스 %d개, "
+          "덱 코드 %d개, %.0f KB"
+          % (len(decks), len(meta_decks), sum(1 for d in meta_decks if d.get("mergedGroups")), len(china_decks),
+             version.get("patch"), len(index.get("item") or {}), version.get("teamCodeCount", 0), size / 1024.0))
     return 0
 
 

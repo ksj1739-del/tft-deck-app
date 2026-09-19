@@ -5,9 +5,14 @@ lol.qq.com/tft 덱 데이터를 한국어로 모아 decks.json(v2)을 만든다.
 
 원천 넷을 합친다(설계 §4):
   E  편집 덱 lineup_detail_total                 — 단계별 보드·운영 텍스트·증강
-  W  胜率阵容 목록 5구간 + 상세                    — 그룹/조합, 등급의 근거가 되는 표본
+  W  胜率阵容 목록 5구간 + 상세                    — 그룹/조합, 중국 한정 덱의 등급 근거가 되는 표본
   R  数据检索器 lineup_rank(플래+ / 마스터+, 3일)  — 정밀 참고치
-  M  metatft comps_stats · comps_data · comp_details — 글로벌/KR 비교, 레벨별 빌드업
+  M  metatft comps_stats(앱 구간 5 + 비교 스코프 3) · comps_data · comp_details — 조합 덱의 수치·등급,
+     글로벌/KR 비교, 레벨별 빌드업
+
+덱 목록(2026-09-19) = metatft 조합 덱(kind=meta, 구간별 metatft 등급; 가장 비슷한 lol.qq 그룹이 있으면 그 보드·편집 덱·
+상세를 합친다) + 중국 한정 덱(어느 조합 덱에도 합쳐지지 않은 lol.qq 그룹·편집 독립 덱. 등급은 구간마다 lol.qq 보정 평균
+순으로 대상의 앞 절반 S · 나머지 A — china_half_grades).
 
 앱은 이 결과물만 받는다. 시즌이 바뀌거나 원본 스키마가 흔들려도 여기만 고치면 되고
 앱은 재배포하지 않아도 된다. v1 필드와 index 5축·catalog 4배열은 이름·의미를 유지해
@@ -1003,11 +1008,17 @@ def build_editorial_deck(editorial, ctx):
 
 
 # ----------------------------------------------------------------------------
-# metatft 전용 덱(kind=global): lol.qq 그룹·편집 덱에 매칭되지 않은 클러스터
+# metatft 조합 덱(kind=meta): 구간별 metatft 등급이 있는 클러스터 + 거기 합쳐진 lol.qq 그룹(2026-09-19 계약)
 # ----------------------------------------------------------------------------
 
 # 대표 유닛이 보드보다 많을 때 남길 수: 가장 흔한 최종 레벨(8~10 사이로 자른다).
 GLOBAL_BOARD_MIN = 8
+# lol.qq 그룹·편집 독립 덱을 가장 비슷한 조합 덱에 합치는 유사도. 이 이상이면 합치고, SIMILARITY_THRESHOLD(0.5) 이상이면
+# 덱 캐리가 그 클러스터 이름(name[] 의 unit 항목)에 있을 때만 합친다. 빌드 표본 상위 캐리는 보지 않는다
+# (423009 나무정령 이즈리얼 드레이븐에 장로 드래곤 덱이 붙던 원인).
+MERGE_STRONG = 0.7
+# 합친 덱의 대표가 아닌 변형(otherVariants) 최대 수.
+MERGED_VARIANT_LIMIT = 12
 
 
 def champion_id(dic, unit_id):
@@ -1020,38 +1031,134 @@ def champion_id(dic, unit_id):
     return next((member for member in dic.metatft_members.get(unit_id) or [] if member in dic.champions), None)
 
 
-def global_plan(clusters, glob_scope, matched_clusters):
-    """
-    metatft 전용 덱 계획 -> (globalGradeCuts, 대상 [{cluster, stat, grade}]).
-    등급 기준은 매칭·미매칭을 합친 전체 클러스터 중 glob_plat 표본이 문턱 이상인 것의 평균 등수 분위수
-    (p10/p25/p50/p75 → S/A/B/C, 그 밖 D). 대상은 그중 lol.qq 어디에도 매칭되지 않은 클러스터, 좋은 등급 → 평균 등수 순.
-    """
-    rows = []
-    for cluster in clusters:
-        raw = ((glob_scope or {}).get("clusters") or {}).get(cluster["id"])
-        stat = mt.summarize(raw["places"], raw["count"]) if raw else None
-        if stat and (stat["n"] or 0) >= mt.GLOBAL_MIN_SAMPLE:
-            rows.append((cluster, stat))
-    if len(rows) < merge.PERCENTILE_MIN_GROUPS:
-        return None, []
-    cuts = merge.percentile_cuts([stat["avg"] for _, stat in rows])
-    cuts.update(minSample=mt.GLOBAL_MIN_SAMPLE, scope=mt.GLOBAL_SCOPE, method="percentile")
-    targets = [{"cluster": cluster, "stat": stat, "grade": merge.grade_for(stat["avg"], cuts)}
-               for cluster, stat in rows if cluster["id"] not in matched_clusters]
-    targets.sort(key=lambda t: (merge.GRADE_ORDER[t["grade"]], t["stat"]["avg"], t["cluster"]["id"]))
-    return cuts, targets
+def canonical_unit(dic, space, unit_id):
+    """캐리 비교용 id: 형태·럭스 변형을 한 챔피언으로 접는다(매칭과 같은 UnitSpace). 챔피언이 아니면 None."""
+    if not unit_id:
+        return None
+    return space.canonical(champion_id(dic, unit_id) or unit_id)
 
 
-def build_global_deck(target, info, details, ctx, patch_global, updated):
+def meta_deck_ids(clusters, bucket_data):
     """
-    lol.qq 에 없는 metatft 클러스터 -> kind=global 덱(계약 2026-09-16). 보드는 대표 유닛(units_string)이고 좌표가 없다.
+    조합 덱 id = 'm-' + sha1(name_string 의 id 들을 정렬해 쉼표로 이은 문자열)[:10]. 클러스터 번호는 metatft 가 다시 묶을
+    때마다 바뀌어 고정·숨김이 풀리므로 이름 조각으로 만든다(번호는 deck.metaCluster). 같은 이름의 클러스터가 둘 이상이면
+    전체 구간 표본이 가장 큰 것만 그대로 두고 나머지는 뒤에 '-{클러스터}' 를 붙인다.
+    """
+    def base(cluster):
+        tokens = sorted(mt.split_ids(cluster["name"])) or [cluster["id"]]
+        return "m-" + hashlib.sha1(",".join(tokens).encode("utf-8")).hexdigest()[:10]
+
+    def sample(cluster):
+        row = ((bucket_data.get("all") or {}).get("clusters") or {}).get(cluster["id"]) or {}
+        return sum(row.get("places") or [])
+
+    out, taken = {}, set()
+    for cluster in sorted(clusters, key=lambda c: (-sample(c), to_int(c["id"], 0))):
+        did = base(cluster)
+        if did in taken:
+            did = "%s-%s" % (did, cluster["id"])
+        taken.add(did)
+        out[cluster["id"]] = did
+    return out
+
+
+def merge_decision(deck, cluster, score, listed, dic, space):
+    """
+    lol.qq 덱 하나를 가장 비슷한 클러스터(지금 매칭 코드의 값)에 합칠지 -> (합침, 사유).
+    합침: 'strong'(유사도 0.7 이상) · 'carry'(0.5 이상 0.7 미만이고 덱 캐리가 클러스터 이름의 유닛).
+    중국 한정: 'unmatched'(최고 유사도 0.5 미만) · 'weak'(0.5 이상 0.7 미만인데 캐리가 이름에 없다)
+              · 'unlisted'(합칠 만한데 그 클러스터가 조합 덱 목록에 없다).
+    """
+    if cluster is None or score < SIMILARITY_THRESHOLD:
+        return False, "unmatched"
+    if score >= MERGE_STRONG:
+        reason = "strong"
+    else:
+        carry = canonical_unit(dic, space, deck.get("carryId"))
+        named = {canonical_unit(dic, space, name) for name, kind in cluster["nameParts"] if kind in ("unit", "")}
+        if not carry or carry not in named:
+            return False, "weak"
+        reason = "carry"
+    if cluster["id"] not in listed:
+        return False, "unlisted"
+    return True, reason
+
+
+def merged_variants(rep_group, groups, dic, static, linked):
+    """
+    합친 덱의 변형: 대표 그룹의 대표 변형이 대표이고, 나머지는 합쳐진 그룹들의 변형을 같은 id 면 표본 큰 쪽만 남겨
+    기본 구간 n 내림차순(같으면 전 구간 n)으로 최대 MERGED_VARIANT_LIMIT 개. 잇지 않은 편집 덱을 가리키는 editorialId 는 뗀다.
+    """
+    rep, _ = merge.representative(rep_group)
+
+    def size(variant):
+        return (merge.use_num(variant["occ"].get(merge.DEFAULT_BUCKET)),
+                sum(merge.use_num(o) for o in variant["occ"].values()))
+
+    best = {}
+    for group in groups:
+        for variant in group["variants"].values():
+            if variant["id"] == rep["id"]:
+                continue
+            current = best.get(variant["id"])
+            if current is None or size(variant) > size(current):
+                best[variant["id"]] = variant
+    others = sorted(best.values(), key=lambda v: (-size(v)[0], -size(v)[1], v["id"]))[:MERGED_VARIANT_LIMIT]
+    out = [variant_out(v, rep["id"], dic, static) for v in [rep] + others]
+    for row in out:
+        if row.get("editorialId") and row["editorialId"] not in linked:
+            row.pop("editorialId")
+    return out
+
+
+def build_merged_deck(members, scores, works, ctx):
+    """
+    한 클러스터에 합쳐진 lol.qq 덱들 -> 조합 덱의 lol.qq 쪽 내용(보드·단계·배치·증강·아이템 착용자·핵심 유닛·cn 빌드업·
+    덱 코드·긴 이름은 대표 것). 대표 = 합쳐진 그룹 중 기본 구간 표본이 가장 큰 것(같으면 유사도가 높은 것), 그룹 없이
+    편집 독립 덱만 합쳐졌으면 그 덱. 편집 덱은 대표에 있는 것만 잇는다 — 다른 그룹 것을 빌려 오면 카드 보드(대표 보드)와
+    편집 최종 보드가 어긋난다. id·kind·등급·수치는 부르는 쪽이 metatft 값으로 채운다.
+    반환 (덱, 작업 객체, 잇지 못한 편집 덱 id 들).
+    """
+    def default_n(deck):
+        return ((deck.get("stats") or {}).get(merge.DEFAULT_BUCKET) or {}).get("n") or 0
+
+    def total_n(deck):
+        return sum((s or {}).get("n") or 0 for s in (deck.get("stats") or {}).values())
+
+    groups = [d for d in members if d["kind"] == "group"]
+    rep = max(groups or members, key=lambda d: (default_n(d), scores[d["id"]], total_n(d), d["id"]))
+    rest = sorted((d for d in members if d is not rep), key=lambda d: (-scores[d["id"]], -default_n(d), d["id"]))
+    rep_work = works[rep["id"]]
+
+    deck = dict(rep)
+    linked = {e["id"] for e in [deck.get("editorial")] + list(deck.get("moreEditorials") or []) if e}
+    unlinked = []
+    for member in rest:
+        member_work = works[member["id"]]
+        for editorial in [member_work.get("editorial")] + list(member_work.get("moreEditorials") or []):
+            if editorial and editorial["id"] not in linked:
+                unlinked.append(editorial["id"])
+    if rep_work.get("group"):
+        member_groups = [works[d["id"]]["group"] for d in [rep] + rest if works[d["id"]].get("group")]
+        deck["variants"] = merged_variants(rep_work["group"], member_groups, ctx.dic, ctx.static, linked)
+    if rep.get("stats"):
+        # 대표 그룹의 lol.qq 구간 수치(등급 포함) 그대로. 참고용이고 덱 등급·정렬에는 쓰지 않는다.
+        deck["cnStats"] = rep["stats"]
+    deck["mergedGroups"] = [d["id"] for d in [rep] + rest]
+    work = dict(rep_work, members=[(d, works[d["id"]]) for d in rest])
+    return deck, work, unlinked
+
+
+def build_meta_deck(cluster, info, details, ctx, patch_global, updated):
+    """
+    합쳐진 lol.qq 덱이 없는 조합 덱(예전 전용 덱 빌더 그대로). 보드는 대표 유닛(units_string)이고 좌표가 없다.
     아이템은 comps_data builds 의 유닛별 1순위 3아이템, 캐리 순위는 빌드 표본(아이템 3개를 든 보드 수) 순이되
     metatft 가 덱 이름에 쓴 유닛(name_string)을 앞에 둔다 — 2026-09-16 대상 20개 중 16개는 표본 1위와 같고,
     나머지 넷은 탱커가 표본 1위라 '세트 · 개화' 처럼 metatft 이름(개화 아리)과 어긋났다.
     성급·핵심 유닛·최종 레벨은 comp_details(unit_stats·final_levels)에서 온다. 사전으로 풀리는 유닛이 없으면 (None, None).
+    id·등급·수치는 부르는 쪽이 채운다.
     """
     dic = ctx.dic
-    cluster, grade = target["cluster"], target["grade"]
     did = "m-%s" % cluster["id"]
     usage = mt.unit_usage(details)
     final_level = mt.common_final_level(details)
@@ -1121,13 +1228,12 @@ def build_global_deck(target, info, details, ctx, patch_global, updated):
 
     deck = {
         "id": did,
-        "kind": "global",
+        "kind": "meta",
         "key": "metatft:%s" % cluster["id"],
         "name": korean_deck_name(carry, traits, did),
         "nameCn": "",
-        "tier": grade,
-        "tierOrder": merge.GRADE_ORDER[grade],
-        "globalGrade": grade,
+        "tier": "",
+        "tierOrder": 9,
         "patch": patch_global or ctx.patch,
         "finalLevel": final_level,
         "carryId": (carry or {}).get("id"),
@@ -1148,6 +1254,194 @@ def build_global_deck(target, info, details, ctx, patch_global, updated):
         deck["keyUnits"] = key_units
     work = {"group": None, "matchUnits": cluster["units"], "editorial": None}
     return deck, work
+
+
+# ----------------------------------------------------------------------------
+# 중국 한정 덱 등급(halfSA, 2026-09-19 사용자 요구: "절반은 S 절반은 A, 홀수면 A 가 1개 더")
+# ----------------------------------------------------------------------------
+# lol.qq 胜率阵容 목록은 평균 4등 이내 조합만 올라와 중국 한정 덱은 모두 상위권이다. 그래서 백분위 5칸 대신
+# S/A 두 칸으로만 나눈다. 순서는 lol.qq 그룹 전체 모집단의 경험적 베이즈 보정 평균(adjAvg) 그대로다.
+
+CHINA_GRADE_METHOD = "halfSA"
+
+
+def china_half_grades(decks, grade_cuts):
+    """
+    중국 한정 덱(kind group·editorial)의 구간 등급을 halfSA 로 다시 매긴다. 구간 b 마다
+      대상 E_b = stats[b] 가 있고 n ≥ 그 구간 lol.qq minSample(buckets[b].gradeCuts)인 덱
+      E_b 를 adjAvg 오름차순(같으면 n 큰 쪽, 그다음 id)으로 세워 앞 floor(k/2) 개 S, 나머지 ceil(k/2) 개 A
+      대상 밖은 grade null.
+    그룹 덱의 stats 는 그룹 집계(group["stats"])와 같은 객체라 덱 쪽만 복사해 고친다 — 그룹 쪽 백분위 등급은
+    상세 호출 계획(exposure_plan)과 수집 로그의 lol.qq 전체 분포에 그대로 쓴다.
+    tier/tierOrder 는 기본 구간 등급(없으면 편집 등급, 둘 다 없으면 빈 문자열 — tier_fields)을 다시 따른다.
+    반환 {구간: buckets[b].chinaGrade}.
+    """
+    for deck in decks:
+        deck["stats"] = dict((bucket, dict(stat)) for bucket, stat in (deck.get("stats") or {}).items())
+    out = {}
+    for bucket, _, _ in merge.BUCKETS:
+        min_sample = grade_cuts[bucket]["minSample"]
+        eligible = []
+        for deck in decks:
+            stat = deck["stats"].get(bucket)
+            if not stat:
+                continue
+            if (stat.get("n") or 0) >= min_sample and stat.get("adjAvg") is not None:
+                eligible.append(deck)
+            else:
+                stat["grade"] = None
+        eligible.sort(key=lambda d: (d["stats"][bucket]["adjAvg"], -d["stats"][bucket]["n"], d["id"]))
+        s_count = len(eligible) // 2
+        for rank, deck in enumerate(eligible):
+            deck["stats"][bucket]["grade"] = "S" if rank < s_count else "A"
+        out[bucket] = {"method": CHINA_GRADE_METHOD, "eligible": len(eligible), "S": s_count,
+                       "A": len(eligible) - s_count, "minSample": min_sample}
+    for deck in decks:
+        deck["tier"], deck["tierOrder"] = merge.tier_fields(deck["stats"], deck.get("editorialTier"))
+    return out
+
+
+# ----------------------------------------------------------------------------
+# 별칭(alias)·한 줄 설명(summary): 목록에서 얼굴 없이 글만 읽어도 어떤 덱인지. 규칙 기반이라 매일 같은 값이 나온다.
+# ----------------------------------------------------------------------------
+
+LEVELLING_FAST = re.compile(r"^Fast\s*(\d+)$", re.I)
+
+
+def champion_name(dic, unit_id):
+    """사전의 챔피언 이름(형태 id 는 같은 캐릭터로). catalog 에 올리지 않는다(이름만 쓴다)."""
+    uid = unit_id if unit_id in dic.champions else dic.aliases.get(unit_id)
+    return (dic.champions.get(uid) or {}).get("name") if uid else None
+
+
+def meta_alias(cluster, dic):
+    """조합 이름 조각(name[])을 순서대로 한국어로: 특성은 특성 이름, 유닛은 챔피언 이름. 사전에 없는 id 는 건너뛴다."""
+    names = []
+    for token, kind in cluster.get("nameParts") or []:
+        if kind == "trait" or (not kind and token in dic.traits):
+            name = (dic.traits.get(token) or {}).get("name")
+        else:
+            name = champion_name(dic, token)
+        if name and name not in names:
+            names.append(name)
+    return " ".join(names)
+
+
+def china_alias(deck, dic):
+    """중국 한정 덱: '{대표 시너지} {캐리}'. 대표 시너지는 주특성 중 개수가 가장 큰 것(같으면 앞의 것)."""
+    top = None
+    for trait in deck.get("mainTraits") or deck.get("traits") or []:
+        if top is None or (trait.get("count") or 0) > (top.get("count") or 0):
+            top = trait
+    carry_id = deck.get("carryId")
+    carry = champion_name(dic, carry_id) or next(
+        (u.get("name") for u in deck.get("units") or [] if u.get("id") == carry_id), None)
+    return " ".join(part for part in ((top or {}).get("name"), carry) if part)
+
+
+def ranked_carries(deck, dic):
+    """carryRank 순 캐리 이름(중복 없이). 순위가 없으면 carryId 하나."""
+    ranked = sorted((u for u in deck.get("units") or [] if u.get("carryRank") and u.get("kind") != "pet"),
+                    key=lambda u: u["carryRank"])
+    names = []
+    for unit in ranked:
+        name = unit.get("name") or champion_name(dic, unit.get("id"))
+        if name and name not in names:
+            names.append(name)
+    if not names and deck.get("carryId"):
+        name = champion_name(dic, deck["carryId"])
+        if name:
+            names.append(name)
+    return names
+
+
+def operation_text(deck):
+    """summary 의 운영: metatft 레벨링(예 '빠른 8레벨', '6레벨 리롤'), 없으면 '{최종 레벨}레벨 완성'."""
+    levelling = str((deck.get("global") or {}).get("levelling") or "").strip()
+    if levelling:
+        return levelling
+    level = deck.get("finalLevel")
+    return "%d레벨 완성" % level if level else ""
+
+
+def operation_short(deck):
+    """별칭이 겹칠 때 붙이는 짧은 운영: 'Fast 9' → '9레벨', 'lvl 6' → '6레벨 리롤', Reroll → '리롤', 없으면 '{최종 레벨}레벨'."""
+    raw = str((deck.get("global") or {}).get("levellingRaw") or "").strip()
+    fast = LEVELLING_FAST.match(raw)
+    if fast:
+        return "%s레벨" % fast.group(1)
+    if raw:
+        return mt.levelling_ko(raw) or raw
+    level = deck.get("finalLevel")
+    return "%d레벨" % level if level else ""
+
+
+def deck_summary(deck, dic):
+    """'{운영} · {캐리1}·{캐리2} 캐리'. 캐리는 carryRank 순 상위 2명(1명뿐이면 1명)."""
+    parts = []
+    operation = operation_text(deck)
+    if operation:
+        parts.append(operation)
+    carries = ranked_carries(deck, dic)[:2]
+    if carries:
+        parts.append("%s 캐리" % "·".join(carries))
+    return " · ".join(parts) or deck.get("name") or deck["id"]
+
+
+def assign_aliases(decks, clusters_by_id, dic):
+    """
+    목록 순서대로 alias·summary 를 매긴다. 조합 덱은 조합 이름 조각을 번역하고(비면 중국 한정 규칙), 중국 한정 덱은
+    '{대표 시너지} {캐리}'. 같은 별칭이 앞 덱에 있으면 ' · {운영 짧게}', 그래도 겹치면 둘째 캐리(별칭에 아직 없는 다음
+    캐리) 이름을 붙이고, 그래도 겹치면(드물다) 번호를 붙인다.
+    """
+    taken = set()
+    for deck in decks:
+        cluster = clusters_by_id.get(str(deck.get("metaCluster"))) if deck.get("kind") == "meta" else None
+        base = (meta_alias(cluster, dic) if cluster else "") or china_alias(deck, dic) or deck.get("name") or deck["id"]
+        operation = operation_short(deck)
+        candidates = [base]
+        if operation:
+            candidates.append("%s · %s" % (base, operation))
+        extra = next((name for name in ranked_carries(deck, dic)[1:] if name not in base), None)
+        if extra:
+            candidates.append("%s %s · %s" % (base, extra, operation) if operation else "%s %s" % (base, extra))
+        alias = next((c for c in candidates if c not in taken), None)
+        number = 2
+        while alias is None:
+            numbered = "%s %d" % (candidates[-1], number)
+            alias = numbered if numbered not in taken else None
+            number += 1
+        taken.add(alias)
+        deck["alias"] = alias
+        deck["summary"] = deck_summary(deck, dic)
+
+
+def dedupe_names(decks):
+    """
+    긴 이름('캐리 · 시너지 구성')이 겹치지 않게 한다. lol.qq 이름(중국 한정 덱, 합친 덱의 대표 이름)을 목록 순서대로 먼저
+    지키고, 대표 유닛으로 만든 조합 덱 이름이 겹치면 시너지를 하나씩 더 적는다. 그래도 겹치면 별칭을 괄호로 붙인다.
+    반환: 바꾼 (id, 옛 이름, 새 이름) 목록.
+    """
+    def generated(deck):
+        return deck.get("kind") == "meta" and not deck.get("mergedGroups")
+
+    taken, changed = set(), []
+    for deck in sorted(decks, key=generated):
+        name = deck["name"]
+        if name in taken:
+            carry = next((u for u in deck.get("units") or [] if u.get("id") == deck.get("carryId")), None)
+            traits = deck.get("traits") or []
+            candidates = []
+            if carry:
+                # korean_deck_name 은 시너지 4개까지만 적으므로 5개부터 직접 잇는다.
+                candidates = ["%s · %s" % (carry["name"], " ".join("%d %s" % (t["count"], t["name"]) for t in traits[:size]))
+                              for size in range(5, len(traits) + 1)]
+            candidates.append("%s (%s)" % (name, deck.get("alias") or deck["id"]))
+            new = next((c for c in candidates if c not in taken), None) or "%s (%s)" % (name, deck["id"])
+            changed.append((deck["id"], name, new))
+            deck["name"] = name = new
+        taken.add(name)
+    return changed
 
 
 # ----------------------------------------------------------------------------
@@ -1248,9 +1542,14 @@ def metatft_clusters(cluster_blob, space):
         raw = [u.strip() for u in (cluster.get("units_string") or "").split(",") if u.strip()]
         units = space.normalize(raw)
         if units:
+            name = (cluster.get("name_string") or "").strip()
+            # 조합 이름 조각(name[]: 특성·유닛 순서와 종류). 없으면 name_string 을 종류 없이 쓴다.
+            parts = [(str(p.get("name") or "").strip(), str(p.get("type") or "").strip())
+                     for p in cluster.get("name") or [] if isinstance(p, dict) and p.get("name")]
             comps.append({"id": str(cluster.get("Cluster") or cluster.get("cluster") or ""),
-                          "units": units, "name": (cluster.get("name_string") or "").strip(),
-                          # 대표 유닛·특성 원문. lol.qq 에 없는 클러스터를 metatft 전용 덱으로 만들 때 쓴다.
+                          "units": units, "name": name,
+                          "nameParts": parts or [(token, "") for token in mt.split_ids(name)],
+                          # 대표 유닛·특성 원문. 합쳐진 lol.qq 덱이 없는 조합 덱의 보드를 만들 때 쓴다.
                           "unitIds": raw, "traitsString": (cluster.get("traits_string") or "").strip()})
     return comps
 
@@ -1332,6 +1631,21 @@ def build_index(decks, works):
                 add(traits, trait["name"], did)
                 add(by_id["trait"], trait["id"], did)
             for augment in extra["augments"]["recommended"]:
+                add(augments, augment["name"], did)
+                add(by_id["augment"], augment["id"], did)
+        # 조합 덱에 합쳐진 다른 lol.qq 그룹(대표가 아닌 것)의 보드·시너지·증강도 이 조합 덱으로 찾게 한다.
+        # 그 그룹들은 목록에서 따로 보이지 않고 이 덱의 변형으로 들어온다.
+        for member, member_work in work.get("members") or []:
+            for unit in member["units"]:
+                add_unit(did, unit)
+            for unit in member_work.get("wBoard") or []:
+                add_unit(did, unit)
+            for item in member["itemOrder"]:
+                add(components, item["name"], did)
+            for trait in member["traits"]:
+                add(traits, trait["name"], did)
+                add(by_id["trait"], trait["id"], did)
+            for augment in member["augments"]["recommended"]:
                 add(augments, augment["name"], did)
                 add(by_id["augment"], augment["id"], did)
 
@@ -1585,7 +1899,7 @@ def main(argv=None):
         status["metatft"] = "missing"
         warn("metatft 대조 생략. 중국 한정 배지는 표시하지 않는다: %s" % exc)
 
-    scope_data, comps_info = {}, {}
+    scope_data, comps_info, bucket_data = {}, {}, {}
     if status["metatft"] == "ok":
         for key, _, rank, server in mt.SCOPES:
             try:
@@ -1593,12 +1907,17 @@ def main(argv=None):
             except SourceError as exc:
                 diag["empty"].append("comps_stats:%s" % key)
                 warn("metatft %s 통계 실패: %s" % (key, exc))
+        # 조합 덱의 구간별 수치·등급: 앱 구간마다 전 지역 comps_stats 를 한 번씩.
+        bucket_data, failed_buckets = mt.fetch_buckets(fetch_json, SourceError, warn)
+        for bucket in failed_buckets:
+            diag["empty"].append("comps_stats:%s" % bucket)
         try:
             comps_info = mt.fetch_comps_data(fetch_json, SourceError)
         except SourceError as exc:
             diag["empty"].append("comps_data")
             warn("metatft comps_data 실패: %s" % exc)
     status["metatftStats"] = "ok" if len(scope_data) == len(mt.SCOPES) and comps_info else "missing"
+    status["metatftBuckets"] = "ok" if len(bucket_data) == len(mt.BUCKET_RANKS) else "missing"
     patch_global = None
     try:
         patch_global = mt.fetch_patch(fetch_json)
@@ -1647,32 +1966,127 @@ def main(argv=None):
     standalone = merge.attach_editorials(groups, editorials)
     attached = len(editorials) - len(standalone)
 
-    # --- 덱 만들기 ----------------------------------------------------------
-    decks, works = [], {}
+    # --- lol.qq 덱(그룹 · 편집 독립) ---------------------------------------------
+    # lol.qq 등급·수치는 지금처럼 그룹 전체 분포로 매긴다. 조합 덱에 합쳐지는 그룹도 이 모집단에 든다.
+    qq_decks, works = [], {}
     for group in groups.values():
         if not group["variants"]:
             continue
         deck, work = build_group_deck(group, ctx)
-        decks.append(deck)
+        qq_decks.append(deck)
         works[deck["id"]] = work
     for editorial in standalone:
         deck, work = build_editorial_deck(editorial, ctx)
-        decks.append(deck)
+        qq_decks.append(deck)
         works[deck["id"]] = work
 
-    if not decks:
+    if not qq_decks:
         print("[치명] 만들어진 덱이 없다.", file=sys.stderr)
         return 1
 
-    # --- 상세(노출 덱만) -----------------------------------------------------
-    plan = merge.exposure_plan([works[d["id"]]["group"] for d in decks if works[d["id"]]["group"]])
+    # --- metatft 조합 덱 목록: 어느 한 구간에서라도 metatft 등급이 있는 클러스터 ------------------
+    # 수치는 구간별 comps_stats, 등급은 사이트 고정 컷(반올림 전 평균 등수, '<'), 추세는 comps_data trends(구간 공통).
+    meta_stats = {}
+    for cluster in clusters:
+        change = mt.trend_change((comps_info.get(cluster["id"]) or {}).get("trends"))
+        stats = mt.cluster_bucket_stats(cluster["id"], bucket_data, change, merge.trend_for)
+        if any(stat.get("grade") for stat in stats.values()):
+            meta_stats[cluster["id"]] = stats
+    # 구간 수치를 하나도 못 받았으면 조합 덱을 만들 수 없고, '중국 한정'이라 단정하지도 않는다.
+    compared = bool(clusters) and bool(bucket_data)
+
+    # --- lol.qq 덱을 가장 비슷한 조합 덱에 합치기 --------------------------------------------
+    scores, best_of, reasons, members = {}, {}, {}, {}
+    for deck in qq_decks:
+        work = works[deck["id"]]
+        units = work["matchUnits"] if work.get("matchUnits") is not None else work["editorial"]["normUnits"]
+        cluster, score = best_cluster(units, clusters) if units else (None, 0.0)
+        merged, reason = merge_decision(deck, cluster, score, meta_stats, dic, space)
+        scores[deck["id"]], best_of[deck["id"]], reasons[deck["id"]] = score, cluster, reason
+        if merged:
+            members.setdefault(cluster["id"], []).append(deck)
+
+    # --- metatft comp_details(최종 레벨·상대 덱·빌드업·성급·핵심 유닛): 목록의 클러스터 전부 -------
+    listed = [c for c in clusters if c["id"] in meta_stats]
+    cluster_set = meta_version.get("cluster_id") or next(
+        (s.get("clusterSet") for s in list(bucket_data.values()) + list(scope_data.values()) if s.get("clusterSet")),
+        None)
+    wanted = [c["id"] for c in listed]
+    if len(wanted) > args.comp_limit:
+        warn("comp_details 상한 %d 에 걸려 %d클러스터는 상세 없이 싣는다" % (args.comp_limit, len(wanted) - args.comp_limit))
+    comp_results = {}
+    if cluster_set:
+        for cid in wanted[:max(0, args.comp_limit)]:
+            try:
+                comp_results[cid] = mt.fetch_comp_details(fetch_json, cid, cluster_set, SourceError)
+            except SourceError as exc:
+                warn("metatft comp_details %s 실패: %s" % (cid, exc))
+
+    # --- 덱 목록 = metatft 조합 덱 + 중국 한정 덱 --------------------------------------------
+    meta_ids = meta_deck_ids(listed, bucket_data)
+    scope_updated = (scope_data.get(mt.GLOBAL_SCOPE) or {}).get("updatedAt")
+    decks, deck_for_cluster, unlinked_editorials = [], {}, []
+    for cluster in listed:
+        cid = cluster["id"]
+        if members.get(cid):
+            deck, work, unlinked = build_merged_deck(members[cid], scores, works, ctx)
+            unlinked_editorials.extend(unlinked)
+        else:
+            deck, work = build_meta_deck(cluster, comps_info.get(cid) or {}, comp_results.get(cid), ctx, patch_global,
+                                         scope_updated)
+            if deck is None:
+                warn("metatft 조합 덱 %s: 사전으로 풀리는 대표 유닛이 없어 뺀다" % cid)
+                continue
+        stats = meta_stats[cid]
+        # tier: 기본 구간 metatft 등급, 없으면 가장 좋은 구간 등급.
+        tier = (stats.get(merge.DEFAULT_BUCKET) or {}).get("grade") or min(
+            (stat["grade"] for stat in stats.values() if stat.get("grade")), key=lambda g: merge.GRADE_ORDER[g])
+        deck.update({
+            "id": meta_ids[cid],
+            "kind": "meta",
+            "key": "metatft:%s" % cid,
+            "metaCluster": to_int(cid),
+            "stats": stats,
+            "tier": tier,
+            "tierOrder": merge.GRADE_ORDER[tier],
+            "metatft": {"similarity": 1.0, "matchedComp": cluster["name"] or None, "onlyInChina": False,
+                        "compared": True},
+        })
+        decks.append(deck)
+        works[deck["id"]] = work
+        deck_for_cluster[cid] = deck["id"]
+    meta_decks = list(decks)
+    merged_decks = [d for d in meta_decks if d.get("mergedGroups")]
+    merged_ids = {member for d in merged_decks for member in d["mergedGroups"]}
+
+    # 중국 한정 덱: 합쳐지지 않은 lol.qq 그룹·편집 독립 덱 전부. id·등급·보드는 그대로 두고 metatft 정보는 떼어 낸다.
+    china_log = []
+    for deck in qq_decks:
+        if deck["id"] in merged_ids:
+            continue
+        cluster = best_of[deck["id"]]
+        deck["metatft"] = {"similarity": round(scores[deck["id"]], 3), "matchedComp": None,
+                           "onlyInChina": compared, "compared": compared}
+        decks.append(deck)
+        china_log.append({"id": deck["id"], "similarity": round(scores[deck["id"]], 3), "reason": reasons[deck["id"]],
+                          "cluster": to_int(cluster["id"]) if cluster else None})
+    # 중국 한정 덱 등급은 halfSA(구간마다 대상의 앞 절반 S · 나머지 A). lol.qq 백분위 기준(gradeCuts)은 adjAvg 근거로 남는다.
+    china_grades = china_half_grades([d for d in decks if d["kind"] != "meta"], grade_cuts)
+
+    # --- 상세(증강·배치): 새 목록 기준 — 중국 한정 그룹 + 합친 덱의 대표 그룹 -----------------------
+    owner = {}
+    for deck in decks:
+        group = works[deck["id"]].get("group")
+        if group:
+            owner[group["id"]] = deck
+    plan = merge.exposure_plan([works[d["id"]]["group"] for d in decks if works[d["id"]].get("group")])
     detail_start = proxy.calls
     got, detail_dates, detail_failures = fetch_details(plan, proxy, max(0, args.detail_limit))
     detail_calls = proxy.calls - detail_start
-    by_id = {d["id"]: d for d in decks}
     for group, _ in plan:
         if group["id"] in got:
-            apply_details(by_id[group["id"]], works[group["id"]], got[group["id"]], ctx)
+            deck = owner[group["id"]]
+            apply_details(deck, works[deck["id"]], got[group["id"]], ctx)
     with_detail = [d for d in decks if d.get("detailBucket")]
     status["lolqqDetail"] = "ok" if plan and len(with_detail) >= len(plan) / 2.0 else "missing"
 
@@ -1694,93 +2108,32 @@ def main(argv=None):
                 agreement["rowFlipped"][0], agreement["rowFlipped"][1]))
         for deck in decks:
             deck.pop("positions", None)
-    matches, compared = agreement[position_mapping or "asIs"]
+    matches, compared_cells = agreement[position_mapping or "asIs"]
     positions_kept = position_mapping is not None
 
-    # --- metatft 매칭 · 글로벌 비교 · 빌드업 --------------------------------
-    matched = {}
-    for deck in decks:
-        work = works[deck["id"]]
-        units = work["matchUnits"] if work.get("matchUnits") is not None else work["editorial"]["normUnits"]
-        cluster, score = best_cluster(units, clusters) if units else (None, 0.0)
-        deck["metatft"] = {
-            "similarity": round(score, 3),
-            "matchedComp": cluster["name"] if cluster and score >= SIMILARITY_THRESHOLD else None,
-            # 비교 데이터를 못 받았으면 '중국 한정'이라 단정하지 않는다.
-            "onlyInChina": bool(clusters) and score < SIMILARITY_THRESHOLD,
-            "compared": bool(clusters),
-        }
-        if cluster and score >= SIMILARITY_THRESHOLD:
-            matched[deck["id"]] = (cluster, score)
+    # 정렬: 등급(tierOrder) → 같은 등급이면 조합 덱 먼저(두 출처의 평균 등수는 척도가 달라 섞지 않는다)
+    # → 기본 구간 보정 평균 → 이름.
+    def list_order(deck):
+        adj = ((deck.get("stats") or {}).get(merge.DEFAULT_BUCKET) or {}).get("adjAvg")
+        return deck["tierOrder"], deck["kind"] != "meta", adj if adj is not None else 9.0, deck["name"]
 
-    decks.sort(key=lambda d: (d["tierOrder"],
-                              ((d.get("stats") or {}).get(merge.DEFAULT_BUCKET) or {}).get("adjAvg") or 9.0,
-                              d["name"]))
+    decks.sort(key=list_order)
 
-    # --- metatft 전용 덱(kind=global) 대상 ---------------------------------------
-    # lol.qq 그룹·편집 덱 어디에도 매칭되지 않은 클러스터 중 glob_plat 표본이 문턱 이상인 것. 등급은 전체 클러스터 분포로.
-    global_cuts, global_targets = global_plan(clusters, scope_data.get(mt.GLOBAL_SCOPE),
-                                              {cluster["id"] for cluster, _ in matched.values()})
-
-    cluster_set = meta_version.get("cluster_id") or next(
-        (s.get("clusterSet") for s in scope_data.values() if s.get("clusterSet")), None)
-    wanted_matched = unique(matched[d["id"]][0]["id"] for d in decks if d["id"] in matched)
-    wanted = unique(wanted_matched + [t["cluster"]["id"] for t in global_targets])
-    if global_targets:
-        # 전용 덱도 최종 레벨·상대 덱·빌드업·성급·핵심 유닛을 comp_details 에서 받으므로 호출이 는다.
-        log("metatft comp_details 호출 대상: 매칭 덱 %d + 전용 덱 %d = %d클러스터 (상한 %d)"
-            % (len(wanted_matched), len(wanted) - len(wanted_matched), len(wanted), args.comp_limit))
-        if len(wanted) > args.comp_limit:
-            warn("comp_details 상한 %d 에 걸려 %d클러스터는 상세 없이 싣는다" % (args.comp_limit, len(wanted) - args.comp_limit))
-    comp_results = {}
-    if cluster_set:
-        for cid in wanted[:max(0, args.comp_limit)]:
-            try:
-                comp_results[cid] = mt.fetch_comp_details(fetch_json, cid, cluster_set, SourceError)
-            except SourceError as exc:
-                warn("metatft comp_details %s 실패: %s" % (cid, exc))
-
-    # 전용 덱은 lol.qq 덱 뒤에 글로벌 등급·평균 등수 순으로 붙는다(대상 순서 그대로, 앱 정렬과 같다).
-    # 유닛 자카드로는 안 맞았어도 캐리·시너지 구성(= 덱 이름)이 이미 있는 덱과 같으면 같은 덱으로 보고 싣지 않는다.
-    # 같은 이름이 lol.qq 등급과 '글로벌' 표시로 두 번 보이면 'lol.qq 에 없는 덱' 이라는 뜻과 어긋난다(2026-09-16 트리스타나).
-    taken_names = {d["name"] for d in decks}
-    for target in global_targets:
-        cid = target["cluster"]["id"]
-        deck, work = build_global_deck(target, comps_info.get(cid) or {}, comp_results.get(cid), ctx, patch_global,
-                                       (scope_data.get(mt.GLOBAL_SCOPE) or {}).get("updatedAt"))
-        if deck is None:
-            warn("metatft 전용 덱 %s: 사전으로 풀리는 대표 유닛이 없어 뺀다" % cid)
-            continue
-        if deck["name"] in taken_names:
-            log("metatft 전용 덱 %s: 이름이 이미 있는 덱과 같아 뺀다(%s)" % (cid, deck["name"]))
-            continue
-        taken_names.add(deck["name"])
-        decks.append(deck)
-        works[deck["id"]] = work
-        matched[deck["id"]] = (target["cluster"], 1.0)
-    global_decks = [d for d in decks if d["kind"] == "global"]
-
-    # 상대 덱(counters)이 우리 덱을 가리키게 한다. 전용 덱도 포함해 metatft 에만 있는 상대로도 옮겨 갈 수 있다.
-    deck_for_cluster, best_score = {}, {}
-    for did, (cluster, score) in matched.items():
-        if score > best_score.get(cluster["id"], -1):
-            best_score[cluster["id"]] = score
-            deck_for_cluster[cluster["id"]] = did
-
+    # --- 글로벌 비교 · 상대 덱 · 빌드업 · 출처 ---------------------------------------------
+    by_cluster = {c["id"]: c for c in clusters}
+    names = {c["id"]: c["name"] for c in clusters if c.get("name")}
     buildups = {cid: mt.buildup_global(res, cid, ctx.sort_unit_ids, dic.trait_count)
                 for cid, res in comp_results.items()}
-
     for deck in decks:
         work = works[deck["id"]]
-        cluster, score = matched.get(deck["id"], (None, 0.0))
+        cid = str(deck["metaCluster"]) if deck["kind"] == "meta" else None
         global_block = None
-        if cluster:
-            cid = cluster["id"]
+        if cid:
             info = comps_info.get(cid) or {}
             global_block = {
                 "cluster": to_int(cid),
-                "similarity": round(score, 3),
-                "name": cluster["name"],
+                "similarity": 1.0,
+                "name": by_cluster[cid]["name"],
                 "levelling": mt.levelling_ko(info.get("levelling")),
                 "levellingRaw": info.get("levelling"),
                 "difficulty": mt.difficulty_ko(info.get("difficulty")),
@@ -1795,32 +2148,39 @@ def main(argv=None):
             details = comp_results.get(cid)
             if details:
                 global_block["finalLevels"] = mt.final_levels(details)
-                names = {c["id"]: c["name"] for c in clusters if c.get("name")}
+                # 상대 덱은 목록의 조합 덱으로만 옮겨 간다(목록에 없는 클러스터는 뺀다).
                 global_block["counters"] = mt.counters(details, cid, deck_for_cluster, names)
-                # 대응 덱이 없는 상대는 앱이 metatft 이름(DA id 나열)을 한글로 풀어 보여 준다.
-                # 거기 든 유닛·특성이 catalog 에 없으면 id 원문이 그대로 보이므로 여기서 올려 둔다.
                 for counter in global_block["counters"]:
                     dic.remember_tokens(counter.get("name"))
             deck["global"] = global_block
+        else:
+            deck.pop("global", None)
 
         buildup = {}
-        if cluster and buildups.get(cluster["id"]):
-            buildup["global"] = buildups[cluster["id"]]
+        if cid and buildups.get(cid):
+            buildup["global"] = buildups[cid]
         if work.get("buildupCn"):
             buildup["cn"] = work["buildupCn"]
         if buildup:
             deck["buildup"] = buildup
+        else:
+            deck.pop("buildup", None)
 
         editorial = work.get("editorial")
         kr = ((global_block or {}).get("stats") or {}).get("kr_plat") or {}
         deck["sources"] = {
             "editorial": bool(editorial),
             "editorialStale": bool(editorial and editorial["stale"]),
-            "cnStats": bool(deck.get("stats")),
+            "cnStats": bool(deck.get("cnStats") if deck["kind"] == "meta" else deck.get("stats")),
             "global": bool(global_block),
             "kr": (kr.get("n") or 0) >= KR_MIN_SAMPLE,
             "onlyInChina": deck["metatft"]["onlyInChina"],
         }
+
+    # 목록에서 얼굴 없이 글만 읽어도 알아보게: 별칭·한 줄 설명(규칙 기반이라 매일 같은 값).
+    assign_aliases(decks, by_cluster, dic)
+    for did, old, new in dedupe_names(decks):
+        log("덱 이름 겹침: %s '%s' → '%s'" % (did, old, new))
 
     # --- 인덱스 · 카탈로그 · 버전 ------------------------------------------
     index = build_index(decks, works)
@@ -1828,10 +2188,11 @@ def main(argv=None):
     missing = untranslated_ids(dic)
     only_china = [d for d in decks if d["metatft"]["onlyInChina"]]
     coded = sum(1 for d in decks if d["teamCode"])
+    linked_editorials = sum((1 if d.get("editorial") else 0) + len(d.get("moreEditorials") or []) for d in decks)
 
     buckets = {}
     for key, label, part in merge.BUCKETS:
-        if key not in lists:
+        if key not in lists and key not in bucket_data:
             continue
         meta = {
             "label": label,
@@ -1840,9 +2201,14 @@ def main(argv=None):
             "detailDate": detail_dates.get(key),
             "groups": sum(1 for g in groups.values() if key in g["stats"]),
             "variants": sum(1 for g in groups.values() for v in g["variants"].values() if v["occ"].get(key)),
-            # 이 구간 등급 기준(표본 문턱·보정 강도·컷). 구간마다 그 구간 분포로 잡는다.
+            # lol.qq 기준(표본 문턱·보정 강도·백분위 컷). 모든 lol.qq 수치의 adjAvg 와 조합 덱 cnStats 등급(참고용)이
+            # 이 기준이다. 중국 한정 덱 등급은 chinaGrade(대상 절반 S · 나머지 A)다.
             "gradeCuts": grade_cuts[key],
+            "chinaGrade": china_grades[key],
         }
+        if key in bucket_data:
+            # metatft 조합 덱 등급 기준(사이트 고정 컷)과 그 구간 요청(rank)·전체 보드·filter_adjustment 기록.
+            meta["metaGradeCuts"] = mt.meta_grade_cuts(key, bucket_data[key])
         if key == merge.DEFAULT_BUCKET:
             meta["default"] = True
         buckets[key] = meta
@@ -1867,16 +2233,30 @@ def main(argv=None):
         "editorialRows": len(raw_decks),
         "editorialParsed": len(editorials),
         "editorialAttached": attached,
+        # 조합 덱에 합쳐진 그룹 중 대표가 아닌 그룹의 편집 덱. 빌려 오지 않아 앱에서 닿지 않는다.
+        "editorialUnlinked": sorted(unlinked_editorials),
         "legacyBoardMismatch": legacy,
         "winrate": list_counts,
         "groups": sum(1 for d in decks if d["kind"] == "group"),
-        "globalOnly": len(global_decks),
+        "metaComps": len(meta_decks),
+        "metaMerged": len(merged_decks),
+        "globalOnly": 0,
         "lineupRankRows": {scope: len(rows) for scope, rows in rank_rows.items()},
         "lineupRankDropped": dropped,
         "preciseMatched": precise_matched,
         "clusters": len(clusters),
         "scopeMeanAvg": {key: mt.scope_mean(data) for key, data in scope_data.items()},
-        "metatftMatched": len(matched),
+        "metatftMatched": len(meta_decks),
+        # 모든 lol.qq 그룹·편집 독립 덱이 정확히 한 덱(조합 덱 mergedGroups 또는 중국 한정 덱)에 있는지 검증이 본다.
+        "merge": {
+            "lolqqDecks": sorted(d["id"] for d in qq_decks),
+            "merged": {d["id"]: d["mergedGroups"] for d in merged_decks},
+            "chinaOnly": china_log,
+        },
+        "metaBuckets": {key: {"ranks": data.get("ranks"), "boards": data.get("boards"),
+                              "filterAdjustment": data.get("filterAdjustment"),
+                              "graded": sum(1 for stats in meta_stats.values() if (stats.get(key) or {}).get("grade"))}
+                        for key, data in bucket_data.items()},
         "compDetails": {"clusters": len(wanted), "fetched": len(comp_results), "limit": args.comp_limit,
                         "overrideApplied": sum(1 for r in comp_results.values()
                                                if (r.get("_filterAdjustment") or {}).get("override_applied"))},
@@ -1907,10 +2287,13 @@ def main(argv=None):
             "qqPatchStart": patch_start,
             "statDate": yyyymmdd_to_iso(list_dates.get(merge.DEFAULT_BUCKET)),
             "deckCount": len(decks),
-            "editorialCount": len(editorials),
+            # 앱에서 닿는 편집 덱 수(덱의 editorial + moreEditorials). 수집한 수는 collector.editorialParsed.
+            "editorialCount": linked_editorials,
             "onlyInChinaCount": len(only_china),
-            # lol.qq 에 없어 metatft 클러스터로만 만든 덱(kind=global) 수.
-            "globalOnlyCount": len(global_decks),
+            # 예전 metatft 전용 덱(kind=global) 수. 조합 덱(kind=meta)으로 바뀌어 0 이다.
+            "globalOnlyCount": 0,
+            # metatft 조합 덱(kind=meta) 수. 그중 lol.qq 그룹이 합쳐진 덱 수는 collector.metaMerged.
+            "metaCompCount": len(meta_decks),
             "teamCodeCount": coded,
             "metatftSet": meta_version.get("tft_set"),
             "metatftClusterId": meta_version.get("cluster_id"),
@@ -1922,10 +2305,9 @@ def main(argv=None):
         },
         "buckets": buckets,
         "scopes": scopes,
-        # 앱 호환 자리(구간별 기준을 모르는 앱이 읽는다): 기본 구간 기준. 구간별 기준은 buckets[b].gradeCuts.
+        # 앱 호환 자리(구간별 기준을 모르는 앱이 읽는다): 기본 구간 lol.qq 기준. 구간별 기준은 buckets[b].gradeCuts,
+        # 조합 덱 기준은 buckets[b].metaGradeCuts.
         "gradeCuts": dict(grade_cuts[merge.DEFAULT_BUCKET]),
-        # metatft 전용 덱 globalGrade 기준(glob_plat 표본 문턱 이상 전체 클러스터의 평균 등수 분위수).
-        "globalGradeCuts": global_cuts,
         "decks": decks,
         "index": index,
         "catalog": catalog,
@@ -1943,29 +2325,39 @@ def main(argv=None):
                meta["listDate"], meta["detailDate"]))
         cuts = meta["gradeCuts"]
         grades = [g["stats"][key]["grade"] for g in groups.values() if key in g["stats"]]
-        log("        등급 %s S≤%.2f A≤%.2f B≤%.2f C≤%.2f · 표본≥%d · K %d · 수축 %.3f → 등급 %d/%d %s"
+        log("        lol.qq 전체 그룹 %s S≤%.2f A≤%.2f B≤%.2f C≤%.2f · 표본≥%d · K %d · 수축 %.3f → 등급 %d/%d %s"
             % (cuts["method"], cuts["S"], cuts["A"], cuts["B"], cuts["C"], cuts["minSample"], cuts["shrinkK"],
                cuts["shrinkTo"],
                sum(1 for g in grades if g), len(grades), " ".join("%s%d" % (x, grades.count(x)) for x in "SABCD")))
-    log("덱 %d개 = 그룹 %d + 편집 독립 %d + metatft 전용 %d (편집 덱 %d개 중 그룹 첨부 %d, 파싱 실패 %d)"
-        % (len(decks), diag["groups"], len(standalone), len(global_decks), len(editorials), attached, failed))
-    if global_decks:
-        log("metatft 전용 덱 글로벌 등급 %s · 기준 S≤%.2f A≤%.2f B≤%.2f C≤%.2f (glob_plat 표본≥%d 클러스터 분위수)"
-            % (" ".join("%s%d" % (g, sum(1 for d in global_decks if d["globalGrade"] == g)) for g in "SABCD"),
-               global_cuts["S"], global_cuts["A"], global_cuts["B"], global_cuts["C"], global_cuts["minSample"]))
+        china = meta["chinaGrade"]
+        log("        중국 한정 %s: 대상 %d(표본≥%d) → S%d A%d"
+            % (china["method"], china["eligible"], china["minSample"], china["S"], china["A"]))
+        meta_cuts = meta.get("metaGradeCuts")
+        if meta_cuts:
+            meta_grades = [s[key]["grade"] for s in meta_stats.values() if key in s]
+            log("        metatft rank=%s · 보드 %s · filter_adjustment %s · 표본≥%d · 로비당≥%.2f → 등급 %d/%d %s"
+                % (meta_cuts["ranks"] or "(전체)", meta_cuts["boards"], meta_cuts["filterAdjustment"],
+                   meta_cuts["minSample"], meta_cuts["minPlayrate"], sum(1 for g in meta_grades if g),
+                   len(meta_grades), " ".join("%s%d" % (x, meta_grades.count(x)) for x in "SABCD")))
+    log("덱 %d개 = metatft 조합 %d(lol.qq 합침 %d) + 중국 한정 %d(그룹 %d · 편집 독립 %d)"
+        % (len(decks), len(meta_decks), len(merged_decks), len(decks) - len(meta_decks), diag["groups"],
+           sum(1 for d in decks if d["kind"] == "editorial")))
+    log("편집 덱 %d개: 그룹 첨부 %d · 앱 연결 %d · 잇지 않음 %s · 파싱 실패 %d"
+        % (len(editorials), attached, linked_editorials, unlinked_editorials or "-", failed))
+    log("중국 한정: %s" % ", ".join("%s(%s %.3f)" % (row["id"], row["reason"], row["similarity"]) for row in china_log))
     log("数据检索器 행 %s · 범위 검사로 버림 %s · 변형에 붙은 행 %d"
         % (diag["lineupRankRows"], dropped, precise_matched))
-    log("metatft 매칭 %d/%d덱 · comp_details %d/%d클러스터 · 스코프 평균 %s"
-        % (len(matched), len(decks), len(comp_results), len(wanted), diag["scopeMeanAvg"]))
+    log("metatft 클러스터 %d · 조합 덱 %d · comp_details %d/%d · 스코프 평균 %s"
+        % (len(clusters), len(meta_decks), len(comp_results), len(wanted), diag["scopeMeanAvg"]))
     log("상세: 노출 %d그룹 · 호출 %d회(상한 %d, 실패 %d) · all_detail %d · position %d · key_chess %d · 증강 보유 %d"
         % (len(plan), detail_calls, args.detail_limit, detail_failures, all_detail_ok,
            diag["detail"]["position"], diag["detail"]["keyChess"], diag["detail"]["withAugments"]))
-    log("실측 배치 방향: %s 일치 %d/%d → %s" % (position_mapping or "-", matches, compared,
+    log("실측 배치 방향: %s 일치 %d/%d → %s" % (position_mapping or "-", matches, compared_cells,
                                               "싣는다" if positions_kept else "뺀다"))
     log("DA 조인율: 챔피언 %s · 특성 %s" % (diag["join"]["champions"], diag["join"]["traits"]))
     log("빌드업: global %d덱 · cn %d덱" % (sum(1 for d in decks if (d.get("buildup") or {}).get("global")),
                                         sum(1 for d in decks if (d.get("buildup") or {}).get("cn"))))
-    log("중국 한정 %d개%s · 덱 코드 %d개" % (len(only_china), "" if clusters else " (대조 생략)", coded))
+    log("중국 한정 %d개%s · 덱 코드 %d개" % (len(only_china), "" if compared else " (대조 생략)", coded))
     if missing:
         log("미번역 ID %d개: %s" % (len(missing), ", ".join(missing[:10])))
     size = os.path.getsize(os.path.join(OUT_DIR, "decks.json"))
