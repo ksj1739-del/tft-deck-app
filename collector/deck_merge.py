@@ -20,12 +20,14 @@ import statistics
 from collections import OrderedDict
 
 # (키, 라벨, lol.qq tier_part)
+# low: lol.qq tier_part 3 의 원래 라벨은 '黄金以下'지만 실제로는 골드를 빼고 세고(metatft_comps.BUCKET_RANKS 주석),
+# metatft 쪽도 아이언~실버로 받는다. 골드 플레이어가 '골드 이하'를 고르면 아이언~실버 통계를 보게 되므로 '실버 이하'다.
 BUCKETS = (
     ("all", "전체", "255"),
     ("master", "마스터+", "0"),
     ("diamond", "다이아+", "1"),
     ("goldem", "골드~에메랄드", "2"),
-    ("low", "골드 이하", "3"),
+    ("low", "실버 이하", "3"),
 )
 BUCKET_LABELS = {key: label for key, label, _ in BUCKETS}
 DEFAULT_BUCKET = "goldem"
@@ -39,7 +41,7 @@ PRECISE_SCOPE_FOR_BUCKET = {"goldem": "cn_plat", "all": "cn_plat", "diamond": "c
 
 # 등급: 구간마다 그 구간 그룹 분포로 기준을 잡는다(bucket_grade_cuts). 조정은 여기 상수 한 곳에서 한다.
 # 구간마다 표본 규모가 수십 배 다르다(2026-09-15 수집분 그룹 n 중앙값: 전체 4613 · 골드~에메랄드 3100 ·
-# 골드 이하 1065 · 다이아+ 250 · 마스터+ 104). 그래서 표본 문턱을 구간 중앙값에 비례시킨다.
+# 실버 이하 1065 · 다이아+ 250 · 마스터+ 104). 그래서 표본 문턱을 구간 중앙값에 비례시킨다.
 #   minSample = clamp(사사오입(n 중앙값 × 0.1), 30, 300)  — 미만이면 grade null(표본 부족)
 # 보정 평균(adjAvg)은 경험적 베이즈 수축이다. 문턱을 넘은 그룹(eligible)이 5개 이상이면
 #   shrinkTo  = eligible 원평균의 n 가중 평균 μ(소수 셋째 자리)
@@ -50,7 +52,7 @@ PRECISE_SCOPE_FOR_BUCKET = {"goldem": "cn_plat", "all": "cn_plat", "diamond": "c
 # 예전에는 K = clamp(n 중앙값 × 0.2, 20, 200) 로 4.5 쪽으로 끌었는데, 胜率阵容 그룹 평균은 3.0등 근처라
 # 4.5 는 너무 멀고 K 도 커서 판수가 적은 좋은 덱이 역전됐다. 2026-09-15 골드~에메랄드: 알룬 n=358 avg 2.58 →
 # adj 3.27 C, 아펠리오스 n=300 avg 2.90 → 3.54 D, 반면 자이라 n=13650 avg 3.24 → C. '원평균이 0.3등 이상 좋은데
-# 등급이 더 낮은 쌍' 이 골드~에메 17 · 골드 이하 37 · 다이아+ 5 · 전체 2 였다.
+# 등급이 더 낮은 쌍' 이 골드~에메 17 · 실버 이하 37 · 다이아+ 5 · 전체 2 였다.
 # eligible 이 5개 미만이면 분산·분위수가 뜻이 없어 예전 방식(4.5 로 수축, K = clamp(n 중앙값 × 0.2, 20, 200),
 # 절대 컷 GRADE_CUTS)을 쓴다.
 # 절대 컷: 胜率阵容은 평균 4.0 이하 조합만 노출해 그룹 평균이 2.4~3.8 에 몰린다. 설계 초기값

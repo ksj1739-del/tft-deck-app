@@ -84,6 +84,61 @@ EDITORIAL_TIER_ORDER = {"SS": 0, "S": 1, "A": 2, "B": 3, "C": 4, "D": 5}
 PLAYER_KEYS = {"puuid", "riotid", "riot_id", "gamename", "game_name", "tagline", "tag_line", "summonername",
                "summoner_name", "summonerid", "summoner_id", "procomps", "pro_comps"}
 
+# 별칭·설명·운영 어휘(2026-09-19 UX 검토 WP-C1, fetch_decks.assign_aliases). 별칭은 '{대표 특성} {캐리}[·{캐리}][ · {운영}][ N]'.
+# 별칭 챔피언은 보드에 있고 첫 챔피언이 캐리 1·2순위, 특성은 덱 traits 에 있어야 한다.
+ALIAS_MAX_CARRY_RANK = 2
+# 운영 어휘 다섯 꼴(MASTER 규칙 8). 설명 첫머리·별칭 ' · ' 뒤·global.levelling 은 이것만 쓴다.
+OPERATION = re.compile(r"^(빠른 [89]레벨|\d+레벨 리롤|표준 운영|최종 \d+레벨)$")
+# 예전 어휘: 'N레벨 완성', 뜻을 알 수 없는 단독 '표준'.
+OLD_OPERATION = re.compile(r"\d+레벨 완성|표준(?! 운영)")
+OPERATION_HINT = re.compile(r"레벨|리롤|운영|표준|완성")
+# 한 줄 설명 최대 글자 수(오버레이 목록 줄 설명 두 줄).
+SUMMARY_MAX_CHARS = 44
+# low 구간은 아이언~실버다('골드 이하'로 쓰면 골드 플레이어가 실버 이하 통계를 본다).
+LOW_BUCKET_LABEL = "실버 이하"
+
+
+def alias_parts(alias, trait_names, champion_names):
+    """
+    별칭 -> (특성 이름 또는 None, 챔피언 이름 목록, 알아보지 못한 조각 목록, ' · ' 뒤 조각 목록).
+    ' · ' 뒤(운영)와 끝 번호(' 2')를 떼고, 앞의 특성은 가장 긴 특성 이름부터 맞춘다. 나머지는 ' '·'·' 를 건너뛰며 가장 긴
+    챔피언 이름부터 맞춘다('불타는 묘목'·'장로 드래곤'·'마스터 이'·'럭스 (나무정령)' 같은 여러 낱말 이름). 특성으로 시작하지
+    않는 별칭도 있으므로(특성이 없는 덱) 특성 없이 읽은 쪽이 더 잘 맞으면 그쪽을 쓴다.
+    """
+    head, _, tail = alias.partition(" · ")
+    suffixes = tail.split(" · ") if tail else []
+    if suffixes:
+        suffixes[-1] = re.sub(r" \d+$", "", suffixes[-1])
+    core = re.sub(r" \d+$", "", head)
+    names = sorted(champion_names, key=len, reverse=True)
+
+    def champions(text):
+        found, unknown, i = [], [], 0
+        while i < len(text):
+            if text[i] in " ·":
+                i += 1
+                continue
+            hit = next((n for n in names if text.startswith(n, i)
+                        and (i + len(n) == len(text) or text[i + len(n)] in " ·")), None)
+            if hit is None:
+                j = i
+                while j < len(text) and text[j] not in " ·":
+                    j += 1
+                unknown.append(text[i:j])
+                i = j
+                continue
+            found.append(hit)
+            i += len(hit)
+        return found, unknown
+
+    best = (None,) + champions(core)
+    trait = next((t for t in sorted(trait_names, key=len, reverse=True) if core.startswith(t + " ")), None)
+    if trait:
+        with_trait = (trait,) + champions(core[len(trait) + 1:])
+        if len(with_trait[2]) <= len(best[2]):
+            best = with_trait
+    return best[0], best[1], best[2], suffixes
+
 
 def feasible(avg, win, top4, tolerance):
     """평균 등수가 1등·TOP4 비율로 가능한 범위 안인가(1등 외 TOP4 는 2~4등, 나머지는 5~8등)."""
@@ -188,6 +243,48 @@ def main():
     if no_summary:
         problems.append("summary 가 빈 덱 %d개: %s" % (len(no_summary), no_summary[:5]))
 
+    # 별칭이 보드·캐리·특성과 맞는지, 설명·운영 어휘가 규칙 안인지(2026-09-19 UX 검토 WP-C1).
+    #   (a) 별칭 속 챔피언이 보드에 없다 (b) 첫 챔피언이 캐리 1·2순위가 아니다 (c) 별칭 특성이 덱 traits 에 없다
+    #   (d) 운영 어휘가 다섯 꼴 밖이거나 'N레벨 완성'·단독 '표준' (i) 설명이 44자를 넘는다
+    trait_names = {t.get("name") for t in catalog.get("traits") or [] if t.get("name")}
+    champion_names = {c.get("name") for c in catalog.get("champions") or [] if c.get("name")}
+    for deck in decks:
+        label = deck.get("id")
+        alias = str(deck.get("alias") or "").strip()
+        board = [u for u in deck.get("units") or [] if u.get("kind") != "pet" and u.get("name")]
+        deck_traits = {t.get("name") for t in deck.get("traits") or [] if t.get("name")}
+        if alias:
+            trait, champions, unknown, suffixes = alias_parts(
+                alias, trait_names | deck_traits, champion_names | {u["name"] for u in board})
+            off_board = [name for name in champions if not any(u["name"] == name for u in board)]
+            if unknown or off_board:
+                problems.append("(a) 덱 %s 별칭 '%s' 에 보드에 없는 챔피언·모르는 낱말: %s" % (label, alias, off_board + unknown))
+            if champions and any(u.get("carryRank") for u in board):
+                ranks = [u["carryRank"] for u in board if u["name"] == champions[0] and u.get("carryRank")]
+                rank = min(ranks) if ranks else None
+                if rank is None or rank > ALIAS_MAX_CARRY_RANK:
+                    problems.append("(b) 덱 %s 별칭 '%s' 의 첫 챔피언 %s 가 캐리 %s 다(1·2순위만)"
+                                    % (label, alias, champions[0], "%d순위" % rank if rank else "순위 밖"))
+            if trait is not None and trait not in deck_traits:
+                problems.append("(c) 덱 %s 별칭 '%s' 의 특성 %s 가 덱 traits 에 없다" % (label, alias, trait))
+            if trait is None and deck_traits:
+                problems.append("(c) 덱 %s 별칭 '%s' 이 대표 특성으로 시작하지 않는다" % (label, alias))
+            bad_suffix = [part for part in suffixes if not OPERATION.match(part)]
+            if bad_suffix:
+                problems.append("(d) 덱 %s 별칭 '%s' 의 ' · ' 뒤가 운영 어휘가 아니다: %s" % (label, alias, bad_suffix))
+        summary = str(deck.get("summary") or "").strip()
+        head = summary.split(" · ", 1)[0]
+        if OPERATION_HINT.search(head) and not OPERATION.match(head):
+            problems.append("(d) 덱 %s 설명 첫머리 '%s' 가 운영 어휘가 아니다" % (label, head))
+        levelling = (deck.get("global") or {}).get("levelling")
+        if levelling is not None and not OPERATION.match(str(levelling)):
+            problems.append("(d) 덱 %s global.levelling '%s' 가 운영 어휘가 아니다" % (label, levelling))
+        old = [text for text in (alias, summary, str(levelling or "")) if OLD_OPERATION.search(text)]
+        if old:
+            problems.append("(d) 덱 %s 에 예전 운영 어휘('N레벨 완성'·단독 '표준'): %s" % (label, old))
+        if len(summary) > SUMMARY_MAX_CHARS:
+            problems.append("(i) 덱 %s 설명이 %d자(최대 %d): %s" % (label, len(summary), SUMMARY_MAX_CHARS, summary))
+
     for deck in decks:
         label = deck.get("name") or deck.get("id")
         if not deck.get("units"):
@@ -235,22 +332,34 @@ def main():
     if editorial_count < MIN_EDITORIAL:
         problems.append("편집 덱이 %d개뿐이다 (최소 %d)" % (editorial_count, MIN_EDITORIAL))
     # editorialCount 는 앱이 닿는 편집 덱 수(덱의 editorial + moreEditorials)다. 수집한 편집 덱은 전부 닿거나,
-    # 조합 덱에 합쳐진 대표 아닌 그룹의 것이라 잇지 않은 것(collector.editorialUnlinked)이어야 한다.
+    # 조합 덱에 합쳐진 대표 아닌 그룹의 것이라 잇지 않은 것(collector.editorialUnlinked)이거나, 출처 없는 편집 독립 덱으로
+    # 목록에서 뺀 것(collector.editorialDropped)이어야 한다.
     reachable = sum((1 if d.get("editorial") else 0) + len(d.get("moreEditorials") or []) for d in decks)
     if reachable != editorial_count:
         problems.append("editorialCount %d 와 앱이 닿는 편집 덱 %d개(editorial + moreEditorials)가 다르다"
                         % (editorial_count, reachable))
     unlinked = diag.get("editorialUnlinked") or []
+    dropped_editorials = diag.get("editorialDropped") or []
     parsed = diag.get("editorialParsed")
-    if parsed is not None and reachable + len(unlinked) != parsed:
-        problems.append("수집한 편집 덱 %s개 = 앱 연결 %d + 잇지 않음 %d 가 맞지 않는다" % (parsed, reachable, len(unlinked)))
+    if parsed is not None and reachable + len(unlinked) + len(dropped_editorials) != parsed:
+        problems.append("수집한 편집 덱 %s개 = 앱 연결 %d + 잇지 않음 %d + 출처 없어 뺌 %d 가 맞지 않는다"
+                        % (parsed, reachable, len(unlinked), len(dropped_editorials)))
     if unlinked:
         warnings.append("조합 덱의 대표가 아닌 그룹에 붙어 잇지 않은 편집 덱 %d개: %s" % (len(unlinked), ", ".join(unlinked)))
+    if dropped_editorials:
+        print("출처 없는 편집 독립 덱(이번 패치 전 편집, 통계 없음)으로 뺀 덱 %d개: %s"
+              % (len(dropped_editorials), ", ".join(dropped_editorials)))
     goldem_rows = ((diag.get("winrate") or {}).get("goldem") or {}).get("variants") or 0
     if goldem_rows < MIN_GOLDEM_VARIANTS:
         problems.append("胜率阵容 골드~에메랄드 조합이 %d개뿐이다 (최소 %d)" % (goldem_rows, MIN_GOLDEM_VARIANTS))
     if not (buckets.get("goldem") or {}).get("default"):
         problems.append("기본 구간 goldem 이 buckets 에 없다")
+    # (e) 구간 라벨: low 는 골드를 빼고 센 아이언~실버라 '골드 이하'가 아니라 '실버 이하'다.
+    gold_labels = sorted(key for key, meta in buckets.items() if "골드 이하" in str((meta or {}).get("label") or ""))
+    low_label = (buckets.get("low") or {}).get("label")
+    if gold_labels or ("low" in buckets and low_label != LOW_BUCKET_LABEL):
+        problems.append("(e) 구간 라벨이 틀렸다: '골드 이하' 구간 %s · low 라벨 '%s'(기대 '%s')"
+                        % (gold_labels, low_label, LOW_BUCKET_LABEL))
     rank_rows = diag.get("lineupRankRows") or {}
     for scope in ("cn_plat", "cn_master"):
         if (rank_rows.get(scope) or 0) < MIN_LINEUP_RANK:
@@ -355,6 +464,13 @@ def main():
             problems.append("조합 덱 %s 보드가 비었거나 catalog 에 없는 유닛: %s" % (label, unknown))
         if not (deck.get("teamCode") or {}).get("code"):
             problems.append("조합 덱 %s 에 덱 코드가 없다" % label)
+        # (g) 마무리 레벨 = metatft 최종 레벨 분포(global.finalLevels) 1위(같으면 낮은 쪽), 분포가 없으면 null.
+        # 합쳐진 lol.qq 대표 덱의 값(편집 needLevel·그룹 인원)이 남으면 운영('빠른 8레벨')과 어긋난다.
+        levels = [row for row in (deck.get("global") or {}).get("finalLevels") or [] if row.get("level") is not None]
+        want_level = min(levels, key=lambda row: (-(row.get("share") or 0.0), row["level"]))["level"] if levels else None
+        if deck.get("finalLevel") != want_level:
+            problems.append("(g) 조합 덱 %s finalLevel %s 가 finalLevels 1위(같으면 낮은 쪽) %s 와 다르다(키 %s)"
+                            % (label, deck.get("finalLevel"), want_level, [row["level"] for row in levels]))
     for key in BUCKET_ORDER:
         grades = [((d.get("stats") or {}).get(key) or {}).get("grade") for d in meta_decks]
         print("metatft 등급(%s): %s · 등급 %d/%d · rank %s · 보드 %s"
@@ -381,20 +497,32 @@ def main():
         if (deck.get("tier"), deck.get("tierOrder")) != want:
             problems.append("중국 한정 덱 %s tier %s/%s 가 기본 구간 등급(없으면 편집 등급) %s/%s 와 다르다"
                             % (label, deck.get("tier"), deck.get("tierOrder"), want[0], want[1]))
-    # 모든 lol.qq 그룹·편집 독립 덱이 정확히 한 덱(조합 덱의 mergedGroups 또는 중국 한정 덱 자신)에 있어야 한다.
+    # (f) 출처 없는 편집 독립 덱: 통계가 없고 편집이 이번 패치 전 것이면 이번 패치의 어떤 출처에도 없다(수집기가 뺀다).
+    sourceless = [d.get("id") for d in decks if d.get("kind") == "editorial" and not d.get("stats")
+                  and ((d.get("editorial") or {}).get("stale") or (d.get("sources") or {}).get("editorialStale"))]
+    if sourceless:
+        problems.append("(f) 출처 없는 편집 독립 덱(이번 패치 전 편집, 통계 없음)이 목록에 있다: %s" % sourceless[:5])
+    # 모든 lol.qq 그룹·편집 독립 덱이 정확히 한 덱(조합 덱의 mergedGroups 또는 중국 한정 덱 자신)에 있거나,
+    # 출처 없는 편집 덱으로 빠졌어야(collector.merge.dropped) 한다.
     universe = (diag.get("merge") or {}).get("lolqqDecks")
+    dropped_ids = list((diag.get("merge") or {}).get("dropped") or [])
     if not universe:
         problems.append("collector.merge.lolqqDecks(수집한 lol.qq 덱 목록)가 없다")
     else:
-        seen = [member for d in meta_decks for member in d.get("mergedGroups") or []] + [d.get("id") for d in china_decks]
+        seen = ([member for d in meta_decks for member in d.get("mergedGroups") or []] + [d.get("id") for d in china_decks]
+                + dropped_ids)
         missing_ids = sorted(set(universe) - set(seen))
         extra_ids = sorted(set(seen) - set(universe))
         twice = sorted({x for x in seen if seen.count(x) > 1})
         if missing_ids or extra_ids or twice:
             problems.append("lol.qq 덱 배정이 어긋난다: 빠짐 %s · 모르는 id %s · 두 번 %s" % (missing_ids[:5], extra_ids[:5], twice[:5]))
+        if sorted(dropped_ids) != sorted(dropped_editorials):
+            problems.append("뺀 덱(collector.merge.dropped %s)과 뺀 편집 덱(collector.editorialDropped %s)이 다르다"
+                            % (dropped_ids, dropped_editorials))
         merged_count = sum(len(d.get("mergedGroups") or []) for d in meta_decks)
-        print("lol.qq 덱 %d개 = 조합 덱에 합침 %d(조합 덱 %d개) + 중국 한정 %d"
-              % (len(universe), merged_count, sum(1 for d in meta_decks if d.get("mergedGroups")), len(china_decks)))
+        print("lol.qq 덱 %d개 = 조합 덱에 합침 %d(조합 덱 %d개) + 중국 한정 %d + 출처 없어 뺌 %d"
+              % (len(universe), merged_count, sum(1 for d in meta_decks if d.get("mergedGroups")), len(china_decks),
+                 len(dropped_ids)))
     # 상대 덱은 목록의 조합 덱만 가리킨다(목록에 없는 클러스터는 수집기가 뺀다).
     known_ids = set(ids)
     stray = [(d.get("id"), c.get("cluster")) for d in decks for c in ((d.get("global") or {}).get("counters") or [])

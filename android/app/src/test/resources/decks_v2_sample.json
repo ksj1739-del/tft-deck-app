@@ -28,7 +28,7 @@
     "all": {"label": "전체", "qqTierPart": "255", "listDate": "20260915", "detailDate": "20260914", "groups": 52, "variants": 479},
     "master": {"label": "마스터+", "qqTierPart": "0", "listDate": "20260915", "detailDate": "20260914", "groups": 9, "variants": 10},
     "diamond": {"label": "다이아+", "qqTierPart": "1", "listDate": "20260915", "detailDate": "20260914", "groups": 30, "variants": 76},
-    "low": {"label": "골드 이하", "qqTierPart": "3", "listDate": "20260915", "detailDate": "20260914", "groups": 40, "variants": 218}
+    "low": {"label": "실버 이하", "qqTierPart": "3", "listDate": "20260915", "detailDate": "20260914", "groups": 40, "variants": 218}
   },
   "scopes": {
     "glob_plat": {"label": "글로벌 플래티넘+", "source": "metatft", "days": 3, "boards": 6799416, "updatedAt": "2026-09-15T13:14:40Z"},
