@@ -61,13 +61,14 @@ class OverlayListFilterTest {
     @Test
     fun `꺼 둔 등급 때문에 비었으면 그 등급과 가려진 수를 말한다`() {
         val message = overlayEmptyListMessage(hasTokens = true, off = listOf("C", "D"), hiddenByGrade = 3)
-        assertTrue(message, message.startsWith("C·D 등급이 꺼져 있어 덱 3개가 가려졌습니다"))
-        assertTrue(message.contains("등급 칸"))
+        assertEquals("조건에 맞는 덱이 없습니다 · 꺼진 등급 C·D 3", message)
+        val perGrade = overlayEmptyListMessage(true, listOf("C", "D"), 3, hiddenPerGrade = mapOf("D" to 1, "C" to 2))
+        assertEquals("조건에 맞는 덱이 없습니다 · 꺼진 등급 C 2 · D 1", perGrade)
     }
 
     @Test
     fun `등급을 켜도 없으면 검색 조건 안내, 조건도 없으면 숨긴 덱 안내`() {
-        assertTrue(overlayEmptyListMessage(hasTokens = true, off = listOf("C", "D"), hiddenByGrade = 0).contains("칩의 ×"))
+        assertTrue(overlayEmptyListMessage(hasTokens = true, off = listOf("C", "D"), hiddenByGrade = 0).contains("지우기 버튼"))
         assertTrue(overlayEmptyListMessage(hasTokens = false, off = emptyList(), hiddenByGrade = 0).contains("숨긴 덱"))
     }
 }
