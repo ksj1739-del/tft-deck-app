@@ -2,6 +2,7 @@ package com.tftdeck.reader.data
 
 import android.content.Context
 import com.tftdeck.reader.BuildConfig
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -10,6 +11,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.zip.GZIPInputStream
@@ -28,6 +30,22 @@ class DeckRepository private constructor(private val context: Context) {
 
     private val _state = MutableStateFlow<FeedState>(FeedState.Loading)
     val state: StateFlow<FeedState> = _state.asStateFlow()
+
+    private val _syncing = MutableStateFlow(false)
+
+    /**
+     * 지금 원격에서 받는 중인지. 사용자가 누른 새로고침이든 하루 한 번 도는 워커든 [sync] 안에서 켜고 끈다 —
+     * 덱 목록 배너('새로고침 중…')가 어느 쪽이 돌려도 같은 상태를 보여 주게.
+     */
+    val syncing: StateFlow<Boolean> = _syncing.asStateFlow()
+
+    private val _lastError = MutableStateFlow<String?>(null)
+
+    /**
+     * 마지막 동기화가 실패했으면 그 사유([SyncFailure]: 네트워크 없음/서버 오류/형식 오류), 성공하면 null.
+     * 메모리에만 둔다(앱을 다시 켜면 비어 있다). 실패해도 화면의 데이터는 그대로다.
+     */
+    val lastError: StateFlow<String?> = _lastError.asStateFlow()
 
     // -- 로드 ---------------------------------------------------------------
 
@@ -98,8 +116,19 @@ class DeckRepository private constructor(private val context: Context) {
      * 덮어쓰기 때문이다. 사용자가 누른 강제 갱신도 같은 규칙을 따른다.
      * raw.githubusercontent 는 파일마다 따로 캐시해 version.json 과 decks.json 이 다른 커밋에서 올 수 있어,
      * 본체를 받은 뒤에도 한 번 더 확인한다.
+     *
+     * 도는 동안 [syncing] 이 켜지고, 끝나면 [lastError] 에 실패 사유(성공이면 null)를 남긴다.
      */
     suspend fun sync(force: Boolean = false): SyncResult = syncLock.withLock {
+        _syncing.value = true
+        try {
+            fetch(force).also { result -> _lastError.value = (result as? SyncResult.Failed)?.reason }
+        } finally {
+            _syncing.value = false
+        }
+    }
+
+    private suspend fun fetch(force: Boolean): SyncResult =
         withContext(Dispatchers.IO) {
             try {
                 val remote = FeedJson.decodeVersion(httpGet(BuildConfig.FEED_BASE_URL + VERSION_NAME))
@@ -119,11 +148,11 @@ class DeckRepository private constructor(private val context: Context) {
                 val feed = FeedJson.decodeFeed(body)
                 if (feed.decks.isEmpty()) {
                     // 빈 응답으로 멀쩡한 캐시를 덮어쓰지 않는다.
-                    return@withContext SyncResult.Failed("받은 데이터에 덱이 없습니다")
+                    return@withContext SyncResult.Failed(SyncFailure.FORMAT)
                 }
                 if (current != null && FeedFreshness.isOlder(feed.version, current)) {
-                    // version.json 은 새 커밋인데 본체는 아직 옛 파일이 캐시에서 왔다. 다음 동기화에서 다시 받는다.
-                    return@withContext SyncResult.Failed("서버 파일이 아직 바뀌는 중입니다. 잠시 뒤 다시 시도해 주세요")
+                    // version.json 은 새 커밋인데 본체는 아직 옛 파일이 캐시에서 왔다(서버 쪽 사정). 다음 동기화에서 다시 받는다.
+                    return@withContext SyncResult.Failed(SyncFailure.SERVER)
                 }
 
                 // 임시 파일에 쓰고 교체해서, 중간에 끊겨도 캐시가 깨지지 않게 한다.
@@ -138,12 +167,15 @@ class DeckRepository private constructor(private val context: Context) {
                 markSynced()
                 _state.value = ready(feed, lastSyncedAt(), fromBundle = false)
                 SyncResult.Updated(feed.version.patch, feed.decks.size)
+            } catch (e: CancellationException) {
+                // 취소(워커 중단·화면 종료)는 실패가 아니다. 사유를 남기지 않고 그대로 올려 보낸다.
+                throw e
             } catch (e: Exception) {
                 // 실패해도 기존 데이터는 그대로 둔다. 앱이 빈 화면이 되는 일은 없다.
-                SyncResult.Failed(e.message ?: "네트워크 오류")
+                // 영문 예외 문구를 화면에 내보내지 않도록 한국어 사유 셋 중 하나로 바꾼다(N20).
+                SyncResult.Failed(syncFailureReason(e))
             }
         }
-    }
 
     private fun httpGet(url: String): String {
         val conn = (URL(url).openConnection() as HttpURLConnection).apply {
@@ -154,7 +186,7 @@ class DeckRepository private constructor(private val context: Context) {
         }
         try {
             if (conn.responseCode !in 200..299) {
-                throw IllegalStateException("HTTP ${conn.responseCode}")
+                throw HttpStatusException(conn.responseCode)
             }
             val raw = if (conn.contentEncoding?.contains("gzip", true) == true) {
                 GZIPInputStream(conn.inputStream)
@@ -221,5 +253,29 @@ sealed interface FeedState {
 sealed interface SyncResult {
     data object UpToDate : SyncResult
     data class Updated(val patch: String, val deckCount: Int) : SyncResult
+
+    /** [reason] 은 [SyncFailure] 의 한국어 사유 중 하나다. */
     data class Failed(val reason: String) : SyncResult
+}
+
+/** 동기화 실패 사유. 화면(배너·스낵바)에 그대로 보이는 한국어 한 낱말이다. */
+object SyncFailure {
+    const val NETWORK = "네트워크 없음"
+    const val SERVER = "서버 오류"
+    const val FORMAT = "형식 오류"
+}
+
+/** 원격이 2xx 가 아닌 응답을 준 경우. [syncFailureReason] 이 '서버 오류'로 가른다. */
+internal class HttpStatusException(val code: Int) : IllegalStateException("HTTP $code")
+
+/**
+ * 동기화 중 난 예외를 [SyncFailure] 사유로. 연결·시간 초과·끊김(IOException)은 '네트워크 없음',
+ * 2xx 가 아닌 응답은 '서버 오류', JSON 이 계약과 다르면(SerializationException 등 IllegalArgumentException) '형식 오류'.
+ * 나머지는 '서버 오류'로 본다.
+ */
+internal fun syncFailureReason(error: Throwable): String = when (error) {
+    is HttpStatusException -> SyncFailure.SERVER
+    is IOException -> SyncFailure.NETWORK
+    is IllegalArgumentException -> SyncFailure.FORMAT
+    else -> SyncFailure.SERVER
 }

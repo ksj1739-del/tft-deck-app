@@ -53,6 +53,7 @@ private val CODEX_AXES = setOf(SearchAxis.CHAMPION, SearchAxis.TRAIT, SearchAxis
  * 아이템을 고르면 그 아이템이 들어가는 덱이 나온다 — 두 원본 사이트 어디에도 없는 기능이라
  * 결과를 '핵심'과 '대체'로 나눠 보여 준다. 후보 오른쪽의 '도감' 버튼은 그 항목의 통계 화면으로 간다.
  */
+@Deprecated("결정 1: 검색 탭을 없애고 기능(핵심/대체 묶음·도감 버튼·예시·조건 밖 N개)을 덱 목록 검색 줄로 옮겼다(A2). 탭 제거는 A4, 파일 삭제는 T")
 @Composable
 fun SearchScreen(
     viewModel: AppViewModel,

@@ -19,10 +19,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.tftdeck.reader.data.BucketMeta
 import com.tftdeck.reader.data.Deck
 import com.tftdeck.reader.data.DeckKeys
@@ -39,10 +39,14 @@ import com.tftdeck.reader.ui.trendColor
 import com.tftdeck.reader.ui.trendGlyph
 
 /**
- * 고정 4수치: 평균 등수 / 픽률 / 승률 / TOP4.
- * 모든 카드·상세·오버레이에서 같은 자리·같은 순서라 눈이 매번 같은 곳을 본다. 값이 없으면 '-'.
+ * 수치 줄: 평균 등수 / 픽률 / 승률 / TOP4 를 같은 폭 칸에 값(위)·라벨(아래)로.
+ * 상세·카드가 같은 순서라 눈이 매번 같은 곳을 본다. 값이 없으면 '-'. 숫자 표기는 [formatAvg]·[formatPct] 만 쓴다(MASTER 규칙 7).
  *
- * 오버레이는 앱 테마 밖에서 그려지므로 색을 넘겨받는다. [compact] 는 오버레이용 작은 글자.
+ * 값은 [valueStyle](기본 titleMedium 16sp, 상세는 titleLarge 20sp)을 SemiBold 로, 라벨은 labelSmall 11sp 로 쓴다.
+ * [compact] 는 좁은 행(상세의 변형 행)용 작은 값(labelMedium 12sp)이다 — 규칙 1 의 11sp 아래로는 내리지 않는다.
+ * 덱 카드는 L4 결정(2026-09-19)대로 [showWin] = false 로 승률 칸을 빼고(평균 등수·픽률·TOP4), 중국 한정 덱은
+ * [pickAvailable] = false 로 픽률을 '–' 로 둔다 — 중국 픽률은 metatft 픽률과 정의가 달라 나란히 비교할 수 없다(V11·L14).
+ * 오버레이처럼 앱 테마 밖에서 그리면 색을 넘겨받는다.
  */
 @Composable
 fun StatsRow(
@@ -51,33 +55,40 @@ fun StatsRow(
     labelColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
     valueColor: Color = MaterialTheme.colorScheme.onSurface,
     compact: Boolean = false,
+    valueStyle: TextStyle = MaterialTheme.typography.titleMedium,
+    showWin: Boolean = true,
+    pickAvailable: Boolean = true,
 ) {
-    val cells = listOf(
-        "평균 등수" to formatAvg(stats?.avg),
-        "픽률" to formatPick(stats?.pick),
-        "승률" to formatPct(stats?.win),
-        "TOP4" to formatPct(stats?.top4),
-    )
+    val cells = statCells(stats, showWin = showWin, pickAvailable = pickAvailable)
+    val valueText = (if (compact) MaterialTheme.typography.labelMedium else valueStyle).copy(fontWeight = FontWeight.SemiBold)
+    val labelText = MaterialTheme.typography.labelSmall
     Row(modifier.fillMaxWidth()) {
         cells.forEach { (label, value) ->
             Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    value,
-                    color = valueColor,
-                    fontSize = if (compact) 11.sp else 14.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    maxLines = 1,
-                )
-                Text(
-                    label,
-                    color = labelColor,
-                    fontSize = if (compact) 9.sp else 10.5.sp,
-                    maxLines = 1,
-                )
+                Text(value, color = valueColor, style = valueText, maxLines = 1)
+                Text(label, color = labelColor, style = labelText, maxLines = 1)
             }
         }
     }
 }
+
+/**
+ * [StatsRow] 의 칸(라벨 to 값). 순서는 평균 등수 · 픽률 · 승률 · TOP4 로 고정하고, [showWin] 이 false 면 승률만 뺀다.
+ * [pickAvailable] 이 false 면 픽률 값을 '–'(U+2013)로 둔다(값이 없어서가 아니라 비교할 수 없어서 비운다는 표시).
+ */
+internal fun statCells(
+    stats: DeckStats?,
+    showWin: Boolean = true,
+    pickAvailable: Boolean = true,
+): List<Pair<String, String>> = buildList {
+    add("평균 등수" to formatAvg(stats?.avg))
+    add("픽률" to if (pickAvailable) formatPick(stats?.pick) else PICK_NOT_COMPARABLE)
+    if (showWin) add("승률" to formatPct(stats?.win))
+    add("TOP4" to formatPct(stats?.top4))
+}
+
+/** 중국 한정 덱의 픽률 자리. */
+internal const val PICK_NOT_COMPARABLE = "–"
 
 /**
  * 픽률. 다른 비율과 같이 소수 1자리이고 0.1% 미만은 "<0.1%"다(L14). 예전에는 1% 미만을 소수 둘째 자리로 써
@@ -122,6 +133,7 @@ fun sampleText(deck: Deck, bucket: String, buckets: Map<String, BucketMeta>): St
     return parts.joinToString(" · ")
 }
 
+@Deprecated("표본·출처 줄은 카드에서 뺐고(A2) 상세도 출처 시트로 옮긴다(A3). 용어 정리 단계(T)에서 지운다")
 @Composable
 fun SampleLabel(
     deck: Deck,
@@ -136,11 +148,13 @@ fun SampleLabel(
 }
 
 /** 운영 방식·난이도(metatft 기준). 글로벌 매칭이 없으면 비어 있다. */
+@Deprecated("카드는 운영을 설명 줄 하나로 합쳤다(A2, cardDescription). 용어 정리 단계(T)에서 지운다")
 fun opsTexts(global: GlobalStats?): List<String> = listOfNotNull(
     global?.levelling?.takeIf { it.isNotBlank() },
     global?.difficulty?.takeIf { it.isNotBlank() },
 )
 
+@Deprecated("카드의 운영 칩 줄은 설명 줄과 겹쳐 뺐다(A2·L2). 용어 정리 단계(T)에서 지운다")
 @Composable
 fun OpsChip(text: String, modifier: Modifier = Modifier) {
     val scheme = MaterialTheme.colorScheme
@@ -168,23 +182,24 @@ fun sourceBadges(deck: Deck, metatftCompared: Boolean): List<SourceBadge> = buil
     if (deck.hasKrSample) add(SourceBadge.KR)
 }
 
+@Deprecated("출처 배지 줄은 카드에서 뺐다(A2·L3·V1). 중국 한정은 GradeBadge(Outlined) + TextBadge(\"중국\"). 용어 정리 단계(T)에서 지운다")
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SourceBadges(deck: Deck, metatftCompared: Boolean, modifier: Modifier = Modifier) {
     val badges = sourceBadges(deck, metatftCompared)
     if (badges.isEmpty()) return
-    val scheme = MaterialTheme.colorScheme
     FlowRow(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
+        // 글자 배지 한 모양(MASTER 규칙 5). KR 청록(KrCyan)은 색 뜻 규칙 3 에 어긋나 더는 쓰지 않는다.
         badges.forEach { badge ->
             when (badge) {
-                SourceBadge.EDITORIAL -> OutlineBadge("편집", scheme.primary)
-                SourceBadge.STALE -> OutlineBadge("이전 패치", scheme.onSurfaceVariant)
-                SourceBadge.CHINA_ONLY -> OnlyInChinaBadge()
-                SourceBadge.KR -> OutlineBadge("KR", KrCyan)
+                SourceBadge.EDITORIAL -> TextBadge("편집", emphasis = true)
+                SourceBadge.STALE -> TextBadge("이전 패치")
+                SourceBadge.CHINA_ONLY -> TextBadge("중국")
+                SourceBadge.KR -> TextBadge("KR")
             }
         }
     }
