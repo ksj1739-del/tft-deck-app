@@ -16,6 +16,8 @@ import kotlinx.serialization.json.Json
  * 이 값들은 서비스가 들고([OverlayService]) 화면에 흘려 보낸다. 바뀔 때마다 저장해 서비스가 새로 만들어져도 이어진다.
  *
  * 검색 조건(칩)은 여기 두지 않는다 — 창을 닫으면 조건도 비우는 것이 기존 동작이다.
+ *
+ * X·'감추기'로 닫은 기록([dismissal])도 여기 둔다. 메모리에만 두면 프로세스가 되살아날 때 닫은 창이 저절로 다시 떴다(S4).
  */
 internal class OverlayMemory(private val prefs: SharedPreferences) {
 
@@ -80,13 +82,69 @@ internal class OverlayMemory(private val prefs: SharedPreferences) {
         }.apply()
     }
 
+    /**
+     * 창을 닫은 기록. 이 판 동안([OverlayDismissal.since] 가 같은 TFT 전면 구간) 자동 표시를 막는 데 쓴다([autoAttachBlocked]).
+     * 저장값에서 되찾으므로 서비스·프로세스가 다시 떠도 닫은 창이 저절로 돌아오지 않는다.
+     */
+    var dismissal: OverlayDismissal? =
+        if (prefs.contains(KEY_DISMISSED_SINCE) && prefs.contains(KEY_DISMISSED_AT)) {
+            OverlayDismissal(since = prefs.getLong(KEY_DISMISSED_SINCE, 0L), at = prefs.getLong(KEY_DISMISSED_AT, 0L))
+        } else {
+            null
+        }
+        private set
+
+    /** 창을 닫았다. [since] 는 그때의 TFT 전면 구간 시작 시각, [at] 은 닫은 시각. */
+    fun dismiss(since: Long, at: Long) {
+        dismissal = OverlayDismissal(since, at)
+        prefs.edit().putLong(KEY_DISMISSED_SINCE, since).putLong(KEY_DISMISSED_AT, at).apply()
+    }
+
+    /** 사용자가 다시 띄웠다('지금 보이기'·직접 켜기). 닫은 기록을 지운다. */
+    fun clearDismissal() {
+        if (dismissal == null) return
+        dismissal = null
+        prefs.edit().remove(KEY_DISMISSED_SINCE).remove(KEY_DISMISSED_AT).apply()
+    }
+
+    /**
+     * 판 종료(결과 배지)를 감지했다. 닫은 뒤에 끝난 판이면 닫은 판이 끝난 것이므로 기록을 지운다 — 다음 판부터 다시 자동으로
+     * 뜬다. 지웠으면 true(부른 쪽이 가시성을 다시 판단한다).
+     */
+    fun onGameResult(at: Long): Boolean {
+        if (!dismissalClearedByResult(dismissal, at)) return false
+        clearDismissal()
+        return true
+    }
+
     private companion object {
         const val KEY_SELECTED = "selected_deck"
         const val KEY_LEVELS = "deck_levels"
         const val KEY_LIST_KEY = "list_anchor_key"
         const val KEY_LIST_OFFSET = "list_anchor_offset"
+        const val KEY_DISMISSED_SINCE = "dismissed_since"
+        const val KEY_DISMISSED_AT = "dismissed_at"
     }
 }
+
+/** X·'감추기'로 창을 닫은 기록. [since] 는 그때의 TFT 전면 구간 시작 시각(GameState.Foreground.since), [at] 은 닫은 시각. */
+internal data class OverlayDismissal(val since: Long, val at: Long)
+
+/**
+ * 자동 표시를 막는지(S1). 같은 TFT 전면 구간([foregroundSince])이고 닫은 지 [DISMISS_BLOCK_MS] 가 지나지 않았으면 막는다.
+ * 판 사이에 TFT 를 떠나지 않으면 전면 구간이 이어져(GameDetector) 예전에는 TFT 를 나갈 때까지 계속 막혔다. 판 종료 신호는
+ * 최대 15분 늦으므로 시한(40분)과 함께 쓴다 — 판이 끝났다는 신호가 오면 [OverlayMemory.onGameResult] 가 기록을 지운다.
+ */
+internal fun autoAttachBlocked(dismissal: OverlayDismissal?, foregroundSince: Long?, now: Long): Boolean =
+    dismissal != null && foregroundSince != null && dismissal.since == foregroundSince &&
+        now - dismissal.at < DISMISS_BLOCK_MS
+
+/** 닫은 뒤에 판이 끝났는지. 닫기 전에 이미 떠 있던 결과 배지로는 풀지 않는다. */
+internal fun dismissalClearedByResult(dismissal: OverlayDismissal?, resultAt: Long): Boolean =
+    dismissal != null && resultAt >= dismissal.at
+
+/** 닫은 창을 자동으로 다시 띄우지 않는 시간. 한 판(보통 30~40분)을 덮는다. */
+internal const val DISMISS_BLOCK_MS = 40 * 60 * 1000L
 
 /**
  * 덱 목록의 스크롤 자리. 목록 칸 번호가 아니라 맨 위에 보이던 덱 id([key])로 기억한다 —
