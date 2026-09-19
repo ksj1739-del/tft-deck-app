@@ -1066,6 +1066,27 @@ data class DeckToken(
 
         fun of(suggestion: Suggestion): DeckToken = DeckToken(suggestion.axis, suggestion.name, suggestion.id)
 
+        // 저장용 구분자. 챔피언·아이템 이름이나 사용자가 친 글자에 들어갈 일이 없는 제어 문자다.
+        private val FIELD_SEP = Char(31)
+        private val TOKEN_SEP = Char(30)
+
+        /** 목록 검색 조건을 앱을 껐다 켜도 되살리도록 한 줄 글자로 바꾼다. 순서를 지킨다. */
+        fun encode(tokens: List<DeckToken>): String =
+            tokens.joinToString(TOKEN_SEP.toString()) { token ->
+                listOf(token.axis?.name.orEmpty(), token.id.orEmpty(), token.name).joinToString(FIELD_SEP.toString())
+            }
+
+        /** [encode] 의 반대. 읽을 수 없는 조각(축 이름이 바뀐 옛 값 등)은 버리고, 같은 조건은 하나만 남긴다. */
+        fun decode(text: String?): List<DeckToken> =
+            text.orEmpty().split(TOKEN_SEP).mapNotNull { part ->
+                val fields = part.split(FIELD_SEP)
+                if (fields.size != 3 || fields[2].isBlank()) return@mapNotNull null
+                val axis = fields[0].takeIf { it.isNotEmpty() }?.let { name ->
+                    SearchAxis.entries.firstOrNull { it.name == name } ?: return@mapNotNull null
+                }
+                DeckToken(axis, fields[2], fields[1].takeIf { it.isNotEmpty() })
+            }.distinctBy { it.key }
+
         fun axisLabel(axis: SearchAxis?): String = when (axis) {
             SearchAxis.CHAMPION -> "유닛"
             SearchAxis.TRAIT -> "시너지"

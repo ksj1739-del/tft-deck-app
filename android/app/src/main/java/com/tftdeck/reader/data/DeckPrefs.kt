@@ -37,6 +37,29 @@ class DeckPrefs private constructor(context: Context) {
     )
     val grades: StateFlow<Set<String>> = _grades.asStateFlow()
 
+    // 덱 목록 조회 조건. 앱을 껐다 켜도 지난 조건으로 돌아온다. 오버레이의 검색 조건과는 따로다.
+    private val _onlyChina = MutableStateFlow(prefs.getBoolean(KEY_ONLY_CHINA, false))
+    val onlyChina: StateFlow<Boolean> = _onlyChina.asStateFlow()
+
+    private val _editorialOnly = MutableStateFlow(prefs.getBoolean(KEY_EDITORIAL_ONLY, false))
+    val editorialOnly: StateFlow<Boolean> = _editorialOnly.asStateFlow()
+
+    private val _mainTrait = MutableStateFlow(prefs.getString(KEY_MAIN_TRAIT, null))
+    val mainTrait: StateFlow<String?> = _mainTrait.asStateFlow()
+
+    private val _levels = MutableStateFlow(
+        prefs.getStringSet(KEY_LEVELS, null).orEmpty().mapNotNullTo(HashSet()) { it.toIntOrNull() }.toSet(),
+    )
+    val levels: StateFlow<Set<Int>> = _levels.asStateFlow()
+
+    // v1 피드의 편집 등급 칩.
+    private val _tiers = MutableStateFlow(prefs.getStringSet(KEY_TIERS, null)?.toSet().orEmpty())
+    val tiers: StateFlow<Set<String>> = _tiers.asStateFlow()
+
+    // 목록 검색 줄의 조건 칩(치는 중인 글자는 저장하지 않는다).
+    private val _listTokens = MutableStateFlow(DeckToken.decode(prefs.getString(KEY_LIST_TOKENS, null)))
+    val listTokens: StateFlow<List<DeckToken>> = _listTokens.asStateFlow()
+
     private val _showHidden = MutableStateFlow(prefs.getBoolean(KEY_SHOW_HIDDEN, false))
     val showHidden: StateFlow<Boolean> = _showHidden.asStateFlow()
 
@@ -88,6 +111,48 @@ class DeckPrefs private constructor(context: Context) {
         prefs.edit().putStringSet(KEY_GRADES, HashSet(grades)).apply()
     }
 
+    fun setOnlyChina(value: Boolean) {
+        _onlyChina.value = value
+        prefs.edit().putBoolean(KEY_ONLY_CHINA, value).apply()
+    }
+
+    fun setEditorialOnly(value: Boolean) {
+        _editorialOnly.value = value
+        prefs.edit().putBoolean(KEY_EDITORIAL_ONLY, value).apply()
+    }
+
+    fun setMainTrait(id: String?) {
+        _mainTrait.value = id
+        prefs.edit().apply { if (id == null) remove(KEY_MAIN_TRAIT) else putString(KEY_MAIN_TRAIT, id) }.apply()
+    }
+
+    fun setLevels(levels: Set<Int>) {
+        _levels.value = levels
+        prefs.edit().putStringSet(KEY_LEVELS, levels.mapTo(HashSet()) { it.toString() }).apply()
+    }
+
+    fun setTiers(tiers: Set<String>) {
+        _tiers.value = tiers
+        prefs.edit().putStringSet(KEY_TIERS, HashSet(tiers)).apply()
+    }
+
+    fun setListTokens(tokens: List<DeckToken>) {
+        _listTokens.value = tokens
+        prefs.edit().putString(KEY_LIST_TOKENS, DeckToken.encode(tokens)).apply()
+    }
+
+    /** 조회 조건을 처음 상태로 돌린다. 등급은 기본값(S·A·B)으로. 구간·정렬·고정·숨김 목록은 그대로 둔다. */
+    fun resetQuery() {
+        setOnlyChina(false)
+        setEditorialOnly(false)
+        setMainTrait(null)
+        setLevels(emptySet())
+        setTiers(emptySet())
+        setListTokens(emptyList())
+        setGrades(DeckKeys.GRADE_FILTER_DEFAULT)
+        setShowHidden(false)
+    }
+
     fun setShowHidden(show: Boolean) {
         _showHidden.value = show
         prefs.edit().putBoolean(KEY_SHOW_HIDDEN, show).apply()
@@ -105,6 +170,12 @@ class DeckPrefs private constructor(context: Context) {
         private const val KEY_HIDDEN = "hidden"
         private const val KEY_SHOW_HIDDEN = "show_hidden"
         private const val KEY_GRADES = "grade_filter"
+        private const val KEY_ONLY_CHINA = "filter_only_china"
+        private const val KEY_EDITORIAL_ONLY = "filter_editorial_only"
+        private const val KEY_MAIN_TRAIT = "filter_main_trait"
+        private const val KEY_LEVELS = "filter_levels"
+        private const val KEY_TIERS = "filter_tiers"
+        private const val KEY_LIST_TOKENS = "filter_list_tokens"
 
         @Volatile
         private var instance: DeckPrefs? = null
