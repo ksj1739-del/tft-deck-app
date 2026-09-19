@@ -272,24 +272,29 @@ fun OverlayContent(
                 Spacer(Modifier.weight(1f))
             } else {
                 IconBtn(Icons.AutoMirrored.Filled.ArrowBack, "목록으로") { onSelectDeck(null) }
-                Text(
-                    text = gradeText(selected, bucket),
-                    color = gradeTint(selected, bucket),
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Bold,
-                )
-                // 긴 덱 이름은 버튼에 밀려 한두 글자만 남아 뺐지만, 짧은 별칭은 버튼 사이 남는 자리에만 둔다
-                // (weight 로 남는 폭만 쓰고 넘치면 … — 버튼을 밀어내지 않고, 본문도 한 줄 늘지 않는다).
-                Spacer(Modifier.width(5.dp))
-                Text(
-                    text = selected.displayAlias,
-                    color = OverlayText,
-                    fontSize = 11.5.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.weight(1f),
-                )
+                // 등급과 별칭은 버튼 사이 남는 자리(weight)에만 둔다 — 버튼을 밀어내지 않고 본문도 한 줄 늘지 않는다.
+                // 긴 덱 이름은 여기서 한두 글자만 남아 뺐고, 짧은 별칭도 패널이 좁으면(세로 화면 + 티어 카드) 두지 않는다.
+                Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = gradeText(selected, bucket),
+                        color = gradeTint(selected, bucket),
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                    )
+                    if (deckMax >= HEADER_ALIAS_MIN_PANEL) {
+                        Spacer(Modifier.width(5.dp))
+                        Text(
+                            text = selected.displayAlias,
+                            color = OverlayText,
+                            fontSize = 11.5.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
+                }
                 // 덱 코드 복사는 본문 버튼 대신 헤더의 작은 아이콘으로 두어 패널을 얇게 한다.
                 selected.teamCode?.let { code ->
                     TintedIconBtn(Icons.Default.ContentCopy, "덱 코드 복사", OverlayAccent) {
@@ -360,6 +365,12 @@ fun OverlayContent(
 
 /** 프로필 카드 폭. 덱 패널 폭을 계산할 때도 쓰인다. */
 private val PROFILE_WIDTH = 124.dp
+
+/**
+ * 덱 요약 헤더에 별칭을 둘 최소 패널 폭. 버튼이 다 있을 때 고정 폭이 약 210dp 라 이보다 좁으면 별칭이
+ * 한두 글자만 남는다. 가로 화면(게임 중)은 늘 300dp 이상이다.
+ */
+private val HEADER_ALIAS_MIN_PANEL = 260.dp
 
 /** 통계 등급은 등급색, 편집 등급으로 대신 보여 줄 때는 편집 등급색. 등급이 없으면 흐린 색. */
 private fun gradeTint(deck: Deck, bucket: String): Color {
