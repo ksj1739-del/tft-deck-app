@@ -26,6 +26,27 @@ SCOPES = (
     ("kr_master", "KR 마스터+", RANK_MASTER, "KR"),
 )
 
+# 앱 구간(lol.qq 胜率阵容 구간과 같은 키)마다 comps_stats 를 전 지역으로 한 번씩 받는다. rank 는 사이트처럼 알파벳순.
+# low: lol.qq tier_part 3 의 라벨은 '黄金以下'지만 실제로는 골드를 빼고 센다 — 2026-09-19 목록 5구간의
+# use_num/use_rate 역산 분모가 전체 2.88M ≈ 다이아+ 0.23M + 골드~에메랄드 1.94M + tier 3 0.70M 로 겹침 없이 맞았다.
+# 그래서 goldem 과 겹치지 않는 아이언~실버로 둔다.
+RANK_ALL = "BRONZE,CHALLENGER,DIAMOND,EMERALD,GOLD,GRANDMASTER,IRON,MASTER,PLATINUM,SILVER"
+BUCKET_RANKS = (
+    ("all", RANK_ALL),
+    ("master", RANK_MASTER),
+    ("diamond", "CHALLENGER,DIAMOND,GRANDMASTER,MASTER"),
+    ("goldem", "EMERALD,GOLD,PLATINUM"),
+    ("low", "BRONZE,IRON,SILVER"),
+)
+# metatft 사이트의 조합 등급(main 번들 CompRow): 반올림 전 평균 등수 p 에 p<4.25 S, <4.5 A, <4.75 B, <5.0 C, 그 밖 D.
+# 부등호가 '<' 라 lol.qq 등급(deck_merge.grade_for, '≤')과 다르다.
+META_GRADE_CUTS = (("S", 4.25), ("A", 4.5), ("B", 4.75), ("C", 5.0))
+# 구간별 등급 표본 문턱(고정). 마스터+ 도 1000 으로 등급 받는 조합이 41개(2026-09-19)라 500 으로 낮추지 않았다.
+META_MIN_SAMPLE = {"all": 1000, "master": 1000, "diamond": 1000, "goldem": 1000, "low": 1000}
+# 사이트 조합 목록의 기본 최소 픽률(min_playrate): 로비당 인원(pick × 8)이 이보다 작으면 목록에서 숨긴다.
+META_MIN_PLAYRATE = 0.01
+LOBBY_SIZE = 8
+
 LEVELLING_KO = {
     "Fast 8": "빠른 8레벨",
     "Fast 9": "빠른 9레벨",
@@ -74,9 +95,11 @@ def _iso_ms(value):
 # ----------------------------------------------------------------------------
 
 def comps_stats_url(rank, server=None):
-    # permit_filter_adjustment=false: 표본이 적을 때 서버가 랭크 필터를 몰래 넓히지 못하게.
-    url = (COMPS_BASE + "comps_stats?queue=1100&patch=current&days=%d&rank=%s"
-           "&permit_filter_adjustment=false" % (DAYS, rank))
+    # permit_filter_adjustment=false: 표본이 적을 때 서버가 랭크 필터를 몰래 넓히지 못하게. rank 가 비면 전 랭크.
+    url = COMPS_BASE + "comps_stats?queue=1100&patch=current&days=%d" % DAYS
+    if rank:
+        url += "&rank=" + rank
+    url += "&permit_filter_adjustment=false"
     if server:
         url += "&server=" + server
     return url
@@ -86,6 +109,7 @@ def fetch_scope(fetch_json, rank, server, error_cls):
     """
     comps_stats 한 스코프. 첫 행 {cluster:'', places:[총 보드]}, 나머지는
     places 9원소(앞 8 = 1~8등 보드 수, 9번째 = count).
+    filter_adjustment 는 서버가 표본이 적다고 필터를 넓혔을 때 오는 블록이다. 없으면 None 으로 남긴다(검증이 본다).
     """
     blob = fetch_json(comps_stats_url(rank, server), timeout=90)
     boards, clusters = None, {}
@@ -108,7 +132,122 @@ def fetch_scope(fetch_json, rank, server, error_cls):
         "updatedAt": _iso_ms(blob.get("updated")),
         "clusterSet": blob.get("cluster_id"),
         "clusters": clusters,
+        "ranks": rank or "",
+        "filterAdjustment": blob.get("filter_adjustment"),
     }
+
+
+def fetch_buckets(fetch_json, error_cls, warn=None):
+    """
+    앱 구간 5개(BUCKET_RANKS)의 comps_stats. 전 지역(server 없음). 반환 ({구간: fetch_scope 결과}, 실패한 구간들).
+    '전체'는 10개 랭크 목록이 거부되면 rank 를 빼고 한 번 더 받는다(그때 ranks 는 빈 문자열).
+    """
+    out, failed = {}, []
+    for bucket, rank in BUCKET_RANKS:
+        try:
+            out[bucket] = fetch_scope(fetch_json, rank, None, error_cls)
+        except error_cls as exc:
+            if bucket == "all":
+                try:
+                    out[bucket] = fetch_scope(fetch_json, None, None, error_cls)
+                    if warn:
+                        warn("metatft 전체 구간: 10개 랭크 목록이 거부돼 rank 없이 받았다(%s)" % exc)
+                    continue
+                except error_cls as retry:
+                    exc = retry
+            failed.append(bucket)
+            if warn:
+                warn("metatft %s 구간 통계 실패: %s" % (bucket, exc))
+    return out, failed
+
+
+def meta_grade(avg):
+    """사이트 조합 등급. avg 는 반올림 전 평균 등수."""
+    for grade, cut in META_GRADE_CUTS:
+        if avg < cut:
+            return grade
+    return "D"
+
+
+def trend_change(trends):
+    """
+    사이트의 '평균 등수 변화'(comps_data trends): 마지막 날(표본이 앞날의 1/4 미만인 반쪽 날이면 그 앞날)과
+    3일 전 날의 평균 등수·픽률 차이. 픽률은 보드 비율 그대로다(사이트는 로비당 인원으로 보여 주려고 ×8 한다).
+    부호는 lol.qq avg_rank_diff·use_rate_diff 와 같다(나중 − 먼저, 평균 등수가 음수면 좋아진 것).
+    rank 필터와 무관한 comps_data 값이라 구간마다 같다. 날이 셋 미만이면 (None, None).
+    """
+    rows = [t for t in trends or [] if isinstance(t, dict) and _float(t.get("avg")) is not None]
+    count = len(rows)
+    if count <= 2:
+        return None, None
+    last = rows[-1]
+    before = rows[-2]
+    if ((_float(before.get("count"), 0) > _float(last.get("count"), 0) * 4)
+            and before.get("patch") == last.get("patch")
+            and before.get("b_patch_version") == last.get("b_patch_version")):
+        last = before
+    base = rows[count - min(count, 4)]
+    avg_diff = _float(last.get("avg")) - _float(base.get("avg"))
+    pick_last, pick_base = _float(last.get("pick")), _float(base.get("pick"))
+    pick_diff = pick_last - pick_base if pick_last is not None and pick_base is not None else None
+    return avg_diff, pick_diff
+
+
+def bucket_stat(row, boards, change, min_sample, trend_for):
+    """
+    comps_stats 한 행 -> 구간 수치(lol.qq stats 와 같은 모양). avg 는 소수 넷째 자리로 싣고 등급은 반올림 전 값으로 매긴다.
+    표본이 min_sample 미만이거나 사이트 기본 최소 픽률(로비당 0.01명) 미만이면 grade 는 None(수치는 남긴다).
+    change: trend_change 결과(avgDiff, pickDiff). trend_for: lol.qq 와 같은 추세 규칙.
+    """
+    places = row["places"]
+    count = sum(places)
+    if count <= 0:
+        return None
+    avg = sum((i + 1) * p for i, p in enumerate(places)) / float(count)
+    pick = count / float(boards) if boards else None
+    graded = count >= min_sample and pick is not None and pick * LOBBY_SIZE >= META_MIN_PLAYRATE
+    avg_diff, pick_diff = change or (None, None)
+    return {
+        "n": count,
+        "avg": round(avg, 4),
+        "adjAvg": round(avg, 4),
+        "top4": round(sum(places[:4]) / float(count), 3),
+        "win": round(places[0] / float(count), 3),
+        "pick": round(pick, 4) if pick is not None else None,
+        "avgDiff": round(avg_diff, 2) if avg_diff is not None else None,
+        "pickDiff": round(pick_diff, 4) if pick_diff is not None else None,
+        "grade": meta_grade(avg) if graded else None,
+        "trend": trend_for(avg_diff, pick_diff),
+    }
+
+
+def cluster_bucket_stats(cid, buckets, change, trend_for):
+    """클러스터 하나의 구간별 수치 {구간: bucket_stat}. 그 구간에 행이 없으면 뺀다."""
+    out = {}
+    for bucket, _ in BUCKET_RANKS:
+        data = buckets.get(bucket)
+        row = ((data or {}).get("clusters") or {}).get(str(cid))
+        if not row:
+            continue
+        stat = bucket_stat(row, data.get("boards"), change, META_MIN_SAMPLE[bucket], trend_for)
+        if stat:
+            out[bucket] = stat
+    return out
+
+
+def meta_grade_cuts(bucket, data):
+    """buckets[b].metaGradeCuts: 고정 컷·표본 문턱·최소 픽률과 그 구간 요청(rank)·전체 보드·filter_adjustment 기록."""
+    cuts = dict(META_GRADE_CUTS)
+    cuts.update({
+        "method": "absolute",
+        "minSample": META_MIN_SAMPLE[bucket],
+        "minPlayrate": META_MIN_PLAYRATE,
+        "ranks": (data or {}).get("ranks", ""),
+        "boards": (data or {}).get("boards"),
+        "filterAdjustment": (data or {}).get("filterAdjustment"),
+        "updatedAt": (data or {}).get("updatedAt"),
+    })
+    return cuts
 
 
 def fetch_comps_data(fetch_json, error_cls):
@@ -125,6 +264,8 @@ def fetch_comps_data(fetch_json, error_cls):
             "overall": row.get("overall") or {},
             # 유닛별 1순위 3아이템 빌드(comp builds). metatft 전용 덱의 보드 아이템·캐리 순위에 쓴다.
             "builds": row.get("builds") or [],
+            # 일별 표본·평균 등수·픽률. 사이트는 여기서 '평균 등수 변화'를 계산한다(trend_change).
+            "trends": row.get("trends") or [],
         }
     return out
 
@@ -218,9 +359,8 @@ def final_levels(results):
 def counters(results, own_cluster, deck_for_cluster, names=None):
     """
     place_change 가 큰(만나면 등수가 더 밀리는) 상대 상위 3. 자기 자신 행은 뺀다.
-    against 는 클러스터 id 라 우리 덱 id 로도 옮겨 적는다(매칭된 경우만).
-    names(클러스터 id -> metatft name_string)가 있으면 이름도 싣는다. 우리 목록에 대응 덱이 없는
-    상대(절반 가까이)는 앱이 이 이름을 한글로 풀어 보여 주고, 없으면 클러스터 숫자만 남는다.
+    against 는 클러스터 id 라 우리 덱 id(metatft 조합 덱)로 옮겨 적는다. 우리 목록에 없는 클러스터는 뺀다
+    (2026-09-19 계약: 목록의 덱으로만 옮겨 가게). names(클러스터 id -> metatft name_string)는 참고로 싣는다.
     """
     names = names or {}
     rows = []
@@ -228,6 +368,8 @@ def counters(results, own_cluster, deck_for_cluster, names=None):
         against = str(row.get("against") or "")
         change = _float(row.get("place_change"))
         if not against or against == str(own_cluster) or change is None or change <= 0:
+            continue
+        if against not in deck_for_cluster:
             continue
         rows.append((change, against))
     rows.sort(reverse=True)
@@ -339,11 +481,10 @@ def buildup_global(results, cluster, sort_units, trait_count):
 
 
 # ----------------------------------------------------------------------------
-# metatft 전용 덱(kind=global): lol.qq 그룹·편집 덱에 매칭되지 않은 클러스터
+# metatft 조합 덱(kind=meta) 보드: 합쳐진 lol.qq 그룹이 없는 클러스터는 대표 유닛·빌드로 보드를 만든다
 # ----------------------------------------------------------------------------
 
 GLOBAL_SCOPE = "glob_plat"
-GLOBAL_MIN_SAMPLE = 1000
 # 대표 유닛(units_string)은 클러스터에 따라 8~21명이라 보드로 보일 만큼만 남긴다.
 GLOBAL_BOARD_MAX = 10
 
