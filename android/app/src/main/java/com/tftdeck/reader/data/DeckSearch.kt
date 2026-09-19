@@ -204,6 +204,52 @@ class DeckSearch(private val feed: DeckFeed) {
         return if (custom.key in picked) fromIndex else fromIndex + TokenCandidate(custom, deckCount = count(custom))
     }
 
+    /**
+     * 오버레이 검색 줄 후보. [suggestTokens] 와 같은 후보를 같은 순서로 내되, 후보마다 두 수를 센다.
+     *  - [OverlayCandidate.deckCount]: 등급 조건을 걸기 전 목록([all])에 지금 조건([selected])과 이 후보를 더했을 때 남는 수.
+     *  - [OverlayCandidate.hiddenByGrade]: 그중 꺼 둔 등급 때문에 지금 목록([listed])에서 빠진 수.
+     * 'S 만 켠 채 케이틀린'처럼 덱은 있는데 등급에 가려진 후보를 덱이 아예 없는 후보와 가를 수 있다.
+     * [listed] 는 지금 목록(등급·검색 조건까지 건 것), [all] 은 등급 조건만 걸지 않은 목록이다 — [all] 에는 검색 조건을
+     * 걸어 넘기지 않아도 된다(여기서 [selected] 로 거른다).
+     */
+    fun suggestTokensWithHidden(
+        query: String,
+        listed: List<Deck>,
+        all: List<Deck>,
+        selected: List<DeckToken> = emptyList(),
+        limit: Int = 8,
+    ): List<OverlayCandidate> {
+        if (query.isBlank()) return emptyList()
+        val base = filterByTokens(all, selected)
+        return suggestTokens(query, selected, within = base, limit = limit).map { candidate ->
+            val ids = matchingIds(candidate.token)
+            val shown = listed.count { it.id in ids }
+            OverlayCandidate(
+                token = candidate.token,
+                deckCount = candidate.deckCount,
+                hiddenByGrade = (candidate.deckCount - shown).coerceAtLeast(0),
+                icon = candidate.icon,
+                cost = candidate.cost,
+            )
+        }
+    }
+
+    /**
+     * 후보 하나의 두 수를 지금 목록 기준으로 다시 센다([suggestTokensWithHidden] 와 같은 규칙).
+     * 한글을 조합하는 사이 직전 후보를 이어 보여 줄 때 쓴다 — 그사이 조건·등급이 바뀌었을 수 있다.
+     */
+    fun recount(
+        candidate: OverlayCandidate,
+        listed: List<Deck>,
+        all: List<Deck>,
+        selected: List<DeckToken> = emptyList(),
+    ): OverlayCandidate {
+        val ids = matchingIds(candidate.token)
+        val total = filterByTokens(all, selected).count { it.id in ids }
+        val shown = listed.count { it.id in ids }
+        return candidate.copy(deckCount = total, hiddenByGrade = (total - shown).coerceAtLeast(0))
+    }
+
     // -- 목록 필터 ----------------------------------------------------------
 
     /**
@@ -249,9 +295,12 @@ class DeckSearch(private val feed: DeckFeed) {
          */
         fun gradePasses(grade: String?, grades: Set<String>): Boolean {
             if (grades.containsAll(DeckKeys.GRADE_FILTER_ALL)) return true
-            val letter = grade?.trim()?.uppercase()?.let { if (it == "SS") "S" else it } ?: return false
+            val letter = gradeLetter(grade) ?: return false
             return letter in grades
         }
+
+        /** 등급 조회 조건에서 보는 등급 글자. 편집 등급 SS 는 S 로 본다. 등급이 없으면 null. */
+        fun gradeLetter(grade: String?): String? = grade?.trim()?.uppercase()?.let { if (it == "SS") "S" else it }
 
         /** 통계 등급 순서. 편집 등급 SS 가 섞여 들어와도 맨 앞에 두도록 포함한다. */
         private val GRADE_ORDER = listOf("SS", "S", "A", "B", "C", "D")
@@ -416,6 +465,25 @@ class DeckSearch(private val feed: DeckFeed) {
             return words.joinToString("") { it.first().toString() }.lowercase()
         }
     }
+}
+
+/**
+ * 오버레이 검색 줄 후보 한 줄([DeckSearch.suggestTokensWithHidden]).
+ * [deckCount] 는 등급 조건을 걸기 전 목록에 이 조건을 더했을 때 남는 수, [hiddenByGrade] 는 그중 꺼 둔 등급 때문에
+ * 지금 목록에서 빠진 수다. 골랐을 때 지금 목록에 남는 수는 [shownCount].
+ */
+data class OverlayCandidate(
+    val token: DeckToken,
+    val deckCount: Int,
+    val hiddenByGrade: Int = 0,
+    val icon: String? = null,
+    val cost: Int? = null,
+) {
+    /** 이 조건을 더하면 지금 목록에 남는 수. */
+    val shownCount: Int get() = (deckCount - hiddenByGrade).coerceAtLeast(0)
+
+    /** 앱과 같은 후보 줄(TokenCandidateRow)에 넘길 모양. 덱 수는 지금 목록에 남는 수다. */
+    fun toTokenCandidate(): TokenCandidate = TokenCandidate(token, icon, cost, shownCount)
 }
 
 /**
