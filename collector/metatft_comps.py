@@ -27,9 +27,9 @@ SCOPES = (
 )
 
 # 앱 구간(lol.qq 胜率阵容 구간과 같은 키)마다 comps_stats 를 전 지역으로 한 번씩 받는다. rank 는 사이트처럼 알파벳순.
-# low: lol.qq tier_part 3 의 라벨은 '黄金以下'지만 실제로는 골드를 빼고 센다 — 2026-09-19 목록 5구간의
-# use_num/use_rate 역산 분모가 전체 2.88M ≈ 다이아+ 0.23M + 골드~에메랄드 1.94M + tier 3 0.70M 로 겹침 없이 맞았다.
-# 그래서 goldem 과 겹치지 않는 아이언~실버로 둔다.
+# low(앱 라벨 '실버 이하', deck_merge.BUCKETS): lol.qq tier_part 3 의 원래 라벨은 '黄金以下'지만 실제로는 골드를 빼고 센다 —
+# 2026-09-19 목록 5구간의 use_num/use_rate 역산 분모가 전체 2.88M ≈ 다이아+ 0.23M + 골드~에메랄드 1.94M + tier 3 0.70M 로
+# 겹침 없이 맞았다. 그래서 goldem 과 겹치지 않는 아이언~실버로 두고, 앱에도 '골드 이하'가 아니라 '실버 이하'로 보인다.
 RANK_ALL = "BRONZE,CHALLENGER,DIAMOND,EMERALD,GOLD,GRANDMASTER,IRON,MASTER,PLATINUM,SILVER"
 BUCKET_RANKS = (
     ("all", RANK_ALL),
@@ -47,15 +47,15 @@ META_MIN_SAMPLE = {"all": 1000, "master": 1000, "diamond": 1000, "goldem": 1000,
 META_MIN_PLAYRATE = 0.01
 LOBBY_SIZE = 8
 
-LEVELLING_KO = {
-    "Fast 8": "빠른 8레벨",
-    "Fast 9": "빠른 9레벨",
-    "Standard": "표준",
-    "Reroll": "리롤",
-    "Slow Roll": "리롤",
-}
-# 'lvl 6' 은 metatft 화면에서 6레벨 리롤 덱을 뜻한다.
-LEVELLING_REROLL = re.compile(r"^lvl\s*(\d+)$", re.I)
+# 운영 방식(comps_data levelling) -> 앱 운영 어휘. 앱 전체 운영 어휘는 {빠른 8레벨, 빠른 9레벨, N레벨 리롤, 표준 운영, 최종 N레벨}
+# 다섯 꼴뿐이고(2026-09-19 UX 검토 WP-C1, MASTER 규칙 8) '최종 N레벨' 은 수집기가 마무리 레벨로 만든다. 'Standard' 는
+# 예전처럼 '표준' 한 낱말로 두면 뜻을 알 수 없어 '표준 운영' 이다.
+LEVELLING_STANDARD = {"standard": "표준 운영"}
+# 'Fast 8'·'Fast 9' -> '빠른 N레벨'. 허용 어휘에 없는 레벨('Fast 7' 등)은 옮기지 않는다.
+LEVELLING_FAST = re.compile(r"^fast\s*([89])$", re.I)
+# 'lvl 6'(metatft 화면의 6레벨 리롤 덱)·'Reroll 6'·'Slow Roll 6' -> '6레벨 리롤'. 레벨이 없는 'Reroll'·'Slow Roll' 은 몇 레벨에서
+# 굴리는지 몰라 옮기지 않는다(None — 수집기가 '최종 N레벨' 로 대신한다).
+LEVELLING_REROLL = re.compile(r"^(?:lvl|reroll|slow\s*roll)\s*(\d+)$", re.I)
 
 # metatft difficulty 는 0 근처의 실수다. 화면 라벨 경계는 공개되지 않아 추정값을 상수로 둔다.
 DIFFICULTY_EASY = -0.1
@@ -323,13 +323,20 @@ def scope_mean(scope):
 
 
 def levelling_ko(raw):
-    text = str(raw or "").strip()
+    """
+    metatft 운영 방식 -> 앱 운영 어휘('빠른 8레벨'·'빠른 9레벨'·'N레벨 리롤'·'표준 운영'). 옮길 수 없는 값(레벨 없는 Reroll,
+    처음 보는 값)은 None 이다 — 원문을 그대로 실으면 허용 어휘 밖 글자가 앱에 보인다. 수집기는 그때 '최종 N레벨' 을 쓴다.
+    """
+    text = " ".join(str(raw or "").split())
     if not text:
         return None
     found = LEVELLING_REROLL.match(text)
     if found:
-        return "%s레벨 리롤" % found.group(1)
-    return LEVELLING_KO.get(text, text)
+        return "%d레벨 리롤" % int(found.group(1))
+    fast = LEVELLING_FAST.match(text)
+    if fast:
+        return "빠른 %s레벨" % fast.group(1)
+    return LEVELLING_STANDARD.get(text.lower())
 
 
 def difficulty_ko(value):
@@ -549,8 +556,22 @@ def unit_usage(results):
     return out
 
 
+def top_final_level(levels):
+    """
+    final_levels 결과([{level, share}]) -> 점유율이 가장 큰 레벨(같으면 낮은 쪽). 비면 None.
+    조합 덱의 마무리 레벨(deck.finalLevel)이다. 실린 finalLevels 로 계산하므로 verify 가 같은 값으로 다시 맞춰 볼 수 있다.
+    """
+    rows = [row for row in levels or [] if row.get("level") is not None]
+    if not rows:
+        return None
+    return min(rows, key=lambda row: (-(row.get("share") or 0.0), row["level"]))["level"]
+
+
 def common_final_level(results):
-    """comp_details final_levels 에서 가장 많이 끝난 레벨. 없으면 None."""
+    """
+    comp_details final_levels 에서 가장 많이 끝난 레벨(같으면 높은 쪽). 없으면 None.
+    대표 유닛이 많은 조합 덱의 보드를 몇 칸으로 자를지에만 쓴다. 덱의 마무리 레벨은 top_final_level 이다.
+    """
     rows = [(_int(row.get("count"), 0), _int(row.get("level"))) for row in (results or {}).get("final_levels") or []]
     rows = [(count, level) for count, level in rows if level is not None and count > 0]
     return max(rows)[1] if rows else None

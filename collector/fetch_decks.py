@@ -12,7 +12,8 @@ lol.qq.com/tft 덱 데이터를 한국어로 모아 decks.json(v2)을 만든다.
 
 덱 목록(2026-09-19) = metatft 조합 덱(kind=meta, 구간별 metatft 등급; 가장 비슷한 lol.qq 그룹이 있으면 그 보드·편집 덱·
 상세를 합친다) + 중국 한정 덱(어느 조합 덱에도 합쳐지지 않은 lol.qq 그룹·편집 독립 덱. 등급은 구간마다 lol.qq 보정 평균
-순으로 대상의 앞 절반 S · 나머지 A — china_half_grades).
+순으로 대상의 앞 절반 S · 나머지 A — china_half_grades). 이번 패치의 어떤 출처에도 없는 편집 독립 덱(이번 패치 전 편집,
+통계 없음)은 뺀다. 별칭·한 줄 설명·운영 어휘·조합 덱 마무리 레벨 규칙은 assign_aliases 앞 주석(2026-09-19 UX 검토 WP-C1).
 
 앱은 이 결과물만 받는다. 시즌이 바뀌거나 원본 스키마가 흔들려도 여기만 고치면 되고
 앱은 재배포하지 않아도 된다. v1 필드와 index 5축·catalog 4배열은 이름·의미를 유지해
@@ -1116,7 +1117,8 @@ def build_merged_deck(members, scores, works, ctx):
     한 클러스터에 합쳐진 lol.qq 덱들 -> 조합 덱의 lol.qq 쪽 내용(보드·단계·배치·증강·아이템 착용자·핵심 유닛·cn 빌드업·
     덱 코드·긴 이름은 대표 것). 대표 = 합쳐진 그룹 중 기본 구간 표본이 가장 큰 것(같으면 유사도가 높은 것), 그룹 없이
     편집 독립 덱만 합쳐졌으면 그 덱. 편집 덱은 대표에 있는 것만 잇는다 — 다른 그룹 것을 빌려 오면 카드 보드(대표 보드)와
-    편집 최종 보드가 어긋난다. id·kind·등급·수치는 부르는 쪽이 metatft 값으로 채운다.
+    편집 최종 보드가 어긋난다. id·kind·등급·수치는 부르는 쪽이 metatft 값으로 채우고, 대표에서 복사된 finalLevel(편집 덱
+    needLevel·그룹 인원)도 나중에 metatft 최종 레벨 분포 1위로 덮는다.
     반환 (덱, 작업 객체, 잇지 못한 편집 덱 id 들).
     """
     def default_n(deck):
@@ -1156,7 +1158,7 @@ def build_meta_deck(cluster, info, details, ctx, patch_global, updated):
     metatft 가 덱 이름에 쓴 유닛(name_string)을 앞에 둔다 — 2026-09-16 대상 20개 중 16개는 표본 1위와 같고,
     나머지 넷은 탱커가 표본 1위라 '세트 · 개화' 처럼 metatft 이름(개화 아리)과 어긋났다.
     성급·핵심 유닛·최종 레벨은 comp_details(unit_stats·final_levels)에서 온다. 사전으로 풀리는 유닛이 없으면 (None, None).
-    id·등급·수치는 부르는 쪽이 채운다.
+    id·등급·수치는 부르는 쪽이 채우고, finalLevel 은 부르는 쪽이 global.finalLevels 1위(같으면 낮은 쪽)로 다시 매긴다.
     """
     dic = ctx.dic
     did = "m-%s" % cluster["id"]
@@ -1303,9 +1305,21 @@ def china_half_grades(decks, grade_cuts):
 
 # ----------------------------------------------------------------------------
 # 별칭(alias)·한 줄 설명(summary): 목록에서 얼굴 없이 글만 읽어도 어떤 덱인지. 규칙 기반이라 매일 같은 값이 나온다.
+# 2026-09-19 UX 검토(WP-C1 · R1 R6 R7 L13): 별칭 = '{대표 특성} {캐리}', 설명 = '{운영} · {대표 특성} {인원} · {캐리 아이템}'.
+# 예전 규칙(metatft 이름 조각을 그대로 번역)은 캐리가 아닌 유닛·보드에 없는 유닛·덱에 없는 특성을 별칭에 실었다
+# ('날렵이 티모' 티모 3순위, '검은 가시 베이가' 베이가 없음, '주문술사 카직스' 주문술사 없음). verify.py 가 같은 규칙
+# (별칭 챔피언이 보드에 있고 첫 챔피언이 캐리 1·2순위, 별칭 특성이 traits 에 있음, 운영 어휘, 설명 44자)으로 막는다.
 # ----------------------------------------------------------------------------
 
-LEVELLING_FAST = re.compile(r"^Fast\s*(\d+)$", re.I)
+# 운영 어휘는 이 다섯 꼴뿐이다(MASTER 규칙 8): '빠른 8레벨'·'빠른 9레벨'·'N레벨 리롤'·'표준 운영'(metatft 운영 방식을
+# metatft_comps.levelling_ko 로 옮긴 것)과 '최종 N레벨'(그 밖의 경우 마무리 레벨). 예전 'N레벨 완성'·'표준' 은 쓰지 않는다.
+OPERATION_FAST = "빠른 %d레벨"
+OPERATION_REROLL = "%d레벨 리롤"
+OPERATION_FINAL = "최종 %d레벨"
+# 중국 한정 덱이 '빠른 8레벨' 이 되는 8레벨 도달 라운드의 마지막(이 라운드 포함).
+FAST8_LATEST_ROUND = (4, 1)
+# 한 줄 설명 최대 글자 수: 오버레이 목록 줄의 설명(12sp, 최대 두 줄)에 말줄임 없이 들어가는 길이.
+SUMMARY_MAX_CHARS = 44
 
 
 def champion_name(dic, unit_id):
@@ -1314,106 +1328,210 @@ def champion_name(dic, unit_id):
     return (dic.champions.get(uid) or {}).get("name") if uid else None
 
 
-def meta_alias(cluster, dic):
-    """조합 이름 조각(name[])을 순서대로 한국어로: 특성은 특성 이름, 유닛은 챔피언 이름. 사전에 없는 id 는 건너뛴다."""
-    names = []
-    for token, kind in cluster.get("nameParts") or []:
-        if kind == "trait" or (not kind and token in dic.traits):
-            name = (dic.traits.get(token) or {}).get("name")
-        else:
-            name = champion_name(dic, token)
-        if name and name not in names:
-            names.append(name)
-    return " ".join(names)
-
-
-def china_alias(deck, dic):
-    """중국 한정 덱: '{대표 시너지} {캐리}'. 대표 시너지는 주특성 중 개수가 가장 큰 것(같으면 앞의 것)."""
-    top = None
-    for trait in deck.get("mainTraits") or deck.get("traits") or []:
-        if top is None or (trait.get("count") or 0) > (top.get("count") or 0):
-            top = trait
-    carry_id = deck.get("carryId")
-    carry = champion_name(dic, carry_id) or next(
-        (u.get("name") for u in deck.get("units") or [] if u.get("id") == carry_id), None)
-    return " ".join(part for part in ((top or {}).get("name"), carry) if part)
-
-
-def ranked_carries(deck, dic):
-    """carryRank 순 캐리 이름(중복 없이). 순위가 없으면 carryId 하나."""
-    ranked = sorted((u for u in deck.get("units") or [] if u.get("carryRank") and u.get("kind") != "pet"),
-                    key=lambda u: u["carryRank"])
-    names = []
+def board_carries(deck):
+    """
+    별칭·설명에 쓸 캐리 후보: 보드(pet 제외)의 캐리를 carryRank 순으로, 같은 이름은 한 번. 순위가 하나도 없으면 carryId 가
+    가리키는 보드 유닛 하나. 보드에 없는 유닛은 후보가 되지 않는다(캐리가 보드에 없으면 다음 순위로 내려간다).
+    """
+    board = [u for u in deck.get("units") or [] if u.get("kind") != "pet" and u.get("name")]
+    ranked = sorted((u for u in board if u.get("carryRank")), key=lambda u: u["carryRank"])
+    if not ranked:
+        ranked = [u for u in board if u.get("id") == deck.get("carryId")][:1]
+    out, names = [], set()
     for unit in ranked:
-        name = unit.get("name") or champion_name(dic, unit.get("id"))
-        if name and name not in names:
-            names.append(name)
-    if not names and deck.get("carryId"):
-        name = champion_name(dic, deck["carryId"])
-        if name:
-            names.append(name)
-    return names
+        if unit["name"] not in names:
+            names.add(unit["name"])
+            out.append(unit)
+    return out
+
+
+def trait_rank(trait):
+    """특성 정렬 키: 활성 단계(색 style: 1 브론즈 … 4 프리즘)가 높을수록, 같으면 인원이 많을수록 앞."""
+    return -(trait.get("style") or 0), -(trait.get("count") or 0)
+
+
+def alias_trait(deck, cluster):
+    """
+    별칭의 대표 특성(덱 traits 의 한 행, 없으면 None).
+      조합 덱: metatft 이름 조각(nameParts)의 특성 중 덱 traits 에 있는 첫째.
+      중국 한정 덱: lol.qq 주특성(mainTraits — 그룹 id 에 든 주특성, 편집 독립 덱은 작성자가 덱 이름에 쓴 특성) 중
+                    활성 단계가 가장 높은 것. '치명적인 꽃 2'(2명에 골드)가 '검은 가시 4'(실버)를 밀어내지 않게 한다.
+      둘 다 없으면 traits 전체에서 활성 단계가 가장 높은 것(같으면 인원이 많은 것, 그다음 앞선 것).
+    """
+    traits = [t for t in deck.get("traits") or [] if t.get("name")]
+    if not traits:
+        return None
+    by_id = {t.get("id"): t for t in traits}
+    if cluster is not None:
+        for token, kind in cluster.get("nameParts") or []:
+            if kind in ("trait", "") and token in by_id:
+                return by_id[token]
+    else:
+        mains = [by_id[t.get("id")] for t in deck.get("mainTraits") or [] if t.get("id") in by_id]
+        if mains:
+            return sorted(mains, key=trait_rank)[0]
+    return sorted(traits, key=trait_rank)[0]
+
+
+def alias_champion(deck, cluster, carries, dic, space):
+    """
+    별칭의 캐리(보드 유닛, 없으면 None). 1순위 캐리가 기본이다. 조합 덱은 metatft 이름 조각의 유닛이 캐리 1·2순위이면 그 유닛
+    (조각 순서 첫째)을 쓴다 — metatft 가 덱 이름에 쓴 캐리('사냥꾼 시비르', 시비르 2순위)는 살리고, 캐리 상위 2 밖의 유닛
+    ('날렵이 티모', 티모 3순위)이나 보드에 없는 유닛('검은 가시 베이가')은 버린다.
+    """
+    if not carries:
+        return None
+    if cluster is not None:
+        top = carries[:2]
+        for token, kind in cluster.get("nameParts") or []:
+            if kind == "trait" or token in dic.traits:
+                continue
+            want = canonical_unit(dic, space, token)
+            hit = next((u for u in top if want and canonical_unit(dic, space, u.get("id")) == want), None)
+            if hit:
+                return hit
+    return carries[0]
+
+
+def round_key(text):
+    """라운드 글자 '4-1' -> (4, 1). 형식이 다르면 None."""
+    parts = str(text or "").strip().split("-")
+    if len(parts) != 2:
+        return None
+    try:
+        return int(parts[0]), int(parts[1])
+    except ValueError:
+        return None
 
 
 def operation_text(deck):
-    """summary 의 운영: metatft 레벨링(예 '빠른 8레벨', '6레벨 리롤'), 없으면 '{최종 레벨}레벨 완성'."""
-    levelling = str((deck.get("global") or {}).get("levelling") or "").strip()
-    if levelling:
-        return levelling
+    """
+    운영 한 마디(운영 어휘 다섯 꼴 중 하나, 모르면 빈 글자).
+      조합 덱: metatft 운영 방식(global.levelling — '빠른 8/9레벨'·'N레벨 리롤'·'표준 운영'). 옮길 수 없었으면 '최종 N레벨'.
+      중국 한정 덱: 롤다운 레벨(buildup.cn.rollLevel)이 7 이하이면 'N레벨 리롤', 8 이고 8레벨 도달 라운드(buildup.cn 의 8레벨
+        reachRound)가 4-1 이전이면 '빠른 8레벨', 그 밖은 '최종 N레벨'. lol.qq 원본에는 롤다운 레벨·도달 라운드가 아직 없어
+        (2026-09-19 胜率阵容 상세 level_change_lineup_data 에 없음) 지금은 모두 '최종 N레벨' 이다.
+    N = finalLevel(조합 덱은 metatft 최종 레벨 분포 1위, 중국 한정 덱은 편집 덱 최종 레벨 → 그룹 인원).
+    """
+    if deck.get("kind") == "meta":
+        levelling = str((deck.get("global") or {}).get("levelling") or "").strip()
+        if levelling:
+            return levelling
+    else:
+        cn = (deck.get("buildup") or {}).get("cn") or {}
+        roll = cn.get("rollLevel")
+        if isinstance(roll, int) and 1 <= roll <= 7:
+            return OPERATION_REROLL % roll
+        if roll == 8:
+            reach = round_key(next((row.get("reachRound") for row in cn.get("levels") or [] if row.get("level") == 8),
+                                   None))
+            if reach is not None and reach <= FAST8_LATEST_ROUND:
+                return OPERATION_FAST % 8
     level = deck.get("finalLevel")
-    return "%d레벨 완성" % level if level else ""
+    return OPERATION_FINAL % level if level else ""
 
 
 def operation_short(deck):
-    """별칭이 겹칠 때 붙이는 짧은 운영: 'Fast 9' → '9레벨', 'lvl 6' → '6레벨 리롤', Reroll → '리롤', 없으면 '{최종 레벨}레벨'."""
-    raw = str((deck.get("global") or {}).get("levellingRaw") or "").strip()
-    fast = LEVELLING_FAST.match(raw)
-    if fast:
-        return "%s레벨" % fast.group(1)
-    if raw:
-        return mt.levelling_ko(raw) or raw
-    level = deck.get("finalLevel")
-    return "%d레벨" % level if level else ""
+    """별칭이 캐리로도 갈리지 않을 때 ' · ' 뒤에 붙이는 운영. 운영 어휘가 이미 짧아 한 줄 설명의 운영과 같다."""
+    return operation_text(deck)
 
 
-def deck_summary(deck, dic):
-    """'{운영} · {캐리1}·{캐리2} 캐리'. 캐리는 carryRank 순 상위 2명(1명뿐이면 1명)."""
-    parts = []
-    operation = operation_text(deck)
-    if operation:
-        parts.append(operation)
-    carries = ranked_carries(deck, dic)[:2]
-    if carries:
-        parts.append("%s 캐리" % "·".join(carries))
-    return " · ".join(parts) or deck.get("name") or deck["id"]
+def item_names(unit):
+    """유닛 아이템 이름을 순서대로. 같은 아이템 여러 개는 한 번만 '이름×2' 로 접는다."""
+    counts, order = {}, []
+    for item in (unit or {}).get("items") or []:
+        name = str(item.get("name") or "").strip()
+        if not name:
+            continue
+        if name not in counts:
+            order.append(name)
+        counts[name] = counts.get(name, 0) + 1
+    return [name if counts[name] == 1 else "%s×%d" % (name, counts[name]) for name in order]
 
 
-def assign_aliases(decks, clusters_by_id, dic):
+def clip(text, limit=SUMMARY_MAX_CHARS):
+    return text if len(text) <= limit else text[:limit - 1].rstrip() + "…"
+
+
+def deck_summary(deck, trait, champion, carries, named=False):
     """
-    목록 순서대로 alias·summary 를 매긴다. 조합 덱은 조합 이름 조각을 번역하고(비면 중국 한정 규칙), 중국 한정 덱은
-    '{대표 시너지} {캐리}'. 같은 별칭이 앞 덱에 있으면 ' · {운영 짧게}', 그래도 겹치면 둘째 캐리(별칭에 아직 없는 다음
-    캐리) 이름을 붙이고, 그래도 겹치면(드물다) 번호를 붙인다.
+    한 줄 설명(SUMMARY_MAX_CHARS 이하 — 오버레이 목록 줄 설명 두 줄).
+      첫 문장: '{운영} · {대표 특성} {인원}'(별칭과 같은 특성). 운영이나 특성이 없으면 있는 것만.
+      둘째 문장(있으면): 캐리 아이템 한 줄 — 별칭 캐리의 아이템(같은 아이템은 '×2'). 별칭 캐리가 아이템이 없으면 아이템을 든
+        다음 캐리의 것을 그 이름과 함께 쓴다. named 면 별칭 캐리라도 이름을 붙인다(설명이 겹칠 때). 길이 안에 드는 앞쪽
+        아이템만 싣고, 하나도 들지 않으면 둘째 문장을 뺀다.
+    아무것도 없으면 긴 이름(길면 말줄임).
     """
-    taken = set()
+    head = " · ".join(part for part in (
+        operation_text(deck),
+        ("%s %d" % (trait["name"], trait["count"]) if trait.get("count") else trait["name"]) if trait else None,
+    ) if part)
+    holder = champion if champion is not None and champion.get("items") else next(
+        (u for u in carries if u.get("items")), None)
+    prefix = "%s " % holder["name"] if holder is not None and (named or holder is not champion) else ""
+    picked = []
+    for name in item_names(holder):
+        tail = prefix + "·".join(picked + [name])
+        if len(" · ".join(part for part in (head, tail) if part)) > SUMMARY_MAX_CHARS:
+            break
+        picked.append(name)
+    tail = prefix + "·".join(picked) if picked else ""
+    text = " · ".join(part for part in (head, tail) if part)
+    return clip(text or deck.get("name") or deck["id"])
+
+
+def assign_aliases(decks, clusters_by_id, dic, space):
+    """
+    목록 순서대로 alias·summary 를 매긴다. 별칭 = '{대표 특성} {캐리}'(alias_trait · alias_champion).
+    같은 별칭이 둘 이상이면 그 덱들 모두에 차례로 구별을 더한다(먼저 나온 덱이 원래 별칭을 차지하는 방식이 아니다 — 등급이
+    바뀌어 목록 순서가 달라져도 별칭이 서로 바뀌지 않게):
+      (1) 둘째 캐리 — '{특성} {캐리}·{다음 캐리}'(별칭 캐리가 아닌 첫 순위 캐리),
+      (2) 그래도 겹치면 운영 — '… · {운영}'. 그 무리 안에서 운영이 다른 덱에만 붙인다(같은 운영은 붙여도 갈리지 않는다),
+      (3) 그래도 겹치면 목록 순서로 둘째부터 번호 ' 2', ' 3'.
+    오버레이 목록 줄은 별칭의 ' · …' 을 떼고 보여 준다(운영은 바로 아래 설명 첫머리에 있다). 그래서 (3) 의 번호는 운영이 아니라
+    캐리 뒤에 붙는다.
+    설명(summary)은 deck_summary 이고, 앞 덱과 글자까지 같으면 캐리 이름을 붙인 꼴로 바꾼다.
+    """
+    rows = []
     for deck in decks:
         cluster = clusters_by_id.get(str(deck.get("metaCluster"))) if deck.get("kind") == "meta" else None
-        base = (meta_alias(cluster, dic) if cluster else "") or china_alias(deck, dic) or deck.get("name") or deck["id"]
-        operation = operation_short(deck)
-        candidates = [base]
-        if operation:
-            candidates.append("%s · %s" % (base, operation))
-        extra = next((name for name in ranked_carries(deck, dic)[1:] if name not in base), None)
-        if extra:
-            candidates.append("%s %s · %s" % (base, extra, operation) if operation else "%s %s" % (base, extra))
-        alias = next((c for c in candidates if c not in taken), None)
-        number = 2
-        while alias is None:
-            numbered = "%s %d" % (candidates[-1], number)
-            alias = numbered if numbered not in taken else None
-            number += 1
-        taken.add(alias)
-        deck["alias"] = alias
-        deck["summary"] = deck_summary(deck, dic)
+        carries = board_carries(deck)
+        trait = alias_trait(deck, cluster)
+        champion = alias_champion(deck, cluster, carries, dic, space)
+        alias = " ".join(part for part in ((trait or {}).get("name"), (champion or {}).get("name")) if part)
+        rows.append({"deck": deck, "trait": trait, "champion": champion, "carries": carries,
+                     "alias": alias or deck.get("name") or deck["id"]})
+
+    def collisions():
+        groups = {}
+        for row in rows:
+            groups.setdefault(row["alias"], []).append(row)
+        return [group for group in groups.values() if len(group) > 1]
+
+    for group in collisions():
+        for row in group:
+            champion = row["champion"]
+            extra = next((u for u in row["carries"] if champion is None or u["name"] != champion["name"]), None)
+            if extra is not None:
+                row["alias"] = "%s·%s" % (row["alias"], extra["name"])
+    for group in collisions():
+        operations = [operation_short(row["deck"]) for row in group]
+        for row, operation in zip(group, operations):
+            if operation and operations.count(operation) == 1:
+                row["alias"] = "%s · %s" % (row["alias"], operation)
+    for group in collisions():
+        for number, row in enumerate(group[1:], start=2):
+            row["alias"] = "%s %d" % (row["alias"], number)
+
+    summaries = set()
+    for row in rows:
+        deck = row["deck"]
+        deck["alias"] = row["alias"]
+        summary = deck_summary(deck, row["trait"], row["champion"], row["carries"])
+        if summary in summaries:
+            summary = deck_summary(deck, row["trait"], row["champion"], row["carries"], named=True)
+        summaries.add(summary)
+        deck["summary"] = summary
 
 
 def dedupe_names(decks):
@@ -2111,6 +2229,17 @@ def main(argv=None):
     matches, compared_cells = agreement[position_mapping or "asIs"]
     positions_kept = position_mapping is not None
 
+    # 출처 없는 편집 덱 빼기(2026-09-19 UX 검토 WP-C1): 어느 그룹에도 붙지 않은 편집 독립 덱(kind editorial)은 통계가 없어
+    # 편집 등급으로 모든 구간 목록에 뜬다. 그 편집이 이번 패치 시작 전 것(stale)이면 이번 패치의 어떤 출처(胜率阵容·metatft·
+    # 이번 패치 편집)에도 없는 덱이라 싣지 않는다. 뺀 덱은 collector.merge.dropped·editorialDropped 에 남아 verify 가 센다.
+    dropped_decks = [d for d in decks if d["kind"] == "editorial" and not d.get("stats")
+                     and ((works[d["id"]].get("editorial") or {}).get("stale"))]
+    if dropped_decks:
+        decks = [d for d in decks if d not in dropped_decks]
+        log("출처 없는 편집 덱 %d개를 뺀다(이번 패치 전 편집, 통계 없음): %s"
+            % (len(dropped_decks), ", ".join("%s(편집 %s)" % (d["id"], works[d["id"]]["editorial"].get("updatedAt") or "?")
+                                             for d in dropped_decks)))
+
     # 정렬: 등급(tierOrder) → 같은 등급이면 조합 덱 먼저(두 출처의 평균 등수는 척도가 달라 섞지 않는다)
     # → 기본 구간 보정 평균 → 이름.
     def list_order(deck):
@@ -2145,6 +2274,9 @@ def main(argv=None):
                 summary = mt.summarize(row["places"], row["count"]) if row else None
                 if summary:
                     global_block["stats"][key] = summary
+            if info.get("levelling") and not global_block["levelling"]:
+                warn("metatft 운영 방식 '%s'(클러스터 %s)를 운영 어휘로 옮기지 못해 '최종 N레벨' 로 대신한다"
+                     % (info.get("levelling"), cid))
             details = comp_results.get(cid)
             if details:
                 global_block["finalLevels"] = mt.final_levels(details)
@@ -2153,6 +2285,9 @@ def main(argv=None):
                 for counter in global_block["counters"]:
                     dic.remember_tokens(counter.get("name"))
             deck["global"] = global_block
+            # 마무리 레벨 = metatft 최종 레벨 분포 1위(같으면 낮은 쪽), 분포가 없으면 null. 합친 덱이 대표 lol.qq 덱에서 복사해
+            # 온 값(편집 덱 needLevel·그룹 인원)은 다른 모집단이라 '9레벨 완성' 바로 아래 '빠른 8레벨' 처럼 어긋났다(D3).
+            deck["finalLevel"] = mt.top_final_level(global_block.get("finalLevels"))
         else:
             deck.pop("global", None)
 
@@ -2178,7 +2313,7 @@ def main(argv=None):
         }
 
     # 목록에서 얼굴 없이 글만 읽어도 알아보게: 별칭·한 줄 설명(규칙 기반이라 매일 같은 값).
-    assign_aliases(decks, by_cluster, dic)
+    assign_aliases(decks, by_cluster, dic, space)
     for did, old, new in dedupe_names(decks):
         log("덱 이름 겹침: %s '%s' → '%s'" % (did, old, new))
 
@@ -2235,6 +2370,8 @@ def main(argv=None):
         "editorialAttached": attached,
         # 조합 덱에 합쳐진 그룹 중 대표가 아닌 그룹의 편집 덱. 빌려 오지 않아 앱에서 닿지 않는다.
         "editorialUnlinked": sorted(unlinked_editorials),
+        # 출처 없는 편집 독립 덱(이번 패치 전 편집)으로 목록에서 뺀 편집 덱. 수집 = 앱 연결 + 잇지 않음 + 이것.
+        "editorialDropped": sorted(d["id"] for d in dropped_decks),
         "legacyBoardMismatch": legacy,
         "winrate": list_counts,
         "groups": sum(1 for d in decks if d["kind"] == "group"),
@@ -2247,11 +2384,13 @@ def main(argv=None):
         "clusters": len(clusters),
         "scopeMeanAvg": {key: mt.scope_mean(data) for key, data in scope_data.items()},
         "metatftMatched": len(meta_decks),
-        # 모든 lol.qq 그룹·편집 독립 덱이 정확히 한 덱(조합 덱 mergedGroups 또는 중국 한정 덱)에 있는지 검증이 본다.
+        # 모든 lol.qq 그룹·편집 독립 덱이 정확히 한 덱(조합 덱 mergedGroups 또는 중국 한정 덱)에 있거나 출처 없는 편집 덱으로
+        # 빠졌는지(dropped) 검증이 본다.
         "merge": {
             "lolqqDecks": sorted(d["id"] for d in qq_decks),
             "merged": {d["id"]: d["mergedGroups"] for d in merged_decks},
             "chinaOnly": china_log,
+            "dropped": sorted(d["id"] for d in dropped_decks),
         },
         "metaBuckets": {key: {"ranks": data.get("ranks"), "boards": data.get("boards"),
                               "filterAdjustment": data.get("filterAdjustment"),
@@ -2342,8 +2481,9 @@ def main(argv=None):
     log("덱 %d개 = metatft 조합 %d(lol.qq 합침 %d) + 중국 한정 %d(그룹 %d · 편집 독립 %d)"
         % (len(decks), len(meta_decks), len(merged_decks), len(decks) - len(meta_decks), diag["groups"],
            sum(1 for d in decks if d["kind"] == "editorial")))
-    log("편집 덱 %d개: 그룹 첨부 %d · 앱 연결 %d · 잇지 않음 %s · 파싱 실패 %d"
-        % (len(editorials), attached, linked_editorials, unlinked_editorials or "-", failed))
+    log("편집 덱 %d개: 그룹 첨부 %d · 앱 연결 %d · 잇지 않음 %s · 출처 없어 뺌 %s · 파싱 실패 %d"
+        % (len(editorials), attached, linked_editorials, unlinked_editorials or "-", diag["editorialDropped"] or "-",
+           failed))
     log("중국 한정: %s" % ", ".join("%s(%s %.3f)" % (row["id"], row["reason"], row["similarity"]) for row in china_log))
     log("数据检索器 행 %s · 범위 검사로 버림 %s · 변형에 붙은 행 %d"
         % (diag["lineupRankRows"], dropped, precise_matched))
