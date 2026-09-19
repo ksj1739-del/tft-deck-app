@@ -168,7 +168,10 @@ fun DeckCardV2(
     }
 }
 
-/** 1줄: [등급 배지][별칭][▲▼ 평균 등수]. 평균 등수가 없으면(v1 피드) 오른쪽을 비운다. */
+/**
+ * 1줄: [등급 배지][별칭][▲▼]. 평균 등수는 바로 아래 수치 줄(평균 등수·TOP4·픽률)에 있으므로 여기서 되풀이하지 않는다
+ * (사용자: '굳이 싶은 정보'). 추세 기호만 남긴다.
+ */
 @Composable
 private fun HeaderLine(deck: Deck, bucket: String, stats: DeckStats?, chinaOnly: Boolean) {
     val scheme = MaterialTheme.colorScheme
@@ -183,11 +186,10 @@ private fun HeaderLine(deck: Deck, bucket: String, stats: DeckStats?, chinaOnly:
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.weight(1f),
         )
-        val avg = stats?.avg
-        if (stats != null && avg != null) {
-            Spacer(Modifier.width(8.dp))
+        if (stats != null) {
             val glyph = trendGlyph(stats.trend)
             if (glyph.isNotEmpty()) {
+                Spacer(Modifier.width(8.dp))
                 // 초록·빨강은 늘 ▲▼ 와 함께(규칙 3). 읽어 줄 때는 기호 대신 낱말로.
                 val spoken = if (stats.trend == "up") "상승" else "하락"
                 Text(
@@ -196,9 +198,7 @@ private fun HeaderLine(deck: Deck, bucket: String, stats: DeckStats?, chinaOnly:
                     color = trendColor(stats.trend),
                     modifier = Modifier.clearAndSetSemantics { contentDescription = spoken },
                 )
-                Spacer(Modifier.width(4.dp))
             }
-            Text(formatAvgRank(avg), style = MaterialTheme.typography.labelLarge, color = scheme.onSurface, maxLines = 1)
         }
     }
 }

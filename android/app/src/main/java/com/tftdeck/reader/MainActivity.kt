@@ -401,6 +401,7 @@ private fun AppRoot(pendingDeck: MutableState<String?>, onLeaveApp: () -> Unit) 
                         onOpenVariant = { deckId, variantId ->
                             navController.navigate("deck/$deckId?variant=${Uri.encode(variantId)}")
                         },
+                        onOpenCodex = { axis, id -> codexRouteFor(axis, id)?.let { navController.navigate(it) } },
                     )
                 }
 
