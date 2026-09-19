@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.FilterAltOff
@@ -32,15 +33,20 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.tftdeck.reader.data.DeckFeed
 import com.tftdeck.reader.data.DeckSortMode
 import com.tftdeck.reader.data.FeedState
+import com.tftdeck.reader.data.TokenCandidate
 import com.tftdeck.reader.ui.AppViewModel
 import com.tftdeck.reader.ui.components.BucketChips
 import com.tftdeck.reader.ui.components.DeckCardV2
 import com.tftdeck.reader.ui.components.EmptyState
+import com.tftdeck.reader.ui.components.TokenCandidateRow
+import com.tftdeck.reader.ui.components.TokenSearchField
 import com.tftdeck.reader.ui.formatShortDate
 import com.tftdeck.reader.ui.iconUrl
 import com.tftdeck.reader.ui.relativeTime
@@ -58,6 +64,7 @@ fun DeckListScreen(
     val bucket by viewModel.bucket.collectAsState()
     val pinned by viewModel.pinnedSet.collectAsState()
     val hidden by viewModel.hiddenSet.collectAsState()
+    val tokens by viewModel.listTokens.collectAsState()
 
     when (state) {
         is FeedState.Loading -> Box(Modifier.fillMaxSize(), Alignment.Center) {
@@ -98,8 +105,10 @@ fun DeckListScreen(
                                     onSelect = viewModel::setBucket,
                                     horizontalPadding = 14.dp,
                                 )
-                                SortBar(viewModel)
                             }
+                            // 유닛·시너지·아이템·증강·사용자 지정 글자를 칩으로 쌓아 목록을 좁힌다(정렬 줄 위).
+                            ListSearchBar(viewModel, assetBase)
+                            if (feed.buckets.isNotEmpty()) SortBar(viewModel)
                             FilterBar(viewModel, feed, assetBase)
                         }
                     }
@@ -108,7 +117,11 @@ fun DeckListScreen(
                         item(key = "empty") {
                             EmptyState(
                                 title = "조건에 맞는 덱이 없습니다",
-                                detail = "필터를 줄이면 더 많은 덱이 보입니다.",
+                                detail = if (tokens.isNotEmpty()) {
+                                    "검색 조건(칩)을 빼거나 필터를 줄이면 더 많은 덱이 보입니다."
+                                } else {
+                                    "필터를 줄이면 더 많은 덱이 보입니다."
+                                },
                             )
                         }
                     }
@@ -177,6 +190,51 @@ private fun FeedBanner(state: FeedState.Ready) {
                 style = MaterialTheme.typography.labelSmall,
                 color = scheme.onSurfaceVariant,
             )
+        }
+    }
+}
+
+/**
+ * 목록 검색 줄(metatft 식 다중 선택). 후보를 고르면 입력칸 안에 칩으로 쌓이고 목록이 그 조건을 모두 만족하는 덱으로
+ * 좁혀진다. 구간·정렬·필터와 함께 적용된다. 고른 뒤에는 키보드를 내려 좁혀진 목록을 보여 준다.
+ */
+@Composable
+private fun ListSearchBar(viewModel: AppViewModel, assetBase: String) {
+    val tokens by viewModel.listTokens.collectAsState()
+    val query by viewModel.listQuery.collectAsState()
+    val candidates by viewModel.listCandidates.collectAsState()
+    val focusManager = LocalFocusManager.current
+    val pick: (TokenCandidate) -> Unit = { candidate ->
+        viewModel.addListToken(candidate.token)
+        focusManager.clearFocus()
+    }
+
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 14.dp, vertical = 4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        TokenSearchField(
+            tokens = tokens,
+            query = query,
+            onQueryChange = viewModel::setListQuery,
+            onRemoveToken = viewModel::removeListToken,
+            onClearAll = viewModel::clearListTokens,
+            // 키보드의 검색 키는 맨 위 후보를 고른다. 친 글자가 없으면 키보드만 내린다.
+            onSubmit = { candidates.firstOrNull()?.let(pick) ?: focusManager.clearFocus() },
+        )
+        if (query.isNotBlank() && candidates.isNotEmpty()) {
+            Column(
+                Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(MaterialTheme.colorScheme.surfaceContainerHigh),
+            ) {
+                candidates.forEach { candidate ->
+                    TokenCandidateRow(candidate, assetBase, onClick = { pick(candidate) })
+                }
+            }
         }
     }
 }

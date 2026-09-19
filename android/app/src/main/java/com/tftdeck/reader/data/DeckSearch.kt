@@ -152,6 +152,58 @@ class DeckSearch(private val feed: DeckFeed) {
     private fun resolve(ids: List<String>?): List<Deck> =
         ids.orEmpty().mapNotNull { decksById[it] }.sortedWith(compareBy({ it.tierOrder }, { it.name }))
 
+    // -- 검색 줄(다중 선택 조건) ----------------------------------------------
+
+    /**
+     * 조건을 모두 만족하는(AND) 덱만 남긴다. 순서는 [decks] 그대로다. 조건이 없으면 그대로 돌려준다.
+     * 목록 화면과 오버레이가 기존 필터·정렬 사이에 끼워 쓴다.
+     */
+    fun filterByTokens(decks: List<Deck>, tokens: List<DeckToken>): List<Deck> {
+        if (tokens.isEmpty()) return decks
+        val matches = tokens.map { matchingIds(it) }
+        return decks.filter { deck -> matches.all { deck.id in it } }
+    }
+
+    /**
+     * 조건 하나에 맞는 덱 id.
+     * 유닛·시너지·아이템·조합 재료·증강은 [decksFor] 와 같은 이름 인덱스로 찾는다 — 후보에 보인 덱 수와 결과가
+     * 어긋나지 않게. 이름으로 못 찾으면 [decksForId] 로 한 번 더 찾는다(피드가 바뀌어 이름이 달라져도 DA id 는 같다).
+     * 사용자 지정은 [matchesText] 로 덱 별칭·이름·설명을 본다.
+     */
+    fun matchingIds(token: DeckToken): Set<String> {
+        val axis = token.axis
+            ?: return feed.decks.filter { matchesText(it, token.name) }.mapTo(HashSet()) { it.id }
+        val byName = if (token.name.isBlank()) emptyList() else decksFor(axis, token.name)
+        val found = if (byName.isEmpty() && token.id != null) decksForId(axis, token.id) else byName
+        return found.mapTo(HashSet()) { it.id }
+    }
+
+    /**
+     * 검색 줄 후보. [suggest](초성·줄임말·영문)의 결과에서 이미 고른 조건을 빼고, 맨 끝에 친 글자 그대로의
+     * '사용자 지정' 후보를 붙인다. 후보마다 [within] 목록(없으면 전체 덱)에 그 조건을 더했을 때 남는 덱 수를 센다.
+     */
+    fun suggestTokens(
+        query: String,
+        selected: List<DeckToken> = emptyList(),
+        within: List<Deck>? = null,
+        limit: Int = 8,
+    ): List<TokenCandidate> {
+        val q = query.trim()
+        if (q.isEmpty()) return emptyList()
+        val picked = selected.mapTo(HashSet()) { it.key }
+        val base = within ?: feed.decks
+        fun count(token: DeckToken): Int = matchingIds(token).let { ids -> base.count { it.id in ids } }
+
+        // 고른 조건을 빼도 [limit] 개가 남도록 그만큼 더 받아 둔다.
+        val fromIndex = suggest(q, limit + picked.size)
+            .map { DeckToken.of(it) to it }
+            .filter { (token, _) -> token.key !in picked }
+            .take(limit)
+            .map { (token, s) -> TokenCandidate(token, s.icon, s.cost, count(token)) }
+        val custom = DeckToken.custom(q)
+        return if (custom.key in picked) fromIndex else fromIndex + TokenCandidate(custom, deckCount = count(custom))
+    }
+
     // -- 목록 필터 ----------------------------------------------------------
 
     /**
@@ -266,6 +318,26 @@ class DeckSearch(private val feed: DeckFeed) {
             val index = order.indexOf(current)
             return if (index < 0) order.first() else order[(index + 1) % order.size]
         }
+
+        /**
+         * 사용자 지정 글자가 덱의 별칭·이름·설명 어딘가에 들어 있는지.
+         * 대소문자와 띄어쓰기를 가리지 않고('장로드래곤'도 '장로 드래곤'에 맞는다), 초성·어절 첫 글자 줄임말도 받는다.
+         * 별칭·설명은 화면에 보이는 값([Deck.displayAlias]·[Deck.displaySummary])으로 찾는다 — 수집기가 아직 싣지
+         * 않은 덱도 보이는 글자로 찾을 수 있어야 한다.
+         */
+        fun matchesText(deck: Deck, text: String): Boolean {
+            val needle = text.trim().lowercase()
+            if (needle.isEmpty()) return true
+            val compactNeedle = needle.filterNot { it.isWhitespace() }
+            return listOf(deck.displayAlias, deck.name, deck.displaySummary).any { field ->
+                field.isNotBlank() &&
+                    textKeys(field).any { key -> key.contains(needle) || key.contains(compactNeedle) }
+            }
+        }
+
+        /** 자유 글자(별칭·이름·설명)의 매칭 대상: [keysFor] 에 띄어쓰기를 뺀 글자를 더한다. */
+        private fun textKeys(text: String): List<String> =
+            (keysFor(text, null) + text.lowercase().filterNot { it.isWhitespace() }).distinct()
 
         /** 한 이름에 대해 매칭 대상이 되는 문자열들. */
         internal fun keysFor(name: String, nameEn: String?): List<String> = buildList {

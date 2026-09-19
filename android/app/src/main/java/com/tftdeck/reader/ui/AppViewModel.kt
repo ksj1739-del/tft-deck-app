@@ -12,6 +12,7 @@ import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.DeckSearch
 import com.tftdeck.reader.data.DeckSort
 import com.tftdeck.reader.data.DeckSortMode
+import com.tftdeck.reader.data.DeckToken
 import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.IconPack
 import com.tftdeck.reader.data.IconSyncResult
@@ -25,6 +26,7 @@ import com.tftdeck.reader.data.StatsSyncResult
 import com.tftdeck.reader.data.withAugmentDescriptions
 import com.tftdeck.reader.data.SyncResult
 import com.tftdeck.reader.data.Suggestion
+import com.tftdeck.reader.data.TokenCandidate
 import com.tftdeck.reader.data.TraitRef
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
@@ -143,6 +145,14 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     private val _mainTrait = MutableStateFlow<String?>(null)
     val mainTraitFilter: StateFlow<String?> = _mainTrait.asStateFlow()
 
+    // 목록 검색 줄의 조건(칩)과 치는 중인 글자. 오버레이의 조건과는 따로 둔다(오버레이는 창 안에서 기억한다).
+    // [decks] 가 이 값을 읽으므로 그보다 먼저 선언한다.
+    private val _listTokens = MutableStateFlow<List<DeckToken>>(emptyList())
+    val listTokens: StateFlow<List<DeckToken>> = _listTokens.asStateFlow()
+
+    private val _listQuery = MutableStateFlow("")
+    val listQuery: StateFlow<String> = _listQuery.asStateFlow()
+
     private data class FilterSpec(
         val tiers: Set<String>,
         val levels: Set<Int>,
@@ -167,9 +177,9 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         ListPrefs(b, s, p, h, sh)
     }
 
-    /** 필터 → 정렬 → 고정한 덱을 맨 위로. */
+    /** 필터 → 검색 줄 조건(AND) → 정렬 → 고정한 덱을 맨 위로. 고정한 덱도 조건에 맞아야 남는다. */
     val decks: StateFlow<List<Deck>> =
-        combine(engine, filterSpec, listPrefs) { search, filter, list ->
+        combine(engine, filterSpec, listPrefs, _listTokens) { search, filter, list, tokens ->
             if (search == null) return@combine emptyList()
             val filtered = search.filter(
                 tiers = filter.tiers,
@@ -182,8 +192,34 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 bucket = list.bucket,
                 alwaysShow = list.pinned,
             )
-            DeckSearch.pinFirst(DeckSearch.sort(filtered, list.sort.mode, list.bucket, list.sort.reversed), list.pinned)
+            val narrowed = search.filterByTokens(filtered, tokens)
+            DeckSearch.pinFirst(DeckSearch.sort(narrowed, list.sort.mode, list.bucket, list.sort.reversed), list.pinned)
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    /** 검색 줄 후보. 후보마다 지금 목록에 그 조건을 더했을 때 남는 덱 수를 센다. */
+    val listCandidates: StateFlow<List<TokenCandidate>> =
+        combine(engine, _listQuery, _listTokens, decks) { search, text, tokens, current ->
+            search?.suggestTokens(text, tokens, within = current, limit = LIST_CANDIDATES).orEmpty()
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    fun setListQuery(text: String) {
+        _listQuery.value = text
+    }
+
+    /** 후보를 고르면 조건으로 쌓고 치던 글자를 비운다. 같은 조건은 두 번 쌓지 않는다. */
+    fun addListToken(token: DeckToken) {
+        if (_listTokens.value.none { it.key == token.key }) _listTokens.value = _listTokens.value + token
+        _listQuery.value = ""
+    }
+
+    fun removeListToken(token: DeckToken) {
+        _listTokens.value = _listTokens.value.filterNot { it.key == token.key }
+    }
+
+    fun clearListTokens() {
+        _listTokens.value = emptyList()
+        _listQuery.value = ""
+    }
 
     /** 필터에 쓸 등급 목록. 선택 구간에서 실제로 나오는 것만 보여준다. */
     val availableTiers: StateFlow<List<String>> =
@@ -434,6 +470,9 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     private companion object {
         val TIER_SORT = listOf("SS", "S", "A", "B", "C", "D")
+
+        /** 목록 검색 줄 후보 수(사용자 지정 후보는 따로 하나 더 붙는다). */
+        const val LIST_CANDIDATES = 8
     }
 }
 

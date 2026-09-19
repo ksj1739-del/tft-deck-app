@@ -201,7 +201,16 @@ fun DeckDetailScreen(
                 Spacer(Modifier.weight(1f))
                 TrendGlyph(deck.statsFor(bucket)?.trend)
             }
-            Text(deck.name, style = MaterialTheme.typography.titleLarge, color = scheme.onSurface)
+            // 제목은 목적을 담은 별칭, 그 아래 목록 카드와 같은 한 줄 설명. 긴 이름('캐리 · 4 시너지 …')은 작은 부제로 둔다.
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(deck.displayAlias, style = MaterialTheme.typography.titleLarge, color = scheme.onSurface)
+                deck.displaySummary.takeIf { it.isNotBlank() }?.let { summary ->
+                    Text(summary, style = MaterialTheme.typography.bodyMedium, color = scheme.onSurfaceVariant)
+                }
+                deck.name.takeIf { it.isNotBlank() && it != deck.displayAlias }?.let { longName ->
+                    Text(longName, style = MaterialTheme.typography.labelMedium, color = scheme.onSurfaceVariant)
+                }
+            }
             SourceBadges(deck, feed?.version?.metatftCompared ?: true)
 
             FlowRow(
