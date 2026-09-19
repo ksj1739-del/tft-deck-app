@@ -493,7 +493,10 @@ private fun AppRoot(pendingDeck: MutableState<String?>, onLeaveApp: () -> Unit) 
                         overlayRunning = overlayRunning,
                         onStartOverlay = { id -> setup.openOverlaySheet(id) },
                         initialVariant = entry.arguments?.getString("variant"),
-                        onOpenDeck = openDeck,
+                        // 상세에서 다른 덱(불리한 상대 등)으로 갈 때는 지금 상세를 바꿔 끼운다. 쌓이면 목록까지 뒤로를 여러 번 눌러야 한다(N15b).
+                        onOpenDeck = { id ->
+                            navController.navigate("deck/$id") { popUpTo(DETAIL_ROUTE) { inclusive = true } }
+                        },
                     )
                     // NavHost 의 뒤로 처리보다 나중에 등록돼 먼저 불린다. 오버레이에서 연 그 상세에서만 켠다.
                     BackHandler(enabled = overlayEntryId != null && overlayEntryId == entry.id) { backToGame() }
