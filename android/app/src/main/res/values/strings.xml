@@ -11,6 +11,7 @@
     <!-- 게임 연동 -->
     <string name="overlay_watching">TFT 감지 중</string>
     <string name="overlay_watch_stop">감지 끄기</string>
+    <string name="overlay_show_again">다시 띄우기</string>
     <string name="game_result_channel_name">게임 결과</string>
     <string name="game_result_channel_desc">TFT 한 판이 끝나면 등수와 LP 변화를 알려 줍니다</string>
     <string name="game_result_title">TFT 한 판이 끝났습니다</string>

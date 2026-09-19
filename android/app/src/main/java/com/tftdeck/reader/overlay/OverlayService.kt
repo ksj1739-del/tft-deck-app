@@ -6,13 +6,16 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.PixelFormat
+import android.graphics.Point
 import android.os.Build
 import android.os.IBinder
 import android.provider.Settings
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsets
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
@@ -99,9 +102,25 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     private val expanded = MutableStateFlow(false)
     private val overlayData = MutableStateFlow<OverlayData?>(null)
 
-    // null이면 전체 덱 목록을 보여준다. 인게임에서 뭘 갈지 고르는 게 기본 용도라
-    // 덱 하나를 고정해 두는 것보다 목록이 기본이다.
-    private val selectedDeckId = MutableStateFlow<String?>(null)
+    /**
+     * 펼침 화면의 보던 자리: 고른 덱(null 이면 전체 덱 목록 — 인게임에서 뭘 갈지 고르는 게 기본 용도라 목록이 기본이다),
+     * 덱별 레벨, 목록 스크롤. 접기·창 떼기·서비스 재시작을 넘겨야 해서 화면이 아니라 서비스가 들고 흘려 보낸다.
+     */
+    private lateinit var memory: OverlayMemory
+
+    // -- 창 자리 --------------------------------------------------------------
+
+    /**
+     * 사용자가 끌어다 놓은 자리(방향별로 저장). 펼침·넓게 보기로 커진 창이 화면 안으로 밀려났다가도
+     * 접으면 이 자리로 돌아온다 — 모서리에 둔 칩이 펼칠 때마다 떠내려가지 않게.
+     */
+    private var anchor = OverlayPosition(0, DEFAULT_TOP_MARGIN)
+
+    /** 지금 가로 화면인지. 자리를 방향별로 기억하는 데 쓴다. */
+    private var landscape = false
+
+    /** 검색 중 키보드를 피해 창을 올리기 전의 y. 검색이 끝나면 되돌린다. 그사이 끌어 옮기면 버린다. */
+    private var preSearchY: Int? = null
 
     // 좁게(얼굴만) / 넓게(이름·아이템·시너지까지). 마지막 선택을 기억한다.
     private val wide = MutableStateFlow(false)
@@ -138,6 +157,9 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         ingamePrefs = IngamePrefs.get(this)
         wide.value = getSharedPreferences(PREFS, Context.MODE_PRIVATE).getBoolean(KEY_WIDE, false)
         showProfile.value = getSharedPreferences(PREFS, Context.MODE_PRIVATE).getBoolean(KEY_SHOW_PROFILE, true)
+        // 보던 덱·레벨·목록 자리는 저장값에서 되찾는다 — 시스템이 서비스를 되살려도(START_STICKY) 이어서 본다.
+        memory = OverlayMemory(getSharedPreferences(PREFS, Context.MODE_PRIVATE))
+        landscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
         observeVisibility()
     }
 
@@ -161,6 +183,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                 keepAliveResult()
             }
             ACTION_WATCH -> startWatchMode()
+            ACTION_SHOW -> showAgain()
             else -> startUserOverlay(intent)
         }
     }
@@ -186,11 +209,11 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         dismissedForegroundSince = null
 
         // 덱을 지정해서 띄웠으면(덱 상세의 '게임 위에 띄우기') 그 덱을 바로 연다.
-        // 지정 없이 띄웠으면 목록에서 시작한다.
-        intent.getStringExtra(EXTRA_DECK_ID)?.let {
-            repository.pinnedDeckId = it
-            selectedDeckId.value = it
-        }
+        // 지정 없이 띄웠으면(설정의 '오버레이 표시') 목록에서 시작한다. 서비스가 새로 만들어지며 저장값에서
+        // 되찾은 덱이 있어도 목록이다 — 되찾은 덱은 시스템 재시작·자동 표시처럼 사용자가 새로 고르지 않은 경우에 쓴다.
+        val deckId = intent.getStringExtra(EXTRA_DECK_ID)
+        deckId?.let { repository.pinnedDeckId = it }
+        memory.selectDeck(deckId)
         startObservers()
         if (overlayView == null) attachOverlay()
 
@@ -214,6 +237,28 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         startDetection()
         updateNotification()
         return START_STICKY
+    }
+
+    /**
+     * 알림의 '다시 띄우기'. 감지 중에 X 로 닫은 창을 게임을 떠나지 않고 되살린다 — 닫은 TFT 구간 동안에는 자동 표시가
+     * 막혀 있어(dismissedForegroundSince) 알림 말고는 되살릴 길이 없다. 사용자가 켠 창으로 바꾸지는 않는다
+     * (감지를 끄면 자동으로 붙은 창처럼 함께 닫힌다).
+     */
+    private fun showAgain(): Int {
+        // 알림은 포그라운드 서비스가 살아 있는 동안에만 있으니 보통은 이미 올라가 있다. 혹시 새로 만들어진 서비스면 먼저 올린다.
+        if (!foregroundStarted && !enterForeground()) {
+            stopSelf()
+            return START_NOT_STICKY
+        }
+        if (!canDrawOverlays(this)) {
+            if (!_detecting.value && overlayView == null) stopSelf()
+            return keepAliveResult()
+        }
+        dismissedForegroundSince = null
+        startObservers()
+        if (overlayView == null) attachOverlay()
+        updateNotification()
+        return keepAliveResult()
     }
 
     private fun stopWatchMode() {
@@ -387,13 +432,15 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
 
     /**
      * 보임·검색 상태를 창에 반영한다. 플래그는 [overlayWindowFlags] 한 곳에서 합성하고,
-     * 드래그([moveBy])는 x·y 만 바꿔 여기서 합성한 플래그를 그대로 쓴다.
+     * 드래그([moveBy])는 x·y 만 바꿔 여기서 합성한 플래그를 그대로 쓴다. 자리도 화면 안으로 한 번 맞춘다
+     * (숨어 있는 사이 회전했을 수 있다).
      */
     private fun applyWindow() {
         val root = overlayRoot ?: return
         val params = layoutParams ?: return
         root.visibility = if (windowVisible) View.VISIBLE else View.GONE
         params.flags = overlayWindowFlags(visible = windowVisible, searching = searching.value)
+        clampInto(params, root, OverlayPosition(params.x, params.y))
         runCatching { windowManager.updateViewLayout(root, params) }
     }
 
@@ -406,7 +453,24 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     private fun startSearch() {
         if (overlayRoot == null || !windowVisible || searching.value) return
         searching.value = true
+        // 키보드가 창을 가리면 창을 올린다([liftForIme]). 검색이 끝나면 이 자리로 돌아온다.
+        preSearchY = layoutParams?.y
         applyWindow()
+    }
+
+    /**
+     * 검색 중 키보드가 창 아래를 가리면 가린 만큼 창을 올린다(화면 위보다 위로는 안 간다, [liftAboveIme]).
+     * 창은 SOFT_INPUT_ADJUST_NOTHING 이라 시스템이 밀어 주지 않는다 — 가로 화면은 키보드가 화면의 60% 남짓을 덮어
+     * 기본 자리에서도 후보가 전부 가려졌고, 아래로 옮겨 둔 창은 검색창까지 가려졌다.
+     */
+    private fun liftForIme(overlap: Int) {
+        if (!searching.value || overlap <= 0) return
+        val root = overlayRoot ?: return
+        val params = layoutParams ?: return
+        val y = liftAboveIme(params.y, overlap)
+        if (y == params.y) return
+        params.y = y
+        runCatching { windowManager.updateViewLayout(root, params) }
     }
 
     /**
@@ -423,15 +487,22 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                 getSystemService(InputMethodManager::class.java)?.hideSoftInputFromWindow(root.windowToken, 0)
             }
         }
+        // 키보드를 피해 올렸던 창을 검색 전 자리로 되돌린다(그사이 끌어 옮겼으면 그 자리 그대로). 창 반영은 applyWindow 가 한다.
+        val restoreY = preSearchY
+        preSearchY = null
+        layoutParams?.let { params -> restoreY?.let { params.y = it } }
         if (apply) applyWindow()
     }
 
     // -- 창 --------------------------------------------------------------
 
     private fun attachOverlay() {
-        val prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         windowVisible = true
         searching.value = false
+        preSearchY = null
+        // 이 방향에서 놓아 둔 자리. 창 크기는 붙은 뒤 첫 배치에서 알게 되므로 그때 한 번 더 화면 안으로 맞춘다.
+        landscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+        anchor = loadAnchor()
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
@@ -442,10 +513,10 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
             PixelFormat.TRANSLUCENT,
         ).apply {
             gravity = Gravity.TOP or Gravity.START
-            // 기본 위치는 좌상단. 이후 드래그한 자리를 기억한다.
-            x = prefs.getInt(KEY_X, 0)
-            y = prefs.getInt(KEY_Y, DEFAULT_TOP_MARGIN)
-            // 검색 중 키보드가 떠도 창을 밀거나 줄이지 않는다.
+            // 기본 위치는 좌상단. 이후 드래그한 자리를 기억한다(방향별).
+            x = anchor.x
+            y = anchor.y
+            // 검색 중 키보드가 떠도 시스템이 창을 밀거나 줄이지 않는다. 가리면 서비스가 직접 올린다(liftForIme).
             softInputMode = OVERLAY_SOFT_INPUT_MODE
         }
         layoutParams = params
@@ -458,7 +529,9 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                 OverlayContent(
                     dataFlow = overlayData,
                     profileFlow = profiles.state,
-                    selectedIdFlow = selectedDeckId,
+                    selectedIdFlow = memory.selectedDeckId,
+                    levelsFlow = memory.deckLevels,
+                    listAnchorFlow = memory.listAnchor,
                     expandedFlow = expanded,
                     wideFlow = wide,
                     showProfileFlow = showProfile,
@@ -470,6 +543,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                         expanded.value = opening
                         // 펼칠 때 전적을 한 번 확인한다. 3분 안이면 저장소가 직전 결과를 돌려준다.
                         if (opening) scope.launch { refreshProfileLight(force = false) }
+                        // 접으면 창이 칩 크기로 줄어든 뒤 놓아 둔 자리로 돌아간다(onWindowLayout).
                     },
                     onToggleWide = {
                         val next = !wide.value
@@ -490,9 +564,13 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                     onSelectDeck = { id ->
                         // 덱을 고르면 목록(검색창)이 닫힌다.
                         endSearch()
-                        selectedDeckId.value = id
+                        memory.selectDeck(id)
                         if (id != null) repository.pinnedDeckId = id
+                        // 알림 문구가 보고 있는 덱 이름이다.
+                        updateNotification()
                     },
+                    onSelectLevel = { deckId, level -> memory.setLevel(deckId, level) },
+                    onListAnchor = { memory.setListAnchor(it) },
                     onSearchStart = { startSearch() },
                     onSearchEnd = { endSearch() },
                     onDrag = { dx, dy -> moveBy(dx, dy) },
@@ -509,6 +587,8 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
             setViewTreeSavedStateRegistryOwner(this@OverlayService)
             isSearching = { searching.value }
             onEndSearch = { endSearch() }
+            onWindowLayout = { keepOnScreen() }
+            onImeOverlap = { liftForIme(it) }
             addView(view, FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
         overlayView = view
@@ -530,8 +610,8 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     }
 
     /**
-     * 창을 닫는다. 감지 중이면 서비스는 남겨 두고, 이번 TFT 전면 구간에는 다시 띄우지 않는다.
-     * 감지 중이 아니면 기존처럼 서비스를 끝낸다.
+     * 창을 닫는다. 감지 중이면 서비스는 남겨 두고, 이번 TFT 전면 구간에는 자동으로 다시 띄우지 않는다 —
+     * 잘못 눌렀으면 알림의 '다시 띄우기'([ACTION_SHOW])로 되살린다. 감지 중이 아니면 기존처럼 서비스를 끝낸다.
      */
     private fun closeOverlay() {
         // 창을 떼기 전에 키보드를 내리고 포커스를 돌려준다(서비스 종료는 비동기라 그사이에도 포커스를 쥐지 않게).
@@ -557,21 +637,139 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         OverlayState.running.value = false
     }
 
-    /** 드래그. 자리만 바꾸고 플래그는 [applyWindow] 가 합성해 둔 값을 그대로 쓴다(검색 중이어도 풀리지 않는다). */
+    /**
+     * 드래그. 자리만 바꾸고 플래그는 [applyWindow] 가 합성해 둔 값을 그대로 쓴다(검색 중이어도 풀리지 않는다).
+     * 화면 밖으로는 끌려 나가지 않는다 — 예전에는 오른쪽·아래로 상한이 없어 놓치면 되찾을 수 없었다.
+     */
     private fun moveBy(dx: Float, dy: Float) {
         val params = layoutParams ?: return
-        val root = overlayRoot ?: return
-        params.x = (params.x + dx).toInt().coerceAtLeast(0)
-        params.y = (params.y + dy).toInt().coerceAtLeast(0)
-        runCatching { windowManager.updateViewLayout(root, params) }
+        // 직접 옮겼으면 검색이 끝나도 키보드를 피하기 전 자리로 되돌리지 않는다.
+        preSearchY = null
+        placeWindow(OverlayPosition((params.x + dx).toInt(), (params.y + dy).toInt()))
+        // 끄는 동안에도 놓아 둔 자리가 손을 따라가야 그사이 다시 배치돼도(내용 변경) 옛 자리로 튀지 않는다. 저장은 끝날 때 한 번.
+        anchor = OverlayPosition(params.x, params.y)
     }
 
+    /** 드래그를 마친 자리를 이 방향의 자리로 기억한다. 끄는 동안 이미 화면 안으로 맞춘 값이다. */
     private fun persistPosition() {
         val params = layoutParams ?: return
+        saveAnchor(OverlayPosition(params.x, params.y))
+    }
+
+    /**
+     * 창을 다시 배치할 때마다(펼침·접힘·넓게 보기·목록↔덱·회전) 자리를 화면 안으로 맞춘다.
+     * 접힌 칩은 놓아 둔 자리([anchor])를 기준으로 한다 — 펼친 창이 화면 안으로 밀렸다가 접히면 제자리로 돌아오고,
+     * 칩 폭이 잠깐 늘어(판 결과 배지) 밀렸다가 줄면 다시 돌아온다. 펼친 창은 지금 자리에서 넘치는 만큼만 민다
+     * (줄어도 되돌아가지 않아 머리줄 버튼이 손가락 아래에서 흔들리지 않는다).
+     */
+    private fun keepOnScreen() {
+        val params = layoutParams ?: return
+        if (searching.value) {
+            // 키보드를 피해 올린 자리는 liftForIme 가 정한다. 여기서는 넘치는 것만 막는다.
+            placeWindow(OverlayPosition(params.x, params.y))
+            return
+        }
+        placeWindow(if (expanded.value) OverlayPosition(params.x, params.y) else anchor)
+    }
+
+    /** [target] 을 지금 창 크기로 화면 안에 맞춰 옮긴다. 바뀐 게 없으면 창을 건드리지 않는다. */
+    private fun placeWindow(target: OverlayPosition) {
+        val root = overlayRoot ?: return
+        val params = layoutParams ?: return
+        val beforeX = params.x
+        val beforeY = params.y
+        clampInto(params, root, target)
+        if (params.x != beforeX || params.y != beforeY) {
+            runCatching { windowManager.updateViewLayout(root, params) }
+        }
+    }
+
+    /** [target] 을 지금 창 크기와 화면 영역으로 맞춰 [params] 에 넣는다. 창에 반영은 부른 쪽이 한다. */
+    private fun clampInto(params: WindowManager.LayoutParams, root: View, target: OverlayPosition) {
+        val area = overlayArea()
+        val placed = clampOverlayPosition(target, root.width, root.height, area.x, area.y)
+        params.x = placed.x
+        params.y = placed.y
+    }
+
+    private var areaCache: Point? = null
+    private var areaCachedAt = 0L
+
+    /**
+     * 창 x·y 의 기준 영역 크기(px). 시스템은 이 창(TOP|START)을 화면에서 지금 보이는 시스템 바와 컷아웃을 뺀 영역의
+     * 왼쪽 위를 (0,0) 으로 놓는다 — FLAG_LAYOUT_NO_LIMITS 는 그 밖으로 나가도 잘라 내지 않을 뿐 기준은 같다.
+     * 에뮬레이터(1080x2400)의 dumpsys window 로 확인: 세로 parent=[0,136][1080,2337], 가로 parent=[136,74][2400,1017]
+     * (상태 표시줄 136/74, 제스처 막대 63, 가로의 왼쪽 컷아웃 136). 그래서 시스템 바를 빼고 맞춘다 — 창이 막대 밑으로
+     * 들어가 버튼이 가려지지 않는다. 게임이 시스템 바를 숨기면 보이는 바가 없어 영역도 그만큼 넓어진다.
+     * 끄는 동안 이벤트마다 부르므로 잠깐(0.3초) 기억해 둔다.
+     */
+    private fun overlayArea(): Point {
+        val now = android.os.SystemClock.uptimeMillis()
+        areaCache?.takeIf { now - areaCachedAt < AREA_CACHE_MS }?.let { return it }
+        val area = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val metrics = windowManager.currentWindowMetrics
+            val insets = metrics.windowInsets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout())
+            Point(
+                metrics.bounds.width() - insets.left - insets.right,
+                metrics.bounds.height() - insets.top - insets.bottom,
+            )
+        } else {
+            // API 29 이하: 앱 영역(내비게이션 막대를 뺀 크기)에서 상태 표시줄 높이를 뺀다.
+            @Suppress("DEPRECATION")
+            val size = Point().also { windowManager.defaultDisplay.getSize(it) }
+            val statusBarId = resources.getIdentifier("status_bar_height", "dimen", "android")
+            val statusBar = if (statusBarId != 0) resources.getDimensionPixelSize(statusBarId) else 0
+            Point(size.x, size.y - statusBar)
+        }
+        areaCache = area
+        areaCachedAt = now
+        return area
+    }
+
+    /** 이 방향에서 놓아 둔 자리. 저장값이 지금 화면 밖이면(해상도 변경·다른 기기에서 복원 등) 맞춘 값을 다시 저장한다. */
+    private fun loadAnchor(): OverlayPosition {
+        val prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val (keyX, keyY) = overlayPositionKeys(landscape)
+        // 가로 자리는 새로 생긴 값이다. 아직 없으면 예전(방향 구분 없던) 자리에서 시작한다.
+        val legacyX = prefs.getInt(KEY_X, 0)
+        val legacyY = prefs.getInt(KEY_Y, DEFAULT_TOP_MARGIN)
+        val saved = OverlayPosition(prefs.getInt(keyX, legacyX), prefs.getInt(keyY, legacyY))
+        // 창 크기를 아직 모르므로 칩의 앞머리(MIN_VISIBLE_DP)는 화면 안에 들도록만 맞춘다. 나머지는 첫 배치에서 맞춘다.
+        val minVisible = (MIN_VISIBLE_DP * resources.displayMetrics.density).toInt()
+        val area = overlayArea()
+        val fixed = clampOverlayPosition(saved, minVisible, minVisible, area.x, area.y)
+        if (fixed != saved) {
+            prefs.edit().putInt(keyX, fixed.x).putInt(keyY, fixed.y).apply()
+        }
+        return fixed
+    }
+
+    private fun saveAnchor(position: OverlayPosition) {
+        anchor = position
+        val (keyX, keyY) = overlayPositionKeys(landscape)
         getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
-            .putInt(KEY_X, params.x)
-            .putInt(KEY_Y, params.y)
+            .putInt(keyX, position.x)
+            .putInt(keyY, position.y)
             .apply()
+    }
+
+    /**
+     * 회전. 창은 가로·세로마다 놓아 둔 자리로 간다(게임은 가로, 홈 화면은 세로). 새 방향에서 다시 잰 크기는
+     * 곧이어 [keepOnScreen] 이 한 번 더 맞춘다. 창이 없어도(감지만 하는 중) 방향은 기억해 둔다.
+     */
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        areaCache = null
+        val land = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE
+        if (land == landscape) {
+            // 방향은 같고 화면 크기만 바뀐 경우(접는 폰 등). 지금 자리를 다시 맞춘다.
+            keepOnScreen()
+            return
+        }
+        landscape = land
+        preSearchY = null
+        anchor = loadAnchor()
+        placeWindow(anchor)
     }
 
     /** 보고 있던 덱을 앱에서 그대로 이어서 연다. 목록이었으면 그냥 앱만 연다. */
@@ -581,7 +779,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         startActivity(
             Intent(this, MainActivity::class.java)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-                .apply { selectedDeckId.value?.let { putExtra(EXTRA_OPEN_DECK, it) } }
+                .apply { memory.selectedDeckId.value?.let { putExtra(EXTRA_OPEN_DECK, it) } }
         )
     }
 
@@ -617,7 +815,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
 
-        val deckText = selectedDeckId.value
+        val deckText = memory.selectedDeckId.value
             ?.let { id -> overlayData.value?.decks?.firstOrNull { it.id == id }?.displayAlias }
             ?: getString(R.string.overlay_deck_list)
         val title = if (watchOnly) getString(R.string.overlay_watching) else getString(R.string.overlay_running)
@@ -632,6 +830,17 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
             .setContentTitle(title)
             .setContentText(text)
             .setContentIntent(open)
+            .apply {
+                // 감지만 하는 중(창을 X 로 닫았거나 아직 붙지 않음)이면 게임을 떠나지 않고 창을 되살릴 길이 이것뿐이다.
+                if (watchOnly) {
+                    val show = PendingIntent.getService(
+                        this@OverlayService, 2,
+                        Intent(this@OverlayService, OverlayService::class.java).setAction(ACTION_SHOW),
+                        PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+                    )
+                    addAction(Notification.Action.Builder(null, getString(R.string.overlay_show_again), show).build())
+                }
+            }
             .addAction(
                 Notification.Action.Builder(
                     null,
@@ -684,10 +893,19 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         private const val KEY_USER_OVERLAY = "user_overlay"
         private const val DEFAULT_TOP_MARGIN = 120
 
+        /** 저장된 자리를 되찾을 때 창 크기를 모르는 동안 화면 안에 남겨 둘 칩 앞머리(dp). */
+        private const val MIN_VISIBLE_DP = 48
+
+        /** 화면 영역을 다시 묻지 않고 쓰는 시간. 끄는 동안 이벤트마다 시스템에 묻지 않게. */
+        private const val AREA_CACHE_MS = 300L
+
         const val ACTION_STOP = "com.tftdeck.reader.STOP_OVERLAY"
         const val ACTION_WATCH = "com.tftdeck.reader.WATCH_TFT"
         const val ACTION_STOP_WATCH = "com.tftdeck.reader.STOP_WATCH_TFT"
         const val ACTION_DISABLE_WATCH = "com.tftdeck.reader.DISABLE_WATCH_TFT"
+
+        /** 알림의 '다시 띄우기'. 감지 중에 X 로 닫은 창을 되살린다. */
+        const val ACTION_SHOW = "com.tftdeck.reader.SHOW_OVERLAY"
         const val EXTRA_DECK_ID = "deck_id"
         const val EXTRA_OPEN_DECK = "open_deck"
 
