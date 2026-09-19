@@ -41,7 +41,7 @@ class DeckRepository private constructor(private val context: Context) {
     suspend fun load() = withContext(Dispatchers.IO) {
         val cached = readCache()
         if (cached != null && prefs.getInt(KEY_CACHE_APP_VERSION, 0) >= BuildConfig.VERSION_CODE) {
-            _state.value = FeedState.Ready(cached, lastSyncedAt(), fromBundle = false)
+            _state.value = ready(cached, lastSyncedAt(), fromBundle = false)
             return@withContext
         }
 
@@ -50,15 +50,28 @@ class DeckRepository private constructor(private val context: Context) {
             cached != null && (bundled == null || !FeedFreshness.isOlder(cached.version, bundled.version)) -> {
                 // 앱을 올렸어도 캐시가 동봉본만큼 새롭다. 다음 실행부터는 비교하지 않는다.
                 prefs.edit().putInt(KEY_CACHE_APP_VERSION, BuildConfig.VERSION_CODE).apply()
-                FeedState.Ready(cached, lastSyncedAt(), fromBundle = false)
+                ready(cached, lastSyncedAt(), fromBundle = false)
             }
             bundled != null -> {
                 // 옛 캐시는 다시 쓸 일이 없다. 남겨 두면 실행할 때마다 비교만 반복한다.
                 if (cached != null) runCatching { cacheFile.delete() }
-                FeedState.Ready(bundled, null, fromBundle = true)
+                ready(bundled, null, fromBundle = true)
             }
             else -> FeedState.Error("덱 데이터를 읽지 못했습니다. 앱을 다시 설치해 주세요.")
         }
+    }
+
+    /**
+     * 새 데이터를 화면에 올리기 전에 고정·숨김·오버레이 덱의 옛 id 를 새 덱 id 로 옮긴다.
+     * 덱 목록을 metatft 조합 중심으로 다시 묶거나 metatft 가 클러스터를 다시 나누면 id 가 바뀐다.
+     */
+    private fun ready(feed: DeckFeed, syncedAt: Long?, fromBundle: Boolean): FeedState.Ready {
+        val mapping = DeckIdMigration.mapping(feed.decks)
+        if (mapping.isNotEmpty()) {
+            pinnedDeckId?.let { old -> mapping[old]?.let { pinnedDeckId = it } }
+            DeckPrefs.get(context).migrateIds(mapping)
+        }
+        return FeedState.Ready(feed, syncedAt, fromBundle)
     }
 
     private fun readCache(): DeckFeed? = runCatching {
@@ -123,7 +136,7 @@ class DeckRepository private constructor(private val context: Context) {
                 prefs.edit().putInt(KEY_CACHE_APP_VERSION, BuildConfig.VERSION_CODE).apply()
 
                 markSynced()
-                _state.value = FeedState.Ready(feed, lastSyncedAt(), fromBundle = false)
+                _state.value = ready(feed, lastSyncedAt(), fromBundle = false)
                 SyncResult.Updated(feed.version.patch, feed.decks.size)
             } catch (e: Exception) {
                 // 실패해도 기존 데이터는 그대로 둔다. 앱이 빈 화면이 되는 일은 없다.

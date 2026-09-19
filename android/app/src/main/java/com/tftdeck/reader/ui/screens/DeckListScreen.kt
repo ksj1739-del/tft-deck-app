@@ -35,9 +35,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.tftdeck.reader.data.DeckFeed
+import com.tftdeck.reader.data.DeckKeys
 import com.tftdeck.reader.data.DeckSortMode
 import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.TokenCandidate
@@ -48,6 +50,7 @@ import com.tftdeck.reader.ui.components.EmptyState
 import com.tftdeck.reader.ui.components.TokenCandidateRow
 import com.tftdeck.reader.ui.components.TokenSearchField
 import com.tftdeck.reader.ui.formatShortDate
+import com.tftdeck.reader.ui.gradeColor
 import com.tftdeck.reader.ui.iconUrl
 import com.tftdeck.reader.ui.relativeTime
 
@@ -292,6 +295,7 @@ private fun FilterBar(viewModel: AppViewModel, feed: DeckFeed, assetBase: String
     val hidden by viewModel.hiddenSet.collectAsState()
     val showHidden by viewModel.showHidden.collectAsState()
     val hasFilter by viewModel.hasActiveFilter.collectAsState()
+    val grades by viewModel.gradeFilter.collectAsState()
 
     Row(
         Modifier
@@ -310,6 +314,14 @@ private fun FilterBar(viewModel: AppViewModel, feed: DeckFeed, assetBase: String
                     Icon(Icons.Default.FilterAltOff, null, Modifier.size(15.dp))
                 },
             )
+        }
+
+        // 덱 등급 조회 조건. 여러 개를 고르고, 처음에는 C·D 가 꺼져 있다. v1 은 아래 편집 등급 칩을 쓴다.
+        if (feed.buckets.isNotEmpty()) {
+            DeckKeys.GRADE_FILTER_ALL.forEach { grade ->
+                GradeFilterChip(grade, selected = grade in grades) { viewModel.toggleGrade(grade) }
+            }
+            Spacer(Modifier.width(2.dp))
         }
 
         FilterChip(
@@ -379,4 +391,25 @@ private fun FilterBar(viewModel: AppViewModel, feed: DeckFeed, assetBase: String
             )
         }
     }
+}
+
+/** 등급 조회 조건 칩. 켜진 칩은 그 등급 색으로 칠해 카드의 등급 배지와 같은 색으로 읽힌다. */
+@Composable
+private fun GradeFilterChip(grade: String, selected: Boolean, onClick: () -> Unit) {
+    val color = gradeColor(grade)
+    FilterChip(
+        selected = selected,
+        onClick = onClick,
+        label = { Text(grade, fontWeight = FontWeight.Bold) },
+        colors = FilterChipDefaults.filterChipColors(
+            selectedContainerColor = color.copy(alpha = 0.16f),
+            selectedLabelColor = color,
+        ),
+        border = FilterChipDefaults.filterChipBorder(
+            enabled = true,
+            selected = selected,
+            selectedBorderColor = color.copy(alpha = 0.7f),
+            selectedBorderWidth = 1.dp,
+        ),
+    )
 }

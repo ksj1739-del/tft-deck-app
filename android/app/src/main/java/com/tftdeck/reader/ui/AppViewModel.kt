@@ -7,6 +7,7 @@ import com.tftdeck.reader.data.CatalogEntry
 import com.tftdeck.reader.data.CatalogIndex
 import com.tftdeck.reader.data.Deck
 import com.tftdeck.reader.data.DeckFeed
+import com.tftdeck.reader.data.DeckKeys
 import com.tftdeck.reader.data.DeckPrefs
 import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.DeckSearch
@@ -177,9 +178,19 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         ListPrefs(b, s, p, h, sh)
     }
 
-    /** 필터 → 검색 줄 조건(AND) → 정렬 → 고정한 덱을 맨 위로. 고정한 덱도 조건에 맞아야 남는다. */
+    /** 덱 등급 조회 조건(S~D 여러 개). 오버레이 목록도 같은 값을 쓴다. */
+    val gradeFilter: StateFlow<Set<String>> = prefs.grades
+
+    fun toggleGrade(grade: String) {
+        prefs.toggleGrade(grade)
+    }
+
+    /**
+     * 필터 → 검색 줄 조건(AND) → 정렬 → 고정한 덱을 맨 위로. 고정한 덱도 검색 조건에는 맞아야 남지만,
+     * 등급 조회 조건은 건너뛴다(직접 고른 덱이 기본 조건 때문에 사라지지 않게).
+     */
     val decks: StateFlow<List<Deck>> =
-        combine(engine, filterSpec, listPrefs, _listTokens) { search, filter, list, tokens ->
+        combine(engine, filterSpec, listPrefs, _listTokens, prefs.grades) { search, filter, list, tokens, grades ->
             if (search == null) return@combine emptyList()
             val filtered = search.filter(
                 tiers = filter.tiers,
@@ -191,6 +202,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 showHidden = list.showHidden,
                 bucket = list.bucket,
                 alwaysShow = list.pinned,
+                grades = grades,
             )
             val narrowed = search.filterByTokens(filtered, tokens)
             DeckSearch.pinFirst(DeckSearch.sort(narrowed, list.sort.mode, list.bucket, list.sort.reversed), list.pinned)
@@ -277,12 +289,13 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         _editorialOnly.value = false
         _mainTrait.value = null
         prefs.setShowHidden(false)
+        prefs.setGrades(DeckKeys.GRADE_FILTER_DEFAULT)
     }
 
     val hasActiveFilter: StateFlow<Boolean> =
-        combine(filterSpec, prefs.showHidden) { f, showHidden ->
+        combine(filterSpec, prefs.showHidden, prefs.grades) { f, showHidden, grades ->
             f.tiers.isNotEmpty() || f.levels.isNotEmpty() || f.onlyChina || f.editorialOnly ||
-                f.mainTrait != null || showHidden
+                f.mainTrait != null || showHidden || grades != DeckKeys.GRADE_FILTER_DEFAULT
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     // -- 검색 ---------------------------------------------------------------

@@ -31,6 +31,12 @@ class DeckPrefs private constructor(context: Context) {
     private val _hidden = MutableStateFlow(prefs.getStringSet(KEY_HIDDEN, null)?.toSet().orEmpty())
     val hidden: StateFlow<Set<String>> = _hidden.asStateFlow()
 
+    // 덱 등급 조회 조건(여러 개 고름). 저장값이 없으면 S·A·B 만 켠다.
+    private val _grades = MutableStateFlow(
+        prefs.getStringSet(KEY_GRADES, null)?.toSet()?.takeIf { it.isNotEmpty() } ?: DeckKeys.GRADE_FILTER_DEFAULT,
+    )
+    val grades: StateFlow<Set<String>> = _grades.asStateFlow()
+
     private val _showHidden = MutableStateFlow(prefs.getBoolean(KEY_SHOW_HIDDEN, false))
     val showHidden: StateFlow<Boolean> = _showHidden.asStateFlow()
 
@@ -56,6 +62,32 @@ class DeckPrefs private constructor(context: Context) {
         prefs.edit().putStringSet(KEY_HIDDEN, HashSet(_hidden.value)).apply()
     }
 
+    /** 덱 id 가 바뀐 데이터가 들어오면 고정·숨김을 새 id 로 옮긴다. [mapping] 은 옛 id → 새 id([DeckIdMigration]). */
+    fun migrateIds(mapping: Map<String, String>) {
+        if (mapping.isEmpty()) return
+        val pinned = _pinned.value.mapTo(HashSet()) { mapping[it] ?: it }
+        if (pinned != _pinned.value) {
+            _pinned.value = pinned
+            prefs.edit().putStringSet(KEY_PINNED, HashSet(pinned)).apply()
+        }
+        val hidden = _hidden.value.mapTo(HashSet()) { mapping[it] ?: it }
+        if (hidden != _hidden.value) {
+            _hidden.value = hidden
+            prefs.edit().putStringSet(KEY_HIDDEN, HashSet(hidden)).apply()
+        }
+    }
+
+    /** 등급 칩을 켜고 끈다. 마지막 하나는 끄지 않는다(목록이 통째로 비지 않게). */
+    fun toggleGrade(grade: String) {
+        val next = _grades.value.toggle(grade)
+        if (next.isNotEmpty()) setGrades(next)
+    }
+
+    fun setGrades(grades: Set<String>) {
+        _grades.value = grades
+        prefs.edit().putStringSet(KEY_GRADES, HashSet(grades)).apply()
+    }
+
     fun setShowHidden(show: Boolean) {
         _showHidden.value = show
         prefs.edit().putBoolean(KEY_SHOW_HIDDEN, show).apply()
@@ -72,6 +104,7 @@ class DeckPrefs private constructor(context: Context) {
         private const val KEY_PINNED = "pinned"
         private const val KEY_HIDDEN = "hidden"
         private const val KEY_SHOW_HIDDEN = "show_hidden"
+        private const val KEY_GRADES = "grade_filter"
 
         @Volatile
         private var instance: DeckPrefs? = null

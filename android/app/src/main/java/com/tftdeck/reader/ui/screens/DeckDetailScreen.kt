@@ -388,7 +388,8 @@ private val STAGE_LABELS = listOf("2-1", "3-2", "4-2")
 /** "중국 골드~에메랄드 3.61 · 글로벌 플래+ 4.22 · KR 플래+ 4.20". 비교할 값이 둘 이상일 때만. */
 private fun comparisonLine(deck: Deck, bucket: String, feed: DeckFeed?): String? {
     val parts = mutableListOf<String>()
-    deck.statsFor(bucket)?.avg?.let { avg ->
+    // metatft 조합 덱은 네 수치가 metatft 값이라, 중국 값은 합쳐진 lol.qq 덱의 참고 수치에서 가져온다.
+    deck.chinaStatsFor(bucket)?.avg?.let { avg ->
         val label = feed?.buckets?.get(bucket)?.label?.takeIf { it.isNotBlank() } ?: bucketLabel(bucket)
         parts += "중국 $label ${formatAvg(avg)}"
     }
@@ -403,7 +404,7 @@ private fun comparisonLine(deck: Deck, bucket: String, feed: DeckFeed?): String?
  * 胜率阵容 수치와 정의가 다른 모집단이라 등급에는 쓰지 않고 머리말에 작게 곁들인다(§4.4).
  */
 private fun preciseLine(deck: Deck, bucket: String): String? {
-    val precise = deck.statsFor(bucket)?.precise ?: return null
+    val precise = deck.chinaStatsFor(bucket)?.precise ?: return null
     if (precise.n <= 0 || precise.avg == null) return null
     return listOfNotNull(
         "lol.qq 데이터 검색",
@@ -1240,8 +1241,13 @@ private fun VariantsSection(
     val variants = deck.otherVariants
     if (variants.isEmpty()) return
     val scheme = MaterialTheme.colorScheme
-    Section("변형 ${variants.size}개", modifier) {
-        Text("누르면 위 보드에서 그 구성을 미리 봅니다.", style = MaterialTheme.typography.labelSmall, color = scheme.onSurfaceVariant)
+    Section(if (deck.isMeta) "중국 변형 ${variants.size}개" else "변형 ${variants.size}개", modifier) {
+        Text(
+            if (deck.isMeta) "합쳐진 lol.qq 구성이라 수치는 중국 서버 값입니다. 누르면 위 보드에서 미리 봅니다."
+            else "누르면 위 보드에서 그 구성을 미리 봅니다.",
+            style = MaterialTheme.typography.labelSmall,
+            color = scheme.onSurfaceVariant,
+        )
         variants.forEach { variant ->
             val selected = variant.id == previewId
             Column(
