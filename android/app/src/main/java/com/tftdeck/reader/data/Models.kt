@@ -179,6 +179,10 @@ data class Deck(
     val key: String = "",
     val name: String = "",
     val nameCn: String = "",
+    /** 목적을 담은 짧은 별칭('사냥꾼 니달리'). 수집기가 싣는다. 없으면 화면은 [displayAlias] 대체 규칙을 쓴다. */
+    val alias: String = "",
+    /** 한 줄 설명('빠른 8레벨 · 니달리·시비르 캐리'). 없으면 [displaySummary] 대체 규칙을 쓴다. */
+    val summary: String = "",
     val tier: String = "",
     val tierOrder: Int = 9,
     /** 편집 덱의 SS~C 등급. 통계 등급(S~D)과 다른 체계라 따로 둔다. */
@@ -241,6 +245,40 @@ data class Deck(
                 .filter { it.kind != DeckKeys.KIND_PET && (it.carry || it.items.isNotEmpty()) }
                 .sortedWith(compareByDescending<Unit> { it.carry }.thenByDescending { it.items.size })
                 .take(3)
+        }
+
+    /**
+     * 목록·카드·상세 제목에 쓰는 별칭. 글만 읽어도 어떤 덱인지 알 수 있게 한다.
+     * 수집기가 준 [alias] 가 없으면 '{대표 시너지} {캐리}' — 대표 시너지는 주 특성 중 활성 수가 가장 많은 것
+     * (같으면 앞선 것, 주 특성이 없으면 전체 특성에서), 캐리는 [carries] 첫째(없으면 이름의 ' · ' 앞부분)다.
+     */
+    val displayAlias: String
+        get() {
+            alias.trim().takeIf { it.isNotEmpty() }?.let { return it }
+            val trait = (mainTraits.takeIf { list -> list.any { it.name.isNotBlank() } } ?: traits)
+                .filter { it.name.isNotBlank() }
+                .maxByOrNull { it.count }
+                ?.name?.trim()
+            val carryName = carries.firstOrNull()?.name?.trim()?.takeIf { it.isNotEmpty() }
+                ?: name.substringBefore(" · ").trim().takeIf { it.isNotEmpty() }
+            return when {
+                trait != null && carryName != null -> "$trait $carryName"
+                else -> carryName ?: trait ?: name
+            }
+        }
+
+    /**
+     * 목록·카드에 별칭과 함께 쓰는 한 줄 설명. 수집기가 준 [summary] 가 없으면 '{운영} · {캐리1}·{캐리2} 캐리' —
+     * 운영은 metatft 운영 방식(없으면 'N레벨 완성'), 캐리는 상위 2명(1명이면 1명)이다. 둘 다 없으면 빈 글자.
+     */
+    val displaySummary: String
+        get() {
+            summary.trim().takeIf { it.isNotEmpty() }?.let { return it }
+            val ops = global?.levelling?.trim()?.takeIf { it.isNotEmpty() }
+                ?: finalLevel?.let { "${it}레벨 완성" }
+            val carryNames = carries.map { it.name.trim() }.filter { it.isNotEmpty() }.distinct().take(2)
+            val carryPart = carryNames.takeIf { it.isNotEmpty() }?.joinToString("·")?.let { "$it 캐리" }
+            return listOfNotNull(ops, carryPart).joinToString(" · ")
         }
 
     fun statsFor(bucket: String): DeckStats? = stats[bucket]
@@ -970,6 +1008,51 @@ data class Suggestion(
     val deckCount: Int,
     /** catalog id. 도감 상세로 넘어갈 때 쓴다. 이름만 있고 catalog 에 없으면 null. */
     val id: String? = null,
+)
+
+/**
+ * 덱 목록 검색 줄에 쌓이는 조건 하나(metatft 식 다중 선택). 조건끼리는 AND 로 묶인다([DeckSearch.filterByTokens]).
+ * [axis] 가 null 이면 사용자가 친 글자 그대로인 '사용자 지정' 조건이고, 덱 별칭·이름·설명에서 찾는다.
+ */
+data class DeckToken(
+    val axis: SearchAxis?,
+    val name: String,
+    val id: String? = null,
+) {
+    val isCustom: Boolean get() = axis == null
+
+    /** 같은 조건인지 가리는 열쇠. 사용자 지정은 대소문자와 앞뒤 공백을 가리지 않는다. */
+    val key: String get() = if (axis == null) "text:" + name.trim().lowercase() else "${axis.name}:$name"
+
+    /** 후보 줄에 붙는 축 이름(유닛/시너지/아이템/조합 재료/증강/사용자 지정). */
+    val axisLabel: String get() = axisLabel(axis)
+
+    /** 칩 글자. 사용자 지정은 따옴표로 감싸 유닛 이름과 구분한다. */
+    val chipLabel: String get() = if (axis == null) "\"${name.trim()}\"" else name
+
+    companion object {
+        /** 친 글자 그대로의 조건. */
+        fun custom(text: String): DeckToken = DeckToken(null, text.trim(), null)
+
+        fun of(suggestion: Suggestion): DeckToken = DeckToken(suggestion.axis, suggestion.name, suggestion.id)
+
+        fun axisLabel(axis: SearchAxis?): String = when (axis) {
+            SearchAxis.CHAMPION -> "유닛"
+            SearchAxis.TRAIT -> "시너지"
+            SearchAxis.ITEM -> "아이템"
+            SearchAxis.COMPONENT -> "조합 재료"
+            SearchAxis.AUGMENT -> "증강"
+            null -> "사용자 지정"
+        }
+    }
+}
+
+/** 검색 줄 후보 한 줄. [deckCount] 는 지금 목록에 이 조건을 더했을 때 남는 덱 수다. */
+data class TokenCandidate(
+    val token: DeckToken,
+    val icon: String? = null,
+    val cost: Int? = null,
+    val deckCount: Int = 0,
 )
 
 /** 아이템 역검색 결과 한 줄: 어느 덱의 어느 챔피언이 그 아이템을 드는가. */

@@ -12,7 +12,10 @@ import android.os.IBinder
 import android.provider.Settings
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
+import android.widget.FrameLayout
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
@@ -57,7 +60,8 @@ import kotlinx.coroutines.launch
  * 포그라운드 서비스로 유지한다.
  *
  * 창은 포커스를 가져가지 않는다(FLAG_NOT_FOCUSABLE). 오버레이를 띄운 채로
- * 게임을 그대로 조작할 수 있어야 하기 때문이다.
+ * 게임을 그대로 조작할 수 있어야 하기 때문이다. 덱 목록 검색창을 누른 동안에만 그 플래그를 빼서 키보드를 띄우고,
+ * 검색이 끝나면 [endSearch] 에서 반드시 되돌린다. 플래그는 [overlayWindowFlags] 한 곳에서 합성한다.
  *
  * 게임 연동을 켜면 창 없이 TFT 감지만 돌리다가(ACTION_WATCH) TFT가 앞에 오면 창을 붙인다.
  * 감지·판 종료 확인은 이 서비스가 살아 있는 동안에만 돈다 — 별도 백그라운드 작업을 두지 않는다.
@@ -78,7 +82,19 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     private lateinit var profiles: ProfileRepository
     private lateinit var ingamePrefs: IngamePrefs
     private var overlayView: ComposeView? = null
+
+    /** 창에 붙는 뿌리 뷰(ComposeView 를 감싼다). addView·updateViewLayout·removeView 는 이 뷰로 한다. */
+    private var overlayRoot: OverlayRootView? = null
     private var layoutParams: WindowManager.LayoutParams? = null
+
+    /** 가시성 판단([applyVisibility])의 결과. 창 플래그를 합성할 때 검색 상태와 함께 쓴다. */
+    private var windowVisible = true
+
+    /**
+     * 덱 목록 검색창이 키보드를 쓰는 중인지. 켜져 있는 동안만 창이 포커스를 받는다(FLAG_NOT_FOCUSABLE 해제).
+     * 켜는 곳은 [startSearch], 끄는 곳은 [endSearch] 한 곳이다.
+     */
+    private val searching = MutableStateFlow(false)
 
     private val expanded = MutableStateFlow(false)
     private val overlayData = MutableStateFlow<OverlayData?>(null)
@@ -333,6 +349,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
      * - 자동 표시(감지 + 'TFT가 켜지면 오버레이 자동 표시')면 TFT가 앞에 있을 때만 보인다
      *   ('TFT 밖에서도 표시'를 켜면 계속 보인다). TFT가 새로 앞에 오면 창이 없더라도 붙인다.
      * 숨길 때는 터치도 통과시켜 보이지 않는 창이 다른 앱 조작을 막지 않게 한다.
+     * 가시성이 바뀌면 검색을 끝낸다 — 숨은 창이 포커스를 쥐고 있으면 안 된다.
      */
     private fun observeVisibility() {
         scope.launch {
@@ -361,35 +378,75 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
             return
         }
 
-        val view = overlayView ?: return
-        val params = layoutParams ?: return
+        if (overlayRoot == null || layoutParams == null) return
         val visible = !input.appVisible && (!input.autoMode || inTft != null || input.showOutsideTft)
-        view.visibility = if (visible) View.VISIBLE else View.GONE
-        params.flags = if (visible) {
-            params.flags and WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE.inv()
-        } else {
-            params.flags or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        if (visible != windowVisible) endSearch(apply = false)
+        windowVisible = visible
+        applyWindow()
+    }
+
+    /**
+     * 보임·검색 상태를 창에 반영한다. 플래그는 [overlayWindowFlags] 한 곳에서 합성하고,
+     * 드래그([moveBy])는 x·y 만 바꿔 여기서 합성한 플래그를 그대로 쓴다.
+     */
+    private fun applyWindow() {
+        val root = overlayRoot ?: return
+        val params = layoutParams ?: return
+        root.visibility = if (windowVisible) View.VISIBLE else View.GONE
+        params.flags = overlayWindowFlags(visible = windowVisible, searching = searching.value)
+        runCatching { windowManager.updateViewLayout(root, params) }
+    }
+
+    // -- 오버레이 검색(키보드) ---------------------------------------------------
+
+    /**
+     * 덱 목록 검색창을 눌렀을 때. 창의 FLAG_NOT_FOCUSABLE 을 빼서 포커스를 받게 한다 — 그래야 키보드가 뜬다.
+     * 숨은 창에서는 켜지 않는다. 입력칸은 창이 실제로 포커스를 받은 뒤에 포커스를 잡는다(OverlayContent).
+     */
+    private fun startSearch() {
+        if (overlayRoot == null || !windowVisible || searching.value) return
+        searching.value = true
+        applyWindow()
+    }
+
+    /**
+     * 검색을 끝내고 창을 다시 포커스를 받지 않는 상태로 되돌린다. 키보드를 먼저 내린다.
+     * 부르는 곳: 후보 선택·IME 검색 키(OverlayContent) · 창 밖 누름·뒤로 가기·포커스 잃음(OverlayRootView) ·
+     * 덱 고름(목록 닫힘) · 접기 · 앱 열기 · 닫기 · 가시성 변화 · 창 떼기 · 서비스 종료.
+     * [apply] 가 false 면 부른 쪽이 곧바로 창을 반영하거나(가시성 변화) 창이 곧 사라진다.
+     */
+    private fun endSearch(apply: Boolean = true) {
+        if (!searching.value) return
+        searching.value = false
+        overlayRoot?.let { root ->
+            runCatching {
+                getSystemService(InputMethodManager::class.java)?.hideSoftInputFromWindow(root.windowToken, 0)
+            }
         }
-        runCatching { windowManager.updateViewLayout(view, params) }
+        if (apply) applyWindow()
     }
 
     // -- 창 --------------------------------------------------------------
 
     private fun attachOverlay() {
         val prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        windowVisible = true
+        searching.value = false
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            // 포커스를 가져가지 않아야 오버레이를 띄운 채 게임을 조작할 수 있다.
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            // 포커스를 가져가지 않아야 오버레이를 띄운 채 게임을 조작할 수 있다(FLAG_NOT_FOCUSABLE).
+            // 검색하는 동안에만 풀린다 — 플래그는 overlayWindowFlags 한 곳에서 합성한다.
+            overlayWindowFlags(visible = true, searching = false),
             PixelFormat.TRANSLUCENT,
         ).apply {
             gravity = Gravity.TOP or Gravity.START
             // 기본 위치는 좌상단. 이후 드래그한 자리를 기억한다.
             x = prefs.getInt(KEY_X, 0)
             y = prefs.getInt(KEY_Y, DEFAULT_TOP_MARGIN)
+            // 검색 중 키보드가 떠도 창을 밀거나 줄이지 않는다.
+            softInputMode = OVERLAY_SOFT_INPUT_MODE
         }
         layoutParams = params
 
@@ -405,8 +462,11 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                     expandedFlow = expanded,
                     wideFlow = wide,
                     showProfileFlow = showProfile,
+                    searchingFlow = searching,
                     onToggleExpand = {
                         val opening = !expanded.value
+                        // 접으면 검색창이 사라지므로 검색도 끝낸다.
+                        if (!opening) endSearch()
                         expanded.value = opening
                         // 펼칠 때 전적을 한 번 확인한다. 3분 안이면 저장소가 직전 결과를 돌려준다.
                         if (opening) scope.launch { refreshProfileLight(force = false) }
@@ -428,9 +488,13 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                     // 사용자가 직접 누른 새로고침은 최소 간격을 무시한다.
                     onRefreshProfile = { scope.launch { refreshProfileLight(force = true) } },
                     onSelectDeck = { id ->
+                        // 덱을 고르면 목록(검색창)이 닫힌다.
+                        endSearch()
                         selectedDeckId.value = id
                         if (id != null) repository.pinnedDeckId = id
                     },
+                    onSearchStart = { startSearch() },
+                    onSearchEnd = { endSearch() },
                     onDrag = { dx, dy -> moveBy(dx, dy) },
                     onDragEnd = { persistPosition() },
                     onOpenApp = { openApp() },
@@ -438,10 +502,20 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                 )
             }
         }
+        // 창의 뿌리. Compose 의 창 단위 재구성기가 뿌리 뷰에서 수명 주기를 찾으므로 소유자를 여기에도 단다.
+        val root = OverlayRootView(this).apply {
+            setViewTreeLifecycleOwner(this@OverlayService)
+            setViewTreeViewModelStoreOwner(this@OverlayService)
+            setViewTreeSavedStateRegistryOwner(this@OverlayService)
+            isSearching = { searching.value }
+            onEndSearch = { endSearch() }
+            addView(view, FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+        }
         overlayView = view
+        overlayRoot = root
         lifecycleRegistry.currentState = Lifecycle.State.RESUMED
 
-        runCatching { windowManager.addView(view, params) }
+        runCatching { windowManager.addView(root, params) }
             .onSuccess {
                 OverlayState.running.value = true
                 lastVisibility?.let { applyVisibility(it) }
@@ -449,6 +523,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
             .onFailure {
                 // 권한이 도중에 회수된 경우. 조용히 떠 있는 척하지 않는다(감지 중이면 감지는 계속).
                 overlayView = null
+                overlayRoot = null
                 layoutParams = null
                 if (!_detecting.value) stopSelf()
             }
@@ -459,6 +534,8 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
      * 감지 중이 아니면 기존처럼 서비스를 끝낸다.
      */
     private fun closeOverlay() {
+        // 창을 떼기 전에 키보드를 내리고 포커스를 돌려준다(서비스 종료는 비동기라 그사이에도 포커스를 쥐지 않게).
+        endSearch()
         setUserOverlay(false)
         if (_detecting.value) {
             (gameState.value as? GameState.Foreground)?.let { dismissedForegroundSince = it.since }
@@ -470,22 +547,23 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     }
 
     private fun detachOverlay() {
-        overlayView?.let { view ->
-            runCatching { windowManager.removeView(view) }
-            view.disposeComposition()
-        }
+        endSearch(apply = false)
+        overlayRoot?.let { root -> runCatching { windowManager.removeView(root) } }
+        overlayView?.disposeComposition()
         overlayView = null
+        overlayRoot = null
         layoutParams = null
         expanded.value = false
         OverlayState.running.value = false
     }
 
+    /** 드래그. 자리만 바꾸고 플래그는 [applyWindow] 가 합성해 둔 값을 그대로 쓴다(검색 중이어도 풀리지 않는다). */
     private fun moveBy(dx: Float, dy: Float) {
         val params = layoutParams ?: return
-        val view = overlayView ?: return
+        val root = overlayRoot ?: return
         params.x = (params.x + dx).toInt().coerceAtLeast(0)
         params.y = (params.y + dy).toInt().coerceAtLeast(0)
-        runCatching { windowManager.updateViewLayout(view, params) }
+        runCatching { windowManager.updateViewLayout(root, params) }
     }
 
     private fun persistPosition() {
@@ -498,6 +576,8 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
 
     /** 보고 있던 덱을 앱에서 그대로 이어서 연다. 목록이었으면 그냥 앱만 연다. */
     private fun openApp() {
+        // 앱이 앞에 오면 창이 숨지만, 그 전에 포커스를 먼저 돌려준다.
+        endSearch()
         startActivity(
             Intent(this, MainActivity::class.java)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
@@ -538,7 +618,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         )
 
         val deckText = selectedDeckId.value
-            ?.let { id -> overlayData.value?.decks?.firstOrNull { it.id == id }?.name }
+            ?.let { id -> overlayData.value?.decks?.firstOrNull { it.id == id }?.displayAlias }
             ?: getString(R.string.overlay_deck_list)
         val title = if (watchOnly) getString(R.string.overlay_watching) else getString(R.string.overlay_running)
         val text = when {
@@ -572,12 +652,12 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
 
     override fun onDestroy() {
         stopDetection()
+        endSearch(apply = false)
         OverlayState.running.value = false
-        overlayView?.let { view ->
-            runCatching { windowManager.removeView(view) }
-            view.disposeComposition()
-        }
+        overlayRoot?.let { root -> runCatching { windowManager.removeView(root) } }
+        overlayView?.disposeComposition()
         overlayView = null
+        overlayRoot = null
         lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
         store.clear()
         scope.cancel()

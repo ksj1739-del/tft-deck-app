@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -40,6 +41,7 @@ import androidx.compose.material.icons.filled.UnfoldLess
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -49,12 +51,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
 import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -69,11 +74,15 @@ import com.tftdeck.reader.data.DeckPrefs
 import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.DeckSearch
 import com.tftdeck.reader.data.DeckSortMode
+import com.tftdeck.reader.data.DeckToken
 import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.ProfileState
+import com.tftdeck.reader.data.TokenCandidate
 import com.tftdeck.reader.data.Unit as DeckUnit
 import com.tftdeck.reader.ui.bucketLabel
 import com.tftdeck.reader.ui.components.ThreeStarMark
+import com.tftdeck.reader.ui.components.TokenCandidateRow
+import com.tftdeck.reader.ui.components.TokenSearchField
 import com.tftdeck.reader.ui.copyToClipboard
 import com.tftdeck.reader.ui.formatAvg
 import com.tftdeck.reader.ui.gradeColor
@@ -93,6 +102,10 @@ import kotlinx.coroutines.flow.StateFlow
  * 서비스(OverlayService)가 넘겨주는 데이터는 덱 목록과 아이콘 접두사뿐이다. 구간·고정·숨김은
  * 앱과 같은 [DeckPrefs] 싱글턴에서, 구간 이름과 catalog 는 [DeckRepository] 에서 직접 읽는다 —
  * 같은 프로세스라 앱에서 구간을 바꾸면 여기도 곧바로 바뀐다.
+ *
+ * 목록 위 검색 줄은 유닛·시너지·아이템·증강·사용자 지정 글자를 칩으로 쌓아 목록을 좁힌다(AND). 조건은 앱 목록과 따로
+ * 이 창 안에서만 기억한다. 창은 평소 포커스를 받지 않으므로 검색창을 누르면 [onSearchStart] 로 서비스에 포커스를
+ * 요청하고, 서비스가 [searchingFlow] 를 켜 준 뒤에야 입력칸이 생긴다. 끝낼 때는 [onSearchEnd].
  */
 @Composable
 fun OverlayContent(
@@ -102,11 +115,14 @@ fun OverlayContent(
     expandedFlow: StateFlow<Boolean>,
     wideFlow: StateFlow<Boolean>,
     showProfileFlow: StateFlow<Boolean>,
+    searchingFlow: StateFlow<Boolean>,
     onToggleExpand: () -> Unit,
     onToggleWide: () -> Unit,
     onToggleProfile: () -> Unit,
     onRefreshProfile: () -> Unit,
     onSelectDeck: (String?) -> Unit,
+    onSearchStart: () -> Unit,
+    onSearchEnd: () -> Unit,
     onDrag: (Float, Float) -> Unit,
     onDragEnd: () -> Unit,
     onOpenApp: () -> Unit,
@@ -118,6 +134,13 @@ fun OverlayContent(
     val profileState by profileFlow.collectAsState()
     val wide by wideFlow.collectAsState()
     val showProfile by showProfileFlow.collectAsState()
+    val searching by searchingFlow.collectAsState()
+
+    // 검색 조건. 접었다 펴도 남도록 펼침 분기 밖에서 기억한다(창을 닫으면 사라진다). 앱 목록의 조건과는 따로다.
+    var tokens by remember { mutableStateOf(emptyList<DeckToken>()) }
+    var query by remember { mutableStateOf("") }
+    // 검색이 끝나면(후보 선택·바깥 누름·뒤로 가기·접기 등) 치다 만 글자는 버린다.
+    LaunchedEffect(searching) { if (!searching) query = "" }
 
     val context = LocalContext.current
     val prefs = remember { DeckPrefs.get(context) }
@@ -132,20 +155,32 @@ fun OverlayContent(
     val bucket = if (feed == null || buckets.isEmpty() || savedBucket in buckets) savedBucket else feed.defaultBucket
     val catalog = remember(feed) { feed?.let { CatalogIndex(it.catalog) } }
     val metatftCompared = feed?.version?.metatftCompared ?: true
+    // 검색 줄의 후보·조건 매칭. 앱과 같은 규칙(초성·줄임말·영문, 이름 인덱스)을 쓴다.
+    val search = remember(feed) { feed?.let { DeckSearch(it) } }
 
     val allDecks = data?.decks.orEmpty()
     if (allDecks.isEmpty()) return
     val assetBase = data?.assetBase.orEmpty()
-    // 목록: 숨긴 덱과 그 구간 등급이 없는 덱은 빼고(고정한 덱은 남긴다), 그 구간 등급순으로, 고정한 덱을 맨 위로.
-    val decks = remember(allDecks, bucket, pinned, hidden) {
+    // 목록: 숨긴 덱과 그 구간 등급이 없는 덱은 빼고(고정한 덱은 남긴다) → 검색 조건을 모두 만족하는 덱만 →
+    // 그 구간 등급순으로, 고정한 덱을 맨 위로.
+    val listed = remember(allDecks, bucket, pinned, hidden) {
+        allDecks.filter { it.id !in hidden && (it.listedIn(bucket) || it.id in pinned) }
+    }
+    val decks = remember(listed, tokens, search, bucket, pinned) {
         DeckSearch.pinFirst(
-            DeckSearch.sort(
-                allDecks.filter { it.id !in hidden && (it.listedIn(bucket) || it.id in pinned) },
-                DeckSortMode.GRADE,
-                bucket,
-            ),
+            DeckSearch.sort(search?.filterByTokens(listed, tokens) ?: listed, DeckSortMode.GRADE, bucket),
             pinned,
         )
+    }
+    // 후보는 지금 좁혀진 목록 기준으로 센다(골랐을 때 남는 덱 수).
+    val candidates = remember(search, query, tokens, decks, searching) {
+        if (!searching) emptyList() else search?.suggestTokens(query, tokens, within = decks, limit = OVERLAY_CANDIDATES).orEmpty()
+    }
+    val pickCandidate: (TokenCandidate) -> Unit = { candidate ->
+        if (tokens.none { it.key == candidate.token.key }) tokens = tokens + candidate.token
+        query = ""
+        // 고르면 검색을 끝낸다 — 키보드를 내리고 창을 다시 포커스를 받지 않게 해 게임 조작을 돌려준다.
+        onSearchEnd()
     }
     // 고른 덱은 숨긴 덱이어도 찾는다(덱 상세의 '게임 위에 띄우기'로 바로 열 수 있다).
     val selected = allDecks.firstOrNull { it.id == selectedId }
@@ -212,7 +247,8 @@ fun OverlayContent(
                 )
                 Spacer(Modifier.width(6.dp))
                 Text(
-                    "덱 ${decks.size}",
+                    // 검색 조건이 있으면 좁혀진 수 / 원래 수.
+                    if (tokens.isEmpty()) "덱 ${decks.size}" else "덱 ${decks.size}/${listed.size}",
                     color = OverlayText,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold,
@@ -236,14 +272,29 @@ fun OverlayContent(
                 Spacer(Modifier.weight(1f))
             } else {
                 IconBtn(Icons.AutoMirrored.Filled.ArrowBack, "목록으로") { onSelectDeck(null) }
-                // 헤더에는 버튼이 많아 이름을 두면 한두 글자만 남는다. 이름은 본문 첫 줄로 내렸다.
-                Text(
-                    text = gradeText(selected, bucket),
-                    color = gradeTint(selected, bucket),
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.weight(1f),
-                )
+                // 등급과 별칭은 버튼 사이 남는 자리(weight)에만 둔다 — 버튼을 밀어내지 않고 본문도 한 줄 늘지 않는다.
+                // 긴 덱 이름은 여기서 한두 글자만 남아 뺐고, 짧은 별칭도 패널이 좁으면(세로 화면 + 티어 카드) 두지 않는다.
+                Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = gradeText(selected, bucket),
+                        color = gradeTint(selected, bucket),
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                    )
+                    if (deckMax >= HEADER_ALIAS_MIN_PANEL) {
+                        Spacer(Modifier.width(5.dp))
+                        Text(
+                            text = selected.displayAlias,
+                            color = OverlayText,
+                            fontSize = 11.5.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
+                }
                 // 덱 코드 복사는 본문 버튼 대신 헤더의 작은 아이콘으로 두어 패널을 얇게 한다.
                 selected.teamCode?.let { code ->
                     TintedIconBtn(Icons.Default.ContentCopy, "덱 코드 복사", OverlayAccent) {
@@ -271,7 +322,26 @@ fun OverlayContent(
         }
 
         if (selected == null) {
-            DeckListView(decks, bucket, pinned, metatftCompared, assetBase, wide) { onSelectDeck(it.id) }
+            OverlaySearchBar(
+                tokens = tokens,
+                query = query,
+                searching = searching,
+                onQueryChange = { query = it },
+                onRemoveToken = { token -> tokens = tokens.filterNot { it.key == token.key } },
+                onClearAll = {
+                    tokens = emptyList()
+                    query = ""
+                },
+                // IME 의 검색 키는 맨 위 후보를 고른다. 친 글자가 없으면 검색만 끝낸다.
+                onSubmit = { candidates.firstOrNull()?.let(pickCandidate) ?: onSearchEnd() },
+                onSearchStart = onSearchStart,
+            )
+            if (searching && query.isNotBlank()) {
+                // 치는 동안에는 목록 대신 후보를 검색창 바로 아래에 둔다(키보드가 아래를 가려도 보이게).
+                CandidateList(candidates, assetBase, pickCandidate)
+            } else {
+                DeckListView(decks, tokens, bucket, pinned, metatftCompared, assetBase, wide) { onSelectDeck(it.id) }
+            }
         } else {
             DeckSummaryView(selected, catalog, assetBase, wide)
         }
@@ -295,6 +365,12 @@ fun OverlayContent(
 
 /** 프로필 카드 폭. 덱 패널 폭을 계산할 때도 쓰인다. */
 private val PROFILE_WIDTH = 124.dp
+
+/**
+ * 덱 요약 헤더에 별칭을 둘 최소 패널 폭. 버튼이 다 있을 때 고정 폭이 약 210dp 라 이보다 좁으면 별칭이
+ * 한두 글자만 남는다. 가로 화면(게임 중)은 늘 300dp 이상이다.
+ */
+private val HEADER_ALIAS_MIN_PANEL = 260.dp
 
 /** 통계 등급은 등급색, 편집 등급으로 대신 보여 줄 때는 편집 등급색. 등급이 없으면 흐린 색. */
 private fun gradeTint(deck: Deck, bucket: String): Color {
@@ -366,10 +442,72 @@ private fun CollapsedChip(
 // 전체 덱 목록 — 펼쳤을 때 기본 화면
 // ---------------------------------------------------------------------------
 
-@OptIn(ExperimentalLayoutApi::class)
+/**
+ * 목록 위의 작은 검색 줄. 고른 조건은 입력칸 안에 '니달리 ×' 칩으로 쌓인다.
+ * 창이 포커스를 받기 전에는 안내 글자만 그리고, 누르면 서비스에 포커스를 요청한다([onSearchStart]).
+ * 서비스가 검색을 켜 주고 창이 실제로 포커스를 받은 뒤에 입력칸이 포커스를 잡고 키보드를 띄운다 —
+ * 그 전에 키보드를 부르면 포커스 없는 창이라 무시된다.
+ */
+@Composable
+private fun OverlaySearchBar(
+    tokens: List<DeckToken>,
+    query: String,
+    searching: Boolean,
+    onQueryChange: (String) -> Unit,
+    onRemoveToken: (DeckToken) -> Unit,
+    onClearAll: () -> Unit,
+    onSubmit: () -> Unit,
+    onSearchStart: () -> Unit,
+) {
+    val focusRequester = remember { FocusRequester() }
+    val keyboard = LocalSoftwareKeyboardController.current
+    val windowFocused = LocalWindowInfo.current.isWindowFocused
+    LaunchedEffect(searching, windowFocused) {
+        if (searching && windowFocused && runCatching { focusRequester.requestFocus() }.isSuccess) {
+            keyboard?.show()
+        }
+    }
+    TokenSearchField(
+        tokens = tokens,
+        query = query,
+        onQueryChange = onQueryChange,
+        onRemoveToken = onRemoveToken,
+        onClearAll = onClearAll,
+        onSubmit = onSubmit,
+        editing = searching,
+        onStartEditing = onSearchStart,
+        focusRequester = focusRequester,
+        compact = true,
+        modifier = Modifier.padding(start = 6.dp, end = 6.dp, top = 6.dp, bottom = 2.dp),
+    )
+}
+
+/** 치는 동안 검색창 아래에 뜨는 후보. 맨 끝은 친 글자 그대로의 '사용자 지정' 후보다. */
+@Composable
+private fun CandidateList(candidates: List<TokenCandidate>, assetBase: String, onPick: (TokenCandidate) -> Unit) {
+    if (candidates.isEmpty()) {
+        Text(
+            "더할 조건이 없습니다. 이미 고른 조건입니다.",
+            color = OverlayMuted,
+            fontSize = 10.sp,
+            modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
+        )
+        return
+    }
+    LazyColumn(
+        modifier = Modifier.heightIn(max = CANDIDATE_LIST_MAX),
+        contentPadding = PaddingValues(vertical = 2.dp),
+    ) {
+        items(candidates, key = { it.token.key }) { candidate ->
+            TokenCandidateRow(candidate, assetBase, onClick = { onPick(candidate) }, compact = true)
+        }
+    }
+}
+
 @Composable
 private fun DeckListView(
     decks: List<Deck>,
+    tokens: List<DeckToken>,
     bucket: String,
     pinned: Set<String>,
     metatftCompared: Boolean,
@@ -379,49 +517,115 @@ private fun DeckListView(
 ) {
     if (decks.isEmpty()) {
         Text(
-            "숨기지 않은 덱이 없습니다. 앱의 '숨긴 덱 보기'에서 복구할 수 있습니다.",
+            if (tokens.isNotEmpty()) {
+                "이 구간에는 조건을 모두 만족하는 덱이 없습니다. 칩의 ×로 조건을 빼거나 '모두 지우기', 또는 위의 구간을 바꿔 보세요."
+            } else {
+                "숨기지 않은 덱이 없습니다. 앱의 '숨긴 덱 보기'에서 복구할 수 있습니다."
+            },
             color = OverlayMuted,
             fontSize = 10.sp,
             modifier = Modifier.padding(10.dp),
         )
         return
     }
+    val listState = rememberLazyListState()
+    // 조건이 바뀌면 좁혀진 목록을 맨 위부터 보여 준다.
+    LaunchedEffect(tokens) { listState.scrollToItem(0) }
     LazyColumn(
-        // 게임 화면을 너무 가리지 않도록 높이를 제한하고 나머지는 스크롤한다.
-        modifier = Modifier.heightIn(max = 330.dp),
-        contentPadding = PaddingValues(vertical = 4.dp),
+        state = listState,
+        // 게임 화면을 너무 가리지 않도록 높이를 제한하고 나머지는 스크롤한다. 검색 줄이 생긴 만큼 줄여 창 전체 높이는 그대로다.
+        modifier = Modifier.heightIn(max = DECK_LIST_MAX),
+        contentPadding = PaddingValues(vertical = 3.dp),
     ) {
         items(decks, key = { it.id }) { deck ->
-            val chinaOnly = metatftCompared && deck.isOnlyInChina
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onPick(deck) }
-                    .padding(horizontal = 8.dp, vertical = 4.dp),
-                verticalArrangement = Arrangement.spacedBy(3.dp),
-            ) {
-                // 목록은 넓게 볼 때도 얼굴만 둔다. 덱 이름·평균 등수는 게임을 가려서 뺐다.
-                run {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        TierLabel(deck, bucket)
-                        FlowRow(
-                            horizontalArrangement = Arrangement.spacedBy(2.dp),
-                            verticalArrangement = Arrangement.spacedBy(2.dp),
-                            modifier = Modifier.weight(1f),
-                        ) {
-                            deck.units.forEach { unit -> Face(unit, assetBase, 26.dp) }
-                        }
-                        if (deck.id in pinned) {
-                            Spacer(Modifier.width(3.dp))
-                            PinMark()
-                        }
-                        if (chinaOnly) {
-                            Spacer(Modifier.width(4.dp))
-                            ChinaDot()
-                        }
-                    }
-                }
+            DeckRow(
+                deck = deck,
+                bucket = bucket,
+                pinned = deck.id in pinned,
+                chinaOnly = metatftCompared && deck.isOnlyInChina,
+                assetBase = assetBase,
+                wide = wide,
+                onClick = { onPick(deck) },
+            )
+        }
+    }
+}
+
+/**
+ * 목록 한 줄. 글만 읽어도 어떤 덱인지 알 수 있게 별칭(굵게)과 한 줄 설명을 얼굴 위에 둔다.
+ *  - 좁게: [등급] 별칭 … [고정·중국] / 설명 / 얼굴(22dp)
+ *  - 넓게: [등급] 별칭 · 설명 … [고정·중국] / 얼굴(24dp) — 폭이 넉넉해 두 글을 한 줄에 둔다.
+ * 평균 등수 같은 수치는 게임을 가려서 여전히 뺀다(앱의 덱 상세에서 본다).
+ */
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun DeckRow(
+    deck: Deck,
+    bucket: String,
+    pinned: Boolean,
+    chinaOnly: Boolean,
+    assetBase: String,
+    wide: Boolean,
+    onClick: () -> Unit,
+) {
+    val summary = deck.displaySummary
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .padding(horizontal = 8.dp, vertical = 4.dp),
+        verticalArrangement = Arrangement.spacedBy(2.dp),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            TierLabel(deck, bucket)
+            Text(
+                deck.displayAlias,
+                color = OverlayText,
+                fontSize = 12.sp,
+                lineHeight = 15.sp,
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = if (wide) Modifier.widthIn(max = WIDE_ALIAS_MAX) else Modifier.weight(1f),
+            )
+            if (wide) {
+                Spacer(Modifier.width(6.dp))
+                Text(
+                    summary,
+                    color = OverlayMuted,
+                    fontSize = 10.sp,
+                    lineHeight = 13.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
+                )
             }
+            if (pinned) {
+                Spacer(Modifier.width(3.dp))
+                PinMark()
+            }
+            if (chinaOnly) {
+                Spacer(Modifier.width(4.dp))
+                ChinaDot()
+            }
+        }
+        if (!wide && summary.isNotBlank()) {
+            Text(
+                summary,
+                color = OverlayMuted,
+                fontSize = 10.sp,
+                lineHeight = 13.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(start = TIER_COLUMN),
+            )
+        }
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(2.dp),
+            verticalArrangement = Arrangement.spacedBy(2.dp),
+            modifier = Modifier.padding(start = TIER_COLUMN, top = 1.dp),
+        ) {
+            deck.units.forEach { unit -> Face(unit, assetBase, if (wide) 24.dp else 22.dp) }
         }
     }
 }
@@ -431,12 +635,28 @@ private fun TierLabel(deck: Deck, bucket: String) {
     Text(
         text = gradeText(deck, bucket),
         color = gradeTint(deck, bucket),
-        fontSize = 10.sp,
+        fontSize = 11.sp,
+        lineHeight = 14.sp,
         fontWeight = FontWeight.Bold,
         maxLines = 1,
-        modifier = Modifier.width(22.dp),
+        modifier = Modifier.width(TIER_COLUMN),
     )
 }
+
+/** 목록 줄 앞의 등급 칸 폭. 설명·얼굴 줄도 이만큼 들여 별칭과 줄을 맞춘다. */
+private val TIER_COLUMN = 22.dp
+
+/** 넓게 볼 때 별칭이 설명을 밀어내지 않도록 두는 상한. */
+private val WIDE_ALIAS_MAX = 170.dp
+
+/** 덱 목록 높이 상한. 예전 330dp 에서 검색 줄 높이만큼 뺐다. */
+private val DECK_LIST_MAX = 300.dp
+
+/** 후보 목록 높이 상한. 검색창 바로 아래라 키보드가 올라와도 위쪽 몇 줄은 보인다. */
+private val CANDIDATE_LIST_MAX = 200.dp
+
+/** 오버레이 후보 수(사용자 지정 후보는 따로 하나 더 붙는다). */
+private const val OVERLAY_CANDIDATES = 8
 
 @Composable
 private fun PinMark() {

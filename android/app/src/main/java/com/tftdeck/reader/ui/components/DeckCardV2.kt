@@ -53,7 +53,7 @@ import com.tftdeck.reader.ui.formatCount
 
 /**
  * 통합 덱 카드(§6.2). 모든 카드가 같은 자리에 같은 정보를 둔다:
- *  1. 등급 배지 · 이름(2줄) · 출처 배지 · 추세
+ *  1. 등급 배지 · 별칭(1줄) · 한 줄 설명 · 출처 배지 · 추세
  *  2. 운영 칩 · 'Lv N 완성' · 특성 칩 4개
  *  3. 캐리 3명(초상 40dp + 아이템) · 나머지 유닛 얼굴 줄
  *  4. 고정 4수치(평균 등수 / 픽률 / 승률 / TOP4)
@@ -193,14 +193,25 @@ private fun HeaderLine(deck: Deck, bucket: String, metatftCompared: Boolean, pin
             }
         }
         Spacer(Modifier.width(7.dp))
-        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            // 제목은 목적을 담은 별칭, 그 아래 한 줄 설명. 예전 긴 이름('캐리 · 4 시너지 …')은 바로 아래 시너지 칩·캐리
+            // 초상과 같은 정보라 카드에서는 뺐다(덱 상세의 부제로 남는다).
             Text(
-                deck.name,
+                deck.displayAlias,
                 style = MaterialTheme.typography.titleSmall,
                 color = scheme.onSurface,
-                maxLines = 2,
+                maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
+            deck.displaySummary.takeIf { it.isNotBlank() }?.let { summary ->
+                Text(
+                    summary,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
             SourceBadges(deck, metatftCompared)
         }
         if (pinned) {
