@@ -1,7 +1,6 @@
 package com.tftdeck.reader.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,6 +34,7 @@ import com.tftdeck.reader.ui.formatCount
 import com.tftdeck.reader.ui.formatPct
 import com.tftdeck.reader.ui.formatShortDate
 import com.tftdeck.reader.ui.scopeLabel
+import com.tftdeck.reader.ui.theme.FloaColors
 import com.tftdeck.reader.ui.trendColor
 import com.tftdeck.reader.ui.trendGlyph
 
@@ -80,9 +79,11 @@ fun StatsRow(
     }
 }
 
-/** 픽률은 1%도 안 되는 값이 대부분이라 그때는 소수 둘째 자리까지 보여 준다. */
-fun formatPick(pick: Double?): String =
-    if (pick != null && pick < 0.01) formatPct(pick, digits = 2) else formatPct(pick)
+/**
+ * 픽률. 다른 비율과 같이 소수 1자리이고 0.1% 미만은 "<0.1%"다(L14). 예전에는 1% 미만을 소수 둘째 자리로 써
+ * '0.03%' 가 '아무도 안 하는 덱'으로 읽혔다.
+ */
+fun formatPick(pick: Double?): String = formatPct(pick)
 
 /**
  * 표본 라벨: "n=17,059 · 골드~에메랄드 · 9/15 · KR 플래+ 4.20등 n=9,849".
@@ -189,18 +190,14 @@ fun SourceBadges(deck: Deck, metatftCompared: Boolean, modifier: Modifier = Modi
     }
 }
 
-/** 테두리만 있는 작은 배지. 통계 등급 배지(채움)와 헷갈리지 않게 비워 둔다. */
+/**
+ * 예전 테두리 배지. 테두리형은 이제 중국 한정 등급 배지만 쓰므로(MASTER 규칙 5) 글자 배지 한 모양으로 그린다.
+ * [color] 가 primary(파랑)면 강조 글자('편집'), 그 밖의 색(예전 KR 청록 포함)은 보조 글자가 된다.
+ */
+@Deprecated("TextBadge 를 쓴다", ReplaceWith("TextBadge(text, modifier = modifier)"))
 @Composable
 fun OutlineBadge(text: String, color: Color, modifier: Modifier = Modifier) {
-    val shape = RoundedCornerShape(6.dp)
-    Box(
-        modifier
-            .clip(shape)
-            .border(1.dp, color.copy(alpha = 0.7f), shape)
-            .padding(horizontal = 6.dp, vertical = 1.dp),
-    ) {
-        Text(text, color = color, style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.SemiBold, maxLines = 1)
-    }
+    TextBadge(text, emphasis = color == FloaColors.Primary, modifier = modifier)
 }
 
 @Composable
@@ -212,7 +209,7 @@ fun TrendGlyph(trend: String?, modifier: Modifier = Modifier) {
 
 /**
  * 구간 선택 칩(단일 선택). 다섯 구간이 JSON에 미리 들어 있어 바꿔도 네트워크를 쓰지 않는다.
- * 피드에 구간이 없으면(v1) 아무것도 그리지 않는다.
+ * 피드에 구간이 없으면(v1) 아무것도 그리지 않는다. 선택 표시는 [FloaFilterChip] 한 모양(MASTER 규칙 6).
  */
 @Composable
 fun BucketChips(
@@ -229,18 +226,19 @@ fun BucketChips(
             .fillMaxWidth()
             .horizontalScroll(rememberScrollState())
             .padding(horizontal = horizontalPadding),
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         keys.forEach { key ->
-            FilterChip(
+            FloaFilterChip(
                 selected = key == selected,
+                label = buckets[key]?.label?.takeIf { it.isNotBlank() } ?: bucketLabel(key),
                 onClick = { onSelect(key) },
-                label = { Text(buckets[key]?.label?.takeIf { it.isNotBlank() } ?: bucketLabel(key)) },
             )
         }
     }
 }
 
-// 포인트 색(파랑)과 겹치지 않게 KR 출처는 청록으로 구분한다.
+// 예전 KR 출처 배지 색. 색은 뜻 하나(MASTER 규칙 3)라 쓰지 않는다 — OutlineBadge 가 글자 배지로 그려 이 색은 화면에 나오지 않는다.
+@Deprecated("KR 배지는 TextBadge 로 그린다. Wave 1 이 끝나면 지운다")
 private val KrCyan = Color(0xFF22D3EE)

@@ -782,7 +782,7 @@ class DeckFeedV2Test {
         assertEquals("-", formatAvg(null))
         assertEquals("68.8%", formatPct(0.688))
         assertEquals("-", formatPct(null))
-        assertEquals("0.21%", formatPick(0.0021))
+        assertEquals("0.2%", formatPick(0.0021))
         assertEquals("1.2%", formatPick(0.012))
         assertEquals("9/15", formatShortDate("20260915"))
         assertEquals("9/15", formatShortDate("2026-09-15T13:14:40Z"))

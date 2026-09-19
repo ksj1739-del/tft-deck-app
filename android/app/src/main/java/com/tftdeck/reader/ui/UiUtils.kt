@@ -12,6 +12,9 @@ import java.util.Date
 import java.util.Locale
 import android.content.Intent
 import android.net.Uri
+import kotlin.math.abs
+import kotlin.math.pow
+import kotlin.math.roundToLong
 
 /**
  * 수집기는 아이콘을 상대 경로로 저장한다. 표시할 때 접두사를 붙인다.
@@ -65,21 +68,19 @@ fun openUrl(context: Context, url: String) {
     }
 }
 
-/** 편집 등급(SS~C) 색. 디자인 시스템 등급 팔레트를 한 칸 올려 SS 가 가장 강하다. */
-fun tierColor(tier: String): Color = when (tier.uppercase()) {
-    "SS" -> FloaColors.TierS
-    "S" -> FloaColors.TierA
-    "A" -> FloaColors.TierB
-    "B" -> FloaColors.TierC
-    else -> FloaColors.TierD
-}
+/**
+ * 편집 등급(SS~C) 색. 예전에는 팔레트를 한 칸 밀어(편집 S = A 색) 같은 'S' 가 목록과 오버레이에서 다른 색이었다(V5).
+ * 이제 [gradeColor] 와 같다. 편집 등급은 색이 아니라 모양(테두리형 + '편')으로 구분한다.
+ */
+@Deprecated("gradeColor 와 같다. 편집 등급은 GradeBadge(style = Editorial) 로 구분한다", ReplaceWith("gradeColor(tier)"))
+fun tierColor(tier: String): Color = gradeColor(tier)
 
 /**
- * 통계 등급(S~D) 색. 편집 등급과 체계가 달라 색을 따로 둔다.
- * 표본 부족(null)은 회색이라 등급이 있는 덱과 한눈에 구분된다.
+ * 등급 색(MASTER §3 등급 팔레트). 등급 배지에만 쓴다.
+ * 편집 등급의 SS 는 S 와 같은 색이다. 등급이 없으면(표본 부족 등) 회색이라 등급이 있는 덱과 한눈에 구분된다.
  */
-fun gradeColor(grade: String?): Color = when (grade?.uppercase()) {
-    "S" -> FloaColors.TierS
+fun gradeColor(grade: String?): Color = when (grade?.trim()?.uppercase()) {
+    "SS", "S" -> FloaColors.TierS
     "A" -> FloaColors.TierA
     "B" -> FloaColors.TierB
     "C" -> FloaColors.TierC
@@ -128,13 +129,26 @@ fun costColor(cost: Int?): Color = when (cost) {
     else -> Color(0xFF6E7C78)
 }
 
-/** 구간 키의 한국어 이름. 피드에 label 이 비어 있어도 같은 이름이 나오도록 앱에도 둔다. */
+/**
+ * 구간 키의 한국어 이름. 피드에 label 이 비어 있어도 같은 이름이 나오도록 앱에도 둔다.
+ * 'low' 는 브론즈·아이언·실버라(골드 제외) '실버 이하'다(R8).
+ */
 fun bucketLabel(key: String): String = when (key) {
     "all" -> "전체"
     "master" -> "마스터+"
     "diamond" -> "다이아+"
     "goldem" -> "골드~에메랄드"
-    "low" -> "골드 이하"
+    "low" -> "실버 이하"
+    else -> key
+}
+
+/** 좁은 칸(오버레이 머리줄·구간 드롭다운)에 쓰는 짧은 구간 이름. */
+fun bucketShortLabel(key: String): String = when (key) {
+    "all" -> "전체"
+    "master" -> "마스터+"
+    "diamond" -> "다이아+"
+    "goldem" -> "골드~에메"
+    "low" -> "실버 이하"
     else -> key
 }
 
@@ -148,17 +162,64 @@ fun scopeLabel(key: String, short: Boolean = false): String = when (key) {
     else -> key
 }
 
-/** 평균 등수 "3.61". 값이 없으면 "-". 기기 언어와 무관하게 소수점은 점으로 쓴다. */
-fun formatAvg(value: Double?): String =
-    value?.let { String.format(Locale.US, "%.2f", it) } ?: "-"
+// 숫자 표기(MASTER 규칙 7). 화면 코드는 String.format 대신 아래 함수만 쓴다(V11).
 
-/** 0~1 비율을 "10.8%"로. 값이 없으면 "-". */
-fun formatPct(value: Double?, digits: Int = 1): String =
-    value?.let { String.format(Locale.US, "%.${digits}f%%", it * 100) } ?: "-"
+/** 평균 등수 "3.61"(소수 2자리, 표의 수치 칸용). 값이 없으면 "-". 기기 언어와 무관하게 소수점은 점으로 쓴다. */
+fun formatAvg(value: Double?): String =
+    value?.takeIf { it.isFinite() }?.let { String.format(Locale.US, "%.2f", it) } ?: "-"
+
+/** 문장 안의 평균 등수 "4.12등". 값이 없으면 "-". */
+fun formatAvgRank(value: Double?): String =
+    value?.takeIf { it.isFinite() }?.let { "${formatAvg(it)}등" } ?: "-"
+
+/**
+ * 0~1 비율을 "58.5%"로(소수 1자리). 0 보다 크지만 그 자리수로 0 이 되는 값은 "<0.1%" 로 쓴다 —
+ * '0.0%' 는 아무도 안 하는 덱으로 읽힌다(L14). 값이 없거나 숫자가 아니면 "-".
+ * [digits] 는 예전 호출부를 위해 남겨 둔 것이고, 새 화면은 기본값(1)만 쓴다.
+ */
+fun formatPct(value: Double?, digits: Int = 1): String {
+    val ratio = value?.takeIf { it.isFinite() } ?: return "-"
+    val places = digits.coerceAtLeast(0)
+    val percent = ratio * 100
+    val smallest = 10.0.pow(-places)
+    // 1e-9: 0.001 처럼 경계값이 곱셈 오차로 0.0999… 가 되어도 '<' 로 떨어지지 않게 한다.
+    if (percent > 0 && percent < smallest - 1e-9) {
+        return "<" + String.format(Locale.US, "%.${places}f%%", smallest)
+    }
+    return String.format(Locale.US, "%.${places}f%%", percent)
+}
 
 /** 게임 수 "17,059". 값이 없으면 "-". */
 fun formatCount(value: Int?): String =
     value?.let { String.format(Locale.US, "%,d", it) } ?: "-"
+
+/**
+ * 판 수: 1만 미만 "9,847판", 1만~100만 미만 "58.5만 판"(소수 1자리 고정), 100만 이상 "108만 판".
+ * 만 단위는 반올림한다. 값이 없으면 "-".
+ */
+fun formatGames(value: Long?): String {
+    val games = value ?: return "-"
+    if (games < 10_000) return String.format(Locale.US, "%,d판", games)
+    // 0.1만(= 1,000판) 단위로 반올림한다. 999,950 처럼 올려서 100만이 되면 아래 줄의 정수 표기로 넘긴다.
+    val tenths = (games / 1_000.0).roundToLong()
+    if (tenths < 1_000) return String.format(Locale.US, "%d.%d만 판", tenths / 10, tenths % 10)
+    return String.format(Locale.US, "%,d만 판", (games / 10_000.0).roundToLong())
+}
+
+fun formatGames(value: Int?): String = formatGames(value?.toLong())
+
+/**
+ * 변화량 "▲ +0.07" / "▼ −0.13". 빼기는 U+2212 이고, 방향 기호(▲/▼)와 늘 짝을 이룬다 —
+ * Positive/Negative 색만으로 좋고 나쁨을 전하지 않게 한다(MASTER 규칙 3). 기호와 수 사이는 줄바꿈 없는 공백(U+00A0).
+ * [digits] 자리로 반올림해 0 이면 기호 없이 "0.00". 값이 없으면 "-".
+ * 평균 등수처럼 낮을수록 좋은 값도 부호는 뒤집지 않는다. 좋고 나쁨의 색은 호출하는 쪽이 정한다.
+ */
+fun formatDelta(value: Double?, digits: Int = 2): String {
+    val delta = value?.takeIf { it.isFinite() } ?: return "-"
+    val body = String.format(Locale.US, "%.${digits.coerceAtLeast(0)}f", abs(delta))
+    if (body.toDouble() == 0.0) return body
+    return if (delta > 0) "▲ +$body" else "▼ −$body"
+}
 
 /** "20260915"·"2026-09-15"·"2026-09-15T13:14:40Z" 를 "9/15"로. 모양을 모르면 원문 그대로. */
 fun formatShortDate(raw: String?): String {
