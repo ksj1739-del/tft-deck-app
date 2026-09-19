@@ -2,13 +2,15 @@ package com.tftdeck.reader.ui.screens
 
 import android.content.Intent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -17,54 +19,61 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.OpenInNew
-import androidx.compose.material3.Button
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.tftdeck.reader.BuildConfig
 import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.IconPack
 import com.tftdeck.reader.data.IconPackState
-import com.tftdeck.reader.data.ProfileRepository
+import com.tftdeck.reader.data.PlayerProfile
 import com.tftdeck.reader.data.ProfileState
 import com.tftdeck.reader.data.StatsRepository
 import com.tftdeck.reader.data.StatsState
 import com.tftdeck.reader.ingame.sameRiotId
 import com.tftdeck.reader.overlay.OverlayService
 import com.tftdeck.reader.ui.AppViewModel
-import com.tftdeck.reader.ui.formatDate
+import com.tftdeck.reader.ui.ProfileLink
+import com.tftdeck.reader.ui.components.RiotIdForm
+import com.tftdeck.reader.ui.components.SectionTitle
+import com.tftdeck.reader.ui.deckDataLine
 import com.tftdeck.reader.ui.ingame.GameLinkSection
 import com.tftdeck.reader.ui.ingame.IngameViewModel
 import com.tftdeck.reader.ui.ingame.LastLobbyCard
 import com.tftdeck.reader.ui.ingame.ProfileSummaryV2
+import com.tftdeck.reader.ui.ingame.SettingSwitchRow
 import com.tftdeck.reader.ui.lolchessProfileUrl
 import com.tftdeck.reader.ui.metatftProfileUrl
 import com.tftdeck.reader.ui.openUrl
+import com.tftdeck.reader.ui.patchLabel
+import com.tftdeck.reader.ui.profileErrorText
+import com.tftdeck.reader.ui.profileLink
 import com.tftdeck.reader.ui.relativeTime
+import com.tftdeck.reader.ui.theme.FloaColors
 import androidx.lifecycle.viewmodel.compose.viewModel as composeViewModel
 
 /**
  * 내 정보 탭.
- * 순서: 내 전적 → 지난 게임 로비 → 게임 연동 → 오버레이 → 덱 데이터 → 원본 상태 → 출처.
- * 자주 보는 전적이 맨 위, 한 번 정하면 잘 안 바꾸는 설정이 아래로 간다.
+ * 순서(N16): 게임 위에 띄우기 → 게임 연동 → 내 전적(지난 게임 로비는 있을 때만) → 덱 데이터 → 앱 정보(접힘).
+ * 게임 위에서 쓰는 것을 위에 두고, 개발용 정보(원본·덱 코드 수·아이콘 팩)는 '앱 정보' 안으로 넣었다.
  */
 @Composable
 fun SettingsScreen(
@@ -74,270 +83,261 @@ fun SettingsScreen(
 ) {
     val state by viewModel.feedState.collectAsState()
     val syncing by viewModel.syncing.collectAsState()
-    val pinned by viewModel.pinnedDeckId.collectAsState()
     val savedId by viewModel.savedRiotId.collectAsState()
     val savedRegion by viewModel.savedRegion.collectAsState()
     val profileState by viewModel.profileState.collectAsState()
     val busy by viewModel.profileBusy.collectAsState()
     val ingame: IngameViewModel = composeViewModel()
     val lastLobby by ingame.lastLobby.collectAsState()
+    // 권한 화면에서 돌아올 때(ON_RESUME) 뷰모델이 다시 읽는다(GameLinkSection 이 관찰자를 단다). 여기서 직접 읽으면 굳는다.
+    val overlayGranted by ingame.overlayPermission.collectAsState()
     val context = LocalContext.current
     val scheme = MaterialTheme.colorScheme
     val ready = state as? FeedState.Ready
+    val link = profileLink(profileState, savedId)
 
     Column(
         Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp, vertical = 14.dp),
-        verticalArrangement = Arrangement.spacedBy(22.dp),
+            .padding(horizontal = 16.dp)
+            .padding(bottom = 24.dp),
     ) {
 
-        // --- 내 전적 ----------------------------------------------------------
-        Group("내 전적") {
-            var input by remember(savedId) { mutableStateOf(savedId) }
-            var regionPick by remember(savedRegion) { mutableStateOf(savedRegion) }
-
-            OutlinedTextField(
-                value = input,
-                onValueChange = { input = it },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text("라이엇 ID") },
-                placeholder = { Text("이름#태그") },
-                supportingText = { Text("게임 안 프로필에 보이는 '이름#태그'를 그대로 적습니다") },
-                singleLine = true,
-                shape = RoundedCornerShape(10.dp),
-            )
-
-            Spacer(Modifier.size(8.dp))
-            Row(
-                Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(6.dp),
-            ) {
-                ProfileRepository.REGIONS.forEach { code ->
-                    FilterChip(
-                        selected = regionPick == code,
-                        onClick = { regionPick = code },
-                        label = { Text(code) },
-                    )
-                }
-            }
-
-            Spacer(Modifier.size(10.dp))
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Button(
-                    onClick = { viewModel.saveProfile(input, regionPick) },
-                    enabled = !busy && input.contains("#"),
-                ) {
-                    Text(if (savedId.isBlank()) "연결" else "다시 조회")
-                }
-                if (savedId.isNotBlank()) {
-                    OutlinedButton(onClick = viewModel::clearProfile, enabled = !busy) {
-                        Text("연결 해제")
-                    }
-                }
-                if (busy) {
-                    CircularProgressIndicator(Modifier.size(17.dp), strokeWidth = 2.dp)
-                }
-            }
-
-            Spacer(Modifier.size(12.dp))
-            when (val ps = profileState) {
-                is ProfileState.Ready -> ProfileSummaryV2(ps.profile, null, busy, viewModel::refreshProfile)
-                is ProfileState.Loading -> ps.previous?.let { ProfileSummaryV2(it, null, true, viewModel::refreshProfile) }
-                is ProfileState.Failed -> ProfileSummaryV2(ps.previous, ps.message, busy, viewModel::refreshProfile)
-                ProfileState.NotConfigured -> Text(
-                    "라이엇 ID를 연결하면 티어와 최근 등수가 오버레이 오른쪽에 함께 뜹니다.",
-                    style = MaterialTheme.typography.labelSmall,
+        // --- 게임 위에 띄우기 ------------------------------------------------
+        Group("게임 위에 띄우기") {
+            if (!overlayGranted) {
+                Text(
+                    "게임 위에 덱을 띄우려면 '다른 앱 위에 표시' 를 허용해야 합니다",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = scheme.onSurface,
+                )
+                Text(
+                    "목록에서 FloaTFT → 허용 → 뒤로",
+                    style = MaterialTheme.typography.bodySmall,
                     color = scheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp, bottom = 8.dp),
+                )
+                OutlinedButton(onClick = {
+                    context.startActivity(OverlayService.permissionIntent(context).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                }) {
+                    Text("권한 허용하기")
+                }
+            } else {
+                // 켜면 '게임 위에 띄우기' 시트(TFT 열고 띄우기·홈 화면에 띄우기)가 열린다. 스위치는 실제로 떠 있는지를 따른다.
+                SettingSwitchRow(
+                    title = "오버레이 표시",
+                    subtitle = "칩을 누르면 덱 목록이 펼쳐지고 어디로든 끌어 옮길 수 있습니다",
+                    checked = overlayRunning,
+                    onCheckedChange = onToggleOverlay,
                 )
             }
-
-            // 연결한 계정의 전적 사이트 바로가기. 매치 상세처럼 앱에 없는 정보는 거기서 본다.
-            if (savedId.contains("#")) {
-                Spacer(Modifier.size(10.dp))
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    OutlinedButton(onClick = { openUrl(context, lolchessProfileUrl(savedId, savedRegion)) }) {
-                        Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(15.dp))
-                        Spacer(Modifier.width(6.dp))
-                        Text("lolchess.gg 전적")
-                    }
-                    OutlinedButton(onClick = { openUrl(context, metatftProfileUrl(savedId, savedRegion)) }) {
-                        Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(15.dp))
-                        Spacer(Modifier.width(6.dp))
-                        Text("metatft 전적")
-                    }
-                }
-            }
-
-            Spacer(Modifier.size(8.dp))
-            Text(
-                "전적은 metatft의 공개 프로필에서 가져옵니다. 라이엇 ID는 이 기기에만 저장되고 조회할 때만 쓰입니다.",
-                style = MaterialTheme.typography.labelSmall,
-                color = scheme.onSurfaceVariant,
-            )
-        }
-
-        // --- 지난 게임 로비 ------------------------------------------------------
-        Group("지난 게임 로비") {
-            // 다른 계정으로 받아 둔 로비는 보여 주지 않는다.
-            val lobby = lastLobby?.takeIf { savedId.contains("#") && sameRiotId(it.ownerRiotId, savedId) }
-            LastLobbyCard(lobby)
         }
 
         // --- 게임 연동 ----------------------------------------------------------
         Group("게임 연동") {
-            GameLinkSection(ingame, riotIdConnected = savedId.contains("#"))
+            GameLinkSection(ingame, riotIdConnected = link is ProfileLink.Linked)
         }
 
-        // --- 오버레이 --------------------------------------------------------
-        Group("게임 위에 띄우기") {
-            // 권한 화면에서 돌아올 때(ON_RESUME) 뷰모델이 다시 읽는다. 여기서 직접 읽으면 그대로 굳는다.
-            val granted by ingame.overlayPermission.collectAsState()
+        // --- 내 전적 ----------------------------------------------------------
+        Group("내 전적") {
+            var editing by rememberSaveable { mutableStateOf(false) }
 
-            if (!granted) {
+            if (editing || link !is ProfileLink.Linked) {
+                // 연결 전·실패·변경 중에는 입력 한 벌. 연결을 누르면 곧바로 접고, 실패하면 결과가 다시 펼친다.
+                RiotIdForm(
+                    initialId = savedId,
+                    initialRegion = savedRegion,
+                    busy = busy,
+                    link = link,
+                    onConnect = { id, region ->
+                        editing = false
+                        viewModel.saveProfile(id, region)
+                    },
+                    extraActions = if (savedId.isNotBlank() || editing) {
+                        {
+                            if (savedId.isNotBlank()) {
+                                TextButton(
+                                    onClick = {
+                                        editing = false
+                                        viewModel.clearProfile()
+                                    },
+                                    enabled = !busy,
+                                ) { Text("연결 해제") }
+                            }
+                            if (editing) {
+                                TextButton(onClick = { editing = false }) { Text("취소") }
+                            }
+                        }
+                    } else {
+                        null
+                    },
+                )
                 Text(
-                    "다른 앱 위에 덱을 띄우려면 시스템 권한이 필요합니다. 이 권한은 오버레이 창에만 쓰입니다.",
+                    "라이엇 ID 는 이 기기에만 저장되고 metatft 공개 프로필을 조회할 때만 씁니다",
                     style = MaterialTheme.typography.bodySmall,
                     color = scheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp),
                 )
-                Spacer(Modifier.size(8.dp))
-                Button(onClick = {
-                    context.startActivity(
-                        OverlayService.permissionIntent(context)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    )
-                }) {
-                    Text("권한 설정 열기")
-                }
             } else {
+                // 연결된 뒤에는 한 줄로 접는다(N17): '랄라붕#KR1 · KR · 변경'.
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Column(Modifier.weight(1f)) {
-                        Text("오버레이 표시", style = MaterialTheme.typography.bodyMedium)
-                        Text(
-                            "전체 덱 목록으로 시작합니다",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = scheme.onSurfaceVariant,
-                        )
-                    }
-                    Switch(checked = overlayRunning, onCheckedChange = onToggleOverlay)
+                    Text(
+                        "${link.riotId} · ${link.region}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = scheme.onSurface,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f),
+                    )
+                    TextButton(onClick = { editing = true }) { Text("변경") }
                 }
-                Spacer(Modifier.size(6.dp))
-                Text(
-                    "접힌 상태에서는 작은 칩으로 떠 있고, 누르면 전체 덱 목록이 펼쳐집니다. " +
-                        "목록에서 덱을 고르면 요약으로 들어가고 뒤로 누르면 목록으로 돌아옵니다. " +
-                        "어느 상태든 끌어서 옮길 수 있습니다.",
-                    style = MaterialTheme.typography.labelSmall,
-                    color = scheme.onSurfaceVariant,
+            }
+
+            // 이 계정으로 받은 요약이 있으면 보이고, 실패했으면 사유를 한 줄로 붙인다.
+            // 요약 없이 실패했으면 입력 칸 아래 한 줄로 이미 나온다.
+            val summary: PlayerProfile? = profileState.profileOrNull
+            if (summary != null) {
+                val failure = (profileState as? ProfileState.Failed)?.let { profileErrorText(it.message) }
+                Spacer(Modifier.height(12.dp))
+                ProfileSummaryV2(
+                    summary,
+                    failure,
+                    busy || profileState is ProfileState.Loading,
+                    viewModel::refreshProfile,
                 )
-                viewModel.deck(pinned.orEmpty())?.let { deck ->
-                    Spacer(Modifier.size(4.dp))
-                    Text(
-                        "덱 상세의 '게임 위에 띄우기'로 켜면 그 덱이 바로 열립니다 (최근: ${deck.name})",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = scheme.onSurfaceVariant,
-                    )
-                }
             }
-        }
 
-        // --- 데이터 ----------------------------------------------------------
-        Group("덱 데이터") {
-            InfoRow("마지막 갱신", ready?.lastSyncedAt?.let { formatDate(it) } ?: "아직 없음")
-            InfoRow("상태", relativeTime(ready?.lastSyncedAt))
-            ready?.feed?.version?.let { version ->
-                InfoRow("시즌", "${version.set} · 패치 ${version.patch}")
-                InfoRow("덱", "${version.deckCount}개 (중국 한정 ${version.onlyInChinaCount}개)")
-                InfoRow("덱 코드", "${version.teamCodeCount}개")
-                version.metatftSet?.let { InfoRow("metatft", it) }
-            }
-            // 도감 통계와 아이콘 팩은 덱과 따로 받는다. 어느 쪽이 낡았는지 여기서 구분해 보여 준다.
-            val statsState by StatsRepository.get(context).state.collectAsState()
-            val iconState by IconPack.get(context).state.collectAsState()
-            InfoRow("도감 데이터", statsStatusText(statsState))
-            InfoRow("아이콘 팩", iconPackStatusText(iconState))
-
-            Spacer(Modifier.size(10.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                OutlinedButton(onClick = viewModel::refresh, enabled = !syncing) {
-                    Text(if (syncing) "갱신 중..." else "지금 갱신")
-                }
-                if (syncing) {
-                    Spacer(Modifier.width(10.dp))
-                    CircularProgressIndicator(Modifier.size(17.dp), strokeWidth = 2.dp)
-                }
-            }
-            Spacer(Modifier.size(6.dp))
-            Text(
-                "평소에는 하루 한 번 자동으로 갱신합니다. 바뀐 게 없으면 수백 바이트만 주고받습니다.",
-                style = MaterialTheme.typography.labelSmall,
-                color = scheme.onSurfaceVariant,
-            )
-        }
-
-        // --- 원본 상태 --------------------------------------------------------
-        ready?.feed?.version?.sources?.takeIf { it.isNotEmpty() }?.let { sources ->
-            Group("원본") {
-                sources.forEach { (name, status) ->
-                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            SOURCE_LABELS[name] ?: name,
-                            style = MaterialTheme.typography.bodySmall,
-                            modifier = Modifier.weight(1f),
-                        )
-                        Text(
-                            if (status == "ok") "정상" else status,
-                            style = MaterialTheme.typography.labelSmall,
-                            color = if (status == "ok") scheme.primary else scheme.error,
-                        )
+            // 연결한 계정의 전적 사이트 바로가기. 매치 상세처럼 앱에 없는 정보는 거기서 본다.
+            if (link is ProfileLink.Linked) {
+                Row(Modifier.padding(top = 4.dp)) {
+                    TextButton(onClick = { openUrl(context, lolchessProfileUrl(link.riotId, link.region)) }) {
+                        Text("lolchess.gg 전적")
+                        Spacer(Modifier.width(4.dp))
+                        Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(16.dp))
+                    }
+                    TextButton(onClick = { openUrl(context, metatftProfileUrl(link.riotId, link.region)) }) {
+                        Text("metatft 전적")
+                        Spacer(Modifier.width(4.dp))
+                        Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(16.dp))
                     }
                 }
-                ready.feed.version.untranslatedIds.takeIf { it.isNotEmpty() }?.let { ids ->
-                    Spacer(Modifier.size(8.dp))
-                    Text(
-                        "한글 이름을 찾지 못한 항목 ${ids.size}개는 원본 ID로 표시됩니다. 새 시즌 직후에 잠깐 나타날 수 있습니다.",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = scheme.onSurfaceVariant,
-                    )
+            }
+        }
+
+        // --- 지난 게임 로비(있을 때만) ---------------------------------------------
+        // 다른 계정으로 받아 둔 로비는 보여 주지 않는다. 게임 연동을 안 켠 사람에게 늘 빈 칸을 두지 않는다(N16).
+        lastLobby
+            ?.takeIf { savedId.contains("#") && sameRiotId(it.ownerRiotId, savedId) && it.players.isNotEmpty() }
+            ?.let { lobby -> Group("지난 게임 로비") { LastLobbyCard(lobby) } }
+
+        // --- 덱 데이터 ----------------------------------------------------------
+        Group("덱 데이터") {
+            val line = when {
+                syncing -> "새로고침 중…"
+                ready != null -> deckDataLine(patchLabel(ready.feed.version), ready.lastSyncedAt, System.currentTimeMillis())
+                state is FeedState.Error -> (state as FeedState.Error).message
+                else -> "불러오는 중…"
+            }
+            Text(line, style = MaterialTheme.typography.bodyMedium, color = scheme.onSurface)
+            Spacer(Modifier.height(8.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                OutlinedButton(onClick = viewModel::refresh, enabled = !syncing) { Text("새로고침") }
+                if (syncing) {
+                    Spacer(Modifier.width(12.dp))
+                    CircularProgressIndicator(Modifier.size(16.dp), strokeWidth = 2.dp)
                 }
             }
         }
 
-        Group("출처") {
-            Text(
-                "덱 통계는 lol.qq.com/tft, 챔피언·아이템 통계와 전적은 metatft.com, " +
-                    "한국어 이름과 아이콘은 Community Dragon에서 가져옵니다. " +
-                    "Riot Games가 보증하거나 후원하는 앱이 아닙니다.",
-                style = MaterialTheme.typography.labelSmall,
-                color = scheme.onSurfaceVariant,
+        // --- 앱 정보(접힘) --------------------------------------------------------
+        AppInfo(ready)
+    }
+}
+
+/** 앱 버전, 데이터 세부, 원본 상태, 출처. 평소에는 접어 둔다. */
+@Composable
+private fun AppInfo(ready: FeedState.Ready?) {
+    val context = LocalContext.current
+    val scheme = MaterialTheme.colorScheme
+    var open by rememberSaveable { mutableStateOf(false) }
+
+    SectionTitle(
+        "앱 정보",
+        modifier = Modifier.clickable(onClickLabel = if (open) "접기" else "펼치기") { open = !open },
+        trailing = {
+            Text("버전 ${BuildConfig.VERSION_NAME}", style = MaterialTheme.typography.bodySmall, color = scheme.onSurfaceVariant)
+            Spacer(Modifier.width(4.dp))
+            Icon(
+                if (open) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                contentDescription = null,
+                tint = scheme.onSurfaceVariant,
+                modifier = Modifier.size(24.dp),
             )
+        },
+    )
+    if (!open) return
+
+    GroupCard {
+        InfoRow("버전", "${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})")
+        ready?.feed?.version?.let { version ->
+            if (version.setNumber > 0) InfoRow("시즌", "시즌 ${version.setNumber}")
+            InfoRow("덱", "${version.deckCount}개 · 중국 한정 ${version.onlyInChinaCount}개")
+            InfoRow("덱 코드", "${version.teamCodeCount}개")
+            version.metatftSet?.let { InfoRow("metatft", it) }
+        }
+        // 도감 통계와 아이콘 팩은 덱과 따로 받는다. 어느 쪽이 낡았는지 여기서 구분해 보여 준다.
+        val statsState by StatsRepository.get(context).state.collectAsState()
+        val iconState by IconPack.get(context).state.collectAsState()
+        InfoRow("도감 데이터", statsStatusText(statsState))
+        InfoRow("아이콘 팩", iconPackStatusText(iconState))
+
+        ready?.feed?.version?.sources?.takeIf { it.isNotEmpty() }?.let { sources ->
+            Text(
+                "원본",
+                style = MaterialTheme.typography.labelLarge,
+                color = scheme.onSurface,
+                modifier = Modifier.padding(top = 12.dp, bottom = 4.dp),
+            )
+            sources.forEach { (name, status) ->
+                InfoRow(SOURCE_LABELS[name] ?: name, if (status == "ok") "정상" else status, valueColor = if (status == "ok") null else scheme.error)
+            }
+            ready.feed.version.untranslatedIds.takeIf { it.isNotEmpty() }?.let { ids ->
+                Text(
+                    "한글 이름을 찾지 못한 항목 ${ids.size}개는 원본 ID 로 표시됩니다",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
+            }
         }
 
-        Spacer(Modifier.size(20.dp))
+        Text(
+            "덱 통계는 lol.qq.com/tft, 챔피언·아이템 통계와 전적은 metatft.com, 한국어 이름과 아이콘은 Community Dragon 에서 " +
+                "가져오며 Riot Games 가 보증하거나 후원하는 앱이 아닙니다",
+            style = MaterialTheme.typography.bodySmall,
+            color = scheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 12.dp),
+        )
     }
 }
 
 /** 도감 데이터 상태 한 줄. 예: "패치 18.2 · 2026-09-14 기준 · 3시간 전". */
 private fun statsStatusText(state: StatsState): String = when (state) {
     StatsState.Loading -> "불러오는 중"
-    StatsState.Missing -> "없음 (지금 갱신으로 받습니다)"
+    StatsState.Missing -> "없음 · 새로고침으로 받습니다"
     is StatsState.Ready -> buildList {
         state.version.patchGlobal.takeIf { it.isNotBlank() }?.let { add("패치 $it") }
         state.version.statDate.takeIf { it.isNotBlank() }?.let { add("$it 기준") }
-        add(if (state.fromBundle || state.lastSyncedAt == null) "앱 동봉본" else relativeTime(state.lastSyncedAt))
+        add(if (state.fromBundle || state.lastSyncedAt == null) "앱에 담긴 데이터" else relativeTime(state.lastSyncedAt))
     }.joinToString(" · ")
 }
 
-/** 아이콘 팩 상태 한 줄. 예: "222개 · 0.5MB · 앱 동봉본". 팩이 없으면 아이콘을 원격에서 받는다. */
+/** 아이콘 팩 상태 한 줄. 예: "222개 · 0.5MB · 앱에 담긴 데이터". 팩이 없으면 아이콘을 원격에서 받는다. */
 private fun iconPackStatusText(state: IconPackState): String {
-    if (!state.isReady) return "없음 (아이콘을 원격에서 받습니다)"
+    if (!state.isReady) return "없음 · 아이콘을 원격에서 받습니다"
     val size = String.format(java.util.Locale.US, "%.1fMB", state.bytes / (1024.0 * 1024.0))
-    val synced = if (state.fromBundle || state.lastSyncedAt == null) "앱 동봉본" else relativeTime(state.lastSyncedAt)
+    val synced = if (state.fromBundle || state.lastSyncedAt == null) "앱에 담긴 데이터" else relativeTime(state.lastSyncedAt)
     return "${state.count}개 · $size · $synced"
 }
 
@@ -349,38 +349,41 @@ internal fun placementTint(place: Int): Color = when (place) {
     else -> FloaColors.Negative
 }
 
+/** 설정 묶음: 섹션 제목(onSurface, 파랑 제목 금지) + 한 단 밝은 면(surface) 카드. */
 @Composable
-private fun Group(title: String, content: @Composable () -> Unit) {
-    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Text(
-            title,
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.SemiBold,
-        )
-        Spacer(Modifier.size(4.dp))
-        Column(
-            Modifier
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(10.dp))
-                .background(MaterialTheme.colorScheme.surface)
-                .padding(14.dp),
-        ) {
-            content()
-        }
-    }
+private fun Group(title: String, content: @Composable ColumnScope.() -> Unit) {
+    SectionTitle(title)
+    GroupCard(content)
 }
 
 @Composable
-private fun InfoRow(label: String, value: String) {
-    Row(Modifier.fillMaxWidth().padding(vertical = 3.dp), verticalAlignment = Alignment.CenterVertically) {
+private fun GroupCard(content: @Composable ColumnScope.() -> Unit) {
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(12.dp))
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(12.dp),
+        content = content,
+    )
+}
+
+@Composable
+private fun InfoRow(label: String, value: String, valueColor: Color? = null) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
         Text(
             label,
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.weight(1f),
         )
-        Text(value, style = MaterialTheme.typography.bodySmall)
+        Text(value, style = MaterialTheme.typography.bodySmall, color = valueColor ?: MaterialTheme.colorScheme.onSurface)
     }
 }
 

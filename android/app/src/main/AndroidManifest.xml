@@ -16,6 +16,9 @@
     <!-- Android 13+ 에서 포그라운드 서비스 알림을 띄우려면 필요하다. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <!-- 재부팅 뒤 앱을 열지 않아도 게임 연동(TFT 감지)을 다시 켠다(BootReceiver). -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <!--
         게임 연동: TFT 앱이 화면 앞에 왔는지 사용 기록(UsageStats)으로 확인한다.
         사용자가 설정의 '사용 기록 접근'에서 직접 켜야 하는 권한이다.
@@ -60,6 +63,16 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="게임 화면 위에 선택한 덱을 띄우고, 사용자가 켠 경우 TFT 실행과 판 종료를 감지하기 위한 오버레이 서비스" />
         </service>
+
+        <!-- 시스템 방송만 받는다. 내보내지 않아도(exported=false) 시스템이 보내는 방송은 온다. -->
+        <receiver
+            android:name=".ingame.BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>
