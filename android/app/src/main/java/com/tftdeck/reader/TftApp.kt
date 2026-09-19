@@ -6,6 +6,7 @@ import coil.ImageLoaderFactory
 import coil.disk.DiskCache
 import coil.memory.MemoryCache
 import com.tftdeck.reader.data.DeckRepository
+import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.IconInterceptor
 import com.tftdeck.reader.data.IconPack
 import com.tftdeck.reader.data.StatsRepository
@@ -26,8 +27,13 @@ class TftApp : Application(), ImageLoaderFactory {
         super.onCreate()
 
         // 캐시(없으면 동봉 스냅샷)를 먼저 올린다. 첫 화면이 비지 않도록.
+        // 동봉 스냅샷으로 시작했으면(설치 직후 등) 주기 작업의 15분 대기 없이 곧바로 한 번 받는다(N3).
         appScope.launch {
-            DeckRepository.get(this@TftApp).load()
+            val decks = DeckRepository.get(this@TftApp)
+            decks.load()
+            if ((decks.state.value as? FeedState.Ready)?.fromBundle == true) {
+                DailySyncWorker.syncNow(this@TftApp)
+            }
         }
         // 도감 통계도 캐시(없으면 동봉 스냅샷)를 먼저 올린다. 도감 탭을 처음 열 때 비지 않도록.
         appScope.launch {

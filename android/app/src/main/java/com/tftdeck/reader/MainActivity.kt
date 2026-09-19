@@ -1,45 +1,64 @@
 package com.tftdeck.reader
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.automirrored.filled.ViewList
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.PictureInPictureAlt
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -49,26 +68,34 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.tftdeck.reader.data.SearchAxis
 import com.tftdeck.reader.ingame.IngamePrefs
+import com.tftdeck.reader.ingame.TFT_PACKAGE
 import com.tftdeck.reader.ingame.hasUsageStatsPermission
 import com.tftdeck.reader.overlay.OverlayService
-import com.tftdeck.reader.ui.components.FirstRunDialog
 import com.tftdeck.reader.overlay.OverlayState
 import com.tftdeck.reader.ui.AppViewModel
+import com.tftdeck.reader.ui.LaunchStep
+import com.tftdeck.reader.ui.LaunchTarget
+import com.tftdeck.reader.ui.OverlayLaunch
+import com.tftdeck.reader.ui.SetupViewModel
 import com.tftdeck.reader.ui.codex.AugmentDetailScreen
 import com.tftdeck.reader.ui.codex.ChampionDetailScreen
 import com.tftdeck.reader.ui.codex.CodexScreen
 import com.tftdeck.reader.ui.codex.CodexViewModel
 import com.tftdeck.reader.ui.codex.ItemDetailScreen
 import com.tftdeck.reader.ui.codex.TraitDetailScreen
+import com.tftdeck.reader.ui.components.FirstRunDialog
+import com.tftdeck.reader.ui.firstRunNeeded
+import com.tftdeck.reader.ui.ingame.needsNotificationPermission
+import com.tftdeck.reader.ui.nextLaunchStep
 import com.tftdeck.reader.ui.screens.DeckDetailScreen
 import com.tftdeck.reader.ui.screens.DeckListScreen
-import com.tftdeck.reader.ui.screens.SearchScreen
 import com.tftdeck.reader.ui.screens.SettingsScreen
 import com.tftdeck.reader.ui.theme.TftDeckTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
-    // 오버레이에서 '앱에서 보기'로 들어온 덱. 첫 화면 대신 그 덱 상세로 간다.
+    // 오버레이에서 '앱에서 열기'로 들어온 덱. 첫 화면 대신 그 덱 상세로 간다.
     private val pendingDeck = mutableStateOf<String?>(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +108,8 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             TftDeckTheme {
-                AppRoot(pendingDeck)
+                // 오버레이에서 연 상세의 뒤로 가기: 앱의 이전 화면이 아니라 게임으로 돌아간다(N15a).
+                AppRoot(pendingDeck, onLeaveApp = { moveTaskToBack(true) })
             }
         }
     }
@@ -90,8 +118,8 @@ class MainActivity : ComponentActivity() {
     override fun onStart() {
         super.onStart()
         OverlayState.appVisible.value = true
-        // 게임 연동을 켜 두었는데 기기 재시작·프로세스 종료로 감지가 멈췄으면 다시 켠다.
-        // 포그라운드 서비스는 앱 화면이 보일 때만 시작할 수 있어 TftApp.onCreate 가 아니라 여기서 한다.
+        // 게임 연동을 켜 두었는데 프로세스 종료 등으로 감지가 멈췄으면 다시 켠다.
+        // 재부팅·앱 업데이트 뒤에는 BootReceiver 가 앱을 열지 않아도 다시 켠다(S3).
         val ingame = IngamePrefs.get(this)
         if (ingame.detectEnabled.value && hasUsageStatsPermission(this) && !OverlayService.detecting.value) {
             OverlayService.startWatch(this)
@@ -111,14 +139,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/** 하단 탭. 검색 탭은 덱 목록의 검색 줄로 합쳤다(사용자 결정 1). */
 private sealed class Tab(val route: String, val label: String) {
     data object Decks : Tab("decks", "덱")
     data object Codex : Tab("codex", "도감")
-    data object Search : Tab("search", "검색")
     data object Settings : Tab("settings", "내 정보")
 }
 
-private val TABS = listOf(Tab.Decks, Tab.Codex, Tab.Search, Tab.Settings)
+private val TABS = listOf(Tab.Decks, Tab.Codex, Tab.Settings)
 
 /** 덱 상세. variant 는 목록의 변형 행에서 들어올 때만 붙는다(오버레이의 "deck/{id}"도 그대로 맞는다). */
 private const val DETAIL_ROUTE = "deck/{deckId}?variant={variant}"
@@ -134,7 +162,11 @@ private fun isDetailRoute(route: String?): Boolean =
 private fun isCodexDetailRoute(route: String?): Boolean =
     route != null && route.startsWith("codex/") && route.count { it == '/' } >= 2
 
-/** 검색 후보의 '도감' 버튼이 여는 라우트. 조합 재료 축은 도감 버튼을 달지 않는다. */
+/**
+ * 검색 후보의 '도감' 버튼이 여는 라우트. 조합 재료 축은 도감 버튼을 달지 않는다.
+ * 검색 탭을 없앤 뒤로는 부르는 곳이 없다. 목록 검색 줄(DeckListScreen)이 도감 바로가기를 받게 되면 이 함수로 잇는다.
+ */
+@Suppress("unused")
 private fun codexRouteFor(axis: SearchAxis, id: String): String? {
     val encoded = Uri.encode(id)
     return when (axis) {
@@ -148,17 +180,21 @@ private fun codexRouteFor(axis: SearchAxis, id: String): String? {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AppRoot(pendingDeck: MutableState<String?>) {
+private fun AppRoot(pendingDeck: MutableState<String?>, onLeaveApp: () -> Unit) {
     val viewModel: AppViewModel = viewModel()
     // 도감 목록·상세 라우트가 함께 쓴다. 액티비티 범위라 탭을 오가도 필터·검색어가 유지된다.
     val codexViewModel: CodexViewModel = viewModel()
+    // '게임 위에 띄우기' 시트와 첫 동기화 알림. 액티비티 범위.
+    val setup: SetupViewModel = viewModel()
     val navController = rememberNavController()
     val backStack by navController.currentBackStackEntryAsState()
     val route = backStack?.destination?.route
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
 
     val snackbar = remember { SnackbarHostState() }
     val syncMessage by viewModel.syncMessage.collectAsState()
+    val syncNotice by setup.syncNotice.collectAsState()
 
     // 실제로 떠 있는지는 서비스가 알린다. 화면 변수로 들고 있으면 앱을 새로 열 때 꺼짐으로 초기화된다.
     val overlayRunning by OverlayState.running.collectAsState()
@@ -168,26 +204,33 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
     val firstRunPending by viewModel.firstRunPending.collectAsState()
     if (firstRunPending) {
         val needsSetup = remember {
-            !viewModel.savedRiotId.value.contains("#") || !OverlayService.canDrawOverlays(context)
+            firstRunNeeded(viewModel.savedRiotId.value, OverlayService.canDrawOverlays(context))
         }
         if (needsSetup) {
-            FirstRunDialog(viewModel, onDone = viewModel::finishFirstRun)
+            FirstRunDialog(viewModel, onClose = { remindLater ->
+                viewModel.finishFirstRun()
+                if (remindLater) scope.launch { snackbar.showSnackbar("내 정보 탭에서 언제든 설정할 수 있습니다") }
+            })
         } else {
             LaunchedEffect(Unit) { viewModel.finishFirstRun() }
         }
     }
 
-    // Android 13+ 는 포그라운드 서비스 알림을 띄우려면 알림 권한이 필요하다.
-    val notificationPermission = androidx.activity.compose.rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { /* 거부해도 오버레이 자체는 동작한다. */ }
+    // 오버레이에서 연 덱 상세(뒤로 가면 게임으로 돌아갈 항목). 그 상세에서 다른 화면으로 가면 평소 뒤로 가기다.
+    var overlayEntryId by rememberSaveable { mutableStateOf<String?>(null) }
 
     // 오버레이에서 넘어온 덱이 있으면 상세로 보낸다. 한 번 처리하면 비운다.
     LaunchedEffect(pendingDeck.value) {
         pendingDeck.value?.let { id ->
             navController.navigate("deck/$id")
+            overlayEntryId = navController.currentBackStackEntry?.id
             pendingDeck.value = null
         }
+    }
+    val fromOverlay = overlayEntryId != null && backStack?.id == overlayEntryId
+    fun backToGame() {
+        overlayEntryId = null
+        onLeaveApp()
     }
 
     LaunchedEffect(syncMessage) {
@@ -197,28 +240,97 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
         }
     }
 
-    fun startOverlay(deckId: String?) {
-        if (!OverlayService.canDrawOverlays(context)) {
-            context.startActivity(
-                OverlayService.permissionIntent(context)
-                    .addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
-            )
-            return
+    // 설치 직후 앱에 담긴 데이터를 쓰다가 첫 새로고침이 끝나면 알린다(N3). 직접 누른 새로고침은 위 syncMessage 가 알린다.
+    LaunchedEffect(syncNotice) {
+        syncNotice?.let {
+            if (!viewModel.syncing.value) snackbar.showSnackbar(it)
+            setup.consumeSyncNotice()
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-            context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) !=
-            PackageManager.PERMISSION_GRANTED
-        ) {
-            notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+    }
+
+    // -- 게임 위에 띄우기 -------------------------------------------------------
+    // 덱 탭 앱바의 오버레이 버튼, 덱 상세의 버튼, 내 정보의 오버레이 스위치가 모두 같은 시트를 연다(N4, N5).
+    // 권한이 없으면 설정으로 보냈다가 돌아와서(ON_RESUME) 권한이 생겼으면 이어서 띄운다. 알림 권한은 시트 안에서 묻는다.
+
+    val overlaySheet by setup.overlaySheet.collectAsState()
+    var overlayGranted by remember { mutableStateOf(OverlayService.canDrawOverlays(context)) }
+    var notificationAsked by remember { mutableStateOf(false) }
+    var afterNotification by remember { mutableStateOf<OverlayLaunch?>(null) }
+
+    fun launchOverlay(launch: OverlayLaunch) {
+        setup.closeOverlaySheet()
+        OverlayService.start(context, launch.deckId)
+        when (launch.target) {
+            LaunchTarget.Tft -> {
+                val tft = context.packageManager.getLaunchIntentForPackage(TFT_PACKAGE)
+                    ?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                if (tft == null || runCatching { context.startActivity(tft) }.isFailure) onLeaveApp()
+            }
+            LaunchTarget.Home -> onLeaveApp()
         }
-        OverlayService.start(context, deckId)
-        // 앱이 열려 있는 동안은 숨어 있으므로, 눌렀는데 아무 일도 없는 것처럼 보이지 않게 알려 준다.
-        // 게임 연동의 자동 표시를 켜 두었으면 TFT가 앞에 있을 때만 보이므로 안내도 그에 맞춘다.
+    }
+
+    val notificationPermission = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) {
+        // 거부해도 오버레이는 뜬다. 닫은 창을 알림에서 되살릴 수 없을 뿐이다.
+        afterNotification?.let { launch ->
+            afterNotification = null
+            launchOverlay(launch)
+        }
+    }
+
+    fun requestLaunch(launch: OverlayLaunch) {
+        overlayGranted = OverlayService.canDrawOverlays(context)
+        when (nextLaunchStep(overlayGranted, !needsNotificationPermission(context), notificationAsked)) {
+            LaunchStep.OverlayPermission -> {
+                setup.awaitOverlayPermission(launch)
+                context.startActivity(OverlayService.permissionIntent(context).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            }
+            LaunchStep.NotificationPermission -> {
+                notificationAsked = true
+                afterNotification = launch
+                notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+            LaunchStep.Start -> launchOverlay(launch)
+        }
+    }
+
+    val onResumed by rememberUpdatedState(newValue = {
+        overlayGranted = OverlayService.canDrawOverlays(context)
+        setup.resumeLaunch(overlayGranted)?.let { requestLaunch(it) }
+    })
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) onResumed()
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+
+    overlaySheet?.let { sheet ->
+        // 시트를 새로 열 때마다 알림 권한을 한 번 물을 수 있다.
+        LaunchedEffect(sheet) { notificationAsked = false }
         val ingame = IngamePrefs.get(context)
-        val onlyInTft = ingame.detectEnabled.value && hasUsageStatsPermission(context) &&
-            ingame.autoOverlay.value && !ingame.showOutsideTft.value
-        val hint = if (onlyInTft) "TFT가 앞에 오면 게임 위에 나타납니다" else "앱을 나가면 게임 위에 나타납니다"
-        android.widget.Toast.makeText(context, hint, android.widget.Toast.LENGTH_SHORT).show()
+        val detect by ingame.detectEnabled.collectAsState()
+        val auto by ingame.autoOverlay.collectAsState()
+        val outside by ingame.showOutsideTft.collectAsState()
+        val tftInstalled = remember(sheet) { context.packageManager.getLaunchIntentForPackage(TFT_PACKAGE) != null }
+        OverlayLaunchSheet(
+            deckName = sheet.deckId?.let { id -> viewModel.deck(id)?.displayAlias ?: id },
+            running = overlayRunning,
+            overlayGranted = overlayGranted,
+            notificationsGranted = !needsNotificationPermission(context),
+            tftInstalled = tftInstalled,
+            onlyInTft = detect && auto && !outside && hasUsageStatsPermission(context),
+            onLaunch = { target -> requestLaunch(OverlayLaunch(sheet.deckId, target)) },
+            onStop = {
+                setup.closeOverlaySheet()
+                OverlayService.stop(context)
+            },
+            onDismiss = setup::closeOverlaySheet,
+        )
     }
 
     val openDeck: (String) -> Unit = { id -> navController.navigate("deck/$id") }
@@ -233,18 +345,26 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
                             route?.startsWith("deck/") == true -> "덱 상세"
                             isCodexDetailRoute(route) -> "도감"
                             route == Tab.Codex.route -> "도감"
-                            route == Tab.Search.route -> "검색"
                             route == Tab.Settings.route -> "내 정보"
-                            else -> stringResourceSafe(context, R.string.app_name)
+                            // 덱 탭도 탭 이름을 쓴다(L10). 앱 이름은 런처·알림에만 둔다.
+                            else -> Tab.Decks.label
                         },
                         style = MaterialTheme.typography.titleMedium,
                     )
                 },
                 navigationIcon = {
                     if (isDetail) {
-                        IconButton(onClick = { navController.popBackStack() }) {
-                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "뒤로")
+                        IconButton(onClick = { if (fromOverlay) backToGame() else navController.popBackStack() }) {
+                            Icon(
+                                Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = if (fromOverlay) "게임으로 돌아가기" else "뒤로",
+                            )
                         }
+                    }
+                },
+                actions = {
+                    if (route == Tab.Decks.route) {
+                        OverlayButton(running = overlayRunning, onClick = { setup.openOverlaySheet(null) })
                     }
                 },
             )
@@ -344,26 +464,14 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
                     )
                 }
 
-                composable(Tab.Search.route) {
-                    SearchScreen(
-                        viewModel = viewModel,
-                        onOpenDeck = openDeck,
-                        onOpenCodex = { axis, id -> codexRouteFor(axis, id)?.let { navController.navigate(it) } },
-                    )
-                }
-
                 composable(Tab.Settings.route) {
                     SettingsScreen(
                         viewModel = viewModel,
                         overlayRunning = overlayRunning,
                         onToggleOverlay = { on ->
-                            if (on) {
-                                // 설정에서 켜면 전체 덱 목록으로 시작한다.
-                                // 덱 하나를 바로 열려면 덱 상세의 '게임 위에 띄우기'를 쓴다.
-                                startOverlay(null)
-                            } else {
-                                OverlayService.stop(context)
-                            }
+                            // 켜면 전체 덱 목록으로 시작한다(어디로 갈지는 시트에서 고른다).
+                            // 덱 하나를 바로 열려면 덱 상세의 버튼을 쓴다.
+                            if (on) setup.openOverlaySheet(null) else OverlayService.stop(context)
                         },
                     )
                 }
@@ -383,11 +491,110 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
                         deckId = entry.arguments?.getString("deckId").orEmpty(),
                         viewModel = viewModel,
                         overlayRunning = overlayRunning,
-                        onStartOverlay = { id -> startOverlay(id) },
+                        onStartOverlay = { id -> setup.openOverlaySheet(id) },
                         initialVariant = entry.arguments?.getString("variant"),
                         onOpenDeck = openDeck,
                     )
+                    // NavHost 의 뒤로 처리보다 나중에 등록돼 먼저 불린다. 오버레이에서 연 그 상세에서만 켠다.
+                    BackHandler(enabled = overlayEntryId != null && overlayEntryId == entry.id) { backToGame() }
                 }
+            }
+        }
+    }
+}
+
+/** 덱 탭 앱바의 오버레이 버튼. 켜져 있으면 파랑 아이콘 + 점(색만으로 알리지 않는다). */
+@Composable
+private fun OverlayButton(running: Boolean, onClick: () -> Unit) {
+    val scheme = MaterialTheme.colorScheme
+    IconButton(onClick = onClick) {
+        BadgedBox(badge = { if (running) Badge(containerColor = scheme.primary) }) {
+            Icon(
+                Icons.Filled.PictureInPictureAlt,
+                contentDescription = if (running) "오버레이 켜짐 · 게임 위에 띄우기" else "게임 위에 띄우기",
+                tint = if (running) scheme.primary else scheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+/**
+ * '게임 위에 띄우기' 시트. 앱이 앞에 있는 동안 오버레이는 숨으므로, 켠 뒤 어디로 갈지까지 한 번에 고르게 한다(N4).
+ * TFT 가 없으면 TFT 버튼은 숨긴다. 알림 권한은 이 시트에서 버튼을 누를 때 이유 한 줄과 함께 묻는다.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun OverlayLaunchSheet(
+    deckName: String?,
+    running: Boolean,
+    overlayGranted: Boolean,
+    notificationsGranted: Boolean,
+    tftInstalled: Boolean,
+    onlyInTft: Boolean,
+    onLaunch: (LaunchTarget) -> Unit,
+    onStop: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val scheme = MaterialTheme.colorScheme
+    ModalBottomSheet(
+        onDismissRequest = onDismiss,
+        sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+    ) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+                .padding(bottom = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Text("게임 위에 띄우기", style = MaterialTheme.typography.titleMedium, color = scheme.onSurface)
+            Text(
+                if (deckName != null) "$deckName 요약으로 시작합니다" else "덱 목록으로 시작합니다",
+                style = MaterialTheme.typography.bodyMedium,
+                color = scheme.onSurfaceVariant,
+            )
+            if (!overlayGranted) {
+                Text(
+                    "먼저 '다른 앱 위에 표시' 를 허용해야 합니다 · 목록에서 FloaTFT → 허용 → 뒤로",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onSurfaceVariant,
+                )
+            }
+            if (!notificationsGranted) {
+                Text(
+                    "알림을 허용하면 닫은 오버레이를 알림에서 다시 띄울 수 있습니다",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onSurfaceVariant,
+                )
+            }
+            if (tftInstalled) {
+                Button(
+                    onClick = { onLaunch(LaunchTarget.Tft) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 48.dp),
+                ) { Text("TFT 열고 띄우기") }
+            }
+            OutlinedButton(
+                onClick = { onLaunch(LaunchTarget.Home) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 48.dp),
+            ) { Text("홈 화면에 띄우기") }
+            if (onlyInTft) {
+                Text(
+                    "지금은 TFT 가 앞에 있을 때만 보이게 설정돼 있습니다 · 내 정보 > 게임 연동",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onSurfaceVariant,
+                )
+            }
+            if (running) {
+                TextButton(
+                    onClick = onStop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 48.dp),
+                ) { Text("오버레이 끄기") }
             }
         }
     }
@@ -396,8 +603,5 @@ private fun AppRoot(pendingDeck: MutableState<String?>) {
 private fun tabIcon(tab: Tab) = when (tab) {
     Tab.Decks -> Icons.AutoMirrored.Filled.ViewList
     Tab.Codex -> Icons.AutoMirrored.Filled.MenuBook
-    Tab.Search -> Icons.Default.Search
     Tab.Settings -> Icons.Default.Person
 }
-
-private fun stringResourceSafe(context: Context, id: Int): String = context.getString(id)

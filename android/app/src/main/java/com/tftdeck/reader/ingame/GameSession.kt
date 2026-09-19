@@ -306,6 +306,10 @@ class GameSession(
         }
     }
 
+    /**
+     * 판 결과 알림. 판 종료는 최대 15분 늦게 알아채므로 그때 이미 다음 판을 하고 있을 수 있다.
+     * TFT 가 앞에 있으면 소리·팝업 없는 채널로 조용히 올린다(S12). 채널 중요도는 만든 뒤 바꿀 수 없어 채널을 둘로 나눴다.
+     */
     private fun notifyResult(text: String) {
         val manager = appContext.getSystemService(NotificationManager::class.java) ?: return
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
@@ -313,13 +317,20 @@ class GameSession(
         ) {
             return
         }
-        if (manager.getNotificationChannel(RESULT_CHANNEL_ID) == null) {
+        val channelId = resultChannelId(tftInFront = inForeground)
+        if (manager.getNotificationChannel(channelId) == null) {
             manager.createNotificationChannel(
-                NotificationChannel(
-                    RESULT_CHANNEL_ID,
-                    appContext.getString(R.string.game_result_channel_name),
-                    NotificationManager.IMPORTANCE_DEFAULT,
-                ).apply { description = appContext.getString(R.string.game_result_channel_desc) }
+                if (channelId == RESULT_QUIET_CHANNEL_ID) {
+                    // 문구는 strings.xml 로 옮길 때까지 코드에 둔다(용어 정리 단계).
+                    NotificationChannel(channelId, "게임 결과(게임 중)", NotificationManager.IMPORTANCE_LOW)
+                        .apply { description = "TFT 를 하는 중에는 소리 없이 판 결과를 알려 줍니다" }
+                } else {
+                    NotificationChannel(
+                        channelId,
+                        appContext.getString(R.string.game_result_channel_name),
+                        NotificationManager.IMPORTANCE_DEFAULT,
+                    ).apply { description = appContext.getString(R.string.game_result_channel_desc) }
+                }
             )
         }
         val open = PendingIntent.getActivity(
@@ -328,7 +339,7 @@ class GameSession(
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP),
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
-        val notification = Notification.Builder(appContext, RESULT_CHANNEL_ID)
+        val notification = Notification.Builder(appContext, channelId)
             .setSmallIcon(R.drawable.ic_overlay)
             .setContentTitle(appContext.getString(R.string.game_result_title))
             .setContentText(text)
@@ -373,7 +384,14 @@ class GameSession(
         private const val LIVE_POLL_MS = 60_000L
 
         const val RESULT_CHANNEL_ID = "game_result"
+
+        /** TFT 가 앞에 있을 때 쓰는 결과 채널(IMPORTANCE_LOW: 소리·팝업 없음). */
+        const val RESULT_QUIET_CHANNEL_ID = "game_result_quiet"
         private const val RESULT_NOTIFICATION_ID = 43
+
+        /** 결과 알림 채널. 다음 판을 하는 중(TFT 가 앞)이면 조용한 채널. */
+        internal fun resultChannelId(tftInFront: Boolean): String =
+            if (tftInFront) RESULT_QUIET_CHANNEL_ID else RESULT_CHANNEL_ID
 
         private val _state = MutableStateFlow<GameStatus>(GameStatus.Idle)
 

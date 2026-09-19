@@ -1,21 +1,30 @@
 package com.tftdeck.reader.ui.ingame
 
 import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -23,21 +32,21 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
-import com.tftdeck.reader.R
 import com.tftdeck.reader.ingame.describe
 
 /**
- * 게임 연동 설정: 사용 기록 접근 권한 안내, 스위치, 현재 상태 한 줄.
+ * 게임 연동 설정: 스위치 하나가 사용 기록 권한 흐름까지 맡고(N6), 켜져 있을 때만 하위 항목이 보인다(N7).
  * 권한은 시스템 설정에서만 켤 수 있어서, 돌아왔을 때(ON_RESUME) 다시 확인한다.
  *
- * [riotIdConnected] 가 false 면 판 종료 판정·결과 배지·지난 게임 로비가 채워지지 않는다
- * (모두 metatft 전적 조회에 기대므로). 감지를 켜 둔 사용자가 이유를 알 수 있게 안내한다.
+ * [riotIdConnected] 가 false 면 판 종료 판정·결과 알림·지난 게임 로비가 채워지지 않는다
+ * (모두 metatft 전적 조회에 기대므로). 감지를 켜 둔 사용자가 이유를 알 수 있게 한 줄로 알린다.
  */
 @Composable
 fun GameLinkSection(
@@ -56,6 +65,7 @@ fun GameLinkSection(
     val showOutsideTft by viewModel.showOutsideTft.collectAsState()
     val status by viewModel.gameStatus.collectAsState()
     val notificationPrompt by viewModel.notificationPrompt.collectAsState()
+    val notificationsOn by viewModel.notificationsEnabled.collectAsState()
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
@@ -66,16 +76,12 @@ fun GameLinkSection(
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
-    // Android 13+ 는 결과 알림을 띄우려면 알림 권한이 필요하다. 거부해도 감지 자체는 동작한다.
+    // Android 13+ 는 알림을 띄우려면 알림 권한이 필요하다. 거부해도 감지 자체는 동작한다.
     val notificationPermission = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { }
+    ) { viewModel.refreshNotifications() }
     fun askNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-            context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
-        ) {
-            notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
-        }
+        if (needsNotificationPermission(context)) notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
     }
 
     // 사용 기록 권한 화면에 다녀와 감지가 켜졌으면, 스위치를 바로 켤 때처럼 알림 권한을 묻는다.
@@ -89,111 +95,184 @@ fun GameLinkSection(
     val active = detectEnabled && granted
 
     Column(modifier = modifier) {
-        if (!granted) {
+        SettingSwitchRow(
+            title = "게임 중 자동으로 띄우기",
+            subtitle = if (granted) {
+                "TFT 가 앞에 오면 오버레이를 띄웁니다 · 어떤 앱이 앞에 있는지만 봅니다"
+            } else {
+                "켜면 '사용 기록 접근' 화면이 열립니다 · 목록에서 FloaTFT → 허용 → 뒤로"
+            },
+            checked = active,
+            onCheckedChange = { on ->
+                viewModel.setDetectEnabled(context, on)
+                // 권한이 있어 바로 켜졌을 때. 권한 화면을 거치면 돌아온 뒤 notificationPrompt 로 묻는다.
+                if (on && granted) askNotificationPermission()
+            },
+        )
+
+        // 감지가 꺼져 있으면 하위 항목은 뜻이 없다. 흐린 채 켜진 스위치로 두지 않고 숨긴다(N7).
+        if (active) {
             Text(
-                stringResource(R.string.usage_permission_rationale),
+                "오버레이를 언제 보일까요",
+                style = MaterialTheme.typography.labelLarge,
+                color = scheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 12.dp, bottom = 4.dp),
+            )
+            val mode = showMode(autoOverlay, showOutsideTft)
+            Column(Modifier.selectableGroup()) {
+                ChoiceRow(
+                    title = "TFT 가 앞에 있을 때만 (추천)",
+                    subtitle = "홈 화면이나 다른 앱에서는 숨깁니다",
+                    selected = mode == ShowMode.OnlyInTft,
+                    enabled = overlayGranted,
+                    onSelect = { viewModel.setShowMode(ShowMode.OnlyInTft) },
+                )
+                ChoiceRow(
+                    title = "항상",
+                    subtitle = "TFT 밖에서도 숨기지 않습니다",
+                    selected = mode == ShowMode.Always,
+                    enabled = overlayGranted,
+                    onSelect = { viewModel.setShowMode(ShowMode.Always) },
+                )
+            }
+            if (!overlayGranted) {
+                Text(
+                    "'다른 앱 위에 표시' 를 먼저 허용해 주세요 · 위 '게임 위에 띄우기'",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onSurfaceVariant,
+                )
+            }
+
+            Spacer(Modifier.height(4.dp))
+            SettingSwitchRow(
+                title = "게임이 끝나면 결과 알림",
+                subtitle = "등수와 LP 변화를 알려 줍니다 · 최대 15분 늦을 수 있습니다",
+                checked = resultNotify,
+                onCheckedChange = { on ->
+                    viewModel.setResultNotify(on)
+                    if (on) askNotificationPermission()
+                },
+            )
+            if (!notificationsOn) {
+                NotificationsOffRow(onOpenSettings = { openNotificationSettings(context) })
+            }
+
+            Spacer(Modifier.height(4.dp))
+            Text(
+                "현재 상태:${status.describe(detecting = true)}",
                 style = MaterialTheme.typography.bodySmall,
                 color = scheme.onSurfaceVariant,
             )
-            Spacer(Modifier.size(8.dp))
-            Button(onClick = { viewModel.openUsageSettings(context) }) {
-                Text("사용 기록 접근 허용")
+            if (!riotIdConnected) {
+                Text(
+                    "판 결과와 지난 게임 로비는 아래 '내 전적' 을 연결해야 나옵니다",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
             }
-            Spacer(Modifier.size(10.dp))
         }
-
-        SwitchRow(
-            title = "TFT 실행 감지",
-            subtitle = "TFT가 켜지고 꺼지는 것을 알아냅니다",
-            checked = active,
-            enabled = true,
-            onCheckedChange = { on ->
-                viewModel.setDetectEnabled(context, on)
-                if (on && granted && resultNotify) askNotificationPermission()
-            },
-        )
-        SwitchRow(
-            title = "TFT가 켜지면 오버레이 자동 표시",
-            subtitle = if (overlayGranted) {
-                "TFT 밖에서는 자동으로 숨깁니다"
-            } else {
-                "아래 '게임 위에 띄우기'에서 다른 앱 위에 표시 권한을 먼저 허용해 주세요"
-            },
-            checked = autoOverlay,
-            enabled = active,
-            onCheckedChange = viewModel::setAutoOverlay,
-        )
-        if (autoOverlay) {
-            SwitchRow(
-                title = "TFT 밖에서도 표시",
-                subtitle = "홈 화면이나 다른 앱에서도 오버레이를 숨기지 않습니다",
-                checked = showOutsideTft,
-                enabled = active,
-                indent = true,
-                onCheckedChange = viewModel::setShowOutsideTft,
-            )
-        }
-        SwitchRow(
-            title = "게임이 끝나면 결과 알림",
-            subtitle = "등수와 LP 변화를 알려 줍니다. LP 기록 주기 때문에 최대 15분쯤 늦을 수 있습니다",
-            checked = resultNotify,
-            enabled = active,
-            onCheckedChange = { on ->
-                viewModel.setResultNotify(on)
-                if (on) askNotificationPermission()
-            },
-        )
-
-        Spacer(Modifier.size(8.dp))
-        Text(
-            "현재 상태: ${status.describe(detecting = active)}",
-            style = MaterialTheme.typography.bodySmall,
-        )
-        if (active && !riotIdConnected) {
-            Spacer(Modifier.size(4.dp))
-            Text(
-                "판 결과와 지난 게임 로비는 위 '내 전적'에서 라이엇 ID를 연결해야 채워집니다. " +
-                    "연결하지 않으면 TFT 실행만 감지합니다.",
-                style = MaterialTheme.typography.bodySmall,
-                color = scheme.error,
-            )
-        }
-        Spacer(Modifier.size(4.dp))
-        Text(
-            "게임 중에는 상대 정보를 보여 주지 않습니다. 지난 게임 로비는 판이 끝난 뒤에만 채워집니다.",
-            style = MaterialTheme.typography.bodySmall,
-            color = scheme.onSurfaceVariant,
-        )
     }
 }
 
+/** 알림이 꺼져 있을 때 무엇을 잃는지와 고칠 곳(N8). */
 @Composable
-private fun SwitchRow(
+private fun NotificationsOffRow(onOpenSettings: () -> Unit) {
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            "알림이 꺼져 있어 닫은 오버레이를 알림에서 되살릴 수 없습니다",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.error,
+            modifier = Modifier.weight(1f),
+        )
+        Spacer(Modifier.width(8.dp))
+        TextButton(onClick = onOpenSettings) { Text("설정") }
+    }
+}
+
+/**
+ * 설정 행 한 모양(V25): 제목 14sp · 설명 12sp, 글자와 스위치 사이 16dp, 최소 높이 56dp. 행 전체가 눌린다.
+ * 쓸 수 없는 행은 제목·설명·스위치를 함께 흐린다(alpha 0.38) — 제목만 흐리면 설명이 더 밝아 위계가 뒤집힌다.
+ */
+@Composable
+internal fun SettingSwitchRow(
     title: String,
     subtitle: String?,
     checked: Boolean,
-    enabled: Boolean,
     onCheckedChange: (Boolean) -> Unit,
-    indent: Boolean = false,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
 ) {
     val scheme = MaterialTheme.colorScheme
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .padding(start = if (indent) 16.dp else 0.dp, top = 4.dp, bottom = 4.dp),
+            .heightIn(min = 56.dp)
+            .alpha(if (enabled) 1f else DISABLED_ALPHA)
+            .toggleable(value = checked, enabled = enabled, role = Role.Switch, onValueChange = onCheckedChange),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Column(Modifier.weight(1f)) {
-            Text(
-                title,
-                style = MaterialTheme.typography.bodyMedium,
-                color = if (enabled) scheme.onSurface else scheme.onSurface.copy(alpha = 0.38f),
-            )
-            subtitle?.let {
-                Text(it, style = MaterialTheme.typography.bodySmall, color = scheme.onSurfaceVariant)
-            }
+        Column(
+            Modifier
+                .weight(1f)
+                .padding(vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(2.dp),
+        ) {
+            Text(title, style = MaterialTheme.typography.bodyMedium, color = scheme.onSurface)
+            subtitle?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = scheme.onSurfaceVariant) }
         }
-        Spacer(Modifier.width(8.dp))
-        Switch(checked = checked, onCheckedChange = onCheckedChange, enabled = enabled)
+        Spacer(Modifier.width(16.dp))
+        // 누름은 행이 받는다. 흐림은 행 alpha 하나로만 나타낸다(스위치 자체의 비활성 색을 겹치지 않는다).
+        Switch(checked = checked, onCheckedChange = null)
     }
 }
+
+/** 라디오 한 줄. [SettingSwitchRow] 와 같은 글자·흐림 규칙. */
+@Composable
+private fun ChoiceRow(
+    title: String,
+    subtitle: String?,
+    selected: Boolean,
+    enabled: Boolean,
+    onSelect: () -> Unit,
+) {
+    val scheme = MaterialTheme.colorScheme
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .heightIn(min = 56.dp)
+            .alpha(if (enabled) 1f else DISABLED_ALPHA)
+            .selectable(selected = selected, enabled = enabled, role = Role.RadioButton, onClick = onSelect),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        RadioButton(selected = selected, onClick = null)
+        Spacer(Modifier.width(12.dp))
+        Column(Modifier.weight(1f).padding(vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            Text(title, style = MaterialTheme.typography.bodyMedium, color = scheme.onSurface)
+            subtitle?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = scheme.onSurfaceVariant) }
+        }
+    }
+}
+
+/** Android 13+ 에서 알림 권한을 아직 받지 않았는지. 그 아래 버전은 런타임 권한이 없다. */
+internal fun needsNotificationPermission(context: Context): Boolean =
+    Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+        context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+
+/** 이 앱의 알림 설정 화면. 없으면 앱 정보 화면. */
+internal fun openNotificationSettings(context: Context) {
+    runCatching {
+        context.startActivity(
+            Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        )
+    }.recoverCatching {
+        context.startActivity(
+            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, android.net.Uri.fromParts("package", context.packageName, null))
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        )
+    }
+}
+
+private const val DISABLED_ALPHA = 0.38f
