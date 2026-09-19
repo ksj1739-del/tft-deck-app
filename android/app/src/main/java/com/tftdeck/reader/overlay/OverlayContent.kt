@@ -153,6 +153,7 @@ fun OverlayContent(
             hasTokens = searchState.tokens.isNotEmpty(),
             off = if (gradeFilterOn) offGrades(grades) else emptyList(),
             hiddenByGrade = withoutGrades.size - decks.size,
+            hiddenPerGrade = hiddenByGradeCounts(withoutGrades, decks, bucket),
         )
     }
     // 등급 칸을 누르면 앱과 함께 쓰는 조건이 바뀐다. 바뀐 목록은 맨 위부터(기억한 자리를 먼저 지운다).
@@ -255,6 +256,7 @@ fun OverlayContent(
                     onSearchStart = onSearchStart,
                     grades = grades.takeIf { gradeFilterOn },
                     onToggleGrade = toggleGrade,
+                    notice = searchState.notice,
                 )
                 // 목록·후보·요약은 머리줄·검색줄을 놓고 남는 높이만 쓴다(weight, fill = false — 짧으면 그만큼만).
                 if (searching && searchState.query.isNotBlank()) {

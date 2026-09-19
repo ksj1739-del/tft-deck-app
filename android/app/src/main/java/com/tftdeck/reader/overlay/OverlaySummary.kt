@@ -33,7 +33,7 @@ import com.tftdeck.reader.ui.components.TraitChip
 
 /**
  * 덱 요약. 위에서부터
- *  1. `[등급 배지] 별칭` — 무슨 덱인지(R4). 별칭의 운영 접미사는 바로 아래 줄 첫머리에 나오므로 뗀다(목록 줄과 같다).
+ *  1. (머리줄) `[등급 배지] 별칭` — 무슨 덱인지(R4)는 머리줄 제목이 보여 준다. 여기서 되풀이하지 않는다.
  *  2. `{운영} · {주 특성1 n} · {주 특성2 n}` — 어떻게 굴리는 덱인지.
  *  3. (넓게) 특성 칩.
  *  4. 레벨 칩과 바로 아래 캡션 `'{L}렙 {round} 도달 · 롤다운 {r}렙'`(R10 — 예전에는 얼굴 줄 밑 10sp 였다).
@@ -78,18 +78,7 @@ internal fun DeckSummaryView(
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                OverlayGradeBadges(deck, gradeBucket, style)
-                Spacer(Modifier.width(8.dp))
-                Text(
-                    alias,
-                    color = OverlayText,
-                    style = OverlayType.title,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.weight(1f),
-                )
-            }
+            // 등급 배지·별칭은 머리줄 제목(OverlayHeader)이 이미 보여 준다. 같은 줄을 두 번 두지 않는다.
             if (line.isNotBlank()) {
                 Text(
                     line,
