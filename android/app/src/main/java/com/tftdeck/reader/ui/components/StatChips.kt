@@ -178,7 +178,7 @@ fun SourceBadges(deck: Deck, metatftCompared: Boolean, modifier: Modifier = Modi
                 SourceBadge.EDITORIAL -> OutlineBadge("편집", scheme.primary)
                 SourceBadge.STALE -> OutlineBadge("이전 패치", scheme.onSurfaceVariant)
                 SourceBadge.CHINA_ONLY -> OnlyInChinaBadge()
-                SourceBadge.KR -> OutlineBadge("KR", KrBlue)
+                SourceBadge.KR -> OutlineBadge("KR", KrCyan)
             }
         }
     }
@@ -237,4 +237,5 @@ fun BucketChips(
     }
 }
 
-private val KrBlue = Color(0xFF60A5FA)
+// 포인트 색(파랑)과 겹치지 않게 KR 출처는 청록으로 구분한다.
+private val KrCyan = Color(0xFF22D3EE)
