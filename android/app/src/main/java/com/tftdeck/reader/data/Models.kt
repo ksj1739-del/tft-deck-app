@@ -74,6 +74,12 @@ object DeckKeys {
     const val KIND_GROUP = "group"
     const val KIND_EDITORIAL = "editorial"
     const val KIND_PET = "pet"
+
+    /** metatft 조합 덱. 구간별 수치·등급이 metatft 것이다(평균 등수 고정 컷, 사이트와 같은 기준). */
+    const val KIND_META = "meta"
+
+    /** 옛 metatft 전용 덱(2026-09-19 이전 데이터). 새 데이터에는 없다. */
+    const val KIND_GLOBAL = "global"
     const val STAGE_FINAL = "final"
 
     const val DEFAULT_BUCKET = "goldem"
@@ -107,6 +113,8 @@ data class FeedVersion(
     val deckCount: Int = 0,
     val editorialCount: Int = 0,
     val onlyInChinaCount: Int = 0,
+    /** metatft 조합 덱 수. 옛 파일에는 없다. */
+    val metaCompCount: Int = 0,
     val teamCodeCount: Int = 0,
     val metatftSet: String? = null,
     val metatftClusterId: Int? = null,
@@ -227,6 +235,12 @@ data class Deck(
     val updatedAt: String = "",
     val teamCode: TeamCode? = null,
     val metatft: MetaComparison = MetaComparison(),
+    /** metatft 조합 덱에 합쳐진 lol.qq 덱(대표 그룹)의 구간 수치. 참고 줄에만 쓰고 등급·정렬에는 쓰지 않는다. */
+    val cnStats: Map<String, DeckStats> = emptyMap(),
+    /** metatft 조합 덱에 합쳐진 lol.qq 그룹의 옛 id. 고정·숨김을 새 id 로 옮길 때 쓴다([DeckIdMigration]). */
+    val mergedGroups: List<String> = emptyList(),
+    /** metatft 클러스터 번호. 옛 metatft 전용 덱 id(m-{cluster})를 새 id 로 옮길 때 쓴다. */
+    val metaCluster: Int? = null,
 ) {
     val carry: Unit? get() = units.firstOrNull { it.carry } ?: units.firstOrNull { it.id == carryId }
 
@@ -283,9 +297,12 @@ data class Deck(
 
     fun statsFor(bucket: String): DeckStats? = stats[bucket]
 
+    /** 그 구간의 중국(lol.qq) 수치. lol.qq 덱은 자기 통계, metatft 조합 덱은 합쳐진 lol.qq 덱의 참고 수치다. */
+    fun chinaStatsFor(bucket: String): DeckStats? = if (isMeta) cnStats[bucket] else stats[bucket]
+
     /**
-     * 카드·상세의 네 수치에 쓸 값. lol.qq 덱은 그 구간 통계이고,
-     * metatft 전용 덱은 lol.qq 구간이 없으므로 [globalDisplayScope] 값을 쓴다.
+     * 카드·상세의 네 수치에 쓸 값. lol.qq 덱과 metatft 조합 덱은 그 구간 통계이고,
+     * 옛 metatft 전용 덱은 구간 통계가 없으므로 [globalDisplayScope] 값을 쓴다.
      */
     fun displayStats(bucket: String): DeckStats? {
         if (!isGlobalOnly) return statsFor(bucket)
@@ -309,26 +326,33 @@ data class Deck(
      */
     fun isLowSample(bucket: String): Boolean = statsFor(bucket)?.let { it.grade == null } ?: false
 
-    /** metatft 에만 있는 덱(lol.qq 통계·편집 덱이 없다). 목록에서 등급 대신 '글로벌' 표시를 단다. */
-    val isGlobalOnly: Boolean get() = kind == "global"
+    /** 옛 metatft 전용 덱(lol.qq 통계·편집 덱이 없다). 목록에서 등급 대신 '글로벌' 표시를 단다. */
+    val isGlobalOnly: Boolean get() = kind == DeckKeys.KIND_GLOBAL
+
+    /** metatft 조합 덱. 구간 통계·등급이 metatft 것이라 중국 한정 덱(lol.qq 등급)과 평균 척도가 다르다. */
+    val isMeta: Boolean get() = kind == DeckKeys.KIND_META
 
     /**
      * 이 구간 목록에 나올 덱인지. 등급이 있는 덱만 보인다 — 그 구간에 기록이 없거나 표본이 작아
      * 등급이 없는 통계 덱은 뺀다(다이아+·마스터+에서 목록 대부분이 표본 부족으로 보이던 문제).
-     * 통계가 없는 편집 독립 덱(편집 등급)과 metatft 전용 덱('글로벌' 표시)은 어느 구간에서나 보인다.
+     * 통계가 없는 편집 독립 덱(편집 등급)과 옛 metatft 전용 덱('글로벌' 표시)은 어느 구간에서나 보인다.
+     * metatft 조합 덱도 그 구간의 metatft 표본이 모자라면(등급 없음) 빠진다.
      */
     fun listedIn(bucket: String): Boolean = isGlobalOnly || stats.isEmpty() || statsFor(bucket)?.grade != null
 
     /** 이 덱의 편집 덱 전부: 대표 먼저, 그다음 같은 그룹의 다른 작가. */
     val editorials: List<Editorial> get() = listOfNotNull(editorial) + moreEditorials
 
-    /** 그 구간의 통계 등급. 없으면(표본 부족·편집 덱) 편집 등급으로 대신한다. */
+    /**
+     * 그 구간의 통계 등급. 없으면(표본 부족·편집 덱) 편집 등급으로 대신한다.
+     * metatft 조합 덱은 합쳐진 편집 덱이 있어도 편집 등급으로 대신하지 않는다(metatft 기준과 섞이지 않게).
+     */
     fun gradeFor(bucket: String): String? =
-        statsFor(bucket)?.grade ?: editorialGrade ?: globalGrade?.takeIf { isGlobalOnly }
+        statsFor(bucket)?.grade ?: editorialGrade?.takeUnless { isMeta } ?: globalGrade?.takeIf { isGlobalOnly }
 
     /** 배지에 통계 등급이 아니라 편집 등급을 보여 주는 중인지. 모양을 달리해야 두 체계가 섞여 보이지 않는다. */
     fun showsEditorialGrade(bucket: String): Boolean =
-        statsFor(bucket)?.grade == null && editorialGrade != null
+        statsFor(bucket)?.grade == null && editorialGrade != null && !isMeta
 
     /** 편집 등급. v1 파일은 editorialTier 가 없고 tier 자체가 편집 등급이다. */
     val editorialGrade: String?

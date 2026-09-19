@@ -56,6 +56,21 @@ class DeckPrefs private constructor(context: Context) {
         prefs.edit().putStringSet(KEY_HIDDEN, HashSet(_hidden.value)).apply()
     }
 
+    /** 덱 id 가 바뀐 데이터가 들어오면 고정·숨김을 새 id 로 옮긴다. [mapping] 은 옛 id → 새 id([DeckIdMigration]). */
+    fun migrateIds(mapping: Map<String, String>) {
+        if (mapping.isEmpty()) return
+        val pinned = _pinned.value.mapTo(HashSet()) { mapping[it] ?: it }
+        if (pinned != _pinned.value) {
+            _pinned.value = pinned
+            prefs.edit().putStringSet(KEY_PINNED, HashSet(pinned)).apply()
+        }
+        val hidden = _hidden.value.mapTo(HashSet()) { mapping[it] ?: it }
+        if (hidden != _hidden.value) {
+            _hidden.value = hidden
+            prefs.edit().putStringSet(KEY_HIDDEN, HashSet(hidden)).apply()
+        }
+    }
+
     fun setShowHidden(show: Boolean) {
         _showHidden.value = show
         prefs.edit().putBoolean(KEY_SHOW_HIDDEN, show).apply()

@@ -139,6 +139,7 @@ fun DeckCardV2(
                             VariantRow(
                                 variant = variant,
                                 bucket = bucket,
+                                china = deck.isMeta,
                                 assetBase = assetBase,
                                 unitInfo = unitInfo,
                                 onClick = {
@@ -287,6 +288,8 @@ private fun UnitsLine(deck: Deck, assetBase: String, highlightUnit: String?) {
 private fun VariantRow(
     variant: Variant,
     bucket: String,
+    /** metatft 조합 덱에 합쳐진 lol.qq 변형이면 수치가 중국 값이라고 밝힌다(덱 수치는 metatft 값). */
+    china: Boolean = false,
     assetBase: String,
     unitInfo: (String) -> CatalogEntry?,
     onClick: () -> Unit,
@@ -319,7 +322,7 @@ private fun VariantRow(
                 if (variant.editorialId != null) OutlineBadge("편집", scheme.primary)
             }
             Text(
-                if (stats != null) "n=${formatCount(stats.n)} · ${formatAvg(stats.avg)}등" else "표본 없음",
+                if (stats != null) "${if (china) "중국 " else ""}n=${formatCount(stats.n)} · ${formatAvg(stats.avg)}등" else "표본 없음",
                 style = MaterialTheme.typography.labelSmall,
                 color = scheme.onSurfaceVariant,
                 maxLines = 1,

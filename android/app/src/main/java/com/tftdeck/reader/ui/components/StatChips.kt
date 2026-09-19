@@ -94,7 +94,12 @@ fun sampleText(deck: Deck, bucket: String, buckets: Map<String, BucketMeta>): St
         val meta = buckets[bucket]
         parts += "n=${formatCount(stats.n)}"
         parts += meta?.label?.takeIf { it.isNotBlank() } ?: bucketLabel(bucket)
-        formatShortDate(meta?.listDate).takeIf { it.isNotBlank() }?.let { parts += it }
+        if (deck.isMeta) {
+            // metatft 조합 덱의 수치는 metatft 전 지역 3일치다. lol.qq 목록 기준일을 붙이면 출처가 섞여 보인다.
+            parts += "metatft"
+        } else {
+            formatShortDate(meta?.listDate).takeIf { it.isNotBlank() }?.let { parts += it }
+        }
     }
     // metatft 전용 덱은 네 수치가 글로벌 플래+ 값이다(등급도 이 값으로 매겼다). lol.qq 덱의 'n · 구간' 자리에 출처를 적는다.
     val displayScope = if (deck.isGlobalOnly) deck.globalDisplayScope else null

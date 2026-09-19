@@ -290,10 +290,12 @@ class DeckSearch(private val feed: DeckFeed) {
             }
         }
 
-        // lol.qq 덱(구간 등급·편집 등급)을 먼저, metatft 전용 덱은 그 뒤에 글로벌 등급·평균 등수 순으로.
+        // 구간 등급 순. 같은 등급이면 metatft 조합 덱을 먼저 둔다 — 평균 등수 척도가 달라(metatft 4점대,
+        // lol.qq 2~3점대) 한 평균으로 섞으면 중국 한정 덱이 늘 위로 온다. 옛 metatft 전용 덱은 맨 뒤에 글로벌 등급 순으로.
         private fun gradeComparator(bucket: String): Comparator<Deck> =
             compareBy<Deck> { it.isGlobalOnly }
                 .thenBy { gradeRank(if (it.isGlobalOnly) it.globalGrade else it.statsFor(bucket)?.grade) }
+                .thenBy { !it.isMeta }
                 .thenBy(nullsLast<Double>()) { if (it.isGlobalOnly) it.displayStats(bucket)?.avg else it.statsFor(bucket)?.adjAvg }
                 .thenBy { it.tierOrder }
                 .thenBy { it.name }
