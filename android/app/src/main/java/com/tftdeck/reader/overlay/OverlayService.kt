@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.PixelFormat
 import android.graphics.Point
+import android.graphics.Rect
 import android.os.Build
 import android.os.IBinder
 import android.provider.Settings
@@ -33,6 +34,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.tftdeck.reader.MainActivity
 import com.tftdeck.reader.R
+import com.tftdeck.reader.data.DeckIdMigration
 import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.FeedState
 import com.tftdeck.reader.data.ProfileRepository
@@ -326,6 +328,12 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         scope.launch {
             repository.state.collect { state ->
                 if (state !is FeedState.Ready) return@collect
+                // 덱 id 가 바뀐 데이터면(그룹이 조합 덱에 합쳐지는 등) 보던 덱·레벨·목록 자리도 새 id 로 옮긴다.
+                // 저장소가 고정·숨김·오버레이 덱을 옮기는 것과 같은 대응표다.
+                memory.migrateIds(
+                    mapping = DeckIdMigration.mapping(state.feed.decks),
+                    current = state.feed.decks.mapTo(HashSet()) { it.id },
+                )
                 overlayData.value = OverlayData(
                     decks = state.feed.decks,
                     assetBase = state.feed.version.assetBase,
@@ -459,15 +467,23 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     }
 
     /**
-     * 검색 중 키보드가 창 아래를 가리면 가린 만큼 창을 올린다(화면 위보다 위로는 안 간다, [liftAboveIme]).
+     * 검색 중 키보드가 창을 가리면 창 아래가 키보드 위에 오도록 올린다(화면 위보다 위로는 안 간다, [liftAboveIme]).
      * 창은 SOFT_INPUT_ADJUST_NOTHING 이라 시스템이 밀어 주지 않는다 — 가로 화면은 키보드가 화면의 60% 남짓을 덮어
      * 기본 자리에서도 후보가 전부 가려졌고, 아래로 옮겨 둔 창은 검색창까지 가려졌다.
+     *
+     * 키보드 위치는 이 창의 인셋이 아니라 화면 기준(WindowMetrics)으로 잰다. 이 창의 인셋은 '창 아래가 키보드에 가린 높이'인데,
+     * 창을 올린 직후에도 옛 틀 기준 값을 한 번 더 보내 와서(에뮬레이터 로그: 올린 뒤에도 820px) 그대로 빼면 필요보다 높이
+     * 화면 맨 위까지 올라갔다. 키보드 인셋 변화와 창 배치는 부르는 신호로만 쓴다. API 30 미만은 올리지 않는다.
      */
-    private fun liftForIme(overlap: Int) {
-        if (!searching.value || overlap <= 0) return
+    private fun liftForIme() {
+        if (!searching.value || Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return
         val root = overlayRoot ?: return
         val params = layoutParams ?: return
-        val y = liftAboveIme(params.y, overlap)
+        val metrics = windowManager.currentWindowMetrics
+        val insets = metrics.windowInsets
+        if (!insets.isVisible(WindowInsets.Type.ime())) return
+        val imeTop = metrics.bounds.bottom - insets.getInsets(WindowInsets.Type.ime()).bottom
+        val y = liftAboveIme(params.y, root.height, overlayArea().top, imeTop)
         if (y == params.y) return
         params.y = y
         runCatching { windowManager.updateViewLayout(root, params) }
@@ -513,9 +529,10 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
             PixelFormat.TRANSLUCENT,
         ).apply {
             gravity = Gravity.TOP or Gravity.START
-            // 기본 위치는 좌상단. 이후 드래그한 자리를 기억한다(방향별).
-            x = anchor.x
-            y = anchor.y
+            // 기본 위치는 좌상단. 이후 드래그한 자리를 기억한다(방향별). 칩 크기는 첫 배치에서 알게 되어 그때 한 번 더 맞춘다.
+            val start = initialPlacement(anchor)
+            x = start.x
+            y = start.y
             // 검색 중 키보드가 떠도 시스템이 창을 밀거나 줄이지 않는다. 가리면 서비스가 직접 올린다(liftForIme).
             softInputMode = OVERLAY_SOFT_INPUT_MODE
         }
@@ -588,7 +605,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
             isSearching = { searching.value }
             onEndSearch = { endSearch() }
             onWindowLayout = { keepOnScreen() }
-            onImeOverlap = { liftForIme(it) }
+            onImeInsetsChanged = { liftForIme() }
             addView(view, FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
         overlayView = view
@@ -665,12 +682,29 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     private fun keepOnScreen() {
         val params = layoutParams ?: return
         if (searching.value) {
-            // 키보드를 피해 올린 자리는 liftForIme 가 정한다. 여기서는 넘치는 것만 막는다.
+            // 넘치는 것만 막고, 치는 동안 후보가 늘어 창이 커졌으면 다시 키보드 위로 올린다.
+            placeWindow(OverlayPosition(params.x, params.y))
+            liftForIme()
+            return
+        }
+        if (expanded.value) {
             placeWindow(OverlayPosition(params.x, params.y))
             return
         }
-        placeWindow(if (expanded.value) OverlayPosition(params.x, params.y) else anchor)
+        placeWindow(anchor)
+        // 붙거나 회전한 뒤 첫 배치에서 칩 크기를 알게 된다. 저장해 둔 자리가 이 화면에서 칩을 다 담지 못하면(해상도가
+        // 바뀌었거나 다른 기기에서 복원) 맞춘 자리를 새로 저장한다 — 저장값도 늘 화면 안이다. 첫 배치에서만 한다:
+        // 나중에 칩이 잠깐 넓어져(판 결과 배지) 밀린 자리까지 저장하면 칩이 조금씩 떠내려간다.
+        val root = overlayRoot ?: return
+        if (anchorUnchecked && root.width > 0 && root.height > 0) {
+            anchorUnchecked = false
+            val placed = OverlayPosition(params.x, params.y)
+            if (placed != anchor) saveAnchor(placed)
+        }
     }
+
+    /** 붙은 뒤·회전 뒤 첫 배치에서 저장해 둔 자리를 칩 크기로 확인해야 하는지([keepOnScreen]). */
+    private var anchorUnchecked = false
 
     /** [target] 을 지금 창 크기로 화면 안에 맞춰 옮긴다. 바뀐 게 없으면 창을 건드리지 않는다. */
     private fun placeWindow(target: OverlayPosition) {
@@ -687,61 +721,61 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
     /** [target] 을 지금 창 크기와 화면 영역으로 맞춰 [params] 에 넣는다. 창에 반영은 부른 쪽이 한다. */
     private fun clampInto(params: WindowManager.LayoutParams, root: View, target: OverlayPosition) {
         val area = overlayArea()
-        val placed = clampOverlayPosition(target, root.width, root.height, area.x, area.y)
+        val placed = clampOverlayPosition(target, root.width, root.height, area.width(), area.height())
         params.x = placed.x
         params.y = placed.y
     }
 
-    private var areaCache: Point? = null
+    private var areaCache: Rect? = null
     private var areaCachedAt = 0L
 
     /**
-     * 창 x·y 의 기준 영역 크기(px). 시스템은 이 창(TOP|START)을 화면에서 지금 보이는 시스템 바와 컷아웃을 뺀 영역의
+     * 창 x·y 의 기준 영역(화면 좌표, px). 시스템은 이 창(TOP|START)을 화면에서 지금 보이는 시스템 바와 컷아웃을 뺀 영역의
      * 왼쪽 위를 (0,0) 으로 놓는다 — FLAG_LAYOUT_NO_LIMITS 는 그 밖으로 나가도 잘라 내지 않을 뿐 기준은 같다.
      * 에뮬레이터(1080x2400)의 dumpsys window 로 확인: 세로 parent=[0,136][1080,2337], 가로 parent=[136,74][2400,1017]
      * (상태 표시줄 136/74, 제스처 막대 63, 가로의 왼쪽 컷아웃 136). 그래서 시스템 바를 빼고 맞춘다 — 창이 막대 밑으로
      * 들어가 버튼이 가려지지 않는다. 게임이 시스템 바를 숨기면 보이는 바가 없어 영역도 그만큼 넓어진다.
      * 끄는 동안 이벤트마다 부르므로 잠깐(0.3초) 기억해 둔다.
      */
-    private fun overlayArea(): Point {
+    private fun overlayArea(): Rect {
         val now = android.os.SystemClock.uptimeMillis()
         areaCache?.takeIf { now - areaCachedAt < AREA_CACHE_MS }?.let { return it }
         val area = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val metrics = windowManager.currentWindowMetrics
             val insets = metrics.windowInsets.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout())
-            Point(
-                metrics.bounds.width() - insets.left - insets.right,
-                metrics.bounds.height() - insets.top - insets.bottom,
-            )
+            Rect(metrics.bounds).apply { inset(insets.left, insets.top, insets.right, insets.bottom) }
         } else {
             // API 29 이하: 앱 영역(내비게이션 막대를 뺀 크기)에서 상태 표시줄 높이를 뺀다.
             @Suppress("DEPRECATION")
             val size = Point().also { windowManager.defaultDisplay.getSize(it) }
             val statusBarId = resources.getIdentifier("status_bar_height", "dimen", "android")
             val statusBar = if (statusBarId != 0) resources.getDimensionPixelSize(statusBarId) else 0
-            Point(size.x, size.y - statusBar)
+            Rect(0, statusBar, size.x, size.y)
         }
         areaCache = area
         areaCachedAt = now
         return area
     }
 
-    /** 이 방향에서 놓아 둔 자리. 저장값이 지금 화면 밖이면(해상도 변경·다른 기기에서 복원 등) 맞춘 값을 다시 저장한다. */
+    /**
+     * 이 방향에서 놓아 둔 자리. 창 크기를 아직 모르므로 여기서는 저장값을 그대로 돌려주고, 칩 크기로 화면 안에 맞춰
+     * 필요하면 다시 저장하는 것은 첫 배치([keepOnScreen])가 한다.
+     */
     private fun loadAnchor(): OverlayPosition {
         val prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         val (keyX, keyY) = overlayPositionKeys(landscape)
         // 가로 자리는 새로 생긴 값이다. 아직 없으면 예전(방향 구분 없던) 자리에서 시작한다.
         val legacyX = prefs.getInt(KEY_X, 0)
         val legacyY = prefs.getInt(KEY_Y, DEFAULT_TOP_MARGIN)
-        val saved = OverlayPosition(prefs.getInt(keyX, legacyX), prefs.getInt(keyY, legacyY))
-        // 창 크기를 아직 모르므로 칩의 앞머리(MIN_VISIBLE_DP)는 화면 안에 들도록만 맞춘다. 나머지는 첫 배치에서 맞춘다.
+        anchorUnchecked = true
+        return OverlayPosition(prefs.getInt(keyX, legacyX), prefs.getInt(keyY, legacyY))
+    }
+
+    /** 창 크기를 모르는 첫 배치 전에도 칩 앞머리([MIN_VISIBLE_DP])는 화면 안에 들게 한 자리. */
+    private fun initialPlacement(target: OverlayPosition): OverlayPosition {
         val minVisible = (MIN_VISIBLE_DP * resources.displayMetrics.density).toInt()
         val area = overlayArea()
-        val fixed = clampOverlayPosition(saved, minVisible, minVisible, area.x, area.y)
-        if (fixed != saved) {
-            prefs.edit().putInt(keyX, fixed.x).putInt(keyY, fixed.y).apply()
-        }
-        return fixed
+        return clampOverlayPosition(target, minVisible, minVisible, area.width(), area.height())
     }
 
     private fun saveAnchor(position: OverlayPosition) {

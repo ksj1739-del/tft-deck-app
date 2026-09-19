@@ -25,6 +25,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -42,6 +43,7 @@ import androidx.compose.material.icons.filled.UnfoldLess
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -63,7 +65,9 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.LocalWindowInfo
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -73,6 +77,7 @@ import com.tftdeck.reader.data.BuildupPick
 import com.tftdeck.reader.data.BuildupPlanner
 import com.tftdeck.reader.data.CatalogIndex
 import com.tftdeck.reader.data.Deck
+import com.tftdeck.reader.data.DeckKeys
 import com.tftdeck.reader.data.DeckPrefs
 import com.tftdeck.reader.data.DeckRepository
 import com.tftdeck.reader.data.DeckSearch
@@ -152,6 +157,13 @@ fun OverlayContent(
     // 검색 조건. 접었다 펴도 남도록 펼침 분기 밖에서 기억한다(창을 닫으면 사라진다). 앱 목록의 조건과는 따로다.
     var tokens by remember { mutableStateOf(emptyList<DeckToken>()) }
     var query by remember { mutableStateOf("") }
+    // 창이 떨어지면(닫기·감지 끄기) 검색 조건이 사라진다. 조건으로 좁힌 목록에서 기억한 자리는 다음에 붙을 조건 없는
+    // 목록과 맞지 않으니 함께 지운다 — 다시 띄우면 맨 위부터.
+    val tokensNow by rememberUpdatedState(tokens)
+    val clearAnchor by rememberUpdatedState(onListAnchor)
+    DisposableEffect(Unit) {
+        onDispose { if (tokensNow.isNotEmpty()) clearAnchor(null) }
+    }
     // 검색이 끝나면(후보 선택·바깥 누름·뒤로 가기·접기 등) 치다 만 글자는 버린다.
     LaunchedEffect(searching) { if (!searching) query = "" }
 
@@ -161,6 +173,8 @@ fun OverlayContent(
     val savedBucket by prefs.bucket.collectAsState()
     val pinned by prefs.pinned.collectAsState()
     val hidden by prefs.hidden.collectAsState()
+    // 덱 등급 조회 조건(S~D 여러 개). 앱 목록과 같은 값이라 어느 쪽에서 바꿔도 함께 바뀐다.
+    val grades by prefs.grades.collectAsState()
     val feedState by repository.state.collectAsState()
     val feed = (feedState as? FeedState.Ready)?.feed
     val buckets = feed?.buckets.orEmpty()
@@ -174,16 +188,37 @@ fun OverlayContent(
     val allDecks = data?.decks.orEmpty()
     if (allDecks.isEmpty()) return
     val assetBase = data?.assetBase.orEmpty()
-    // 목록: 숨긴 덱과 그 구간 등급이 없는 덱은 빼고(고정한 덱은 남긴다) → 검색 조건을 모두 만족하는 덱만 →
-    // 그 구간 등급순으로, 고정한 덱을 맨 위로.
+    // 목록: 숨긴 덱과 그 구간 등급이 없는 덱은 빼고(고정한 덱은 남긴다) → 켜 둔 등급의 덱만(고정한 덱은 건너뛴다) →
+    // 검색 조건을 모두 만족하는 덱만 → 그 구간 등급순으로, 고정한 덱을 맨 위로.
+    // 등급 조건은 앱처럼 구간이 있는 데이터(v2)에서만 쓴다.
+    val gradeFilterOn = buckets.isNotEmpty()
     val listed = remember(allDecks, bucket, pinned, hidden) {
         allDecks.filter { it.id !in hidden && (it.listedIn(bucket) || it.id in pinned) }
     }
-    val decks = remember(listed, tokens, search, bucket, pinned) {
+    val graded = remember(listed, bucket, pinned, grades, gradeFilterOn) {
+        if (gradeFilterOn) overlayGradeFiltered(listed, bucket, pinned, grades) else listed
+    }
+    val decks = remember(graded, tokens, search, bucket, pinned) {
         DeckSearch.pinFirst(
-            DeckSearch.sort(search?.filterByTokens(listed, tokens) ?: listed, DeckSortMode.GRADE, bucket),
+            DeckSearch.sort(search?.filterByTokens(graded, tokens) ?: graded, DeckSortMode.GRADE, bucket),
             pinned,
         )
+    }
+    // 목록이 비면 무엇이 막았는지 말해 준다 — 꺼 둔 등급 때문이면 켜면 보일 덱 수까지.
+    val emptyMessage = if (decks.isNotEmpty()) "" else {
+        val withoutGrades = search?.filterByTokens(listed, tokens) ?: listed
+        overlayEmptyListMessage(
+            hasTokens = tokens.isNotEmpty(),
+            off = if (gradeFilterOn) offGrades(grades) else emptyList(),
+            hiddenByGrade = withoutGrades.size - decks.size,
+        )
+    }
+    // 등급 칸을 누르면 앱과 함께 쓰는 조건이 바뀐다. 바뀐 목록은 맨 위부터(기억한 자리를 먼저 지운다).
+    // 마지막 하나는 DeckPrefs 가 끄지 않으므로 그때는 자리도 그대로 둔다.
+    val toggleGrade: (String) -> Unit = { grade ->
+        val next = if (grade in grades) grades - grade else grades + grade
+        if (next.isNotEmpty()) onListAnchor(null)
+        prefs.toggleGrade(grade)
     }
     // 후보는 지금 좁혀진 목록 기준으로 센다(골랐을 때 남는 덱 수).
     val candidates = remember(search, query, tokens, decks, searching) {
@@ -263,8 +298,8 @@ fun OverlayContent(
             PanelHeader(
                 selected = selected,
                 bucket = bucket,
-                // 검색 조건이 있으면 좁혀진 수 / 원래 수.
-                countText = if (tokens.isEmpty()) "덱 ${decks.size}" else "덱 ${decks.size}/${listed.size}",
+                // 검색 조건이 있으면 좁혀진 수 / 검색 전 수(등급 조건까지 적용한 목록). 등급 조건은 검색 줄 옆 칸이 보여 준다.
+                countText = overlayCountText(decks.size, graded.size, hasTokens = tokens.isNotEmpty()),
                 bucketName = buckets.takeIf { it.isNotEmpty() }
                     ?.let { buckets[bucket]?.label?.takeIf { label -> label.isNotBlank() } ?: bucketLabel(bucket) },
                 profileConnected = profileState.profileOrNull != null,
@@ -296,6 +331,8 @@ fun OverlayContent(
                 // IME 의 검색 키는 맨 위 후보를 고른다. 친 글자가 없으면 검색만 끝낸다.
                 onSubmit = { candidates.firstOrNull()?.let(pickCandidate) ?: onSearchEnd() },
                 onSearchStart = onSearchStart,
+                grades = grades.takeIf { gradeFilterOn },
+                onToggleGrade = toggleGrade,
             )
             // 목록·후보·요약은 머리줄·검색줄을 놓고 남는 높이만 쓴다(weight, fill = false — 짧으면 그만큼만).
             if (searching && query.isNotBlank()) {
@@ -304,7 +341,9 @@ fun OverlayContent(
             } else {
                 DeckListView(
                     decks = decks,
-                    tokens = tokens,
+                    // 조건(검색 칩·등급)이 바뀌면 목록을 새로 맨 위부터.
+                    filterKey = tokens to grades,
+                    emptyMessage = emptyMessage,
                     bucket = bucket,
                     pinned = pinned,
                     metatftCompared = metatftCompared,
@@ -430,6 +469,9 @@ private fun CollapsedChip(
  * 창이 포커스를 받기 전에는 안내 글자만 그리고, 누르면 서비스에 포커스를 요청한다([onSearchStart]).
  * 서비스가 검색을 켜 주고 창이 실제로 포커스를 받은 뒤에 입력칸이 포커스를 잡고 키보드를 띄운다 —
  * 그 전에 키보드를 부르면 포커스 없는 창이라 무시된다.
+ *
+ * 오른쪽 끝에 등급 조회 조건 칸(S A B C D, [GradeToggles])을 붙인다. 목록 높이를 먹는 새 줄을 만들지 않으려고
+ * 검색 줄과 한 줄을 나눠 쓴다. [grades] 가 null 이면(구간이 없는 옛 데이터) 칸을 두지 않는다.
  */
 @Composable
 private fun OverlaySearchBar(
@@ -441,6 +483,8 @@ private fun OverlaySearchBar(
     onClearAll: () -> Unit,
     onSubmit: () -> Unit,
     onSearchStart: () -> Unit,
+    grades: Set<String>?,
+    onToggleGrade: (String) -> Unit,
 ) {
     val focusRequester = remember { FocusRequester() }
     val keyboard = LocalSoftwareKeyboardController.current
@@ -450,19 +494,64 @@ private fun OverlaySearchBar(
             keyboard?.show()
         }
     }
-    TokenSearchField(
-        tokens = tokens,
-        query = query,
-        onQueryChange = onQueryChange,
-        onRemoveToken = onRemoveToken,
-        onClearAll = onClearAll,
-        onSubmit = onSubmit,
-        editing = searching,
-        onStartEditing = onSearchStart,
-        focusRequester = focusRequester,
-        compact = true,
+    Row(
         modifier = Modifier.padding(start = 6.dp, end = 6.dp, top = 6.dp, bottom = 2.dp),
-    )
+        verticalAlignment = Alignment.Top,
+    ) {
+        TokenSearchField(
+            tokens = tokens,
+            query = query,
+            onQueryChange = onQueryChange,
+            onRemoveToken = onRemoveToken,
+            onClearAll = onClearAll,
+            onSubmit = onSubmit,
+            editing = searching,
+            onStartEditing = onSearchStart,
+            focusRequester = focusRequester,
+            compact = true,
+            // 등급 칸과 높이를 맞춘다(한 줄일 때). 칩이 여러 줄로 늘면 등급 칸은 첫 줄에 붙어 있다.
+            modifier = Modifier
+                .weight(1f)
+                .heightIn(min = GRADE_TOGGLE_HEIGHT),
+        )
+        if (grades != null) {
+            Spacer(Modifier.width(4.dp))
+            GradeToggles(grades, onToggleGrade)
+        }
+    }
+}
+
+/**
+ * 등급 조회 조건 칸 S A B C D. 앱 목록의 등급 칩과 같은 값이다(여기서 바꾸면 앱에도 남는다).
+ * 켜진 칸은 그 등급 색으로 채우고 테두리를 두르며, 꺼진 칸은 비운 채 흐린 글자에 가로줄을 긋는다 —
+ * 색을 구분하기 어려워도 채움·가로줄로 읽힌다. 마지막 하나는 끌 수 없다(DeckPrefs.toggleGrade).
+ */
+@Composable
+private fun GradeToggles(grades: Set<String>, onToggle: (String) -> Unit) {
+    Row(horizontalArrangement = Arrangement.spacedBy(GRADE_TOGGLE_GAP)) {
+        DeckKeys.GRADE_FILTER_ALL.forEach { grade ->
+            val on = grade in grades
+            val color = gradeColor(grade)
+            val shape = RoundedCornerShape(6.dp)
+            Box(
+                modifier = Modifier
+                    .size(width = GRADE_TOGGLE_WIDTH, height = GRADE_TOGGLE_HEIGHT)
+                    .clip(shape)
+                    .then(if (on) Modifier.background(color.copy(alpha = 0.2f)) else Modifier)
+                    .border(1.dp, if (on) color.copy(alpha = 0.85f) else OverlayBorder, shape)
+                    .toggleable(value = on, role = Role.Checkbox, onValueChange = { onToggle(grade) }),
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(
+                    grade,
+                    color = if (on) color else OverlayMuted,
+                    fontSize = 11.sp,
+                    fontWeight = if (on) FontWeight.Bold else FontWeight.Normal,
+                    textDecoration = if (on) null else TextDecoration.LineThrough,
+                )
+            }
+        }
+    }
 }
 
 /** 치는 동안 검색창 아래에 뜨는 후보. 맨 끝은 친 글자 그대로의 '사용자 지정' 후보다. */
@@ -495,7 +584,8 @@ private fun CandidateList(
 @Composable
 private fun DeckListView(
     decks: List<Deck>,
-    tokens: List<DeckToken>,
+    filterKey: Any,
+    emptyMessage: String,
     bucket: String,
     pinned: Set<String>,
     metatftCompared: Boolean,
@@ -507,22 +597,19 @@ private fun DeckListView(
     onPick: (Deck) -> Unit,
 ) {
     if (decks.isEmpty()) {
+        // 무엇이 막았는지(꺼 둔 등급·검색 조건)와 푸는 곳을 말한다([overlayEmptyListMessage]).
         Text(
-            if (tokens.isNotEmpty()) {
-                "이 구간에는 조건을 모두 만족하는 덱이 없습니다. 칩의 ×로 조건을 빼거나 '모두 지우기', 또는 위의 구간을 바꿔 보세요."
-            } else {
-                "숨기지 않은 덱이 없습니다. 앱의 '숨긴 덱 보기'에서 복구할 수 있습니다."
-            },
-            color = OverlayMuted,
+            emptyMessage,
+            color = OverlaySubtext,
             fontSize = 10.sp,
             modifier = modifier.padding(10.dp),
         )
         return
     }
     // 목록 자리는 서비스가 기억한다 — 접었다 펴도, 덱을 봤다 돌아와도, 창이 다시 붙거나 서비스가 다시 떠도 보던 덱에서 이어진다.
-    // 조건(tokens)이 바뀌면 새로 만든다: 바꾸는 쪽이 기억한 자리를 먼저 지우므로 좁혀진 목록을 맨 위부터 보여 준다.
+    // 조건(검색 칩·등급, [filterKey])이 바뀌면 새로 만든다: 바꾸는 쪽이 기억한 자리를 먼저 지우므로 새 목록을 맨 위부터 보여 준다.
     // 기억한 자리는 흘려 받은 값이 아니라 지금 값(.value)으로 읽는다 — 지운 직후 다시 그릴 때 옛 값을 보지 않게.
-    val listState = remember(tokens) {
+    val listState = remember(filterKey) {
         val start = overlayListStart(decks.map { it.id }, anchorFlow.value)
         LazyListState(start.index, start.offset)
     }
@@ -690,6 +777,14 @@ private const val CLOSE_CONFIRM_MS = 3_000L
 
 /** 레벨 칩 높이. 게임 중 판마다 누르는 칩이라 글자보다 칸을 크게 둔다(예전 약 20dp). */
 private val LEVEL_CHIP_HEIGHT = 30.dp
+
+/**
+ * 등급 조회 조건 칸 하나(S~D). 검색 줄과 한 줄을 나눠 쓰므로 다섯 칸이 약 130dp 에 들어가게 폭을 24dp 로 두고,
+ * 높이는 검색 줄과 같은 28dp. 칸 사이를 3dp 벌려 옆 등급이 같이 눌리지 않게 한다.
+ */
+private val GRADE_TOGGLE_WIDTH = 24.dp
+private val GRADE_TOGGLE_HEIGHT = 28.dp
+private val GRADE_TOGGLE_GAP = 3.dp
 
 @Composable
 private fun PinMark() {

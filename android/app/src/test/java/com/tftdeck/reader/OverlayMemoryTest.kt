@@ -7,6 +7,7 @@ import com.tftdeck.reader.overlay.OverlayListStart
 import com.tftdeck.reader.overlay.OverlayMemory
 import com.tftdeck.reader.overlay.decodeDeckLevels
 import com.tftdeck.reader.overlay.encodeDeckLevels
+import com.tftdeck.reader.overlay.migrateDeckLevels
 import com.tftdeck.reader.overlay.overlayListStart
 import com.tftdeck.reader.overlay.rememberDeckLevel
 import com.tftdeck.reader.overlay.resolveOverlayLevel
@@ -120,6 +121,35 @@ class OverlayMemoryTest {
         val restored = OverlayMemory(prefs)
         assertNull(restored.selectedDeckId.value)
         assertNull(restored.listAnchor.value)
+    }
+
+    @Test
+    fun `덱 id 가 바뀌면 레벨을 새 id 로 옮기고 합쳐지면 최근 값을 둔다`() {
+        val levels = linkedMapOf("g-1" to 7, "x" to 5, "g-2" to 8)
+        val moved = migrateDeckLevels(levels, mapOf("g-1" to "meta-a", "g-2" to "meta-a"))
+        // g-1(7) 과 g-2(8) 가 meta-a 로 모인다 — 나중에(최근에) 고른 8 이 남고 최근 자리로 간다.
+        assertEquals(listOf("x", "meta-a"), moved.keys.toList())
+        assertEquals(8, moved["meta-a"])
+        assertSame(levels, migrateDeckLevels(levels, mapOf("other" to "y")))
+    }
+
+    @Test
+    fun `덱 id 가 바뀌면 보던 덱과 목록 자리도 옮기고 사라진 덱이면 목록으로`() {
+        val prefs = FakePrefs()
+        val memory = OverlayMemory(prefs).apply {
+            selectDeck("g-1")
+            setLevel("g-1", 7)
+            setListAnchor(OverlayListAnchor("g-2", 12))
+        }
+        memory.migrateIds(mapOf("g-1" to "meta-a", "g-2" to "meta-b"), current = setOf("meta-a", "meta-b"))
+        assertEquals("meta-a", memory.selectedDeckId.value)
+        assertEquals(mapOf("meta-a" to 7), memory.deckLevels.value)
+        assertEquals(OverlayListAnchor("meta-b", 12), memory.listAnchor.value)
+        // 저장값도 옮겨져 다시 만들어도 이어진다.
+        assertEquals("meta-a", OverlayMemory(prefs).selectedDeckId.value)
+
+        memory.migrateIds(emptyMap(), current = setOf("meta-b"))
+        assertNull(memory.selectedDeckId.value)
     }
 
     /** SharedPreferences 를 메모리에 흉내 낸다. apply·commit 모두 곧바로 반영한다. */

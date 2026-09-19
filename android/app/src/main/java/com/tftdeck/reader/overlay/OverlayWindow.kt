@@ -57,12 +57,15 @@ internal fun clampOverlayPosition(
 }
 
 /**
- * 검색 중 키보드가 창 아래를 [imeOverlap] 만큼 가리면 그만큼 창을 올린다. 영역 위(0)보다 위로는 올리지 않는다 —
- * 가로 화면처럼 키보드 위 공간이 창보다 작으면 창 위쪽(검색창과 첫 후보들)이 보이는 데서 멈춘다.
- * 가린 게 없으면 그대로 둔다(올린 뒤 겹침이 0 이 되어도 다시 내리지 않는다 — 내리는 것은 검색이 끝날 때 한 번).
+ * 검색 중 키보드를 피해 올린 창 y. 창 아래(영역 위 [areaTop] + y + [height], 화면 좌표)가 키보드 위([imeTop], 화면 좌표)를
+ * 넘으면 넘친 만큼 올린다. 영역 위(0)보다 위로는 올리지 않는다 — 가로 화면처럼 키보드 위 공간이 창보다 작으면 창 위쪽
+ * (검색창과 첫 후보들)이 보이는 데서 멈춘다. 넘치지 않으면 그대로 둔다(내리는 것은 검색이 끝날 때 한 번).
+ * 키보드 위치를 화면 기준으로 받으므로 같은 상태에서 몇 번을 불러도 같은 값이다.
  */
-internal fun liftAboveIme(y: Int, imeOverlap: Int): Int =
-    if (imeOverlap <= 0) y else (y - imeOverlap).coerceAtLeast(0).coerceAtMost(y)
+internal fun liftAboveIme(y: Int, height: Int, areaTop: Int, imeTop: Int): Int {
+    val overflow = areaTop + y + height - imeTop
+    return if (overflow <= 0) y else (y - overflow).coerceAtLeast(0).coerceAtMost(y)
+}
 
 /**
  * 창이 떠 있는 방향별로 자리를 따로 기억한다. 게임(가로)에서 놓아 둔 자리가 홈 화면(세로)에서 한 번 옮겼다고
@@ -91,7 +94,7 @@ private const val SHORT_OVERLAY_AREA_DP = 480f
  *  - 포커스를 잃음: 알림창을 내리는 등 다른 창이 포커스를 가져가면 검색을 접는다.
  *
  * 창 자리를 화면 안에 맞추는 데 필요한 신호도 여기서 넘긴다: 창을 다시 배치함([onWindowLayout] — 펼침·넓게 보기·
- * 회전으로 크기가 바뀔 때마다 온다), 키보드가 창 아래를 가림([onImeOverlap], API 30 이상).
+ * 회전으로 크기가 바뀔 때마다 온다), 키보드 인셋이 바뀜([onImeInsetsChanged], API 30 이상).
  */
 internal class OverlayRootView(context: Context) : FrameLayout(context) {
 
@@ -107,19 +110,22 @@ internal class OverlayRootView(context: Context) : FrameLayout(context) {
      */
     var onWindowLayout: () -> Unit = {}
 
-    /** 키보드가 창 아래를 가린 높이(px). 가리지 않거나 키보드가 없으면 0. */
-    var onImeOverlap: (Int) -> Unit = {}
+    /**
+     * 이 창의 인셋이 바뀌었고 키보드가 창 아래를 가리고 있다. 가린 높이 값은 넘기지 않는다 — 창을 옮긴 직후에도 옛 틀 기준
+     * 값이 한 번 더 와서 믿을 수 없다. 서비스가 화면 기준 키보드 위치로 다시 잰다.
+     */
+    var onImeInsetsChanged: () -> Unit = {}
 
     /** 이번 검색에서 창이 포커스를 한 번이라도 받았는지. 받기 전의 '포커스 없음'은 끝낼 신호가 아니다. */
     private var focusedWhileSearching = false
 
     init {
-        // 이 창의 인셋은 창 틀 기준이라 IME 아래쪽 값이 곧 '창 아래가 키보드에 가린 높이'다(SOFT_INPUT_ADJUST_NOTHING 이어도 온다).
-        // API 30 미만은 ADJUST_NOTHING 창에 IME 인셋이 오지 않아 올리지 않는다.
+        // 이 창의 인셋은 창 틀 기준이라 IME 아래쪽 값은 '창 아래가 키보드에 가린 높이'다(SOFT_INPUT_ADJUST_NOTHING 이어도 온다).
+        // 키보드가 뜨거나 창이 커져 가리기 시작한 때를 알리는 데만 쓴다. API 30 미만은 ADJUST_NOTHING 창에 IME 인셋이 오지 않아 올리지 않는다.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             setOnApplyWindowInsetsListener { view, insets ->
                 val ime = WindowInsets.Type.ime()
-                onImeOverlap(if (insets.isVisible(ime)) insets.getInsets(ime).bottom else 0)
+                if (insets.isVisible(ime) && insets.getInsets(ime).bottom > 0) onImeInsetsChanged()
                 view.onApplyWindowInsets(insets)
             }
         }

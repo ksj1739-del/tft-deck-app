@@ -70,21 +70,32 @@ class OverlayPlacementTest {
         assertEquals(OverlayPosition(900, landH - 111), placed)
     }
 
+    // 세로 에뮬레이터에서 본 값: 영역 위 136, 키보드 위 1517(화면 2400 − 키보드 883). 오른쪽 아래에서 펼친 목록은 y=1219, 높이 982.
+
     @Test
-    fun `키보드가 가린 만큼 창을 올린다`() {
-        assertEquals(200, liftAboveIme(y = 500, imeOverlap = 300))
+    fun `키보드가 창 아래를 가리면 창 아래가 키보드 위에 오도록 올린다`() {
+        // 창 아래 136+1219+982=2337 → 820px 넘침 → 399.
+        assertEquals(399, liftAboveIme(y = 1219, height = 982, areaTop = 136, imeTop = 1517))
+    }
+
+    @Test
+    fun `이미 올린 창에 다시 불러도 더 올리지 않는다`() {
+        // 예전 방식(창 인셋의 겹침을 y 에서 빼기)은 올린 뒤 옛 틀 기준 겹침이 한 번 더 와서 0 까지 올라갔다.
+        assertEquals(399, liftAboveIme(y = 399, height = 982, areaTop = 136, imeTop = 1517))
+        // 치는 동안 후보로 창이 작아져도 내리지 않는다(내리는 것은 검색이 끝날 때).
+        assertEquals(399, liftAboveIme(y = 399, height = 400, areaTop = 136, imeTop = 1517))
     }
 
     @Test
     fun `키보드 위 공간이 창보다 작으면 화면 위에서 멈춘다`() {
-        assertEquals(0, liftAboveIme(y = 120, imeOverlap = 700))
-        assertEquals(0, liftAboveIme(y = 0, imeOverlap = 150))
+        // 가로: 영역 위 74, 키보드 위 394. 높이 922 의 목록은 위에 붙는다.
+        assertEquals(0, liftAboveIme(y = 21, height = 922, areaTop = 74, imeTop = 394))
+        assertEquals(0, liftAboveIme(y = 0, height = 922, areaTop = 74, imeTop = 394))
     }
 
     @Test
-    fun `가리지 않으면 움직이지 않고 내리지도 않는다`() {
-        assertEquals(500, liftAboveIme(y = 500, imeOverlap = 0))
-        assertEquals(500, liftAboveIme(y = 500, imeOverlap = -20))
+    fun `가리지 않으면 움직이지 않는다`() {
+        assertEquals(120, liftAboveIme(y = 120, height = 475, areaTop = 136, imeTop = 1517))
     }
 
     @Test

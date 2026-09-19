@@ -43,7 +43,24 @@ internal class OverlayMemory(private val prefs: SharedPreferences) {
     }
 
     fun setLevel(deckId: String, level: Int) {
-        val next = rememberDeckLevel(_deckLevels.value, deckId, level)
+        setLevelsAndSave(rememberDeckLevel(_deckLevels.value, deckId, level))
+    }
+
+    /**
+     * 덱 id 가 바뀐 데이터가 들어오면(DeckIdMigration — lol.qq 그룹이 metatft 조합 덱에 합쳐지는 등) 보던 덱·레벨·목록 자리도
+     * 새 id 로 옮긴다. 고정·숨김·오버레이 덱(pinnedDeckId)을 옮기는 것과 같은 때에 부른다. [current] 는 지금 데이터의 덱 id 전부 —
+     * 옮길 곳도 없이 사라진 덱을 보고 있었으면 목록으로 돌린다(앱 열기가 없는 덱을 열지 않게).
+     */
+    fun migrateIds(mapping: Map<String, String>, current: Set<String>) {
+        _selectedDeckId.value?.let { id ->
+            val moved = mapping[id] ?: id
+            selectDeck(moved.takeIf { it in current })
+        }
+        setLevelsAndSave(migrateDeckLevels(_deckLevels.value, mapping))
+        _listAnchor.value?.let { anchor -> mapping[anchor.key]?.let { setListAnchor(anchor.copy(key = it)) } }
+    }
+
+    private fun setLevelsAndSave(next: Map<String, Int>) {
         if (next == _deckLevels.value) return
         _deckLevels.value = next
         prefs.edit().putString(KEY_LEVELS, encodeDeckLevels(next)).apply()
@@ -104,6 +121,21 @@ internal fun rememberDeckLevel(
     next[deckId] = level
     while (next.size > cap) next.remove(next.keys.first())
     return next
+}
+
+/**
+ * 덱 id 가 바뀌면 기억한 레벨도 새 id 로 옮긴다. 여러 옛 id 가 같은 새 id 로 모이면(그룹이 합쳐짐) 가장 최근에 고른
+ * 레벨을 둔다 — 저장 순서가 오래된 것부터라 뒤에 오는 값이 이긴다. 오래된 것부터 버리는 순서도 그대로 이어진다.
+ */
+internal fun migrateDeckLevels(levels: Map<String, Int>, mapping: Map<String, String>): Map<String, Int> {
+    if (mapping.isEmpty() || levels.keys.none { it in mapping }) return levels
+    val out = LinkedHashMap<String, Int>()
+    for ((id, level) in levels) {
+        val target = mapping[id] ?: id
+        out.remove(target)
+        out[target] = level
+    }
+    return out
 }
 
 internal fun encodeDeckLevels(levels: Map<String, Int>): String =

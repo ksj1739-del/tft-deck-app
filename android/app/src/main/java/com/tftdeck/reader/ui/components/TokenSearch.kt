@@ -22,6 +22,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
@@ -84,7 +85,12 @@ fun TokenSearchField(
     val shape = RoundedCornerShape(if (compact) 8.dp else 12.dp)
     val lineHeight = if (compact) CHIP_HEIGHT_COMPACT else CHIP_HEIGHT
     val fontSize = if (compact) 11.sp else 14.sp
-    val hint = if (tokens.isEmpty()) "유닛 · 시너지 · 아이템 · 증강" else "조건 더하기"
+    val hint = when {
+        tokens.isNotEmpty() -> "조건 더하기"
+        // 오버레이(compact)는 검색 줄 옆에 등급 칸이 붙어 좁다. 띄어쓰기를 빼서 한 줄에 더 들게 한다.
+        compact -> "유닛·시너지·아이템·증강"
+        else -> "유닛 · 시너지 · 아이템 · 증강"
+    }
 
     Row(
         modifier = modifier
@@ -136,24 +142,53 @@ fun TokenSearchField(
                     },
                 )
             } else {
-                Box(Modifier.height(lineHeight), contentAlignment = Alignment.CenterStart) {
+                // 안내 글자도 직접 누르는 자리로 둔다. 칩이 여러 줄로 접히면 바로 위 칩의 ×(작아서 Compose 가 누르는 범위를
+                // 48dp 로 넓힌다)가 '조건 더하기' 누름을 가로채 조건이 빠지곤 했다 — 직접 맞은 쪽이 넓힌 범위보다 먼저다.
+                Box(
+                    Modifier
+                        .height(lineHeight)
+                        .widthIn(min = if (compact) 64.dp else 96.dp)
+                        .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) {
+                            onStartEditing()
+                        },
+                    contentAlignment = Alignment.CenterStart,
+                ) {
                     Text(hint, color = FloaColors.OnSurfaceVariant, fontSize = fontSize, maxLines = 1)
                 }
             }
         }
         if (tokens.isNotEmpty()) {
             Spacer(Modifier.width(4.dp))
-            Text(
-                "모두 지우기",
-                color = FloaColors.Secondary,
-                fontSize = if (compact) 10.sp else 12.sp,
-                fontWeight = FontWeight.Medium,
-                maxLines = 1,
-                modifier = Modifier
-                    .clip(RoundedCornerShape(6.dp))
-                    .clickable(onClick = onClearAll)
-                    .padding(horizontal = 4.dp, vertical = 3.dp),
-            )
+            if (compact) {
+                // 오버레이는 폭이 좁아(등급 칸이 옆에 붙는다) 글자 대신 원 안 × 아이콘으로 둔다.
+                // 칩의 ×(그 조건만 빼기)와 모양이 달라 헷갈리지 않는다.
+                Box(
+                    Modifier
+                        .size(CHIP_HEIGHT_COMPACT + 4.dp)
+                        .clip(CircleShape)
+                        .clickable(onClick = onClearAll),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        Icons.Default.Cancel,
+                        contentDescription = "조건 모두 지우기",
+                        tint = FloaColors.Secondary,
+                        modifier = Modifier.size(16.dp),
+                    )
+                }
+            } else {
+                Text(
+                    "모두 지우기",
+                    color = FloaColors.Secondary,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Medium,
+                    maxLines = 1,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .clickable(onClick = onClearAll)
+                        .padding(horizontal = 4.dp, vertical = 3.dp),
+                )
+            }
         }
     }
 }
