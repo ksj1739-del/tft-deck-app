@@ -210,6 +210,8 @@ class DeckSearch(private val feed: DeckFeed) {
      * 덱 목록 필터. [bucket] 을 주면 티어 필터는 그 구간의 등급(없으면 편집 등급)으로 본다.
      * 숨긴 덱은 [showHidden] 일 때만 함께 나온다 — 길게 눌러 복구할 수 있어야 하기 때문이다.
      * [bucket] 을 주면 그 구간 등급이 없는 통계 덱은 뺀다. 고정한 덱처럼 늘 남길 덱은 [alwaysShow] 로 넘긴다.
+     * [grades] 는 등급 조회 조건(S~D 여러 개)이다. 고정한 덱은 등급이 꺼져 있어도 남긴다 — 직접 고른 덱이
+     * 기본 조건(C·D 해제) 때문에 사라지면 어디 갔는지 모른다.
      */
     fun filter(
         tiers: Set<String> = emptySet(),
@@ -221,8 +223,10 @@ class DeckSearch(private val feed: DeckFeed) {
         showHidden: Boolean = false,
         bucket: String? = null,
         alwaysShow: Set<String> = emptySet(),
+        grades: Set<String>? = null,
     ): List<Deck> = feed.decks.filter { deck ->
         (bucket == null || deck.listedIn(bucket) || deck.id in alwaysShow) &&
+            (grades == null || bucket == null || deck.id in alwaysShow || gradePasses(deck.gradeFor(bucket), grades)) &&
             (tiers.isEmpty() || (if (bucket != null) deck.gradeFor(bucket) else deck.tier) in tiers) &&
             (levels.isEmpty() || deck.finalLevel in levels) &&
             (!onlyChina || deck.isOnlyInChina) &&
@@ -238,6 +242,16 @@ class DeckSearch(private val feed: DeckFeed) {
         private const val DESC_PENALTY = 3
 
         private const val TREND_UP = "up"
+
+        /**
+         * 등급 조회 조건에 맞는지. 편집 등급 SS 는 S 로 본다.
+         * 다섯 등급을 모두 고르면 거르지 않는다(등급이 없는 덱도 남는다).
+         */
+        fun gradePasses(grade: String?, grades: Set<String>): Boolean {
+            if (grades.containsAll(DeckKeys.GRADE_FILTER_ALL)) return true
+            val letter = grade?.trim()?.uppercase()?.let { if (it == "SS") "S" else it } ?: return false
+            return letter in grades
+        }
 
         /** 통계 등급 순서. 편집 등급 SS 가 섞여 들어와도 맨 앞에 두도록 포함한다. */
         private val GRADE_ORDER = listOf("SS", "S", "A", "B", "C", "D")

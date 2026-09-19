@@ -92,6 +92,12 @@ object DeckKeys {
     const val SCOPE_KR_MASTER = "kr_master"
     val SCOPE_ORDER = listOf(SCOPE_GLOBAL_PLAT, SCOPE_KR_PLAT, SCOPE_KR_MASTER)
 
+    /** 덱 등급 조회 조건에 나오는 등급. 편집 등급 SS 는 S 로 본다. */
+    val GRADE_FILTER_ALL = listOf("S", "A", "B", "C", "D")
+
+    /** 처음 설치했을 때 켜 두는 등급. C·D 는 꺼 두어 목록이 짧게 시작한다. */
+    val GRADE_FILTER_DEFAULT = setOf("S", "A", "B")
+
     /** 통계 등급·KR 배지를 믿을 수 있는 최소 표본(수집기 gradeCuts.minSample 과 같은 값). */
     const val MIN_SAMPLE = 300
 }
