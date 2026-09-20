@@ -1,14 +1,14 @@
 {
   "assetBase": "https://raw.communitydragon.org/latest/game/",
-  "contentHash": "6e81fe947c50542a",
-  "deckCount": 76,
-  "editorialCount": 23,
-  "generatedAt": "2026-09-19T22:04:44Z",
+  "contentHash": "6f913107bdafe84a",
+  "deckCount": 74,
+  "editorialCount": 24,
+  "generatedAt": "2026-09-20T22:09:14Z",
   "globalOnlyCount": 0,
   "metaCompCount": 54,
   "metatftClusterId": 423,
   "metatftSet": "TFTSet18",
-  "onlyInChinaCount": 22,
+  "onlyInChinaCount": 20,
   "patch": "16.18",
   "patchGlobal": "18.2",
   "qqBuild": "16.18.819.1953",
@@ -30,8 +30,8 @@
     "namesKo": "ok",
     "teamPlanner": "ok"
   },
-  "statDate": "2026-09-19",
-  "teamCodeCount": 76,
+  "statDate": "2026-09-20",
+  "teamCodeCount": 74,
   "untranslatedIds": [
     "DA_18_FloraFatalisAugmentPlus"
   ]
