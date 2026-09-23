@@ -76,6 +76,7 @@
   "assets/characters/tft18_yorick/tft18_yorick_square.png": "bf0e0ebd16fe.webp",
   "assets/characters/tft18_yunara/tft18_yunara_square.png": "2b8bc4006734.webp",
   "assets/characters/tft18_zyra/tft18_zyra_square.png": "fd1f6906f530.webp",
+  "assets/maps/particles/tft/item_icons/ornn_items/tft9_ornnitem_hullbreaker.png": "668a0e60b5c4.webp",
   "assets/maps/particles/tft/item_icons/ornn_items/tft_item_artifact_lichbane.png": "32e0b98079c9.webp",
   "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_blackthorn.png": "b04ea9acd82f.webp",
   "assets/maps/particles/tft/item_icons/traits/spatula/set18/tft18_emblem_blossom.png": "1e6b74be7b75.webp",
@@ -432,15 +433,14 @@
   "https://game.gtimg.cn/images/lol/act/img/tft/champions/100292.png": "d9ccd31587c1.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/champions/100294.png": "4f96c0da71ed.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/champions/100295.png": "440c7646cd13.webp",
-  "https://game.gtimg.cn/images/lol/act/img/tft/equip/92987.png": "b6f5832ac1e8.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/hex/94864.png": "ea2a58d12978.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/hex/94955.png": "9f86be72fdea.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/hex/95122.png": "71603a323ed7.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/hex/95123.png": "9bf2ed716022.webp",
   "https://game.gtimg.cn/images/lol/act/img/tft/original-image/tft18_willump_square.tft_set18.png": "2e85a2bf02aa.webp"
  },
- "generatedAt": "2026-09-15T16:45:40Z",
- "hash": "ab918814e23006eb57cc6cfa0c0b5ca08674e197",
+ "generatedAt": "2026-09-23T22:46:10Z",
+ "hash": "0a5a7c9946a71523d778b774867575e6d05df214",
  "schemaVersion": 1,
  "zip": "icons.zip"
 }
