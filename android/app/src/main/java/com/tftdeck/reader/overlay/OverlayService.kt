@@ -689,6 +689,8 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
         // 이 방향에서 놓아 둔 자리. 창 크기는 붙은 뒤 첫 배치에서 알게 되므로 그때 한 번 더 화면 안으로 맞춘다.
         landscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
         anchor = loadAnchor()
+        // 패널이 첫 프레임부터 이 화면 크기로 스스로를 재도록 영역을 먼저 알려 둔다([areaState]).
+        areaSize()
         windowCorner = Quadrant.TopLeft
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
@@ -768,6 +770,7 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
                         setExpanded(true)
                     },
                     onChipSize = { size -> if (size.width > 0 && size.height > 0) chipSize = size },
+                    areaFlow = areaState,
                     onListStatus = { count, bucket ->
                         if (count != listCount || bucket != listBucket) {
                             listCount = count
@@ -969,8 +972,15 @@ class OverlayService : android.app.Service(), LifecycleOwner, ViewModelStoreOwne
 
     private fun areaSize(): IntSize {
         val area = overlayArea()
-        return IntSize(area.width(), area.height())
+        return IntSize(area.width(), area.height()).also { areaState.value = it }
     }
+
+    /**
+     * 지금 화면 영역(px). 패널이 스스로 크기를 정할 때 쓴다([OverlayContent]) — 창에 들어오는 제약을 쓰면 '지금 창 크기'가
+     * 다시 기준이 돼 끄는 동안 창이 커졌다 작아지며 깜빡인다. 같은 값이면 흘려보내므로(StateFlow) 재구성은 화면이
+     * 실제로 달라질 때만 일어난다.
+     */
+    private val areaState = MutableStateFlow(IntSize.Zero)
 
     private var areaCache: Rect? = null
     private var areaCachedAt = 0L

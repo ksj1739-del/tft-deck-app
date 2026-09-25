@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -26,6 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.tftdeck.reader.data.CatalogIndex
@@ -94,6 +94,7 @@ fun OverlayContent(
     onExpandToList: () -> Unit = onToggleExpand,
     onChipSize: (IntSize) -> Unit = {},
     onListStatus: (count: Int, bucket: String) -> Unit = { _, _ -> },
+    areaFlow: StateFlow<IntSize> = NoArea,
 ) {
     val data by dataFlow.collectAsState()
     val selectedId by selectedIdFlow.collectAsState()
@@ -105,6 +106,7 @@ fun OverlayContent(
     val searching by searchingFlow.collectAsState()
     val quadrant by quadrantFlow.collectAsState()
     val menuOpen by menuOpenFlow.collectAsState()
+    val area by areaFlow.collectAsState()
 
     // 검색 조건(고른 조건·치는 글자). 접었다 펴도 남도록 펼침 분기 밖에서 기억한다(OverlaySearchBar.kt).
     val searchState = rememberOverlaySearchState(searching, onSearchEnd, onListAnchor)
@@ -200,18 +202,24 @@ fun OverlayContent(
 
     // 창은 WRAP_CONTENT 라 그냥 두면 덱 패널이 폭을 다 먹고 프로필 카드가 찌그러진다.
     // 화면 폭에서 카드 자리를 먼저 떼고 남는 만큼만 덱 패널에 준다.
-    BoxWithConstraints {
+    //
+    // 폭·높이는 창에 들어오는 제약이 아니라 서비스가 주는 화면 영역([areaFlow] — 창 자리를 맞출 때 쓰는 그 영역)으로 잰다.
+    // 창에 들어오는 제약은 한 번은 화면 전체, 다음 번은 '지금 창 크기'로 번갈아 오는데, 창 크기를 기준으로 패널을 재면
+    // 여백([PANEL_SCREEN_MARGIN])만큼 작아진 크기가 다시 창 크기가 되고, 다음 배치에서 도로 커진다. 끄는 동안 이것이
+    // 매 프레임 되풀이돼 창이 커졌다 작아지며 깜빡이고(측정한 예: 1029px↔1008px), 그때마다 다시 재고 다시 그렸다.
+    Box {
         // 티어 카드를 꺼 두면 그 자리를 덱 패널이 쓴다.
         val hasProfile = showProfile && profileState.profileOrNull != null
         val profileWidth = PROFILE_WIDTH
+        val areaWidth = with(LocalDensity.current) { area.width.takeIf { it > 0 }?.toDp() } ?: UNBOUNDED_AREA_WIDTH
         val deckMax = if (hasProfile) {
-            (maxWidth - profileWidth - 14.dp).coerceIn(200.dp, if (wide) 380.dp else 300.dp)
+            (areaWidth - profileWidth - 14.dp).coerceIn(200.dp, if (wide) 380.dp else 300.dp)
         } else {
             if (wide) 380.dp else 300.dp
         }
         // 패널 높이는 화면 높이에 맞춘다. 가로 화면(높이 약 360~410dp)에서는 목록·요약이 고정 상한(300dp 안팎)을 다 쓰면
         // 머리줄·검색줄과 합쳐 화면을 넘겨 아래가 잘렸다. 이제 넘치는 만큼 목록·요약이 줄고 그 안에서 스크롤한다.
-        val availableHeight = if (constraints.hasBoundedHeight) maxHeight else UNBOUNDED_AREA_HEIGHT
+        val availableHeight = with(LocalDensity.current) { area.height.takeIf { it > 0 }?.toDp() } ?: UNBOUNDED_AREA_HEIGHT
         val panelMaxHeight = (availableHeight - PANEL_SCREEN_MARGIN).coerceAtLeast(PANEL_MIN_HEIGHT)
         // 가로 화면에서 검색하는 동안에는 머리줄을 접는다 — 키보드가 화면의 60% 남짓을 덮어 후보 자리가 모자라다.
         val headerShown = !(searching && hideHeaderWhileSearching(availableHeight.value))
@@ -379,14 +387,18 @@ private fun cornerAlignment(top: Boolean, alignEnd: Boolean): Alignment = when {
 private val TopLeftQuadrant: StateFlow<Quadrant> = MutableStateFlow(Quadrant.TopLeft)
 private val MenuClosed: StateFlow<Boolean> = MutableStateFlow(false)
 
+/** 화면 영역 기본값(미리보기 등 서비스 밖). 0 이면 [UNBOUNDED_AREA_WIDTH]·[UNBOUNDED_AREA_HEIGHT] 를 쓴다. */
+private val NoArea: StateFlow<IntSize> = MutableStateFlow(IntSize.Zero)
+
 /** 프로필 카드 폭. 덱 패널 폭을 계산할 때도 쓰인다. */
 private val PROFILE_WIDTH = 124.dp
 
 /** 아주 낮은 화면에서도 머리줄과 한두 줄은 보이게 하는 패널 최소 높이. */
 private val PANEL_MIN_HEIGHT = 160.dp
 
-/** 높이 제약이 없을 때(창 측정에서는 생기지 않는다) 쓰는 영역 높이. 세로 폰 정도. */
+/** 화면 영역을 아직 모를 때(미리보기) 쓰는 영역 크기. 세로 폰 정도. */
 private val UNBOUNDED_AREA_HEIGHT = 800.dp
+private val UNBOUNDED_AREA_WIDTH = 400.dp
 
 /** 패널 모서리(MASTER 규칙 4: 카드 12dp). */
 private val PANEL_CORNER = 12.dp

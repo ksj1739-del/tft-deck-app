@@ -106,11 +106,16 @@ internal class OverlayRootView(context: Context) : FrameLayout(context) {
      * WRAP_CONTENT 창은 먼저 대화상자 폭(config_prefDialogWidth, 폰은 320dp)으로 재고, 뿌리가 '더 넓어야 한다'
      * (MEASURED_STATE_TOO_SMALL)고 할 때만 화면 폭으로 다시 잰다(ViewRootImpl.measureHierarchy). 그대로 두면 창이 늘
      * 320dp 에 묶여 티어 카드를 켠 목록 머리줄에서 접기·앱 열기·닫기 버튼이 밀려 사라지고, 넓게 보기(380dp)도 되지 않았다.
-     * 마지막(화면 폭) 측정에서는 이 표시를 보지 않으므로 늘 붙여도 된다.
+     * 마지막(화면 폭) 측정에서는 이 표시를 보지 않는다.
+     *
+     * 이 표시는 이번 폭을 다 쓴 때(내용이 더 넓기를 바라 잘린 때)만 붙인다. 늘 붙이면 들어맞는 크기인데도 매번 세 번씩
+     * 다시 재어(대화상자 폭 → 중간 → 화면 폭) 창을 옮길 때마다 패널 전체를 세 번 측정했다.
      */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.AT_MOST) {
+        if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.AT_MOST &&
+            measuredWidth >= MeasureSpec.getSize(widthMeasureSpec)
+        ) {
             setMeasuredDimension(measuredWidthAndState or MEASURED_STATE_TOO_SMALL, measuredHeightAndState)
         }
     }
