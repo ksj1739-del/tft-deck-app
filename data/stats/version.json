@@ -1,12 +1,12 @@
 {
-  "contentHash": "efd6552f800b58b9",
+  "contentHash": "bd368355e440cbac",
   "files": {
-    "augments": "d6c6ef3e9cf3b4cd",
-    "champions": "b82f52fdc47c9f90",
-    "items": "67b9e6aa6526ccab",
-    "traits": "c02c57b169a4ee35"
+    "augments": "b777bfb7a3fd3fcf",
+    "champions": "7ceaf32b0895614f",
+    "items": "899d1807bd1fada0",
+    "traits": "66afe9dce87e731e"
   },
-  "generatedAt": "2026-09-29T00:12:58Z",
+  "generatedAt": "2026-09-29T23:27:41Z",
   "patch": "16.19",
   "patchGlobal": "18.3b",
   "qqBuild": "16.19.821.7343",
@@ -23,5 +23,5 @@
     "metatftStats": "ok",
     "namesKo": "ok"
   },
-  "statDate": "2026-09-28"
+  "statDate": "2026-09-29"
 }
