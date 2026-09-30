@@ -863,15 +863,6 @@
   "sha1": "4feba2c6bfd979f29ba645e2a6b0db264aad183d",
   "srcSha1": "eb4a4e3a59dc5963f0ab294d8290fc4ee817d666"
  },
- "assets/maps/tft/icons/augments/choiceui/boosterpack1_ii.png": {
-  "enc": "webp-q80-m6",
-  "etag": "\"6a7172a5-79f1\"",
-  "file": "f99c573091ea.webp",
-  "lastModified": "Tue, 04 Aug 2026 05:03:33 GMT",
-  "px": 64,
-  "sha1": "2c3720f94cd2ed283298c87d242e294797aeafd7",
-  "srcSha1": "51efc0628d5e791e4897d32b6716ecbddd22527c"
- },
  "assets/maps/tft/icons/augments/choiceui/precisiongrace_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614974-a458\"",
@@ -3862,9 +3853,9 @@
  },
  "https://game.gtimg.cn/images/lol/act/img/tft/champions/100294.png": {
   "enc": "webp-q80-m6",
-  "etag": "\"6a8cff3d-4267\"",
+  "etag": "\"6a8cff3e-4267\"",
   "file": "4f96c0da71ed.webp",
-  "lastModified": "Tue, 25 Aug 2026 02:34:37 GMT",
+  "lastModified": "Tue, 25 Aug 2026 02:34:38 GMT",
   "px": 128,
   "sha1": "ab1cd704d7b6740fefa5814ec72f143d8f3da783",
   "srcSha1": "4f75c7ce69d486d0d1d4d32b6d2ac3b141ed1f09"
