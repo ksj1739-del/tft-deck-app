@@ -863,6 +863,15 @@
   "sha1": "4feba2c6bfd979f29ba645e2a6b0db264aad183d",
   "srcSha1": "eb4a4e3a59dc5963f0ab294d8290fc4ee817d666"
  },
+ "assets/maps/tft/icons/augments/choiceui/boosterpack1_ii.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7172a5-79f1\"",
+  "file": "f99c573091ea.webp",
+  "lastModified": "Tue, 04 Aug 2026 05:03:33 GMT",
+  "px": 64,
+  "sha1": "2c3720f94cd2ed283298c87d242e294797aeafd7",
+  "srcSha1": "51efc0628d5e791e4897d32b6716ecbddd22527c"
+ },
  "assets/maps/tft/icons/augments/choiceui/precisiongrace_ii.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614974-a458\"",
