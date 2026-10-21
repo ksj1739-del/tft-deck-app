@@ -1,14 +1,14 @@
 {
-  "contentHash": "5b680cd714afe08a",
+  "contentHash": "764e02a3628c6e90",
   "files": {
-    "augments": "274917a0e05608e8",
-    "champions": "9c659492ba96e8f3",
-    "items": "4949c5b9b46e5e58",
-    "traits": "8fef48b6d7ccd59f"
+    "augments": "2bd9c64db992458a",
+    "champions": "10faba56a010acea",
+    "items": "2c6ce956870719da",
+    "traits": "a098fa3067804f22"
   },
-  "generatedAt": "2026-10-20T22:57:25Z",
+  "generatedAt": "2026-10-21T23:02:36Z",
   "patch": "16.20",
-  "patchGlobal": "18.4b",
+  "patchGlobal": "18.5",
   "qqBuild": "16.20.824.8524",
   "schemaVersion": 1,
   "set": "s18",
@@ -23,5 +23,5 @@
     "metatftStats": "ok",
     "namesKo": "ok"
   },
-  "statDate": "2026-10-20"
+  "statDate": "2026-10-21"
 }

@@ -1304,15 +1304,6 @@
   "sha1": "7bfeea6d2d63e29a70f2efec151f9fb1ac9ae712",
   "srcSha1": "e931c9cb851909f587968f3270fba9257a35a98d"
  },
- "assets/maps/tft/icons/augments/hexcore/double-trouble-ii.png": {
-  "enc": "webp-q80-m6",
-  "etag": "\"69642d0a-2336\"",
-  "file": "7ccc30a1ac17.webp",
-  "lastModified": "Sun, 11 Jan 2026 23:06:50 GMT",
-  "px": 64,
-  "sha1": "ab795727586b37ec6e760ea76cb0d3227e825dd5",
-  "srcSha1": "feb69b30767aaada0da627b52d2869b01e56a375"
- },
  "assets/maps/tft/icons/augments/hexcore/dummify_i.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a614978-212f\"",
@@ -2014,15 +2005,6 @@
   "px": 64,
   "sha1": "739512ea7d3746bceb86dbd85dbb1bb62c23f7ce",
   "srcSha1": "d33de9063f1fcf70e0d6b03bab7b0c715e3fc7ff"
- },
- "assets/maps/tft/icons/augments/hexcore/pandora2.png": {
-  "enc": "webp-q80-m6",
-  "etag": "\"69642cf8-2156\"",
-  "file": "e6e632bc4850.webp",
-  "lastModified": "Sun, 11 Jan 2026 23:06:32 GMT",
-  "px": 64,
-  "sha1": "4a0dc504b32c81c7c1d5661f65e8d2f41b0f7e36",
-  "srcSha1": "c85267af7ae3903644b90b6dc1f518be4a0d201a"
  },
  "assets/maps/tft/icons/augments/hexcore/pandora3.png": {
   "enc": "webp-q80-m6",
@@ -3871,9 +3853,9 @@
  },
  "https://game.gtimg.cn/images/lol/act/img/tft/champions/100294.png": {
   "enc": "webp-q80-m6",
-  "etag": "\"6a8cff3d-4267\"",
+  "etag": "\"6a8cff3e-4267\"",
   "file": "4f96c0da71ed.webp",
-  "lastModified": "Tue, 25 Aug 2026 02:34:37 GMT",
+  "lastModified": "Tue, 25 Aug 2026 02:34:38 GMT",
   "px": 128,
   "sha1": "ab1cd704d7b6740fefa5814ec72f143d8f3da783",
   "srcSha1": "4f75c7ce69d486d0d1d4d32b6d2ac3b141ed1f09"
@@ -3896,6 +3878,15 @@
   "sha1": "64e330030a8f8440714ef7973f7a2a4288de882b",
   "srcSha1": "f5ad48a1f7be083f54699bb08db83b4effdfed3d"
  },
+ "https://game.gtimg.cn/images/lol/act/img/tft/hex/94955.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a7eb5d3-174f\"",
+  "file": "9f86be72fdea.webp",
+  "lastModified": "Fri, 14 Aug 2026 06:29:39 GMT",
+  "px": 64,
+  "sha1": "ab795727586b37ec6e760ea76cb0d3227e825dd5",
+  "srcSha1": "feb69b30767aaada0da627b52d2869b01e56a375"
+ },
  "https://game.gtimg.cn/images/lol/act/img/tft/hex/95036.png": {
   "enc": "webp-q80-m6",
   "etag": "\"6a8ea726-8f52\"",
@@ -3913,6 +3904,15 @@
   "px": 64,
   "sha1": "6a6fce33ac1193cbcedc47ff95ef51409e1dbce5",
   "srcSha1": "144f4f3f897d38cdcc6473baed5c43cabb6e24a6"
+ },
+ "https://game.gtimg.cn/images/lol/act/img/tft/hex/95042.png": {
+  "enc": "webp-q80-m6",
+  "etag": "\"6a87da53-156b\"",
+  "file": "3c71fbfb10f9.webp",
+  "lastModified": "Fri, 21 Aug 2026 04:55:47 GMT",
+  "px": 64,
+  "sha1": "4a0dc504b32c81c7c1d5661f65e8d2f41b0f7e36",
+  "srcSha1": "c85267af7ae3903644b90b6dc1f518be4a0d201a"
  },
  "https://game.gtimg.cn/images/lol/act/img/tft/hex/95122.png": {
   "enc": "webp-q80-m6",
